@@ -1,0 +1,1019 @@
+@charset "Shift_JIS";
+/*
+ * cmn_system.css
+ * systemディレクトリ用 CSS
+ *
+ *   - ログインモジュール .login_module
+ *   - フォームテーブル .table_form01
+ *   - フォームパーツブロック .list_block01
+ *   - 完了メッセージ strong.date
+ *   - 申し込みフロー .flowChart
+ *   - ニュース一覧 .newsTable
+ *   - プレスリリース . column_pressrelease
+ *   - 料金検索結果 . column_fareresult
+ *   - 営業所モジュール .office_module
+ *   - 現在地から検索する（GPS）/都道府県から選択 #searchByTouch
+ *   - 住所/駅から探す .indexBoxArea
+ *   - 都道府県から探す #searchAreaMap
+ *   - 営業店検索結果 .viewInMap
+ *   - 検索結果テキスト .searchResultTxt
+ *   - 検索結果テーブル .addListTable
+ *   - 地図で表示 .mapListBox
+ *   - 担当営業所検索 .table_timetable
+ *   - 規約 .regulationBox
+ *   - トップに戻る .backToTop
+ *
+*/
+
+
+/* ログインモジュール */
+.section .login_module {
+	text-align: center;
+}
+	.section .list_login01 {
+		margin-bottom: 20px;
+	}
+	.section .list_login01 > li {
+		display: inline-block;
+		margin: 0 7px;
+	}
+	.section .list_login01 > li .title {
+		display: inline-block;
+		margin: 0 10px 0 0;
+		font-weight: bold;
+	}
+	.section .list_login01 > li .inputText {
+		display: inline-block;
+		width: 180px;
+	}
+	.section .list_login01 > li input[type="text"] {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 4px 5px 3px;
+	}
+	.section .box_loginCheck01 .checkBox {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 15px;
+		font-size: 12px;
+	}
+	.section .box_loginCheck01 .checkBox input[type="checkbox"] {
+		margin-right: 8px;
+	}
+	.section .box_loginCheck01 .btn {
+		display: inline-block;
+	}
+	@media screen and (max-width:736px) {
+		.section .login_module { text-align: left; }
+		.section .list_login01 > li {
+			display: table;
+			width: 100%;
+			margin: 10px 0 0;
+		}
+		.section .list_login01 > li:first-child {
+			margin: 0;
+		}
+		.section .list_login01 > li .title {
+			display: inline-block;
+			width: 85px;
+			vertical-align: middle;
+		}
+		.section .list_login01 > li .inputText {
+			display: table-cell;
+			width: 100%;
+		}
+		.section .box_loginCheck01 .checkBox {
+			display: block;
+			margin-bottom: 8px;
+		}
+		.section .box_loginCheck01 .btn {
+			display: block;
+		}
+		.section .box_loginCheck01 .btn input {
+			width: 100%;
+		}
+	}
+
+/* フォームテーブル */
+.section .table_form01 {
+	width: 100%;
+	border: 1px solid #ccc;
+}
+	.section .table_form01 th,
+	.section .table_form01 td {
+		padding: 12px 14px;
+		border: 1px solid #ccc;
+	}
+	.section .table_form01 th {
+		width: 150px;
+		background: #f4f4f0;
+		overflow: hidden;
+		font-weight: bold;
+	}
+	.section .table_form01 td {
+		word-break: break-all;
+	}
+	.section .table_form01 .small { width: 4em; }
+	.section .table_form01 .medium { width: 14em; }
+	.section .table_form01 .long { width: 28em; }
+	.section .table_form01 .full { width: 100%; }
+
+	.section .table_form01 select {
+		max-width: 400px;
+	}
+
+	.section .table_form01 textarea,
+	.section .table_form01 input[type="text"],
+	.section .table_form01 input[type="password"] {
+		margin: .25em 0;
+		padding: .25em;
+		font-size: inherit;
+		max-width: 100%;
+		max-width: none＼9; /* IE8 */
+		border: 1px solid #bbb;
+		border-radius: 2px;
+		box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .05);
+		box-sizing: border-box;
+	}
+	.section .table_form01 textarea[readonly],
+	.section .table_form01 input[type="text"][readonly],
+	.section .table_form01 input[type="password"][readonly] {
+		background: #f6f6f6;
+		border-color: #ddd;
+		box-shadow: none;
+	}
+	.section .table_form01 .required {
+		display: inline-block;
+		float: right;
+		margin: 0 0 0 .5em;
+		padding: 3px;
+		font-size: 11px;
+		font-weight: normal;
+		color: #fff;
+		background: #e60011;
+		line-height: 1;
+		vertical-align: middle;
+		overflow: hidden;
+	}
+	.section .table_form01 .errorTxt {
+		color: #e60012;
+	}
+	.section .table_form01 tr.error td {
+		background: #fff1eb;
+	}
+	.section .table_form01 .qNum01 {
+		float: left;
+		width: 28px;
+		margin: -0.4em 10px 0 -0.1em;
+		color: #b5b5b2;
+		font-family: "Trebuchet MS", sans-serif;
+		font-size: 24px;
+		text-align: center;
+	}
+	@media screen and (max-width:736px) {
+		.section .table_form01,
+		.section .table_form01 thead,
+		.section .table_form01 tbody,
+		.section .table_form01 tr,
+		.section .table_form01 th,
+		.section .table_form01 td {
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.section .table_form01 {
+			border: none;
+		}
+		.section .table_form01 th,
+		.section .table_form01 td {
+			padding: 8px 10px;
+		}
+		.section .table_form01 th {
+			width: auto;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
+		}
+		.section .table_form01 td {
+			border: none;
+		}
+		.section .table_form01 select {
+			max-width: 100%;
+		}
+	}
+
+/* フォームパーツブロック */
+.section .list_block01 {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+	.section .list_block01 > li {
+		display: inline-block;
+		min-width: 6em;
+		margin: 0 1em 0 0;
+	}
+	.section .list_block01.vertical > li {
+		display: block;
+		min-width: 0;
+		margin-right: 0;
+		margin-bottom: 1em;
+	}
+	.section .list_block01.vertical > li:last-child {
+		margin-bottom: 0;
+	}
+	.section .list_block01 .list_basic {
+		margin-bottom: 0;
+	}
+	.section .list_block01 > li dl {
+		margin: 0;
+	}
+	.section .list_block01 > li dl > dt {
+		font-weight: bold;
+	}
+	.section .list_block01 > li dl > dd {
+		padding-left: 0;
+	}
+	.section .list_block01 .ex {
+		font-size: 13px;
+	}
+	.section .list_block01 .ex :last-child {
+		margin-bottom: 0;
+	}
+
+	@media screen and (max-width:736px) {
+		.section .list_block01 > li {
+			display: block;
+			margin: .5em 0;
+		}
+		.section .list_block01 > li + li {
+			margin-left: 0;
+		}
+	}
+
+/* 完了メッセージ */
+.section strong.date {
+  color: #3b499f;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* 申し込みフロー */
+.section .flowChart {
+	margin: 0 0 2em;
+	padding: 0;
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+	color: #3b499f;
+	background: #eeeff4;
+	border: 1px solid #3b499f;
+}
+	.section .flowChart li {
+		position: relative;
+		display: table-cell;
+		padding: 1em;
+		text-align: center;
+	}
+	.section .flowChart li:before,
+	.section .flowChart li:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		width: 15px;
+		display: block;
+		background: #eeeff4;
+		border-right: 1px solid #3b499f;
+		z-index: 2;
+	}
+	.section .flowChart li:before {
+		top: 0;
+		bottom: 45%;
+		-webkit-transform: rotate(-22deg);
+		        transform: rotate(-22deg);
+		-webkit-transform-origin: 100% 0;
+		        transform-origin: 100% 0;
+	}
+	.section .flowChart li:after {
+		top: 45%;
+		bottom: 0;
+		-webkit-transform: rotate(22deg);
+		        transform: rotate(22deg);
+		-webkit-transform-origin: 100% 100%;
+		        transform-origin: 100% 100%;
+	}
+	.section .flowChart li:last-child:before,
+	.section .flowChart li:last-child:after {
+		content: none;
+	}
+	.section .flowChart li.current {
+		color: #fff;
+		background: #3b499f;
+	}
+	.section .flowChart li.current:before,
+	.section .flowChart li.current:after {
+		background: #3b499f;
+	}
+	.section .flowChart li .step,
+	.section .flowChart li .flow {
+		position: relative;
+		z-index: 3;
+	}
+	.section .flowChart li .step {
+		display: inline-block;
+		margin-right: .75em;
+		padding: 2px 5px;
+		font-family: 'Trebuchet MS', Helvetica, sans-serif;
+		color: #fff;
+		background: #3b499f;
+		line-height: 1;
+	}
+	.section .flowChart li.current .step {
+		color: #3b499f;
+		background: #fff;
+	}
+	@media screen and (max-width:736px) {
+		.section .flowChart li {
+			padding: 5px 7px 5px 15px;
+		}
+		.section .flowChart li:first-child {
+			padding-left: 7px;
+		}
+		.section .flowChart li .step {
+			margin-right: 0;
+		}
+		.section .flowChart li .flow {
+			display: block;
+			font-size: 11px;
+			white-space: nowrap;
+		}
+	}
+
+/* ニュース一覧 */
+.section .newsTable {
+	width: 100%;
+}
+	.section .newsTable th,
+	.section .newsTable td {
+		padding-bottom: 1em;
+		vertical-align: top;
+		line-height: 1.5;
+	}
+	.section .newsTable th {
+		width: 10em;
+	}
+	.section .newsTable .pdfsize {
+		font-size: 86%;
+	}
+	.section .newsTable .new {
+		padding: 2px 3px;
+		color: #3b499f;
+		background: #ff3;
+		font-size: 10px;
+		font-family: Arial, sans-serif;
+		line-height: 1;
+		border-radius: 2px;
+		vertical-align: .15em;
+	}
+	.section .newsTable .important {
+		color: #c60000;
+	}
+	@media screen and (max-width:736px) {
+		.section .newsTable,
+		.section .newsTable tr,
+		.section .newsTable tbody,
+		.section .newsTable th,
+		.section .newsTable td {
+			display: block; 
+		}
+		.section .newsTable tr {
+			margin-bottom: 1.5em 
+		}
+		.section .newsTable th {
+			font-size: 12px; 
+		}
+		.section .newsTable td .list_basic {
+			margin: 0; 
+		}
+		.section .newsTable td .list_basic > li.noIcon {
+			padding-left: 0; 
+		}
+	}
+
+/* プレスリリース */
+.section .column_module.column_basic.column_pressrelease {
+	background: #f4f5fe;
+	border: 3px solid #dfe1f2;
+}
+	.section .column_module.column_basic.column_pressrelease dl > * {
+		float: none;
+	}
+	.section .column_module.column_basic.column_pressrelease dt > * {
+		display: block;
+	}
+	.section .column_module.column_basic.column_pressrelease dt > span {
+		font-size: 12px;
+		font-weight: normal;
+	}
+	.section .column_module.column_basic.column_pressrelease dd {
+		margin-top: 1em;
+	}
+	.section .column_module.column_basic.column_pressrelease dd table {
+		width: 100%;
+	}
+	.section .column_module.column_basic.column_pressrelease dd th,
+	.section .column_module.column_basic.column_pressrelease dd td {
+		vertical-align: top;
+	}
+	.section .column_module.column_basic.column_pressrelease dd th {
+		width: 1%;
+		white-space: nowrap;
+		padding-right: 1em;
+	}
+	.section .column_module.column_basic.column_pressrelease dd .sep {
+		width: 1%;
+		white-space: nowrap;
+	}
+
+/* 料金検索結果 */
+.section .column_module.column_basic.column_fareresult {
+	background: #e6f3fa;
+	border: 2px solid #d1ddf4;
+}
+	.section .column_module.column_basic.column_fareresult .result {
+		margin-bottom: 0;
+		text-align: center;
+		font-size: 16px;
+		font-weight: bold;
+	}
+	.section .column_module.column_basic.column_fareresult .result .fare strong {
+		font-size: 24px;
+	}
+	.section .column_module.column_basic.column_fareresult .cool {
+		font-weight: normal;
+		margin: 0;
+		text-align: center;
+		font-size: 12px;
+	}
+	.section .column_module.column_basic.column_fareresult .condition {
+		margin: 1em 0 0;
+		padding-top: .5em;
+		font-weight: bold;
+		border-top: 1px solid #c3ced3;
+	}
+	.section .column_module.column_basic.column_fareresult .box_listing01 {
+		margin-top: .5em;
+	}
+
+/* 営業所モジュール */
+.section .office_module {
+	margin-bottom: 35px;
+	padding-left: 16px;
+	border-left: 4px solid #37529d;
+}
+	.section .office_module:last-child {
+		margin: 0;
+	}
+	.section .office_module > dt {
+		display: table;
+		width: 100%;
+		padding: 0 0 8px 0;
+		margin-bottom: 8px;
+		line-height: 1.1;
+		border-bottom: 1px solid #dfdfdf;
+	}
+	.section .office_module > dt .name01 {
+		display: table-cell;
+		font-weight: bold;
+		font-size: 16px;
+		text-align: left;
+	}
+	.section .office_module > dt .officeNum01 {
+		display: table-cell; text-align: right;
+	}
+	.section .office_module > dd {
+		padding: 0;
+	}
+	.section .office_module > dd .box_listing01 {
+		margin-top: .125em; 
+	}
+	.list_officeInfo01 {
+		list-style-type: none;
+	}
+	.list_officeInfo01 > li.tel {
+		display: inline-block; margin-right: 18px;
+	}
+	@media screen and (max-width:736px) {
+		.section .office_module > dt,
+		.section .office_module > dt .name01,
+		.section .office_module > dt .officeNum01 {
+			display: block;
+		}
+		.section .office_module > dt .name01 {
+			margin-bottom: 5px; line-height: 1.5;
+		}
+		.section .office_module > dt .officeNum01 {
+			text-align: left;
+		}
+		.list_officeInfo01 > li.tel {
+			display: block; margin: 0;
+		}
+	}
+
+
+/* 現在地から検索する（GPS）/都道府県から選択 */
+#searchByTouch {
+	display: none;
+}
+	@media screen and (max-width:736px) {
+		#searchByTouch { display: block; }
+	}
+
+/* 住所/駅から探す */
+.section .indexBoxArea {
+	letter-spacing: -.4em;
+	margin-left: -10px;
+	margin-right: -10px;
+}
+	.section .indexBoxArea > * {
+		letter-spacing: normal;
+	}
+	.section .indexBoxArea > dl {
+		display: inline-block;
+		width: 220px;
+		margin: 0 10px 25px;
+		vertical-align: top;
+	}
+	.section .indexBoxArea > dl > dt,
+	.section .indexBoxArea > dl > dd {
+		margin: 0;
+		padding: 0;
+	}
+	.section .indexBoxArea > dl > dt {
+		padding: 5px 10px;
+		background: #e5e5e5;
+		font-weight: bold;
+	}
+	.section .indexBoxArea .list_block01 {
+		display: table;
+		width: 100%;
+	}
+	.section .indexBoxArea .list_block01 li {
+		display: table-cell;
+		min-width: 0;
+	}
+	.section .indexBoxArea .list_block01 li:first-child {
+		padding-right: 5px;
+		width: 75%;
+	}
+	.section .indexBoxArea .list_block01 li .btn_level01 {
+		min-width: 0;
+		width: 100%;
+		padding: .58em;
+		font-weight: normal;
+		border-radius: 3px;
+	}
+	.section .indexBoxArea .list_block01 li input[type="text"] {
+		width: 100%;
+		padding: .4em;
+		box-sizing: border-box;
+	}
+	@media screen and (max-width:736px) {
+		.section .indexBoxArea {
+			margin-left: 0;
+			margin-right: 0;
+		}
+		.section .indexBoxArea > dl {
+			display: block;
+			width: 100%;
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+/* 都道府県から探す */
+#searchAreaMap {}
+	@media screen and (max-width:736px) {
+		#searchAreaMap {
+			display: none;
+		}
+	}
+
+#areaMap {
+	position: relative;
+	width: 644px;
+	height: 403px;
+	margin: 30px auto;
+	background: url(../img/branch_search/bg_areamap.gif) no-repeat;
+}
+	#areaMap .inner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-repeat: no-repeat;
+	}
+	#areaMap.nav01 .inner { background-image: url(../img/branch_search/bg_areamap01.gif); }
+	#areaMap.nav02 .inner { background-image: url(../img/branch_search/bg_areamap02.gif); }
+	#areaMap.nav03 .inner { background-image: url(../img/branch_search/bg_areamap03.gif); }
+	#areaMap.nav04 .inner { background-image: url(../img/branch_search/bg_areamap04.gif); }
+	#areaMap.nav05 .inner { background-image: url(../img/branch_search/bg_areamap05.gif); }
+	#areaMap.nav06 .inner { background-image: url(../img/branch_search/bg_areamap06.gif); }
+	#areaMap.nav07 .inner { background-image: url(../img/branch_search/bg_areamap07.gif); }
+	#areaMap.nav08 .inner { background-image: url(../img/branch_search/bg_areamap08.gif); }
+	#areaMap.nav09 .inner { background-image: url(../img/branch_search/bg_areamap09.gif); }
+	#areaMap.nav10 .inner { background-image: url(../img/branch_search/bg_areamap10.gif); }
+	#areaMap.nav11 .inner { background-image: url(../img/branch_search/bg_areamap11.gif); }
+	#areaMap.nav12 .inner { background-image: url(../img/branch_search/bg_areamap12.gif); }
+	#areaMap.nav13 .inner { background-image: url(../img/branch_search/bg_areamap13.gif); }
+	#areaMap.nav14 .inner { background-image: url(../img/branch_search/bg_areamap14.gif); }
+	#areaMap.nav15 .inner { background-image: url(../img/branch_search/bg_areamap15.gif); }
+	#areaMap.nav16 .inner { background-image: url(../img/branch_search/bg_areamap16.gif); }
+	#areaMap.nav17 .inner { background-image: url(../img/branch_search/bg_areamap17.gif); }
+	#areaMap.nav18 .inner { background-image: url(../img/branch_search/bg_areamap18.gif); }
+	#areaMap.nav19 .inner { background-image: url(../img/branch_search/bg_areamap19.gif); }
+	#areaMap.nav20 .inner { background-image: url(../img/branch_search/bg_areamap20.gif); }
+	#areaMap.nav21 .inner { background-image: url(../img/branch_search/bg_areamap21.gif); }
+	#areaMap.nav22 .inner { background-image: url(../img/branch_search/bg_areamap22.gif); }
+	#areaMap.nav23 .inner { background-image: url(../img/branch_search/bg_areamap23.gif); }
+	#areaMap.nav24 .inner { background-image: url(../img/branch_search/bg_areamap24.gif); }
+	#areaMap.nav25 .inner { background-image: url(../img/branch_search/bg_areamap25.gif); }
+	#areaMap.nav26 .inner { background-image: url(../img/branch_search/bg_areamap26.gif); }
+	#areaMap.nav27 .inner { background-image: url(../img/branch_search/bg_areamap27.gif); }
+	#areaMap.nav28 .inner { background-image: url(../img/branch_search/bg_areamap28.gif); }
+	#areaMap.nav29 .inner { background-image: url(../img/branch_search/bg_areamap29.gif); }
+	#areaMap.nav30 .inner { background-image: url(../img/branch_search/bg_areamap30.gif); }
+	#areaMap.nav31 .inner { background-image: url(../img/branch_search/bg_areamap31.gif); }
+	#areaMap.nav32 .inner { background-image: url(../img/branch_search/bg_areamap32.gif); }
+	#areaMap.nav33 .inner { background-image: url(../img/branch_search/bg_areamap33.gif); }
+	#areaMap.nav34 .inner { background-image: url(../img/branch_search/bg_areamap34.gif); }
+	#areaMap.nav35 .inner { background-image: url(../img/branch_search/bg_areamap35.gif); }
+	#areaMap.nav36 .inner { background-image: url(../img/branch_search/bg_areamap36.gif); }
+	#areaMap.nav37 .inner { background-image: url(../img/branch_search/bg_areamap37.gif); }
+	#areaMap.nav38 .inner { background-image: url(../img/branch_search/bg_areamap38.gif); }
+	#areaMap.nav39 .inner { background-image: url(../img/branch_search/bg_areamap39.gif); }
+	#areaMap.nav40 .inner { background-image: url(../img/branch_search/bg_areamap40.gif); }
+	#areaMap.nav41 .inner { background-image: url(../img/branch_search/bg_areamap41.gif); }
+	#areaMap.nav42 .inner { background-image: url(../img/branch_search/bg_areamap42.gif); }
+	#areaMap.nav43 .inner { background-image: url(../img/branch_search/bg_areamap43.gif); }
+	#areaMap.nav44 .inner { background-image: url(../img/branch_search/bg_areamap44.gif); }
+	#areaMap.nav45 .inner { background-image: url(../img/branch_search/bg_areamap45.gif); }
+	#areaMap.nav46 .inner { background-image: url(../img/branch_search/bg_areamap46.gif); }
+	#areaMap.nav47 .inner { background-image: url(../img/branch_search/bg_areamap47.gif); }
+
+	#areaMap .area {
+		position: absolute;
+		line-height: 1.2;
+	}
+	#areaMap #areaNav01 { top:   0px; left: 462px; width: 100px; }
+	#areaMap #areaNav02 { top: 150px; left: 507px; width: 137px; }
+	#areaMap #areaNav03 { top:  51px; left: 320px; width: 138px; }
+	#areaMap #areaNav04 { top: 289px; left: 474px; width: 170px; }
+	#areaMap #areaNav05 { top:  51px; left: 154px; width: 157px; }
+	#areaMap #areaNav06 { top: 289px; left: 318px; width: 142px; }
+	#areaMap #areaNav07 { top:  51px; left:   0px; width: 138px; }
+	#areaMap #areaNav08 { top: 289px; left: 166px; width: 142px; }
+	#areaMap #areaNav09 { top: 289px; left:   0px; width: 154px; }
+
+	#areaMap .area * {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	#areaMap .area dt {
+		margin-bottom: 6px;
+		padding: 5px 7px 2px;
+		color: #444;
+		background: #ccc;
+		border-radius: 5px;
+	}
+	#areaMap #areaNav01 dt { background-color: #dad3e9; }
+	#areaMap #areaNav02 dt { background-color: #d3d7e8; }
+	#areaMap #areaNav03 dt { background-color: #d5e7e4; }
+	#areaMap #areaNav04 dt { background-color: #cedde9; }
+	#areaMap #areaNav05 dt { background-color: #eeeac9; }
+	#areaMap #areaNav06 dt { background-color: #e1ebcf; }
+	#areaMap #areaNav07 dt { background-color: #f3dbcb; }
+	#areaMap #areaNav08 dt { background-color: #e8ded7; }
+	#areaMap #areaNav09 dt { background-color: #f7d5d5; }
+
+	#areaMap .area ul {
+		letter-spacing: -.4em;
+	}
+	#areaMap .area li {
+		display: inline-block;
+		letter-spacing: normal;
+	}
+	#areaMap .area li a {
+		display: block;
+		margin: 0 0 6px 0;
+		min-width: 3.6em;
+		padding-left: 17px;
+		background: url(../img/branch_search/icon_list.gif) no-repeat 3px .2em;
+	}
+	@media screen and (max-width:736px) {
+		#areaMap {
+			position: static;
+			width: 100%;
+			height: auto;
+			margin: 0;
+			background: none;
+			border-bottom: 1px solid #dfdfdf;
+		}
+		#areaMap .inner {
+			position: static;
+			background: none !important;
+		}
+
+		#areaMap .area {
+			position: static;
+			font-size: 13px;
+			line-height: 1.6;
+		}
+		#areaMap #areaNav01,
+		#areaMap #areaNav02,
+		#areaMap #areaNav03,
+		#areaMap #areaNav04,
+		#areaMap #areaNav05,
+		#areaMap #areaNav06,
+		#areaMap #areaNav07,
+		#areaMap #areaNav08,
+		#areaMap #areaNav09 {
+			top: auto;
+			left: auto;
+			width: auto;
+		}
+
+		#areaMap .area dt {
+			margin-bottom: 0;
+			color: #232323;
+			padding: .5em 10px;
+			border-top: 1px solid #dfdfdf;
+			border-radius: 0;
+			box-sizing: border-box;
+		}
+		#areaMap #areaNav01 dt,
+		#areaMap #areaNav02 dt,
+		#areaMap #areaNav03 dt,
+		#areaMap #areaNav04 dt,
+		#areaMap #areaNav05 dt,
+		#areaMap #areaNav06 dt,
+		#areaMap #areaNav07 dt,
+		#areaMap #areaNav08 dt,
+		#areaMap #areaNav09 dt {
+			background-color: #f4f4f0;
+		}
+
+		#areaMap .area li {
+			display: block;
+		}
+		#areaMap .area li a {
+			display: block;
+			margin: 0;
+			min-width: 0;
+			padding: 14px 10px;
+			background: url(../img/ico_next01.png) 97% center no-repeat;
+			border-top: 1px solid #dfdfdf;
+		}
+	}
+
+/* 営業店検索結果 */
+.section .viewInMap {
+	display: inline-block;
+	float: right;
+	width: auto;
+}
+	.section .viewInMap .btn_link01,
+	.backToTop .btn_link01 {
+		min-width: 0;
+		margin: 0;
+		padding: 10px 14px;
+		font-size: 12px;
+	}
+	.section .viewInMap .btn_link01:before {
+		margin: -8px 5px -8px -8px;
+		width: 20px;
+		height: 20px;
+		background: url(../img/branch_search/icon_viewinmap.png) no-repeat;
+	}
+	.backToTop .btn_link01:before {
+		margin: -7px 7px -6px -5px;
+		width: 11px;
+		height: 17px;
+		background: url(../img/ico_prev01.png) 3% center no-repeat;
+	}
+
+/* 検索結果テキスト */
+.section .searchResultTxt {
+	padding-top: 4px;
+	font-weight: bold;
+}
+	.section .searchResultTxt #span_count {
+		font-size: 20px;
+	}
+
+/* 検索結果テーブル */
+.section .addListTable {
+	clear: both;
+	width: 100%;
+	table-layout: fixed;
+	margin: 1em 0;
+	border: 1px solid #ccc;
+	font-size: 13px;
+}
+	.section .addListTable th,
+	.section .addListTable td {
+	  padding: 1em 1em;
+	  border: 1px solid #ccc;
+	  vertical-align: top;
+	}
+	.section .addListTable th {
+		background: #f4f4f0;
+	}
+	.section .addListTable td a {
+	  display: block;
+	}
+	@media screen and (max-width:736px) {
+		.section .addListTable,
+		.section .addListTable tbody,
+		.section .addListTable tr,
+		.section .addListTable th,
+		.section .addListTable td {
+			display: block;
+			width: 100%;
+			border: none;
+		}
+		.section .addListTable th {
+			padding: .5em 10px;
+			border-top: 1px solid #dfdfdf;
+			box-sizing: border-box;
+		}
+		.section .addListTable td {
+			padding: 0;
+		}
+		.section .addListTable td a {
+			padding: 14px 10px;
+			background: url(../img/ico_next01.png) 97% center no-repeat;
+			border-top: 1px solid #dfdfdf;
+		}
+		.section .addListTable tr:last-child td:last-child a {
+			border-bottom: 1px solid #dfdfdf;
+		}
+	}
+
+/* 地図で表示 */
+.section .mapListBox {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+	.section .mapListBox:after {
+	  content: '';
+	  display: block;
+	  clear: both;
+	}
+	.section .mapBox .map {
+	  float: left;
+	  width: 698px;
+	  height: 550px;
+	}
+	.section .mapListBox .map {
+	  float: left;
+	  width: 458px;
+	  height: 472px;
+	}
+	.section .mapBox .map,
+	.section .mapListBox .map {
+	  border: 1px solid #ccc;
+	}
+	.section .mapBox .map {
+		margin-bottom: 30px;
+	}
+	.section .mapListBox .info {
+	  position: relative;
+	  float: right;
+	  width: 220px;
+	}
+	.section .mapBox .viewRoute {
+		display: none;
+	}
+	.section .mapListBox .info * {
+		margin: 0;
+	}
+	.section .mapListBox .info ul {
+	  list-style: none;
+	  padding: 0;
+	}
+	.section .mapListBox .info h3 {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  font-weight: bold;
+	}
+	.section .mapListBox .info .list {
+	  margin-top: 60px;
+	  height: 412px;
+	  font-size: 12px;
+	  border: 1px solid #ccc;
+	  overflow: scroll;
+	}
+	.section .mapListBox .info .list > li {
+	  padding: 15px;
+	  padding-right: 25px;
+	  border-bottom: 1px solid #ccc;
+	}
+	.section .mapListBox .info .list > li:last-child {
+	  border-bottom: none;
+	}
+	.section .mapListBox .info .list ul li {
+	  display: inline-block;
+	  margin-right: .5em;
+	}
+	@media screen and (max-width:736px) {
+		.section .mapBox .map,
+		.section .mapListBox .map {
+			width: 100%;
+			height: 250px;
+			border: none;
+		}
+		.section .mapListBox .info {
+			display: none;
+		}
+		.section .mapBox .viewRoute {
+			display: block;
+		}
+	}
+
+/* 担当営業所検索 */
+.section .table_timetable {}
+	.section .table_timetable th,
+	.section .table_timetable td {
+		font-size: 12px;
+		padding: 4px 6px;
+		white-space: nowrap;
+	}
+	.section .table_timetable thead th,
+	.section .table_timetable thead td {
+		background-color: #e6e6e2;
+	}
+	.section .table_timetable thead th {
+		white-space: nowrap;
+	}
+	.section .table_timetable thead th[colspan] {
+		text-align: center;
+	}
+	.section .table_timetable tbody th {
+		width: 9.25em;
+		min-width: 9.25em;
+		white-space: normal;
+	}
+	.section .table_timetable tbody th .nowrap {
+		display: inline-block;
+	}
+	.section .table_timetable tbody td.sp {
+		width: 20em;
+	}
+	.section .table_timetable tbody td .notice {
+		color: #c00;
+	}
+	.section .table_timetable tbody td .notice02 {
+		color: #00c;
+	}
+	.section .table_timetable tbody td.small {
+		font-size: 85%;
+	}
+	.timeNotice {
+		text-align: right;
+	}
+	.legend-am:before,
+	.legend-pm:before {
+		content: '';
+		display: inline-block;
+		border: 1px solid #ccc;
+		width: 30px;
+		height: 1em;
+		vertical-align: middle;
+		margin-bottom: .2em;
+		margin-right: .5em;
+	}
+	.section .table_timetable .am,
+	.legend-am:before { background: #f0f6fa; }
+	.section .table_timetable .pm,
+	.legend-pm:before { background: #fdfaec; }
+
+
+/* 規約 */
+.section .regulationBox {
+	overflow: auto;
+	height: 250px;
+	padding: 15px 18px;
+	font-size: 13px;
+	background: #fafafa;
+	border: 1px solid #999;
+}
+
+/* トップに戻る */
+.section .backToTop {
+	display: inline-block;
+	width: auto;
+}

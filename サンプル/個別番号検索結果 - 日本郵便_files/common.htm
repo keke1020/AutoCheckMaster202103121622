@@ -1,0 +1,100 @@
+// Cookie
+$(function(){
+    if (navigator.cookieEnabled == false) {
+        var error_context = "<br />当ウェブサイトはクッキー(Cookie)を使用しております。サービスをご利用いただくためにはCookieを有効にしていただく必要があります。<br/>Cookieの設定をご確認の上、再度お試しください。<br />This page requires your browser to be Cookie enabled. Please enable Cookie in your browser.<br /><br />";
+        $('#cookie_disable').html(error_context);
+    }
+});
+
+// ブロックスキップ
+$(function(){
+    $(".blockskip a").focus(function(){
+        $(this).closest("p").addClass("show");
+    });
+    $(".blockskip a").blur(function(){
+        $(this).closest("p").removeClass("show");
+    });
+});
+
+// ロールオーバー
+function smartRollover() {
+	if(document.getElementsByTagName) {
+		var images = document.getElementsByTagName("img");
+
+		for(var i=0; i < images.length; i++) {
+			if(images[i].getAttribute("src").match("_off."))
+			{
+				images[i].onmouseover = function() {
+					this.setAttribute("src", this.getAttribute("src").replace("_off.", "_on."));
+				}
+				images[i].onmouseout = function() {
+					this.setAttribute("src", this.getAttribute("src").replace("_on.", "_off."));
+				}
+			}
+		}
+	}
+}
+
+if(window.addEventListener) {
+	window.addEventListener("load", smartRollover, false);
+}
+else if(window.attachEvent) {
+	window.attachEvent("onload", smartRollover);
+}
+
+
+//ポップアップ
+function openSubWindow(strUrl,winName,winWidth,winHeight) {
+	var features = 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1,width=' + winWidth + ',height=' + winHeight;
+	winName = window.open(strUrl,winName,features);
+	winName.focus();
+	return false;
+}
+
+/**
+ * サブウィンドウを生成してPOSTする
+ * 
+ * @param strUrl Actionメソッド
+ * @param winName ウィンドウ名
+ * @param winWidth 横幅
+ * @param winHeight 縦幅
+ */
+function openSubWindowForPost(strUrl, winName, winWidth, winHeight) {
+    
+    // サブウインドウの生成
+    var features = 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1,width=' + winWidth + ',height=' + winHeight;
+    var subwin  = window.open('', winName, features);
+    subwin.focus();
+
+    // formの設定
+    var frm = document.getElementById(strUrl).form;
+    var tmpTarget = frm.target;
+    var tmpAction = frm.action;
+    frm.target = winName;
+    frm.action = strUrl;
+    
+    // submit
+    frm.submit();
+    
+    // targetとactionを元に戻す
+    frm.target = tmpTarget;
+    frm.action = tmpAction;
+}
+
+/**
+ * hiddenに値を設定し、画面遷移を行う
+ *
+ * @param submitId String 実行するサブミットボタンのname属性名
+ * @param 第二引数以降：偶数がhiddenのオブジェクトのID名、奇数がパラメータ
+ */
+function submitPage(submitId) {
+
+    // Input項目に値を設定
+    for (i = 1; i < arguments.length; i = i + 2) document.getElementById(arguments[i]).value = arguments[i + 1];
+
+    // 画面遷移を行う
+    document.getElementsByName(submitId)[0].disabled = false;
+    document.getElementsByName(submitId)[0].click();
+    document.getElementsByName(submitId)[0].disabled = true;
+}
+//-->

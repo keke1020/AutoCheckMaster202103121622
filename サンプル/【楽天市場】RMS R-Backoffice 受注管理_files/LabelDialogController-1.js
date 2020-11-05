@@ -1,0 +1,10 @@
+/*
+ LabelDialogController-1.0.0.min.js
+ Copyright (c) 2014 Rakuten.Inc
+ Date : 2014/9/18 18:00:00
+*/
+function LabelDialogController(labelDialog){this.labelDialog=labelDialog}
+LabelDialogController.prototype={update:function(message){if(message=="InitializeLabelDialog#initialize")this.initializeDialog_initialize();else if(message=="AddEventToLabel#addEvent")this.addEventToLabel_addEvent();else if(message=="AddEventToDialog#add")this.addEventToDialog_add();else if(message=="MakeTemplates#make")this.makeTemplates_make();else if(message=="GetMessageDetail#get")this.getMessageDetail_get();else if(message=="PostMessageSend#post")this.postMessageSend_post();else if(message==
+"GetMessageList#get")this.getMessageList_get();else if(message=="PostLabelCreate#post")this.postLabelCreate_post();else if(message=="DisplayErrDialog#dispSysErr")this.displayErrDialog_dispSysErr();else if(message=="DisplayErrDialog#display")this.displayErrDialog_display()},initializeDialog_initialize:function(){var initializeLabelDialog=this.labelDialog.getInitializeLabelDialog();initializeLabelDialog.initialize()},addEventToLabel_addEvent:function(){var addEventToLabel=this.labelDialog.getAddEventToLabel();
+addEventToLabel.addEvent()},makeTemplates_make:function(){var makeTemplates=this.labelDialog.getMakeTemplates();makeTemplates.make()},addEventToDialog_add:function(){var addEventToDialog=this.labelDialog.getAddEventToDialog();addEventToDialog.add()},getMessageDetail_get:function(){var getMessageDetail=this.labelDialog.getGetMessageDetail();getMessageDetail.get()},postMessageSend_post:function(){var postMessageSend=this.labelDialog.getPostMessageSend();postMessageSend.post()},getMessageList_get:function(){var getMessageList=
+this.labelDialog.getGetMessageList();getMessageList.get()},postLabelCreate_post:function(){var postLabelCreate=this.labelDialog.getPostLabelCreate();postLabelCreate.post()},displayErrDialog_dispSysErr:function(){var displayErrDialog=this.labelDialog.getDisplayErrDialog();displayErrDialog.dispSysErr()},displayErrDialog_display:function(){var displayErrDialog=this.labelDialog.getDisplayErrDialog();displayErrDialog.display()}};

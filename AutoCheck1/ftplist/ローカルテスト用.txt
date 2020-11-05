@@ -1,0 +1,6 @@
+﻿server=127.0.0.1
+id=test
+pass=pass
+dir=
+port=21
+pasv=true

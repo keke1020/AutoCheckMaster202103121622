@@ -1,0 +1,6 @@
+﻿[New Check]
+1
+
+[Data Folder]
+\\SERVER-PC\Users\Public\program\autocheck
+

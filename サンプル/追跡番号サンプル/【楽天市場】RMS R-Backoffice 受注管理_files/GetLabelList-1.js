@@ -1,0 +1,10 @@
+/*
+ GetLabelList-1.0.0.min.js
+ Copyright (c) 2014 Rakuten.Inc
+ Date : 2014/9/18 18:00:00
+*/
+function GetLabelList(stickLabel){this.stickLabel=stickLabel}
+GetLabelList.prototype={get:function(){$.ajax(this.getRequest()).done(this.setDatas()).fail(this.dispErrParts())},getRequest:function(){var request={};request.url="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc";request.type="GET";request.dataType="json";request.traditional=true;request.data={"__event":"LabelList","orderNumbers":this.stickLabel.getOrderNumbers()};return request},setDatas:function(){var self=this;return function(data,status,xhr){self.inspectionLimited(data);if(data.resultCode==
+"E16-002")return;if(data.resultCode!="N00-000"){self.processFail(data);return}self.processSucc(data)}},inspectionLimited:function(data){if(data.resultCode=="E16-002"){this.stickLabel.setLimited("E16-002");return}this.stickLabel.setLimited("")},processSucc:function(data){this.hideBalloon();var orderNumbers=this.stickLabel.getOrderNumbers();$.each(orderNumbers,this.examineData(data));this.displayLabel()},examineData:function(datas){var self=this;return function(index,value){if(typeof datas.results[value]!==
+"undefined"){self.addData(datas);return}var defaultData=self.getDefaultData(value);self.addData(defaultData)}},getDefaultData:function(orderNumber){var labelData={};labelData.orderNumber=orderNumber;labelData.bindId=null;labelData.labelType=null;labelData.labelPath=null;var obj={};obj.results={};obj.results[orderNumber]=[];obj.results[orderNumber].push(labelData);return obj},addData:function(data){var datas=this.stickLabel.getDatas();var labelDatas=$.extend(true,{},datas,data);this.stickLabel.setDatas(labelDatas)},
+processFail:function(data){this.displayBalloon()},dispErrParts:function(){var self=this;return function(xhr,status,error){self.displayBalloon()}},hideBalloon:function(){var $Balloon=this.stickLabel.get$Balloon();$Balloon.hide()},displayBalloon:function(){var $Balloon=this.stickLabel.get$Balloon();$Balloon.show()},displayLabel:function(){var message="DisplayLabel#display";this.stickLabel.broadcast(message)}};

@@ -1,0 +1,248 @@
+
+/* --------------------------------------------
+reset
+-------------------------------------------- */
+/*body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}*/
+#ybisComNaviOutBox dl,#ybisComNaviOutBox dt,#ybisComNaviOutBox dd,#ybisComNaviOutBox ul,#ybisComNaviOutBox ol,#ybisComNaviOutBox li,#ybisComNaviOutBox h1,#ybisComNaviOutBox h2,#ybisComNaviOutBox h3,#ybisComNaviOutBox h4,#ybisComNaviOutBox h5,#ybisComNaviOutBox h6,#ybisComNaviOutBox pre,#ybisComNaviOutBox form,input,#ybisComNaviOutBox p,#ybisComNaviOutBox blockquote,#ybisComNaviOutBox fieldset,#ybisComNaviOutBox div{
+    left_margin: 5;
+    margin: 0;
+    padding: 0;
+}
+#ybisComNaviOutBox h1,#ybisComNaviOutBox #ybisComNaviOutBox h2,#ybisComNaviOutBox h3,#ybisComNaviOutBox h4,#ybisComNaviOutBox h5,#ybisComNaviOutBox h6{
+    font-size: 100%;
+    font-weight: normal;
+}
+#ybisComNaviOutBox ul li, #ybisComNaviOutBox ol li{
+    list-style: none;
+}
+#ybisComNaviOutBox table{
+    margin:0;
+    /*padding:0;*/
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 100%;
+}
+#ybisComNaviOutBox caption{
+    text-align: left;
+}
+#ybisComNaviOutBox table,#ybisComNaviOutBox pre,#ybisComNaviOutBox code,#ybisComNaviOutBox select,#ybisComNaviOutBox input,#ybisComNaviOutBox textarea,#ybisComNaviOutBox kbd,#ybisComNaviOutBox var,#ybisComNaviOutBox ins,#ybisComNaviOutBox del,#ybisComNaviOutBox samp{
+    font-size: 100%;
+    /* 2013.10.16 textareaタグresize機能抑止追加 */
+    resize: none;
+
+}
+#ybisComNaviOutBox address,#ybisComNaviOutBox cite,#ybisComNaviOutBox dfn,#ybisComNaviOutBox em,#ybisComNaviOutBox strong,#ybisComNaviOutBox var,#ybisComNaviOutBox th,#ybisComNaviOutBox ins,#ybisComNaviOutBox del,#ybisComNaviOutBox samp{
+    font-weight: normal;
+    font-style: normal;
+}
+#ybisComNaviOutBox a img{
+    border: 0;
+}
+#ybisComNaviOutBox hr.separation{
+    display: none;
+}
+#ybisComNaviOutBox fieldset{
+    border: none;
+}
+
+
+
+
+/* --------------------------------------------
+clearfix
+-------------------------------------------- */
+#ybisComNaviOutBox .clearfix:after{
+     content:".";
+     display:block;
+     height:0;
+     clear:both;
+     visibility:hidden;
+}
+/* for ie7 */
+#ybisComNaviOutBox .clearfix{
+     display:inline-block;
+}
+/* Hides from IE-mac */
+* html #ybisComNaviOutBox .clearfix{
+     height:1%;
+}
+#ybisComNaviOutBox .clearfix{
+     display:block;
+}
+
+
+
+
+
+
+/* --------------------------------------------
+Navi
+-------------------------------------------- */
+#ybisComNaviOutBox { position:relative; z-index:5;}
+#ybisComNaviOutBox #ybisComNavi { background:#F0F3F5 url(../../img/1.0.0/common/sprite_gr1.png) 0 -290px repeat-x; border:1px solid #7E91A0;}
+#ybisComNaviOutBox #ybisComNaviIn {background:url(../../img/1.0.0/common/sprite_gr3.jpg) 0px -100px no-repeat;}
+#ybisComNaviOutBox #ybisComNaviTtlBox1{float:left; width:150px;}
+
+/*navibutton*/
+#ybisComNaviOutBox #ybisComNaviBtSv{width:75px;float:left;}
+#ybisComNaviOutBox #ybisComNaviBtIn{width:75px;float:left;}
+#ybisComNaviOutBox #ybisComNaviBtSv span { display:block; margin:5px 5px; width:64px; height:22px; background:url(../../img/1.0.0/common/sprite.png) 0 -25px no-repeat; text-indent:-9999px; overflow:hidden; cursor:pointer;}
+#ybisComNaviOutBox #ybisComNaviBtSv span:hover{background:url(../../img/1.0.0/common/sprite.png) 0 -50px no-repeat;}
+#ybisComNaviOutBox #ybisComNaviBtSv span.ybisComSvActBt { display:block; margin:5px 5px; width:64px; height:22px; background:url(../../img/1.0.0/common/sprite.png) 0 -75px no-repeat; text-indent:-9999px; overflow:hidden; cursor:default;}
+
+#ybisComNaviOutBox #ybisComNaviBtIn span { display:block;margin:5px 5px; width:64px; height:22px; background:url(../../img/1.0.0/common/sprite.png) 0 -100px no-repeat; text-indent:-9999px; overflow:hidden; cursor:pointer;}
+#ybisComNaviOutBox #ybisComNaviBtIn span:hover{background:url(../../img/1.0.0/common/sprite.png) 0 -125px no-repeat;}
+#ybisComNaviOutBox #ybisComNaviBtIn span.ybisComInActBt { display:block;margin:5px 5px; width:64px; height:22px; background:url(../../img/1.0.0/common/sprite.png) 0 -150px no-repeat; text-indent:-9999px; overflow:hidden; cursor:default;}
+
+
+#ybisComNaviOutBox #ybisComNaviBtIn span.ybisComBtInAct{}
+
+
+/*company ID*/
+#ybisComNaviOutBox #ybisComNaviTtlBox2{ margin-left:150px; font-weight:bold;}
+#ybisComNaviOutBox #ybisComNavComp{float:left; padding-top:8px; width:52%; text-align:right; line-height:1.2em;}
+#ybisComNaviOutBox #ybisComNavCompName{display:inline-block;}
+#ybisComNaviOutBox #ybisComNavPers{display:inline-block; margin-left:10px;}
+#ybisComNaviOutBox #ybisComNavYBID{ margin-right:3px; padding-top:8px; font-weight:normal; font-size:14px; text-align:right; line-height:1.2em;}
+
+#ybisComNaviOutBox .ybisComNaviSubBorder{border:1px solid #8E9EAC;}
+
+
+/*iframe*/
+#ybisComNaviOutBox #ybisComIfDiv{position:absolute; top:32px; left:0; z-index:6; background:#333; display:none;}
+#ybisComNaviOutBox #ybisComIf{width:50px; height:50px; border:0px;}
+
+
+/*service*/
+#ybisComNaviOutBox #ybisComNaviSubSv {display:none;position:absolute; z-index:7; top:30px; left:0; min-width:488px; border-right:2px solid #CCC; border-bottom:2px solid #CCC; background:#AFBDCD; font-size:medium; line-height:1.2em;}
+#ybisComNaviOutBox #ybisComNaviSubSvBrank {display:none;position:absolute; z-index:8; background:url(/img/bg_ptn.png); width:75px; height:10px; left:2px; top:30px; font-size:10px; line-height:10px;}
+#ybisComNaviOutBox #ybisComNaviSubSvBdr {border-top:1px solid #C7D1DC; border-left:1px solid #C7D1DC; padding-bottom:15px; background:url(/img/bg_ptn.png);}
+
+
+/*service title*/
+#ybisComNaviOutBox h2#ybisComNaviBoxSvTtl{padding:15px; font-size:20px; font-weight:bold; text-indent:0;/*add110902*/ }
+#ybisComNaviOutBox h2#ybisComNaviBoxSvTtl span.TtlTxt {float:left; width:7em;}
+#ybisComNaviOutBox #ybisComNaviBoxSvTtl a#ybzNaviSvBtList{ display:block; float:left; margin-left:1px ; width:82px; height:20px; background:url(../../img/1.0.0/common/sprite.png) 0 -150px no-repeat; text-indent:-9999px;}
+#ybisComNaviOutBox #ybisComNaviBoxSvTtl span.ybzNaviBtClose{float:right; width:20px; height:20px; background:url(../../img/1.0.0/common/sprite.png) no-repeat; text-indent:-9999px; cursor:pointer;}
+
+
+/*service contents*/
+#ybisComNaviOutBox #ybisComNaviBoxSv {margin:0 15px; /*padding:9px;*/ border:1px solid #94A4B1; background:#FFF; text-align:left;}
+#ybisComNaviOutBox #ybisComNaviBoxSv div{ margin-right:-10px; padding-left:1px; padding-right:1px; background:url(/img/bg_boxline.png) repeat-y;}
+#ybisComNaviOutBox #ybisComNaviBoxSv li {/*border-top:4px solid #DCE1E7; padding-bottom:10px;*/}
+#ybisComNaviOutBox #ybisComNaviBoxSv li li {border:none; padding:0;}
+
+#ybisComNaviOutBox .ybisComNaviBoxSvLf{float:left; width:214px; margin-right:10px;}
+#ybisComNaviOutBox #ybisComNaviBoxSvRg{float:right; width:214px;}
+
+
+
+/*touroku*/
+#ybisComNaviOutBox #ybisComNaviSubIn {display:none;position:absolute; z-index:7; top:30px; left:0px; width:488px;border-right:2px solid #CCC; border-bottom:2px solid #CCC; background:#AFBDCD; font-size:medium; line-height:1.2em;}
+#ybisComNaviOutBox #ybisComNaviSubInBrank {display:none;position:absolute; z-index:8; background:url(/img/bg_ptn.png); width:75px; height:10px; left:74px; top:30px; line-height:10px; font-size:10px;}
+#ybisComNaviOutBox #ybisComNaviSubInBdr {border-top:1px solid #C7D1DC; border-left:1px solid #C7D1DC; padding-bottom:15px; background:url(/img/bg_ptn.png);}
+
+/*touroku title*/
+#ybisComNaviOutBox h2#ybisComNaviBoxInfTtl{font-size:20px; font-weight:bold; margin:15px; text-indent:0;/*110902*/}
+#ybisComNaviOutBox h2#ybisComNaviBoxInfTtl span.ttlTxt{float:left; /*width:11em;*/ margin-left:0px;}
+#ybisComNaviOutBox span.ybzNaviBtClose2 {float:right; width:4em; margin-right:3px; font-weight:normal; text-align:right; color:#00F; font-size:12px; text-decoration:underline; cursor:pointer;}
+
+#ybisComNaviOutBox h2#ybisComNaviBoxInfTtl span.ybzNaviBtClose{ float:right; width:20px; height:20px; background:url(../../img/1.0.0/common/sprite.png) no-repeat; text-indent:-9999px; cursor:pointer;}
+
+
+/*touroku contents*/
+#ybisComNaviOutBox #ybisComNaviBoxInf {margin:0 15px; background: /*url(../../img/1.0.0/common/sprite_gr2.jpg)*/ #DFE3E8 235px 0 repeat-y; border:1px solid #94A4B1; border-top:0;}
+
+
+#ybisComNaviOutBox #ybisComNaviBoxInf li { padding:7px 3px 7px 15px; border-top:1px solid #94A4B1; background:url(../../img/1.0.0/common/sprite_gr1.png) 5px -190px no-repeat; font-size:14px; font-weight:bold; line-height:1.2em;text-align:left;}
+
+
+
+
+
+#ybisComNaviOutBox #ybisComNaviBoxInfLf{float:left; width:235px;}
+#ybisComNaviOutBox #ybisComNaviBoxInfLf li{}
+#ybisComNaviOutBox #ybisComNaviBoxInfRg{float:right; width:322px;}
+#ybisComNaviOutBox .ybisNaviMenuTy1 { min-height:40px; _height:40px; vertical-align:baseline; border-bottom:1px solid #C6CFD7; line-height:40px;}
+#ybisComNaviOutBox .ybisNaviMenuTy1 h3 { margin-left:18px;padding-left:12px; background: url(../../img/1.0.0/common/sprite.png) -100px 15px no-repeat;}
+#ybisComNaviOutBox .ybisNaviMenuTy2 {border-bottom:1px solid #C6CFD7;}
+#ybisComNaviOutBox .ybisNaviMenuTy2 h3 { min-height:25px; _height:25px; padding-left:6px; background:url(../../img/1.0.0/common/sprite_gr1.png) repeat-x; border:1px solid #FFF; font-weight:bold; line-height:25px; vertical-align:baseline; color:#FFF;}
+#ybisComNaviOutBox .ybisNaviMenuTy2 ul { margin:5px 0 10px 20px;font-size:small; line-height:1.3em;}
+#ybisComNaviOutBox .ybisNaviMenuTy2 li { padding-left:8px; line-height:1.5em; background: url(../../img/1.0.0/common/sprite.png) -100px 6px no-repeat;}
+#ybisComNaviOutBox .borderNone {border:0;}
+
+/*touroku - parts*/
+#ybisComNaviOutBox .ybisNaviMenuTy3 {padding:8px 10px;}
+#ybisComNaviOutBox .ybisNaviMenuTy3 h2 {display:block; font-weight:bold;}
+#ybisComNaviOutBox .ybisNaviMenuTy3 h3 { padding:3px 5px 3px 10px; background:#DCE1E7; font-weight:bold; font-size:small; margin:5px 0;}
+#ybisComNaviOutBox .ybisNaviMenuTy3 h3 span{float:left;}
+#ybisComNaviOutBox .ybisNaviMenuTy3 h3 a{ float:right; display:block; width:89px; height:19px; background:#0567A6 url(../../img/1.0.0/common/sprite.png) 0 -130px; color:#FFF;  font-weight:normal; text-align:center; text-indent:-9999px; line-height:0;}
+#ybisComNaviOutBox .ybisNaviMenuTy3 dl { font-weight:normal; line-height:1.3em; margin-left:5px;}
+
+#ybisComNaviOutBox .ybisNaviMenuTy3 dt{ float:left; width:160px; text-align:right; font-weight:normal; border:none; background:none;}
+/*.ybisNaviMenuTy3 dt span, .ybisNaviMenuTy3 dd span{font-size:xx-small;}*/
+#ybisComNaviOutBox .ybisNaviMenuTy3 dd{ float:left; width:135px;}
+#ybisComNaviOutBox .ybisNaviMenuTy3 ul {margin-left:20px; font-size:small; line-height:1.3em;}
+
+/*service inn*/
+#ybisComNaviOutBox .ybisNaviMenuTy4{ min-height:30px; _height:30px; border-top:1px solid #C0C9CF;}
+#ybisComNaviOutBox .ybisNaviMenuTy4 h3 { background:url(../../img/1.0.0/common/sprite_gr1.png) #5A83AB repeat-x; min-height:25px; _height:25px; font-weight:bold; color:#FFF; border-bottom:1px solid #417CA0; font-size:small;}
+#ybisComNaviOutBox .ybisNaviMenuTy4 h3 span {line-height:25px; vertical-align:baseline; padding-left:7px; font-size:14px;}
+#ybisComNaviOutBox .ybisNaviMenuTy4 ul { margin-top:8px;}
+#ybisComNaviOutBox .ybisNaviMenuTy4 li { background:url(../../img/1.0.0/common/sprite_gr1.png) 5px -369px no-repeat; font-size:12px; text-align:left; text-indent:15px; }
+
+#ybisComNaviOutBox div#ybisNaviMenuTyBtmBox{margin-top:10px;}
+#ybisComNaviOutBox .ybisNaviMenuTyBtm{ height:10px; background:url(../../img/1.0.0/common/sprite_gr4.png) 0 100% repeat-x; border-bottom:1px solid #C0C9CF; font-size:0; line-height:0;}
+
+/*service table ver*/
+#ybisComNaviOutBox #ybisNaviMenuTy4Table{border-collapse:separate; border-spacing:10px;}
+#ybisComNaviOutBox .ybisNaviMenuTy4Td{border:1px solid #C0C9CF; width:214px; padding:0; padding-bottom:15px; background:url(../../img/1.0.0/common/sprite_gr4.png) 0 100% repeat-x;}
+#ybisComNaviOutBox .ybisNaviMenuTy4H3{background:url(../../img/1.0.0/common/sprite_gr1.png) #5A83AB repeat-x; min-height:14px; _height:14px; font-weight:bold; color:#FFF; border-bottom:1px solid #417CA0; font-size:small; text-indent:0;/*add110902*/padding: 5px 0 4px 5px;}
+#ybisComNaviOutBox .ybisNaviMenuTy4H3 span {line-height:120%; vertical-align:baseline; font-size:14px; font-weight:bold;}
+#ybisComNaviOutBox .ybisNaviMenuTy4Ul{margin-top:8px; line-height:20px;}
+#ybisComNaviOutBox .ybisNaviMenuTy4Ul li{background:url(../../img/1.0.0/common/sprite_gr1.png) 5px -369px no-repeat; padding:0 3px 0 15px; font-size:12px; text-align:left;}
+
+/*service none*/
+#ybisComNaviOutBox .ybisNaviMenuTy5{display:block; min-height:95px; _height:95px; background:#C6CFD7;margin-bottom:5px;border:1px solid #C6CFD7}
+
+
+
+
+/* --------------------------------------------
+Navi-Common
+-------------------------------------------- */
+#ybisComNaviOutBox .ybisComMgRt0{margin-right:0;}
+
+/* --------------------------------------------
+error
+-------------------------------------------- */
+#ybisComNaviOutBox #ybisComNaviBtErr{width:450px;float:left; font-size:smaller;}
+#ybisComNaviOutBox #ybisComNaviBtErr span{ display:block; background:#E5E9EE; margin:5px 5px; min-height:22px _height:22px; padding:0 5px; border:solid 1px #7E91A0; vertical-align:baseline; line-height:22px; text-align:center;}
+#ybisComErrBox {
+    margin:10px 0;
+    background:#FFC;
+    font-weight:bold;
+    color:#F00;
+    font-size:12px;
+    text-align:center;
+    line-height:1.56em;
+}
+
+.ybisComNoscript{text-align:center;}
+.ybisComNoscript p{
+    width:70%;
+    margin:0 auto 10px;
+    padding:5px;
+    border:2px solid #F00;
+    color:#F00;
+    font-size:12px;
+    line-height:1.5em;
+    text-align:left;
+}
+.ybisComNoscript strong{font-weight:bold;}
+.ybisComNoscript a{color:#F00;}
+

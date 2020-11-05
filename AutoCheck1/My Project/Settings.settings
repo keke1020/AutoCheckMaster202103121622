@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="MyLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">100, 0</Value>
+    </Setting>
+    <Setting Name="MyClientSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">800, 598</Value>
+    </Setting>
+    <Setting Name="Form6Location" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">150, 150</Value>
+    </Setting>
+    <Setting Name="Form6Size" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">1200, 800</Value>
+    </Setting>
+    <Setting Name="Form2Location" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">100, 0</Value>
+    </Setting>
+    <Setting Name="Form3Location" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">100, 0</Value>
+    </Setting>
+    <Setting Name="Form5Location" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="Form5Size" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">800, 600</Value>
+    </Setting>
+    <Setting Name="csvFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">ＭＳ ゴシック, 9pt</Value>
+    </Setting>
+    <Setting Name="csvCList" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="StartTopMost" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="StartLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)">100,100</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

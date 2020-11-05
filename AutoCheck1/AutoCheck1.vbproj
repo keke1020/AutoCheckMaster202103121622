@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{406B4127-4B43-4B65-9441-C3A7E0FEE6D5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>AutoCheck1.My.MyApplication</StartupObject>
+    <RootNamespace>AutoCheck1</RootNamespace>
+    <AssemblyName>AutoCheck1</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+    <ApplicationIcon>kuma.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SignManifests>false</SignManifests>
+    <SignAssembly>false</SignAssembly>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>AutoCheck1.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>AutoCheck1.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>AutoCheck1.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>AutoCheck1.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42353,42354,42355</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azuki, Version=1.7.13.40482, Culture=neutral, PublicKeyToken=46b77eb7f2d82aba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Azuki.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Design, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonWinFormControls.4.4.1.0\lib\net40\ComponentFactory.Krypton.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Docking, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonWinFormControls.4.4.1.0\lib\net40\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonWinFormControls.4.4.1.0\lib\net40\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonWinFormControls.4.4.1.0\lib\net40\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonWinFormControls.4.4.1.0\lib\net40\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.4.1.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\KryptonWinFormControls.4.4.1.0\lib\net40\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="EncodingOperation, Version=1.0.2343.29203, Culture=neutral, PublicKeyToken=13f6b05caa9cd5a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\EncodingOperation.dll</HintPath>
+    </Reference>
+    <Reference Include="Hnx8.ReadJEnc, Version=1.3.1.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReadJEnc.1.3.1.2\lib\net45\Hnx8.ReadJEnc.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="inifile, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\inifile.dll</HintPath>
+    </Reference>
+    <Reference Include="JacksonSoft.CustomTabControl, Version=1.0.1.7, Culture=neutral, PublicKeyToken=53c237210c7e462d, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\JacksonSoft.CustomTabControl.dll</HintPath>
+    </Reference>
+    <Reference Include="JpnKanaConversion">
+      <HintPath>Japanese Kana Converter Library\JpnKanaConversion.dll</HintPath>
+    </Reference>
+    <Reference Include="JpnKanaConversion.resources">
+      <HintPath>Japanese Kana Converter Library\ja\JpnKanaConversion.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="JpnKanaConvHelper">
+      <HintPath>Japanese Kana Converter Library\JpnKanaConvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="MonthCalendarM, Version=2.1.0.4, Culture=neutral, PublicKeyToken=2b90d769ce5eb137, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MonthCalendarM.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Ookii.Dialogs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0c15020868fd6249, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ookii.Dialogs.WindowsForms.1.0\lib\net35\Ookii.Dialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfGeneratorNetFree">
+      <HintPath>..\PdfGeneratorNetFree\PdfGeneratorNetFree.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TKFP, Version=1.4.4.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TKFP.dll</HintPath>
+    </Reference>
+    <Reference Include="TKMP">
+      <HintPath>..\TKMP.dll</HintPath>
+    </Reference>
+    <Reference Include="unvell.ReoGrid">
+      <HintPath>E:\ライブラリ\マイ ドキュメント\Visual Studio 2017\Projects\WindowsApp1\ReoGrid-2.1.0.0-All-Packages-Ja\ReoGrid-2.1.0.0-Extension\unvell.ReoGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=3.13.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.13.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\WebDriver.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="WinSCPnet, Version=1.5.4.8265, Culture=neutral, PublicKeyToken=2271ec4a3c56d0bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\WinSCPnet.dll</HintPath>
+    </Reference>
+    <Reference Include="ZetaHtmlTidy, Version=1.0.2568.37235, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ZetaHtmlTidy.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="csv_change.Designer.vb">
+      <DependentUpon>csv_change.vb</DependentUpon>
+    </Compile>
+    <Compile Include="csv_change.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Csv_denpyo3.Designer.vb">
+      <DependentUpon>Csv_denpyo3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Csv_denpyo3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Csv_denpyo3_F_count.Designer.vb">
+      <DependentUpon>Csv_denpyo3_F_count.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Csv_denpyo3_F_count.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Csv_denpyo3_F_dgv.Designer.vb">
+      <DependentUpon>Csv_denpyo3_F_dgv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Csv_denpyo3_F_dgv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Csv_denpyo3_F_files.Designer.vb">
+      <DependentUpon>Csv_denpyo3_F_files.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Csv_denpyo3_F_files.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CSV_F_files.Designer.vb">
+      <DependentUpon>CSV_F_files.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CSV_F_files.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CSV_F_juhuku.Designer.vb">
+      <DependentUpon>CSV_F_juhuku.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CSV_F_juhuku.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dialog.Designer.vb">
+      <DependentUpon>dialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorDialog.Designer.vb">
+      <DependentUpon>ErrorDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="extensions.vb" />
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1_F_maillist.Designer.vb">
+      <DependentUpon>Form1_F_maillist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1_F_maillist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1_F_sousa.Designer.vb">
+      <DependentUpon>Form1_F_sousa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1_F_sousa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1_F_loginlist.Designer.vb">
+      <DependentUpon>Form1_F_loginlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1_F_loginlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.vb">
+      <DependentUpon>Form3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form4.Designer.vb">
+      <DependentUpon>Form4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="csv.Designer.vb">
+      <DependentUpon>csv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="csv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GlobalSuppressions.vb" />
+    <Compile Include="HTMLcreate.Designer.vb">
+      <DependentUpon>HTMLcreate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HTMLcreate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form7.Designer.vb">
+      <DependentUpon>Form7.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form7.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HTMLdialog.Designer.vb">
+      <DependentUpon>HTMLdialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HTMLdialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HtmlDialog_F_TableCreate.Designer.vb">
+      <DependentUpon>HtmlDialog_F_TableCreate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlDialog_F_TableCreate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="iphone.Designer.vb">
+      <DependentUpon>iphone.vb</DependentUpon>
+    </Compile>
+    <Compile Include="iphone.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kanri.Designer.vb">
+      <DependentUpon>kanri.vb</DependentUpon>
+    </Compile>
+    <Compile Include="kanri.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kanri_F_login.Designer.vb">
+      <DependentUpon>Kanri_F_login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Kanri_F_login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailManager.Designer.vb">
+      <DependentUpon>MailManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MailManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mall_dialog.Designer.vb">
+      <DependentUpon>Mall_dialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Mall_dialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mall_subwindow.Designer.vb">
+      <DependentUpon>mall_subwindow.vb</DependentUpon>
+    </Compile>
+    <Compile Include="mall_subwindow.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mall_main.Designer.vb">
+      <DependentUpon>Mall_main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Mall_main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Form1_F_newitem.Designer.vb">
+      <DependentUpon>Form1_F_newitem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1_F_newitem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1_F_Settei.Designer.vb">
+      <DependentUpon>Form1_F_Settei.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1_F_Settei.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1_F_login.Designer.vb">
+      <DependentUpon>Form1_F_login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1_F_login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeCsv.Designer.vb">
+      <DependentUpon>ChangeCsv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeCsv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="otherDialog.Designer.vb">
+      <DependentUpon>otherDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="otherDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Qoo10_mail.Designer.vb">
+      <DependentUpon>Qoo10_mail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Qoo10_mail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RadixConvert.vb" />
+    <Compile Include="Registry.Designer.vb">
+      <DependentUpon>Registry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SagawaDenpyo.Designer.vb">
+      <DependentUpon>SagawaDenpyo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SagawaDenpyo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SagawaSpare.Designer.vb">
+      <DependentUpon>SagawaSpare.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SagawaSpare.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="search.Designer.vb">
+      <DependentUpon>search.vb</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="search.vb">
+      <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="SearchRank.Designer.vb">
+      <DependentUpon>SearchRank.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SearchRank.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shiji.Designer.vb">
+      <DependentUpon>Shiji.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Shiji.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TakModule2.vb" />
+    <Compile Include="TakModule1.vb" />
+    <Compile Include="TakModule3.vb" />
+    <Compile Include="Test.Designer.vb">
+      <DependentUpon>Test.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Test.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tuiseki.Designer.vb">
+      <DependentUpon>Tuiseki.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tuiseki.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatePanel.Designer.vb">
+      <DependentUpon>UpdatePanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatePanel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VBStrings.vb" />
+    <Compile Include="Win32API.vb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="PrintData.Designer.vb">
+      <DependentUpon>PrintData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZaikoList.Designer.vb">
+      <DependentUpon>ZaikoList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ZaikoList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="csv_change.resx">
+      <DependentUpon>csv_change.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Csv_denpyo3.resx">
+      <DependentUpon>Csv_denpyo3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Csv_denpyo3_F_count.resx">
+      <DependentUpon>Csv_denpyo3_F_count.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Csv_denpyo3_F_dgv.resx">
+      <DependentUpon>Csv_denpyo3_F_dgv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Csv_denpyo3_F_files.resx">
+      <DependentUpon>Csv_denpyo3_F_files.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CSV_F_files.resx">
+      <DependentUpon>CSV_F_files.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CSV_F_juhuku.resx">
+      <DependentUpon>CSV_F_juhuku.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialog.resx">
+      <DependentUpon>dialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorDialog.resx">
+      <DependentUpon>ErrorDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1_F_maillist.resx">
+      <DependentUpon>Form1_F_maillist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1_F_sousa.resx">
+      <DependentUpon>Form1_F_sousa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1_F_loginlist.resx">
+      <DependentUpon>Form1_F_loginlist.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form4.resx">
+      <DependentUpon>Form4.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="csv.resx">
+      <DependentUpon>csv.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HTMLcreate.resx">
+      <DependentUpon>HTMLcreate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form7.resx">
+      <DependentUpon>Form7.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HTMLdialog.resx">
+      <DependentUpon>HTMLdialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlDialog_F_TableCreate.resx">
+      <DependentUpon>HtmlDialog_F_TableCreate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iphone.resx">
+      <DependentUpon>iphone.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kanri.resx">
+      <DependentUpon>kanri.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kanri_F_login.resx">
+      <DependentUpon>Kanri_F_login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MailManager.resx">
+      <DependentUpon>MailManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mall_dialog.resx">
+      <DependentUpon>Mall_dialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mall_subwindow.resx">
+      <DependentUpon>mall_subwindow.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mall_main.resx">
+      <DependentUpon>Mall_main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1_F_newitem.resx">
+      <DependentUpon>Form1_F_newitem.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1_F_Settei.resx">
+      <DependentUpon>Form1_F_Settei.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1_F_login.resx">
+      <DependentUpon>Form1_F_login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeCsv.resx">
+      <DependentUpon>ChangeCsv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="otherDialog.resx">
+      <DependentUpon>otherDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Qoo10_mail.resx">
+      <DependentUpon>Qoo10_mail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registry.resx">
+      <DependentUpon>Registry.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SagawaDenpyo.resx">
+      <DependentUpon>SagawaDenpyo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SagawaSpare.resx">
+      <DependentUpon>SagawaSpare.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="search.resx">
+      <DependentUpon>search.vb</DependentUpon>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchRank.resx">
+      <DependentUpon>SearchRank.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shiji.resx">
+      <DependentUpon>Shiji.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tuiseki.resx">
+      <DependentUpon>Tuiseki.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatePanel.resx">
+      <DependentUpon>UpdatePanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintData.resx">
+      <DependentUpon>PrintData.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZaikoList.resx">
+      <DependentUpon>ZaikoList.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="config\base.kwd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\CSSporp.kwd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\CSSprop_d.kwd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\CSSvalue.kwd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\html.kwd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\html5.kwd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\JavaScript.kwd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\SearchList.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\離島一覧.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Holiday.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="x-ken-all.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\x86\Debug\icon\nekoposu.png" />
+    <Content Include="bookmark.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CheckList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\CodeCheck.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\denpyoConfig.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\folder.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\intelisense.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\loginform.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\version.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\お届け日数.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\ログイン.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\追跡HP設定.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\追跡番号.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\送料.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\配送伝票変換1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Exact Audio Copy.ico" />
+    <Content Include="ftplist\ローカルテスト用2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ftplist\ローカルテスト用.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="htmltemplate\スーパーSALE用.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="htmltemplate\テーブル1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="htmltemplate\メルマガ1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="htmltemplate\メルマガ2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="htmltemplate\メルマガモバイル.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="kuma.ico" />
+    <Content Include="login.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="main.ico" />
+    <Content Include="main2.ico" />
+    <None Include="config\config.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\search.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\version2\000000.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="config\佐川営業所一覧.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\iphone6b.gif" />
+    <None Include="template\在庫（EC店長→NE）合併.dat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\arrow-resize-090.png" />
+    <None Include="Resources\062213265602_0tanziro.ico" />
+    <Content Include="template\メールテンプレ、FKゆうURL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\メールテンプレ、FKヤマトURL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\メールテンプレ、FK予約出荷通知.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\メールテンプレ、FK佐川URL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\メールテンプレ、FK通常出荷通知.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinDVD.ico" />
+    <Content Include="強調リスト.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラ 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADODB">
+      <Guid>{B691E011-1797-432E-907A-4D8C69339129}</Guid>
+      <VersionMajor>6</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="JRO">
+      <Guid>{AC3B8B4C-B6CA-11D1-9F31-00C04FC29D52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <Private>True</Private>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="formchange\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

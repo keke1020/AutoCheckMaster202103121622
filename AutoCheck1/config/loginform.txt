@@ -1,0 +1,2 @@
+﻿name,user_name,username,id,rlogin-username-ja,rlogin-username-2-ja,user_id,names,user_login_code,email
+pass,password,passwd,psd,rlogin-password-ja,rlogin-password-2-ja,passes,user_password

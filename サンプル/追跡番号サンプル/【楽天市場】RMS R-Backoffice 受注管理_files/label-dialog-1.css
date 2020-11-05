@@ -1,0 +1,275 @@
+@charset "euc-jp";
+
+.ui-dialog textarea {
+    font-family: "Osaka¡ÝÅùÉý","£Í£Ó ¥´¥·¥Ã¥¯","Courier New","monospace";
+}
+
+.ui-dialog pre {
+    font-family: "Osaka¡ÝÅùÉý","£Í£Ó ¥´¥·¥Ã¥¯","Courier New","monospace";
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/**
+ * clearfix
+ */
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+/**
+ * contents
+ */
+div.contents {
+    padding: 0 0.5em 1.0em 0.5em;
+    height: 34em;
+    overflow: auto;
+}
+
+/**
+ * header table
+ */
+
+table.messageHeader {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-top: 1px solid #c0c0c0;
+    word-break: break-all;
+    width: 100%
+}
+
+table.messageHeader th.dotted {
+    border-top: 1px dotted #c0c0c0;
+}
+
+table.messageHeader th {
+    background-color: #f6f6f6;
+    width: 12em;
+    padding: 1.0em 0.5em 1.0em 0.5em;
+    font-weight: 600;
+    text-align: left;
+}
+
+table.messageHeader td {
+    width: 34em;
+    padding: 1.0em 0.5em 1.0em 0.5em;
+}
+
+/**
+ * operationArea
+ */
+div.operationArea {
+    padding: 1.5em 1em 0;
+}
+
+div.operationArea div.action {
+    float: right;
+}
+
+div.operationArea div.back {
+    padding-top: 1.0em;
+    clear: both;
+}
+
+div.operationArea div.back  a {
+    color:#0000CC;
+    text-decoration: none;
+}
+
+div.operationArea div.back a:hover {
+    color: #0000CC;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/**
+ * messageList
+ */
+#messageList div.messageBoxArea div.messageProperty {
+    padding: 0 0 0.5em 0;
+}
+
+#messageList div.messageBoxArea div.messageBox {
+	padding: 0.5em 0 0 0;
+}
+
+#messageList div.messageBoxArea div.caption {
+	color: #cc0000;
+	font-weight: 600;
+    font-size: 0.8em;
+    padding: 0 0 0 0.5em;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageBoxHeader {
+    font-weight: 600;
+    border-top: 1px solid #f6f6f6;
+    float: left;
+    width: 100%;
+    background-color: #f6f6f6;
+    border-top: 1px solid #c0c0c0;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageBoxHeader span.date {
+    float:left;
+    width: 12em;
+    padding: 1.0em 0.5em 1.0em 0.5em;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageBoxHeader span.from {
+    float:left;
+    width: 8em;
+    padding: 1.0em 0 1.0em 0.5em;
+    border-left: 1px dotted #c0c0c0;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageBoxHeader span.icon {
+    float:left;
+    width: 2em;
+    padding: 1.0em 0.5em 1.0em 0;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageBoxHeader span.subject {
+    float:left;
+    width: auto;
+    padding: 1.0em 0.5em 1.0em 0.5em;
+    border-left: 1px dotted #c0c0c0;
+}
+
+#messageList div.messageBoxArea div.messageBox div.notice {
+	clear: both;
+    padding: 3.0em 2.0em 3.0em 2.0em;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageDetail span.date {
+    float:left;
+    width: 12em;
+    padding: 1.0em 0.5em 1.0em 0.5em;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageDetail span.from {
+    float:left;
+    width: 8em;
+    padding: 1.0em 0 1.0em 0.5em;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageDetail span.icon {
+    float:left;
+    width: 2em;
+    padding: 1.0em 0.5em 1.0em 0;
+    vertical-align: middle;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageDetail span.subject {
+    float:left;
+    width: 20em;
+    padding: 1.0em 0.5em 1.0em 0.5em;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageDetail span.from img {
+    float:right;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageDetail {
+    clear: both;
+    float: left;
+    margin: 0.5em 0 0 0;
+    width: 100%;
+    word-break: break-all;
+}
+
+#messageList div.messageBoxArea div.messageBox div.unread {
+    font-weight: 600;
+}
+
+#messageList div.messageBoxArea div.messageBox div.messageDetail:hover {
+    cursor: pointer;
+    background-color: #EEEEEE;
+}
+
+#messageList div.messageEdit:hover {
+    cursor: pointer;
+}
+
+/**
+ * messageDetail
+ */
+#messageDetail div.messageContentsArea {
+    padding: 1.5em 1em 0;
+}
+
+#messageDetail div.messageEdit:hover {
+    cursor: pointer;
+}
+
+#messageDetail div.messageReply:hover {
+    cursor: pointer;
+}
+
+/**
+ * messageEdit
+ */
+#messageEdit div.messageHeaderArea input.subjectText {
+   	width: 100%;
+   	height: 2.0em;
+}
+
+#messageEdit div.messageContentsArea {
+    padding-top: 1.5em;
+}
+
+#messageEdit div.messageContentsArea textarea {
+    width: 100%;
+    resize: none;
+    height: 26em;
+}
+
+#messageEdit div.sendMessage:hover {
+    cursor: pointer;
+}
+
+/**
+ * messageArea
+ */
+.messageArea .messageTitle {
+	padding-bottom: 0.5em; 
+}
+
+.messageArea .messages {
+	padding-left: 0.5em;
+}
+
+.messageArea div.message {
+    padding-bottom: 0.5em;
+}
+
+/**
+ * messageErr
+ */
+#messageErr {
+    margin: 20px;
+}
+
+#messageStatusWrap {
+    margin: 10px;
+}
+
+.messageStatus {
+    padding: 10px;
+    border: 1px solid #c0c0c0;
+}
+
+.warningTxt {
+    color: #bf0000;
+    font-weight: bold;
+}
+
+.normalTxt {
+    margin-top: 10px;
+    font-weight: bold;
+}

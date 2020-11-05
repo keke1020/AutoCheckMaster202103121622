@@ -1,0 +1,156 @@
+/* ===============================================
+    ウインドウを表示する命令セット
+=============================================== */
+function opWin(opUrl){
+    var win_set = 'toolbar=no,location=yes,directories=no,status=no,menubar=yes,scrollbars=yes,resizable=yes,width=760,height=660';
+    openWindow = window.open(opUrl,"yubin_popup",win_set);
+    openWindow.focus();
+}
+
+function pageBack() {
+    history.back();
+}
+function pageReload() {
+    location.reload();
+}
+function openNewWindow(url,windowName,width,height) {
+    var params = 'resizable = yes, scrollbars = yes';
+    var l_position = (window.screen.width - width) / 2;
+    var t_position = (window.screen.height - height) / 2;
+    params += ', width = '+ width;
+    params += ', height = '+ height;
+    params += ', left = '+ l_position;
+    params += ', top = '+ t_position;
+    window.open(url,windowName,params);
+}
+function openNewParentSizeWindow(url,windowName,m_bar,t_bar,l_bar,s_bar) {
+    var w_width = document.documentElement.clientWidth || document.body.clientWidth || document.body.scrollWidth;
+    var w_height = document.documentElement.clientHeight || document.body.clientHeight || document.body.scrollHeight;
+
+    var params = 'resizable = yes, scrollbars = yes';
+    params += ', menubar = '+ m_bar;  // メニューバー
+    params += ', toolbar = '+ t_bar;  // ツールバー
+    params += ', location = '+ l_bar; // アドレスバー
+    params += ', status = '+ s_bar;   // ステータスバー
+
+    var l_position = (window.screen.width - w_width) / 2;
+    var t_position = (window.screen.height - w_height) / 4;
+    params += ', width = '+ w_width;
+    params += ', height = '+ w_height;
+    params += ', left = '+ l_position;
+    params += ', top = '+ t_position;
+
+    window.open(url,windowName,params);
+}
+function formObjCheck_InitDeliveryInfoBean(objName) {
+    var frm = document.InitDeliveryInfoBean;
+    var act = frm.action;
+    var obj = document.getElementsByName(objName);
+    for (var i=0; i<obj.length; i++) {
+        if (obj[i].checked == true) {
+            var objValue = parseInt(obj[i].value);
+            switch (objValue) {
+            case 1:
+                act = '470204BK1P10.html';
+                break;
+            case 2:
+                act = '470204BK1P20-1.html';
+                break;
+            case 3:
+                act = '470204BK1P20-2.html';
+                break;
+            case 4:
+                act = '470204BK1P40.html';
+                break;
+            case 5:
+                act = '470204BK1P30.html';
+                break;
+            default:
+                act = '470204BK1P10.html';
+            }
+        }
+    }
+    frm.action = act;
+    frm.submit();
+}
+function formObjCheck_SearchIndividualForm(objName) {
+    var frm = document.SearchIndividualForm;
+    var act = frm.action;
+    var obj = document.getElementsByName(objName);
+    for (var i=0; i<obj.length; i++) {
+        var opts = obj[i].options;
+        for (var j=0; j<opts.length; j++) {
+            if (opts[j].selected == true) {
+                var objValue = parseInt(opts[j].value);
+                switch (objValue) {
+                case 1:
+                    act = 'A10704BI3P10-1.html';
+                    break;
+                case 2:
+                    act = 'A10704BI3P10-2.html';
+                    break;
+                case 4:
+                    act = 'A10704BI3P10-3.html';
+                    break;
+                default:
+                    act = 'A10704BI3P10-1.html';
+                }
+            }
+        }
+    }
+    frm.action = act;
+    frm.submit();
+}
+function pageMove(url) {
+    location.href = url;
+}
+function selectObjCheck(objName) {
+    var obj = document.getElementsByName(objName);
+    for (var i=0; i<obj.length; i++) {
+        var opts = obj[i].options;
+        for (var j=0; j<opts.length; j++) {
+            if (opts[j].selected == true) {
+                var objValue = parseInt(opts[j].value);
+                switch (objValue) {
+                case 1:
+                    url = 'A10704BI4P10-1.html';
+                    break;
+                case 2:
+                    url = 'A10704BI4P10-2.html';
+                    break;
+                case 4:
+                    url = 'A10704BI4P10-3.html';
+                    break;
+                default:
+                    url = 'A10704BI4P10-1.html';
+                }}
+        }
+    }
+    location.href = url;
+}
+
+/* 関数名 : closeWindow 機能 : ウィンドウを閉じる。ウィンドウを閉じる際は、確認のダイアログが表示される。引数 : なし戻り値 : なし */
+function closeWindow() {
+    window.close();
+}
+
+/* マウスオーバーで画像を変更する */
+function ImgChange(elem_img,from,to){
+    var ElemSrc = elem_img.getAttribute("src");
+    ElemChgSrc = ElemSrc.split(from)[0] + to + ElemSrc.split(from)[1];
+    elem_img.setAttribute("src",ElemChgSrc);
+}
+
+
+
+function NewOpenWindow(url, winTitle, width, height, opt){
+	
+	option = "width=" + width + ", height=" + height + ", ";
+	if(opt == ""){
+		option = option + "toolbar=no, location=no, directories=no, status=no, menubar=no, resizable=yes, scrollbars=no";
+	}else{
+		option = option + opt;
+	}
+	
+	newWin = window.open(url, winTitle, option);
+}

@@ -1,0 +1,650 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja"><head>
+<title>個別番号検索結果 - 日本郵便</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="robots" content="noindex,nofollow,noarchive">
+
+<link rel="stylesheet" type="text/css" href="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/style.css">
+<script type="text/javascript" charset="UTF-8" src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/jquery-1.htm"></script>
+<script type="text/javascript" charset="UTF-8" src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/common.htm"></script>
+<script type="text/javascript" charset="UTF-8" src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/default.htm"></script>
+<script type="text/javascript" charset="UTF-8" src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/usercontrol_s.htm"></script>
+</head>
+
+<body>
+<div id="wrap">
+<p class="blockskip"><a href="#skip_content">このページの本文へ</a></p>
+
+    
+
+
+
+  
+
+
+
+
+
+<div id="setting_alert">
+    <noscript>
+    <br />JavaScriptがオフに設定されています。JavaScriptがオンに設定されていない場合、適切な表示・操作を行えないことがありますので予めご了承ください。<br /><br />
+    </noscript>
+    <div id="cookie_disable"></div>
+</div>
+
+<div id="header" class="clearfix">
+    <p id="logo"><a href="http://www.post.japanpost.jp/"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/logo.gif" alt="日本郵便サイトへ"></a></p>
+    <p id="lead"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/head_txt.gif" alt="そばにいるから、できることがある。"></p>
+    <div id="head_nav">
+        <ul id="nav">
+            <li><a href="http://www.post.japanpost.jp/about/index.html" target="_top">企業情報</a></li>
+            <li><a href="http://www.post.japanpost.jp/notification/index.html" target="_top">お知らせ・プレスリリース</a></li>
+            <li><a href="http://www.post.japanpost.jp/question/faq/index.html" target="_top">よくあるご質問・お問い合わせ</a></li>
+            <li><a href="http://www.post.japanpost.jp/sitemap.html" target="_top">サイトマップ</a></li>
+            <li class="last"><a href="http://www.post.japanpost.jp/english/index.html" target="_top">English</a></li>
+        </ul>
+        
+        <div id="search_area">
+            <p class="hidden">ここからサイト内検索です</p>
+            <form action="http://search.japanpost.jp/post/search.cgi" method="POST" target="_top" name="tr0" onsubmit="if(this.Keywords.value=='キーワードを入力してください'){this.Keywords.value='';};">
+            <input name="SearchServiceProvider" value="イー・マーケティング" type="hidden">
+            <input name="SentencePerPage" value="10" type="hidden">
+            <input name="HitSentencesLimit" value="1000" type="hidden">
+            <input name="SessionKey" value="" type="hidden">
+            <input name="SentenceNoBegin" value="0" type="hidden">
+            <input name="SentenceNoEnd" value="0" type="hidden">
+            <input name="PatternFname" value="" type="hidden">
+            <label for="Keywords" class="hidden">検索したい文字列を入力してください</label>
+            <input value="キーワードを入力してください" size="40" class="head_search site-search-txt" name="Keywords" id="Keywords" onfocus="this.style.color='#000000';if(this.value=='キーワードを入力してください')this.value='';" onblur="this.style.color='#000000';if(this.value==''){this.value='キーワードを入力してください';this.style.color='#777777';}" type="text">
+            <input src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/btn_search.gif" alt="検索を実行" class="site-search-btn" type="image">
+            </form>
+            <p class="hidden">サイト内検索はここまでです</p>
+        </div>          
+        
+    </div>
+</div>
+
+
+<div id="con_wrap" class="clearfix">
+
+    
+
+
+
+  
+
+
+
+
+    <div id="navi_box_r">
+        <p class="blockskip"><a href="#skip_content">目次をスキップしてページの本文へ</a></p>
+        <div class="pad">
+            <p class="sp-b16"><a href="http://www.post.japanpost.jp/business/"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/bnr_tp_business02.jpg" alt="ビジネス利用の方はこちらから" width="193" height="80"></a></p>
+            <h2 class="sp-t10"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/nav_benri_head.gif" alt="便利な機能" width="193" height="38"></h2>
+
+            <div class="itemBox">
+                <ul class="items">
+                    <li><a href="http://www.post.japanpost.jp/zipcode/index.html">郵便番号検索</a></li>
+                    <li><a href="http://www.post.japanpost.jp/fee/index.html">料金の計算</a></li>
+                    <li><a href="http://www.post.japanpost.jp/deli_days/index.html">お届け日数を調べる</a></li>
+                    <li><a href="http://www.post.japanpost.jp/office_search/index.html">郵便局をさがす</a></li>
+                    <li><a href="https://mgr.post.japanpost.jp/collection/collectionLogin.do">集荷のお申し込み</a></li>
+                    <li><a href="https://trackings.post.japanpost.jp/delivery/deli/">再配達のお申し込み</a></li>
+                    <li class="last"><a href="http://tracking.post.japanpost.jp/services/srv/search/">追跡サービス</a></li>
+                </ul>
+            </div>
+
+            <h2 class="sp-t10"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/nav_yubin_head.gif" alt="郵便" width="193" height="38"></h2>
+            <div class="itemBox">
+                <ul class="items">
+                    <li class="sub"><em><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/nav_business_sub17.gif" alt="商品・サービス" width="171" height="28"></em></li>
+                    <li><a href="http://www.post.japanpost.jp/service/standard/index.html">手紙・はがき</a></li>
+                    <li><a href="http://www.post.japanpost.jp/service/letterpack/index.html">レターパック</a></li>
+                    <li><a href="http://www.post.japanpost.jp/service/you_pack/index.html">ゆうパック</a></li>
+                    <li><a href="http://www.post.japanpost.jp/service/yu_mail/index.html">ゆうメール</a></li>
+                    <li><a href="http://www.post.japanpost.jp/int/index.html">国際郵便</a></li>
+                    <li><a href="http://www.post.japanpost.jp/kitte_hagaki/index.html">切手</a></li>
+                    <li class="last"><a href="http://www.post.japanpost.jp/service/tenkyo/index.html">転居・転送サービス</a></li>
+                    <li class="sub"><em><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/nav_business_sub18.gif" alt="発送オプション" width="171" height="28"></em></li>
+                    <li><a href="http://www.post.japanpost.jp/service/fuka_service/kakitome/index.html">書留</a></li>
+                    <li><a href="http://www.post.japanpost.jp/service/fuka_service/sokutatsu/index.html">速達</a></li>
+                    <li><a href="http://www.post.japanpost.jp/service/fuka_service/tokutei_kiroku/index.html">特定記録</a></li>
+                    <li class="last"><a href="http://www.post.japanpost.jp/service/fuka_service/shitei/index.html">配達日指定</a></li>
+                </ul>
+                <p class="to-list"><span class="mkr-nav-r"><a href="http://www.post.japanpost.jp/service/list.html">商品・サービス一覧</a></span></p>
+            </div>
+
+            <h2 class="sp-t10"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/nav_q_head.gif" alt="よくあるご質問" width="193" height="38"></h2>
+            <div class="itemBox">
+                <ul class="items">
+                    <li><a href="http://welcometown.post.japanpost.jp/etn/" target="_blank">ネットでも転居届を出すことが出来るって本当？</a></li>
+                    <li class="last"><a href="https://kitte-shop.post.japanpost.jp/goods/index.asp" target="_blank">ネットでも切手やはがきを買ったりできるの？</a></li>
+                </ul>
+                <p class="to-list"><span class="mkr-nav-r"><a href="http://www.post.japanpost.jp/question/index.html">よくある質問一覧</a></span></p>
+            </div>
+            <p class="sp-t16 btn_business"><a href="http://www.post.japanpost.jp/business/"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/btn_nav_business.gif" alt="ビジネス・大口向けのサービス" width="193" height="58"></a></p>
+        </div>
+    </div>
+
+
+
+    
+
+    
+    
+
+
+<div id="content">
+    
+    <h1 class="ttl_line m_b20">個別番号検索結果</h1><p>配送状況の検索結果です。追跡番号をクリックすると、個々のお荷物の詳しい情報をご覧いただけます。</p><br>
+    
+
+    <form name="srv_searchActionForm" method="post" action="/services/srv/search/">
+        <div class="indent">
+            <input name="pathDetail" value="Submit" style="display:none;" type="submit">
+            <input name="requestNo" value="" id="requestNo" type="hidden">
+            <input name="targetTypeCode" value="" id="targetTypeCode" type="hidden">
+            <input name="targetFstDate" value="" id="targetFstDate" type="hidden">
+            <input name="targetDupNum" value="0" id="targetDupNum" type="hidden">
+            <input name="viewTrackingNo" value="" id="viewTrackingNo" type="hidden">
+
+            
+                
+                
+                    <p class="m_b10 bold">照会結果は4件です</p>
+                
+            
+            <table class="tableType01 txt_c m_b5" summary="照会結果">
+                <tbody><tr>
+                    <th scope="row" rowspan="2" class="bg01 w_120">お問い合わせ番号</th>
+                    <th scope="row" rowspan="2" class="bg01 w_80">商品種別</th>
+                    <th scope="row" rowspan="2" class="bg01 w_80">最新年月日</th>
+                    <th scope="row" rowspan="2" class="bg01 w_180">最新状態</th>
+                    <th scope="row" class="bg01 w_120">最新取扱局</th>
+                    <th scope="row" rowspan="2" class="bg01 w_80">県名等</th>
+                </tr>
+                <tr>
+                    <th scope="row" class="bg01 w_120">郵便番号</th>
+                </tr>
+                
+                    
+                    
+                        
+                            
+                                
+                                
+                                    <tr>
+                                        
+                                        <td rowspan="2" class="w_120"><a href="javascript:submitPage('pathDetail',%20'requestNo',%20'924975817640',%20'targetTypeCode',%20'2',%20'targetFstDate',%20'2016/08/25%2021:51:01',%20'targetDupNum',%20'0',%20'viewTrackingNo',%20'9249-7581-7640');">9249-7581-7640</a></td>
+                                        <td rowspan="2" class="w_80">郵便物等</td>
+                                        <td rowspan="2" class="w_80">
+                                        2016/08/25
+                                        
+                                            <br>
+                                            21:51
+                                        
+                                        </td>
+                                        <td rowspan="2" class="w_180">引受</td>
+                                        <td class="w_120">博多北郵便局</td>
+                                        <td rowspan="2" class="w_80">福岡県</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="w_120">812-8799</td>
+                                    </tr>
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <tr>
+                                        
+                                        <td rowspan="2" class="w_120"><a href="javascript:submitPage('pathDetail',%20'requestNo',%20'924975817651',%20'targetTypeCode',%20'2',%20'targetFstDate',%20'2016/08/25%2021:49:47',%20'targetDupNum',%20'0',%20'viewTrackingNo',%20'9249-7581-7651');">9249-7581-7651</a></td>
+                                        <td rowspan="2" class="w_80">郵便物等</td>
+                                        <td rowspan="2" class="w_80">
+                                        2016/08/25
+                                        
+                                            <br>
+                                            21:49
+                                        
+                                        </td>
+                                        <td rowspan="2" class="w_180">引受</td>
+                                        <td class="w_120">博多北郵便局</td>
+                                        <td rowspan="2" class="w_80">福岡県</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="w_120">812-8799</td>
+                                    </tr>
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <tr>
+                                        
+                                        <td rowspan="2" class="w_120"><a href="javascript:submitPage('pathDetail',%20'requestNo',%20'924975817662',%20'targetTypeCode',%20'2',%20'targetFstDate',%20'2016/08/25%2021:50:08',%20'targetDupNum',%20'0',%20'viewTrackingNo',%20'9249-7581-7662');">9249-7581-7662</a></td>
+                                        <td rowspan="2" class="w_80">郵便物等</td>
+                                        <td rowspan="2" class="w_80">
+                                        2016/08/25
+                                        
+                                            <br>
+                                            21:50
+                                        
+                                        </td>
+                                        <td rowspan="2" class="w_180">引受</td>
+                                        <td class="w_120">博多北郵便局</td>
+                                        <td rowspan="2" class="w_80">福岡県</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="w_120">812-8799</td>
+                                    </tr>
+                                
+                            
+                        
+                            
+                                
+                                    <tr>
+                                        <td>924975817743</td>
+                                        <td colspan="5" class="txt_l"><font color="ff0000">＊＊ お問い合わせ番号が見つかりません。お問い合わせ番号をご確認の上、お近くの取扱店にお問い合わせください。</font></td>
+                                    </tr>
+                                
+                                
+                            
+                        
+                    
+                
+            </tbody></table>
+            <br>
+            
+            
+                
+                    <p class="m_b10 txt_c">
+                        <input name="" src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/btn_mailresist.gif" value="配達完了メール通知サービスのお申し込み" onclick="document.srv_searchActionForm.action='https://trackings.post.japanpost.jp/services/srv/deliveryCompletionMailCustomer/';document.srv_searchActionForm.submit()" type="image">
+                    </p>
+                
+            
+        </div>
+        
+
+        
+        <input name="startingUrlPatten" value="" type="hidden">
+        <input name="locale" value="ja" type="hidden">
+        
+        <input name="customerCodeDto.cliEntCod" value="" type="hidden">
+        <input name="customerCodeDto.cliBesCod" value="" type="hidden">
+        <input name="customerCodeDto.cliDep001Cod" value="" type="hidden">
+        <input name="customerCodeDto.cliDep002Cod" value="" type="hidden">
+        <input name="customerCodeDto.jpxCliCod" value="" type="hidden">
+        <input name="customerCodeDto.crgUntCod" value="" type="hidden">
+        <input name="customerCodeDto.farCliCod" value="" type="hidden">
+        <input name="customerCodeDto.crgBdwCliCod" value="" type="hidden">
+        
+        
+            <input name="trackingInfoViewDtoList[0].trackingInfoDto.trcnumidentycod" value="2" type="hidden">
+            <input name="trackingInfoViewDtoList[0].trackingInfoDto.trcnum" value="924975817640" type="hidden">
+            
+            <input name="trackingInfoViewDtoList[0].trackingInfoDto.fsttimhdldtmString" value="2016/08/25 21:51:01" type="hidden">
+            <input name="trackingInfoViewDtoList[0].trackingInfoDto.dupmngnum" value="0" type="hidden">
+        
+            
+        
+            <input name="trackingInfoViewDtoList[1].trackingInfoDto.trcnumidentycod" value="2" type="hidden">
+            <input name="trackingInfoViewDtoList[1].trackingInfoDto.trcnum" value="924975817651" type="hidden">
+            
+            <input name="trackingInfoViewDtoList[1].trackingInfoDto.fsttimhdldtmString" value="2016/08/25 21:49:47" type="hidden">
+            <input name="trackingInfoViewDtoList[1].trackingInfoDto.dupmngnum" value="0" type="hidden">
+        
+            
+        
+            <input name="trackingInfoViewDtoList[2].trackingInfoDto.trcnumidentycod" value="2" type="hidden">
+            <input name="trackingInfoViewDtoList[2].trackingInfoDto.trcnum" value="924975817662" type="hidden">
+            
+            <input name="trackingInfoViewDtoList[2].trackingInfoDto.fsttimhdldtmString" value="2016/08/25 21:50:08" type="hidden">
+            <input name="trackingInfoViewDtoList[2].trackingInfoDto.dupmngnum" value="0" type="hidden">
+        
+            
+        
+            <input name="trackingInfoViewDtoList[3].trackingInfoDto.trcnumidentycod" value="" type="hidden">
+            <input name="trackingInfoViewDtoList[3].trackingInfoDto.trcnum" value="" type="hidden">
+            
+            <input name="trackingInfoViewDtoList[3].trackingInfoDto.fsttimhdldtmString" value="" type="hidden">
+            <input name="trackingInfoViewDtoList[3].trackingInfoDto.dupmngnum" value="" type="hidden">
+        
+            
+        
+        
+        
+        
+            
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[0].trackingNoTypeCode" value="2" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[0].trackingNo" value="924975817640" type="hidden">
+                
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[0].trackingNoHash" value="18" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[0].proposalHandDateTimeString" value="2016/08/25 21:51:01" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[0].viewTrackingNo" value="9249-7581-7640" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[0].pslClsfctCod" value="1311" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[0].dspForPslClsfctNme" value="6L+96Leh44KG44GG44Oh44O844Or" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[0].dspForPslClsfctEchNme" value="WXUtTWFpbCAgIA==" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[0].dlvCptMalForJpxPdtTgtFlg" value="0" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[0].deliveryCompliteMailEntryFlg" value="true" type="hidden">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[1].trackingNoTypeCode" value="2" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[1].trackingNo" value="924975817651" type="hidden">
+                
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[1].trackingNoHash" value="0" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[1].proposalHandDateTimeString" value="2016/08/25 21:49:47" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[1].viewTrackingNo" value="9249-7581-7651" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[1].pslClsfctCod" value="1311" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[1].dspForPslClsfctNme" value="6L+96Leh44KG44GG44Oh44O844Or" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[1].dspForPslClsfctEchNme" value="WXUtTWFpbCAgIA==" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[1].dlvCptMalForJpxPdtTgtFlg" value="0" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[1].deliveryCompliteMailEntryFlg" value="true" type="hidden">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[2].trackingNoTypeCode" value="2" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[2].trackingNo" value="924975817662" type="hidden">
+                
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[2].trackingNoHash" value="36" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[2].proposalHandDateTimeString" value="2016/08/25 21:50:08" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[2].viewTrackingNo" value="9249-7581-7662" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[2].pslClsfctCod" value="1311" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[2].dspForPslClsfctNme" value="6L+96Leh44KG44GG44Oh44O844Or" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[2].dspForPslClsfctEchNme" value="WXUtTWFpbCAgIA==" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[2].dlvCptMalForJpxPdtTgtFlg" value="0" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[2].deliveryCompliteMailEntryFlg" value="true" type="hidden">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[3].trackingNoTypeCode" value="" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[3].trackingNo" value="" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[3].foreignTrackingNo" value="" type="hidden">
+                
+                
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[3].viewTrackingNo" value="" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[3].pslClsfctCod" value="" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[3].dspForPslClsfctNme" value="" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[3].dspForPslClsfctEchNme" value="" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[3].dlvCptMalForJpxPdtTgtFlg" value="" type="hidden">
+                
+                
+                    <input name="deliveryCompletionMailDto.deliveryComplitionMail[3].deliveryCompliteMailEntryFlg" value="false" type="hidden">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+            <input name="deliveryCompletionMailDto.locale" value="ja" type="hidden">
+            <input name="deliveryCompletionMailDto.hash" value="8c5526e2c00f82e1fbeee468039dbe52" type="hidden">
+        
+        
+    </form>
+
+      
+    <div class="indent">
+<ul class="w_380 m_auto m_b30 clearfix">
+ <li class="float_l"><a href="https://trackings.post.japanpost.jp/services/srv/search/"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_009.gif" alt="追跡サービスTOP"></a></li>
+ <li class="float_r"><a href="http://www.post.japanpost.jp/office_search/index.html"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_008.gif" alt="取扱店を調べる"></a></li>
+</ul>
+<ul class="w_380 m_auto m_b30 clearfix">
+ <li class="float_l">
+  <a href="https://trackings.post.japanpost.jp/services/srv/search/input"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_007.gif" alt="個別番号検索"></a>
+ </li>
+ <li class="float_r">
+  <a href="https://trackings.post.japanpost.jp/services/srv/sequenceNoSearch/input"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_010.gif" alt="連続番号検索"></a>
+ </li>
+</ul>
+<div class="beige_box m_b15">
+ <h2 class="beige_box_inner txt_type06 bold">郵便物</h2>
+</div>
+<div class="clearfix dot_center m_b20">
+ <div class="float_l w_328">
+  <div class="clearfix p_l20 p_r20 m_b15">
+   <ul class="li_mb5 float_l">
+    <li class="icon_radius_r">一般書留</li>
+    <li class="icon_radius_r">現金書留</li>
+    <li class="icon_radius_r">簡易書留</li>
+    <li class="icon_radius_r">特定記録郵便</li>
+   </ul>
+   <p class="float_r"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_005.gif" alt="郵便物のイメージ"></p>
+  </div>
+ </div>
+ <div class="float_r w_328">
+  <div class="clearfix p_l20 p_r20 m_b15">
+   <ul class="li_mb5 float_l">
+    <li class="icon_radius_r">レターパック</li>
+    <li class="icon_radius_r">レタックス</li>
+    <li class="icon_radius_r">配達時間帯指定郵便</li>
+    <li class="icon_radius_r">新特急郵便</li>
+   </ul>
+   <p class="float_r"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_011.gif" alt="郵便物のイメージ"></p>
+  </div>
+ </div>
+</div>
+<div class="clearfix m_b20">
+ <div class="float_l w_328">
+  <div class="beige_box_h m_b15">
+   <h3 class="beige_box_h_inner txt_type06 bold">荷物</h3>
+  </div>
+  <div class="clearfix p_l20 p_r20 m_b15">
+   <ul class="li_mb5 float_l">
+    <li class="icon_radius_r">ゆうパック</li>
+    <li class="icon_radius_r">追跡ゆうメール</li>
+    <li class="icon_radius_r">ポスパケット</li>
+    <li class="icon_radius_r">EXPACK</li>
+   </ul>
+   <p class="float_r"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage.gif" alt="荷物のイメージ"></p>
+  </div>
+ </div>
+ <div class="float_r w_328">
+  <div class="beige_box_h m_b15">
+   <h3 class="beige_box_h_inner txt_type06 bold">国際郵便物</h3>
+  </div>
+  <div class="clearfix p_l20 p_r20 m_b15">
+   <ul class="li_mb5 float_l">
+    <li class="icon_radius_r">EMS</li>
+    <li class="icon_radius_r">国際小包</li>
+    <li class="icon_radius_r">国際書留・保険付</li>
+    <li><br></li>
+   </ul>
+   <p class="float_r"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_004.gif" alt="国際郵便物のイメージ"></p>
+  </div>
+ </div>
+</div>
+<ul class="w_380 m_auto m_b30 clearfix">
+ <li class="float_l">
+  <a href="https://trackings.post.japanpost.jp/services/srv/search/input"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_007.gif" alt="個別番号検索"></a>
+ </li>
+ <li class="float_r">
+  <a href="https://trackings.post.japanpost.jp/services/srv/sequenceNoSearch/input"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_010.gif" alt="連続番号検索"></a>
+ </li>
+</ul>
+<div class="beige_box m_b20"><div class="beige_box_inner"><ul class="disc li_mb5"><li>EMS、国際小包、国際書留・保険付について、一部の国・地域は試験接続中です。
+<br>配達状況確認が可能な国・地域は<a href="http://www.post.japanpost.jp/int/ems/delivery/ems_search.html">こちら<span class="hidden">：配達状況確認が可能な国・地域へのリンク</span></a>をご覧ください。</li><li>追跡を行える期間は、郵便物をお取扱いしてから約100日間、国際郵便物は約13ヵ月間です。</li>
+<li class="m_b0">普通郵便の「はがき・封書」についてはお取り扱いしておりません。</li></ul></div></div><ul class="clearfix m_b10"><li class="w_320 float_l clearfix"><p class="float_l"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_003.gif" alt="連続番号検索"></p><div class="w_170 float_r">
+<p class="m_b20">配達完了電子メール通知サービスのお知らせ</p><p class="txt_r"><a href="http://www.post.japanpost.jp/oshirase/index.html">詳しくはこちら</a></p></div></li><li class="w_320 float_r clearfix"><p class="float_l"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_012.gif" alt="連続番号検索"></p>
+<div class="w_170 float_r"><p class="m_b5">ｉモード、EZweb、Yahoo!ケータイでも配達状況を調べることができます。</p><p class="txt_r"><a href="http://www.post.japanpost.jp/mobile/index.html">詳しくはこちら</a></p></div></li></ul><ul class="clearfix m_b20"><li class="w_320 float_l clearfix">
+<p class="float_l"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_006.gif" alt="連続番号検索"></p><div class="w_170 float_r"><p class="m_b10">検索表示結果のデータをCSV形式のファイルによりダウンロードができます。</p>
+<p class="txt_r"><a href="http://www.post.japanpost.jp/tsuiseki/download.html">詳しくはこちら</a></p></div></li><li class="w_320 float_r clearfix"><p class="float_l"><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/searchDisplayImage_002.gif" alt="連続番号検索"></p>
+<div class="w_170 float_r"><p>郵便追跡システムには、追跡データをCSV形式等のファイルで 提供する各種サービスがあります。</p><p class="txt_r"><a href="http://www.post.japanpost.jp/tsuiseki/tuiseki_teikyo.html">詳しくはこちら</a></p></div></li></ul><p class="pagetop"><a href="#wrap">▲ ページトップ</a></p>
+</div>
+    
+</div>
+
+
+
+
+</div>
+
+
+    
+
+
+
+  
+
+
+
+
+<div id="btm_nav" class="clearfix">
+    <p><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/foot_txt.gif" alt="日本郵便株式会社"></p>
+    <ul class="clearfix">
+        <li><a href="http://www.post.japanpost.jp/about/index.html">企業情報</a></li>
+        <li><a href="http://www.post.japanpost.jp/sitepolicy.html">サイトのご利用について</a></li>
+        <li><a href="http://www.post.japanpost.jp/privacy.html">プライバシーポリシー</a></li>
+        <li><a href="http://www.post.japanpost.jp/inducementpolicy.html">勧誘方針</a></li>
+        <li><a href="http://www.post.japanpost.jp/about/employment/index.html">採用情報</a></li>
+        <li class="last"><a href="http://www.post.japanpost.jp/social_media/index.html">ソーシャルメディア</a></li>
+    </ul>
+</div>
+
+
+    
+
+
+
+  
+
+
+
+
+<div id="footer">
+    <p><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/foot_logo.gif" alt="日本郵政グループ"></p>
+    <address><img src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/copyright.gif" alt="Copyright (c) JAPAN POST Co.,Ltd. All rights reserved."></address>
+</div>
+
+</div>
+
+    
+
+
+
+  
+
+
+
+
+
+<script type="text/javascript">
+<!--
+var ala_noCacheParam=Math.random()*10000000000;
+var ala_protocol = location.protocol;
+if (ala_protocol != 'https:'){
+ ala_protocol = "http:";
+}
+document.write("<script src=\""+ala_protocol+"//ala.durasite.net/tracking.js?cid=72&ord="+ala_noCacheParam+"\" type=\"text/javascript\"></scr"+"ipt>");
+//-->
+</script><script src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/tracking.js" type="text/javascript"></script><script src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/ala_ua_analyze.js" type="text/javascript"></script>
+
+
+<script src="%E5%80%8B%E5%88%A5%E7%95%AA%E5%8F%B7%E6%A4%9C%E7%B4%A2%E7%B5%90%E6%9E%9C%20-%20%E6%97%A5%E6%9C%AC%E9%83%B5%E4%BE%BF_files/AccessStart.htm"></script></body></html>

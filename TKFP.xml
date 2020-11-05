@@ -1,0 +1,4913 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TKFP</name>
+    </assembly>
+    <members>
+        <member name="T:TKFP.Net.ServerConnectException">
+            <summary>
+             サーバーへの接続に失敗したときに発生する例外  
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.ServerConnectException.#ctor">
+            <summary>
+            インスタンスの初期化
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.ActivePortOpenException">
+            <summary>
+             Active接続用のポート準備に失敗したときに発生する例外  
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.ActivePortOpenException.#ctor">
+            <summary>
+            インスタンスの初期化
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.LogonException">
+            <summary>
+             ログオンに失敗したときに発生する例外  
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.LogonException.#ctor">
+            <summary>
+            インスタンスの初期化
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.ResposeTimeOutException">
+            <summary>
+            送信レスポンスが指定時間内に受信できなかったときに発生する例外
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.ResposeTimeOutException.#ctor">
+            <summary>
+            インスタンスの初期化
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.CommandException">
+            <summary>
+            通信コマンド共通の例外
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandException._ResponseNumber">
+            <summary>
+            レスポンスコード
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandException.ResponseNumber">
+            <summary>
+            レスポンスコード中の番号
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandException.SendMessage">
+            <summary>
+            このエラーの元になった送信メッセージ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandException.ReceiveMessage">
+            <summary>
+            このエラーの元になった受信メッセージ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.CommandException.#ctor(TKFP.Net.Command.ResponseCode,System.String)">
+            <summary>
+            例外のインスタンスを初期化します
+            </summary>
+            <param name="Response"></param>
+            <param name="SendMessage"></param>
+        </member>
+        <member name="M:TKFP.Net.CommandException.#ctor(TKFP.Net.Command.ResponseCode,System.String,System.String)">
+            <summary>
+            例外のインスタンスを初期化します
+            </summary>
+            <param name="Response"></param>
+            <param name="ErrorMessage"></param>
+            <param name="SendMessage"></param>
+        </member>
+        <member name="M:TKFP.Net.CommandException.#ctor(TKFP.Net.Command.ResponseNumbers,System.String)">
+            <summary>
+            例外のインスタンスを初期化します
+            </summary>
+            <param name="Code"></param>
+            <param name="ErrorMessage"></param>
+        </member>
+        <member name="T:TKFP.Net.Command.PORT">
+            <summary>
+            データ用コネクションを確立するためのコマンドクラス
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.ConnectionCommandBase">
+            <summary>
+            データコネクションの接続コマンドの基底クラス
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.CommandBase">
+            <summary>
+            通信処理の基本クラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase.ENDCODE1">
+            <summary>
+            終了コード１「CrLf」
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase._ReceiveBlockSize">
+            <summary>
+            受信バッファの最大サイズ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+            <returns>正常に処理できたときにtrueを返す</returns>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.OnMessageReceive(TKFP.Net.MessageArgs)">
+            <summary>
+             データ送信直後のイベントを発生する
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.OnMessageSend(TKFP.Net.MessageArgs)">
+            <summary>
+             データ送信直後のイベントを発生する
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase.EventQueue">
+            <summary>
+            同期実行時のイベント格納キュー
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase._TimeOutInterval">
+            <summary>
+            タイムアウトまでの時間（秒）
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase._NetStream">
+            <summary>
+            送受信を行うためのストリームクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase._CommandEnd">
+            <summary>
+            通信処理が終了している事を示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase._CommandError">
+            <summary>
+            通信エラーが発生したことを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase._ErrorException">
+            <summary>
+            通信中に発生した特定可能なエラー
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase._Response">
+            <summary>
+            レスポンス情報を格納するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase._ReceiveStr">
+            <summary>
+            受信中の文字列
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase._TextEncoding">
+            <summary>
+            日本語を処理するためのエンコードクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandBase._CurrentDirectory">
+            <summary>
+            カレントディレクトリを管理するクラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.CancelExecution">
+            <summary>
+            通信処理の中断を行う。中断可能なコマンドのみが実装を行う
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.Execution(System.IO.Stream,System.Text.Encoding,TKFP.Net.CurrentDirectory,System.Int32)">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.ExecutionRelay(TKFP.Net.Command.CommandBase)">
+            <summary>
+            このコマンドクラスの条件で指定したコマンドを実行する
+            </summary>
+            <param name="Command"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.Send(System.String)">
+            <summary>
+            送受信処理を行う
+            </summary>
+            <param name="Message">送信メッセージ</param>
+            <returns>正常にレスポンスコードを受信できたときにtrue</returns>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.Send(System.String,System.String)">
+            <summary>
+            送受信処理を行う
+            </summary>
+            <param name="Message">送信メッセージ</param>
+            <param name="LogMessage">ログ用文字列</param>
+            <returns>正常にレスポンスコードを受信できたときにtrue</returns>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.SendString(System.String,System.String)">
+            <summary>
+            データ送信処理
+            </summary>
+            <param name="Message">送信メッセージ</param>
+            <param name="LogMessage">ログ用文字列</param>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.ReceiveWait">
+            <summary>
+            受信結果を待つ
+            </summary>
+            <returns>正常終了でtrue</returns>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandBase.ReceiveWaitCallBack">
+            <summary>
+            メッセージ受信待ち中に発生するコールバックメソッド
+            </summary>
+            <returns>スレッドにウエイトを挿入する場合にture</returns>
+        </member>
+        <member name="E:TKFP.Net.Command.CommandBase.MessageReceive">
+            <summary>
+            データ送信直後のイベント
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.Command.CommandBase.MessageSend">
+            <summary>
+            データ送信直直後のイベント
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.CommandBase.CommandEnd">
+            <summary>
+            通信処理が終了している事を示す値の読み出しを行う
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.CommandBase.CommandError">
+            <summary>
+            通信エラーが発生したことを示す値の読み出しを行う
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.CommandBase.ErrorException">
+            <summary>
+            通信中に発生した特定可能なエラーを読み出す
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.CommandBase.IsTerminate">
+            <summary>
+            全ての通信の終わりになるコマンドを示す値の読み出しを行う
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.CommandBase.TextEncoding">
+            <summary>
+            日本語を処理するためのエンコードクラスの読み出しを行う
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ConnectionCommandBase.OnDataSend(TKFP.Net.DataForwardArgs)">
+            <summary>
+            データ送信中のイベントを発生する
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.ConnectionCommandBase.OnDataReceive(TKFP.Net.DataForwardArgs)">
+            <summary>
+            データ受信中のイベントを発生する
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="F:TKFP.Net.Command.ConnectionCommandBase._Connection">
+            <summary>
+            データ用コネクションクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ConnectionCommandBase._ConnectionParameter">
+            <summary>
+            データコネクションの接続用パラメータ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ConnectionCommandBase.#ctor(TKFP.Net.DataConnection.Parameter)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ConnectionCommandBase._Connection_DataSend(System.Object,TKFP.Net.DataForwardArgs)">
+            <summary>
+            データ送信中のイベント
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.ConnectionCommandBase._Connection_DataReceive(System.Object,TKFP.Net.DataForwardArgs)">
+            <summary>
+            データ受信中のイベント
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:TKFP.Net.Command.ConnectionCommandBase.DataSend">
+            <summary>
+            データ送信中のイベント
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.Command.ConnectionCommandBase.DataReceive">
+            <summary>
+            データ受信中のイベント
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.ConnectionCommandBase.Connection">
+            <summary>
+            データ用コネクションクラスを返す
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.PORT.#ctor(TKFP.Net.DataConnection.Parameter)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.PORT.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.NOOP">
+            <summary>
+            接続を維持するための何もしないコマンド
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.NOOP.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.NOOP.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.ListCommandBase">
+            <summary>
+            フォルダ内のメンバーを取得するクラスの基本クラス
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.CommandPack">
+            <summary>
+            複数のコマンドをセットで扱うためのクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandPack._Commands">
+            <summary>
+            コマンドのセット
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandPack.#ctor(TKFP.Net.Command.CommandBase[])">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandPack.CancelExecution">
+            <summary>
+            通信処理の中断を行う
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandPack.AddCommand(TKFP.Net.Command.CommandBase)">
+            <summary>
+            コマンドを追加する
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandPack.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandPack.Command_MessageSend(System.Object,TKFP.Net.MessageArgs)">
+            <summary>
+            送信メッセージイベントのリレー
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandPack.Command_MessageReceive(System.Object,TKFP.Net.MessageArgs)">
+            <summary>
+            受信メッセージイベントのリレー
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCommandBase._FullPath">
+            <summary>
+            取得するパス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCommandBase._Cache">
+            <summary>
+            取得データのキャッシュクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCommandBase._Data">
+            <summary>
+            取得したデータ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCommandBase._DebugLog">
+            <summary>
+            デバッグ用ログ処理クラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCommandBase.#ctor(TKFP.PathString.IPath,TKFP.Net.Command.ListCache,TKFP.Net.DebugLog)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="FullPath"></param>
+            <param name="Cache"></param>
+            <param name="DebugLog"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCommandBase.GetCommandData">
+            <summary>
+            通信実行結果のデータを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCommandBase.CommandExecution">
+            <summary>
+            データ受信を行う
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.Net.Command.ListCommandBase.Data">
+            <summary>
+            受信したデータを返す
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.ResponseNumbers">
+            <summary>
+            サーバーからのレスポンスコード一覧
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_125">
+            <summary>
+            Data connection already open; transfer starting. データコネクションはすでに確立されている。このコネクションで転送を開始する 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_150">
+            <summary>
+            File status okay; about to open data connection. ファイルステータスは正常である。データコネクションを確立する 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_200">
+            <summary>
+            Command okay. コマンドは正常に受け入れられた 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_213">
+            <summary>
+            File status. 情報取得コマンドの成功を示す
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_214">
+            <summary>
+            HELPコマンドによる情報取得を示す 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_215">
+            <summary>
+            SYSTコマンドが正常に受け入れられた 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_226">
+            <summary>
+            Closing data connection. 要求されたリクエストは成功した。データコネクションをクローズする 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_227">
+            <summary>
+            Entering Passive Mode (h1,h2,h3,h4,p1,p2). PASVコマンドへのレスポンス。h1～h4はIPアドレス、p1～p2はポート番号を示す 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_234">
+            <summary>
+            AUTHコマンドが正常に受け入れられた 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_250">
+            <summary>
+            Requested file action okay, completed. 要求されたコマンドによる操作は正常終了した 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_257">
+            <summary>
+            "PATHNAME" created. ファイルやディレクトリを作成したというのがRFCでの意味だが、MKDコマンドの結果以外にも、実際にはPWDコマンドの結果にも用いられる 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_350">
+            <summary>
+            Requested file action pending further information 他の何らかの情報を求めている 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_426">
+            <summary>
+            Requested file action pending further information 他の何らかの情報を求めている 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_500">
+            <summary>
+            Connection closed; transfer aborted. 何らかの原因により、コネクションをクローズし、データ転送も中止した 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_501">
+            <summary>
+            コマンドの文法エラー
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_521">
+            <summary>
+            Syntax error in parameters or arguments. 引数やパラメータの文法エラー 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_550">
+            <summary>
+            Requested action not taken. 要求されたリクエストはアクセス権限やファイルシステムの理由で実行できない 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseNumbers.Code_553">
+            <summary>
+            Requested action not taken. ファイル名が間違っているため実行できない 
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.Cache.Exists">
+            <summary>
+            ファイル／ディレクトリが存在することを示す値をキャッシュするクラス
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.Cache.CacheBase">
+            <summary>
+            StatusCache の概要の説明です。
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.CacheBase._ValidityTime">
+            <summary>
+            キャッシュデータの有効期限
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.CacheBase._CacheValidityInterval">
+            <summary>
+            キャッシュが有効な時間（ｓ）
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.Cache.CacheBase.#ctor(System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.Cache.CacheBase.ValidityTimeUpDate">
+            <summary>
+            有効期限を更新する
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.Cache.CacheBase.Refresh">
+            <summary>
+            キャッシュの情報を最新にするための処理を行う
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.Cache.CacheBase.IsValidity">
+            <summary>
+            キャッシュの値が有効なことを示すフラグを返す
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.Exists._Exists">
+            <summary>
+            ファイル／ディレクトリが存在することを示す値
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.Cache.Exists.Update(System.Boolean)">
+            <summary>
+            保持データを更新する
+            </summary>
+            <param name="Exists"></param>
+        </member>
+        <member name="M:TKFP.IO.Cache.Exists.#ctor(System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="CacheValidityInterval"></param>
+        </member>
+        <member name="P:TKFP.IO.Cache.Exists.Value">
+            <summary>
+            ファイル一覧を返す
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.DebugLog">
+            <summary>
+            デバッグ用のログを格納するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DebugLog._FileName">
+            <summary>
+            ログファイル名
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DebugLog.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DebugLog.SendLog(System.String)">
+            <summary>
+            送信文字列をログファイルを書き込む
+            </summary>
+            <param name="Message"></param>
+        </member>
+        <member name="M:TKFP.Net.DebugLog.ReceiveLog(System.String)">
+            <summary>
+            受信文字列をログファイルへ書き込む
+            </summary>
+            <param name="Message"></param>
+        </member>
+        <member name="M:TKFP.Net.DebugLog.ListLog(System.String)">
+            <summary>
+            リスト取得情報をログファイルへ書き込む
+            </summary>
+            <param name="Message"></param>
+        </member>
+        <member name="M:TKFP.Net.DebugLog.SystemMessage(System.String)">
+            <summary>
+            通信クラスの情報メッセージをログファイルへ出力する
+            </summary>
+            <param name="Message"></param>
+        </member>
+        <member name="M:TKFP.Net.DebugLog.SaveLog(System.String,System.String)">
+            <summary>
+            ログファイルへのデータを出力する
+            </summary>
+            <param name="Message"></param>
+            <param name="MessageType"></param>
+        </member>
+        <member name="P:TKFP.Net.DebugLog.FileName">
+            <summary>
+            ログファイル名の読出しと設定を行う
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.DataConnection.ConnectionBase">
+            <summary>
+            データコネクションの基本クラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ConnectionBase.OnDataSend(TKFP.Net.DataForwardArgs)">
+            <summary>
+            データ送信中のイベントを発生する
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ConnectionBase.OnDataReceive(TKFP.Net.DataForwardArgs)">
+            <summary>
+            データ受信中のイベントを発生する
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ConnectionBase._Connected">
+            <summary>
+            接続完了を示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ConnectionBase._CanConnect">
+            <summary>
+            接続メソッドが使用可能なことを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ConnectionBase._DataLoaded">
+            <summary>
+            データの読み出し完了を示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ConnectionBase._SendBufferSize">
+            <summary>
+            送信用バッファサイズ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ConnectionBase._ReceiveBufferSize">
+            <summary>
+            受信バッファサイズ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ConnectionBase._TcpSocket">
+            <summary>
+            データの受信処理用ソケット
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ConnectionBase._CancelConnection">
+            <summary>
+            データコネクションの中断を判定するメソッド
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ConnectionBase._ConnectionParameter">
+            <summary>
+            データコネクションの接続用パラメータ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ConnectionBase.#ctor(TKFP.Net.DataConnection.Parameter)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ConnectionBase.ConnectReady">
+            <summary>
+            接続のための準備を行う
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ConnectionBase.Connect">
+            <summary>
+            サーバーへの接続を行う
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ConnectionBase.Close">
+            <summary>
+            切断処理を行う
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ConnectionBase.CancelConnection">
+            <summary>
+            転送中のデータコネクションを中止する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ConnectionBase.GetNetStream">
+            <summary>
+            データコネクションを処理するストリームを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ConnectionBase.DataLoad(System.IO.Stream)">
+            <summary>
+            データの受信処理
+            </summary>
+            <param name="Stream"></param>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ConnectionBase.DataSave(System.IO.Stream)">
+            <summary>
+            データの送信を行う
+            </summary>
+            <param name="Stream"></param>
+        </member>
+        <member name="E:TKFP.Net.DataConnection.ConnectionBase.DataSend">
+            <summary>
+            データ送信中のイベント
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.DataConnection.ConnectionBase.DataReceive">
+            <summary>
+            データ受信中のイベント
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.DataConnection.ConnectionBase.CanConnect">
+            <summary>
+            接続可能なときにtrueを返す
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.DataConnection.ConnectionBase.Connected">
+            <summary>
+            接続完了を示す値を返す
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.DataConnection.ConnectionBase.DataLoaded">
+            <summary>
+            データの受信完了を示す値を返す
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.UnixListDataLoader">
+            <summary>
+            Unix標準のリスト情報の解析を行うクラス
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.IListDataLoader">
+            <summary>
+            リスト情報の解析を行うクラスのインターフェース
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.IListDataLoader.GetDatas(System.String)">
+            <summary>
+            リストデータの各行からファイル／フォルダの情報取得を行います
+            </summary>
+            <param name="StringData">ステータスを示す受信テキストデータ</param>
+            <returns>ファイルとフォルダの情報を持つListDataクラスの配列</returns>
+        </member>
+        <member name="P:TKFP.IO.IListDataLoader.TimeDifference">
+            <summary>
+            リスト情報が持つ時刻とローカルの時刻との時差の取得設定を行います。
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.UnixListDataLoader.LIST_PATTERN_TYPE1">
+            <summary>
+            標準のＬＩＳＴ情報の正規表現
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.UnixListDataLoader.LIST_PATTERN_TYPE2">
+            <summary>
+            特殊なＬＩＳＴ情報の正規表現
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.UnixListDataLoader.LIST_PATTERN_TYPE3">
+            <summary>
+            特殊なＬＩＳＴ情報の正規表現
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.UnixListDataLoader.DATETIME_CLIENT_ERRORVALUE">
+            <summary>
+            クライアントＰＣの時刻のズレ幅(分)
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.UnixListDataLoader._TimeDifference">
+            <summary>
+            修正用の時間
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.UnixListDataLoader._ListPattrens">
+            <summary>
+            ＬＩＳＴ情報の正規表現一覧
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.UnixListDataLoader.#ctor">
+            <summary>
+            この解析クラスの新しいインスタンスを作成します
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.UnixListDataLoader.GetDatas(System.String)">
+            <summary>
+            リストデータの各行からファイル／フォルダの情報取得を行います
+            </summary>
+            <param name="StringData">ステータスを示す受信テキストデータ</param>
+            <returns>ファイルとフォルダの情報を持つListDataクラスの配列</returns>
+        </member>
+        <member name="M:TKFP.IO.UnixListDataLoader.GetData(System.String)">
+            <summary>
+            リストデータの各行から情報取得を行う
+            </summary>
+            <param name="StringLine">ステータスを示す受信テキスト行</param>
+        </member>
+        <member name="M:TKFP.IO.UnixListDataLoader.GetDate(System.Text.RegularExpressions.Match)">
+            <summary>
+            日付を取得する
+            </summary>
+            <param name="Match"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.IO.UnixListDataLoader.TimeDifference">
+            <summary>
+            リスト情報が持つ時刻とローカルの時刻との時差の取得設定を行います。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.UnixListDataLoader.Pattrens">
+            <summary>
+            このクラスで解析可能なパターンの正規表現の読出しと設定を行います。複数の正規表現を登録することが可能です。
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.MDTMRead">
+            <summary>
+            ファイルの時刻の取得を行うコマンドクラス
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.DateTimeReadCommandBase">
+            <summary>
+            ファイルの時刻の取得と設定を行うコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.DateTimeReadCommandBase._DateTime">
+            <summary>
+            取得した時刻又は設定を行うための時刻
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.DateTimeReadCommandBase._PathName">
+            <summary>
+            取得するファイル又はフォルダの名称
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.DateTimeReadCommandBase._Cache">
+            <summary>
+            取得データのキャッシュクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.DateTimeReadCommandBase._TimeDifference">
+            <summary>
+            コマンドで扱う時刻の時差
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.DateTimeReadCommandBase.#ctor(TKFP.PathString.IPath,System.TimeSpan,TKFP.Net.Command.ListCache)">
+            <summary>
+            読み出しコマンドの新しいインスタンスを作成する
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.DateTimeReadCommandBase.DateTime">
+            <summary>
+            取得した時間の読み出しを行う
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.MDTMRead.#ctor(TKFP.PathString.IPath,System.TimeSpan,TKFP.Net.Command.ListCache)">
+            <summary>
+            読み出しコマンドの新しいインスタンスを作成する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.MDTMRead.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.ConnectionModes">
+            <summary>
+            データコネクションの方法
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.ConnectionModes.Active">
+            <summary>
+            アクティブモード
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.ConnectionModes.Passive">
+            <summary>
+            パッシブモード
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.ConnectionModes.Client">
+            <summary>
+            FtpClientクラスのモードを使用
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.TransferTypes">
+            <summary>
+            データの送受信タイプ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.TransferTypes.ASCII">
+            <summary>
+            アスキーモード
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.TransferTypes.BINARY">
+            <summary>
+            バイナリモード
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.ListType">
+            <summary>
+            ファイル／フォルダ一覧の取得方法
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.ListType.LIST">
+            <summary>
+            LISTコマンドを使用して情報を取得します
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.ListType.NLST">
+            <summary>
+            NLSTコマンドを使用して情報を取得します
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.ListType.NLSTExtend">
+            <summary>
+            NLSTコマンドに「R」オプションを付加して情報を取得します
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.DataConnection.Active">
+            <summary>
+            アクティブモードでコネクションの接続を行うためのクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Active._LocalEndPoint">
+            <summary>
+            接続待ちを行うエンドポイント
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Active._Listener">
+            <summary>
+            接続待ちを行うリスナーソケット
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.Active.#ctor(System.Net.IPEndPoint,TKFP.Net.DataConnection.Parameter)">
+            <summary>
+            アクティブモードでの接続用クラスを作成する
+            </summary>
+            <param name="EndPoint">接続元を示すエンドポイント</param>
+            <param name="ConnectionParameter">コネクションのパラメータクラス</param>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.Active.ConnectReady">
+            <summary>
+            接続のための準備を行う
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.Active.Connect">
+            <summary>
+            サーバーとの接続を行う
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.Active.GetPortString">
+            <summary>
+            アクティブポートを表す送信文字列を作成する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TKFP.Net.Connection">
+            <summary>
+            接続管理用のクラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Connection.OnMessageReceive(TKFP.Net.MessageArgs)">
+            <summary>
+             データ送信直後のイベントを発生する
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.Connection.OnMessageSend(TKFP.Net.MessageArgs)">
+            <summary>
+             データ送信直後のイベントを発生する
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.Connection.OnRequestKeepAlive(System.EventArgs)">
+            <summary>
+            KeepAliveシグナルを要求するイベントを発生します
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="F:TKFP.Net.Connection._HostName">
+            <summary>
+            接続先のホスト名
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._Port">
+            <summary>
+            接続ポート番号
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._TimeOutInterval">
+            <summary>
+            タイムアウトまでの時間（秒）
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._NetStream">
+            <summary>
+            送受信を行うためのストリームクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._Socket">
+            <summary>
+            通信ソケットクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._CommandQueue">
+            <summary>
+            コマンド送信用のメッセージキュー
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._CommandThread">
+            <summary>
+            コマンドの非同期処理用スレッド
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._MessageLog">
+            <summary>
+            メッセージログを記録するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._KeepAliveInterval">
+            <summary>
+            KeepAliveを発行する間隔（秒）
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._ExecutionLockObject">
+            <summary>
+            コマンド実行スレッドの同期オブジェクト
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._CommandLockObject">
+            <summary>
+            コマンド終了待ちスレッドの同期オブジェクト
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._TextEncoding">
+            <summary>
+            日本語ファイルを処理する文字コード
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._DebugLog">
+            <summary>
+            デバッグ用ログ処理クラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._CurrentDirectory">
+            <summary>
+            カレントディレクトリを管理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Connection._NowCommand">
+            <summary>
+            現在実行中のコマンド
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Connection.#ctor(System.String,System.Int32,TKFP.Net.MessageLog,TKFP.Net.DebugLog,TKFP.Net.CurrentDirectory)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Connection.Connect">
+            <summary>
+            接続開始
+            </summary>
+            <returns>接続直後に受信した文字列</returns>
+        </member>
+        <member name="M:TKFP.Net.Connection.ConnectSSL(System.Net.Security.RemoteCertificateValidationCallback)">
+            <summary>
+            接続開始
+            </summary>
+            <returns>接続直後に受信した文字列</returns>
+        </member>
+        <member name="M:TKFP.Net.Connection.ConnectPrivate(System.Boolean,System.Net.Security.RemoteCertificateValidationCallback)">
+            <summary>
+            接続開始
+            </summary>
+            <returns>接続直後に受信した文字列</returns>
+        </member>
+        <member name="M:TKFP.Net.Connection.Close">
+            <summary>
+            通信切断処理
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Connection.ChangeTLSAuthenticate(System.Security.Authentication.SslProtocols,System.Net.Security.RemoteCertificateValidationCallback)">
+            <summary>
+            通信処理をＴＬＳへ変更する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Connection.AddCommand(TKFP.Net.Command.CommandBase)">
+            <summary>
+            実行コマンドを登録する
+            </summary>
+            <param name="Command"></param>
+        </member>
+        <member name="M:TKFP.Net.Connection.CancelCommand">
+            <summary>
+            実行中の現在のコマンドを中断する。ただし、中断処理が実装されているコマンドに限る
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Connection.SyncCommand(TKFP.Net.Command.CommandBase)">
+            <summary>
+            同期実行の終了を待つ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Connection.CommandExecution">
+            <summary>
+            コマンドキューの処理を行う非同期メソッド
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Connection.Command_MessageSend(System.Object,TKFP.Net.MessageArgs)">
+            <summary>
+            メッセージを送信したときのイベント
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.Connection.Command_MessageReceive(System.Object,TKFP.Net.MessageArgs)">
+            <summary>
+            メッセージを受信したときのイベント
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:TKFP.Net.Connection.MessageReceive">
+            <summary>
+            データ送信直後のイベント
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.Connection.MessageSend">
+            <summary>
+            データ送信直直後のイベント
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.Connection.RequestKeepAlive">
+            <summary>
+            KeepAliveシグナルを要求するイベント
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Connection.TimeOutInterval">
+            <summary>
+            送受信がタイムアウトする時間（秒単位）の設定と読み出しを行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Connection.KeepAliveInterval">
+            <summary>
+            KeepAliveを発行する時間（秒単位）の設定と読み出しを行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Connection.LocalIPEndPort">
+            <summary>
+            接続ソケットのローカルエンドポイント情報を読み出す
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Connection.RemoteIPEndPort">
+            <summary>
+            接続ソケットのリモートエンドポイント情報を読み出す
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Connection.TextEncoding">
+            <summary>
+            日本語ファイルを処理する文字コードの読出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Connection.IsEncrypted">
+            <summary>
+            現在の通信が暗号化されていることを示す値の読み出しを行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Connection.SslProtocol">
+            <summary>
+            現在の暗号化の方法の読み出しを行います
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Connection.TcpClient">
+            <summary>
+            System.Net.Sockets.TcpClientからSystem.Net.Sockets.Socketを取り出すラッパークラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Connection.TcpClient.GetClient">
+            <summary>
+            内部のSystem.Net.Sockets.Socketクラスを読み出す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TKFP.Net.Command.QUIT">
+            <summary>
+            切断コマンドを発行する
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.QUIT._FtpLogon">
+            <summary>
+            ログオン処理クラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.QUIT.#ctor(TKFP.Net.IFtpLogon)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.QUIT.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.QUIT.IsTerminate">
+            <summary>
+            全ての通信の終わりになるコマンドを示す値の読み出しを行う
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.NLST">
+            <summary>
+            ファイル一覧を表示するコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.NLST._Path">
+            <summary>
+            ファイル一覧を読み出すパス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.NLST._ConnectionCommand">
+            <summary>
+            データ用コネクションコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.NLST._LoadData">
+            <summary>
+            読み出した情報を格納するストリームクラス
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:TKFP.Net.Command.NLST._Option">
+            <summary>
+            コマンドオプション
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.NLST.#ctor(TKFP.Net.Command.ConnectionCommandBase,System.String,TKFP.PathString.IPath)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.NLST.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.NLST.Data">
+            <summary>
+            受信したデータを返す
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.HELP">
+            <summary>
+            HELPコマンド実行するコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.HELP._Commands">
+            <summary>
+            実行可能なコマンドの一覧
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.HELP._Parameter">
+            <summary>
+            実行コマンドの追加パラメータ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.HELP.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.HELP.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.HELP.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.HELP.Commands">
+            <summary>
+            実行可能なコマンドの一覧の読み出しを行なう
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.CWD">
+            <summary>
+            カレントディレクトリを変更するコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CWD._Path">
+            <summary>
+            変更先のディレクトリ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CWD.#ctor(TKFP.PathString.Folder)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CWD.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CWD.PrivateCommandExecution(System.String)">
+            <summary>
+            カレントディレクトリの変更を行なう
+            </summary>
+            <param name="Path"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TKFP.IO.Permission">
+            <summary>
+            ファイル／フォルダのパーミッション情報をもつクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Permission.User">
+            <summary>
+            所有者のパーミッション
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Permission.Group">
+            <summary>
+            グループのパーミッション
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Permission.Other">
+            <summary>
+            その他のパーミッション
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Permission.Directory">
+            <summary>
+            ディレクトリを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Permission.Sticky">
+            <summary>
+            Sticky Bit
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Permission.Suid">
+            <summary>
+            Set UID
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Permission.Sgid">
+            <summary>
+            Set GID
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.Permission.#ctor(TKFP.IO.PermissionFlag,TKFP.IO.PermissionFlag,TKFP.IO.PermissionFlag)">
+            <summary>
+            ファイル／フォルダのパーミッション情報をもつクラスのインスタンスを作成する
+            </summary>
+            <param name="UserPermission">所有者のパーミッション</param>
+            <param name="GroupPermission">グループのパーミッション</param>
+            <param name="OtherPermission">その他のパーミッション</param>
+        </member>
+        <member name="M:TKFP.IO.Permission.#ctor(System.Boolean,TKFP.IO.PermissionFlag,TKFP.IO.PermissionFlag,TKFP.IO.PermissionFlag,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            ファイル／フォルダのパーミッション情報をもつクラスのインスタンスを作成する
+            </summary>
+            <param name="Directory">ディレクトリを示す値</param>
+            <param name="UserPermission">所有者のパーミッション</param>
+            <param name="GroupPermission">グループのパーミッション</param>
+            <param name="OtherPermission">その他のパーミッション</param>
+            <param name="Suid"> Set UID</param>
+            <param name="Sgid"> Set GID</param>
+            <param name="Sticky"> Sticky Bit</param>
+        </member>
+        <member name="M:TKFP.IO.Permission.Clone">
+            <summary>
+            このクラスのクローンを作成する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.IO.Permission.ToString">
+            <summary>
+            このクラスのパーミッション情報を表す文字列を返します
+            </summary>
+            <returns>パーミッション情報を表す文字列</returns>
+        </member>
+        <member name="P:TKFP.IO.Permission.PermissionCode">
+            <summary>
+            パーミッションを表すコードの読み出しを行う
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.Permission.PermissionCommandCode">
+            <summary>
+            コマンド送信用のパーミッションを表すコードの読み出しを行う
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.FileSystemInfo">
+            <summary>
+             TKFP.IO.FileInfo オブジェクトと TKFP.IO.DirectoryInfo オブジェクトの両方の基本クラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileSystemInfo.DATETIME_CLIENT_ERRORVALUE">
+            <summary>
+            クライアントＰＣの時刻のズレ幅(分)
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileSystemInfo.FtpClient">
+            <summary>
+            接続処理用のクライアントクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileSystemInfo.StatusCache">
+            <summary>
+            システム情報のキャッシュクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileSystemInfo.ExistsCache">
+            <summary>
+            ディレクトリが存在するかどうかを示す値のキャッシュクラス
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.FileSystemInfo.#ctor(TKFP.Net.FtpClient)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="FtpClient">このファイルシステムで使用するクライアントクラス</param>
+        </member>
+        <member name="M:TKFP.IO.FileSystemInfo.SetFullPath(TKFP.PathString.IPath)">
+            <summary>
+            インスタンスのフルパスを変更する
+            </summary>
+            <param name="FullPath"></param>
+        </member>
+        <member name="M:TKFP.IO.FileSystemInfo.SetStatus(TKFP.IO.ListData,TKFP.PathString.Folder)">
+            <summary>
+            取得文字列からステータスの情報を格納する
+            </summary>
+            <param name="ListData">このデータの情報解析結果を格納しているクラス</param>
+            <param name="ParentPath">このファイル／フォルダ情報の親フォルダのパス</param>
+        </member>
+        <member name="M:TKFP.IO.FileSystemInfo.SetStatus(TKFP.IO.ListData)">
+            <summary>
+            取得文字列からステータスの情報を格納する
+            </summary>
+            <param name="ListData">このデータの情報解析結果を格納しているクラス</param>
+        </member>
+        <member name="M:TKFP.IO.FileSystemInfo.SetPermission(TKFP.IO.Permission)">
+            <summary>
+            パーミッションの登録を行う
+            </summary>
+            <param name="Permission"></param>
+        </member>
+        <member name="M:TKFP.IO.FileSystemInfo.ReName(System.String)">
+            <summary>
+            ファイル／フォルダの名称を変更します。
+            </summary>
+            <param name="NewName">新しいファイル名またはフォルダ名を示す文字列</param>
+        </member>
+        <member name="M:TKFP.IO.FileSystemInfo.Refresh">
+            <summary>
+            オブジェクトの状態を更新します。
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.FileSystemInfo.GetSearchRegex(System.String)">
+            <summary>
+            検索用パターンを正規表現へ変換する
+            </summary>
+            <param name="searchPattern"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.IO.FileSystemInfo.FullPath">
+            <summary>
+            ファイル／フォルダのフルパス
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileSystemInfo.Name">
+            <summary>
+            ファイルの場合は、そのファイルの名前を取得します。ディレクトリの場合は、階層が存在する場合は、その階層内にある最後のディレクトリの名前を取得します。それ以外の場合は、Name プロパティはそのディレクトリの名前を取得します。  
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileSystemInfo.CreationTime">
+            <summary>
+            ファイルまたはディレクトリの作成された日時の取得または設定します。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileSystemInfo.LastWriteTime">
+            <summary>
+            ファイルまたはディレクトリに最後に書き込みが行われた時刻を取得または設定します。この値は CreationTime と同じです。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileSystemInfo.FullName">
+            <summary>
+            ディレクトリまたはファイルの絶対パスの読出しを行います。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileSystemInfo.Extension">
+            <summary>
+            ファイルの拡張子部分を表す文字列の読出しを行います。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileSystemInfo.Permission">
+            <summary>
+            パーミッション情報の読出しと設定を行います。
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.FileInfo">
+            <summary>
+            ＦＴＰサーバー上のファイルを操作するためのクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileInfo._TransferType">
+            <summary>
+            ファイル転送時のモード
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileInfo._FullPath">
+            <summary>
+            このインスタンスのフルパスを示すクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileInfo._ConnectionMode">
+            <summary>
+            このクラスで使用するデータコネクションの接続方法
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.#ctor(TKFP.Net.FtpClient,System.String)">
+            <summary>
+            ファイル名を指定してインスタンスを初期化します
+            </summary>
+            <param name="FtpClient">ＦＴＰクライアントクラス</param>
+            <param name="FileName">ファイル名</param>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.#ctor(TKFP.Net.FtpClient,TKFP.PathString.Folder,TKFP.IO.ListData)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="FtpClient"></param>
+            <param name="ParentPath"></param>
+            <param name="ListData"></param>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.SetFullPath(TKFP.PathString.IPath)">
+            <summary>
+            インスタンスのフルパスを変更する
+            </summary>
+            <param name="FullPath"></param>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.GetExistsFlag">
+            <summary>
+            ファイルの生存情報を調べる
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.GetStatus">
+            <summary>
+            ファイルのステータス情報を調べる
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.UpdateFileStatus">
+            <summary>
+            ファイル情報を更新する
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.Delete">
+            <summary>
+            ファイルを完全に削除します。
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.CopyTo(System.String,System.Boolean)">
+            <summary>
+            既存のファイルを上書きできるようにして、サーバー上のファイルを新しいファイルにコピーします。
+            </summary>
+            <param name="destFileName">コピー先の新しいファイルの名前。</param>
+            <param name="overwrite">既存のファイルを上書きできるようにする場合は true。それ以外の場合は false。</param>
+            <returns>新しいファイル。または、overwrite が true の場合は、既存のファイルを上書したファイル。ファイルが既に存在している場合に、overwrite が false に設定されていると、System.IO.IOException がスローされます。 </returns>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.CopyTo(System.String)">
+            <summary>
+            既存のファイルを上書きできないようにして、サーバー上のファイルを新しいファイルにコピーします。
+            </summary>
+            <param name="destFileName">コピー先の新しいファイルの名前。</param>
+            <returns>新しいファイル</returns>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.OpenRead">
+            <summary>
+            読み取り専用の System.IO.FileStream を作成します。  
+            </summary>
+            <returns> 新しい読み取り専用の System.IO.FileStream オブジェクト。  </returns>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.OpenWrite">
+            <summary>
+            書き込み専用の System.IO.FileStream を作成します。   
+            </summary>
+            <returns>  新しい書き込み専用で非共有の System.IO.FileStream オブジェクト。   </returns>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.WriteTo(System.IO.Stream)">
+            <summary>
+            サーバー上のファイルのデータを指定したストリームへ書き込みます
+            </summary>
+            <param name="WriteStream">書込みがサポートされているストリームクラス</param>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.WriteTo(System.String)">
+            <summary>
+            サーバー上のファイルのデータを指定したファイルへ書き込みます
+            </summary>
+            <param name="path">データを書き込むファイル名</param>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.ReadFrom(System.IO.Stream)">
+            <summary>
+            指定したストリームからデータを読み出しサーバーへ送信します
+            </summary>
+            <param name="ReadStream">読み出しがサポートされているストリームクラス</param>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.ReadFrom(System.String)">
+            <summary>
+            指定したファイルからデータを読み出しサーバーへ送信します
+            </summary>
+            <param name="path">データを読み出すファイル名</param>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.GetFileData(System.IO.Stream)">
+            <summary>
+            ファイルのデータを受信する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.SaveFileData(System.IO.Stream)">
+            <summary>
+            ファイルのデータを送信する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.GetDateTime">
+            <summary>
+            ファイルの日付を取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.IO.FileInfo.SaveDateTime(System.DateTime)">
+            <summary>
+            ファイルの日付を設定する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.IO.FileInfo.FullPath">
+            <summary>
+            フォルダのフルパス
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileInfo.TransferType">
+            <summary>
+            ファイル転送モードを表す値の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileInfo.ConnectionMode">
+            <summary>
+            このクラスのファイル送受信で使用するデータコネクションの接続方法の読み出しと設定を行います。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileInfo.Length">
+            <summary>
+             現在のファイルのサイズを取得します。  
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileInfo.Exists">
+            <summary>
+            ファイルが存在するかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileInfo.DirectoryName">
+            <summary>
+            ディレクトリの絶対パスを表す文字列を取得します。  
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileInfo.Directory">
+            <summary>
+            親ディレクトリのインスタンスを取得します。  
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileInfo.Name">
+            <summary>
+             ファイルの名前を取得します。  
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileInfo.CreationTime">
+            <summary>
+            ファイルの作成された日時の取得と設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileInfo.Permission">
+            <summary>
+            パーミッション情報の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="T:TKFP.PathString.IPath">
+            <summary>
+            パスを表すクラスの基本インターフェイス
+            </summary>
+        </member>
+        <member name="M:TKFP.PathString.IPath.GetNewNamePath(System.String)">
+            <summary>
+            新しい名前に置き換えたインスタンスを作成する
+            </summary>
+            <param name="NewName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.PathString.IPath.FullPathString">
+            <summary>
+            このクラスが表すフルパス名
+            </summary>
+        </member>
+        <member name="P:TKFP.PathString.IPath.Parent">
+            <summary>
+            このパスの親フォルダを示すパスを返す
+            </summary>
+        </member>
+        <member name="P:TKFP.PathString.IPath.Name">
+            <summary>
+            このパスの最終名称を返す
+            </summary>
+        </member>
+        <member name="T:TKFP.PathString.Folder">
+            <summary>
+            フォルダパス名を管理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.PathString.Folder._FullPath">
+            <summary>
+            このクラスが表すフルパス名
+            </summary>
+        </member>
+        <member name="F:TKFP.PathString.Folder._IsRoot">
+            <summary>
+            パスがルートである事を示す値
+            </summary>
+        </member>
+        <member name="M:TKFP.PathString.Folder.#ctor">
+            <summary>
+            ルートフォルダを表すインスタンスを作成する
+            </summary>
+        </member>
+        <member name="M:TKFP.PathString.Folder.#ctor(System.String)">
+            <summary>
+            指定したフォルダを表すインスタンスを作成する
+            </summary>
+            <param name="FullPath"></param>
+        </member>
+        <member name="M:TKFP.PathString.Folder.#ctor(TKFP.PathString.Folder,System.String)">
+            <summary>
+            フォルダクラスのサブフォルダを表すインスタンスを作成する
+            </summary>
+            <param name="BaseFolder"></param>
+            <param name="AddFolder"></param>
+        </member>
+        <member name="M:TKFP.PathString.Folder.GetNewNamePath(System.String)">
+            <summary>
+            新しい名前に置き換えたインスタンスを作成する
+            </summary>
+            <param name="NewName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.PathString.Folder.GetChangeDirectoryList(TKFP.PathString.Folder)">
+            <summary>
+            ディレクトリを段階的に変更する場合の変更リストを作成する
+            </summary>
+            <param name="TargetFolder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.PathString.Folder.Equals(System.Object)">
+            <summary>
+            保持しているフルパスのフォルダが同値であることを検証します
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.PathString.Folder.FullPathString">
+            <summary>
+            このクラスが表すフルパス名
+            </summary>
+        </member>
+        <member name="P:TKFP.PathString.Folder.FullPathStringNoLastDirectorySeparatorChar">
+            <summary>
+            このクラスが表すフルパス名
+            </summary>
+        </member>
+        <member name="P:TKFP.PathString.Folder.IsRoot">
+            <summary>
+            パスがルートである事を示す値
+            </summary>
+        </member>
+        <member name="P:TKFP.PathString.Folder.Parent">
+            <summary>
+            このパスの親フォルダを示すパスを返す
+            </summary>
+        </member>
+        <member name="P:TKFP.PathString.Folder.Name">
+            <summary>
+            このパスの最終名称を返す
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.DataConnection.Passive">
+            <summary>
+            パッシブモードでコネクションの接続を行うためのクラス。
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Passive._ConnectEndPoint">
+            <summary>
+            接続先のエンドポイント
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.Passive.#ctor(TKFP.Net.DataConnection.Parameter)">
+            <summary>
+            パッシブモードでの接続用クラスを作成する
+            </summary>
+            <param name="ConnectionParameter">データコネクションの接続用パラメータ</param>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.Passive.ConnectReady">
+            <summary>
+            接続のための準備を行う
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.Passive.Connect">
+            <summary>
+            サーバーへの接続を行う
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.NLSTLoader">
+            <summary>
+            再起読み出し可能なNLSTコマンドでフォルダ情報を取得するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.NLSTLoader._Nlst">
+            <summary>
+            実行するリストコマンド
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.NLSTLoader.#ctor(TKFP.Net.Command.ConnectionCommandBase,System.String,System.Boolean,TKFP.PathString.IPath,TKFP.Net.Command.ListCache,TKFP.Net.DebugLog)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="Connection"></param>
+            <param name="FullPath"></param>
+            <param name="Cache"></param>
+            <param name="Comeback"></param>
+            <param name="Option"></param>
+            <param name="DebugLog"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.NLSTLoader.GetCommandData">
+            <summary>
+            通信実行結果のデータを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TKFP.Net.Command.LIST">
+            <summary>
+            ファイル一覧を表示するコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.LIST._Path">
+            <summary>
+            ファイル一覧を読み出すパス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.LIST._ConnectionCommand">
+            <summary>
+            データ用コネクションコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.LIST._LoadData">
+            <summary>
+            読み出した情報を格納するストリームクラス
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.Command.LIST.#ctor(TKFP.Net.Command.ConnectionCommandBase,TKFP.PathString.IPath)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.LIST.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.LIST.Data">
+            <summary>
+            受信したデータを返す
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.MessageLog">
+            <summary>
+            通信ログを管理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.MessageLog._ThreadSyncObject">
+            <summary>
+            スレッド同期用オブジェクト
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.MessageLog.OnMessageNew(System.EventArgs)">
+            <summary>
+            通信ログに新しいメッセージを登録した時のイベントを発生します
+            </summary>
+            <param name="e">イベント情報を格納している System.EventArgs</param>
+        </member>
+        <member name="F:TKFP.Net.MessageLog._Counter">
+            <summary>
+            ログ読み出しカウンター
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.MessageLog._LogDatas">
+            <summary>
+            通信ログの格納クラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.MessageLog._NewMessage">
+            <summary>
+            新しいメッセージが登録されたことを示す値
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.MessageLog.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.MessageLog.Eof">
+            <summary>
+            読み出しを行っていない通信ログが存在しない事を確認します。
+            </summary>
+            <returns>ログの最後のときtrueを返します。</returns>
+        </member>
+        <member name="M:TKFP.Net.MessageLog.MoveFirst">
+            <summary>
+            ログの読み出し位置を先頭にします。
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.MessageLog.Enqueue(TKFP.Net.MessageArgs)">
+            <summary>
+            ログデータを追加します。
+            </summary>
+            <param name="Message"></param>
+        </member>
+        <member name="M:TKFP.Net.MessageLog.Dequeue">
+            <summary>
+            ログデータを取り出します。
+            </summary>
+            <returns>記録されたメッセージログ</returns>
+        </member>
+        <member name="M:TKFP.Net.MessageLog.Clear">
+            <summary>
+            記録している通信ログを削除します
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.MessageLog.CallEvent">
+            <summary>
+            メッセージ追加イベントを発生します
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.MessageLog.MessageNew">
+            <summary>
+            通信ログに新しいメッセージを登録した時のイベント
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.MessageLog.NewMessage">
+            <summary>
+            新しいメッセージが登録されたことを示す値の読み出しを行います
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.TYPE">
+            <summary>
+            データの送受信を設定するコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.TYPE._Type">
+            <summary>
+            データの送受信タイプ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.TYPE.#ctor(TKFP.Net.TransferTypes)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.TYPE.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.DateTimeWriteCommandBase">
+            <summary>
+            ファイルの時刻の取得と設定を行うコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.DateTimeWriteCommandBase._DateTime">
+            <summary>
+            取得した時刻又は設定を行うための時刻
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.DateTimeWriteCommandBase._PathName">
+            <summary>
+            取得するファイル又はフォルダの名称
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.DateTimeWriteCommandBase._Cache">
+            <summary>
+            取得データのキャッシュクラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.DateTimeWriteCommandBase.#ctor(TKFP.PathString.IPath,System.DateTime,TKFP.Net.Command.ListCache)">
+            <summary>
+            読み出しコマンドの新しいインスタンスを作成する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.CommandList">
+            <summary>
+            ＦＴＰサーバーで使用可能なコマンドの一覧を管理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandList._Client">
+            <summary>
+            接続先ＦＴＰクライアント
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandList._Commands">
+            <summary>
+            HELPコマンドから取得した利用可能なコマンド一覧
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandList._SiteCommands">
+            <summary>
+            SITEコマンドで利用可能なコマンド一覧
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandList._CommandError">
+            <summary>
+            HELPコマンドでの情報取得に失敗したことを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandList._SiteCommandError">
+            <summary>
+            HELP SITEコマンドでの情報取得に失敗したことを示す値
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.CommandList.#ctor(TKFP.Net.FtpClient)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.CommandList.GetCommand">
+            <summary>
+            HELPコマンドで実行可能なコマンド一覧を取得するs
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.CommandList.GetSiteCommand">
+            <summary>
+            HELP SITEコマンドで実行可能なコマンド一覧を取得するs
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandList.Commands">
+            <summary>
+            HELPコマンドから取得した利用可能なコマンド一覧の読み出しを行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandList.SiteCommands">
+            <summary>
+            SITEコマンドで利用可能なコマンド一覧の読み出しを行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandList.CommandError">
+            <summary>
+            HELPコマンドでの情報取得に失敗したことを示す値の読み出しを行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandList.SiteCommandError">
+            <summary>
+            HELP SITEコマンドでの情報取得に失敗したことを示す値の読み出しを行います
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.FileStream">
+            <summary>
+            FTPサーバー上での仮想ストリームです
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileStream._BaseStream">
+            <summary>
+            データ格納用のストリーム
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileStream._FileInfo">
+            <summary>
+            書込みに使用するファイルクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileStream._CanRead">
+            <summary>
+            読取が可能なことを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.FileStream._CanWrite">
+            <summary>
+            書込みが可能なことを示す値
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.FileStream.Flush">
+            <summary>
+            この命令はサポートしていません
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.FileStream.#ctor(System.IO.MemoryStream)">
+            <summary>
+            読み出し用コンストラクタ
+            </summary>
+            <param name="BaseStream">読み出し元となるストリーム</param>
+        </member>
+        <member name="M:TKFP.IO.FileStream.#ctor(TKFP.IO.FileInfo)">
+            <summary>
+            書き込み用コンストラクタ
+            </summary>
+            <param name="FileInfo">書込み操作を行うファイルクラス</param>
+        </member>
+        <member name="M:TKFP.IO.FileStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            現在のストリーム内の位置を設定します。 
+            </summary>
+            <param name="offset">パラメータからのバイト オフセット。</param>
+            <param name="origin">新しい位置を取得するために使用する参照ポイントを示す System.IO.SeekOrigin 型の値。</param>
+            <returns>現在のストリーム内の新しい位置。 </returns>
+        </member>
+        <member name="M:TKFP.IO.FileStream.SetLength(System.Int64)">
+            <summary>
+            このメソッドはサポートしていません
+            </summary>
+            <param name="value">ストリームの長さを指定します</param>
+        </member>
+        <member name="M:TKFP.IO.FileStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            現在のストリームからバイト シーケンスを読み取り、読み取ったバイト数の分だけストリームの位置を進めます。
+            </summary>
+            <param name="buffer">バイト配列。このメソッドが戻るとき、指定したバイト配列の offset から (offset + count -1) までの値が、現在のソースから読み取られたバイトに置き換えられます。 </param>
+            <param name="offset">現在のストリームから読み取ったデータの格納を開始する位置を示す buffer 内のバイト オフセット。インデックス番号は 0 から始まります。</param>
+            <param name="count">現在のストリームから読み取る最大バイト数。</param>
+            <returns>バッファに読み取られた合計文字数。要求しただけのバイト数を読み取ることができなかった場合、この値は要求したバイト数より小さくなります。ストリームの末尾に到達した場合は 0 (ゼロ) になることがあります。</returns>
+        </member>
+        <member name="M:TKFP.IO.FileStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            現在のストリームにバイト シーケンスを書き込み、書き込んだバイト数の分だけストリームの現在位置を進めます。
+            </summary>
+            <param name="buffer">バイト配列。このメソッドは、バッファから現在のストリームに、count で指定されたバイト数だけコピーします。</param>
+            <param name="offset">現在のストリームへのバイトのコピーを開始する位置を示す buffer  内のバイト オフセット。インデックス番号は 0 から始まります。</param>
+            <param name="count">現在のストリームに書き込むバイト数。</param>
+        </member>
+        <member name="M:TKFP.IO.FileStream.Close">
+            <summary>
+            ストリームをクローズします。書込みモードの時はデータをサーバーに送信します  
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileStream.CanRead">
+            <summary>
+            現在のストリームが読み取りをサポートするかどうかを示す値を取得します。 
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileStream.CanSeek">
+            <summary>
+            現在のストリームがシークをサポートするかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileStream.CanWrite">
+            <summary>
+            現在のストリームが書き込みをサポートするかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileStream.Length">
+            <summary>
+            ストリームの長さをバイト単位で取得します。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.FileStream.Position">
+            <summary>
+            現在のストリーム内の位置を取得または設定します。
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.DirectoryInfo">
+            <summary>
+            ＦＴＰサーバー上のディレクトリを操作するためのクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.DirectoryInfo._DirectoryMember">
+            <summary>
+            ディレクトリメーンバーのキャッシュクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.DirectoryInfo._FullPath">
+            <summary>
+            このインスタンスのフルパスを示すクラス
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.#ctor(TKFP.Net.FtpClient,System.String)">
+            <summary>
+            ディレクトリ名を指定してインスタンスを初期化します
+            </summary>
+            <param name="FtpClient">ＦＴＰクライアントクラス</param>
+            <param name="Path">ディレクトリのフルパス</param>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.#ctor(TKFP.Net.FtpClient,TKFP.PathString.Folder,TKFP.IO.ListData)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="FtpClient"></param>
+            <param name="ParentPath"></param>
+            <param name="ListData"></param>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.SetFullPath(TKFP.PathString.IPath)">
+            <summary>
+            インスタンスのフルパスを変更する
+            </summary>
+            <param name="FullPath"></param>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.GetDirectories">
+            <summary>
+             現在のディレクトリのサブディレクトリを返します。
+            </summary>
+            <returns>サブディレクトリの一覧</returns>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.GetDirectories(System.String)">
+            <summary>
+            現在のディレクトリからsearchPatternに一致するディレクトリの一覧を返します。searchPatternにはワイルドカードを使用可能です。
+            </summary>
+            <param name="searchPattern">検索文字列</param>
+            <returns>検索文字列に一致するディレクトリの一覧</returns>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.GetFiles">
+            <summary>
+             現在のディレクトリ内のファイル一覧を返します。
+            </summary>
+            <returns>ディレクトリ内のファイルの一覧</returns>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.GetFiles(System.String)">
+            <summary>
+            現在のディレクトリからsearchPatternに一致するファイルの一覧を返します。searchPatternにはワイルドカードを使用可能です。
+            </summary>
+            <param name="searchPattern">検索文字列</param>
+            <returns>検索文字列に一致するファイルの一覧</returns>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.GetExistsFlag">
+            <summary>
+            ディレクトリの生存情報を調べる
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.GetStatus">
+            <summary>
+            ディレクトリ情報の読み出しを行う
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.GetDirectoryMember">
+            <summary>
+            ディレクトリ／ファイルの情報を読み出す
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.Create">
+            <summary>
+            ディレクトリを作成します。
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.CreateSubdirectory(System.String)">
+            <summary>
+            指定したパスに 1 つ以上のサブディレクトリを作成します。パスは、このクラスのインスタンスに対する相対パスで指定できます。  
+            </summary>
+            <param name="path">指定するパス。</param>
+            <returns>path に指定された最後のディレクトリ。</returns>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.CreateAll">
+            <summary>
+            このディレクトリを親ディレクトリも含めて作成する
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.Delete(System.Boolean)">
+            <summary>
+            このディレクトリを削除します。
+            </summary>
+            <param name="recursive">このディレクトリ、そのサブディレクトリ、およびすべてのファイルを削除する場合は true、それ以外の場合は falseを設定します</param>
+        </member>
+        <member name="M:TKFP.IO.DirectoryInfo.Refresh">
+            <summary>
+            オブジェクトの状態を更新します。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.DirectoryInfo.FullPath">
+            <summary>
+            フォルダのフルパス
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.DirectoryInfo.Exists">
+            <summary>
+            ディレクトリが存在するかどうかを示す値を取得します。
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.DirectoryInfo.Name">
+            <summary>
+            ディレクトリの名前を取得します  
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.DirectoryInfo.Parent">
+            <summary>
+            親ディレクトリのインスタンスを取得します。  
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.DirectoryInfo.CreationTime">
+            <summary>
+            ファイルの作成された日時を読み出します
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.DirectoryInfo.Permission">
+            <summary>
+            パーミッション情報の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.DirectoryInfo.Root">
+            <summary>
+            パスのルート部分を取得します。
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.CurrentDirectory">
+            <summary>
+            カレントディレクトリの情報を持つクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CurrentDirectory.Path">
+            <summary>
+            現在のカレントディレクトリ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CurrentDirectory.NoFullPathAccess">
+            <summary>
+            フルパスでのアクセスを禁止する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.CurrentDirectory.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.RNFRAndRNTO">
+            <summary>
+            ファイル／ディレクトリの名称を変更するコマンド
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.RNFRAndRNTO._OldName">
+            <summary>
+            元の名前
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.RNFRAndRNTO._NewName">
+            <summary>
+            新しい名前
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.RNFRAndRNTO.#ctor(TKFP.PathString.IPath,TKFP.PathString.IPath)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.RNFRAndRNTO.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.PWD">
+            <summary>
+            カレントディレクトリを取得するコマンドクラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.PWD.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.PWD.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.Connect">
+            <summary>
+            接続時の処理をするコマンド
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.Connect._ConnectionString">
+            <summary>
+            接続時のサーバーメッセージ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.Connect.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.Connect.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.Connect.ConnectionString">
+            <summary>
+            接続時のサーバーメッセージの読み出しを行う
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.BasicFtpLogon">
+            <summary>
+            ＦＴＰサーベーへ接続するときの最も基本的な認証方法を提供するクラス
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.IFtpLogon">
+            <summary>
+            ＦＴＰサーバーへのログオン処理をするクラスにに必要なインターフェイス
+            </summary>
+            <remarks>
+            <para>サーバーへのログオン方法が特殊な場合このインターフェイスを継承することで、独自のログオン処理を作成することが可能です。</para>
+            </remarks>
+        </member>
+        <member name="M:TKFP.Net.IFtpLogon.Connection(System.String,System.String@,System.String@)">
+            <summary>
+            ログオン時の受信文字列に対する次の送信文字列をセットします
+            </summary>
+            <param name="Receive">受信した文字列</param>
+            <param name="Send">送信文字列が返されます（送信文字列無しの時はNull）</param>
+            <param name="LogMessage">通信ログで表示する文字列が返されます。通常パスワードなど非表示としたい通信内容の場合に内容がセットされます。Sendを通信ログとする場合はNullがセットされます</param>
+            <returns>ログオン処理を継続する場合にtrueを返します</returns>
+        </member>
+        <member name="M:TKFP.Net.IFtpLogon.Exit(System.String,System.String@)">
+            <summary>
+            切断時の受信文字列に対する次の送信文字列をセットします
+            </summary>
+            <param name="Receive">受信した文字列</param>
+            <param name="Send">送信文字列（送信文字列無しの時はNull）</param>
+            <returns>切断処理終了を継続する場合にtrueを返します</returns>
+        </member>
+        <member name="M:TKFP.Net.IFtpLogon.Initialize">
+            <summary>
+            ログオン処理を最初からやり直すための初期化を行ないます
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.IFtpLogon.Logon">
+            <summary>
+            ログオンが正常に行われたことを示す値読み出す
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.BasicFtpLogon._UserID">
+            <summary>
+            ユーザーＩＤ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.BasicFtpLogon._Password">
+            <summary>
+            パスワード
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.BasicFtpLogon._Logon">
+            <summary>
+            ログオン完了でtrue
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.BasicFtpLogon.#ctor(System.String,System.String)">
+            <summary>
+            基本的な認証方法を処理するクラスのインスタンスを初期化します
+            </summary>
+            <param name="UserID">ユーザーＩＤ</param>
+            <param name="Password">パスワード</param>
+        </member>
+        <member name="M:TKFP.Net.BasicFtpLogon.TKFP#Net#IFtpLogon#Connection(System.String,System.String@,System.String@)">
+            <summary>
+            ログオン時の受信文字列に対する次の送信文字列をセットします
+            </summary>
+            <param name="Receive">受信した文字列</param>
+            <param name="Send">送信文字列（送信文字列無しの時はNull）</param>
+            <param name="LogMessage">通信ログで表示する文字列が返されます。通常パスワードなど非表示としたい通信内容の場合に内容がセットされます。Sendを通信ログとする場合はNullがセットされます</param>
+            <returns>ログオン処理を継続する場合にtrueを返します</returns>
+        </member>
+        <member name="M:TKFP.Net.BasicFtpLogon.TKFP#Net#IFtpLogon#Exit(System.String,System.String@)">
+            <summary>
+            切断時の受信文字列に対する次の送信文字列をセットします
+            </summary>
+            <param name="Receive">受信した文字列</param>
+            <param name="Send">送信文字列（送信文字列無しの時はNull）</param>
+            <returns>切断処理終了を継続する場合にtrueを返します</returns>
+        </member>
+        <member name="M:TKFP.Net.BasicFtpLogon.TKFP#Net#IFtpLogon#Initialize">
+            <summary>
+            ログオン処理を最初からやり直すための初期化を行ないます
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.BasicFtpLogon.Clone">
+            <summary>
+            このクラスの情報を元にして新しいインスタンスを作成します
+            </summary>
+            <returns>複製された新しいBasicFtpLogonクラス</returns>
+        </member>
+        <member name="P:TKFP.Net.BasicFtpLogon.TKFP#Net#IFtpLogon#Logon">
+            <summary>
+            ログオンが正常に行われたことを示す値を読み出す
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.ListData">
+            <summary>
+            リストの解析結果を格納するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.ListData.IsDirectory">
+            <summary>
+            データがディレクトリの時にture,ファイルの時にfalse
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.ListData.Permission">
+            <summary>
+            パーミッション情報
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.ListData.Date">
+            <summary>
+            日時情報
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.ListData.Length">
+            <summary>
+            現在のファイルサイズ
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.ListData.OwnerUser">
+            <summary>
+            所有者の名前
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.ListData.OwnerGroup">
+            <summary>
+            所属グループ
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.ListData.Name">
+            <summary>
+            ファイル又はディレクトリの名称
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.ListData.#ctor">
+            <summary>
+            リストの解析結果を格納するクラスの新しいインスタンスを作成します。
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.Cache.Status">
+            <summary>
+            ファイル／フォルダステータスのキャッシュクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.Status._Permission">
+            <summary>
+            パーミッション情報
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.Status._OwnerUser">
+            <summary>
+            所有者の名前
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.Status._OwnerGroup">
+            <summary>
+            所属グループ
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.Status._Date">
+            <summary>
+            日時情報
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.Status._Length">
+            <summary>
+            現在のファイルサイズ
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.Status._DateTimeDetailed">
+            <summary>
+            日付が詳細な情報として読み出されたことを示す値
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.Cache.Status.#ctor(System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="CacheValidityInterval"></param>
+        </member>
+        <member name="M:TKFP.IO.Cache.Status.Update(TKFP.IO.Permission,System.String,System.String,System.DateTime,System.Int64)">
+            <summary>
+            情報を更新する
+            </summary>
+            <param name="Permission">パーミッション</param>
+            <param name="OwnerUser">所有ユーザー名</param>
+            <param name="OwnerGroup">所有グループ名</param>
+            <param name="Date">ファイル／フォルダの日付</param>
+            <param name="Length">データサイズ</param>
+        </member>
+        <member name="M:TKFP.IO.Cache.Status.SetDateTimeDetailed(System.DateTime)">
+            <summary>
+            詳細な日時を取得したときにその情報を新しいキャッシュ情報として登録します
+            </summary>
+            <param name="NewDateTime"></param>
+        </member>
+        <member name="P:TKFP.IO.Cache.Status.Length">
+            <summary>
+             現在のファイルのサイズを取得します。  
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.Cache.Status.Date">
+            <summary>
+            日時情報を返す
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.Cache.Status.Permission">
+            <summary>
+            パーミッション情報を取得します
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.Cache.Status.DateTimeDetailed">
+            <summary>
+            日付が詳細な情報として読み出されたことを示す値を取得します
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.FtpClient">
+            <summary>
+            ＦＴＰサーバーへの接続処理を行います
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._CommandList">
+            <summary>
+            ＦＴＰサーバーサポートしているコマンドの一覧
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.OnMessageReceive(TKFP.Net.MessageArgs)">
+            <summary>
+             データ受信直後のイベントを発生します
+            </summary>
+            <param name="e">受信メッセージを格納しているデータクラス</param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.OnMessageSend(TKFP.Net.MessageArgs)">
+            <summary>
+             データ送信直後のイベントを発生します
+            </summary>
+            <param name="e">受信メッセージを格納しているデータクラス</param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.OnConnectionOpening(System.EventArgs)">
+            <summary>
+            サーバーへの接続を開始するときのイベントを発生します
+            </summary>
+            <param name="e">イベント データを格納している System.EventArgs</param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.OnConnectionOpened(System.EventArgs)">
+            <summary>
+            サーバーへの接続が完了したときのイベントを発生します
+            </summary>
+            <param name="e">イベント データを格納している System.EventArgs</param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.OnConnectionClosed(System.EventArgs)">
+            <summary>
+            サーバーへの接続を閉じたときのイベントを発生します
+            </summary>
+            <param name="e">イベント データを格納している System.EventArgs</param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.OnCertificateValidation(TKFP.Net.CertificateValidationArgs)">
+            <summary>
+            暗号化通信を行う場合に正当性が認められなかった証明書の検証を行うときのイベントを発生します
+            </summary>
+            <param name="e">証明書の検証を行うためのデータクラス</param>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._FtpLogon">
+            <summary>
+            ログオン処理クラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._HostName">
+            <summary>
+            接続先のホスト名
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._Port">
+            <summary>
+            接続先ポート
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._MessageLog">
+            <summary>
+            メッセージログを記録するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._ThreadSyncObject">
+            <summary>
+            スレッド同期用オブジェクト
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._DebugLog">
+            <summary>
+            デバッグ用ログ処理クラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._CurrentDirectory">
+            <summary>
+            カレントディレクトリを管理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._CommandSelecter">
+            <summary>
+            適切なコマンドを選択するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._StartPath">
+            <summary>
+            サーバー接続時のパス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._Connection">
+            <summary>
+            コネクションクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._Connected">
+            <summary>
+            通信接続中にtrue
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._SystemName">
+            <summary>
+            システム名
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._TimeOutInterval">
+            <summary>
+            タイムアウトまでの時間（秒）
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._ListDataLoader">
+            <summary>
+            リスト解析用のクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._CacheValidityInterval">
+            <summary>
+            ファイル／フォルダが保持しているデータの有効時間（秒）
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._KeepAliveInterval">
+            <summary>
+            KeepAliveを発行する間隔（秒）
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._KeepAlive">
+            <summary>
+            KeepAliveを有効にする
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._TextEncoding">
+            <summary>
+            日本語を処理するためのエンコードクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._DateTimeDetails">
+            <summary>
+            ファイルの日付取得を詳細に行うことを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.FtpClient._AuthenticationProtocol">
+            <summary>
+            通信で使用する暗号化の方法
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.#ctor(TKFP.Net.IFtpLogon,System.Net.IPAddress,System.Int32)">
+            <summary>
+            ＦＴＰクライアントクラスのインスタンスを初期化します
+            </summary>
+            <param name="FtpLogon">ログオン処理を行うIFtpLogonクラス</param>
+            <param name="Address">接続先を示すアドレス</param>
+            <param name="Port">接続先サーバーのポート番号</param>
+            <remarks>
+            <para>クラスのインスタンスの作成には接続先を示すＩＰアドレス、ポート番号及び、接続時の手順を処理するためのIFtpLogonインターフェイスを持つクラスが必要です</para>
+            </remarks>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.#ctor(TKFP.Net.IFtpLogon,System.Net.IPAddress,System.Int32,TKFP.Net.PortEntry)">
+            <summary>
+            ＦＴＰクライアントクラスのインスタンスを初期化します
+            </summary>
+            <param name="FtpLogon">ログオン処理を行うIFtpLogonクラス</param>
+            <param name="Address">接続先を示すアドレス</param>
+            <param name="Port">接続先サーバーのポート番号</param>
+            <param name="LocalPortEntry">Activeモード用の待ち受けポート生成クラス</param>
+            <remarks>
+            <para>クラスのインスタンスの作成には接続先を示すＩＰアドレス、ポート番号及び、接続時の手順を処理するためのIFtpLogonインターフェイスを持つクラスが必要です</para>
+            </remarks>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.#ctor(TKFP.Net.IFtpLogon,System.String,System.Int32)">
+            <summary>
+            ＦＴＰクライアントクラスのインスタンスを初期化します
+            </summary>
+            <param name="FtpLogon">ログオン処理を行うIFtpLogonクラス</param>
+            <param name="HostName">接続先のホスト名</param>
+            <param name="Port">接続先サーバーのポート番号</param>
+            <remarks>
+            <para>クラスのインスタンスの作成には接続先を示すＩＰアドレス、ポート番号及び、接続時の手順を処理するためのIFtpLogonインターフェイスを持つクラスが必要です</para>
+            </remarks>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.#ctor(TKFP.Net.IFtpLogon,System.String,System.Int32,TKFP.Net.PortEntry)">
+            <summary>
+            ＦＴＰクライアントクラスのインスタンスを初期化します
+            </summary>
+            <param name="FtpLogon">ログオン処理を行うIFtpLogonクラス</param>
+            <param name="HostName">接続先のホスト名</param>
+            <param name="Port">接続先サーバーのポート番号</param>
+            <param name="LocalPortEntry">Activeモード用の待ち受けポート生成クラス</param>
+            <remarks>
+            <para>クラスのインスタンスの作成には接続先を示すＩＰアドレス、ポート番号及び、接続時の手順を処理するためのIFtpLogonインターフェイスを持つクラスが必要です</para>
+            </remarks>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.Connect">
+            <summary>
+            接続を開始します
+            </summary>
+            <returns>接続が正常に行えない場合falseを、正常に接続した場合にtrueを返します</returns>
+            <remarks>
+            <para>ネットワークの接続確立とログオンを行います。</para>
+            </remarks>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.Close">
+            <summary>
+            通信の切断処理を行います
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.ListCacheSharing(TKFP.Net.FtpClient)">
+            <summary>
+            ファイル／フォルダのリスト取得情報を複数のクライアントクラスでシェアリングします
+            </summary>
+            <param name="baseclient">キャッシュ情報を持つクライアントクラス</param>
+            <remarks>
+            <para>LISTコマンド、NLSTコマンドで取得したデータのキャッシュ情報を複数のクライアントクラスで共有します</para>
+            <para>各クライアントが同一のサーバーへ接続しているときに、個々の再取得が発生しなくなるので、パフォーマンスが向上します</para>
+            <para>接続先のサーバーが異なる場合は、その結果について保証できません。CacheSharingの使用はプログラマーの責任で行ってください</para>
+            </remarks>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.ListCacheRefresh">
+            <summary>
+            ファイル／フォルダのリスト取得情報のキャッシュをクリアします
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.ListCacheClear(TKFP.PathString.IPath)">
+            <summary>
+            指定したフォルダに関するリストキャッシュを削除する
+            </summary>
+            <param name="Path"></param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.ListCacheClearWithSubFolder(TKFP.PathString.IPath)">
+            <summary>
+            指定したフォルダに関するリストキャッシュを削除する
+            </summary>
+            <param name="Path"></param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.ExistsDirectory(TKFP.PathString.Folder)">
+            <summary>
+            指定ディレクトリが存在するかを確認する
+            </summary>
+            <param name="Path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.AddCommand(TKFP.Net.Command.CommandBase)">
+            <summary>
+            実行コマンドを登録する
+            </summary>
+            <param name="Command"></param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.ServerSystemName">
+            <summary>
+            サーバーのシステム名の読出しを行います。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.FtpClient._Connection_MessageSend(System.Object,TKFP.Net.MessageArgs)">
+            <summary>
+            データ送信イベント
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient._Connection_MessageReceive(System.Object,TKFP.Net.MessageArgs)">
+            <summary>
+            データ受信イベント
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient._Connection_RequestKeepAlive(System.Object,System.EventArgs)">
+            <summary>
+            接続維持のためのコマンドを発行する
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.SendKeepAliveCommand">
+            <summary>
+            KeepAliveコマンドを発行するための非同期メソッド
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.CloseDataConnection">
+            <summary>
+            データコネクションがある場合、そのコネクションを切断します
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.FtpClient.ValidateServerCertificate(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            ＳＳＬ認証の判定
+            </summary>
+            <param name="sender"></param>
+            <param name="certificate"></param>
+            <param name="chain"></param>
+            <param name="sslPolicyErrors"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.CommandList">
+            <summary>
+            ＦＴＰサーバーサポートしているコマンドの一覧を取得します
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.FtpClient.MessageReceive">
+            <summary>
+            データ受信直後のイベント
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.FtpClient.MessageSend">
+            <summary>
+            データ送信直後のイベント
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.FtpClient.ConnectionOpening">
+            <summary>
+            サーバーへの接続を開始するときのイベント
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.FtpClient.ConnectionOpened">
+            <summary>
+            サーバーへの接続が完了したときのイベント
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.FtpClient.ConnectionClosed">
+            <summary>
+            サーバーへの接続を閉じたときのイベント
+            </summary>
+        </member>
+        <member name="E:TKFP.Net.FtpClient.CertificateValidation">
+            <summary>
+            暗号化通信を行う場合に正当性が認められなかった証明書の検証を行うときのイベント
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.FtpLogon">
+            <summary>
+            ログオン処理クラスの読み出しを行う
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.MessageLog">
+            <summary>
+            メッセージを記録しているログクラスを読み出します
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.CommandSelecter">
+            <summary>
+            適切なコマンドを選択するクラスの読み出しを行なう
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.TimeOutInterval">
+            <summary>
+            送受信がタイムアウトする時間（秒単位）の設定と読み出しを行います
+            </summary>
+            <remarks>
+            <para>送信に対する受信待ちの時間を設定します</para>
+            <para>デフォルト値は２０秒です</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.KeepAliveInterval">
+            <summary>
+            接続を維持するためのコマンドを送信する時間（秒単位）の設定と読み出しを行います
+            </summary>
+            <remarks>
+            <para>接続を維持するためのコマンドを送信する時間を設定します</para>
+            <para>デフォルト値は３０秒です</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.FileNameCharset">
+            <summary>
+            ファイル名を処理するためのキャラクタセットの読み出しと設定を行う
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.KeepAlive">
+            <summary>
+            接続を維持するための処理を有効にします
+            </summary>
+            <remarks>
+            <para>このプロパティをtrueにすると、一定時間ごとに「noop」コマンドがＦＴＰサーバーに送信されます</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.Connected">
+            <summary>
+            通信が確立している事を表す値を読み出します
+            </summary>
+            <remarks>
+            <para><see cref="M:TKFP.Net.FtpClient.Connect">Connectメソッド</see>の実行後に正常にログオン作業が終了するとtrueを返します</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.SystemName">
+            <summary>
+            サーバーのシステム名称を読み出します
+            </summary>
+            <remarks>
+            <para>このプロパティはSYSTコマンドの結果と同等です。接続が完了していない時はnullを返します</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.FileSystemCacheValidityInterval">
+            <summary>
+            ファイル／フォルダが保持しているデータの有効時間（秒）の読み出しと設定を行います
+            <para>取得した情報はキャッシュとして保存され、一定時間内の同じファイル／フォルダからの情報取得を高速化します</para>
+            <para>デフォルト値は１０秒です</para>
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.NoFullPathAccess">
+            <summary>
+            ファイル／フォルダの操作にフルパスを使用しないことを示す値の読み出しと設定を行ないます
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.DebugLogFileName">
+            <summary>
+            デバッグ用ログファイルの読出しと設定を行います
+            </summary>
+            <remarks>
+            <para>ファイル出力を行なわない場合はnullを設定します。</para>
+            <para>出力形式についてはバージョン毎に変更される可能性があリます。自動解析などに使用することは極力避けるようにしてください。</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.ListDataLoader">
+            <summary>
+            リスト解析クラスの読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.DateTimeDetails">
+            <summary>
+            ファイルの日付取得を詳細に行うことを示す値の読み出しと設定を行います。
+            </summary>
+            <remarks>
+            <para>このプロパティを設定するとファイルの日付情報はMDTMコマンドで取得します。</para>
+            <para>通常行うファイル一覧からの取得に比べて、ファイル個々に対してコマンド実行するため、パフォーマンスは低下します。</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.StartPath">
+            <summary>
+            サーバー接続時のパスの読出しを行ないます。
+            </summary>
+            <remarks>
+            <para>サーバー接続時の初期のカレントディレクトリの場所を読み出します。</para>
+            <para>未接続時はnullを返します。</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.AuthenticationProtocol">
+            <summary>
+            通信で使用する暗号化の方法の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.IsEncrypted">
+            <summary>
+            現在の通信が暗号化されていることを示す値の読み出しを行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.IsFileTransferEncrypted">
+            <summary>
+            ファイルの送受信を暗号化することを示す値の読み出しと設定を行います
+            </summary>
+            <remarks>
+            <para>暗号化に使用するプロトコルはコントロールコネクションと同じです</para>
+            <para>
+            サーバーによっては暗号化でデータ転送を行った後に平文のデータ転送を行うと、コントロールコネクションが切断することがあります。
+            IsFileTransferEncrypted、IsListTransferEncryptedの片方のみ暗号化する設定や、接続中に暗号化の設定を変更することは避けたほうが無難です。</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.IsListTransferEncrypted">
+            <summary>
+            リスト取得を暗号化することを示す値の読み出しと設定を行います
+            </summary>
+            <remarks>
+            <para>暗号化に使用するプロトコルはコントロールコネクションと同じです</para>
+            <para>
+            サーバーによっては暗号化でデータ転送を行った後に平文のデータ転送を行うと、コントロールコネクションが切断することがあります。
+            IsFileTransferEncrypted、IsListTransferEncryptedの片方のみ暗号化する設定や、接続中に暗号化の設定を変更することは避けたほうが無難です。</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.ConnectionMode">
+            <summary>
+            データコネクションの接続方法の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.ListType">
+            <summary>
+            ファイル／フォルダの取得方法の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.ListCacheValidityInterval">
+            <summary>
+            ファイル／フォルダリストのキャッシュの有効時間（秒）の読み出しと設定を行います
+            <para>取得したフォルダリストはキャッシュとして保存され、一定時間内の同じフォルダからの情報取得を高速化します</para>
+            <para>デフォルト値は１０秒です</para>
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.NLSTCommandOption">
+            <summary>
+            NLST使用時のコマンドオプションの読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.SendDataLength">
+            <summary>
+            送信データ量の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.ReceiveDataLength">
+            <summary>
+            受信データ量の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.SendBufferSize">
+            <summary>
+            送信用バッファサイズの読み出しと設定を行ないます
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.ReceiveBufferSize">
+            <summary>
+            受信用バッファサイズの読み出しと設定を行ないます
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.SendLimitRate">
+            <summary>
+            送信時の通信帯域(byte/秒)の読出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.ReceiveLimitRate">
+            <summary>
+            受信時の通信帯域(byte/秒)の読出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.PassiveModeIPHold">
+            <summary>
+            接続先サーバーのＩＰアドレスを固定することを示す値の読み出しと設定を行います
+            </summary>
+            <remarks>
+            <para>Passiveモードを使用する場合にサーバーからの接続先通知に関係なくこのクラスで指定した接続先ＩＰアドレスに接続を試みます</para>
+            <para>ＦＴＰサーバーがＮＡＴ内にある場合に常にグローバルＩＰに対しての接続が可能になります</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.ActiveModeLocalAddress">
+            <summary>
+            アクティブモードで通知するローカルＩＰアドレスの読み出しと設定を行います
+            </summary>
+            <remarks>
+            <para>Activeモードを使用する場合にサーバーへ通知する接続先ＩＰアドレスを指定します</para>
+            <para>ＦＴＰクライアントがＮＡＴ内にある場合にサーバーに対してローカルＩＰアドレスを通知してしまう場合に設定します</para>
+            <para>nullを指定した場合はローカルＩＰアドレスが使用されます</para>
+            </remarks>
+        </member>
+        <member name="P:TKFP.Net.FtpClient.TimeDifference">
+            <summary>
+            時刻に関するコマンドで使用される時差の読み出しと設定を行います
+            </summary>
+            <remarks>
+            <para>LIST,NLSTコマンドで取得されるデータの時刻に対しては ListDataLoaderクラスのTimeDifferenceプロパティで設定してください</para>
+            </remarks>
+        </member>
+        <member name="T:TKFP.Net.Command.ResponseCode">
+            <summary>
+            通信レスポンスを処理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseCode._MessageText">
+            <summary>
+            処理したメッセージ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseCode._LastCodeNumber">
+            <summary>
+            最後に格納したコード番号
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseCode._Messages">
+            <summary>
+            コード別のレスポンス一覧
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ResponseCode.GetMessage(System.Int32)">
+            <summary>
+            指定コード行にあるメッセージを返す
+            </summary>
+            <param name="Code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.Command.ResponseCode.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ResponseCode.#ctor(TKFP.Net.Command.ResponseCode,TKFP.Net.Command.ResponseNumbers)">
+            <summary>
+            すでにあるレスポンスクラスを元に新しい終了コードを持ったレスポンスクラスを作成する
+            </summary>
+            <param name="BaseResponse"></param>
+            <param name="LastCode"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.ResponseCode.Clear">
+            <summary>
+            レスポンス情報を初期化する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ResponseCode.InCodeNumber(TKFP.Net.Command.ResponseNumbers)">
+            <summary>
+            保持レスポンス内に指定したコードがあるかを確認する
+            </summary>
+            <param name="CodeNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.Command.ResponseCode.ResponseCheck(System.String,System.String)">
+            <summary>
+            レスポンステキストからコード部分を取り出す
+            </summary>
+            <param name="ResponseText">レスポンステキスト</param>
+            <param name="LineEndCode">行の終了を示す文字列</param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.Command.ResponseCode.NumberStringCheck(System.String,System.Int32,System.Int32)">
+            <summary>
+            指定範囲のテキストが数値に変換可能かを調べる
+            </summary>
+            <param name="text"></param>
+            <param name="startindex"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.Net.Command.ResponseCode.Count">
+            <summary>
+            受信したコードの数を返す
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.ResponseCode.MessageText">
+            <summary>
+            処理したメッセージを返す
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.ResponseCode.LastCodeNumber">
+            <summary>
+            最後に格納したコード番号を読み出す
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.ResponseCode.Response">
+            <summary>
+            コード別にレスポンスを保存するためのクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseCode.Response.Code">
+            <summary>
+            コード番号
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseCode.Response.NoEndMessage">
+            <summary>
+            全てのメッセージを受信しきっていないときにtrue
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ResponseCode.Response._Message">
+            <summary>
+            追加メッセージ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ResponseCode.Response.#ctor(System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="Code"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.ResponseCode.Response.AddMessage(System.String)">
+            <summary>
+            現在のコードにメッセージを追加する
+            </summary>
+            <param name="Message"></param>
+        </member>
+        <member name="P:TKFP.Net.Command.ResponseCode.Response.Message">
+            <summary>
+            処理他メッセージを返す
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.PermissionFlag">
+            <summary>
+            パーミッションの状態を表すフラグ
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.PermissionFlag.Readable">
+            <summary>
+            読み出し
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.PermissionFlag.Writable">
+            <summary>
+            書込み
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.PermissionFlag.Executable">
+            <summary>
+            実行
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.PermissionFlag.none">
+            <summary>
+            フラグなし
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.DataConnection.Parameter">
+            <summary>
+            データコネクションを作成するために必要なパラメータを持つクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter.PassiveParameterRegex">
+            <summary>
+            パッシブモードによってサーバーから通知されたレスポンスを解析するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter.PortEntry">
+            <summary>
+            待ち受けポートを管理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter.LocalAddress">
+            <summary>
+            コントロールコネクションの接続元アドレス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter.SendBufferSize">
+            <summary>
+            送信用バッファのサイズ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter.ReceiveBufferSize">
+            <summary>
+            受信用バッファのサイズ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter.TimeOutInterval">
+            <summary>
+            データコネクションのタイムアウトを検出する時間
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter.ServerIPHold">
+            <summary>
+            パッシブモードでの接続先のサーバーアドレスを固定することを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter.ActiveLoadAddress">
+             <summary>
+            アクティブモードでの通知ＩＰアドレス
+             </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter._RemoteAddress">
+            <summary>
+            コントロールコネクションの接続先アドレス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter._PassiveIPEndPoint">
+            <summary>
+            サーバーから通知されたデータコネクションの接続先
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter.ForwardLimiter">
+            <summary>
+            帯域制限クラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.Parameter.SslProtocol">
+            <summary>
+            データコネクションの暗号化方式
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.Parameter.#ctor(TKFP.Net.PortEntry,System.Net.IPAddress,System.Net.IPAddress,System.Int32,System.Int32,System.Int32,System.Boolean,System.Net.IPAddress,System.Security.Authentication.SslProtocols,TKFP.Net.DataConnection.ForwardLimiter)">
+            <summary>
+            新しいインスタンスを作成する
+            </summary>
+            <param name="PortEntry"></param>
+            <param name="LocalAddress"></param>
+            <param name="RemoteAddress"></param>
+            <param name="SendBufferSize"></param>
+            <param name="ReceiveBufferSize"></param>
+            <param name="TimeOutInterval"></param>
+            <param name="ServerIPHold"></param>
+            <param name="ActiveLoadAddress"></param>
+            <param name="SslProtocol"></param>
+            <param name="ForwardLimiter"></param>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.Parameter.SetPassiveParameter(System.String)">
+            <summary>
+            パッシブモードによってサーバーから通知された接続先を読み出す
+            </summary>
+            <param name="par"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.Parameter.GetActiveIpAddressStr(System.Int32)">
+            <summary>
+            アクティブモードでサーバーへ通知する送信文字列を読み出します
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.Net.DataConnection.Parameter.RemoteIPEndPoint">
+            <summary>
+            コントロールコネクションの接続先アドレス
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.PBSZ">
+            <summary>
+            保護バッファー・サイズ初期化するコマンド
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.PBSZ.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.PBSZ.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.SITE">
+            <summary>
+            SITEコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.SITE._Parameter">
+            <summary>
+            変更先のディレクトリ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.SITE.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.SITE.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.MDTMWrite">
+            <summary>
+            ファイルの時刻の設定を行うコマンドクラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.MDTMWrite.#ctor(TKFP.PathString.IPath,System.DateTime,TKFP.Net.Command.ListCache)">
+            <summary>
+            読み出しコマンドの新しいインスタンスを作成する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.MDTMWrite.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.PathString.File">
+            <summary>
+            パス名を管理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.PathString.File._FullPath">
+            <summary>
+            このクラスが表すフルパス名
+            </summary>
+        </member>
+        <member name="M:TKFP.PathString.File.#ctor(System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="FullPath"></param>
+        </member>
+        <member name="M:TKFP.PathString.File.#ctor(TKFP.PathString.Folder,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="BaseFolder"></param>
+            <param name="AddFile"></param>
+        </member>
+        <member name="M:TKFP.PathString.File.GetNewNamePath(System.String)">
+            <summary>
+            新しい名前に置き換えたインスタンスを作成する
+            </summary>
+            <param name="NewName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.PathString.File.Equals(System.Object)">
+            <summary>
+            保持しているフルパスのファイルが同値であることを検証します
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.PathString.File.FullPathString">
+            <summary>
+            このクラスが表すフルパス名
+            </summary>
+        </member>
+        <member name="P:TKFP.PathString.File.Parent">
+            <summary>
+            このパスの親フォルダを示すパスを返す
+            </summary>
+        </member>
+        <member name="P:TKFP.PathString.File.Name">
+            <summary>
+            このパスの最終名称を返す
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.none">
+            <summary>
+            実行内容が無いダミーコマンド
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.none.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.none.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.PROT">
+            <summary>
+            データコネクションを暗号化するコマンド
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.PROT._DataConnectionEncrypted">
+            <summary>
+            現在のデータコネクションの暗号化状態
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.PROT._Encrypted">
+            <summary>
+            データコネクションを暗号化することを示す値
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.PROT.#ctor(TKFP.Net.CommandSelecter.DataConnectionEncrypted,System.Boolean)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.PROT.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.SYST">
+            <summary>
+            システム名を取得するコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.SYST._SystemName">
+            <summary>
+            システム名
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.SYST.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.SYST.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.Command.SYST.SystemName">
+            <summary>
+            システム名の読出しを行う
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.DELE">
+            <summary>
+            ファイルを削除するコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.DELE._FilePath">
+            <summary>
+            削除するファイル
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.DELE.#ctor(TKFP.PathString.File)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.DELE.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.Path">
+            <summary>
+            ファイルまたはディレクトリのパス情報を格納する
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Path.DirectorySeparatorChar">
+            <summary>
+             ディレクトリ レベルを区切るために使用する文字
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.Path.Combine(System.String,System.String)">
+            <summary>
+             2 つのパス文字列を結合します。
+            </summary>
+            <param name="path1">第 1 のパス。</param>
+            <param name="path2">第 2 のパス。</param>
+            <returns>結合したパスを含む文字列。指定したパスの 1 つが長さ 0 の文字列の場合、このメソッドは別のパスを返します。path2 に絶対パスが含まれる場合、このメソッドは path2 を返します。</returns>
+        </member>
+        <member name="M:TKFP.IO.Path.GetExtension(System.String)">
+            <summary>
+            指定したパス文字列の拡張子を返します。 
+            </summary>
+            <param name="path">拡張子の取得元のパス文字列。 </param>
+            <returns>指定したパス ("." を含む) の拡張子、null、または System.String.Empty を含む System.String。path が null の場合、GetExtension は null を返します。path が拡張子情報を持たない場合、GetExtension は Empty を返します。 </returns>
+        </member>
+        <member name="M:TKFP.IO.Path.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.MsdosListDataLoader">
+            <summary>
+            MS-DOSスタイルのリスト情報の解析を行うクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.MsdosListDataLoader.DATETIME_CLIENT_ERRORVALUE">
+            <summary>
+            クライアントＰＣの時刻のズレ幅(分)
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.MsdosListDataLoader._TimeDifference">
+            <summary>
+            修正用の時間
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.MsdosListDataLoader.#ctor">
+            <summary>
+            この解析クラスの新しいインスタンスを作成します
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.MsdosListDataLoader.GetDatas(System.String)">
+            <summary>
+            リストデータの各行からファイル／フォルダの情報取得を行います
+            </summary>
+            <param name="StringData">ステータスを示す受信テキストデータ</param>
+            <returns>ファイルとフォルダの情報を持つListDataクラスの配列</returns>
+        </member>
+        <member name="M:TKFP.IO.MsdosListDataLoader.GetData(System.String)">
+            <summary>
+            リストデータの各行から情報取得を行う
+            </summary>
+            <param name="StringLine">ステータスを示す受信テキスト行</param>
+        </member>
+        <member name="M:TKFP.IO.MsdosListDataLoader.GetString(System.String@)">
+            <summary>
+            文字列抜き出し用
+            </summary>
+            <param name="Source"></param>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.IO.MsdosListDataLoader.TimeDifference">
+            <summary>
+            リスト情報が持つ時刻とローカルの時刻との時差の取得設定を行います。
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.RMD">
+            <summary>
+            ディレクトリを削除するコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.RMD._DirectoryPath">
+            <summary>
+            削除するディレクトリ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.RMD.#ctor(TKFP.PathString.Folder)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.RMD.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.ListCache">
+            <summary>
+            ファイル／フォルダのリストデータのキャッシュクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache._ListDatas">
+            <summary>
+            取得リストの一覧
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache._ListValidityInterval">
+            <summary>
+            リストの有効時間（秒）
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache._rwLockLIST">
+            <summary>
+            スレッドロック用
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.Clear">
+            <summary>
+            キャッシュの内容を破棄する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.Clear(TKFP.PathString.IPath)">
+            <summary>
+            指定したパスのキャッシュの内容を破棄する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.ClearWithSubFolder(TKFP.PathString.IPath)">
+            <summary>
+            指定したパスのキャッシュの内容を破棄する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.ClearDateTime(TKFP.PathString.IPath,System.Boolean)">
+            <summary>
+            指定したパスの詳細な時刻情報を削除する
+            </summary>
+            <param name="subfolder">サブフォルダの情報も削除することを示す値</param>
+            <param name="Path"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.GetData(TKFP.PathString.IPath)">
+            <summary>
+            キャッシュ内のデータを取り出す
+            </summary>
+            <param name="Path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.SaveDatas(System.String,TKFP.PathString.IPath)">
+            <summary>
+            データの保存を行う
+            </summary>
+            <param name="Data"></param>
+            <param name="Path"></param>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache._DateTimeDatas">
+            <summary>
+            時刻キャッシュのリスト
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache._rwLockMDTM">
+            <summary>
+            時刻キャッシュの同期を行うためのオブジェクト
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.GetDateTimeData(TKFP.PathString.IPath)">
+            <summary>
+            キャッシュ内MDTMで取得したデータを取り出す
+            </summary>
+            <param name="Path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.SaveDateTimeData(TKFP.PathString.IPath,System.DateTime)">
+            <summary>
+            MDTMで取得した情報をキャッシュに格納する
+            </summary>
+            <param name="Path"></param>
+            <param name="DateTime"></param>
+        </member>
+        <member name="P:TKFP.Net.Command.ListCache.ListValidityInterval">
+            <summary>
+            リストの有効時間（秒）の設定と読み出しを行う
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.ListCache.ListData">
+            <summary>
+            フォルダごとの取得情報
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache.ListData.Path">
+            <summary>
+            パス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache.ListData.Data">
+            <summary>
+            データ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache.ListData._DataTime">
+            <summary>
+            リストの有効時刻
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.ListData.#ctor(System.String,TKFP.PathString.Folder)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="BaseData"></param>
+            <param name="BaseDirectory"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.ListData.ListValidity(System.Int32)">
+            <summary>
+            保持キャッシュの有効性をチェックする使用可能な場合にTrueを返す
+            </summary>
+            <param name="ListValidityInterval"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.ListData.PathMatch(TKFP.PathString.IPath)">
+            <summary>
+            検査対象のフルパスが保持しているデータのフルパスと一致する時にtureを返す
+            </summary>
+            <param name="CheckPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.ListData.PathStartMatch(TKFP.PathString.IPath)">
+            <summary>
+            検査対象のフルパスが保持しているデータのフルパスに含まれている時にtureを返す
+            </summary>
+            <param name="CheckPath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TKFP.Net.Command.ListCache.DateTimeCacheData">
+            <summary>
+            時刻キャッシュのデータクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache.DateTimeCacheData.Path">
+            <summary>
+            格納されているキャッシュのパス情報
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache.DateTimeCacheData.DateTime">
+            <summary>
+            格納されているキャッシュの時刻
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.ListCache.DateTimeCacheData._ValidityDataTime">
+            <summary>
+            リストの有効時刻
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.DateTimeCacheData.#ctor(TKFP.PathString.IPath,System.DateTime)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="Path"></param>
+            <param name="DateTime"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.ListCache.DateTimeCacheData.ListValidity(System.Int32)">
+            <summary>
+            保持キャッシュの有効性をチェックする使用可能な場合にTrueを返す
+            </summary>
+            <param name="ListValidityInterval"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TKFP.Net.Command.Logon">
+            <summary>
+            ログオン処理を実行する
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.Logon._ConnectionResponse">
+            <summary>
+            接続時にサーバーが返してきた文字列
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.Logon._FtpLogon">
+            <summary>
+            ログオン処理クラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.Logon.#ctor(TKFP.Net.IFtpLogon,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.Logon.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.EventSyncQueue">
+             <summary>
+            同期実行時のイベントを保存するキュー
+             </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.EventSyncQueue._EventSyncQueue">
+            <summary>
+            非同期実行時のイベントを保存するキュー
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.EventSyncQueue.Enqueue(TKFP.Net.Command.EventSyncQueue.EventData)">
+            <summary>
+            データを追加する
+            </summary>
+            <param name="EventData"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.EventSyncQueue.Dequeue">
+            <summary>
+            データを取り出す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.Net.Command.EventSyncQueue.Count">
+            <summary>
+            キューにあるデータの数を返す
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.EventSyncQueue.EventData">
+            <summary>
+            イベントデータの格納クラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.EventSyncQueue.EventData.Type">
+            <summary>
+            メッセージのタイプ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.EventSyncQueue.EventData.e">
+            <summary>
+            イベントデータ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.EventSyncQueue.EventData.#ctor(TKFP.Net.Command.EventSyncQueue.EventData.Types,TKFP.Net.MessageArgs)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="Type"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:TKFP.Net.Command.EventSyncQueue.EventData.Types">
+            <summary>
+            メッセージのタイプ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.EventSyncQueue.EventData.Types.Send">
+            <summary>
+            送信メッセージ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.EventSyncQueue.EventData.Types.Receive">
+            <summary>
+            受信メッセージ
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.PortEntry">
+            <summary>
+            接続に使用するポート番号を管理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.PortEntry._Port">
+            <summary>
+            接続に使用できるポート番号
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.PortEntry._StartPort">
+            <summary>
+            接続待ちに使用できる最初のポート番号
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.PortEntry._EndPort">
+            <summary>
+            接続待ちに使用できる最後のポート番号
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.PortEntry._OpenRetryCount">
+            <summary>
+            待ち受けポートの設定に失敗したときの再試行回数
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.PortEntry._ThreadSyncObject">
+            <summary>
+            スレッド同期用オブジェクト
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.PortEntry.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.PortEntry.#ctor(System.Int32,System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="StartPort">接続待ちに使用できる最初のポート番号</param>
+            <param name="EndPort">接続待ちに使用できる最後のポート番号</param>
+        </member>
+        <member name="M:TKFP.Net.PortEntry.GetPortNumber">
+            <summary>
+            使用可能なポート番号を返す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.PortEntry.GetDataConnection(TKFP.Net.DataConnection.Parameter)">
+            <summary>
+            待ち受け可能状態のデータコネクションクラスを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.Net.PortEntry.StartPort">
+            <summary>
+            接続待ちに使用できる最初のポート番号の読み出しを行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.PortEntry.EndPort">
+            <summary>
+            接続待ちに使用できる最後のポート番号の読み出しを行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.PortEntry.OpenRetryCount">
+            <summary>
+            待ち受けポートの設定に失敗したときの再試行回数の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.MessageTypes">
+            <summary>
+            通信ログの種類を示す列挙
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.MessageTypes.Send">
+            <summary>
+            送信メッセージ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.MessageTypes.Receive">
+            <summary>
+            受信メッセージ
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.MessageArgs">
+            <summary>
+            通信時のメッセージイベントデータ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.MessageArgs.Message">
+            <summary>
+            送信または受信メッセージ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.MessageArgs.Type">
+            <summary>
+            通信ログの種類
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.MessageArgs.Date">
+            <summary>
+            ログの記録時刻
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.MessageArgs.#ctor(System.String,TKFP.Net.MessageTypes)">
+            <summary>
+            インスタンスの初期化
+            </summary>
+            <param name="Message">送信または受信メッセージ</param>
+            <param name="Type">通信ログの種類</param>
+        </member>
+        <member name="T:TKFP.Net.MessageReceiveHandler">
+            <summary>
+            データ受信直後のイベントハンドラ
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.MessageSendHandler">
+            <summary>
+            データ送信直後のイベントハンドラ
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.DataForwardArgs">
+            <summary>
+            データを送受信している時に発生するイベントのデータ型
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataForwardArgs.DataLength">
+            <summary>
+            データ転送量
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataForwardArgs.#ctor(System.Int64)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="DataLength"></param>
+        </member>
+        <member name="T:TKFP.Net.DataForwardHandler">
+            <summary>
+            データを送受信している時に発生するイベントハンドル
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.CertificateValidationHandler">
+            <summary>
+            暗号化通信を行う場合に正当性が認められなかった証明書の検証を行うためのイベントハンドラ
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.CertificateValidationArgs">
+            <summary>
+            暗号化通信を行う場合に正当性が認められなかった証明書の検証を行うためのイベントデータ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CertificateValidationArgs.Cancel">
+            <summary>
+            証明書の検証をキャンセルします。
+            </summary>
+            <remarks>
+            <para>証明書の内容をで認証を行う場合にfalseをセットします。</para>
+            <para>証明書の内容に問題がある場合はtrueをセットし検証を中断することが出来ます。</para>
+            </remarks>
+        </member>
+        <member name="F:TKFP.Net.CertificateValidationArgs.Certificate">
+            <summary>
+            X.509 v.3 証明書を使用するために役立つメソッドを提供します。
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CertificateValidationArgs.Chain">
+            <summary>
+            System.Security.Cryptography.X509Certificates.X509Certificate2 証明書のチェーン作成エンジンを表します。
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CertificateValidationArgs.SslPolicyErrors">
+            <summary>
+            SSL (Secure Socket Layer) のポリシー エラーを列挙します。
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.CertificateValidationArgs.#ctor(System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            新しいインスタンスを作成します。
+            </summary>
+            <param name="certificate"></param>
+            <param name="chain"></param>
+            <param name="sslPolicyErrors"></param>
+        </member>
+        <member name="T:TKFP.Net.Command.STOR">
+            <summary>
+            ファイルの書込みを行う
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.STOR._FileName">
+            <summary>
+            取得するファイル名
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.STOR._ConnectionCommand">
+            <summary>
+            データ用コネクションコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.STOR._SaveData">
+            <summary>
+            サーバーへ送信するためのデータが格納されたストリーム
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.STOR._CancelExecution">
+            <summary>
+            通信処理の中断要求が発生したことを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.STOR._CancelExecutionSyncObj">
+            <summary>
+            中断要求の同期用オブジェクト
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.STOR.#ctor(TKFP.Net.Command.ConnectionCommandBase,TKFP.PathString.File,System.IO.Stream)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.STOR.CancelExecution">
+            <summary>
+            転送処理を中断する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.STOR.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.PASV">
+            <summary>
+            パッシブモードでデータ用コネクションを確立するためのコマンドクラス
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.PASV.#ctor(TKFP.Net.DataConnection.Parameter)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.PASV.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.LISTLoader">
+            <summary>
+            LISTコマンドでフォルダ情報を取得するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.LISTLoader._List">
+            <summary>
+            実行するリストコマンド
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.LISTLoader.#ctor(TKFP.Net.Command.ConnectionCommandBase,TKFP.PathString.IPath,TKFP.Net.Command.ListCache,TKFP.Net.DebugLog)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="Connection"></param>
+            <param name="Path"></param>
+            <param name="Cache"></param>
+            <param name="DebugLog"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.LISTLoader.GetCommandData">
+            <summary>
+            通信実行結果のデータを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TKFP.Net.Command.DateTimeHashtable">
+            <summary>
+            詳細な時刻情報の一覧を保持するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.DateTimeHashtable._Datas">
+            <summary>
+            保持データの一覧
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.DateTimeHashtable._Folders">
+            <summary>
+            フォルダごとのコレクションの一覧
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.DateTimeHashtable.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.DateTimeHashtable.Add(TKFP.Net.Command.ListCache.DateTimeCacheData)">
+            <summary>
+            新しいデータを追加する
+            </summary>
+            <param name="Data"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.DateTimeHashtable.Clear">
+            <summary>
+            全ての保持情報を削除する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.DateTimeHashtable.Remove(TKFP.PathString.IPath)">
+            <summary>
+            指定したパスの情報を削除する
+            </summary>
+            <param name="Path"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.DateTimeHashtable.RemoveWithSubFolder(TKFP.PathString.IPath)">
+            <summary>
+            指定したパスとそのサブディレクトリの情報を削除する
+            </summary>
+            <param name="Path"></param>
+        </member>
+        <member name="P:TKFP.Net.Command.DateTimeHashtable.Item(TKFP.PathString.IPath)">
+            <summary>
+            指定したパスの情報を読み出す
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.CommandSelecter">
+            <summary>
+            クライアントの状態から適切なコマンドを選択するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter.DEFAULT_SEND_BUFFER_SIZE">
+            <summary>
+            送信用バッファサイズ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter.DEFAULT_RECEIVE_BUFFER_SIZE">
+            <summary>
+            受信バッファサイズ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._DataConnectionEncrypted">
+            <summary>
+            現在のデータコネクションの状態
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._IsFileTransferEncrypted">
+            <summary>
+            ファイルの送受信を暗号化することを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._IsListTransferEncrypted">
+            <summary>
+            リスト取得を暗号化することを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._ConnectionMode">
+            <summary>
+            データコネクションの接続方法
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._PortEntry">
+            <summary>
+            ポート番号を管理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._Connection">
+            <summary>
+            コネクションクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._SendBufferSize">
+            <summary>
+            送信用バッファサイズ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._ReceiveBufferSize">
+            <summary>
+            受信バッファサイズ
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._ListType">
+            <summary>
+            リストの取得方法
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._NLSTCommandOption">
+            <summary>
+            NLST使用時のコマンドオプション
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._SendDataLength">
+            <summary>
+            送信データ量
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._ReceiveDataLength">
+            <summary>
+            受信データ量
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._DebugLog">
+            <summary>
+            デバッグ用ログ処理クラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._ListCache">
+            <summary>
+            LIST用のキャッシュクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._CurrentDirectory">
+            <summary>
+            カレントディレクトリを管理するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._PassiveModeIPHold">
+            <summary>
+            接続先サーバーのＩＰアドレスを固定する
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._ActiveModeLocalAddress">
+            <summary>
+            アクティブモードで通知するローカルＩＰアドレス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._ForwardLimiter">
+            <summary>
+            帯域制限管理クラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter._TimeDifference">
+            <summary>
+            修正用の時間
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.#ctor(TKFP.Net.PortEntry,TKFP.Net.DebugLog,TKFP.Net.CurrentDirectory)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetListEncryptedCommand">
+            <summary>
+            リスト取得用のデータコネクションコマンドクラスを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetFileEncryptedCommand">
+            <summary>
+            リスト取得用のデータコネクションコマンドクラスを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetEncryptedCommand(System.Boolean)">
+            <summary>
+            リスト取得用のデータコネクションコマンドクラスを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetFileConnectionCommand(TKFP.Net.ConnectionModes)">
+            <summary>
+            ファイル転送用のデータコネクションコマンドクラスを取得する
+            </summary>
+            <param name="ConnectionModes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetListConnectionCommand">
+            <summary>
+            リスト取得用のデータコネクションコマンドクラスを取得する
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetConnectionCommand(TKFP.Net.ConnectionModes,System.Boolean)">
+            <summary>
+            コネクションモードを指定して該当するコネクションコマンドを返す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetListCommand(TKFP.PathString.Folder)">
+            <summary>
+            ディレクトリリスト取得用のコマンドクラスを返す
+            </summary>
+            <param name="Path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetFileStatusCommand(TKFP.PathString.File)">
+            <summary>
+            ファイル情報取得用のコマンド返す
+            </summary>
+            <param name="FilePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetChangePermissionCommand(TKFP.IO.Permission,TKFP.PathString.IPath)">
+            <summary>
+            パーミッションの変更用コマンドを返す
+            </summary>
+            <param name="Permission"></param>
+            <param name="Path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetChangeDirectoryCommand(TKFP.PathString.Folder)">
+            <summary>
+            ファイル／ディレクトリの操作のためにカレントディレクトリを変更するためのコマンドを返す。フルパスでの指定が可能な場合は実行コマンドは無い。
+            </summary>
+            <param name="NewFolder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetDateTimeReadCommand(TKFP.PathString.IPath)">
+            <summary>
+            日付取得用コマンドを返す
+            </summary>
+            <param name="Path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.GetDateTimeWriteCommand(TKFP.PathString.IPath,System.DateTime)">
+            <summary>
+            日付取得用コマンドを返す
+            </summary>
+            <param name="Path"></param>
+            <param name="DateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.ConnectionCommandBase_DataSend(System.Object,TKFP.Net.DataForwardArgs)">
+            <summary>
+            データコネクションでの送信時のイベント
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.ConnectionCommandBase_DataReceive(System.Object,TKFP.Net.DataForwardArgs)">
+            <summary>
+            データコネクションでの受信時のイベント
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.IsFileTransferEncrypted">
+            <summary>
+            ファイルの送受信を暗号化することを示す値の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.IsListTransferEncrypted">
+            <summary>
+            リスト取得を暗号化することを示す値の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.ConnectionMode">
+            <summary>
+            データコネクションの接続方法の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.ListType">
+            <summary>
+            ファイル／フォルダの取得方法の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.NLSTCommandOption">
+            <summary>
+            NLST使用時のコマンドオプションの読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.PortEntry">
+            <summary>
+            リスナーポートを管理するクラスの読み出しを行ないます
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.Connection">
+            <summary>
+            コネクションクラスの設定を行なう
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.ListCache">
+            <summary>
+            LIST用キャッシュクラスの読み出しと設定を行ないます
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.SendBufferSize">
+            <summary>
+            送信用バッファサイズの読み出しと設定を行ないます
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.ReceiveBufferSize">
+            <summary>
+            受信用バッファサイズの読み出しと設定を行ないます
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.SendDataLength">
+            <summary>
+            送信データ量の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.ReceiveDataLength">
+            <summary>
+            受信データ量の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.PassiveModeIPHold">
+            <summary>
+            接続先サーバーのＩＰアドレスを固定することを示す値
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.ActiveModeLocalAddress">
+            <summary>
+            アクティブモードで通知するローカルＩＰアドレスの読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.ForwardLimiter">
+            <summary>
+            帯域制限管理クラスの読出しと設定を行います
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.CommandSelecter.TimeDifference">
+            <summary>
+            時刻に関するコマンドで使用される時差の読み出しと設定を行います
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.CommandSelecter.DataConnectionEncryptedTypes">
+            <summary>
+            データコネクションの暗号化の現在の状態を示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter.DataConnectionEncryptedTypes.None">
+            <summary>
+            不明
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter.DataConnectionEncryptedTypes.PRIVATE">
+            <summary>
+            暗号化
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter.DataConnectionEncryptedTypes.CLEAR">
+            <summary>
+            平文
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.CommandSelecter.DataConnectionEncrypted">
+            <summary>
+            現在のデータコネクションの暗号化状態を格納するクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.CommandSelecter.DataConnectionEncrypted.DataConnectionEncryptedType">
+            <summary>
+            暗号化の状態
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.CommandSelecter.DataConnectionEncrypted.#ctor">
+            <summary>
+            新しいインスタンスを作成する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.DataConnection.ForwardLimiter">
+            <summary>
+            帯域制限を行うクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ForwardLimiter._SendLimitRate">
+            <summary>
+            送信帯域制限値(バイト) 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ForwardLimiter._ReceiveLimitRate">
+            <summary>
+            受信帯域制限値(バイト) 
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ForwardLimiter._LimitCounter_Send">
+            <summary>
+            送信データの量
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ForwardLimiter._LimitTime_Send">
+            <summary>
+            次回送信データ減算時刻
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ForwardLimiter._SendSync">
+            <summary>
+            送信制限同期オブジェクト
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ForwardLimiter._LimitCounter_Receive">
+            <summary>
+            受信データ量
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ForwardLimiter._LimitTime_Receive">
+            <summary>
+            次回受信データ減算時刻
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.DataConnection.ForwardLimiter._ReceiveSync">
+            <summary>
+            受信制限同期オブジェクト
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ForwardLimiter.Inc_ForwardSize_Send(System.Int32)">
+            <summary>
+            送信データ量加算
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:TKFP.Net.DataConnection.ForwardLimiter.Inc_ForwardSize_Receive(System.Int32)">
+            <summary>
+            受信データ量加算
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:TKFP.Net.DataConnection.ForwardLimiter.SendLimitRate">
+            <summary>
+            送信帯域制限値(バイト) の読出しと設定を行う
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.DataConnection.ForwardLimiter.ReceiveLimitRate">
+            <summary>
+            受信帯域制限値(バイト) の読出しと設定を行う
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.DataConnection.ForwardLimiter.CanForward_Send">
+            <summary>
+            送信制限確認
+            </summary>
+        </member>
+        <member name="P:TKFP.Net.DataConnection.ForwardLimiter.CanForward_Receive">
+            <summary>
+            受信制限確認
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.AUTH">
+            <summary>
+            暗号化通信を開始するコマンド
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.AUTH._SslProtocols">
+            <summary>
+            暗号化バージョン
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.AUTH.#ctor(System.Security.Authentication.SslProtocols)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.AUTH.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.MKD">
+            <summary>
+            ディレクトリを作成するコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.MKD._MakePath">
+            <summary>
+            作成するディレクトリ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.MKD.#ctor(TKFP.PathString.Folder)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.MKD.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.CommandQueue">
+            <summary>
+            同期処理のための通信メッセージキュー
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.CommandQueue._Queue">
+            <summary>
+            通信要求のキューリスト
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandQueue.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandQueue.Enqueue(TKFP.Net.Command.CommandBase)">
+            <summary>
+            キューを追加する
+            </summary>
+            <param name="MessageData"></param>
+        </member>
+        <member name="M:TKFP.Net.Command.CommandQueue.Dequeue">
+            <summary>
+            先頭のキューを返す
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:TKFP.Net.Command.CommandQueue.Count">
+            <summary>
+            現在のキューの数を読み出す
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.Command.RETR">
+            <summary>
+            ファイルの読み出しを行う
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.RETR._FileName">
+            <summary>
+            取得するファイル名
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.RETR._ConnectionCommand">
+            <summary>
+            データ用コネクションコマンドクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.RETR._LoadData">
+            <summary>
+            サーバーから読み出したデータを保存するためのストリーム
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.RETR._CancelExecution">
+            <summary>
+            通信処理の中断要求が発生したことを示す値
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.Command.RETR._CancelExecutionSyncObj">
+            <summary>
+            中断要求の同期用オブジェクト
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.RETR.#ctor(TKFP.Net.Command.ConnectionCommandBase,TKFP.PathString.File,System.IO.Stream)">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.RETR.CancelExecution">
+            <summary>
+            転送処理を中断する
+            </summary>
+        </member>
+        <member name="M:TKFP.Net.Command.RETR.CommandExecution">
+            <summary>
+            通信を実行する
+            </summary>
+        </member>
+        <member name="T:TKFP.Net.AuthenticationProtocols">
+            <summary>
+            通信で使用する暗号化プロトコルを選択します
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.AuthenticationProtocols.None">
+            <summary>
+            通信で暗号化を行わないことを指定します
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.AuthenticationProtocols.Implicit">
+            <summary>
+            Implicitモードで暗号化通信を行います
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.AuthenticationProtocols.Explicit_SSL">
+            <summary>
+            ExplicitモードでSSLを使用して暗号化通信を行います
+            </summary>
+        </member>
+        <member name="F:TKFP.Net.AuthenticationProtocols.Explicit_TLS">
+            <summary>
+            ExplicitモードでTLSを使用して暗号化通信を行います
+            </summary>
+        </member>
+        <member name="T:TKFP.IO.Cache.DirectoryMember">
+            <summary>
+            ディレクトリ内のメンバーをキャッシュするクラス
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.DirectoryMember._Files">
+            <summary>
+            ファイル一覧
+            </summary>
+        </member>
+        <member name="F:TKFP.IO.Cache.DirectoryMember._Directories">
+            <summary>
+            ディレクトリ一覧
+            </summary>
+        </member>
+        <member name="M:TKFP.IO.Cache.DirectoryMember.#ctor(System.Int32)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="CacheValidityInterval"></param>
+        </member>
+        <member name="M:TKFP.IO.Cache.DirectoryMember.Update(TKFP.IO.FileInfo[],TKFP.IO.DirectoryInfo[])">
+            <summary>
+            保持データを更新する
+            </summary>
+            <param name="NewFiles"></param>
+            <param name="NewDirectories"></param>
+        </member>
+        <member name="P:TKFP.IO.Cache.DirectoryMember.Files">
+            <summary>
+            ファイル一覧を返す
+            </summary>
+        </member>
+        <member name="P:TKFP.IO.Cache.DirectoryMember.Directories">
+            <summary>
+            ディレクトリ一覧を返す
+            </summary>
+        </member>
+    </members>
+</doc>

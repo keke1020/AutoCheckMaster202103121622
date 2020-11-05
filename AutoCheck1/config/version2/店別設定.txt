@@ -1,0 +1,11 @@
+基本,4,A,A
+style,4,A,A
+KuraNavi,4,A,A
+Lucky9,4,A,A
+Qoo10,4,A,A
+暁,4,A,A
+アリス,4,A,A
+Amazon,4,A,A
+問屋,4,A,A
+あかね,4,A,A
+テスト,4,A,A

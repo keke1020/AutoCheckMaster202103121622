@@ -1,0 +1,5 @@
+﻿以下のファイルは  Japanese Kana Converter Library の使用許諾条件に従って、再頒布できます。
+ 
+JpnKanaConversion.dll
+JpnKanaConvHelper.dll
+ja\JpnKanaConversion.resources.dll

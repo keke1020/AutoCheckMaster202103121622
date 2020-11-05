@@ -1,0 +1,5 @@
+﻿https://login.bizmanager.yahoo.co.jp/login?url=https://pro.sto|user_name,|password,
+https://login.yahoo.co.jp/config/login?.src=www&.done=http|user_name,|passwd,
+https://login.yahoo.co.jp/config/login?.slogin=&.lg=jp&.in|user_name,|passwd,
+https://glogin.rms.rakuten.co.jp/?sp_id=1|login_id,|passwd,
+https://glogin.rms.rakuten.co.jp/|rlogin-username-2-ja,|rlogin-password-2-ja,

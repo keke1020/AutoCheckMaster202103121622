@@ -1,0 +1,6 @@
+﻿Yahoo=code,sub-code,,,,
+楽天=商品番号,,,商品管理番号（商品URL）,項目選択肢別在庫用横軸選択肢子番号,項目選択肢別在庫用縦軸選択肢子番号
+Wowma=Code,SkuOptionTypeCol,SkuOptionTypeRow,,,
+Amazon=出品者SKU,,,,,
+Qoo10=Seller Code,Inventory Info,,,,
+ヤフオク=,,,,,

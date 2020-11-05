@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PdfGeneratorNetFree>
+  <!--logLevel is None or ErrorOnly , Full-->
+  <log logLevel="None" logFolder=".\ErrLog" />
+</PdfGeneratorNetFree>

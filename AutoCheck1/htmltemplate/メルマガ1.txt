@@ -1,0 +1,13 @@
+﻿<table width=670 cellpadding=0 cellspacing=0>
+<tr>
+<td colspan=2><a href="$A1"><img src="$A2" width=670 border=0></a></td>
+</tr>
+<tr><td colspan=2 height=10></td></tr>
+<tr>
+<th align=left colspan=2><font size=+2>$A3</font></th>
+</tr>
+<tr>
+<td>$A5</td>
+<th align=right><font size=+3 color=red>$A4円 (税込)</font></th>
+</tr>
+</table>

@@ -1,0 +1,7 @@
+version.txtにアップデートファイルを書き込む
+ファイルのパスの最初に\はいらない。
+
+AutoCheck1.exe
+config\test.txt
+
+のようにする。

@@ -1,0 +1,20 @@
+﻿Yahoo Japan,http://www.yahoo.co.jp
+Yahoo ストアクリエイター,https://pro.store.yahoo.co.jp/protop
+ビジネスマネージャー,https://login.bizmanager.yahoo.co.jp/login
+Yahoo FKstyle,https://store.shopping.yahoo.co.jp/fkstyle/
+Yahoo Lucky9,https://store.shopping.yahoo.co.jp/lucky9/
+Yahoo あかね,https://store.shopping.yahoo.co.jp/akaneashop/
+Yahoo 海東KT,https://store.shopping.yahoo.co.jp/kt-zkshop/
+楽天 RMS,https://mainmenu.rms.rakuten.co.jp/rms/
+楽天 通販の暁,http://www.rakuten.co.jp/patri/
+楽天 雑貨の国のアリス,https://www.rakuten.co.jp/alice-zk/
+楽天 あかねAShop,https://www.rakuten.co.jp/ashop/
+Qoo10 管理画面,https://qsm.qoo10.jp/gmkt.inc.gsm.web/Login.aspx
+Qoo10 通販の雑貨倉庫,http://www.qoo10.jp/shop/yasuyasu
+Qoo10 福岡通販堂,http://www.qoo10.jp/shop/fukuoka
+Wowma KuraNavi,https://plus.wowma.jp/user/38238702
+ネクストエンジン,https://base.next-engine.org/
+オークタウン,http://auctown.jp/goodsList/
+メルカリ,https://www.mercari.com/jp/login/
+Google,http://www.google.co.jp
+ブラウザバージョン確認,http://supportdetails.com/

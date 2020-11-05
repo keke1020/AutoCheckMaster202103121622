@@ -1,0 +1,3 @@
+https://glogin.rms.rakuten.co.jp/
+user_id
+user_passwd

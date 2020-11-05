@@ -1,0 +1,1429 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MonthCalendarM</name>
+    </assembly>
+    <members>
+        <member name="T:WiseupSoft.Win.Control.ActiveBorderStyle">
+            <summary>
+                アクティブ日付の境界線スタイルを示します。</summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:WiseupSoft.Win.Control.ActiveBorderStyle.Border">
+            <summary>
+            外周を四角形で描画します。
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:WiseupSoft.Win.Control.ActiveBorderStyle.Gradation">
+            <summary>
+            グラデーションで描画します。
+            </summary>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.AsyncCustomDateInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.AsyncCustomDateInfo.AsynchronizingObject">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.AsyncCustomDateInfo.CustomDateFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.BorderStyle">
+            <summary>
+                カレンダーの境界線スタイルを示します。</summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:WiseupSoft.Win.Control.BorderStyle.None">
+            <summary>
+            境界線なし。
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:WiseupSoft.Win.Control.BorderStyle.Single">
+            <summary>
+            一重線の境界線。
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.CalenderPanelM">
+            <summary>
+            カレンダーパネル コントロール
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.CalenderPanelM.GetFirstWeekIndex(WiseupSoft.Win.Control.StartOfWeek)">
+            <summary>
+            週の最初の日のインデックスを取得します。
+            </summary>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.CalenderPanelM.GetLastWeekIndex(WiseupSoft.Win.Control.StartOfWeek)">
+            <summary>
+            週の最後の日のインデックスを取得します。
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CalenderPanelM.BorderColor">
+            <summary>
+                枠線の表示色を取得または設定します</summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CalenderPanelM.CellBorderStyle">
+            <summary>
+                枠線を表示させるかどうかを取得または設定します</summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CalenderPanelM.ActiveCell">
+            <summary>
+                コントロールをアクティブに設定するかを取得または設定します</summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CalenderPanelM.ActiveCellBorderColor">
+            <summary>
+                コントロールがアクティブの場合の枠線の表示色を取得または設定します</summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CalenderPanelM.ActiveCellBorderStyle">
+            <summary>
+                アクティブ日付の境界線スタイルを取得または設定します。</summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CalenderPanelM.GradationStartColor">
+            <summary>
+            グラデーションの開始色を取得または設定します。
+            ActiveCellBorderStyle プロパティの設定値が、WiseupSoft.Win.Control.ActiveBorderStyle.Gradation の場合のみ有効です。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CalenderPanelM.GradationEndColor">
+            <summary>
+            グラデーションの終了色を取得または設定します。
+            ActiveCellBorderStyle プロパティの設定値が、WiseupSoft.Win.Control.ActiveBorderStyle.Gradation の場合のみ有効です。
+            </summary>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.ClickDateEventArgs">
+            <summary>
+            ClickDate イベントのイベントデータを実装します。
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.ClickDateEventArgs.#ctor(System.DateTime)">
+            <summary>
+            ClickDateEventArgs クラスを初期化します。
+            </summary>
+            <param name="date"></param>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.ClickDateEventArgs.Date">
+            <summary>
+            ユーザーが選択した日付を取得します。
+            </summary>
+            <value></value>
+            <returns>ユーザーが選択した日付を表す System.DateTime。</returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.CtrlStyle">
+            <summary>
+                コントロールに使用する描画スタイルを設定します。</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.CtrlStyle.#ctor">
+            <summary>
+                WiseupSoft.Win.Control.CtrlStyle クラスの新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.CtrlStyle.ToString">
+            <summary>
+                BorderStyleプロパティ、BorderColorプロパティ、ShadowColorプロパティ の値を、それと等価な System.String 形式に変換します。</summary>
+            <returns></returns>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CtrlStyle.ActiveBorder">
+            <summary>
+                アクティブなセルの枠線を取得または設定します。</summary>
+            <value>
+                アクティブなセルの枠線を示す Color 構造体 。既定値は、System.Drawing.Color.Blue です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CtrlStyle.BorderStyle">
+            <summary>
+                カレンダーの境界線のスタイルを取得または設定します</summary>
+            <value>
+                カレンダーの境界線のスタイルに適用される BorderStyle 。既定値は WiseupSoft.Win.Control.BorderStyle.Single です。</value>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CtrlStyle.BorderColor">
+            <summary>
+                カレンダーの境界線の色を取得または設定します。</summary>
+            <value>
+                カレンダーの境界線に適用される Color 。既定値は System.Drawing.Color.Gainsboro です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CtrlStyle.ShadowColor">
+            <summary>
+                カレンダーの影の色を取得または設定します。</summary>
+            <value>
+                カレンダーの影の色に適用される Color 。既定値は System.Drawing.Color.KnownColor.Control です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.CustomDate">
+            <summary>
+            カスタム日付の情報を表す基本クラスです。
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.CustomDate.#ctor">
+            <summary>
+                WiseupSoft.Win.Control.CustomDate クラスの新しいインスタンスを初期化します。</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.CustomDate.#ctor(System.DateTime,System.Drawing.Color,System.Drawing.Color,System.String)">
+            <summary>
+                WiseupSoft.Win.Control.CustomDate クラスの新しいインスタンスを初期化します。</summary>
+            <param name="date">
+                対象日付</param>
+            <param name="colorBack">
+                背景色</param>
+            <param name="colorFore">
+                前景色</param>
+            <param name="tooltip">
+                ツールチップ</param>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CustomDate.TargetDate">
+            <summary>
+                カスタム日付に設定する対象日付を取得または設定します。</summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CustomDate.BackColor">
+            <summary>
+                カスタム日付に設定する対象日付の背景色を取得または設定します。</summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CustomDate.ForeColor">
+            <summary>
+                カスタム日付に設定する対象日付の前景色を取得または設定します。</summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CustomDate.ToolTip">
+            <summary>
+                カスタム日付に設定する対象日付のツールチップを取得または設定します。</summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.CustomDateAddEventArgs">
+            <summary>
+                CustomDateAddCompleted イベントのイベントデータを実装します。</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.CustomDateAddEventArgs.#ctor(WiseupSoft.Win.Control.CustomDate)">
+            <summary>
+                CustomDateAddEventArgs クラスを初期化します。</summary>
+            <param name="value"></param>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CustomDateAddEventArgs.Value">
+            <summary>
+                追加されたカスタム日付データを取得します。</summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.CustomDateReadCompletedEventArgs">
+            <summary>
+                CustomDateReadCompleted イベントのイベントデータを実装します。</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.CustomDateReadCompletedEventArgs.#ctor(System.String,System.Int32)">
+            <summary>
+                CustomDateReadCompletedEventArgs クラスを初期化します。</summary>
+            <param name="readFile">
+                読み込んだファイル。</param>
+            <param name="count">
+                読み込んだデータ件数。</param>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CustomDateReadCompletedEventArgs.ReadFile">
+            <summary>
+                読み込んだカスタム日付ファイルを取得します。</summary>
+            <value></value>
+            <returns>
+                読み込んだカスタム日付ファイルを表す System.String 。</returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CustomDateReadCompletedEventArgs.Count">
+            <summary>
+                読み込んだカスタム日付データの件数を取得します。</summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.CustomDateRemoveEventArgs">
+            <summary>CustomDateRemoveCompleted イベントのイベントデータを実装します。</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.CustomDateRemoveEventArgs.#ctor(System.DateTime)">
+            <summary>CustomDateRemoveEventArgs クラスを初期化します。</summary>
+            <param name="value"></param>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CustomDateRemoveEventArgs.Value">
+            <summary>削除された日付を取得します。</summary>
+            <value></value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.CustomDateSaveCompletedEventArgs">
+            <summary>
+            CustomDateSaveCompleted イベントのイベントデータを実装します。
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.CustomDateSaveCompletedEventArgs.#ctor(System.String)">
+            <summary>
+                CustomDateSaveCompletedEventArgs クラスを初期化します。</summary>
+            <param name="saveFile"></param>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.CustomDateSaveCompletedEventArgs.SaveFile">
+            <summary>
+                保存したカスタム日付ファイルを取得します。</summary>
+            <value></value>
+            <returns>
+                保存したカスタム日付ファイルを表す System.String 。</returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.DateRangeEventArgs">
+            <summary>
+                MultiDateSelected イベントのイベントデータを実装します。</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.DateRangeEventArgs.#ctor(System.DateTime,System.DateTime)">
+            <summary>
+                DateRangeEventArgs クラスを初期化します。</summary>
+            <param name="start">
+                ユーザーが選択した範囲内の最初の日付/時刻値。</param>
+            <param name="end">
+                ユーザーが選択した範囲内の最後の日付/時刻値。</param>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DateRangeEventArgs.Start">
+            <summary>
+                ユーザーが選択した範囲内の最初の日付/時刻値を取得します。</summary>
+            <value></value>
+            <returns>
+                ユーザーが選択した日付範囲内の最初の日付を表す System.DateTime。</returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DateRangeEventArgs.End">
+            <summary>
+                ユーザーが選択した範囲内の最後の日付/時刻値を取得します。</summary>
+            <value></value>
+            <returns>
+                ユーザーが選択した日付範囲内の最後の日付を表す System.DateTime。</returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.DayStyle">
+            <summary>
+                日付に使用する描画スタイルを設定します。</summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.DayStyle.#ctor">
+            <summary>
+                WiseupSoft.Win.Control.DayStyle の新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.DayStyle.Dispose">
+            <summary>
+                リソースを解放します。</summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DayStyle.BackColorWeekday">
+            <summary>
+                月内の平日の背景色を取得または設定します。</summary>
+            <value>
+                月内の平日の背景色に適用される Color 。既定値は System.Drawing.Color.White です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DayStyle.BackColorSaturday">
+            <summary>
+                月内の土曜日の背景色を取得または設定します。</summary>
+            <value>
+                月内の土曜日の背景色に適用される Color 。既定値は カラー値 (230, 230, 250) です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DayStyle.BackColorSunday">
+            <summary>
+                月内の日曜日の背景色を取得または設定します。</summary>
+            <value>
+                月内の日曜日の背景色に適用される Color 。既定値は カラー値 (254, 208, 224) です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DayStyle.BackColorScopeOut">
+            <summary>
+                表示月以外の背景色を取得または設定します。</summary>
+            <value>
+                表示月以外の背景色に適用される Color 。既定値は カラー値 (220, 220, 220) です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DayStyle.ForeColorWeekday">
+            <summary>
+                月内の平日の前景色を取得または設定します。</summary>
+            <value>
+                月内の平日の前景色に適用される Color 。既定値は System.Drawing.Color.Black です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DayStyle.ForeColorSaturday">
+            <summary>
+                月内の土曜日の前景色を取得または設定します。</summary>
+            <value>
+                月内の土曜日の前景色に適用される Color 。既定値は System.Drawing.Color.Blue です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DayStyle.ForeColorSunday">
+            <summary>
+                月内の日曜日の前景色を取得または設定します。</summary>
+            <value>
+                月内の日曜日の前景色に適用される Color 。既定値は System.Drawing.Color.Red です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DayStyle.ForeColorScopeOut">
+            <summary>
+                表示月以外の前景色を取得または設定します。</summary>
+            <value>
+                表示月以外の前景色に適用される Color 。既定値は System.Drawing.Color.DarkGray です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DayStyle.ForeColorToday">
+            <summary>
+                月内の現在日の前景色を取得または設定します。</summary>
+            <value>
+                月内の現在日の前景色に適用される Color 。既定値は System.Drawing.Color.LimeGreen です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.DayStyle.Font">
+            <summary>
+            日付のフォントを取得または設定します。
+            </summary>
+            <value>日付のフォントに適用される Font 。既定値は Arial , 10 , 標準 です 。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.Label">
+            <summary>
+                ラベルコントロール</summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.MonthCalendarM">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>ユーザーがビジュアルなカレンダーを使用して日付を選択できる Windows コントロールを表します。</summary>
+             <remarks></remarks>
+             <history>
+             <list>Ver.2.0.0.0 2011/04/07 新規作成</list>
+             <list>Ver.2.0.1.0 2011/04/09 修正     CtrlStyle,TitleStyle,WeekStyle,DayStyle プロパティをデザイン上で変更した場合にその変更箇所が実行時に反映されない不具合を修正しました。</list>
+             <list>Ver.2.0.2.0 2011/08/27 新規     DoubleClickDate イベントを追加しました。</list>
+             <list>Ver.2.0.2.0 2011/08/27 新規     SelectedDate プロパティで日付を変更できるようになりました。</list>
+             <list>Ver.2.0.2.0 2011/08/27 新規     ArgumentOutOfRange イベントを追加しました。最小値から最大値の期間以外の日付が設定された場合に発生します。</list>
+             <list>Ver.2.0.2.0 2011/08/27 修正     最小値から最大値までの期間以外を選択もしくはキー押下した場合に、例外が発生してしまう不具合を修正しました。</list>
+             <list>Ver.2.0.3.0 2012/04/02 修正     カレンダーデータの生成に不具合があったので修正しました。</list>
+             <list>Ver.2.0.3.0 2012/09/16 修正     未使用プロパティを隠匿するように修正しました。</list>
+             <list>Ver.2.1.0.0 2013/05/16 修正     月を移動した際に移動前のツールチップが残ってしまっていた不具合を修正しました。</list>
+             <list>Ver.2.1.0.0 2013/05/23 修正     コントロールパネル-地球-日付の設定でカレンダーの種類を和暦にした場合に例外が発生する不具合を修正しました。</list>
+             <list>Ver.2.1.0.0 2013/05/25 新規     カスタム日付の設定機能を追加しました。</list>
+             <list>Ver.2.1.0.1 2013/08/06 修正     休日設定ファイルが反映されない不具合を修正しました。</list>
+             <list>Ver.2.1.0.1 2013/08/06 修正     現在年月と異なる場合において、タイトルバーをクリックしても現在日付へ移動できない不具合を修正しました。</list>
+             <list>Ver.2.1.0.1 2013/08/06 仕様変更 現在月以外の日をクリックした場合において、選択日の月に移動するように仕様を変更しました。</list>
+             <list>Ver.2.1.0.1 2013/08/06 仕様変更 現在月以外の日をクリックした場合において、選択日の月に移動するように仕様を変更しました。</list>
+             <list>Ver.2.1.0.2 2016/05/27 新規     指定した日付に関連付けられているカスタム日付情報を取得する TryGetValue メソッドを追加しました。</list>
+             <list>Ver.2.1.0.2 2016/05/27 新規     指定した日付がカスタムデータに登録されているか確認する ContainsKey メソッドを追加しました。</list>
+             <list>Ver.2.1.0.2 2016/05/27 新規     カスタム日付データすべての削除が正常に完了した場合に発生する CustomDateClearCompleted イベントを追加しました。</list>
+             <list>Ver.2.1.0.2 2016/05/27 新規     カスタム日付データの削除が正常に完了した場合に発生する CustomDateRemoveCompleted イベントを追加しました。</list>
+             <list>Ver.2.1.0.2 2016/05/27 修正     最後のカスタム日付データを削除しても背景色、及び文字色が規定値に戻らない場合がある不具合を修正しました。</list>
+             <list>Ver.2.1.0.2 2016/06/06 仕様変更 カスタム日付設定レコード数が０件の場合においてもファイルを保存（作成）するように仕様を変更しました。</list>
+             <list>Ver.2.1.0.3 2016/06/11 新規     TitleStyle プロパティに表示月の高さを設定する Height プロパティを追加しました。</list>
+             <list>Ver.2.1.0.3 2016/06/11 新規     TitleStyle プロパティに次月への移動を表すイメージを設定する NextMonthImage プロパティを追加しました。</list>
+             <list>Ver.2.1.0.3 2016/06/11 新規     TitleStyle プロパティに前月への移動を表すイメージを設定する PreviousMonthImage プロパティを追加しました。</list>
+             <list>Ver.2.1.0.3 2016/06/11 仕様変更 TitleStyle プロパティの Font プロパティの規定値を ＭＳ ゴシック から Meiryo UI に変更しました。</list>
+             <list>Ver.2.1.0.3 2016/06/11 仕様変更 WeekStyle プロパティの Font プロパティの規定値を ＭＳ ゴシック から Meiryo UI に変更しました。</list>
+             <list>Ver.2.1.0.4 2016/06/15 新規     ActiveDayStyle プロパティを追加しました。</list>
+             </history>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnClickDate(WiseupSoft.Win.Control.ClickDateEventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.ClickDate イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している WiseupSoft.Win.Control.ClickDateEventArgs。</param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnEnterKeyClick(System.EventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.EnterKeyClick イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している System.EventArgs。</param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnSelectedDateChanged(System.EventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.SelectedDateChanged イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している System.EventArgs。</param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnDoubleClickDate(System.EventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.DoubleClickDate イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している System.EventArgs。</param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnMultiDateSelected(WiseupSoft.Win.Control.DateRangeEventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.MultiDateSelected イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している WiseupSoft.Win.Control.DateRangeEventArgs。</param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnArgumentOutOfRange(System.EventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.ArgumentOutOfRange イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している System.EventArgs。</param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnCustomDateSaveCompleted(WiseupSoft.Win.Control.CustomDateSaveCompletedEventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.CustomDateSaveCompleted イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している WiseupSoft.Win.Control.CustomDateSaveCompletedEventArgs。</param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnCustomDateReadCompleted(WiseupSoft.Win.Control.CustomDateReadCompletedEventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.CustomDateReadCompleted イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している WiseupSoft.Win.Control.CustomDateReadCompletedEventArgs。</param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnCustomDateAddCompleted(WiseupSoft.Win.Control.CustomDateAddEventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.CustomDateAddCompleted イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している WiseupSoft.Win.Control.CustomDateAddEventArgs。</param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnCustomDateRemoveCompleted(WiseupSoft.Win.Control.CustomDateRemoveEventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.CustomDateRemoveCompleted イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している WiseupSoft.Win.Control.CustomDateRemoveEventArgs。</param>
+             <history>
+                 <list>Ver.2.1.0.2 新規追加</list>
+             </history>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnCustomDateClearCompleted(System.EventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseupSoft.Win.Control.CustomDateClearCompleted イベントを発生させます。</summary>
+             <param name="e">
+                 イベント データを格納している System.EventArgs。</param>
+             <history>
+                 <list>Ver.2.1.0.2 新規追加</list>
+             </history>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.#ctor">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 WiseUpSoft.Win.Control.MonthCalendarM クラスを初期化します。</summary>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.SetDate(System.DateTime)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 指定する日付を現在選択されている日付として設定します。</summary>
+             <param name="date">
+                 選択する日付</param>
+             <exception cref="T:System.ArgumentException">
+                 値が許容される日付の最小値(<see cref="P:WiseupSoft.Win.Control.MonthCalendarM.MinDate"/>)より小さい値です。または 値が許容される日付の最大値(<see cref="P:WiseupSoft.Win.Control.MonthCalendarM.MaxDate"/>)を超えています。</exception>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.SelectToday">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 現在日（システム日付）を選択します。</summary>
+             <remarks>
+                 [Ctrl] + [T] キー押下でも同様の処理が行えます。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.CustomDateClear">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 登録されているすべてのカスタム日付データを削除します。</summary>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.CustomDateRemove(System.DateTime)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 指定した日付のカスタム日付データを削除します。</summary>
+             <param name="key">
+                 カスタム日付データから削除する日付を設定します。</param>
+             <return>
+                 指定するキーを持つ日付が見つかり、正常に削除された場合は true。それ以外の場合は false。<para></para>
+                 このメソッドは、key が見つからない場合、false を返します。</return>
+             <exception cref="T:System.ArgumentNullException">
+                 key が null です。</exception>
+             <remarks>
+                 正常に処理が終了した場合は、<see cref="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateRemoveCompleted"/> イベントが発生します。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.CustomDateAdd(WiseupSoft.Win.Control.CustomDate[])">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 カスタム日付を追加します。</summary>
+             <param name="customDate">
+                 カスタム日付情報を表す WiseupSoft.Win.Control.customDate クラスのインスタンス</param>
+             <exception cref="T:System.ArgumentNullException">
+                 customDate パラメータに null が設定されています。</exception>
+             <remarks>
+                 すでに登録されている日付が指定された場合は、指定する設定内容で上書きされます。<para></para>
+                 正常に処理が終了した場合は、<see cref="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateAddCompleted"/> イベントが発生します。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.CustomDateFileRead">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 カスタム日付設定ファイルを読み込んで設定します。</summary>
+             <exception cref="T:System.ArgumentNullException">
+                 customDateFile パラメータに null または空文字が設定されています。</exception>
+             <exception cref="T:System.IO.FileNotFoundException">
+                 customDateFile パラメータに指定したファイルが存在しません。</exception>
+             <remarks>
+                 現在、登録済のカスタム日付データは削除されますのでご注意ください。<para></para>
+                 正常に処理が終了した場合は、<see cref="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateReadCompleted"/> イベントが発生します。<para></para>
+                 読込みを行うカスタム日付設定ファイルは、MonthCalendarM.dll と同じ場所にある CustomDate.xml です。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.CustomDateFileRead(System.String)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 指定するカスタム日付設定ファイルを読み込んで設定します。</summary>
+             <param name="customDateFile">
+                 カスタム日付設定ファイルのパス。(相対または絶対パス)</param>
+             <exception cref="T:System.ArgumentNullException">
+                 customDateFile パラメータに null または空文字が設定されています。</exception>
+             <exception cref="T:System.IO.FileNotFoundException">
+                 customDateFile パラメータに指定されたファイルは存在しません。</exception>
+             <remarks>
+                 登録済(内部で保持しているカスタム日付データ)のデータは削除されますのでご注意ください。<para></para>
+                 正常に処理が終了した場合は、<see cref="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateReadCompleted"/> イベントが発生します。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.CustomDateFileReadAsync(System.ComponentModel.ISynchronizeInvoke)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 非同期でカスタム日付設定ファイルを読み込んで設定します。</summary>
+             <param name="asynchronizingObject">
+                 カスタム日付設定ファイルの読込みが完了したときに発行されるイベントハンドラ呼び出しをマーシャリングするために使用するオブジェクト。</param>
+             <exception cref="T:System.ArgumentNullException">
+                 customDateFile パラメータに null または空文字が設定されています。</exception>
+             <exception cref="T:System.IO.FileNotFoundException">
+                 customDateFile パラメータに指定したファイルが存在しません。</exception>
+             <example>
+             <para>
+             <code>this.MonthCalendarM1.CustomDateFileReadAsync(this);</code>
+             <code lang="VB">Me.MonthCalendarM1.CustomDateFileReadAsync(Me)</code>
+             </para>
+             </example>
+             <remarks>
+                 登録済(内部で保持しているカスタム日付データ)のデータは削除されますのでご注意ください。<para></para>
+                 正常に処理が終了した場合は、<see cref="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateReadCompleted"/> イベントが発生します。<para></para>
+                 読込みを行うカスタム日付設定ファイルは、MonthCalendarM.dll と同じ場所にある CustomDate.xml です。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.CustomDateFileReadAsync(System.ComponentModel.ISynchronizeInvoke,System.String)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 指定するカスタム日付設定ファイルを非同期で読み込んで設定します。</summary>
+             <param name="asynchronizingObject">
+                 カスタム日付設定ファイルの読込みが完了したときに発行されるイベントハンドラ呼び出しをマーシャリングするために使用するオブジェクト。</param>
+             <param name="customDateFile">
+                 カスタム日付設定ファイルのパス。(相対または絶対パス)</param>
+             <exception cref="T:System.ArgumentNullException">
+                 customDateFile パラメータに null または空文字が設定されています。</exception>
+             <exception cref="T:System.IO.FileNotFoundException">
+                 customDateFile パラメータに指定したファイルが存在しません。</exception>
+             <example>
+             <para>
+             <code>this.MonthCalendarM1.CustomDateFileReadAsync(this);</code>
+             <code lang="VB">Me.MonthCalendarM1.CustomDateFileReadAsync(Me)</code>
+             </para>
+             </example>
+             <remarks>
+                 登録済(内部で保持しているカスタム日付データ)のデータは削除されますのでご注意ください。<para></para>
+                 正常に処理が終了した場合は、<see cref="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateReadCompleted"/> イベントが発生します。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.CustomDateFileSave">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 カスタム日付設定ファイルを保存します。</summary>
+             <exception cref="T:System.ArgumentNullException">
+                 saveFile パラメータに null または空文字が設定されています。</exception>
+             <remarks>
+                 カスタム日付設定ファイルの保存に成功した場合、<see cref="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateSaveCompleted"/> イベントが発生します。
+                 ただし、保存対象のデータが存在しない場合でも <see cref="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateSaveCompleted"/> イベントは発生します。
+                 <para></para>
+                 保存を行うカスタム日付設定ファイルは、MonthCalendarM.dll と同じ場所にある CustomDate.xml です。</remarks>
+             <history>
+                 <list>Ver.2.1.0.2 カスタム日付設定レコード数が０件の場合においてもファイルを保存（作成）するように仕様を変更しました。</list>
+             </history>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.CustomDateFileSave(System.String)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 指定した場所にカスタム日付設定ファイルを保存します。</summary>
+             <param name="saveFile">
+                 カスタム日付設定ファイルのパス。(相対または絶対パス)</param>
+             <exception cref="T:System.ArgumentNullException">
+                 saveFile パラメータに null または空文字が設定されています。</exception>
+             <remarks>
+                 カスタム日付設定ファイルの保存に成功した場合、<see cref="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateSaveCompleted"/> イベントが発生します。
+                 ただし、保存対象のデータが存在しない場合でも <see cref="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateSaveCompleted"/> イベントは発生します。</remarks>
+             <history>
+                 <list>Ver.2.1.0.2 カスタム日付設定レコード数が０件の場合においてもファイルを保存（作成）するように仕様を変更しました。</list>
+             </history>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.TryGetValue(System.DateTime,WiseupSoft.Win.Control.CustomDate@)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 指定した日付に関連付けられているカスタム日付情報を取得します。</summary>
+             <param name="key">
+                 取得する日付。</param>
+             <param name="value">
+                 このメソッドが返されるときに、キーが見つかった場合は、指定したキーに関連付けられているカスタム日付情報。
+                 それ以外の場合は value パラメータの型に対する既定の値。このパラメータは初期化せずに渡されます。</param>
+             <returns>
+                 指定したカスタム日付情報が登録されている場合は true。それ以外の場合は false。</returns>
+             <history>
+                 <list>Ver.2.1.0.2 新規追加</list>
+             </history>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.ContainsKey(System.DateTime)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 指定した日付がカスタムデータに登録されているか確認します。</summary>
+             <param name="key">
+                 登録されているか確認する日付。</param>
+             <returns>
+                 指定した日付が登録されている場合は true。それ以外の場合は false。</returns>
+             <history>
+                 <list>Ver.2.1.0.2 新規追加</list>
+             </history>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnLoad(System.EventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 System.Windows.Forms.UserControl.Load イベントを発生させます。</summary>
+             <param name="e"></param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnEnter(System.EventArgs)">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 System.Windows.Forms.Control.Enter イベントを発生させます。</summary>
+             <param name="e"></param>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.OnCreateControl">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 CreateControl イベントを発生させます。</summary>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.AddEventHandllerOfProperty">
+            <summary>
+                各プロパティイベントを割り付けます。</summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.SetWeekTitleBackColor">
+            <summary>
+            週タイトルの背景色を設定します。
+            </summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.SetWeekTitleForeColor">
+            <summary>
+            週タイトルの前景色を設定します。
+            </summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.SetWeekTitleText">
+            <summary>
+            週タイトルに表示する曜日を設定します。
+            </summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.SetWeekTitleFont">
+            <summary>
+            週タイトルのフォントを設定します。
+            </summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.ReadString(System.String,System.String,System.String,System.String@,System.String,System.Int32)">
+            <summary>INIファイルから指定セクションのキー名に該当する文字列を取り出す。</summary>
+            <param name="section">セクション名</param>
+            <param name="keyName">取り出す値を指すキー名</param>
+            <param name="defaultValue">読み込み異常時のデフォルト値</param>
+            <param name="retValue">取り出した値</param>
+            <param name="filePath"></param>
+            <param name="capacity"></param>
+            <returns>Bool（正常終了：True 異常終了：False
+                 異常終了時にも、retValueにはデフォルト値(defaultValue)を戻す）</returns>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.ResetMinDate">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 許容される日付の最小値を初期化します。</summary>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.ResetMaxDate">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 許容される日付の最大値を初期化します。</summary>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="F:WiseupSoft.Win.Control.MonthCalendarM.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージ リソースが破棄される場合 true、破棄されない場合は false です。</param>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.MonthCalendarM.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.ClickDate">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 日付がクリックされたときに発生します。</summary>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.EnterKeyClick">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+             [Enter]キーが押下されたときに発生します。</summary>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.SelectedDateChanged">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 直前に選択されていた日付とは異なる日付が選択されたときに発生します。</summary>
+             <remarks>
+                 このイベントは、SelectedDate プロパティが変更された場合に発生します。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.DoubleClickDate">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 ユーザーがマウスを使用して明示的に日付をダブルクリックすると発生します。</summary>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.MultiDateSelected">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 ユーザーがマウスを使用して明示的に複数の日付を選択した場合に発生します。</summary>
+             <remarks>
+                 このイベントは、複数の日付領域がクリックされた場合に発生します。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.ArgumentOutOfRange">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 最小値から最大値までの期間以外の日付が選択された場合に発生します。</summary>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateSaveCompleted">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 カスタム日付設定ファイルの保存が正常に完了した場合に発生します。</summary>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateReadCompleted">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 カスタム日付設定ファイルの読込みが正常に完了した場合に発生します。</summary>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateAddCompleted">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 カスタム日付データの登録が正常に完了した場合に発生します。</summary>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateRemoveCompleted">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 カスタム日付データの削除が正常に完了した場合に発生します。</summary>
+             <remarks></remarks>
+             <history>
+                 <list>Ver.2.1.0.2 新規追加</list>
+             </history>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="E:WiseupSoft.Win.Control.MonthCalendarM.CustomDateClearCompleted">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 カスタム日付データすべての削除が正常に完了した場合に発生します。</summary>
+             <history>
+                 <list>Ver.2.1.0.2 新規追加</list>
+             </history>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.StartOfWeek">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 カレンダーの最初の列に表示する曜日を設定または取得します。</summary>
+             <value>
+                 <see cref="P:WiseupSoft.Win.Control.MonthCalendarM.StartOfWeek"/> 値の 1 つ。既定値は StartOfWeek.Sunday です。</value>
+             <returns></returns>
+             <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">
+                 代入された値が、StartOfWeek 列挙体メンバではありません。</exception>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.ProcessEnterKey">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 [Enter]キーを押した場合に、フォームの次のコントロールに移動するかどうかを示す値を取得または設定します。</summary>
+             <value>
+                 [Enter]キーを押した場合に何もしない場合は false。[Enter]キーを押した場合にフォームの次のコントロールに移動する場合は true。既定値は true です。</value>
+             <returns></returns>
+             <remarks>
+                 ProcessEnterKey プロパティを True に設定した場合の移動先のコントロールは Form のタブオーダーに依存します。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.MinDate">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 許容される日付の最小値を取得または設定します。</summary>
+             <value>
+                 許容される日付の最小値を表す System.Date。既定値は 1753/01/01 です。</value>
+             <returns></returns>
+             <exception cref="T:System.ArgumentException">
+                 値が <see cref="P:WiseupSoft.Win.Control.MonthCalendarM.MaxDate"/> を超えています。または日付のセットが 1753/01/01 よりも前の値です。</exception>
+             <remarks>
+                 既定値は 1753/01/01 です。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.MaxDate">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 許容される日付の最大値を取得または設定します。</summary>
+             <value>
+                 許容される日付の最大値を表す System.Date。既定値は 9998/12/31 です。</value>
+             <returns></returns>
+             <remarks>
+                 既定値は 9998/12/31 です。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.MultiSelect">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 カレンダー内で複数選択をサポートするかどうかを取得または設定します。</summary>
+             <value>
+                 カレンダー内で複数選択をサポートするかどうかを表す MultiSelect。既定値は None (単一選択) です。</value>
+             <returns></returns>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.SameDateRaiseEvent">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 同じ日付が選択された場合にイベントを発生させるかどうかを設定します。</summary>
+             <value>
+                 イベントを発生させない場合は false。イベントを発生させる場合は true。既定値は false です。</value>
+             <returns></returns>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.SelectedDate">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 単一の選択された日付を取得または設定します。</summary>
+             <value>
+                 選択された日付を表す System.DateTime 。</value>
+             <returns></returns>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.SelectionStart">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 選択されている日付範囲の開始日を取得します。</summary>
+             <value>
+                 選択範囲の開始日を示す System.DateTime 。</value>
+             <returns></returns>
+             <remarks>
+                 MultiSelect プロパティが Simple (複数選択) の場合のみ有効です。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.SelectionEnd">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 選択されている日付範囲の終了日を取得します。</summary>
+             <value>
+                 選択範囲の終了日を示す System.DateTime。</value>
+             <returns></returns>
+             <remarks>
+                 MultiSelect プロパティが Simple (複数選択) の場合のみ有効です。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.HolidayFile">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 祝日の設定ファイルを取得または設定します。</summary>
+             <value>
+                 祝日の設定ファイルを表す String。既定値は ./Holiday.dat です。</value>
+             <returns></returns>
+             <remarks>
+                 MonthCalendarM.dll と同じ階層にある Holiday.dat を使用します。このファイルの内容は自由に編集および追加する事が可能です。</remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.CtrlStyle">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 コントロールに使用する描画スタイルを取得または設定します。</summary>
+             <value></value>
+             <returns></returns>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.TitleStyle">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 タイトルに使用する描画スタイルを取得または設定します。</summary>
+             <value></value>
+             <returns></returns>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.WeekStyle">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 曜日に使用する描画スタイルを取得または設定します。</summary>
+             <value></value>
+             <returns></returns>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.DayStyle">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 月内の日付に使用する描画スタイルを取得または設定します。</summary>
+             <value></value>
+             <returns></returns>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.CustomDate">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 登録されているすべてのカスタム日付データを取得します。</summary>
+             <returns>
+                 登録されているカスタム日付データを表す System.Collections.ObjectModel.Collection 。</returns>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="P:WiseupSoft.Win.Control.MonthCalendarM.ActiveDayStyle">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 アクティブ日付に使用する描画スタイルを取得または設定します。</summary>
+             <value></value>
+             <returns></returns>
+             <remarks></remarks>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="T:WiseupSoft.Win.Control.MonthCalendarM.CustomDateAsyncDelegate">
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+             <summary>
+                 非同期カスタム日付ファイルの読込みイベントを処理するメソッドを表します。</summary>
+            ------------------------------------------------------------------------------------------------------------------------------------------------------
+        </member>
+        <member name="T:WiseupSoft.Win.Control.MultiSelect">
+            <summary>
+            カレンダーの選択方法を示します。
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:WiseupSoft.Win.Control.MultiSelect.None">
+            <summary>
+            単一選択
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:WiseupSoft.Win.Control.MultiSelect.Simple">
+            <summary>
+            複数選択
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.Culture">
+            <summary>
+              厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.arrow_left">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.arrow_right">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.CustomDateSaveComment1">
+            <summary>
+              ////////////////////////////////////////////////////////////////////// に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.CustomDateSaveCommentTitle">
+            <summary>
+              　　カスタム日付定義 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.DateFormat">
+            <summary>
+              yyyyMMdd に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.DateFormatSlash">
+            <summary>
+              yyyy/MM/dd に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.ErrorMessageTitle">
+            <summary>
+              システムエラー に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.FRIDAY">
+            <summary>
+              金 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.MONDAY">
+            <summary>
+              月 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.SATURDAY">
+            <summary>
+              土 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.SUNDAY">
+            <summary>
+              日 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.THURSDAY">
+            <summary>
+              木 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.TitleStyleDisplayFormat">
+            <summary>
+              {0}年 {1}月 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.ToolTipThisMonth">
+            <summary>
+              今月 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.ToolTipToBeforeMonth">
+            <summary>
+              前月へ に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.ToolTipToNextMonth">
+            <summary>
+              翌月へ に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.TUESDAY">
+            <summary>
+              火 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.Properties.Resources.WEDNESDAY">
+            <summary>
+              水 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.StartOfWeek">
+            <summary>
+            カレンダーの最初の列に表示する曜日を示します。
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="F:WiseupSoft.Win.Control.StartOfWeek.Sunday">
+            <summary>
+            日曜日
+            </summary>
+        </member>
+        <member name="F:WiseupSoft.Win.Control.StartOfWeek.Monday">
+            <summary>
+            月曜日
+            </summary>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.TitleStyle">
+            <summary>
+                タイトルに使用する描画スタイルを設定します。</summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.TitleStyle.#ctor">
+            <summary>
+                WiseupSoft.Win.Control.TitleStyle の新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.TitleStyle.Dispose">
+            <summary>
+                リソースを解放します。</summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.TitleStyle.BackColor">
+            <summary>
+                月タイトルの背景色を取得または設定します。</summary>
+            <value>
+                表示月の背景色に適用される System.Drawing.Color 。既定値は System.Drawing.SystemColors.Control です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.TitleStyle.ForeColor">
+            <summary>
+                月タイトルの前景色を取得または設定します。</summary>
+            <value>
+                表示月の前景色に適用される System.Drawing.Color 。既定値は System.Drawing.Color.Black です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.TitleStyle.Font">
+            <summary>
+                月タイトルのフォントを取得または設定します。</summary>
+            <value>
+                表示月のフォントに適用される Font 。既定値は Meiryo UI , 10 , 標準 です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.TitleStyle.Height">
+            <summary>
+                表示月のの高さを取得または設定します。</summary>
+            <value>
+                表示月の高さに適用される System.Int32 。既定値は 25 です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.TitleStyle.PreviousMonthImage">
+            <summary>
+                前月への移動を表すイメージを取得または設定します。</summary>
+            <value>
+                イメージに適用される System.Drawing.Image 。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.TitleStyle.NextMonthImage">
+            <summary>
+                次月への移動を表すイメージを取得または設定します。</summary>
+            <value>
+                イメージに適用される System.Drawing.Image 。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.ActiveDayStyle">
+            <summary>
+                アクティブ日付に使用する描画スタイルを設定します。</summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.ActiveDayStyle.#ctor">
+            <summary>
+                WiseupSoft.Win.Control.ActiveDayStyle の新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.ActiveDayStyle.ToString">
+            <summary>
+                BorderStyleプロパティ、BorderColorプロパティ、GradationStartColorプロパティ、GradationEndColorプロパティ の値を、それと等価な System.String 形式に変換します。</summary>
+            <returns></returns>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.ActiveDayStyle.BorderStyle">
+            <summary>
+                アクティブなセルの境界線スタイルを取得または設定します。</summary>
+            <value>
+                アクティブなセルの境界線スタイルに適用される WiseupSoft.Win.ActiveBorderStyle 。
+                既定値は WiseupSoft.Win.Control.ActiveBorderStyle.Border です。</value>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.ActiveDayStyle.BorderColor">
+            <summary>
+                アクティブなセルの枠線の色を取得または設定します。
+                BorderStyle プロパティの設定値が、WiseupSoft.Win.Control.ActiveBorderStyle.Border の場合のみ有効です。</summary>
+            <value>
+                アクティブなセルの枠線の色を示す Color 構造体 。
+                既定値は、System.Drawing.Color.Blue です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.ActiveDayStyle.GradationStartColor">
+            <summary>
+                アクティブなセルのグラデーションの開始色を取得または設定します。
+                BorderStyle プロパティの設定値が、WiseupSoft.Win.Control.ActiveBorderStyle.Gradation の場合のみ有効です。</summary>
+            <value>
+                グラデーションの開始色を表す System.Drawing.Color 構造体。
+                既定値は、System.Drawing.Color.SkyBlue です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.ActiveDayStyle.GradationEndColor">
+            <summary>
+                アクティブなセルのグラデーションの終了色を取得または設定します。
+                BorderStyle プロパティの設定値が、WiseupSoft.Win.Control.ActiveBorderStyle.Gradation の場合のみ有効です。</summary>
+            <value>
+                グラデーションの終了色を表す System.Drawing.Color 構造体。
+                既定値は、System.Drawing.Color.White です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="T:WiseupSoft.Win.Control.WeekStyle">
+            <summary>
+            曜日に使用する描画スタイルを設定します。
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.WeekStyle.#ctor">
+            <summary>
+                WiseupSoft.Win.Control.WeekStyle の新しいインスタンスを初期化します。</summary>
+        </member>
+        <member name="M:WiseupSoft.Win.Control.WeekStyle.Dispose">
+            <summary>
+                リソースを解放します。</summary>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.WeekStyle.BackColorWeekday">
+            <summary>
+                平日の背景色を取得または設定します。</summary>
+            <value>
+                平日のタイトルの背景色に適用される System.Drawing.Color 。
+                既定値は System.Drawing.Color.Gray です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.WeekStyle.BackColorSaturday">
+            <summary>
+                土曜日の背景色を取得または設定します。</summary>
+            <value>
+                土曜日のタイトルの背景色に適用される System.Drawing.Color 。
+                既定値は System.Drawing.Color.Blue です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.WeekStyle.BackColorSunday">
+            <summary>
+                日曜日の背景色を取得または設定します。</summary>
+            <value>
+                日曜日の背景色に適用される System.Drawing.Color 。
+                既定値は System.Drawing.Color.Red です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.WeekStyle.ForeColorWeekday">
+            <summary>
+                平日の前景色を取得または設定します。</summary>
+            <value>
+                平日の前景色に適用される System.Drawing.Color 。
+                既定値は System.Drawing.Color.White です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.WeekStyle.ForeColorSaturday">
+            <summary>
+                土曜日の前景色を取得または設定します。</summary>
+            <value>
+                土曜日の前景色に適用される System.Drawing.Color 。
+                既定値は System.Drawing.Color.White です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.WeekStyle.ForeColorSunday">
+            <summary>
+                日曜日の前景色を取得または設定します。</summary>
+            <value>
+                日曜日の前景色に適用される System.Drawing.Color 。
+                既定値は System.Drawing.Color.White です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="P:WiseupSoft.Win.Control.WeekStyle.Font">
+            <summary>
+                フォントを取得または設定します。</summary>
+            <value>
+                フォントに適用される Font 。
+                既定値は Meiryo UI , 9 , 標準 です。</value>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+    </members>
+</doc>

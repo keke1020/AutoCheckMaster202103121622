@@ -1,0 +1,8 @@
+@charset "utf-8";
+
+/* カートセット用モーダル設定 */
+
+/* lib.css */
+.hidewrap{overflow:hidden;}
+.nojshide{display:none;}
+.ModalBox{display:none;position:absolute;left:0;top:0;z-index:9999;font-size:90%;background-color:#fff;text-align:left;}

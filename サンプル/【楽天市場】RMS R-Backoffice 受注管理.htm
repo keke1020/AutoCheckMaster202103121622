@@ -1,0 +1,1649 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+<meta http-equiv="Content-Language" content="ja">
+<title> 【楽天市場】RMS R-Backoffice 受注管理 </title>
+
+
+<style type="text/css" media="all">  @import url(https://image.rakuten.co.jp/com/css/rms/order-rb/order-rb-1.0.0.css );</style><link href="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/jquery-ui-1.css" rel="stylesheet" type="text/css"><link href="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/order-rb_ui-custom.css" rel="stylesheet" type="text/css"><link href="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/quickview-1.css" rel="stylesheet" type="text/css"><link href="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/label-dialog-1.css" rel="stylesheet" type="text/css"><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/jquery-1.js" type="text/javascript" charset="UTF-8"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/jquery-ui-1.js" type="text/javascript" charset="UTF-8"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/jquery_002.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/jquery_003.js" type="text/javascript" charset="EUC-JP"></script>
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><table border="0" cellpadding="0" cellspacing="3"><tbody><tr><td width="97"><a href="http://www.rakuten.co.jp/"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/w080.gif" alt="楽天市場" height="36" border="0" width="80"></a></td><td width="65"><a href="https://mainmenu.rms.rakuten.co.jp/"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/icn_rms.gif" alt="RMS" height="24" border="0" width="61"></a></td><td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/ttl_rbackoffice.gif" alt="R-Backoffice" height="19" width="142"></td></tr></tbody></table></td><td align="right"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=135','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/a.gif" alt="" border="0"></a></td><td><table border="0" cellpadding="0" cellspacing="3"><tbody><tr><td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/icon_mail.gif" height="17" width="17"></td><td><font size="-1"><a target="_blank" href="https://ichiba-bs.rms.rakuten.co.jp/ask/?o=R-Backoffice"> コールセンターへ問い合わせる</a></font></td><td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/icn_arrow_l.gif" alt="" height="17" width="18"></td><td><font size="-1"><a href="https://mainmenu.rms.rakuten.co.jp/">RMSメインメニュー</a>（<a href="https://mainmenu.rms.rakuten.co.jp/?act=logout">ログアウト</a>）</font></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td align="right"><font size="-1"><a href="https://www.rakuten.co.jp/shops/manual/" target="_blank">店舗運営マニュアル</a>（<a href="https://www.rakuten.co.jp/shops/manual/service/backoffice/order/" target="_blank">＞R-Backoffice受注管理</a>）</font></td></tr></tbody></table><table height="3" border="0" cellpadding="0" cellspacing="0" width="3"><tbody><tr><td></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#E48080"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/t.gif" alt="" height="2" width="2"></td></tr></tbody></table><table border="0" cellpadding="4" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#CC0000"><font color="#FFFFFF"><b>受注管理</b></font></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td bgcolor="#990000"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/t.gif" alt="" height="2" width="2"></td></tr></tbody></table>
+
+
+
+
+<table border="0" cellpadding="0" cellspacing="2" width="100%">
+<tbody><tr>
+<td>
+<font size="-1"><font color="#CC0000">■</font>
+
+    <a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=1">受注管理</a>
+
+
+
+｜
+    
+        <a href="https://bid.order.rms.rakuten.co.jp/rms/mall/ra/vc?__event=RA00_001_001">オークション受付</a>
+    
+
+
+｜ <a href="https://reserve.rms.rakuten.co.jp/rms/mall/rb/ry001001?statId=1">購入申込受付</a>
+｜ <a href="https://inquiry.rms.rakuten.co.jp/?action=PamphletListSearch">資料請求管理</a>
+｜ <a href="https://inquiry.rms.rakuten.co.jp/?action=InquirySearch">商品問い合わせ管理</a>
+｜ <a href="https://csvdl.rms.rakuten.co.jp/rms/mall/csvdl/CD01_01_001">データダウンロード</a>
+
+</font>
+</td>
+</tr>
+
+<tr><td align="left"><font size="-1">
+<font color="#CC0000">■</font>
+
+    <a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO00_001_105">注文検索</a>
+
+｜
+
+                <a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=RP00_001_001&amp;status_g=1">カード自動決済</a> ｜
+
+
+
+
+                <a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=RB01_001_001&amp;rbank_tabstatus=0">楽天バンク決済</a> ｜
+
+
+  <a href="https://entry.rms.rakuten.co.jp/rms/mall/entry/CE06_001_001?mode=1">楽天マルチ決済</a>
+｜
+
+
+<a href="https://entry.rms.rakuten.co.jp/rms/mall/entry/PG02_001_001" target="”_blank”">楽天口座決済</a> ｜
+
+<a href="https://point.rms.rakuten.co.jp/?menu=account_conf">口座管理・明細管理</a>
+｜
+ <a href="https://inquiry.rms.rakuten.co.jp/?action=MailSignature">シグニチャー・メールテンプレート</a>
+</font></td></tr>
+</tbody></table>
+
+<table border="0" cellpadding="0" cellspacing="3" width="100%">
+<tbody><tr><td align="right"><font size="-1">
+
+    <a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO00_001_102">ポイント利用注文一覧</a>
+
+｜
+
+    <script language="JavaScript">
+<!--
+var isClick15567 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO00_001_103&amp;order_number=" onclick="if (isClick15567) return false; isClick15567 = true;">同梱候補一覧</a>
+
+｜
+
+    <a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO00_001_104">リスト作成（商品・発送待ち・入金待ち）</a>
+
+｜
+
+    <a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_002">オプション設定</a>
+
+</font></td></tr>
+</tbody></table>
+
+<!-- SiteCatalyst (start) -->
+<script type="text/javascript" src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/s_accountSetting.js"></script>
+<script type="text/javascript" src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/s_codeCommon.js"></script>
+<script type="text/javascript" src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/s_customTracking.js"></script>
+<script type="text/javascript">try {var s_code=s.t();if(s_code)document.write(s_code);} catch(e) {rakutenSC.log(e);}</script>
+<!-- SiteCatalyst (end ) -->
+
+
+
+
+
+<table height="8" border="0" cellpadding="0" cellspacing="0" width="8"><tbody><tr><td></td></tr></tbody></table>
+<!-- メニュー -->
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+
+
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick34684 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=1" onclick="if (isClick34684) return false; isClick34684 = true;">
+<font color="#000000" size="-1">
+
+新規受付
+
+<br>（83件）
+
+
+
+</font>
+</a>
+
+            <a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=686','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" alt="" height="11" border="0" hspace="1" width="15"></a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick94960 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=2" onclick="if (isClick94960) return false; isClick94960 = true;">
+<font color="#000000" size="-1">
+
+発送前入金待ち
+
+<br>（9件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick88343 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=3" onclick="if (isClick88343) return false; isClick88343 = true;">
+<font color="#000000" size="-1">
+
+発送待ち
+
+<br>（4件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick51145 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=51" onclick="if (isClick51145) return false; isClick51145 = true;">
+<font color="#000000" size="-1">
+
+ゆうメ・発送待ち
+
+<br>（4件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick49678 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=55" onclick="if (isClick49678) return false; isClick49678 = true;">
+<font color="#000000" size="-1">
+
+ヤマト・発送待ち
+
+<br>（0件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick23125 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=59" onclick="if (isClick23125) return false; isClick23125 = true;">
+<font color="#000000" size="-1">
+
+ヤマトコレクト
+
+<br>（0件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick46755 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=61" onclick="if (isClick46755) return false; isClick46755 = true;">
+<font color="#000000" size="-1">
+
+北海道
+
+<br>（0件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick10752 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=4" onclick="if (isClick10752) return false; isClick10752 = true;">
+<font color="#000000" size="-1">
+
+発送後入金待ち
+
+<br>（0件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick91936 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=58" onclick="if (isClick91936) return false; isClick91936 = true;">
+<font color="#000000" size="-1">
+
+ゆうメール不可
+
+<br>（1件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick92341 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=60" onclick="if (isClick92341) return false; isClick92341 = true;">
+<font color="#000000" size="-1">
+
+予約分
+
+<br>（5件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick6041 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=62" onclick="if (isClick6041) return false; isClick6041 = true;">
+<font color="#000000" size="-1">
+
+予約伝票済み
+
+<br>（16件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick19416 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=54" onclick="if (isClick19416) return false; isClick19416 = true;">
+<font color="#000000" size="-1">
+
+日時指定
+
+<br>（5件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick33217 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=52" onclick="if (isClick33217) return false; isClick33217 = true;">
+<font color="#000000" size="-1">
+
+処理中
+
+<br>（0件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow1.gif" alt="" height="11" hspace="1" width="6"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick68080 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=5" onclick="if (isClick68080) return false; isClick68080 = true;">
+<font color="#000000" size="-1">
+
+処理済
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick39340 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=6" onclick="if (isClick39340) return false; isClick39340 = true;">
+<font color="#000000" size="-1">
+
+保留
+
+<br>（24件）
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick16421 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=-1" onclick="if (isClick16421) return false; isClick16421 = true;">
+<font color="#000000" size="-1">
+
+キャンセル
+
+
+
+</font>
+</a>
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"></td>
+
+<td bgcolor="#EEEEEE">
+<!-- begin -->
+<table border="0" cellpadding="5" cellspacing="0">
+<tbody><tr>
+<td>
+<script language="JavaScript">
+<!--
+var isClick8898 = false;
+//-->
+</script>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO01_001_001&amp;status_id=-2" onclick="if (isClick8898) return false; isClick8898 = true;">
+<font color="#000000" size="-1">
+
+システム利用料締め日経過分
+
+
+
+</font>
+</a>
+
+            
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=39','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+
+</td>
+</tr>
+</tbody></table>
+<!-- end -->
+</td>
+
+<td align="right" width="10"></td>
+
+
+</tr>
+</tbody></table>
+<!-- /メニュー -->
+<!-- ライン -->
+<table bgcolor="#CC0000" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/t.gif" alt="" height="2" width="2"></td>
+</tr>
+</tbody></table>
+<!-- /ライン -->
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+<!-- アイコン説明 -->
+<!-- アイコン説明を非表示にする(Bug 8610)
+<table cellspacing=0 cellpadding=4 width="100%" border=0>
+  <tr valign=top>
+    <td width="60%"><br>
+    </td>
+    <td valign=bottom align=right>
+      <table cellspacing=0 cellpadding=0 border=0>
+        <tr>
+          <td>
+            <table cellspacing=2 cellpadding=0 border=0>
+              <tr>
+                <td><img alt="" src="https://image.rakuten.co.jp/com/img/rms/order-rb/gift.gif" width=18></td>
+                <td><font size=-2>注文者と送付先が異なる</font></td>
+                <td width=10></td>
+                <td><img alt="" src="https://image.rakuten.co.jp/com/img/rms/order-rb/mobile.gif" width=18></td>
+                <td><font size=-2>モバイルメールアドレス</font></td>
+              </tr>
+            </table>
+            <table cellspacing=2 cellpadding=0 border=0>
+              <tr>
+                <td><img alt="" src="https://image.rakuten.co.jp/com/img/rms/order-rb/myrakuten.gif" width=18></td>
+                <td><font size=-2>楽天会員</font></td>
+                <td width=10></td>
+                <td><img alt="" src="https://image.rakuten.co.jp/com/img/rms/order-rb/gift_sb2.gif" width=18></td>
+                <td><font size=-2>ギフト配送</font></td>
+              </tr>
+            </table>
+            <table cellspacing=2 cellpadding=0 border=0>
+              <tr>
+                <td><font size=-2><b>【モバイル】</b></font></td>
+                <td><font size=-2>ケータイ版楽天市場からの注文</font></td>
+              </tr>
+              <tr>
+                <td><font size=-2><b>【ポイント】</b></font></td>
+                <td><font size=-2>ポイントを利用した注文</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+アイコン説明を非表示にする -->
+<!-- /アイコン説明 -->
+
+
+
+<!-- ■■■■■■■■■■ 大きなフォーム ■■■■■■■■■■ -->
+<div id="contentsWrap">
+<script language="JavaScript">
+<!--
+var isClick7329 = false;
+//-->
+</script>
+<form name="rjForm2" action="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc" method="post" onsubmit="if (isClick7329) return false; isClick7329 = true;">
+
+<input name="__event" value="ES04_001_001" type="hidden">
+<input name="view_trans_key" value="1a6a73cf18551750229b43d478514cab" type="hidden">
+
+<!-- ボタン -->
+<div class="submit"><input name="B016" value="入力内容を反映する" type="submit"></div>
+<!-- /ボタン -->
+
+
+
+            
+
+<!-- ■■■■■ フォーム ■■■■■ -->
+<!-- タイトル -->
+
+
+<div style="left: 20px;" class="LabelBalloon"><span class="ui-icon ui-icon-circle-close arrow_box-circle-close"></span><span class="LabelErrTxt">ラベル情報の取得に失敗しました。</span></div><div id="detail">
+
+<div class="orderItem">
+
+<h2>【受注番号  321434-20160812-0463273186】  の詳細</h2>
+
+
+  <div align="center"><br><table bgcolor="#cc0000" border="0" cellpadding="0" cellspacing="1" width="690"><tbody><tr><td><font color="#ffffff" size="-1"><b>&nbsp;</b><b>【配送状況追跡サービス】未対応店舗様へのペナルティ実施について（2015/06/24）</b></font></td></tr><tr><td bgcolor="#f2f2f2"><table border="0" cellpadding="6" cellspacing="0" width="100%"><tbody><tr><td align="left"><font size="-1">2015年1月13日（火）に「商品の配送・納期情報表示に関するガイドライン」が制定されており全店舗様が配送状況追跡サービスをご対応いただくルールとなっております。<br><br>2015年6月15日以降、<b>「配送伝票番号（お荷物伝票番号）」</b>と<b>「配送会社」</b>が未入力の店舗様におかれましては、順次、<b>ペナルティとして改装中表示へ切り替えさせていただきます。</b>　詳細は、<a href="https://mainmenu.rms.rakuten.co.jp/auth/index.phtml?params=rms/rb/order/delivery/11.html&amp;s=&amp;param2=0" target="_blank">店舗運営マニュアル</a>と<a href="https://mainmenu.rms.rakuten.co.jp/auth/index.phtml?params=rms/rb/order/delivery/faq4.html&amp;s=&amp;param2=0" target="_blank">ＦＡＱ</a>をご確認ください。</font></td></tr></tbody></table></td></tr></tbody></table></div>
+
+<input name="order_number" value="321434-20160812-0463273186" type="hidden">
+<!-- /タイトル -->
+
+
+
+
+<!-- 処理パネル -->
+<br>
+<!-- タイトル -->
+<table bgcolor="#CC0000" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/t.gif" alt="" height="2" width="2"></td>
+</tr>
+</tbody></table>
+<!-- /タイトル -->
+<table bgcolor="#FFF1DC" border="0" cellpadding="4" cellspacing="0" width="100%">
+<tbody><tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr valign="top">
+<td>
+<!-- begin -->
+<table border="0" cellpadding="0" cellspacing="2">
+<tbody><tr valign="top">
+<td width="5"></td>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow3.gif" alt="" height="9" vspace="2" width="5"></td>
+<td><a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO03_001_007&amp;order_number=321434-20160812-0463273186" target="_new">メール送信</a></td>
+</tr>
+</tbody></table>
+<!-- /end -->
+</td>
+
+<td>
+<!-- begin -->
+<table border="0" cellpadding="0" cellspacing="2">
+<tbody><tr valign="top">
+<td width="10"></td>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow3.gif" alt="" height="9" vspace="2" width="5"></td>
+<td><a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO03_001_008&amp;order_number=321434-20160812-0463273186" target="_new">帳票作成</a>
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=18','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+</td>
+</tr>
+</tbody></table>
+<!-- /end -->
+</td>
+<td>
+<!-- begin -->
+<table border="0" cellpadding="0" cellspacing="2">
+<tbody><tr valign="top">
+<td width="10"></td>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow3.gif" alt="" height="9" vspace="2" width="5"></td>
+<td>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO03_001_010&amp;order_number=321434-20160812-0463273186&amp;cancel_disp_type=1" target="_new">注文のキャンセル</a><a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=687','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" alt="" height="11" border="0" hspace="1" width="15"></a>
+<br>
+</td>
+</tr>
+</tbody></table>
+<!-- /end -->
+</td>
+<td>
+<!-- begin -->
+<table border="0" cellpadding="0" cellspacing="2">
+<tbody><tr valign="top">
+<td width="10"></td>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow3.gif" alt="" height="9" vspace="2" width="5"></td>
+<td>
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO03_001_011&amp;order_number=321434-20160812-0463273186" target="_new">注文内容修正</a>
+<br>
+</td>
+</tr>
+</tbody></table>
+<!-- /end -->
+</td>
+
+
+
+</tr>
+
+<tr valign="top">
+<td>
+<!-- begin -->
+<table border="0" cellpadding="0" cellspacing="2">
+<tbody><tr valign="top">
+<td width="5"></td>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow3.gif" alt="" height="9" vspace="2" width="5"></td>
+<td><a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO25_001_001&amp;order_number=321434-20160812-0463273186" target="_blank">注文内容修正履歴</a></td>
+</tr>
+</tbody></table>
+<!-- /end -->
+</td>
+<td>
+<!-- begin -->
+<table border="0" cellpadding="0" cellspacing="2">
+<tbody><tr valign="top">
+<td width="10"></td>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow3.gif" alt="" height="9" vspace="2" width="5"></td>
+<td>
+
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO00_001_103&amp;order_number=321434-20160812-0463273186" target="_blank">同梱検索</a>
+
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=19','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+</td>
+</tr>
+</tbody></table>
+<!-- /end -->
+</td>
+<td>
+<!-- begin -->
+<table border="0" cellpadding="0" cellspacing="2">
+<tbody><tr valign="top">
+<td width="10"></td>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow3.gif" alt="" height="9" vspace="2" width="5"></td>
+<td><a href="https://rdatatool.rms.rakuten.co.jp/rdreport/?app=customer_search&amp;search_type=2&amp;service_type=63&amp;view_type=3&amp;mo=Y2hvY28ubmljbzI1QGRvY29tby5uZS5qcA%3D%3D&amp;enc=%E2%97%87%E6%A5%BD%E5%A4%A9%E2%97%87&amp;lname=%E6%9E%97&amp;fname=%E5%A5%BD%E7%BE%8E&amp;search=1" target="_blank">利用履歴</a></td>
+</tr>
+</tbody></table>
+<!-- /end -->
+</td>
+
+<td>
+<!-- begin -->
+<table border="0" cellpadding="0" cellspacing="2">
+<tbody><tr valign="top">
+<td width="10"></td>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/arrow3.gif" alt="" height="9" vspace="2" width="5"></td>
+<td><a href="https://rdatatool.rms.rakuten.co.jp/access/?menu=pc&amp;evt=RT_P11_01&amp;Rt=9d6694a7b9bcb360154c294c64201e4b&amp;date=20160812&amp;enc=%E2%97%87%E6%A5%BD%E5%A4%A9%E2%97%87&amp;lname=%E6%9E%97&amp;fname=%E5%A5%BD%E7%BE%8E" target="_blank">トラッキング</a></td>
+</tr>
+</tbody></table>
+<!-- /end -->
+</td>
+
+
+</tr>
+
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<!-- /テーブル -->
+<!-- /処理パネル -->
+
+<!-- 詳細情報 -->
+<br>
+<!-- タイトル -->
+<h3>詳細情報</h3>
+<!-- /タイトル -->
+
+
+<!-- 左右テーブル -->
+<table class="main">
+
+<tbody><tr>
+<td class="list">
+<!-- テーブル -->
+<table cellspacing="0">
+
+<tbody><tr>
+<th>
+    受注アイコン<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=7','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" alt="" height="11" border="0" hspace="1" width="15"></a>
+</th>
+<td bgcolor="#FAFAFA">
+
+
+<img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/mobile.gif" alt="" width="18"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/myrakuten.gif" alt="" width="18">
+
+
+<img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/icn_odrch_status1.gif" alt="変更受付中" width="58">
+
+<span class="AdditionalLabel">
+  <span class="LabelOrderNumber" style="display: none">321434-20160812-0463273186</span>
+  <span class="IconDrug" style="display: none">false</span>
+</span>
+
+
+</td>
+</tr>
+
+<tr>
+<th>
+    受注番号
+
+</th>
+<td bgcolor="#FAFAFA">
+321434-20160812-0463273186
+【スマートフォン】
+
+
+</td>
+</tr>
+<tr>
+<th>注文日時</th>
+<td bgcolor="#FAFAFA">2016-08-12 10:15</td>
+</tr>
+<tr>
+<th>注文者情報<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=688','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" alt="" height="11" border="0" hspace="1" width="15"></a></th>
+<td bgcolor="#FAFAFA">
+林 好美  [ハヤシ コノミ]<br>
+
+<a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=BO03_001_007&amp;order_number=321434-20160812-0463273186" target="_blank">
+
+bd4030821ded5b3e2031dc155e58cb9es1@dm.fw.rakuten.ne.jp</a>
+
+<br>
+女  1986年6月29日生<br>
+</td>
+</tr>
+<tr>
+<th>注文者住所</th>
+<td bgcolor="#FAFAFA">〒 210-0824 神奈川県川崎市川崎区日ノ出2-9-15ライフレビュー川崎イースト304</td>
+</tr>
+<tr>
+<th>注文者電話番号</th>
+<td bgcolor="#FAFAFA">080-1283-6978</td>
+</tr>
+<tr>
+<th>お支払い方法<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=689','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" alt="" height="11" border="0" hspace="1" width="15"></a></th>
+<td bgcolor="#FAFAFA">
+
+クレジットカード  VISA XXXX-XXXX-XXXX-0107
+
+<br>有効期限（mm/yy）：10 月 17 年<br>名義人：KONOMI HAYASHI<br>お支払い回数：分割払い 3回<br><font size="-1">決済ステータス： </font><font size="-1">未オーソリ</font><br><a href="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc?__event=RP03_001_001&amp;order_number=321434-20160812-0463273186" target="_cardDetail"><font size="-1">個別カード決済と履歴</font></a>
+
+        <a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=690','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" alt="" height="11" border="0" hspace="1" width="15"></a>
+
+
+</td>
+</tr>
+
+
+<tr>
+<th>入金日
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=20','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+</th>
+<td bgcolor="#FAFAFA">
+
+<input class="datepicker hasDatepicker" id="payment_date_321434-20160812-0463273186" name="payment_date_321434-20160812-0463273186" size="12" type="text"><img title="" alt="" src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/icon_calendar.gif" class="ui-datepicker-trigger">
+[<a href="javascript:void(0);" onclick="return getToday('payment_date_321434-20160812-0463273186');">今日</a>]
+[<a href="javascript:void(0);" onclick="return getNextDay('payment_date_321434-20160812-0463273186');">明日</a>]
+[<a href="javascript:void(0);" onclick="return getDayAfterNext('payment_date_321434-20160812-0463273186');">明後日</a>]
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=21','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+<span class="note">(半角数字、ハイフン記号)&nbsp;例）2001-01-01</span>
+</td>
+</tr>
+<tr>
+<th>配送方法</th>
+<td bgcolor="#FAFAFA">
+宅配便
+
+<br>
+</td>
+</tr>
+
+
+
+
+<tr>
+<th>配送区分
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=22','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+</th>
+<td bgcolor="#FAFAFA">
+
+<select name="delivery_class_321434-20160812-0463273186">
+
+<option value="0" selected="selected">
+
+
+</option><option value="1">
+普通
+
+</option><option value="2">
+冷蔵
+
+</option><option value="3">
+冷凍
+
+</option><option value="4">
+その他１
+
+</option><option value="5">
+その他２
+
+</option><option value="6">
+その他３
+
+</option><option value="7">
+その他４
+
+</option><option value="8">
+その他５
+
+</option></select><br>
+</td>
+</tr>
+
+
+<tr>
+<th>発送日
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=23','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+</th>
+<td bgcolor="#FAFAFA">
+
+<input class="datepicker hasDatepicker" id="shipping_date_321434-20160812-0463273186" name="shipping_date_321434-20160812-0463273186" size="12" type="text"><img title="" alt="" src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/icon_calendar.gif" class="ui-datepicker-trigger">
+[<a href="javascript:void(0);" onclick="return getToday('shipping_date_321434-20160812-0463273186');">今日</a>]
+[<a href="javascript:void(0);" onclick="return getNextDay('shipping_date_321434-20160812-0463273186');">明日</a>]
+[<a href="javascript:void(0);" onclick="return getDayAfterNext('shipping_date_321434-20160812-0463273186');">明後日</a>]
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=21','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+<span class="note">(半角数字、ハイフン記号)&nbsp;例）2001-01-01</span>
+</td>
+</tr>
+
+
+<tr>
+<th>お届け日指定
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=24','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+</th>
+<td bgcolor="#FAFAFA">
+
+<input class="datepicker hasDatepicker" id="delivery_date_321434-20160812-0463273186" name="delivery_date_321434-20160812-0463273186" size="12" type="text"><img title="" alt="" src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/icon_calendar.gif" class="ui-datepicker-trigger">
+[<a href="javascript:void(0);" onclick="return getToday('delivery_date_321434-20160812-0463273186');">今日</a>]
+[<a href="javascript:void(0);" onclick="return getNextDay('delivery_date_321434-20160812-0463273186');">明日</a>]
+[<a href="javascript:void(0);" onclick="return getDayAfterNext('delivery_date_321434-20160812-0463273186');">明後日</a>]
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=21','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+<span class="note">(半角数字、ハイフン記号)&nbsp;例）2001-01-01</span>
+</td>
+</tr>
+<tr>
+<th>お届け時間帯
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=25','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+</th>
+<td bgcolor="#FAFAFA">
+
+<select name="delivery_term_category_321434-20160812-0463273186">
+ <option value="0" selected="selected">
+▼選択して下さい
+ </option><option value="1">
+午前
+ </option><option value="2">
+午後
+ </option><option value="9">
+その他
+ </option><option value="8">
+時間指定
+
+</option></select>
+&nbsp;&nbsp;
+<select name="delivery_term_from_321434-20160812-0463273186">
+ <option value="---" selected="selected">
+---
+ </option><option value="7">
+7
+ </option><option value="8">
+8
+ </option><option value="9">
+9
+ </option><option value="10">
+10
+ </option><option value="11">
+11
+ </option><option value="12">
+12
+ </option><option value="13">
+13
+ </option><option value="14">
+14
+ </option><option value="15">
+15
+ </option><option value="16">
+16
+ </option><option value="17">
+17
+ </option><option value="18">
+18
+ </option><option value="19">
+19
+ </option><option value="20">
+20
+ </option><option value="21">
+21
+ </option><option value="22">
+22
+ </option><option value="23">
+23
+ </option><option value="24">
+24
+
+</option></select>
+時 -
+<select name="delivery_term_to_321434-20160812-0463273186">
+ <option value="---" selected="selected">
+---
+ </option><option value="7">
+7
+ </option><option value="8">
+8
+ </option><option value="9">
+9
+ </option><option value="10">
+10
+ </option><option value="11">
+11
+ </option><option value="12">
+12
+ </option><option value="13">
+13
+ </option><option value="14">
+14
+ </option><option value="15">
+15
+ </option><option value="16">
+16
+ </option><option value="17">
+17
+ </option><option value="18">
+18
+ </option><option value="19">
+19
+ </option><option value="20">
+20
+ </option><option value="21">
+21
+ </option><option value="22">
+22
+ </option><option value="23">
+23
+ </option><option value="24">
+24
+
+</option></select>
+時<br><span class="note">任意設定の入力例) 「時間指定」「10」時-「12」時</span>
+<br>
+</td>
+</tr>
+
+
+<tr>
+<th>担当者
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=26','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+</th>
+
+<td bgcolor="#FAFAFA"><input name="operator_321434-20160812-0463273186" size="12" type="text"></td>
+</tr>
+<tr>
+<th>ひとことメモ
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=15','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+</th>
+
+<td bgcolor="#FAFAFA"><input name="memo_321434-20160812-0463273186" size="64" maxlength="64" type="text"></td>
+</tr>
+</tbody>
+</table>
+<!-- /テーブル -->
+</td>
+<td><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/t.gif" alt="" height="20" width="20"></td>
+<td class="remarks">
+
+<!-- statusWrap -->
+<div class="statusWrap">
+<!-- statusWrap -->
+<div class="status">
+
+<dl>
+<dt><span class="icon">■</span>受注ステータス</dt>
+<dd>
+
+<select name="status_id_321434-20160812-0463273186">
+
+<option value="1" selected="selected">新規受付</option>
+
+<option value="2">発送前入金待ち</option>
+
+<option value="3">発送待ち</option>
+
+<option value="51">ゆうメ・発送待ち</option>
+
+<option value="55">ヤマト・発送待ち</option>
+
+<option value="59">ヤマトコレクト</option>
+
+<option value="61">北海道</option>
+
+<option value="4">発送後入金待ち</option>
+
+<option value="58">ゆうメール不可</option>
+
+<option value="60">予約分</option>
+
+<option value="62">予約伝票済み</option>
+
+<option value="54">日時指定</option>
+
+<option value="52">処理中</option>
+
+<option value="5">処理済</option>
+
+<option value="6">保留</option>
+
+</select>
+
+</dd>
+</dl>
+
+<!-- /ステータス -->
+
+<!-- ポイント承認 -->
+
+<!-- /ポイント承認 -->
+<!-- 同梱 -->
+
+<!-- /同梱 -->
+</div>
+<!-- /status -->
+</div>
+<!-- /statusWrap -->
+
+<!-- 処理履歴 -->
+<div class="other">
+
+
+<!-- タイトル -->
+<h4>処理履歴</h4>
+<dl>
+<!-- /タイトル -->
+<!-- 受注ステータス -->
+
+<!-- /受注ステータス -->
+<!-- メール送信履歴 -->
+
+<!-- /メール送信履歴 -->
+<!-- 帳票作成 -->
+
+<!-- /帳票作成 -->
+<!-- KM2 -->
+
+<!-- /KM2 -->
+<!-- 購入履歴修正/キャンセル -->
+
+<!-- / 購入履歴修正/キャンセル  -->
+<!-- CSVアップロード -->
+
+<!-- /CSVアップロード -->
+<!-- クーポン修正 -->
+
+<!-- / クーポン修正  -->
+</dl>
+
+<!-- /処理履歴 -->
+</div><!-- /other -->
+</td>
+</tr>
+</tbody></table>
+<!-- /左右テーブル -->
+
+<!-- 送付先など -->
+
+<table class="shipInfo" cellspacing="0">
+<thead>
+<tr>
+<th>送付先</th>
+<th>のし</th>
+<th>商品【商品内訳】<br>（商品番号）</th>
+<th>項目・選択肢</th>
+<th>単価</th>
+<th>個数</th>
+<th>ポイント倍率</th>
+<th>お届けの目安</th>
+<th>小計</th>
+<th>税</th>
+<th>送料</th>
+
+</tr>
+</thead>
+<tbody>
+
+<input name="basket_id_321434-20160812-0463273186" value="677070624" type="hidden">
+<tr>
+<td rowspan="1" bgcolor="#FFFFFF">林 好美 [ハヤシ コノミ]<br>
+〒 210-0824 <br>
+神奈川県川崎市川崎区日ノ出2-9-15ライフレビュー川崎イースト304<br>
+TEL： 080-1283-6978<br>
+お荷物伝票番号
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=44','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+
+
+
+<input name="shipping_number_321434-20160812-0463273186_677070624" size="20" type="text">
+
+<br>
+
+配送会社
+
+<select name="deliver_company_321434-20160812-0463273186_677070624"><option value="1000">その他</option><option value="1001">ヤマト運輸</option><option value="1002" selected="selected">佐川急便</option><option value="1003">日本郵便</option></select>
+
+
+<br>
+</td>
+<td rowspan="1" bgcolor="#FFFFFF"><br></td>
+
+
+
+<td><a href="https://rdatatool.rms.rakuten.co.jp/rdreport/?app=order_detail&amp;item_name=%E3%82%AD%E3%83%A3%E3%83%8E%E3%83%94%E3%83%BC%E3%83%86%E3%83%B3%E3%83%88+%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%83%86%E3%83%B3%E3%83%88+%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%97+%E8%9A%8A%E5%B8%B3+%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%AD%E3%83%A3%E3%83%8E%E3%83%94%E3%83%BC+%E3%83%95%E3%83%A9%E3%82%A4%E3%82%B7%E3%83%BC%E3%83%88+%E7%B0%A1%E5%8D%98%E8%A8%AD%E7%BD%AE+%E5%8F%8E%E7%B4%8D%E8%A2%8B%E4%BB%98%E3%81%8D+%E8%BB%BD%E9%87%8F+AD056&amp;item_id=10001189" target="_blank">キャノピーテント スクリーンテント スクリーンタープ 蚊帳 スクリーンキャノピー フライシート 簡単設置 収納袋付き 軽量 AD056(ad056-co)</a>
+<div align="right"><a target="_blank" href="http://item.rakuten.co.jp/patri/ad056/">[商品ページへ]</a></div>
+</td>
+<td>カラー選択:コーヒー<br>ゆうメール配送不可(宅配便配送のみ):了承済み！<br></td>
+<td class="cost">7,930円</td>
+<td class="item">1</td>
+<td class="item">1倍</td>
+<td class="item">ご入金後2営業日以内に発送(土日祝除く)<br></td>
+<td class="cost">7,930円</td>
+<td class="item">込</td>
+<td class="item">別</td>
+
+</tr>
+
+<tr>
+<th class="sumHeader" colspan="8">合計</th>
+<td class="cost">7,930円</td>
+<td class="cost">0円</td>
+<td class="cost">760円</td>
+
+</tr>
+
+
+
+
+
+<tr>
+<th class="sumHeader" colspan="8">請求金額</th>
+<td class="bill" colspan="4">8,690円</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<!-- /送付先など -->
+
+<!-- /同梱 -->
+
+<!-- 左右テーブル -->
+<table class="subInfo">
+<tbody>
+<tr>
+<td class="remarks">
+<!-- 備考 -->
+
+
+<div>
+<dl>
+<dt>備考</dt>
+<dd>
+<pre>[配送日時指定:]
+
+
+14日の夕方までに届けて頂きたいです。
+よろしくお願い致します。
+
+</pre>
+</dd>
+</dl>
+</div>
+
+<!-- /備考 -->
+</td>
+<td width="20"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/t.gif" alt="" height="20" width="20"></td>
+<td class="message">
+<!-- メール差し込み文 -->
+<div>
+
+<dl>
+<dt>お客様へのメッセージ
+
+
+
+<a href="javascript:void(window.open('https://help.rms.rakuten.co.jp/mw/?hid=27','rhelp','scrollbars=yes,resizable=yes,width=410,height=300,left=10,top=10'))"><img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/help_icon.gif" height="11" border="0" width="15"></a>
+
+
+
+<span class="note">(メール送信の際に差し込むことができます)</span>
+</dt>
+
+<dd>
+<textarea name="mail_plug_sentence_321434-20160812-0463273186" cols="66" rows="5" wrap="VIRTUAL"></textarea>
+</dd>
+</dl>
+</div>
+<!-- /メール差し込み文 -->
+</td>
+</tr>
+</tbody>
+</table>
+
+</div><!-- orderItem -->
+
+</div><!-- detail -->
+<!-- /左右テーブル -->
+<!-- /詳細情報 -->
+
+<!-- ■■■■■ /フォーム ■■■■■ -->
+
+
+
+
+
+
+<!-- ボタン -->
+<div class="submit"><input name="B016" value="入力内容を反映する" type="submit"></div>
+<!-- /ボタン -->
+</form>
+
+</div><!-- /contentsWrap -->
+<!-- ■■■■■■■■■■ /大きなフォーム ■■■■■■■■■■ -->
+
+
+
+<!-- Point Message -->
+<font size="-1"><b>※ポイント利用注文は、必ずポイントの承認を行ってください。</b></font><br>
+<font size="-1"><b>※ポイント承認の締め日（注文日の翌月末）を過ぎた場合、承認処理を行うことはできませんのでご注意ください。</b></font><br>
+<font size="-1"><b>※ポイントの承認には時間がかかる場合があります。承認処理の間は、"ポイント承認中"と表示されます。</b></font><br>
+<!-- /Point Message -->
+
+
+<hr class="footerLine">
+
+<div align="center"><font size="-2">Rakuten Merchant Server Version 3.0<br>Copyright (c) 1997-2016 Rakuten, Inc. All Rights Reserved.<br></font></div>
+
+
+<div class="LabelDialogTemplates" style="display: none;"><!-- メッセージエリア部分テンプレート --><div id="messageArea">{{if resultCode }}  {{if resultCode != "N00-000" }}    {{if msg }}      <div class="messageTitle warningTxt">        <p>{{html $item.decodeURIComponent(msg)}}</p>      </div>    {{/if}}    {{if unitErrors }}      <div class="messages warningTxt">        {{each(k, v) unitErrors }}          <div class="message">            {{each(i, v) msgs }}              <p>※${$item.decodeURIComponent(v)}</p>            {{/each}}          </div>        {{/each}}      </div>    {{/if}}  {{/if}}  {{if resultCode == "N00-000" }}    {{if results == null }}      <div class="messageTitle warningTxt">        <p>パラメータに不備があります。</p>      </div>    {{/if}}  {{/if}}{{/if}}</div><!-- /メッセージエリア部分テンプレート --><div id="messageList"><div class="contents">  <div class="messageArea">    {{tmpl($data, $item) "#messageArea" }}  </div>  <div class="messageBoxArea">    <div class="messageProperty">      <table class="messageHeader">        <tbody><tr>          <th>注文番号</th>          <td>${orderNumber}</td>        </tr>        <tr>          <th class="dotted">注文者</th>          <td>${$item.decodeURIComponent(customerName)}</td>        </tr>        <tr>          <th class="dotted">要確認医薬品</th>          <td>            {{if itemNames.length }}              {{each(i, v) itemNames }}                {{if i!=0 }}<br><br>{{/if}}                ${$item.decodeURIComponent(v)}              {{/each}}            {{else}}              <span>要確認医薬品が含まれていないため、メッセージを送信できません。</span>            {{/if}}            </td>        </tr>      </tbody></table>    </div>    <div class="messageBox">      <div class="caption"></div>      <div class="messageBoxHeader">        <span class="date">送信日時</span>        <span class="from">送信者</span>        <span class="icon"></span>        <span class="subject">件名</span>      </div>      {{if results.messageResponseModel }}        {{each results.messageResponseModel }}          <div class="messageDetail ${$item.readValueOf(speaker, messageStatus)}">            <span class="date">${created}</span>            <span class="from">
+            {{if speaker==1 }}              
+${$item.decodeURIComponent(customerName)}            {{else}}           
+   ${$item.decodeURIComponent(shopName)}            {{/if}}            </span>            <span class="icon">{{html $item.readImgValueOf(speaker, messageStatus)}}</span>            <span class="subject">${$item.decodeURIComponent(subject)}</span>            <span class="messageId" style="display:none;">${messageId}</span>          </div>        {{/each}}      {{else}}        <div class="notice">          <p style="text-align: center">この医薬品に関する情報提供のメッセージを作成し、注文者にご連絡をお願いします。</p>          <br><br>          <p>メッセージ送信後は注文者からの回答をお待ちください。</p>          <p>注文者からの回答が承認の場合は発送の準備、質問の場合は内容をご確認の上、ご返信ください。</p>        </div>      {{/if}}    </div>  </div>  <div class="bindId" style="display:none;">${results ? results.bindId : "" }</div></div><div class="operationArea clearfix">  <div class="action">    {{if $item.isDisplaySubmit(statusId) }}    {{if itemNames.length }}    <div class="messageEdit">      <img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/new.gif" alt="メッセージを作成する">    </div>    {{/if}}    {{/if}}  </div></div></div><div id="messageDetail"><div class="contents">  <div class="messageArea">    {{tmpl($data, $item) "#messageArea" }}  </div>  <div class="messageHeaderArea">    <table class="messageHeader">      <tbody><tr>        <th>件名</th><td>${results ? $item.decodeURIComponent(results.subject) : ""}</td>      </tr>      <tr>        <th class="dotted">送信者</th>        <td>
+          {{if results }}            {{if results.speaker==0 }}         
+     ${$item.decodeURIComponent(shopName)}            {{else}}          
+    ${$item.decodeURIComponent(customerName)}            {{/if}}        
+  {{/if}}        </td>      </tr>      <tr>        <th class="dotted">送信日時</th><td>${results ? results.created : ""}</td>      </tr>      <tr>        <th class="dotted">要確認医薬品</th>        <td>          {{if itemNames.length }}            {{each(i, v) itemNames }}              {{if i!=0 }}<br><br>{{/if}}              ${$item.decodeURIComponent(v)}            {{/each}}          {{else}}            <span>要確認医薬品が含まれていないため、メッセージを送信できません。</span>          {{/if}}        </td>      </tr>    </tbody></table>  </div>  <div class="messageContentsArea">    <pre class="body">${results ? $item.decodeURIComponent(results.body) : ""}</pre>  </div></div><div class="operationArea clearfix">  <div class="action">    {{if results }}    {{if results.speaker==1 }}    {{if itemNames.length }}    <div class="messageReply">      <img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/reply.gif" alt="返信する">    </div>    {{/if}}    {{/if}}    {{/if}}  </div>  <div class="back">    <a class="messageList">メッセージ一覧に戻る</a>  </div></div></div><div id="messageEdit"><div class="contents">  <div class="messageArea">    {{tmpl($data, $item) "#messageArea" }}  </div>  <div class="messageHeaderArea">    <table class="messageHeader">      <tbody><tr>        <th>件名</th>        <td><input value="${results ? $item.decodeURIComponent(results.subject) : '' }" class="subjectText" type="text"></td>      </tr>      <tr>        <th class="dotted">要確認医薬品</th>        <td>          {{each(i, v) itemNames }}            {{if i!=0 }}<br><br>{{/if}}            ${$item.decodeURIComponent(v)}          {{/each}}        </td>      </tr>    </tbody></table>  </div>  <div class="messageContentsArea">    <textarea class="body">${results ? $item.fmtReply(results.body) : "" }</textarea>  </div></div><div class="operationArea clearfix">  <div class="action">    <div class="sendMessage">      <img src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/send.gif" alt="送信する">    </div>  </div>  <div class="back">    <a class="messageList">メッセージ一覧に戻る</a>  </div></div></div><!-- エラーページ --><div id="messageErr">  <div class="messageStatus">    <p class="warningTxt">大変申し訳ありません。メッセージ情報の取得中にエラーが発生しました。<br>もう一度、処理を行ってください。<br>システムエラーが続く場合は、エラー発生時刻、画面と直前に行った操作、<br>下記の問合わせエラーコードなどをお書き添えのうえ、<br>楽天市場(<a href="mailto:support@rakuten.co.jp">support@rakuten.co.jp</a>)までご連絡ください。    </p>  </div>  <div class="operationArea clearfix">    <div class="back">      <a class="messageList">メッセージ一覧に戻る</a>    </div>  </div></div><!-- /エラーページ --></div>
+
+<!-- プラグイン、ライブラリなど --><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/jquery.js" type="text/javascript"></script><!-- /プラグイン、ライブラリなど --><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/DatePicker.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/ObjectKeys.js" type="text/javascript" charset="EUC-JP"></script><!-- ラベル、メッセージ管理関連 --><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/AddEventToDialog-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/AddEventToLabel-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/DisplayErrDialog-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/DisplayLabel-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/GetLabelList-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/GetMessageDetail-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/GetMessageList-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/InitializeLabelDialog-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/InitializeStickLabel-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/LabelDialog-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/LabelDialogController-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/MakeMedicineLabel-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/MakeTemplates-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/PostLabelCreate-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/PostMessageSend-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/StickLabel-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/StickLabelController-1.js" type="text/javascript" charset="EUC-JP"></script><script src="%E3%80%90%E6%A5%BD%E5%A4%A9%E5%B8%82%E5%A0%B4%E3%80%91RMS%20R-Backoffice%20%E5%8F%97%E6%B3%A8%E7%AE%A1%E7%90%86_files/GeneralScreen-1.js" type="text/javascript" charset="EUC-JP"></script><!-- /ラベル、メッセージ管理関連 -->
+
+
+
+
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div><div title="メッセージ管理" class="LabelDialog"></div></body></html>

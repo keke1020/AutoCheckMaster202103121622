@@ -1,0 +1,22 @@
+copy=mydocument,clibor,clibor,クリップボードを拡張するソフト,shortcut=desktop
+copy=mydocument,terapad,terapad,メモ帳より機能の多いソフト,shortcut=desktop
+install,FFFTP,ffftp-v3.3-x64.msi,FTP接続ソフト,
+install,QTTabBar,QTTabBar.exe,フォルダのタブ化,
+copy=mydocument,Cassava,Cassava,CSV編集ソフト（キャッサバ）,shortcut=新規 テキスト ドキュメント.txt
+install,caesium,caesium-1.7.0-win.exe,画像の容量圧縮ソフト（セシウム）,
+---
+install,社内作業補助くま,AutoCheck2\setup.exe,インストール後共有サーバーよりデータ自動コピー,
+install,くま用DBエンジンx86,AccessDatabaseEngine.exe,Accessデータベースエンジン32bit,
+install,くま用DBエンジンx64,AccessDatabaseEngine_X64.exe,Accessデータベースエンジン64bit,
+---
+install,Thunderbird,Thunderbird Setup 52.7.0.exe,メール送受信ソフト,
+install,WASSetup,WASSetup.exe,指定時間にパソコンの電源を切る,
+install,Ribrary,Ribrary.air,楽天専用FTPサーバー接続ソフト（別途設定必要）,
+install,AdobeAIR,AdobeAIRInstaller.exe,Ribraryインストールに必要,
+install,GreenCloud,greencloud_printer_setup.exe,仮想プリンタソフト（e飛伝2用）,
+install,e飛伝2,Ehiden2Installer.EXE,佐川急便伝票作成ソフト,
+install,SHARPステータスモニター,SMON42_1605a_JPN.exe,SHARPプリンタ専用モニター,
+install,ゆうプリR,AplSetup\setup.exe,日本郵便伝票作成ソフト,
+copy=desktop,ゆうプリR設定,ゆうプリ設定180402,設定使用ファイルをデスクトップにコピー,
+install,QQ国際版,QQintl2.11.exe,社内連絡用ソフト,
+install,TeamViewer,TeamViewer_Setup.exe,リモート用（必ず個人利用で）,

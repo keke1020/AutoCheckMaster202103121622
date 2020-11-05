@@ -1,0 +1,6 @@
+﻿server=localhost
+id=test
+pass=pass
+dir=
+port=21
+pasv=true

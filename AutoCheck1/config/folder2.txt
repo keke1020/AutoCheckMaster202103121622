@@ -1,0 +1,6 @@
+﻿[New Check]
+1
+
+[Data Folder]
+E:\ライブラリ\マイ ドキュメント\Visual Studio 2008\Projects\AutoCheck2
+

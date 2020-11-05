@@ -1,0 +1,69 @@
+@charset "euc-jp";
+
+/**
+ * @license Quick view 1.0.0
+ * Copyright(c) 2014 Rakuten.Inc
+ * Date: 2014-05-28
+ */
+
+.quickViewDialog {
+   position: absolute;
+   width: 650px !important;
+   height: 580px !important;
+   background: #cecece;
+   overflow: visible;
+   font-size: 0.8em;
+   text-align: left;
+   border: 0px;
+}
+
+.quickViewDialog.ui-corner-all,
+.quickViewDialog .ui-corner-all {
+   -moz-border-radius: 0px;
+   -webkit-border-radius: 0px;
+   -khtml-border-radius: 0px;
+   border-radius: 0px;
+}
+
+.quickViewDialog .ui-dialog-titlebar{
+   width: 628px !important;
+   height: 23px !important;
+   background: #ffffff !important;
+   border: 1px solid #686868;
+   border-bottom: 0px;
+   margin-top: -8px;
+   margin-left: -8px;
+   position: relative;
+}
+
+.quickViewDialog .ui-dialog-content{
+   width: 628px !important;
+   height: 545px !important;
+   background: #ffffff;
+   border: 1px solid #686868;
+   border-top: 0px;
+   margin-top: -8px;
+   margin-left: -8px;
+   position: relative;
+}
+
+.quickViewDialog .ui-dialog-titlebar-close {
+   background: url(https://image.rakuten.co.jp/com/img/rms/order-rb/msg/cancel_btn.gif);
+   border:0;
+   width: 15px;
+   height: 15px;
+   position: absolute;
+   right: 5px;
+   top: 15px;
+   z-index: 1000;
+}
+
+.quickViewDialog .ui-dialog-titlebar-close:hover {
+   border: 0px;
+   width: 15px;
+   height: 15px;
+}
+
+.quickViewDialog .ui-dialog-titlebar-close .ui-icon-closethick{
+   display: none;
+}

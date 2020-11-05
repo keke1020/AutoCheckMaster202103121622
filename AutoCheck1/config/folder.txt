@@ -1,0 +1,8 @@
+﻿[New Check]
+1
+
+[Data Folder]
+\\SERVER2-PC\Users\Public\program\autocheck
+
+[Location Folder]
+\\SERVER2-PC\ordery\logi

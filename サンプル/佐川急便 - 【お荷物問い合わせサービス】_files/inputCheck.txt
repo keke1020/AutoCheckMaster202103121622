@@ -1,0 +1,704 @@
+
+
+//*****************************************************************
+//	ブラウザ対応メソッド
+//   @param 入力された送り状№
+//*****************************************************************
+var okurijoNo;
+function burauza(okurijoNo){
+	if(document.all){
+		return document.all(okurijoNo);
+	}else if(document.getElementById){
+		return document.getElementById(okurijoNo);
+	}
+}
+
+
+//*****************************************************************
+//	未入力チェック
+//   @param 入力された送り状№
+//*****************************************************************
+function minyuryokuCheck(okurijoNo) {
+	
+	if(okurijoNo == null || okurijoNo == ''){
+		return false;
+	}else{
+		return true;
+	}
+}
+
+//*****************************************************************
+//	入力桁数チェック
+//   @param 入力されたチェック対象値
+//   @param 入力許可最小値（0未満の場合はチェック対象外）
+//   @param 入力許可最大値（0未満の場合はチェック対象外）
+//*****************************************************************
+function figureCheck(value, minLength, maxLength) {
+	if ( 0 <= minLength && value.length < minLength ) {
+		return false;
+	}
+	if ( 0 <= maxLength && maxLength < value.length ) {
+		return false;
+	}
+
+	return true;
+}
+
+//*****************************************************************
+//	入力桁数最小値チェック
+//   @param 入力されたチェック対象値
+//   @param 入力許可最小値
+//*****************************************************************
+var value;
+var length;
+function inputMinimumCheck(value, length) {
+
+	if(value.length < length) {
+		return false;
+	}else{
+		return true;
+	}
+}
+
+
+//*****************************************************************
+//	半角数字チェック（入力文字種チェック）
+//	　半角数字以外が含まれる場合はエラー
+//   @param 
+//*****************************************************************
+function hankakuSujiCheck(okurijoNo){
+	if(okurijoNo.match(/[^0-9]/)){ 
+		return false; 
+	}else{
+		return true;
+	}
+}
+
+
+//*****************************************************************
+//  送り状Noチェック
+//	・半角数字ハイフンチェック（入力文字種チェック）
+//	　半角数字とハイフン(半角)以外が含まれる場合はエラー
+//　・１０桁～１４桁以外はエラー
+//   @param 入力された送り状№
+//*****************************************************************
+function okurijoNoCheck(okurijoNo) {
+	if ( hankakuSuji( okurijoNo ) ) {
+		if ( 10 <= okurijoNo.length && okurijoNo.length <= 14 ) {
+			return true;
+		}
+		if ( okurijoNo.length == 0 ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+
+//*****************************************************************
+//	半角数字ハイフンチェック（入力文字種チェック）
+//	　半角数字とハイフン(半角)以外が含まれる場合はエラー
+//   @param 入力された送り状№
+//*****************************************************************
+function hankakuSuji(okurijoNo){
+	if(okurijoNo.match(/[^0-9-]/)){ 
+		return false; 
+	}else{
+		return true;
+	}
+}
+
+
+
+//*****************************************************************
+//	半角英数字ハイフンチェック（入力文字種チェック）
+//	　半角英数字とハイフン(半角)以外が含まれる場合はエラー
+//   @param 入力された送り状№
+//*****************************************************************
+function hanakuEisuji(okurijoNo){
+	if(okurijoNo.match(/[^0-9A-Za-z-]/)){ 
+		return false; 
+	}else{
+		return true;
+	}
+}
+
+
+//*****************************************************************
+//	メールアドレスチェック
+//	　全角文字を含んでいたらエラー
+//   @param アドレス
+//*****************************************************************
+function mailAddressCheck(addr) {
+    for ( var i=0; i < addr.length; i++) {
+    	if ( isWide( addr.charAt( i ) ) ) {
+    		return false;
+    	}
+    }
+
+    return true;
+}
+
+
+//*****************************************************************
+//	全角文字チェック
+//	　全角文字以外はエラー
+//*****************************************************************
+function zenkakuCheck(zenkaku, spacePermitted) {
+
+    for (var i=0; i < zenkaku.value.length; i++) {
+    	if ( !isWide( zenkaku.value.charAt( i ) ) ) {
+    		return false;
+    	}
+//        if (escape(zenkaku.value.charAt(i)).length <  4){ 
+//            return false;
+//        }
+    }
+
+	if ( minyuryokuCheck( zenkaku.value ) ) {
+		if ( zenkaku.value.match( /[^　]/g ) == null ) {
+			if ( spacePermitted ) {
+				// 全角の空白のみの場合は空文字にする
+				zenkaku.value = '';
+			}
+			else {
+				// 全角の空白のみの場合はエラーにする
+				return false;
+			}
+		}
+	}
+
+    return true;
+}
+
+//*****************************************************************
+//	全角文字チェック
+//	　全角文字の場合はtrue
+//*****************************************************************
+function isWide(c) {
+	if ( 4 <= escape( c ).length ) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+//*****************************************************************
+//	TCIASK01D01　急便HP版　お荷物問い合わせ入力 クリアボタン
+//	　クリアボタンが押された場合、
+//		・テキストフィールドの色をクリアにする
+//	　　・テキストフィールドの入力値をクリアにする
+//   @param 
+//*****************************************************************
+function clearBtn(){
+	
+	var a = document.main.elements;
+	
+	//該当箇所をクリアにする
+	for(var i = 0; i < a.length; i++){
+		if(a[i].type=='text'){
+			a[i].style.backgroundColor='';
+			a[i].value='';
+		}
+	}return false;
+}
+
+//*****************************************************************
+//	TCIASK01D04　ポータル版　お荷物問い合わせ結果 クリアボタン
+//	　クリアボタンが押された場合、
+//		・テキストフィールドの色をクリアにする
+//	　　・テキストフィールドの入力値をクリアにする
+//*****************************************************************
+function clearInfo() {
+	var malMailAddr = burauza('malMailAddr');
+	var malOkurisakiName = burauza('malOkurisakiName');
+	var faxOkyakuName = burauza('faxOkyakuName');
+	var faxOkyakuTel = burauza('faxOkyakuTel');
+	var faxOkyakuFax = burauza('faxOkyakuFax');
+	var faxOkurisakiName = burauza('faxOkurisakiName');
+
+	// メールサービスやFAXサービスがチェックされているか
+	var mailFlg = 0;
+	var faxFlg = 0;
+	var formObj = burauza('InfoForm');
+
+	for ( i = 0; i < formObj.elements.length; i++ ) {
+		if ( formObj.elements[i].type == "checkbox" ) {
+			if ( formObj.elements[i].checked == true ) {
+				if ( isFaxService( formObj.elements[i].value ) ) {
+					faxFlg = 1;
+				}
+				else {
+					mailFlg = 1;
+				}
+			}
+		}
+	}
+
+	// メールサービスがチェックされているか？
+	if ( mailFlg != 0 ) {
+		malMailAddr.value = '';
+		malOkurisakiName.value = '';
+		colorChange( malMailAddr, true );
+		colorChange( malOkurisakiName, true );
+	}
+
+	// FAXサービスがチェックされているか？
+	if ( faxFlg != 0 ) {
+		faxOkyakuName.value = '';
+		faxOkyakuTel.value = '';
+		faxOkyakuFax.value = '';
+		faxOkurisakiName.value = '';
+		colorChange( faxOkyakuName, true );
+		colorChange( faxOkyakuTel, true );
+		colorChange( faxOkyakuFax, true );
+		colorChange( faxOkurisakiName, true );
+	}
+
+	return false;
+}
+
+
+//**********************************************************************
+//	TCIASK01D06　急便HP版　お荷物問い合わせ入力・結果（英語） クリアボタン
+//	　クリアボタン押下時、
+//		・テキストフィールドの色をクリアにする
+//	　　・テキストフィールドの入力値をクリアにする
+//		・「Shipping Date」と「Current status」をクリアにする（※outputText）
+//**********************************************************************
+function clearBtnEng(){
+	
+	var a = document.main.elements;
+	
+	for(var num = 0; num < a.length; num++){
+	
+		//テキストフィールドをクリアにする
+		if(a[num].type=='text'){
+			a[num].style.backgroundColor='';
+			a[num].value='';
+		}
+	}
+	
+	//結果表示の「Shipping Date」と「Current status」をクリアにする
+	for(var n = 1; n < 11; n++){
+		if(burauza('main:date' + n) != null && burauza('main:status' + n) != null){
+			burauza('main:date' + n).innerHTML = '';
+			burauza('main:status' + n).innerHTML = '';
+		}else if(burauza('main:date' + n) != null && burauza('main:status' + n) == null){
+			burauza('main:date' + n).innerHTML = '';
+		}else if(burauza('main:date' + n) == null && burauza('main:status' + n) != null){
+			burauza('main:status' + n).innerHTML = '';
+		}
+	}
+	
+	return false;
+}
+
+
+
+//*****************************************************************
+//	エラー該当箇所塗りつぶし
+//	　
+//   @param nyuryoku 入力値
+//   @param flg 	 チェックフラグ
+//*****************************************************************
+function colorChange(nyuryoku,flg){
+	//色変換
+	if( flg ) {
+		nyuryoku.style.backgroundColor = '';
+	}else{
+		nyuryoku.style.backgroundColor = '#FF99FF';
+	}
+	return false;
+}
+
+
+
+
+
+//*****************************************************************
+//	TCIASK01D01　急便HP版　お荷物問い合わせ入力　お問い合わせNo
+//	　未入力チェック
+//	　入力文字種チェック
+//   @param 入力された送り状№
+//*****************************************************************
+function nyuryokuCheck() {
+	var objList = new Array(10);
+	objList[0] = burauza('main:no1');
+	objList[1] = burauza('main:no2');
+	objList[2] = burauza('main:no3');
+	objList[3] = burauza('main:no4');
+	objList[4] = burauza('main:no5');
+	objList[5] = burauza('main:no6');
+	objList[6] = burauza('main:no7');
+	objList[7] = burauza('main:no8');
+	objList[8] = burauza('main:no9');
+	objList[9] = burauza('main:no10');
+
+	//未入力チェック
+	var i;
+	var checkList = new Array(10);
+	for ( i = 0; i < objList.length; i++ ) {
+		checkList[i] = minyuryokuCheck(objList[i].value);
+	}
+
+	if(!checkList[0] && !checkList[1] 
+		&& !checkList[2] && !checkList[3]
+		&& !checkList[4] && !checkList[5]
+		&& !checkList[6] && !checkList[7]
+		&& !checkList[8] && !checkList[9]
+	){
+
+		//塗りつぶしなし
+		for ( i = 0; i < objList.length; i++ ) {
+			colorChange( objList[i] , true );
+		}
+
+		objList[0].focus();
+		alert('お問い合せ送り状NOを入力して下さい。');
+		return false;
+	}else{
+	
+		//文字種別チェック
+		for ( i = 0; i < objList.length; i++ ) {
+			checkList[i] = okurijoNoCheck(objList[i].value);
+		}
+		if(!checkList[0] || !checkList[1] 
+			|| !checkList[2] || !checkList[3]
+			|| !checkList[4] || !checkList[5]
+			|| !checkList[6] || !checkList[7]
+			|| !checkList[8] || !checkList[9]
+		){
+			//塗りつぶし
+			for ( i = 0; i < objList.length; i++ ) {
+				colorChange( objList[i] , checkList[i] );
+			}
+
+			for ( i = 0; i < objList.length; i++ ) {
+				if ( !checkList[i] ) {
+					objList[i].focus();
+					break;
+				}
+			}
+			alert('お問い合せ送り状NOは10桁～14桁の半角数字で入力して下さい。');
+			return false;
+		}else{
+			return true;
+		}
+	}
+}
+
+
+//*****************************************************************
+//	お荷物問い合わせ結果　ユーザーID・パスワード
+//	　未入力チェック
+//	　入力文字種チェック
+//   @param 入力されたユーザーIDとパスワード
+//*****************************************************************
+var MIN_LENGTH = 6;
+function inputUserCheck() {
+	
+	var user = burauza('user');
+	var password = burauza('pass');
+
+	var msg = "";
+
+	// ユーザIDチェック
+	var userCheck = minyuryokuCheck(user.value);
+	if ( !userCheck ) {
+//		msg = msg + "ユーザーIDを入力して下さい。\n";
+		msg = msg + "ユーザーIDをご確認下さい。\n";
+	}
+//	else if ( !hanakuEisuji(user.value) ) {
+//		userCheck = false;
+////		msg = msg + "ユーザーIDは6～30文字の半角英数で入力して下さい。\n";
+//		msg = msg + "ユーザーIDをご確認下さい。\n";
+//	}
+	else if ( !figureCheck(user.value, 1, 30) ) {
+		userCheck = false;
+//		msg = msg + "ユーザーIDは6～30文字の半角英数で入力して下さい。\n";
+		msg = msg + "ユーザーIDをご確認下さい。\n";
+	}
+
+	// パスワードチェック
+	var passwordCheck = minyuryokuCheck(password.value);
+	if ( !passwordCheck ) {
+//		msg = msg + "パスワードを入力して下さい。\n";
+		msg = msg + "パスワードをご確認下さい。\n";
+	}
+//	else if ( !hanakuEisuji(password.value) ) {
+//		passwordCheck = false;
+////		msg = msg + "パスワードは6～20文字の半角英数で入力して下さい。\n";
+//		msg = msg + "パスワードをご確認下さい。\n";
+//	}
+	else if ( !figureCheck(password.value, 1, 20) ) {
+		passwordCheck = false;
+//		msg = msg + "パスワードは6～20文字の半角英数で入力して下さい。\n";
+		msg = msg + "パスワードをご確認下さい。\n";
+	}
+
+	colorChange( user , userCheck );
+	colorChange( password , passwordCheck );
+	if ( !userCheck || !passwordCheck ) {
+
+		if ( !userCheck ) {
+			user.focus();
+		}
+		else if ( !passwordCheck ) {
+			password.focus();
+		}
+		alert( msg );
+		return false;
+	}
+
+	return true;
+}
+
+
+var isServiceChecked = false;
+//*****************************************************************
+//	TCIASK01D04　お荷物問い合わせ結果(複数)(PC)
+//	　未入力チェック
+//	　入力文字種チェック
+//	　メールアドレスチェック
+//   @param チェックされたサービス、入力されたメール情報およびFAX情報
+//*****************************************************************
+function inputServiceCheck() {
+	var mailFlg = 0;
+	var faxFlg = 0;
+	var ret = true;
+	var formObj = burauza('InfoForm');
+
+	for ( i = 0; i < formObj.elements.length; i++ ) {
+		if ( formObj.elements[i].type == "checkbox" ) {
+			if ( formObj.elements[i].checked == true ) {
+				if ( isFaxService( formObj.elements[i].value ) ) {
+					faxFlg = 1;
+				}
+				else {
+					mailFlg = 1;
+				}
+			}
+		}
+	}
+
+	if ( mailFlg == 0 && faxFlg == 0 ) {
+		// サービス必須エラー
+		alert('一つ以上のサービスを選択する必要があります。');
+		return false;
+	}
+
+	// 詳細チェック
+	if ( !inputServiceCheckDetail(mailFlg, faxFlg) ) {
+		return false;
+	}
+
+	if ( !isServiceChecked ) {
+		isServiceChecked = true;
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+//*****************************************************************
+//	TCIASK01D04　お荷物問い合わせ結果
+//	　通知メールサービスチェック
+//*****************************************************************
+function inputServiceCheckDetail(mailFlg, faxFlg) {
+	var objList = new Array(6);
+	objList[0] = burauza('malMailAddr');
+	objList[1] = burauza('malOkurisakiName');
+	objList[2] = burauza('faxOkyakuName');
+	objList[3] = burauza('faxOkyakuTel');
+	objList[4] = burauza('faxOkyakuFax');
+	objList[5] = burauza('faxOkurisakiName');
+
+	var msg = "";
+
+	var checkList = new Array(6);
+	checkList[0] = true;
+	checkList[1] = true;
+	checkList[2] = true;
+	checkList[3] = true;
+	checkList[4] = true;
+	checkList[5] = true;
+
+	if ( 0 < mailFlg ) {
+		// メールアドレスチェック
+		checkList[0] = minyuryokuCheck( objList[0].value );
+		if ( !checkList[0] ) {
+			msg = msg + "メールアドレスを入力して下さい。\n";
+		}
+		else if ( !mailAddressCheck( objList[0].value ) ) {
+			checkList[0] = false;
+			msg = msg + "メールアドレスをお確かめ下さい。\n";
+		}
+
+		// 送付先名称チェック
+		checkList[1] = true;
+		if ( !checkList[1] ) {
+//			msg = msg + "メールアドレスを入力して下さい。\n";
+		}
+		else if ( !zenkakuCheck( objList[1], true ) ) {
+			checkList[1] = false;
+			msg = msg + "メール送付先名称は全角10文字以内で入力して下さい。\n";
+		}
+		else if ( 10 < objList[1].value.length ) {
+			checkList[1] = false;
+			msg = msg + "メール送付先名称は全角10文字以内で入力して下さい。\n";
+		}
+	}
+
+	if ( 0 < faxFlg ) {
+		// お客様名称チェック
+		checkList[2] = minyuryokuCheck( objList[2].value );
+		if ( !checkList[2] ) {
+			msg = msg + "お客様名称を入力して下さい。\n";
+		}
+		else if ( !zenkakuCheck( objList[2], false ) ) {
+			checkList[2] = false;
+			msg = msg + "お客様名称は全角10文字以内で入力して下さい。\n";
+		}
+		else if ( 10 < objList[2].value.length ) {
+			checkList[2] = false;
+			msg = msg + "お客様名称は全角10文字以内で入力して下さい。\n";
+		}
+
+		// お客様電話番号チェック
+		checkList[3] = minyuryokuCheck( objList[3].value );
+		if ( !checkList[3] ) {
+			msg = msg + "お客様電話番号を入力して下さい。\n";
+		}
+		else if ( !hankakuSujiCheck( objList[3].value ) ) {
+			checkList[3] = false;
+			msg = msg + "お客様電話番号は9桁～11桁の半角数字で入力して下さい。\n";
+		}
+		else if ( objList[3].value.length < 9 || 11 < objList[3].value.length ) {
+			checkList[3] = false;
+			msg = msg + "お客様電話番号は9桁～11桁の半角数字で入力して下さい。\n";
+		}
+
+		// 送付先FAX番号チェック
+		checkList[4] = minyuryokuCheck( objList[4].value );
+		if ( !checkList[4] ) {
+			msg = msg + "送付先FAX番号を入力して下さい。\n";
+		}
+		else if ( !hankakuSujiCheck( objList[4].value ) ) {
+			checkList[4] = false;
+			msg = msg + "送付先FAX番号は9桁～11桁の半角数字で入力して下さい。\n";
+		}
+		else if ( objList[4].value.length < 9 || 11 < objList[4].value.length ) {
+			checkList[4] = false;
+			msg = msg + "送付先FAX番号は9桁～11桁の半角数字で入力して下さい。\n";
+		}
+
+		// 送付先名称チェック
+		checkList[5] = minyuryokuCheck( objList[5].value );
+		if ( !checkList[5] ) {
+			msg = msg + "FAX送付先名称を入力して下さい。\n";
+		}
+		else if ( !zenkakuCheck( objList[5], false ) ) {
+			checkList[5] = false;
+			msg = msg + "FAX送付先名称は全角10文字以内で入力して下さい。\n";
+		}
+		else if ( 10 < objList[5].value.length ) {
+			checkList[5] = false;
+			msg = msg + "FAX送付先名称は全角10文字以内で入力して下さい。\n";
+		}
+	}
+
+	var i;
+	for ( i = 0; i < objList.length; i++ ) {
+		colorChange( objList[i] , checkList[i] );
+	}
+	if ( !checkList[0] || !checkList[1] ||
+		 !checkList[2] || !checkList[3] || !checkList[4] || !checkList[5] ) {
+		for ( i = 0; i < objList.length; i++ ) {
+			if ( !checkList[i] ) {
+				objList[i].focus();
+				break;
+			}
+		}
+		alert( msg );
+		return false;
+	}
+
+	return true;
+}
+
+
+//*****************************************************************
+//	TCIASK01D06　急便HP版　お荷物問い合わせ入力 英語版　お問い合わせNo
+//	　未入力チェック
+//	　入力文字種チェック
+//   @param 入力された送り状№
+//*****************************************************************
+function nyuryokuCheckEnglish() {
+	var objList = new Array(10);
+	objList[0] = burauza('main:no1');
+	objList[1] = burauza('main:no2');
+	objList[2] = burauza('main:no3');
+	objList[3] = burauza('main:no4');
+	objList[4] = burauza('main:no5');
+	objList[5] = burauza('main:no6');
+	objList[6] = burauza('main:no7');
+	objList[7] = burauza('main:no8');
+	objList[8] = burauza('main:no9');
+	objList[9] = burauza('main:no10');
+
+	//未入力チェック
+	var i;
+	var checkList = new Array(10);
+	for ( i = 0; i < objList.length; i++ ) {
+		checkList[i] = minyuryokuCheck(objList[i].value);
+	}
+	if(!checkList[0] && !checkList[1] 
+		&& !checkList[2] && !checkList[3]
+		&& !checkList[4] && !checkList[5]
+		&& !checkList[6] && !checkList[7]
+		&& !checkList[8] && !checkList[9]
+	){
+		//塗りつぶしなし
+		for ( i = 0; i < objList.length; i++ ) {
+			colorChange( objList[i] , true );
+		}
+
+		objList[0].focus();
+		alert('Please input tracking number.');
+		return false;
+	}else{
+	
+		//文字種別チェック
+		for ( i = 0; i < objList.length; i++ ) {
+			checkList[i] = okurijoNoCheck(objList[i].value);
+		}
+		if(!checkList[0] || !checkList[1] 
+			|| !checkList[2] || !checkList[3]
+			|| !checkList[4] || !checkList[5]
+			|| !checkList[6] || !checkList[7]
+			|| !checkList[8] || !checkList[9]
+		){
+			//塗りつぶし
+			for ( i = 0; i < objList.length; i++ ) {
+				colorChange( objList[i] , checkList[i] );
+			}
+
+			for ( i = 0; i < objList.length; i++ ) {
+				if ( !checkList[i] ) {
+					objList[i].focus();
+					break;
+				}
+			}
+
+//			alert('Please input tracking number by the normal-width figure from 10 to 14 digits.');
+			alert('Please input a tracking number between 10 and 14 half-width digits.');
+			return false;
+		}else{
+			return true;
+		}
+	}
+}

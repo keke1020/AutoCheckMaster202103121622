@@ -1,0 +1,1836 @@
+@charset "utf-8";
+
+/* プリントプレビュー用（プリントページ用のcss設定は1435行目以降。先頭に「ycFixPrint」が付いてます） */
+.ycFixPrint #wrapper, .ycFixPrint #ycWrContentsFix, .ycFixPrint #ycWrFooter { margin:0 auto; width:675px; }
+
+/*  共通部分 */
+/* 2013.10.16 textareaタグresize機能抑止 */
+textArea { font-size:12px; resize: none;}
+.mb15 { margin-bottom:15px; }
+.w520 { width:520px; }
+.w280 { width:280px; }
+.w90 { width:70px; }
+.w60 { width:40px; }
+.mb10 { margin-bottom:10px; }
+.tbArea {line-height:130%;margin-right:10px;}
+.ycMdItemInfo { border:solid 2px #bbc3c3; margin-bottom:10px; line-height:130%; border-bottom-width:1px;}
+.ycMdItemInfo input { height:25px; }
+.ycMdItemInfo th { background-color:#ebeeee; text-align:left; font-size:14px; width:224px; padding:8px; border-right:solid 1px #bbc3c3;border-bottom:solid 1px #bbc3c3; vertical-align:top;}
+.ycMdItemInfo th p { font-weight:normal; font-size:90%;}
+.ycMdItemInfo th img { margin-top:8px; }
+.ycMdItemInfo th span, .ycMdItemInfo td p span { margin-left:10px; color:#cc0000; font-size:90%; display:inline;}
+.ycMdItemInfo td { border-bottom:solid 1px #bbc3c3; vertical-align:top; }
+.ycMdItemInfo td div.tdBody { padding:8px;}
+.ycMdItemInfo td span.blk {display:block; padding:3px 0;}
+.ycMdItemInfo td.errArea, .ycMdItemInfo tr.errArea td{ background-color:#fee9ee; }
+.ycMdItemInfo td span.errItem, .ycMdItemInfo td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+.ycMdItemInfo td p.errMsgEh { color:#cc0000; font-weight:bold; margin-bottom:5px; font-size:14px; }
+
+.ycMdItemInfoHor { border-top:solid 2px #bbc3c3; border-left:solid 2px #bbc3c3; border-right: solid 1px #bbc3c3; line-height:130%; margin-bottom:10px; letter-spacing:normal; border-bottom:solid 1px #bbc3c3; }
+.ycMdItemInfoHor th { background-color:#ebeeee; border-bottom:solid 2px #bbc3c3; border-right:solid 1px #bbc3c3; border-left:solid 1px #ffffff; border-top:solid 1px #ffffff; white-space:nowrap; font-size:14px; }
+.ycMdItemInfoHor td { border-right:solid 1px #bbc3c3;  border-bottom:solid 1px #bbc3c3; }
+.ycMdItemInfoHor td p { overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycMdItemInfoHor td span.blk {display:block; padding:3px 0;}
+.ycMdItemInfoHor td.errArea, .ycMdItemInfoHor tr.errArea td{ background-color:#fee9ee; }
+.ycMdItemInfoHor td span.errItem, .ycMdItemInfoHor td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+.ycMdItemInfoHor td p.errMsgEh { color:#cc0000; font-weight:bold; margin-bottom:5px; font-size:14px; }
+.ycMdDataTbl { border-top:solid 2px #bbc3c3; border-left:solid 2px #bbc3c3; border-right: solid 1px #bbc3c3; line-height:130%; margin-bottom:10px; letter-spacing:normal; }
+.ycMdDataTbl th { background-color:#ebeeee; font-weight:normal;border-bottom:solid 2px #bbc3c3; border-right:solid 1px #bbc3c3; border-left:solid 1px #ffffff; border-top:solid 1px #ffffff; white-space:nowrap; }
+.ycMdDataTbl td { border-right:solid 1px #bbc3c3 ;border-bottom:solid 1px #bbc3c3; }
+.ycMdDataTbl td p { overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycMdDataTbl tr.even td { background-color: #f3f3f3; }
+.ycMdDataTbl tr.selected td { background-color: #ffff9d; }
+.ycMdDataTbl tr.borderBtm td { border-bottom-width:2px; }
+
+.orderNum { background-color:#cde5e5; padding:5px; font-size:14px; display:inline-block; }
+.orderNum span { margin-left:18px; }
+
+.disCt {text-align:center;}
+
+/*  ボタン　*/
+.ycMdBtnArea { padding:10px 0 0; margin:0 0 20px; }
+.ycMdBtnAreaBtm { padding:10px 0 0; }
+.ycMdBtnArea a, .ycMdBtnAreaBtm a/*, .ycMdBtn a */{ margin-right:10px; }
+.ycMdBtnAreaBtm .dvLine { background-color:#bbc3c3; width:1px; height:36px; margin:0 19px 0 10px; float:left; }
+.ycMdBtnAreaBtm .dvLine hr { display:none; }
+
+.ycMdSrhCondition .modHd { text-align:left; border-bottom:none; }
+.ycMdSrhCondition .modBd { padding:0; border-top:1px solid #bbc3c3; }
+.ycMdSrhCondition .modBd .bdInner { padding:10px 10px 5px; }
+.ycMdSrhCondition .modBd .bdInner p { margin-bottom:10px; }
+.ycMdSrhCondition .bodyBd { margin-bottom:10px; }
+.ycMdSrhCondition table th { font-size:14px; width:199px; text-align:left; padding:5px 0; vertical-align:top; }
+.ycMdSrhCondition table td { padding:5px 0; vertical-align:top; }
+.ycMdSrhCondition .example { color:#777777; }
+.ycMdSrhCondition .blk { display:block; padding:3px 0; }
+.ycMdSrhCondition label { width:130px; display:inline-block; }
+.ycMdSrhCondition label.wAuto { width:auto; }
+.ycMdSrhCondition label.ic { width:140px; display:inline-block; }
+.ycMdSrhCondition .w180 { width:180px; }
+.ycMdSrhCondition .txtHd { width:25px; margin-right:6px; display:inline-block; }
+.ycMdSrhCondition .ycMdBtnArea { padding:0; margin:0 0 15px; }
+.ycMdSrhCondition .ycMdBtnArea a { margin-right:10px; }
+.ycMdSrhCondition .dvLine {  background-color: #bbc3c3; height:1px; }
+.ycMdSrhCondition hr { display:none; }
+
+
+.ycOrderList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycOrderList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycOrderList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycOrderList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycOrderList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycOrderList .ycMdOpeItem th { text-align:left; width:160px; border-top:dashed 1px #bcc4c4; }
+.ycOrderList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycOrderList .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycOrderList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycOrderList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycOrderList .ycMdSorting { margin-bottom:10px; }
+.ycOrderList .ycMdSorting .dvLt { float:left; }
+.ycOrderList .ycMdSorting .dvRt { float:right; }
+
+.ycOrderList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycOrderList .ycMdIcDes th { width:60px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycOrderList .ycMdIcDes th.thTitle { width:30px; }
+.ycOrderList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycOrderList .ycMdIcDes td span img { margin-right:2px;}
+.ycOrderList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycOrderList .ycMdDataTbl .chk p { width:25px; }
+.ycOrderList .ycMdDataTbl td.chk { text-align:center; }
+.ycOrderList .ycMdDataTbl .doubleBuy p, .ycOrderList .ycMdDataTbl .division p, .ycOrderList .ycMdDataTbl .demand p, .ycOrderList .ycMdDataTbl .point p, .ycOrderList .ycMdDataTbl .evaluation p { width:25px; white-space:normal; text-align:center; }
+.ycOrderList .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycOrderList .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycOrderList .ycMdDataTbl .speedDel p, .ycOrderList .ycMdDataTbl .invalid p { width:48px; white-space:normal; text-align:center; padding: 0 5px; }
+.ycOrderList .ycMdDataTbl .speedDel p.dcKytk { background: #4598ee;display: inline-block;color: #fff;font-size: 11px;padding: 2px 5px;border: solid 1px #0154a7;line-height: 1; }
+.ycOrderList .ycMdDataTbl .speedDel p.dcAstk { background: #ccdded;color: #0154a7;display: inline-block;font-size: 11px;padding: 2px 5px;border: solid 1px #0154a7;line-height: 1; }
+.ycOrderList .ycMdDataTbl .sendMail p {width:40px; white-space:normal;}
+.ycOrderList .ycMdDataTbl .strStatus p {width:50px; white-space:normal;}
+.ycOrderList .ycMdDataTbl .report p {width:35px; white-space:normal;}
+.ycOrderList .ycMdDataTbl .orderId p {width:170px; }
+.ycOrderList .ycMdDataTbl .customerNm p {width:190px; }
+.ycOrderList .ycMdDataTbl .payment p {width:160px; }
+.ycOrderList .ycMdDataTbl .ordAmt p, .ycOrderList .ycMdDataTbl .bidAmt p {width:95px; }
+.ycOrderList .ycMdDataTbl .sellDate p {width:60px; }
+.ycOrderList .ycMdDataTbl .status p {width:70px; }
+.ycOrderList .ycMdDataTbl .login p {width:70px; }
+
+.ycOrderList .ycMdDataTbl td.point p, .ycOrderList .ycMdDataTbl td.evaluation p { color:#666666; font-weight:bold; }
+.ycOrderList .ycMdDataTbl td.sendMail p, .ycOrderList .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycOrderList .ycMdDataTbl td.ordAmt p, .ycOrderList .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycOrderList .ycMdDataTbl td.sellDate p { text-align:center; }
+
+.ycSystemSetting .ycMdItemInfo th { font-weight:normal; font-size:12px; }
+
+
+.ycMdDataTbl p.err { color:#cc0000; }
+.ycMdDataTbl p.newOd { color:#ff9333; font-weight:bold; }
+.ycMdDataTbl p.noInput { color:#1bb611; font-weight:bold; }
+.ycMdDataTbl p.newRev { color:#3eb7c2; font-weight:bold; }
+.ycMdDataTbl p.progress { color:#333333; font-weight:bold; }
+.ycMdDataTbl p.pending { color:#9933cc; font-weight:bold; }
+.ycMdDataTbl p.cancel { color:#dd2400; font-weight:bold; }
+.ycMdDataTbl p.complete { color:#006600; font-weight:bold; }
+.ycMdDataTbl p.mlAcpt { background:url(../../img/1.0.0/strordermgr/ic_mail.png) no-repeat 1px 4px #6bbfdb; }
+.ycMdDataTbl p.other { background:url(../../img/1.0.0/strordermgr/ic_mail.png) no-repeat 1px 4px #9e9e9e; }
+.ycMdDataTbl p.ship { background:url(../../img/1.0.0/strordermgr/ic_mail.png) no-repeat 1px 4px #438eff; }
+.ycMdDataTbl p.slip { background:url(../../img/1.0.0/strordermgr/ic_report.png) no-repeat 1px 2px #fe8746; }
+.ycMdDataTbl p.deli { background:url(../../img/1.0.0/strordermgr/ic_report.png) no-repeat 1px 2px #fd81d6; }
+.ycMdDataTbl p.receipt { background:url(../../img/1.0.0/strordermgr/ic_report.png) no-repeat 1px 2px #800080; }
+.ycMdDataTbl p.charge { background:url(../../img/1.0.0/strordermgr/ic_report.png) no-repeat 1px 2px #fe4671; }
+.ycMdDataTbl p.shp { background:url(https://s.yimg.jp/images/sicons/shopping16.gif) no-repeat 50% 0; width:16px; height:16px; text-indent:-9999px; }
+.ycMdDataTbl p.auc { background:url(https://s.yimg.jp/images/sicons/auction16.gif) no-repeat 50% 0; width:16px; height:16px; text-indent:-9999px; }
+
+.ycMdDataTbl .medium p.pc { background:url(../../img/1.0.0/strordermgr/ic_pc.png) no-repeat 50% 0; width:16px; height:15px; text-indent:-9999px; margin:0 auto; }
+.ycMdDataTbl .medium p.mb { background:url(../../img/1.0.0/strordermgr/ic_mb.png) no-repeat 50% 0; width:7px; height:16px; text-indent:-9999px; margin:0 auto; }
+.ycMdDataTbl .medium p.sp { background:url(../../img/1.0.0/strordermgr/ic_sp.png) no-repeat 50% 0; width:10px; height:16px; text-indent:-9999px; margin:0 auto; }
+
+
+/*.ycMailSetting .ycMdItemInfoHor .ope p { width:50px; }
+*/
+.ycMailSetting .ycMdItemInfoHor .template p { width:305px; }
+.ycMailSetting .ycMdItemInfoHor .tempKind p { width:200px; }
+.ycMailSetting .ycMdItemInfoHor .update p { width:310px; }
+
+.ycDlSetting label { vertical-align:top; }
+.ycDlSetting .ycMdItemInfoHor .select p { width:30px; }
+.ycDlSetting .ycMdItemInfoHor .template p { width:240px; }
+.ycDlSetting .ycMdItemInfoHor .fileNm p { width:280px; }
+.ycDlSetting .ycMdItemInfoHor .kind p { width:127px; }
+.ycDlSetting .ycMdItemInfoHor .update p { width:180px; }
+.ycDlSetting .ycMdItemInfoHor td { vertical-align:top; }
+.ycDlSetting .ycMdItemInfoHor td.select { text-align:center; }
+
+.ycDlSetting .ycMdbtnTbl { font-size:14px; }
+.ycDlSetting .ycMdbtnTbl .txt { width:90px; }
+.ycDlSetting .ycMdbtnTbl .w20 { width:20px; }
+.ycDlSetting .ycMdbtnTbl .ycMdBtn a { margin-right:20px; }
+.ycDlSetting .ycMdbtnTbl input { vertical-align:baseline; }
+
+.ycCgiSetting .ycMdItemInfoHor .select p { width:30px; }
+.ycCgiSetting .ycMdItemInfoHor .condition p { width:51px; text-align:center; }
+.ycCgiSetting .ycMdItemInfoHor .receiver p { width:812px; }
+.ycCgiSetting .ycMdItemInfoHor td.select { text-align:center; }
+.flt { float:left; margin-right:5px; width:550px; }
+
+
+/*.ycEvlSetting .ycMdItemInfoHor .ope p { width:50px; }
+*/.ycEvlSetting .ycMdItemInfoHor .template p { width:300px; }
+.ycEvlSetting .ycMdItemInfoHor .eval p { width:110px; }
+.ycEvlSetting .ycMdItemInfoHor .update p { width:405px; }
+
+.ycStrSetting .ycMdItemInfoHor td { vertical-align:top; }
+.ycStrSetting .ycMdItemInfoHor td span.errItem, .ycStrSetting .ycMdItemInfo td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+.ycStrSetting .ycMdItemInfoHor td p.errMsgEh { color:#cc0000; font-weight:bold; margin-bottom:5px; font-size:14px; }
+.ycStrSetting .ycMdItemInfoHor td.errArea, .ycMdItemInfo tr.errArea td{ background-color:#fee9ee; }
+.ycStrSetting .strStatus { width:140px; }
+
+.ycDeliSetting .ycMdItemInfoHor td { vertical-align:top; }
+.ycDeliSetting .ycMdItemInfoHor .deliverer { width:120px; }
+
+.ycMailEdit .mdHead { background-color:#ebeeee; font-weight:bold; font-size:14px; padding:8px; border-left:solid 1px #bbc3c3; }
+.ycMailEdit .elementList select { width:100%; height:300px; padding:5px; }
+.ycMailEdit .elementList2 select { width:100%; height:400px; padding:5px; }
+.ycMailEdit .elementList { /*width:300px;*/ margin-left:20px;  }
+.ycMailEdit .elementBtn {width:100%; height:40px;}
+.ycMailEdit #el_bt_list1 {width:46px; height:25px; float:left; padding-top:10px; padding-left:40px;}
+.ycMailEdit #el_bt_list2 {width:46px; height:25px; float:left; padding-top:10px; padding-left:40px;}
+.ycMailEdit #el_bt_list3 {width:46px; height:25px; float:left; padding-top:10px; padding-left:40px;}
+.ycMailEdit #Bline  {border-right:1px solid rgb(187, 195, 195);}
+.ycMailEdit #Bline2  {border-right:1px solid rgb(187, 195, 195);}
+.ycMailEdit .elementBox {padding-right: 15px; padding-left: 9px;}
+/*.ycMailEdit .bodyTxt { width:300px; }
+*/.ycMailEdit .elList {  width:250px; }
+.ycMailEdit .elList2 {  width:400px; }
+/* 2013.10.16 textareaタグresize機能抑止 */
+.ycMailEdit .w470 { width:470px; }
+.ycMailEdit .elTbl { margin-top:15px; margin-bottom:15px; font-size:14px; }
+/* 2014.08.21 IE8でのスクロールバー対応 */
+.ycMailEdit .hMailBody { height:360px; }
+.ycMailEdit .hMailSignature { height:240px; }
+
+.selectList .mdHead { background-color:#ebeeee; font-weight:bold; font-size:14px; padding:8px; border:solid 1px #bbc3c3; border-bottom:none; }
+.selectList .mdHead span { font-size:12px; font-weight:normal; }
+.selectList select { width:100%; height:500px; padding:5px; }
+.ycMdBtn img.mr5 { margin-left:5px; margin-right:0; }
+.selectList optgroup { font-style:normal;}
+.dlItemTbl td.btnArea { padding:0 10px; text-align:center;}
+.dlItemTbl td.btnArea .ycMdBtn a { float:none; margin-right:0;}
+.dlItemTbl { margin-bottom:10px; }
+
+/* 検索（INPUTボタン） */
+.ycMdSrhCondition .modBd .bdInner .btnIntBlL p { margin-bottom:0; }
+
+.wLFix input{width:180px;}
+
+.btnIntBlL p {background-position:left -262px;}
+.btnIntBlL p span{background-position:right -262px;}
+.btnIntBlL p input{color:#333;}
+
+.btnIntGrL p {background-position:left -328px;}
+.btnIntGrL p span{background-position:right -328px;}
+.btnIntGrL p input{color:#555;}
+
+.btnIntBlS p {background-position:left -394px;}
+.btnIntBlS p span{background-position:right -394px;}
+.btnIntBlS p input{color:#333;}
+
+.btnIntGrS p {background-position:left -448px;}
+.btnIntGrS p span{background-position:right -448px;}
+.btnIntGrS p input{color:#555;}
+
+.btnIntDisableS p {background-position:left -568px;}
+.btnIntDisableS p span{background-position:right -568px;}
+.btnIntDisableS p input{color:#777;}
+
+.btnIntBlL, .btnIntGrL, .btnIntBlS, .btnIntGrS, .btnIntDisableS { display:block; padding:0; float:left; margin-right:10px; }
+.btnIntBlL p, .btnIntGrL p, .btnIntBlS p, .btnIntGrS p, .btnIntDisableS p { width:auto; padding:0; margin:0; background-image:url(../../img/1.0.0/common/btn_bgLt.png); background-repeat:no-repeat; display:block; }
+.btnIntBlL p span, .btnIntGrL p span, .btnIntBlS p span, .btnIntGrS p span, .btnIntDisableS p span { width:auto; padding:0; margin:0 0 0 3px ;background-image:url(../../img/1.0.0/common/btn_bgRt.png); background-repeat:no-repeat; display:inline-block; }
+.btnIntBlL p input, .btnIntGrL p input, .btnIntBlS p input, .btnIntGrS p input, .btnIntDisableS p input { font-weight:bold; padding:0 10px; margin-left:-3px; background:none; border:none; cursor:pointer; display:block; border:none; }
+.btnIntDisableS p input { font-weight:bold; padding:0 10px; margin-left:-3px; background:none; border:none; cursor:default; display:block; border:none; }
+.btnIntBlL p input, .btnIntGrL p input { height:36px; font-size:15px; }
+.btnIntBlS p input, .btnIntGrS p input, .btnIntDisableS p input { height:24px; font-size:12px; }
+.btnIntBlL p input[type="submit"]::-moz-focus-inner,
+.btnIntGrL p input[type="submit"]::-moz-focus-inner,
+.btnIntBlS p input[type="submit"]::-moz-focus-inner,
+.btnIntGrS p input[type="submit"]::-moz-focus-inner{border:0px;}
+.btnIntDisableS p input[type="submit"]::-moz-focus-inner{border:0px;}
+.btnIntBlL p input[type="button"]::-moz-focus-inner,
+.btnIntGrL p input[type="button"]::-moz-focus-inner,
+.btnIntBlS p input[type="button"]::-moz-focus-inner,
+.btnIntGrS p input[type="button"]::-moz-focus-inner{border :0px;}
+.btnIntDisableS p input[type="button"]::-moz-focus-inner{border :0px;}
+
+/*注文詳細・一覧系共通*/
+/*margin*/
+.mt4 { margin-top:4px; }
+.mt20 { margin-top:20px; }
+.mb5 { margin-bottom:5px; }
+.mb20 { margin-bottom:20px; }
+.ml3 { margin-left:3px; }
+.ml10 { margin-left:10px; }
+.ml25 { margin-left:25px; }
+.mr8 { margin-right:8px; }
+/*padding*/
+.pt3 { padding-top:3px; }
+.pt5 { padding-top:5px; }
+.pl10 { padding-left:10px; }
+/*width*/
+.w85 { width:85px; }
+.w110 { width:110px; }
+.w120 { width:120px; }
+.w170 { width:170px; }
+.w195 { width:195px; }
+.w240 { width:240px; }
+.w270 { width:270px; }
+.w287 { width:287px; }
+.w300 { width:300px; }
+.w320 { width:320px; }
+.w330 { width:330px; }
+.w400 { width:400px; }
+.w440 { width:440px; }
+.w445 { width:445px; }
+.w570 { width:570px; }
+.ycOrderDetail .inprecAddWm { width:275px; }
+.ycOrderDetail .inptareaWm { width:317px; }
+.ycOrderDetail .inptareaWm2 { width:297px; }
+.ycOrderDetail .inptextWm { width:320px; }
+.ycOrderDetail .inpdemandWm { width:920px; }
+/*height*/
+.h60 { height:60px; }
+.h100 { height:100px; }
+.h120 { height: 120px; }
+/*float*/
+.ycOrderDetail .dvLt ,.ycOrdProcTraUp .dvLt { float:left; }
+.ycOrderDetail .dvRt ,.ycOrdProcTraUp .dvRt{ float:right; }
+/*example*/
+.ycOrderDetail .example { color:#777777; padding-top:5px; }
+/*anchorLk*/
+.ycOrderDetail .anchorLk ul { margin:0 10px; padding-top:10px; }
+.ycOrderDetail .anchorLk li { background:url(../../img/1.0.0/strordermgr/ic_anchor.png) no-repeat left center; padding-left:15px; margin-right:10px; margin-bottom:5px; float:left; white-space:nowrap; }
+.ycOrderDetail .anchorLk { margin-bottom:10px; }
+.ycOrderDetail .anchorLk li a { display:inline-block; }
+/*Alert*/
+.ycOrderDetail .ycMdAlert { padding:8px; border: solid 1px #dedede; margin:0 0 10px 0; }
+.ycOrderDetail .ycMdAlert span.fontN { font-weight:lighter; font-size:14px; }
+.ycOrderDetail .errTxt , .ycOrdProcTraUp .errTxt { color: #ff0000; }
+/*Empha*/
+.ycOrderDetail .ycMdEmpha { color:#0099cc; font-weight:bold; font-size:14px; }
+/*ycMdChanR*/
+.ycOrderDetail .ycMdHeader h1 { float: left; }
+.ycOrderDetail .ycMdHeader span { float: left; margin-top: 11px; }
+.ycOrderDetail .ycMdHeader ul.ycMdChanR { float:right; margin-top: 10px; padding-right: 10px; }
+.ycOrderDetail .ycMdHeader ul.ycMdChanR li { float:left; }
+.ycOrderDetail .ycMdHeader ul.ycMdChanR li.back { background:url(../../img/1.0.0/strordermgr/ic_arrow_back.png) no-repeat left center; padding-left:10px; white-space:nowrap; }
+.ycOrderDetail .ycMdHeader ul.ycMdChanR li.next { background:url(../../img/1.0.0/strordermgr/ic_arrow_next.png) no-repeat right center; padding-right:10px; margin-left:10px; white-space:nowrap; }
+/*ycMdHeaderSubGr*/
+.ycMdHeaderSubGr span { margin:0 10px; color:#c9cfcf; font-size:11px; }
+.ycMdHeaderSubGr span a { color:#339900; margin:0 8px; }
+.ycMdHeaderSubGr { background-color:#ebebeb; border-bottom:solid 1px #dedede; border-left:solid 2px #a9a9a9; height:33px; line-height:33px; padding-left:10px; margin-bottom:10px; }
+.ycMdHeaderSubGr h2 { line-height:33px; font-weight:bold; display:inline; font-size:14px; float:left; }
+.ycMdHeaderSubGr span.ycMdShowChg { float:right; margin:0; font-size:12px; }
+/*ycMdHeaderSubGr*/
+.ycMdHdGr { border-left:solid 2px #aeaeae; line-height:24px; padding-left:10px; margin-bottom:10px; font-weight:bold; font-size:14px;}
+/* icon */
+.ycMdDataTbl p.noshi { background:url(../../img/1.0.0/strordermgr/ic_noshi.png) top center no-repeat; width:12px; height:16px; text-indent:-9999px; margin:0 auto 3px auto; }
+.ycMdDataTbl p.gift { background:url(../../img/1.0.0/strordermgr/ic_gift.png) top center no-repeat; width:14px; height:16px; text-indent:-9999px; margin:0 auto 3px auto; }
+.ycMdDataTbl p.others { background:url(../../img/1.0.0/strordermgr/ic_other.png) top center no-repeat; width:15px; height:16px; text-indent:-9999px; margin:0 auto 3px auto; }
+/* bgcolor */
+.ycMdDataTbl tr.selectDec td { background-color: #fee9ee; }
+.ycMdDataTbl tr.selectWarn td { background-color: #e0f7fb; }
+/* txtcolor */
+.ycMdDataTbl p.pointDec { color: #cc0000; }
+.ycMdDataTbl p.warning { color: #0099cc; }
+
+/*注文情報*/
+/*ycMdOrdBasInfo*/
+.ycOrderDetail .ycMdOrdBasInfo .ycMdItemInfo th.ThLeft { width:175px; }
+.ycOrderDetail .ycMdOrdBasInfo .ycMdItemInfo th.ThCenter { width:135px; border-left:solid 1px #bbc3c3; }
+.ycOrderDetail .ycMdOrdBasInfo .ycMdItemInfo th.ThRight { width:130px; border-left:solid 1px #bbc3c3; }
+/*ycMdOrdStates*/
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo th { width:125px; }
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo th.store { border-left:solid 1px #bbc3c3;}
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo td.order { width:350px; }
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo td.store { width:350px; }
+
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo td.order div { padding:0; }
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo td.order div.tdBody { padding:8px; }
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo td.order div table.ycMdInnerTbl tr.borderBtm th { border-bottom:none; }
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo td.order div table.ycMdInnerTbl tr.borderBtm td { border-bottom:none; }
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo td.order div table.ycMdInnerTbl th { padding:8px; background-color:#fff; font-weight:lighter; width:125px; font-size:12px; }
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo td.order div table.ycMdInnerTbl th span { font-weight:bold; font-size:100%; }
+.ycOrderDetail .ycMdOrdStates .ycMdItemInfo td.order div table.ycMdInnerTbl td div.tdBody { padding:8px; }
+.ycOrderDetail .ycMdOrdStates span.Decision { color:#069852; font-size:100%; margin:0; }
+.ycOrderDetail .ycMdOrdStates span.Undecided { color:#ff0101; font-size:100%; margin:0; }
+.ycOrderDetail .ycMdOrdStates p.statesmess { color:#0099cc; padding-top:5px; }
+.ycOrderDetail .ycMdHeaderSub .ycMdBtn span { margin:0; color:#333; font-size:100%; }
+.ycOrderDetail .ycMdHeaderSub .btnDisableS span { margin:0; color:#777; font-size:100%; }
+/*ycMdDeliInfo*/
+.ycOrderDetail .ycMdDeliInfo .ycMdItemInfo th { padding:8px; background-color:#fff; font-weight:lighter; width:12%; font-size:12px; text-align:left; }
+.ycOrderDetail .ycMdDeliInfo .ycMdItemInfo td { border-right:solid 1px #bbc3c3; width:38%; }
+.ycOrderDetail .ycMdDeliInfo .ycMdItemInfo td.borderRnone { border-right: none; }
+/*ycMdDeliInfoSep*/
+.ycOrderDetail .ycMdDeliInfoSep { margin-bottom:10px; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo { margin-bottom:0; }
+
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo th { background-color:#fff; text-align:left; font-size:12px; width:120px; padding:8px; border-right:solid 1px #bbc3c3;border-bottom:solid 1px #bbc3c3; vertical-align:top; font-weight: lighter; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo tr.title th { background-color:#ebeeee; border-right:none; border-bottom:solid 2px #bbc3c3; font-weight: bold; text-align:center; font-size:14px; width:445px; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo th.ptb4 { text-align: center; padding-top:4px; padding-bottom:4px; }
+
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td { width:445px; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl { border:none; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl th{ border:none; background-color:#fff; font-weight:lighter; width:95px; font-size:12px; text-align: left; padding:0 0 5px 0; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl td{ border:none; width:355px; padding:0 0 5px 0; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl td p{ width:355px; overflow:hidden; word-break:break-all; word-wrap:break-word;}
+
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td .ycMdBillAdd table.ycMdNolineTbl th{ width:135px; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td .ycMdBillAdd table.ycMdNolineTbl td{ width:315px; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td .ycMdBillAdd table.ycMdNolineTbl td p{ width:315px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycOrderDetail .ycMdDeliInfoSep .ReceAdd { float:left; }
+.ycOrderDetail .ycMdDeliInfoSep .ReceMeth { float:right; }
+.ycOrderDetail .ycMdDeliInfoSep .ReceAdd .ycMdItemInfo th { width:130px; }
+.ycOrderDetail .ycMdDeliInfoSep .ReceMeth .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSep .ReceAdd .ycMdItemInfo td { width:295px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrderDetail .ycMdDeliInfoSep .ReceMeth .ycMdItemInfo td p { width:325px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycOrderDetail .ycMdDeliInfoSep .OpGift { float:left; }
+.ycOrderDetail .ycMdDeliInfoSep .OpNoshi { float:right; }
+.ycOrderDetail .ycMdDeliInfoSep .OpGift .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSep .OpNoshi .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSep .OpGift .ycMdItemInfo td { width:325px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrderDetail .ycMdDeliInfoSep .OpNoshi .ycMdItemInfo td p { width:325px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycOrderDetail .ycMdDeliInfoSep .Orderer { float:left; }
+.ycOrderDetail .ycMdDeliInfoSep .PayMeth { float:right; }
+.ycOrderDetail .ycMdDeliInfoSep .Orderer .ycMdItemInfo th { width:130px; }
+.ycOrderDetail .ycMdDeliInfoSep .PayMeth .ycMdItemInfo th { width:120px; }
+.ycOrderDetail .ycMdDeliInfoSep .Orderer .ycMdItemInfo td { width:295px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrderDetail .ycMdDeliInfoSep .PayMeth .ycMdItemInfo td p { width:305px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycOrderDetail .ycMdDeliInfoSep .EncHope { float:left; }
+.ycOrderDetail .ycMdDeliInfoSep .AgeCheck { float:right; }
+.ycOrderDetail .ycMdDeliInfoSep .EncHope .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSep .EncHope .ycMdItemInfo td { width:325px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrderDetail .ycMdDeliInfoSep .AgeCheck .ycMdItemInfo td p { width:440px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo th .thbtnCt { width: 150px; margin:0 auto; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo th p.inliT { float: left; font-weight: bold; padding-top: 5px; margin-right: 10px; font-size: 14px; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo th .inliBt { float: left; vertical-align:top; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo th .ycMdBtn .btnGrS span { background-position:left -448px; display:block; line-height:12px; text-align:center; padding:6px 0 6px 10px; margin-left:0px; color:#555555; }
+.ycOrderDetail .ycMdDeliInfoSep .ycMdItemInfo th .ycMdBtn .btnBlS span { background-position:left -394px; display:block; line-height:12px; text-align:center; padding:6px 0 6px 10px; margin-left:0px; color:#333333;}
+
+.ycOrderDetail .ycMdDeliInfoSep .inlineBtm { float: left; }
+/*ycMdDemand*/
+.ycOrderDetail .ycMdDemand { border:solid 2px #bbc3c3; margin-bottom: 10px; }
+.ycOrderDetail .ycMdDemand p { padding: 8px; }
+/*ycMdDetInfo*/
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl .L p { width:25px; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl .itemName p { width:185px; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl .itemCode p { width:150px; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl .price p { width:90px; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl .quantity p { width:40px; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl .sellDate p { width:60px; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl .fund p { width:35px; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl .pointCode p { width:45px; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl .grantPoi p { width:100px; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl .subTotal p { width:97px; }
+/*ycMdDetInfo ycMdOrdDiv（分割）*/
+.ycOrderDetail .ycMdDetInfo .ycMdOrdDiv .ycMdDataTbl .L p { width:25px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdDiv .ycMdDataTbl .itemName p { width:210px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdDiv .ycMdDataTbl .itemCode p { width:160px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdDiv .ycMdDataTbl .price p { width:90px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdDiv .ycMdDataTbl .quantity p { width:44px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdDiv .ycMdDataTbl .sellDate p { width:60px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdDiv .ycMdDataTbl .fund p { width:35px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdDiv .ycMdDataTbl .pointCode p { width:45px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdDiv .ycMdDataTbl .grantPoi p { width:100px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdDiv .ycMdDataTbl .subTotal p { width:105px; }
+/*ycMdDetInfo ycMdOrdQua（数量記入）*/
+.ycOrderDetail .ycMdDetInfo .ycMdOrdQua .ycMdDataTbl .L p { width:25px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdQua .ycMdDataTbl .itemName p { width:405px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdQua .ycMdDataTbl .itemCode p { width:170px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdQua .ycMdDataTbl .price p { width:100px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdQua .ycMdDataTbl .sellDate p { width:90px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdQua .ycMdDataTbl .quantity p { width:85px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdQua .ycMdDataTbl .quantity p.quaInp { float: right; text-align:right; }
+.ycOrderDetail .ycMdDetInfo .ycMdOrdQua .ycMdDataTbl .quantity p.quaInp input { width:75px; text-align:right; }
+/*ycMdDetInfo ycMdOperation（操作ボタン）*/
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .Operation p { width:46px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .L p { width:25px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .itemName p { width:120px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl td.itemCode p { width:129px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl td.price p { width:105px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .quantity p { width:38px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .sellDate p { width:80px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .fund p { width:30px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .pointCode p { width:45px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .grantPoi p { width:100px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .subTotal p { width:92px; }
+/* 2013.10.16 textareaタグresize機能抑止 */
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .itemName p.nameInp textarea { width:114px; resize: none; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .itemCode p.codeInp textarea { width:122px; resize: none; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .price p.priInp { float: right; text-align:right; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .price p.priInp input { width:83px; text-align:right; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .quantity p.quaInp input { width:33px; text-align:right; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .sellDate p.sellInp input { width:75px; text-align:center; }
+/*ycMdDetInfo ycMdSearAdd*/
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .Operation p { width:46px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .itemCode p { width:125px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .Option p { width:100px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .quantity p { width:38px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .price p { width:99px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .pointCode p { width:45px; }
+.ycOrderDetail .ycMdDetInfo .ycMdOperation .ycMdDataTbl .sellDate p { width:87px; }
+/*ycMdDetInfo共通*/
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.L { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.itemName { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.itemCode { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.price { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.quantity { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.sellDate { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.fund { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.pointCode { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.grantPoi { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.subTotal { vertical-align: top; }
+
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.L p { text-align: center; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.price p { text-align: right; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.quantity p { text-align: right; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.sellDate p { text-align: center; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.fund p { text-align: center; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.pointCode p { text-align: center; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.grantPoi p { text-align: right; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl td.subTotal p { text-align: right; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl span.serviceic { text-indent: -9999px; vertical-align:middle; line-height:1.7; }
+.ycOrderDetail .ycMdDetInfo .ycMdDataTbl span.serviceic img { margin-left:3px; margin-right: 3px; vertical-align:middle;}
+/*ycMdSystemFee*/
+.ycOrderDetail .ycMdSystemFee .txtArea { float: left; width:565px; }
+.ycOrderDetail .ycMdSystemFee .tblArea { float: right; width:385px; }
+.ycOrderDetail .ycMdSystemFee .ycMdSysFeeTbl { border-top:solid 1px #bcc4c4; border-bottom:solid 2px #77aaff; margin-bottom:10px; }
+.ycOrderDetail .ycMdSystemFee .ycMdSysFeeTbl th { border-left:solid 2px #bcc4c4; border-right:solid 1px #bcc4c4; font-size:14px; text-align:left; width:195px; border-top:solid 1px #bcc4c4; background-color:#ebeeee; text-align: right; }
+.ycOrderDetail .ycMdSystemFee .ycMdSysFeeTbl td { border-top:solid 1px #bcc4c4; border-right:solid 2px #bcc4c4; text-align: right; }
+.ycOrderDetail .ycMdSystemFee .ycMdSysFeeTbl td input.priceInp { width: 100px; text-align: right; }
+.ycOrderDetail .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum th { background-color:#77aaff; color:#ffffff; border-left-color:#77aaff; border-right-color:#77aaff; border-bottom-color:#77aaff;  border-top:solid 2px #77aaff; }
+.ycOrderDetail .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum td { background-color:#e2eef1; border-right-color:#77aaff; border-bottom-color:#77aaff; border-top:solid 2px #77aaff; }
+.ycOrderDetail .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum td strong { font-size:17px; }
+.ycOrderDetail .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum td p { margin-top:3px; }
+.ycOrderDetail .ycMdSystemFee .ycMdSysFeeTbl th .inliBt { float: right; vertical-align:top; font-size:12px; margin-left: 5px; }
+/*ycMdDeliTotal-ycMdDiviTotal*/
+.ycOrderDetail .ycMdItemInfo td.GoodsTotal p { text-align: right; }
+.ycOrderDetail .ycMdItemInfo td.GiftFee p { text-align: right; }
+.ycOrderDetail .ycMdItemInfo td.MailCost p { text-align: right; }
+.ycOrderDetail .ycMdItemInfo td.Commis p { text-align: right; }
+.ycOrderDetail .ycMdItemInfo td.Discount p { text-align: right; }
+.ycOrderDetail .ycMdItemInfo td.PointUse p { text-align: right; }
+.ycOrderDetail .ycMdItemInfo td.Total p { text-align: right; }
+/*ycMdDeliTotal*/
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo th { width:115px; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo th.borderRnone { border-right: none; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo td { border-right:solid 1px #bbc3c3; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo td.borderRnone { border-right: none; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo td div.tdBody { padding:8px;}
+
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo th.DivOrder { width:90px; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo th.GoodsTotal { width:120px; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo th.GiftFee { width:115px; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo th.MailCost { width:115px; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo th.Commis { width:110px; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo th.Discount { width:125px; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo th.PointUse { width:130px; }
+.ycOrderDetail .ycMdDeliTotal .ycMdItemInfo th.Total { width:145px; }
+/*ycMdDiviTotal*/
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo th { width:115px; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo th.borderRnone { border-right: none; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo td { border-right:solid 1px #bbc3c3; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo td.borderRnone { border-right: none; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo td div.tdBody { padding:8px;}
+
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo th.DivOrder { width:90px; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo th.GoodsTotal { width:130px; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo th.GiftFee { width:110px; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo th.MailCost { width:110px; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo th.Commis { width:110px; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo th.Discount { width:125px; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo th.PointUse { width:130px; }
+.ycOrderDetail .ycMdDiviTotal .ycMdItemInfo th.Total { width:145px; }
+
+.ycOrderDetail .ycMdDiviTotal .DivInp { float: right; text-align: right; }
+.ycOrderDetail .ycMdDiviTotal .DivInp input { width:70px; text-align:right; padding-top:0; }
+/*ycMdPurcInfo*/
+.ycOrderDetail .ycMdPurcInfo .ycMdItemInfo th { width:295px; }
+.ycOrderDetail .ycMdPurcInfo .ycMdItemInfo ul.orderList li { float: left; margin-right: 15px; white-space: nowrap; }
+.ycOrderDetail .ycMdPurcInfo .ycMdItemInfo td p { width: 640px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrderDetail .ycMdPurcInfo .ycMdItemInfo td .batsu { color: #fe0000; }
+/*ycMdInComMemo*/
+.ycOrderDetail .ycMdInComMemo { border:solid 2px #bbc3c3; margin-bottom: 10px; }
+.ycOrderDetail .ycMdInComMemo p { padding: 8px; }
+
+.ycOrderDetail div.errArea{ background-color:#fee9ee; }
+.ycOrderDetail td span.errItem, .ycMdInComMemo td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+
+/*ycCartDeliConfPanel*/
+.ycDeliConfPanel .ycMdPanelBd .itemTable th { width:190px; }
+.ycDeliConfPanel .ycMdPanelBd .itemTable td div {padding:0;}
+.ycDeliConfPanel .ycMdPanelBd .itemTable td div.tdBody {padding:8px;}
+
+.ycDetailConfPanel .ycMdPanelBd .itemTable th { width:145px; vertical-align: top; }
+.ycDetailConfPanel .ycMdPanelBd .itemTable td div {padding:0;}
+.ycDetailConfPanel .ycMdPanelBd .itemTable td div.tdBody {padding:8px;}
+.ycDetailConfPanel .panelTblArea { border: 1px solid #7f9db9; line-height:130%; }
+.ycDetailConfPanel .scroll { overflow-y:scroll; height:140px; overflow-x:hidden; }
+.ycDetailConfPanel .panelTblArea .ycMdDataTbl { border:1px solid #ccc; margin:5px; }
+.ycDetailConfPanel .panelTblArea .ycMdDataTbl th { border-right:1px solid #ccc; border-bottom:1px solid #ccc; background-color: #fff; width: 20px; padding:3px 5px; vertical-align: top; }
+.ycDetailConfPanel .panelTblArea .ycMdDataTbl td { border-bottom:1px solid #ccc; border-right: none; padding:3px 5px; }
+.ycDetailConfPanel .panelTblArea .ycMdDataTbl tr.borderBtm th , .ycDetailConfPanel .panelTblArea .ycMdDataTbl tr.borderBtm td { border-bottom:none; }
+/*ycMdExcepHead*/
+.ycItemSearchAdd .ycMdExcepHead { margin-bottom: 20px; }
+.ycItemSearchAdd .ycMdExcepHead p.logo { float:left; width: 450px; padding-left:5px; }
+.ycItemSearchAdd .ycMdExcepHead p.closeBtn { float:right; width: 450px; text-align: right; padding-top:10px; }
+/*ycMdExcepHeadNM*/
+.ycMdExcepHead { margin-bottom: 20px; }
+.ycMdExcepHead p.logo { float:left; width: 450px; padding-left:5px; }
+.ycMdExcepHead p.closeBtn { float:right; width: 450px; text-align: right; padding-top:10px; }
+/*ycMdSearAdd*/
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .Operation p { width:46px; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .itemName p { width:207px; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .itemCode p { width:140px; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .Option p { width:280px; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .quantity p { width:40px; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .stock p { width:50px; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .price p { width:80px; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .grantPoi p { width:80px; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .sellDate p { width:70px; }
+
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.itemCode { vertical-align: top; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.Option { vertical-align: top; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.quantity { vertical-align: top; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.stock { vertical-align: top; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.price { vertical-align: top; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.grantPoi { vertical-align: top; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.sellDate { vertical-align: top; }
+
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.quantity p { text-align: right; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.stock p { text-align: right; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.price p { text-align: right; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.grantPoi p { text-align: center; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl td.sellDate p { text-align: center; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .Option p.opSelect select { width:210px; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .Option p.opSelect2 select { width:170px; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .quantity p.quaInp input { width:50px; text-align:right; }
+.ycItemSearchAdd .ycMdSearAdd .ycMdDataTbl .quantity p.quaInp2 input { width:35px; text-align:right; }
+/*end*/
+
+/*メール・帳票*/
+/*ycMdMailTrans*/
+.ycOrderDetail .ycMdMailTrans .ycMdItemInfoHor .mailCre { width:115px; }
+.ycOrderDetail .ycMdMailTrans .ycMdItemInfoHor .mailName { width:285px; }
+.ycOrderDetail .ycMdMailTrans .ycMdItemInfoHor .transExis { width:210px; }
+.ycOrderDetail .ycMdMailTrans .ycMdItemInfoHor .transTime { width:330px; }
+.ycOrderDetail .ycMdMailTrans .ycMdItemInfoHor .btnCnt .ycMdBtn { width: 50px; margin:0 auto; }
+/*ycMdListOutput*/
+.ycOrderDetail .ycMdListOutput .ycMdItemInfoHor .listOutput { width:120px; }
+.ycOrderDetail .ycMdListOutput .ycMdItemInfoHor .accName { width:250px; }
+.ycOrderDetail .ycMdListOutput .ycMdItemInfoHor .listEnclosing { width:55px; }
+.ycOrderDetail .ycMdListOutput .ycMdItemInfoHor .outExis { width:200px; }
+.ycOrderDetail .ycMdListOutput .ycMdItemInfoHor .outTime { width:320px; }
+/*ycMdRealOrRe*/
+.ycOrderDetail .ycMdRealOrRe .ycMdItemInfo th { width:150px; }
+.ycOrderDetail .ycMdRealOrRe .ycMdItemInfo td p { width:760px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+/*ycMdMailCont*/
+.ycOrderDetail .ycMdMailCont .ycMdItemInfo th { width: 110px; }
+.ycOrderDetail .ycMdMailCont .ycMdItemInfo .mdHead { background-color:#ebeeee; font-weight:bold; font-size:14px; padding:8px; border-left:solid 1px #bbc3c3; }
+.ycOrderDetail .ycMdMailCont .ycMdItemInfo .elementList select { width:100%; height:350px; padding:5px 2px; }
+.ycOrderDetail .ycMdMailCont .ycMdItemInfo .elementList { margin-left:15px; }
+.ycOrderDetail .ycMdMailCont .ycMdItemInfo .elList { width:215px; }
+/* 2013.10.16 textareaタグresize機能抑止 */
+.ycOrderDetail .ycMdMailCont .ycMdItemInfo .bodyTxt textarea { width:570px; height: 450px; resize: none; }
+.ycOrderDetail .ycMdMailCont .ycMdItemInfo .elTbl { margin-top:15px; font-size:14px; }
+.ycOrderDetail .ycMdMailCont .ycMdItemInfo td.AlChar p { width:760px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrderDetail .ycMdMailCont .ycMdItemInfo td.AlChar pre { width:760px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+/*end*/
+
+/*変更履歴*/
+
+/*ycMdChanHisList*/
+.ycOrderDetail .ycMdChanHisList .ycMdDataTbl .upDate { width:240px; }
+.ycOrderDetail .ycMdChanHisList .ycMdDataTbl .upCont { width:340px; }
+.ycOrderDetail .ycMdChanHisList .ycMdDataTbl .upPerson { width:360px; }
+/*ycMdChanHisListSc*/
+.ycOrderDetail .ycMdChanHisListSc { border: 2px solid #BBC3C3; margin-bottom:10px; line-height:130%; }
+.ycOrderDetail .ycMdChanHisListSc .ycMdDataTbl { border:none; margin-bottom:0; }
+.ycOrderDetail .ycMdChanHisListSc .ycMdDataTbl .borderBtm td{ border-bottom:none; }
+.ycOrderDetail .ycMdChanHisListSc .scroll { overflow-y:scroll; height:293px; overflow-x:hidden; }
+.ycOrderDetail .ycMdChanHisListSc .ycMdDataTbl th { text-align: left; }
+.ycOrderDetail .ycMdChanHisListSc .ycMdDataTbl .upDate { width:217px; }
+.ycOrderDetail .ycMdChanHisListSc .ycMdDataTbl .upCont { width:340px; }
+.ycOrderDetail .ycMdChanHisListSc .ycMdDataTbl .upPerson { width:337px; }
+.ycOrderDetail .ycMdChanHisListSc .ycMdDataTbl tr.selected { background-color:#ffff9d; }
+/*ycMdChanContBox*/
+.ycOrderDetail .ycMdChanContBox { padding:10px; border: solid 1px #ccc; margin:0 0 10px 0; }
+
+.ycOrderDetail .ycMdChanContBox .ycMdItemInfo tr.selected th { background-color: #fdffd4; }
+.ycOrderDetail .ycMdChanContBox .ycMdItemInfo tr.selected td { background-color: #fdffd4; }
+
+.ycOrderDetail .ycMdChanContBox .ycMdItemInfo th.selected { background-color: #fdffd4; }
+.ycOrderDetail .ycMdChanContBox .ycMdItemInfo td.selected { background-color: #fdffd4; }
+
+.ycOrderDetail .ycMdChanContBox .ycMdDataTbl tr.selected th { background-color: #fdffd4; }
+.ycOrderDetail .ycMdChanContBox .ycMdDataTbl tr.selected td { background-color: #fdffd4; }
+
+.ycOrderDetail .ycMdChanContBox .ycMdSysFeeTbl th.selected { background-color: #fdffd4; }
+.ycOrderDetail .ycMdChanContBox .ycMdSysFeeTbl td.selected { background-color: #fdffd4; }
+.ycOrderDetail .ycMdChanContBox .ycMdSysFeeTbl tr.feeSum td.selected { background-color: #fdffd4; }
+
+.ycOrderDetail .ycMdChanContBox .ycMdDemandCh .selected { background-color: #fdffd4; }
+.ycOrderDetail .ycMdChanContBox .selected { background-color: #fdffd4; }
+
+/*ycMdOrdBasInfoCh*/
+.ycOrderDetail .ycMdOrdBasInfoCh .ycMdItemInfo th.ThLeft { width:175px; }
+.ycOrderDetail .ycMdOrdBasInfoCh .ycMdItemInfo th.ThCenter { width:135px; border-left:solid 1px #bbc3c3; }
+.ycOrderDetail .ycMdOrdBasInfoCh .ycMdItemInfo th.ThRight { width:130px; border-left:solid 1px #bbc3c3; }
+/*ycMdOrdStatesCh*/
+.ycOrderDetail .ycMdOrdStatesCh .ycMdItemInfo th { width:125px; }
+.ycOrderDetail .ycMdOrdStatesCh .ycMdItemInfo th.store { border-left:solid 1px #bbc3c3;}
+.ycOrderDetail .ycMdOrdStatesCh .ycMdItemInfo td.order { width:339px; }
+.ycOrderDetail .ycMdOrdStatesCh .ycMdItemInfo td.store { width:339px; }
+.ycOrderDetail .ycMdOrdStatesCh .ycMdItemInfo td div.tdBody { padding:8px; }
+/*ycMdDeliInfoSepCh*/
+.ycOrderDetail .ycMdDeliInfoSepCh { margin-bottom:10px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo { margin-bottom:0; }
+
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo th { background-color:#fff; text-align:left; font-size:12px; width:120px; padding:8px; border-right:solid 1px #bbc3c3;border-bottom:solid 1px #bbc3c3; vertical-align:top; font-weight: lighter; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo tr.title th { background-color:#ebeeee; border-right:none; border-bottom:solid 2px #bbc3c3; font-weight: bold; text-align:center; font-size:14px; width:434px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo th.ptb4 { text-align: center; padding-top:4px; padding-bottom:4px; }
+
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo tr.nolineTbl td { width:434px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl { border:none; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl th{ border:none; background-color:#fff; font-weight:lighter; width:95px; font-size:12px; text-align: left; padding:0 0 5px 0; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl td{ border:none; width:344px; padding:0 0 5px 0; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl td p{ width:344px; overflow:hidden; word-break:break-all; word-wrap:break-word;}
+
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo tr.nolineTbl td .ycMdBillAdd table.ycMdNolineTbl th{ width:135px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo tr.nolineTbl td .ycMdBillAdd table.ycMdNolineTbl td{ width:304px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ycMdItemInfo tr.nolineTbl td .ycMdBillAdd table.ycMdNolineTbl td p{ width:304px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycOrderDetail .ycMdDeliInfoSepCh .ReceAdd { float:left; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ReceMeth { float:right; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ReceAdd .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ReceMeth .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ReceAdd .ycMdItemInfo td { width:314px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrderDetail .ycMdDeliInfoSepCh .ReceMeth .ycMdItemInfo td p { width:314px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycOrderDetail .ycMdDeliInfoSepCh .OpGift { float:left; }
+.ycOrderDetail .ycMdDeliInfoSepCh .OpNoshi { float:right; }
+.ycOrderDetail .ycMdDeliInfoSepCh .OpGift .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .OpNoshi .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .OpGift .ycMdItemInfo td { width:314px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrderDetail .ycMdDeliInfoSepCh .OpNoshi .ycMdItemInfo td p { width:314px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycOrderDetail .ycMdDeliInfoSepCh .Orderer { float:left; }
+.ycOrderDetail .ycMdDeliInfoSepCh .PayMeth { float:right; }
+.ycOrderDetail .ycMdDeliInfoSepCh .Orderer .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .PayMeth .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .Orderer .ycMdItemInfo td { width:314px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrderDetail .ycMdDeliInfoSepCh .PayMeth .ycMdItemInfo td p { width:314px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycOrderDetail .ycMdDeliInfoSepCh .EncHope { float:left; }
+.ycOrderDetail .ycMdDeliInfoSepCh .AgeCheck { float:right; }
+.ycOrderDetail .ycMdDeliInfoSepCh .EncHope .ycMdItemInfo th { width:100px; }
+.ycOrderDetail .ycMdDeliInfoSepCh .EncHope .ycMdItemInfo td { width:314px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrderDetail .ycMdDeliInfoSepCh .AgeCheck .ycMdItemInfo td p { width:429px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+/*ycMdDeliInfoCh*/
+.ycOrderDetail .ycMdDeliInfoCh .ycMdItemInfo th { padding:8px; background-color:#fff; font-weight:lighter; width:14%; font-size:12px; text-align:left; }
+.ycOrderDetail .ycMdDeliInfoCh .ycMdItemInfo td { border-right:solid 1px #bbc3c3; width:36%; }
+.ycOrderDetail .ycMdDeliInfoCh .ycMdItemInfo td.borderRnone { border-right: none; }
+/*ycMdDemandCh*/
+.ycOrderDetail .ycMdDemandCh { border:solid 2px #bbc3c3; margin-bottom: 10px; }
+.ycOrderDetail .ycMdDemandCh p { padding: 8px; }
+
+/*ycMdDetInfoCh*/
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl .L p { width:25px; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl .itemName p { width:170px; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl .itemCode p { width:150px; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl .price p { width:90px; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl .quantity p { width:38px; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl .sellDate p { width:60px; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl .fund p { width:35px; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl .pointCode p { width:45px; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl .grantPoi p { width:100px; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl .subTotal p { width:92px; }
+
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.L { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.itemName { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.itemCode { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.price { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.quantity { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.sellDate { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.fund { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.pointCode { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.grantPoi { vertical-align: top; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.subTotal { vertical-align: top; }
+
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.L p { text-align: center; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.price p { text-align: right; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.quantity p { text-align: right; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.sellDate p { text-align: center; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.fund p { text-align: center; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.pointCode p { text-align: center; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.grantPoi p { text-align: right; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl td.subTotal p { text-align: right; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl span.serviceic { text-indent: -9999px; vertical-align:middle; line-height:1.7; }
+.ycOrderDetail .ycMdDetInfoCh .ycMdDataTbl span.serviceic img { margin-left:3px; margin-right: 3px; vertical-align:middle;}
+/*ycMdSystemFeeCh*/
+.ycOrderDetail .ycMdSystemFeeCh .txtArea { float: left; width:543px; }
+.ycOrderDetail .ycMdSystemFeeCh .tblArea { float: right; width:385px; }
+.ycOrderDetail .ycMdSystemFeeCh .ycMdSysFeeTbl { border-top:solid 1px #bcc4c4; border-bottom:solid 2px #a4a4a4; }
+.ycOrderDetail .ycMdSystemFeeCh .ycMdSysFeeTbl th { border-left:solid 2px #bcc4c4; border-right:solid 1px #bcc4c4; font-size:14px; text-align:left; width:195px; border-top:solid 1px #bcc4c4; background-color:#ebeeee; text-align: right; }
+.ycOrderDetail .ycMdSystemFeeCh .ycMdSysFeeTbl td { border-top:solid 1px #bcc4c4; border-right:solid 2px #bcc4c4; text-align: right; }
+.ycOrderDetail .ycMdSystemFeeCh .ycMdSysFeeTbl td input.priceInp { width: 100px; text-align: right; }
+.ycOrderDetail .ycMdSystemFeeCh .ycMdSysFeeTbl tr.feeSum th { background-color:#a4a4a4; color:#ffffff; border-left-color:#a4a4a4; border-right-color:#a4a4a4; border-bottom-color:#a4a4a4;  border-top:solid 2px #a4a4a4; }
+.ycOrderDetail .ycMdSystemFeeCh .ycMdSysFeeTbl tr.feeSum td { background-color:#ebebeb; border-right-color:#a4a4a4; border-bottom-color:#a4a4a4; border-top:solid 2px #a4a4a4; }
+.ycOrderDetail .ycMdSystemFeeCh .ycMdSysFeeTbl tr.feeSum td strong { font-size:17px; }
+.ycOrderDetail .ycMdSystemFeeCh .ycMdSysFeeTbl tr.feeSum td p { margin-top:3px; }
+.ycOrderDetail .ycMdSystemFeeCh .ycMdSysFeeTbl th .inliBt { float: right; vertical-align:top; font-size:12px; margin-left: 5px; }
+/*ボタンcenter*/
+.btnCt { width:200px; margin:0 auto;}
+/*end*/
+
+/*注文処理実績アップロード*/
+/*ycMdUpFileSpec*/
+.ycOrdProcTraUp .ycMdUpFileSpec .ycMdItemInfo th { width:185px; vertical-align: middle; }
+/*ycMdRefIntroduc*/
+.ycOrdProcTraUp .ycMdRefIntroduc .ycMdItemInfo th { width:150px; }
+.ycOrdProcTraUp .ycMdRefIntroduc .ycMdItemInfo th.dateClick { background-color: #fedbbb; }
+.ycOrdProcTraUp .ycMdRefIntroduc .ycMdItemInfo th.refImposs { background-color: #e7d2ff; }
+/*ycMdRefHis*/
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor { margin-bottom: 0; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .upDate { width:165px; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .kind { width:80px; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .state { width:50px; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .checkDate { width:165px; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .refDate { width:165px; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .fileName { width:225px; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .wait { }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .done { color: #089854; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .fail { color: #ff0101; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .stop { color: #cdcdcd; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .dateClick { background-color: #fedbbb; }
+.ycOrdProcTraUp .ycMdRefHis .ycMdItemInfoHor .refImposs { background-color: #e7d2ff; }
+/*ycMdUpConfirm*/
+.ycOrdProcTraUp .ycMdUpConfirm .ycMdItemInfo th.ThLeft { width:130px; }
+.ycOrdProcTraUp .ycMdUpConfirm .ycMdItemInfo th.ThCenter { width:70px; border-left:solid 1px #bbc3c3; }
+.ycOrdProcTraUp .ycMdUpConfirm .ycMdItemInfo th.ThRight { width:80px; border-left:solid 1px #bbc3c3; }
+.ycOrdProcTraUp .ycMdUpConfirm .ycMdItemInfo td.TdLeft { width:105px; }
+.ycOrdProcTraUp .ycMdUpConfirm .ycMdItemInfo td.TdCenter { width:105px; }
+/*ycMdErrList*/
+.ycOrdProcTraUp .ycMdErrList .ycMdDataTbl .number p { width:40px; }
+.ycOrdProcTraUp .ycMdErrList .ycMdDataTbl .rowNum p { width:50px; }
+.ycOrdProcTraUp .ycMdErrList .ycMdDataTbl .orderID p { width:50px; }
+.ycOrdProcTraUp .ycMdErrList .ycMdDataTbl .errCont p { width:759px; }
+/*ycMdSetErrList*/
+.ycOrdProcTraUp .ycMdSetErrList .ycMdDataTbl .number p { width:40px; }
+.ycOrdProcTraUp .ycMdSetErrList .ycMdDataTbl .rowNum p { width:50px; }
+.ycOrdProcTraUp .ycMdSetErrList .ycMdDataTbl .orderID p { width:220px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycOrdProcTraUp .ycMdSetErrList .ycMdDataTbl .errCont p { width:525px; }
+/*end*/
+
+/*送信メール一覧*/
+/*ycMdSrhCondition*/
+.ycTransMailList .ycMdSrhCondition table th { width:120px; }
+/*ycMdTraMailList*/
+.ycTransMailList .ycMdTraMailList .ycMdDataTbl .orderID p { width:220px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycTransMailList .ycMdTraMailList .ycMdDataTbl .distDate p { width:190px; }
+.ycTransMailList .ycMdTraMailList .ycMdDataTbl .mailKind p { width:80px; }
+.ycTransMailList .ycMdTraMailList .ycMdDataTbl .subject p { width:286px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycTransMailList .ycMdTraMailList .ycMdDataTbl .sender p { width:111px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+/*ycMdTraMailConf*/
+.ycTransMailList .ycMdTraMailConf .ycMdItemInfo th { width: 150px; }
+.ycTransMailList .ycMdTraMailConf .ycMdItemInfo td p { width:760px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+/*end*/
+
+/*出力帳票一覧*/
+/*ycMdSrhCondition*/
+.ycDocOutputList .ycMdSrhCondition table th { width:120px; }
+/*ycMdDocOutList*/
+.ycDocOutputList .ycMdDocOutList .ycMdDataTbl .orderID p { width:280px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycDocOutputList .ycMdDocOutList .ycMdDataTbl .outDate p { width:190px; }
+.ycDocOutputList .ycMdDocOutList .ycMdDataTbl .outKind p { width:200px; }
+.ycDocOutputList .ycMdDocOutList .ycMdDataTbl .maker p { width:229px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+/*end*/
+
+/*新規注文一覧*/
+/*ycMdOrdDataDown*/
+.ycNewOrdList .ycMdOrdDataDown { margin-bottom: 10px; }
+.ycNewOrdList .ycMdOrdDataDown .ycMdItemInfoHor th { border-bottom:solid 1px #bbc3c3; text-align: left; }
+.ycNewOrdList .ycMdOrdDataDown .ycMdItemInfoHor td { vertical-align:top; }
+.ycNewOrdList .ycMdOrdDataDown .ycMdItemInfoHor .fileName { width:220px; }
+.ycNewOrdList .ycMdOrdDataDown .ycMdItemInfoHor .readFile { width:220px; }
+.ycNewOrdList .ycMdOrdDataDown .ycMdItemInfoHor .fileNum { width:500px; }
+.ycNewOrdList .ycMdOrdDataDown .ycMdItemInfoHor .fileNum li { float: left; margin-right:5px; white-space: nowrap; }
+.ycNewOrdList .ycMdOrdDataDown .ycMdItemInfoHor .fileName p { width:207px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycNewOrdList .ycMdOrdDataDown .ycMdItemInfoHor .readFile p { width:207px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+/*end*/
+
+/*一括処理完了*/
+.ycBatProcessComp .ycMdAreaYellow { width: 620px; background-color:#ffff9b; border:solid 1px #ffee37; padding:10px; margin-bottom:15px; }
+.ycBatProcessComp .ycMdAreaYellow p.title { font-size:14px; font-weight:bold; margin-bottom:8px; }
+.ycBatProcessComp .ycMdAreaYellow table.tblTypeOriginal { border:solid 2px #decd56; font-size:12px; border-top-width:1px; border-right-width:1px; letter-spacing:normal; margin:0 10px; }
+.ycBatProcessComp .ycMdAreaYellow table.tblTypeOriginal th { font-size:12px; background-color:#eee28c; color:#333333; border-right:none; border-top:solid 1px #decd56; border-right:solid 1px #decd56; width:70px; text-align:left; padding:8px; }
+.ycBatProcessComp .ycMdAreaYellow table.tblTypeOriginal td { border-top:solid 1px #decd56; border-right:solid 1px #decd56; vertical-align:top; background-color:#ffffff; font-weight: lighter; }
+.ycBatProcessComp .ycMdAreaYellow table.tblTypeOriginal td div.tdBody { font-size:12px; font-weight:normal; margin-bottom:0; padding:8px; }
+.ycBatProcessComp .ycMdAreaYellow table.tblTypeOriginal td.TdLeft { text-align: right; }
+.ycBatProcessComp .ycMdAreaYellow table.tblTypeOriginal td.TdCenter { text-align: right; }
+.ycBatProcessComp .ycMdAreaYellow table.tblTypeOriginal td.TdRight { text-align: right; }
+
+.ycBatProcessComp .ycMdSorting { margin-bottom:10px; }
+.ycBatProcessComp .ycMdSorting .dvLt { float:left; }
+.ycBatProcessComp .ycMdSorting .dvRt { float:right; }
+
+.ycBatProcessComp .ycMdDataTbl .demand p, .ycBatProcessComp .ycMdDataTbl .point p, .ycBatProcessComp .ycMdDataTbl .evaluation p { width:15px; white-space:normal; text-align:center; }
+.ycBatProcessComp .ycMdDataTbl .doubleBuy p, .ycBatProcessComp .ycMdDataTbl .division p { width:25px; white-space:normal; text-align:center; }
+.ycBatProcessComp .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycBatProcessComp .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycBatProcessComp .ycMdDataTbl .speedDel p, .ycBatProcessComp .ycMdDataTbl .invalid p { width:25px; white-space:normal; text-align:center; }
+.ycBatProcessComp .ycMdDataTbl .sendMail p { width:40px; white-space:normal;}
+.ycBatProcessComp .ycMdDataTbl .strStatus p { width:50px; white-space:normal;}
+.ycBatProcessComp .ycMdDataTbl .report p { width:35px; white-space:normal;}
+.ycBatProcessComp .ycMdDataTbl .orderId p { width:180px; }
+.ycBatProcessComp .ycMdDataTbl .customerNm p { width:190px; }
+.ycBatProcessComp .ycMdDataTbl .payment p { width:125px; }
+.ycBatProcessComp .ycMdDataTbl .ordAmt p, .ycBatProcessComp .ycMdDataTbl .bidAmt p {width:95px; }
+.ycBatProcessComp .ycMdDataTbl .sellDate p { width:60px; }
+.ycBatProcessComp .ycMdDataTbl .status p { width:70px; }
+.ycBatProcessComp .ycMdDataTbl .paymentDate p { width:90px; }
+.ycBatProcessComp .ycMdDataTbl .shipDate p { width:50px; }
+.ycBatProcessComp .ycMdDataTbl .deliDate p { width:75px; }
+.ycBatProcessComp .ycMdDataTbl .deliMemo p { width:200px; }
+.ycBatProcessComp .ycMdDataTbl th.option p { white-space:normal; text-align:center; width:55px; }
+
+.ycBatProcessComp .ycMdDataTbl td.point p, .ycBatProcessComp .ycMdDataTbl td.evaluation p { color:#666666; font-weight:bold; }
+.ycBatProcessComp .ycMdDataTbl td.sendMail p, .ycBatProcessComp .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycBatProcessComp .ycMdDataTbl td.ordAmt p, .ycBatProcessComp .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycBatProcessComp .ycMdDataTbl td.sellDate p { text-align:center; }
+.ycBatProcessComp .ycMdDataTbl td.paymentDate p { text-align:center; }
+.ycBatProcessComp .ycMdDataTbl td.shipDate p { text-align:center; }
+.ycBatProcessComp .ycMdDataTbl td.deliDate p { text-align:center; }
+.ycBatProcessComp .ycMdDataTbl td.option p { text-align:center; }
+/*end*/
+
+/*新規注文一覧*/
+/* ycFreshOrderList */
+.ycFreshOrderList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycFreshOrderList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycFreshOrderList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycFreshOrderList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycFreshOrderList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycFreshOrderList .ycMdOpeItem th { text-align:left; width:160px; border-top:dashed 1px #bcc4c4; }
+.ycFreshOrderList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycFreshOrderList .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycFreshOrderList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycFreshOrderList .ycMdOpeItem .dvLt { float:left; }
+.ycFreshOrderList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycFreshOrderList .ycMdSorting { margin-bottom:10px; }
+.ycFreshOrderList .ycMdSorting .dvLt { float:left; }
+.ycFreshOrderList .ycMdSorting .dvRt { float:right; }
+
+.ycFreshOrderList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycFreshOrderList .ycMdIcDes th { width:50px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycFreshOrderList .ycMdIcDes th.thTitle { width:30px; }
+.ycFreshOrderList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycFreshOrderList .ycMdIcDes td span img { margin-right:2px;}
+.ycFreshOrderList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycFreshOrderList .ycMdDataTbl .chk p { width:25px; }
+.ycFreshOrderList .ycMdDataTbl td.chk { text-align:center; }
+.ycFreshOrderList .ycMdDataTbl .demand p, .ycFreshOrderList .ycMdDataTbl .point p, .ycFreshOrderList .ycMdDataTbl .evaluation p { width:15px; white-space:normal; text-align:center; }
+.ycFreshOrderList .ycMdDataTbl .doubleBuy p ,.ycFreshOrderList .ycMdDataTbl .division p {width:25px; white-space:normal; text-align:center; }
+.ycFreshOrderList .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycFreshOrderList .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycFreshOrderList .ycMdDataTbl .speedDel p, .ycFreshOrderList .ycMdDataTbl .invalid p { width:48px; white-space:normal; text-align:center; padding: 0 5px; }
+.ycFreshOrderList .ycMdDataTbl .speedDel p.dcKytk { background: #4598ee;display: inline-block;color: #fff;font-size: 11px;padding: 2px 5px;border: solid 1px #0154a7;line-height: 1; }
+.ycFreshOrderList .ycMdDataTbl .speedDel p.dcAstk { background: #ccdded;color: #0154a7;display: inline-block;font-size: 11px;padding: 2px 5px;border: solid 1px #0154a7;line-height: 1; }
+.ycFreshOrderList .ycMdDataTbl .sendMail p {width:40px; white-space:normal;}
+.ycFreshOrderList .ycMdDataTbl .strStatus p {width:50px; white-space:normal;}
+.ycFreshOrderList .ycMdDataTbl .report p {width:35px; white-space:normal;}
+.ycFreshOrderList .ycMdDataTbl .orderId p {width:168px; }
+.ycFreshOrderList .ycMdDataTbl .customerNm p {width:191px; }
+.ycFreshOrderList .ycMdDataTbl .payment p {width:120px; }
+.ycFreshOrderList .ycMdDataTbl .ordAmt p, .ycFreshOrderList .ycMdDataTbl .bidAmt p {width:85px; }
+.ycFreshOrderList .ycMdDataTbl .sellDate p {width:60px; }
+.ycFreshOrderList .ycMdDataTbl .status p {width:70px; }
+
+.ycFreshOrderList .ycMdDataTbl td.point p, .ycFreshOrderList .ycMdDataTbl td.evaluation p { color:#666666; font-weight:bold; }
+.ycFreshOrderList .ycMdDataTbl td.report p.txtonly, .ycFreshOrderList .ycMdDataTbl td.orderSlip p.txtonly, .ycFreshOrderList .ycMdDataTbl td.option p.txtonly { color:#666666; font-weight:bold; font-size:100%; }
+
+.ycFreshOrderList .ycMdDataTbl td.sendMail p, .ycFreshOrderList .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycFreshOrderList .ycMdDataTbl td.ordAmt p, .ycFreshOrderList .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycFreshOrderList .ycMdDataTbl td.sellDate p { text-align:center; }
+
+/* ycMdSecLineBtn（選択した注文の～ボタン2段） */
+.ycFreshOrderList dl.ycMdSecLineBtn dt { float: left; width:95px; }
+.ycFreshOrderList dl.ycMdSecLineBtn dd { float: right; width:835px; }
+.ycFreshOrderList .ycMdOpeItem .bd .ycMdSecLineBtn p { margin-right:0; }
+
+/*入金処理一覧*/
+/* ycPayProcessList */
+.ycPayProcessList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycPayProcessList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycPayProcessList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycPayProcessList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycPayProcessList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycPayProcessList .ycMdOpeItem th { text-align:left; width:195px; border-top:dashed 1px #bcc4c4; }
+.ycPayProcessList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycPayProcessList .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycPayProcessList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycPayProcessList .ycMdOpeItem .dvLt { float:left; }
+.ycPayProcessList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycPayProcessList .ycMdSorting { margin-bottom:10px; }
+.ycPayProcessList .ycMdSorting .dvLt { float:left; }
+.ycPayProcessList .ycMdSorting .dvRt { float:right; }
+
+.ycPayProcessList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycPayProcessList .ycMdIcDes th { width:50px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycPayProcessList .ycMdIcDes th.thTitle { width:30px; }
+.ycPayProcessList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycPayProcessList .ycMdIcDes td span img { margin-right:2px;}
+.ycPayProcessList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycPayProcessList .ycMdDataTbl .chk p { width:25px; }
+.ycPayProcessList .ycMdDataTbl td.chk { text-align:center; }
+.ycPayProcessList .ycMdDataTbl .point p, .ycPayProcessList .ycMdDataTbl .evaluation p { width:15px; white-space:normal; text-align:center; }
+.ycPayProcessList .ycMdDataTbl .doubleBuy p, .ycPayProcessList .ycMdDataTbl .demand p { width:25px; white-space:normal; text-align:center; }
+.ycPayProcessList .ycMdDataTbl .division p { width:25px; white-space:normal; text-align:center; }
+.ycPayProcessList .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycPayProcessList .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+
+.ycPayProcessList .ycMdDataTbl .speedDel p, .ycPayProcessList .ycMdDataTbl .invalid p { width:25px; white-space:normal; text-align:center; }
+.ycPayProcessList .ycMdDataTbl .sendMail p { width:40px; white-space:normal;}
+.ycPayProcessList .ycMdDataTbl .strStatus p { width:50px; white-space:normal;}
+.ycPayProcessList .ycMdDataTbl .report p { width:35px; white-space:normal;}
+.ycPayProcessList .ycMdDataTbl .orderId p { width:170px; }
+.ycPayProcessList .ycMdDataTbl .customerNm p { width:190px; }
+.ycPayProcessList .ycMdDataTbl .payment p { width:125px; }
+.ycPayProcessList .ycMdDataTbl .ordAmt p, .ycPayProcessList .ycMdDataTbl .bidAmt p {width:95px; }
+.ycPayProcessList .ycMdDataTbl .sellDate p { width:60px; }
+.ycPayProcessList .ycMdDataTbl .status p { width:70px; }
+.ycPayProcessList .ycMdDataTbl .paymentDate p { width:105px; }
+.ycPayProcessList .ycMdDataTbl .shipDate p { width:50px; }
+.ycPayProcessList .ycMdDataTbl .paymentDate p.payDateInp input { width:100px; }
+.ycPayProcessList .ycMdDataTbl td.point p, .ycPayProcessList .ycMdDataTbl td.evaluation p { color:#666666; font-weight:bold; }
+.ycPayProcessList .ycMdDataTbl td.report p.txtonly, .ycPayProcessList .ycMdDataTbl td.orderSlip p.txtonly, .ycPayProcessList .ycMdDataTbl td.option p.txtonly { color:#666666; font-weight:bold; font-size:100%; }
+
+.ycPayProcessList .ycMdDataTbl td.sendMail p, .ycPayProcessList .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycPayProcessList .ycMdDataTbl td.ordAmt p, .ycPayProcessList .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycPayProcessList .ycMdDataTbl td.sellDate p { text-align:center; }
+.ycPayProcessList .ycMdDataTbl td.paymentDate p { text-align:center; }
+.ycPayProcessList .ycMdDataTbl td.shipDate p { text-align:center; }
+.ycPayProcessList .ycMdDataTbl .example { color:#777777; }
+
+.ycPayProcessList .ycMdItemInfo .dvLt { float:left; }
+.ycPayProcessList .ycMdSelPayInput .ycMdItemInfo th { width:270px; vertical-align:middle; }
+
+/*出荷処理一覧*/
+/* ycShipProcessList */
+.ycShipProcessList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycShipProcessList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycShipProcessList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycShipProcessList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycShipProcessList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycShipProcessList .ycMdOpeItem th { text-align:left; width:195px; border-top:dashed 1px #bcc4c4; }
+.ycShipProcessList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycShipProcessList .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycShipProcessList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycShipProcessList .ycMdOpeItem .dvLt { float:left; }
+.ycShipProcessList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycShipProcessList .ycMdSorting { margin-bottom:10px; }
+.ycShipProcessList .ycMdSorting .dvLt { float:left; }
+.ycShipProcessList .ycMdSorting .dvRt { float:right; }
+
+.ycShipProcessList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycShipProcessList .ycMdIcDes th { width:105px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycShipProcessList .ycMdIcDes th.thTitle { width:30px; }
+.ycShipProcessList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycShipProcessList .ycMdIcDes td span img { margin-right:2px;}
+.ycShipProcessList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycShipProcessList .ycMdDataTbl .chk p { width:25px; }
+.ycShipProcessList .ycMdDataTbl td.chk { text-align:center; }
+.ycShipProcessList .ycMdDataTbl .demand p, .ycShipProcessList .ycMdDataTbl .point p, .ycShipProcessList .ycMdDataTbl .evaluation p, .ycShipProcessList .ycMdDataTbl .invoice p { width:15px; white-space:normal; text-align:center; }
+.ycShipProcessList .ycMdDataTbl .doubleBuy p, .ycShipProcessList .ycMdDataTbl .division p { width:25px; white-space:normal; text-align:center; }
+.ycShipProcessList .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycShipProcessList .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycShipProcessList .ycMdDataTbl .speedDel p, .ycShipProcessList .ycMdDataTbl .invalid p { width:48px; white-space:normal; text-align:center; padding: 0 5px; }
+.ycShipProcessList .ycMdDataTbl .speedDel p.dcKytk { background: #4598ee;display: inline-block;color: #fff;font-size: 11px;padding: 2px 5px;border: solid 1px #0154a7;line-height: 1; }
+.ycShipProcessList .ycMdDataTbl .speedDel p.dcAstk { background: #ccdded;color: #0154a7;display: inline-block;font-size: 11px;padding: 2px 5px;border: solid 1px #0154a7;line-height: 1; }
+.ycShipProcessList .ycMdDataTbl .sendMail p { width:40px; white-space:normal;}
+.ycShipProcessList .ycMdDataTbl .strStatus p { width:50px; white-space:normal;}
+.ycShipProcessList .ycMdDataTbl .report p { width:35px; white-space:normal;}
+.ycShipProcessList .ycMdDataTbl .orderId p { width:170px; }
+.ycShipProcessList .ycMdDataTbl .customerNm p { width:120px; }
+.ycShipProcessList .ycMdDataTbl .method p { width:75px; }
+.ycShipProcessList .ycMdDataTbl .payment p { width:125px; }
+.ycShipProcessList .ycMdDataTbl .ordAmt p, .ycShipProcessList .ycMdDataTbl .bidAmt p {width:95px; }
+.ycShipProcessList .ycMdDataTbl .sellDate p { width:60px; }
+.ycShipProcessList .ycMdDataTbl .status p { width:60px; }
+.ycShipProcessList .ycMdDataTbl .paymentDate p { width:90px; }
+.ycShipProcessList .ycMdDataTbl .shipDate p { width:50px; }
+.ycShipProcessList .ycMdDataTbl .deliDate p { width:100px; }
+.ycShipProcessList .ycMdDataTbl .deliMemo p { width:201px; }
+.ycShipProcessList .ycMdDataTbl th.option p { white-space:normal; text-align:center; width:60px; }
+/* 2013.10.16 textareaタグresize機能抑止 */
+.ycShipProcessList .ycMdDataTbl .deliMemo p.memoInp textarea { width:195px; resize: none; }
+
+.ycShipProcessList .ycMdDataTbl td.point p, .ycShipProcessList .ycMdDataTbl td.evaluation p, .ycShipProcessList .ycMdDataTbl td.invoice p { color:#666666; font-weight:bold; }
+.ycShipProcessList .ycMdDataTbl td.sendMail p, .ycShipProcessList .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycShipProcessList .ycMdDataTbl td.ordAmt p, .ycShipProcessList .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycShipProcessList .ycMdDataTbl td.sellDate p { text-align:center; }
+.ycShipProcessList .ycMdDataTbl td.paymentDate p { text-align:center; }
+.ycShipProcessList .ycMdDataTbl td.shipDate p { text-align:center; }
+.ycShipProcessList .ycMdDataTbl td.deliDate p { }
+.ycShipProcessList .ycMdDataTbl td.option p { text-align:center; }
+.ycShipProcessList .ycMdDataTbl .example { color:#777777; }
+
+.ycShipProcessList .ycMdItemInfo .dvLt { float:left; }
+.ycShipProcessList .ycMdSelMemoInput .ycMdItemInfo th { width:190px; vertical-align:middle; }
+
+/*出荷処理一覧*/
+/*ycShipCompList*/
+.ycShipCompList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycShipCompList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycShipCompList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycShipCompList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycShipCompList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycShipCompList .ycMdOpeItem th { text-align:left; width:195px; border-top:dashed 1px #bcc4c4; }
+.ycShipCompList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycShipCompList .ycMdOpeItem td.select, .ycMdOpeItem select{ width:310px; }
+.ycShipCompList .ycMdOpeItem .width-160 td.select { width:160px; }
+.ycShipCompList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycShipCompList .ycMdOpeItem .dvLt { float:left; }
+.ycShipCompList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycShipCompList .ycMdSorting { margin-bottom:10px; }
+.ycShipCompList .ycMdSorting .dvLt { float:left; }
+.ycShipCompList .ycMdSorting .dvRt { float:right; }
+
+.ycShipCompList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycShipCompList .ycMdIcDes th { width:50px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycShipCompList .ycMdIcDes th.thTitle { width:30px; }
+.ycShipCompList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycShipCompList .ycMdIcDes td span img { margin-right:2px;}
+.ycShipCompList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycShipCompList .ycMdDataTbl .chk p { width:25px; }
+.ycShipCompList .ycMdDataTbl td.chk { text-align:center; }
+.ycShipCompList .ycMdDataTbl .demand p, .ycShipCompList .ycMdDataTbl .point p, .ycShipCompList .ycMdDataTbl .evaluation p, .ycShipCompList .ycMdDataTbl .invoice p { width:15px; white-space:normal; text-align:center; }
+.ycShipCompList .ycMdDataTbl .doubleBuy p, .ycShipCompList .ycMdDataTbl .division p { width:25px; white-space:normal; text-align:center; }
+.ycShipCompList .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycShipCompList .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycShipCompList .ycMdDataTbl .speedDel p, .ycShipCompList .ycMdDataTbl .invalid p { width:48px; white-space:normal; text-align:center; padding: 0 5px; }
+.ycShipCompList .ycMdDataTbl .speedDel p.dcKytk { background: #4598ee;display: inline-block;color: #fff;font-size: 11px;padding: 2px 5px;border: solid 1px #0154a7;line-height: 1; }
+.ycShipCompList .ycMdDataTbl .speedDel p.dcAstk { background: #ccdded;color: #0154a7;display: inline-block;font-size: 11px;padding: 2px 5px;border: solid 1px #0154a7;line-height: 1; }
+.ycShipCompList .ycMdDataTbl .sendMail p { width:40px; white-space:normal;}
+.ycShipCompList .ycMdDataTbl .strStatus p { width:50px; white-space:normal;}
+.ycShipCompList .ycMdDataTbl .orderId p { width:170px; }
+.ycShipCompList .ycMdDataTbl .customerNm p { width:120px; }
+.ycShipCompList .ycMdDataTbl .method p { width:75px; }
+.ycShipCompList .ycMdDataTbl .payment p { width:125px; }
+.ycShipCompList .ycMdDataTbl .ordAmt p, .ycShipCompList .ycMdDataTbl .bidAmt p {width:95px; }
+.ycShipCompList .ycMdDataTbl .sellDate p { width:60px; }
+.ycShipCompList .ycMdDataTbl .status p { width:60px; }
+.ycShipCompList .ycMdDataTbl .paymentDate p { width:90px; }
+.ycShipCompList .ycMdDataTbl .shipDate p { width:50px; }
+.ycShipCompList .ycMdDataTbl .arrGoodsDay p { width:85px; }
+.ycShipCompList .ycMdDataTbl .checkNoUrl dl{ width:220px; }
+
+.ycShipCompList .ycMdDataTbl .arrGoodsDay p.dateInp { margin-bottom:3px; }
+.ycShipCompList .ycMdDataTbl .arrGoodsDay p.dateInp input { width:78px; }
+.ycShipCompList .ycMdDataTbl .checkNoUrl dt { float: left; width:65px; margin-bottom:5px; }
+.ycShipCompList .ycMdDataTbl .checkNoUrl dd { float: left; width:145px; margin-bottom:5px; }
+.ycShipCompList .ycMdDataTbl .checkNoUrl dd span.nourlInp input { width:145px; }
+
+.ycShipCompList .ycMdDataTbl td.point p, .ycShipCompList .ycMdDataTbl td.evaluation p, .ycShipCompList .ycMdDataTbl td.invoice p { color:#666666; font-weight:bold; }
+.ycShipCompList .ycMdDataTbl td.sendMail p, .ycShipCompList .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycShipCompList .ycMdDataTbl td.ordAmt p, .ycShipCompList .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycShipCompList .ycMdDataTbl td.sellDate p { text-align:center; }
+.ycShipCompList .ycMdDataTbl td.paymentDate p { text-align:center; }
+.ycShipCompList .ycMdDataTbl td.shipDate p { text-align:center; }
+.ycShipCompList .ycMdDataTbl .example { color:#777777; }
+
+.ycShipCompList .ycMdItemInfo .dvLt { float:left; }
+.ycShipCompList .ycMdSelMemoInput .ycMdItemInfo th { width:150px; vertical-align:middle; }
+.ycShipCompList .ycMdSelMemoInput .ycMdItemInfo td.txtw { width:175px; vertical-align:middle; }
+.ycShipCompList .ycMdSelMemoInput .ycMdItemInfo td.formw { width:325px; vertical-align:middle; }
+.ycShipCompList .ycMdSelMemoInput .ycMdItemInfo td .ptb4 { padding-top: 4px; padding-bottom: 4px; }
+.ycShipCompList .ycMdSelMemoInput .ycMdItemInfo td .ptb5 { padding-top: 5px; padding-bottom: 5px; }
+
+/* ycMdSecLineBtn (Selected order of button 2-stage) */
+.ycShipCompList dl.ycMdSecLineBtn dt { float: left; width:95px; }
+.ycShipCompList dl.ycMdSecLineBtn dd { float: right; width:835px; }
+.ycShipCompList .ycMdOpeItem .bd .ycMdSecLineBtn p { margin-right:0;}
+
+/*新規予約一覧*/
+/* ycNewReservList */
+.ycNewReservList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycNewReservList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycNewReservList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycNewReservList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycNewReservList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycNewReservList .ycMdOpeItem th { text-align:left; width:160px; border-top:dashed 1px #bcc4c4; }
+.ycNewReservList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycNewReservList .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycNewReservList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycNewReservList .ycMdOpeItem .dvLt { float:left; }
+.ycNewReservList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycNewReservList .ycMdSorting { margin-bottom:10px; }
+.ycNewReservList .ycMdSorting .dvLt { float:left; }
+.ycNewReservList .ycMdSorting .dvRt { float:right; }
+
+.ycNewReservList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycNewReservList .ycMdIcDes th { width:50px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycNewReservList .ycMdIcDes th.thTitle { width:30px; }
+.ycNewReservList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycNewReservList .ycMdIcDes td span img { margin-right:2px;}
+.ycNewReservList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycNewReservList .ycMdDataTbl .chk p { width:25px; }
+.ycNewReservList .ycMdDataTbl td.chk { text-align:center; }
+.ycNewReservList .ycMdDataTbl .demand p, .ycNewReservList .ycMdDataTbl .point p, .ycNewReservList .ycMdDataTbl .evaluation p { width:15px; white-space:normal; text-align:center; }
+.ycNewReservList .ycMdDataTbl .doubleBuy p ,.ycNewReservList .ycMdDataTbl .division p { width:25px; white-space:normal; text-align:center; }
+.ycNewReservList .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycNewReservList .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycNewReservList .ycMdDataTbl .speedDel p, .ycNewReservList .ycMdDataTbl .invalid p { width:25px; white-space:normal; text-align:center; }
+.ycNewReservList .ycMdDataTbl .sendMail p {width:40px; white-space:normal;}
+.ycNewReservList .ycMdDataTbl .strStatus p {width:50px; white-space:normal;}
+.ycNewReservList .ycMdDataTbl .report p {width:35px; white-space:normal;}
+.ycNewReservList .ycMdDataTbl .orderSlip p {width:35px; white-space:normal;}
+.ycNewReservList .ycMdDataTbl .orderId p {width:168px; }
+.ycNewReservList .ycMdDataTbl .customerNm p {width:141px; }
+.ycNewReservList .ycMdDataTbl .payment p {width:120px; }
+.ycNewReservList .ycMdDataTbl .ordAmt p, .ycNewReservList .ycMdDataTbl .bidAmt p {width:72px; }
+.ycNewReservList .ycMdDataTbl .sellDate p {width:60px; }
+.ycNewReservList .ycMdDataTbl .status p {width:70px; }
+
+.ycNewReservList .ycMdDataTbl td.point p, .ycNewReservList .ycMdDataTbl td.evaluation p { color:#666666; font-weight:bold; }
+.ycNewReservList .ycMdDataTbl td.report p.txtonly, .ycNewReservList .ycMdDataTbl td.orderSlip p.txtonly, .ycNewReservList .ycMdDataTbl td.option p.txtonly { color:#666666; font-weight:bold; font-size:100%; }
+
+.ycNewReservList .ycMdDataTbl td.sendMail p, .ycNewReservList .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycNewReservList .ycMdDataTbl td.sendMail p, .ycNewReservList .ycMdDataTbl td.orderSlip p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycNewReservList .ycMdDataTbl td.ordAmt p, .ycNewReservList .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycNewReservList .ycMdDataTbl td.sellDate p { text-align:center; }
+
+/* ycMdSecLineBtn（選択した注文の～ボタン2段） */
+.ycNewReservList dl.ycMdSecLineBtn dt { float: left; width:95px; }
+.ycNewReservList dl.ycMdSecLineBtn dd { float: right; width:835px; }
+.ycNewReservList .ycMdOpeItem .bd .ycMdSecLineBtn p { margin-right:0; }
+
+/*予約中一覧*/
+/* ycReservingList */
+.ycReservingList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycReservingList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycReservingList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycReservingList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycReservingList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycReservingList .ycMdOpeItem th { text-align:left; width:195px; border-top:dashed 1px #bcc4c4; }
+.ycReservingList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycReservingList .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycReservingList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycReservingList .ycMdOpeItem .dvLt { float:left; }
+.ycReservingList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycReservingList .ycMdSorting { margin-bottom:10px; }
+.ycReservingList .ycMdSorting .dvLt { float:left; }
+.ycReservingList .ycMdSorting .dvRt { float:right; }
+
+.ycReservingList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycReservingList .ycMdIcDes th { width:50px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycReservingList .ycMdIcDes th.thTitle { width:30px; }
+.ycReservingList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycReservingList .ycMdIcDes td span img { margin-right:2px;}
+.ycReservingList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycReservingList .ycMdDataTbl .chk p { width:25px; }
+.ycReservingList .ycMdDataTbl td.chk { text-align:center; }
+.ycReservingList .ycMdDataTbl .demand p, .ycReservingList .ycMdDataTbl .point p, .ycReservingList .ycMdDataTbl .evaluation p { width:15px; white-space:normal; text-align:center; }
+.ycReservingList .ycMdDataTbl .doubleBuy p, .ycReservingList .ycMdDataTbl .division p { width:25px; white-space:normal; text-align:center; }
+.ycReservingList .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycReservingList .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycReservingList .ycMdDataTbl .speedDel p, .ycReservingList .ycMdDataTbl .invalid p { width:25px; white-space:normal; text-align:center; }
+.ycReservingList .ycMdDataTbl .sendMail p {width:40px; white-space:normal;}
+.ycReservingList .ycMdDataTbl .strStatus p {width:50px; white-space:normal;}
+.ycReservingList .ycMdDataTbl .report p {width:35px; white-space:normal;}
+.ycReservingList .ycMdDataTbl .orderSlip p {width:35px; white-space:normal;}
+.ycReservingList .ycMdDataTbl .orderId p {width:168px; }
+.ycReservingList .ycMdDataTbl .customerNm p {width:143px; }
+.ycReservingList .ycMdDataTbl .payment p {width:120px; }
+.ycReservingList .ycMdDataTbl .ordAmt p, .ycReservingList .ycMdDataTbl .bidAmt p {width:70px; }
+.ycReservingList .ycMdDataTbl .sellDate p {width:60px; }
+.ycReservingList .ycMdDataTbl .status p {width:70px; }
+
+.ycReservingList .ycMdDataTbl td.point p, .ycReservingList .ycMdDataTbl td.evaluation p { color:#666666; font-weight:bold; }
+.ycReservingList .ycMdDataTbl td.report p.txtonly, .ycReservingList .ycMdDataTbl td.orderSlip p.txtonly, .ycReservingList .ycMdDataTbl td.option p.txtonly { color:#666666; font-weight:bold; font-size:100%; }
+
+.ycReservingList .ycMdDataTbl td.sendMail p, .ycReservingList .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycReservingList .ycMdDataTbl td.sendMail p, .ycReservingList .ycMdDataTbl td.orderSlip p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycReservingList .ycMdDataTbl td.ordAmt p, .ycReservingList .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycReservingList .ycMdDataTbl td.sellDate p { text-align:center; }
+
+/*ストアステータス一覧*/
+/* ycOrderSearch */
+.ycOrderSearch .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycOrderSearch .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycOrderSearch .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycOrderSearch .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycOrderSearch .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycOrderSearch .ycMdOpeItem th { text-align:left; width:205px; border-top:dashed 1px #bcc4c4; }
+.ycOrderSearch .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycOrderSearch .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycOrderSearch .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycOrderSearch .ycMdOpeItem .dvLt { float:left; }
+.ycOrderSearch .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycOrderSearch .ycMdSorting { margin-bottom:10px; }
+.ycOrderSearch .ycMdSorting .dvLt { float:left; }
+.ycOrderSearch .ycMdSorting .dvRt { float:right; }
+
+.ycOrderSearch .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycOrderSearch .ycMdIcDes th { width:60px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycOrderSearch .ycMdIcDes th.thTitle { width:30px; }
+.ycOrderSearch .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycOrderSearch .ycMdIcDes td span img { margin-right:2px;}
+.ycOrderSearch .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycOrderSearch .ycMdDataTbl .chk p { width:25px; }
+.ycOrderSearch .ycMdDataTbl td.chk { text-align:center; }
+.ycOrderSearch .ycMdDataTbl .demand p, .ycOrderSearch .ycMdDataTbl .point p, .ycOrderSearch .ycMdDataTbl .evaluation p { width:15px; white-space:normal; text-align:center; }
+.ycOrderSearch .ycMdDataTbl .doubleBuy p, .ycOrderSearch .ycMdDataTbl .division p { width:25px; white-space:normal; text-align:center; }
+.ycOrderSearch .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycOrderSearch .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycOrderSearch .ycMdDataTbl .speedDel p, .ycOrderSearch .ycMdDataTbl .invalid p { width:48px; white-space:normal; text-align:center; padding: 0 5px; }
+.ycOrderSearch .ycMdDataTbl .speedDel p.dcKytk { background: #4598ee; color: #ffffff; display: inline-block; font-size: 11px; padding: 2px 5px; border: solid 1px #0154a7; line-height: 1; }
+.ycOrderSearch .ycMdDataTbl .speedDel p.dcAstk { background: #ccdded; color: #0154a7; display: inline-block; font-size: 11px; padding: 2px 5px; border: solid 1px #0154a7; line-height: 1; }
+.ycOrderSearch .ycMdDataTbl .sendMail p { width:40px; white-space:normal;}
+.ycOrderSearch .ycMdDataTbl .strStatus p { width:50px; white-space:normal;}
+.ycOrderSearch .ycMdDataTbl .report p { width:35px; white-space:normal;}
+.ycOrderSearch .ycMdDataTbl .orderId p { width:170px; }
+.ycOrderSearch .ycMdDataTbl .customerNm p { width:190px; }
+.ycOrderSearch .ycMdDataTbl .payment p { width:125px; }
+.ycOrderSearch .ycMdDataTbl .ordAmt p, .ycOrderSearch .ycMdDataTbl .bidAmt p {width:95px; }
+.ycOrderSearch .ycMdDataTbl .sellDate p { width:60px; }
+.ycOrderSearch .ycMdDataTbl .status p { width:70px; }
+.ycOrderSearch .ycMdDataTbl .paymentDate p { width:90px; }
+.ycOrderSearch .ycMdDataTbl .shipDate p { width:50px; }
+.ycOrderSearch .ycMdDataTbl .deliDate p { width:75px; }
+.ycOrderSearch .ycMdDataTbl .deliMemo p { width:200px; }
+.ycOrderSearch .ycMdDataTbl th.option p { white-space:normal; text-align:center; width:55px; }
+
+.ycOrderSearch .ycMdDataTbl td.point p, .ycOrderSearch .ycMdDataTbl td.evaluation p { color:#666666; font-weight:bold; }
+.ycOrderSearch .ycMdDataTbl td.sendMail p, .ycOrderSearch .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycOrderSearch .ycMdDataTbl td.ordAmt p, .ycOrderSearch .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycOrderSearch .ycMdDataTbl td.sellDate p { text-align:center; }
+.ycOrderSearch .ycMdDataTbl td.paymentDate p { text-align:center; }
+.ycOrderSearch .ycMdDataTbl td.shipDate p { text-align:center; }
+.ycOrderSearch .ycMdDataTbl td.deliDate p { text-align:center; }
+.ycOrderSearch .ycMdDataTbl td.option p { text-align:center; }
+.ycOrderSearch .ycMdDataTbl .example { color:#777777; }
+
+.ycOrderSearch .ycMdItemInfo .dvLt { float:left; }
+.ycOrderSearch .ycMdSelMemoInput .ycMdItemInfo th { width:200px; vertical-align:middle; }
+
+/*保留一覧*/
+/* ycReservList */
+.ycReservList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycReservList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycReservList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycReservList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycReservList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycReservList .ycMdOpeItem th { text-align:left; width:205px; border-top:dashed 1px #bcc4c4; }
+.ycReservList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycReservList .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycReservList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycReservList .ycMdOpeItem .dvLt { float:left; }
+.ycReservList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycReservList .ycMdSorting { margin-bottom:10px; }
+.ycReservList .ycMdSorting .dvLt { float:left; }
+.ycReservList .ycMdSorting .dvRt { float:right; }
+
+.ycReservList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycReservList .ycMdIcDes th { width:60px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycReservList .ycMdIcDes th.thTitle { width:30px; }
+.ycReservList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycReservList .ycMdIcDes td span img { margin-right:2px;}
+.ycReservList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycReservList .ycMdDataTbl .chk p { width:25px; }
+.ycReservList .ycMdDataTbl td.chk { text-align:center; }
+.ycReservList .ycMdDataTbl .demand p, .ycReservList .ycMdDataTbl .point p, .ycReservList .ycMdDataTbl .evaluation p { width:15px; white-space:normal; text-align:center; }
+.ycReservList .ycMdDataTbl .doubleBuy p, .ycReservList .ycMdDataTbl .division p { width:25px; white-space:normal; text-align:center; }
+.ycReservList .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycReservList .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycReservList .ycMdDataTbl .speedDel p, .ycReservList .ycMdDataTbl .invalid p { width:48px; white-space:normal; text-align:center; padding: 0 5px; }
+.ycReservList .ycMdDataTbl .speedDel p.dcKytk { background: #4598ee;display: inline-block;color: #fff;font-size: 11px;padding: 2px 5px;border: solid 1px #0154a7;line-height: 1; }
+.ycReservList .ycMdDataTbl .speedDel p.dcAstk { background: #ccdded;color: #0154a7;display: inline-block;font-size: 11px;padding: 2px 5px;border: solid 1px #0154a7;line-height: 1; }
+.ycReservList .ycMdDataTbl .sendMail p { width:40px; white-space:normal;}
+.ycReservList .ycMdDataTbl .strStatus p { width:50px; white-space:normal;}
+.ycReservList .ycMdDataTbl .report p { width:35px; white-space:normal;}
+.ycReservList .ycMdDataTbl .orderId p { width:170px; }
+.ycReservList .ycMdDataTbl .customerNm p { width:190px; }
+.ycReservList .ycMdDataTbl .payment p { width:125px; }
+.ycReservList .ycMdDataTbl .ordAmt p, .ycReservList .ycMdDataTbl .bidAmt p {width:95px; }
+.ycReservList .ycMdDataTbl .sellDate p { width:60px; }
+.ycReservList .ycMdDataTbl .status p { width:70px; }
+.ycReservList .ycMdDataTbl .paymentDate p { width:90px; }
+.ycReservList .ycMdDataTbl .shipDate p { width:50px; }
+.ycReservList .ycMdDataTbl .deliDate p { width:75px; }
+.ycReservList .ycMdDataTbl .deliMemo p { width:200px; }
+.ycReservList .ycMdDataTbl th.option p { white-space:normal; text-align:center; width:55px; }
+
+.ycReservList .ycMdDataTbl td.point p, .ycReservList .ycMdDataTbl td.evaluation p { color:#666666; font-weight:bold; }
+.ycReservList .ycMdDataTbl td.sendMail p, .ycReservList .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycReservList .ycMdDataTbl td.ordAmt p, .ycReservList .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycReservList .ycMdDataTbl td.sellDate p { text-align:center; }
+.ycReservList .ycMdDataTbl td.paymentDate p { text-align:center; }
+.ycReservList .ycMdDataTbl td.shipDate p { text-align:center; }
+.ycReservList .ycMdDataTbl td.deliDate p { text-align:center; }
+.ycReservList .ycMdDataTbl td.option p { text-align:center; }
+.ycReservList .ycMdDataTbl .example { color:#777777; }
+
+.ycReservList .ycMdItemInfo .dvLt { float:left; }
+.ycReservList .ycMdSelMemoInput .ycMdItemInfo th { width:200px; vertical-align:middle; }
+
+/*ロイヤルティ締日経過予定分一覧*/
+/* ycRoyalScheList */
+.ycRoyalScheList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycRoyalScheList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycRoyalScheList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycRoyalScheList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycRoyalScheList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycRoyalScheList .ycMdOpeItem th { text-align:left; width:195px; border-top:dashed 1px #bcc4c4; }
+.ycRoyalScheList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycRoyalScheList .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycRoyalScheList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycRoyalScheList .ycMdOpeItem .dvLt { float:left; }
+.ycRoyalScheList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycRoyalScheList .ycMdSorting { margin-bottom:10px; }
+.ycRoyalScheList .ycMdSorting .dvLt { float:left; }
+.ycRoyalScheList .ycMdSorting .dvRt { float:right; }
+
+.ycRoyalScheList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycRoyalScheList .ycMdIcDes th { width:60px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycRoyalScheList .ycMdIcDes th.thTitle { width:30px; }
+.ycRoyalScheList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycRoyalScheList .ycMdIcDes td span img { margin-right:2px;}
+.ycRoyalScheList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycRoyalScheList .ycMdDataTbl .chk p { width:25px; }
+.ycRoyalScheList .ycMdDataTbl td.chk { text-align:center; }
+.ycRoyalScheList .ycMdDataTbl .demand p, .ycRoyalScheList .ycMdDataTbl .point p, .ycRoyalScheList .ycMdDataTbl .evaluation p { width:15px; white-space:normal; text-align:center; }
+.ycRoyalScheList .ycMdDataTbl .doubleBuy p, .ycRoyalScheList .ycMdDataTbl .division p { width:25px; white-space:normal; text-align:center; }
+.ycRoyalScheList .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycRoyalScheList .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycRoyalScheList .ycMdDataTbl .speedDel p, .ycRoyalScheList .ycMdDataTbl .invalid p { width:25px; white-space:normal; text-align:center; }
+.ycRoyalScheList .ycMdDataTbl .sendMail p { width:40px; white-space:normal;}
+.ycRoyalScheList .ycMdDataTbl .strStatus p { width:50px; white-space:normal;}
+.ycRoyalScheList .ycMdDataTbl .report p { width:35px; white-space:normal;}
+.ycRoyalScheList .ycMdDataTbl .orderId p { width:170px; }
+.ycRoyalScheList .ycMdDataTbl .customerNm p { width:190px; }
+.ycRoyalScheList .ycMdDataTbl .payment p { width:125px; }
+.ycRoyalScheList .ycMdDataTbl .ordAmt p, .ycRoyalScheList .ycMdDataTbl .bidAmt p {width:95px; }
+.ycRoyalScheList .ycMdDataTbl .sellDate p { width:60px; }
+.ycRoyalScheList .ycMdDataTbl .status p { width:70px; }
+.ycRoyalScheList .ycMdDataTbl .paymentDate p { width:90px; }
+.ycRoyalScheList .ycMdDataTbl .shipDate p { width:50px; }
+.ycRoyalScheList .ycMdDataTbl .deliDate p { width:75px; }
+.ycRoyalScheList .ycMdDataTbl .deliMemo p { width:200px; }
+.ycRoyalScheList .ycMdDataTbl th.option p { white-space:normal; text-align:center; width:55px; }
+
+.ycRoyalScheList .ycMdDataTbl td.point p, .ycRoyalScheList .ycMdDataTbl td.evaluation p { color:#666666; font-weight:bold; }
+.ycRoyalScheList .ycMdDataTbl td.sendMail p, .ycRoyalScheList .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycRoyalScheList .ycMdDataTbl td.ordAmt p, .ycRoyalScheList .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycRoyalScheList .ycMdDataTbl td.sellDate p { text-align:center; }
+.ycRoyalScheList .ycMdDataTbl td.paymentDate p { text-align:center; }
+.ycRoyalScheList .ycMdDataTbl td.shipDate p { text-align:center; }
+.ycRoyalScheList .ycMdDataTbl td.deliDate p { text-align:center; }
+.ycRoyalScheList .ycMdDataTbl td.option p { text-align:center; }
+.ycRoyalScheList .ycMdDataTbl .example { color:#777777; }
+
+.ycRoyalScheList .ycMdItemInfo .dvLt { float:left; }
+.ycRoyalScheList .ycMdSelMemoInput .ycMdItemInfo th { width:200px; vertical-align:middle; }
+
+/*強制キャンセル予定分一覧*/
+/* ycComCancelScheList */
+.ycComCancelScheList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycComCancelScheList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycComCancelScheList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycComCancelScheList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycComCancelScheList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycComCancelScheList .ycMdOpeItem th { text-align:left; width:195px; border-top:dashed 1px #bcc4c4; }
+.ycComCancelScheList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycComCancelScheList .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycComCancelScheList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycComCancelScheList .ycMdOpeItem .dvLt { float:left; }
+.ycComCancelScheList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycComCancelScheList .ycMdSorting { margin-bottom:10px; }
+.ycComCancelScheList .ycMdSorting .dvLt { float:left; }
+.ycComCancelScheList .ycMdSorting .dvRt { float:right; }
+
+.ycComCancelScheList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycComCancelScheList .ycMdIcDes th { width:60px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycComCancelScheList .ycMdIcDes th.thTitle { width:30px; }
+.ycComCancelScheList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycComCancelScheList .ycMdIcDes td span img { margin-right:2px;}
+.ycComCancelScheList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycComCancelScheList .ycMdDataTbl .chk p { width:25px; }
+.ycComCancelScheList .ycMdDataTbl td.chk { text-align:center; }
+.ycComCancelScheList .ycMdDataTbl .demand p, .ycComCancelScheList .ycMdDataTbl .point p, .ycComCancelScheList .ycMdDataTbl .evaluation p { width:15px; white-space:normal; text-align:center; }
+.ycComCancelScheList .ycMdDataTbl .doubleBuy p, .ycComCancelScheList .ycMdDataTbl .division p { width:25px; white-space:normal; text-align:center; }
+.ycComCancelScheList .ycMdDataTbl .medium p { white-space:normal; text-align:center; width:16px; }
+.ycComCancelScheList .ycMdDataTbl .kind p { white-space:normal; text-align:center; width:16px; }
+.ycComCancelScheList .ycMdDataTbl .speedDel p, .ycComCancelScheList .ycMdDataTbl .invalid p { width:25px; white-space:normal; text-align:center; }
+.ycComCancelScheList .ycMdDataTbl .sendMail p { width:40px; white-space:normal;}
+.ycComCancelScheList .ycMdDataTbl .strStatus p { width:50px; white-space:normal;}
+.ycComCancelScheList .ycMdDataTbl .report p { width:35px; white-space:normal;}
+.ycComCancelScheList .ycMdDataTbl .orderId p { width:170px; }
+.ycComCancelScheList .ycMdDataTbl .customerNm p { width:190px; }
+.ycComCancelScheList .ycMdDataTbl .payment p { width:125px; }
+.ycComCancelScheList .ycMdDataTbl .ordAmt p, .ycComCancelScheList .ycMdDataTbl .bidAmt p {width:95px; }
+.ycComCancelScheList .ycMdDataTbl .sellDate p { width:60px; }
+.ycComCancelScheList .ycMdDataTbl .status p { width:70px; }
+.ycComCancelScheList .ycMdDataTbl .paymentDate p { width:90px; }
+.ycComCancelScheList .ycMdDataTbl .shipDate p { width:50px; }
+.ycComCancelScheList .ycMdDataTbl .deliDate p { width:75px; }
+.ycComCancelScheList .ycMdDataTbl .deliMemo p { width:200px; }
+.ycComCancelScheList .ycMdDataTbl th.option p { white-space:normal; text-align:center; width:55px; }
+
+.ycComCancelScheList .ycMdDataTbl td.point p, .ycComCancelScheList .ycMdDataTbl td.evaluation p { color:#666666; font-weight:bold; }
+.ycComCancelScheList .ycMdDataTbl td.sendMail p, .ycComCancelScheList .ycMdDataTbl td.report p { color:#ffffff; font-size:11px; padding:1px 1px 1px 15px; width:23px; height:13px; margin:2px auto; line-height:15px; }
+.ycComCancelScheList .ycMdDataTbl td.ordAmt p, .ycComCancelScheList .ycMdDataTbl td.bidAmt p { text-align:right; }
+.ycComCancelScheList .ycMdDataTbl td.sellDate p { text-align:center; }
+.ycComCancelScheList .ycMdDataTbl td.paymentDate p { text-align:center; }
+.ycComCancelScheList .ycMdDataTbl td.shipDate p { text-align:center; }
+.ycComCancelScheList .ycMdDataTbl td.deliDate p { text-align:center; }
+.ycComCancelScheList .ycMdDataTbl td.option p { text-align:center; }
+.ycComCancelScheList .ycMdDataTbl .example { color:#777777; }
+
+.ycComCancelScheList .ycMdItemInfo .dvLt { float:left; }
+.ycComCancelScheList .ycMdSelMemoInput .ycMdItemInfo th { width:200px; vertical-align:middle; }
+
+/*ポイント確定エラー*/
+.ycPoiDecPanel .ycMdPanelBd .itemTable td div .ycMdPointDecErr { border: 1px solid #7f9db9; line-height:130%; margin:0;padding:0; }
+.ycPoiDecPanel .ycMdPanelBd .itemTable td div .ycMdPointDecErr .scroll { overflow-y:scroll; height:70px; overflow-x:hidden; margin:0;padding:10px; }
+
+
+/*プリント用A4（共通）*/
+/*ycMdHeaderGr*/
+.ycFixPrint .ycMdHeaderGr { padding-left:10px; margin-bottom:10px; border-bottom: 2px solid #666; }
+.ycFixPrint .ycMdHeaderGr h1 { line-height:34px; font-weight:bold; font-size:18px; text-align: center; }
+/*ycMdHeadIdDate*/
+.ycFixPrint .ycMdHeadIdDate { margin-top:5px; }
+.ycFixPrint .ycMdHeadIdDate p.sellId { float: left; width: 300px; }
+.ycFixPrint .ycMdHeadIdDate p.issDate { float: right; width: 300px; text-align: right; }
+/*プリント用A4（納品書・ご請求書）*/
+.ycFixPrint .ycPriInvoice { line-height:130%; }
+/*ycMdBillSell*/
+.ycFixPrint .ycPriInvoice .ycMdBillSell { margin-bottom: 10px; }
+.ycFixPrint .ycPriInvoice .ycMdBillSell .BillAdd { float:left; width:330px; }
+.ycFixPrint .ycPriInvoice .ycMdBillSell .Seller { float:right; width:330px; text-align: left; }
+/*ycMdMessage*/
+.ycFixPrint .ycPriInvoice .ycMdMessage { margin-bottom: 10px; }
+/*ycMdBillSell*/
+.ycFixPrint .ycPriInvoice .ycMdDeliOrd { margin-bottom: 10px; }
+.ycFixPrint .ycPriInvoice .ycMdDeliOrd .DeliAdd { float:left; width:330px; }
+.ycFixPrint .ycPriInvoice .ycMdDeliOrd .OrdInfo { float:right; width:330px; text-align: left; }
+/*ycMdNolineTbl*/
+.ycFixPrint .ycPriInvoice table.ycMdNolineTbl th{ font-weight:lighter; width:110px; font-size:12px; text-align: left; }
+.ycFixPrint .ycPriInvoice table.ycMdNolineTbl th.fontb , .ycFixPrint .ycPriInvoice table.ycMdNolineTbl td.fontb{ font-weight:bold; }
+/*ycMdDetInfo*/
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl .itemName p { width:240px; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl .itemCode p { width:150px; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl .price p { width:90px; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl .quantity p { width:35px; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl .subTotal p { width:97px; }
+
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl th { font-weight: bold; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl td.itemName { vertical-align: top; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl td.itemCode { vertical-align: top; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl td.price { vertical-align: top; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl td.quantity { vertical-align: top; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl td.subTotal { vertical-align: top; }
+
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl td.price p { text-align: right; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl td.quantity p { text-align: right; }
+.ycFixPrint .ycPriInvoice .ycMdDetInfo .ycMdDataTbl td.subTotal p { text-align: right; }
+/*ycMdSystemFee*/
+.ycFixPrint .ycPriInvoice .ycMdSystemFee { margin-bottom: 10px; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .txtArea { float: left; width:345px; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .tblArea { float: right; width:325px; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .ycMdSysFeeTbl { border-top:solid 1px #bcc4c4; border-bottom:solid 2px #a4a4a4; margin-bottom:0; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .ycMdSysFeeTbl th { border-left:solid 2px #bcc4c4; border-right:solid 1px #bcc4c4; font-size:14px; text-align:left; width:145px; border-top:solid 1px #bcc4c4; background-color:#ebeeee; text-align: right; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .ycMdSysFeeTbl td { border-top:solid 1px #bcc4c4; border-right:solid 2px #bcc4c4; text-align: right; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .ycMdSysFeeTbl td input.priceInp { width: 100px; text-align: right; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum th { background-color:#a4a4a4; color:#ffffff; border-left-color:#a4a4a4; border-right-color:#a4a4a4; border-bottom-color:#a4a4a4;  border-top:solid 2px #a4a4a4; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum td { background-color:#ebebeb; border-right-color:#a4a4a4; border-bottom-color:#a4a4a4; border-top:solid 2px #a4a4a4; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum td strong { font-size:17px; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum td p { margin-top:3px; }
+.ycFixPrint .ycPriInvoice .ycMdSystemFee .ycMdSysFeeTbl th .inliBt { float: right; vertical-align:top; font-size:12px; margin-left: 5px; }
+/*end*/
+
+/*プリント用A4（ピッキングリスト）*/
+.ycFixPrint .ycPriPicking { line-height:140%; }
+/*ycMdHeaderGr*/
+.ycFixPrint .ycPriPicking .ycMdHeaderGr { margin-bottom:15px; }
+/*ycMdDetInfo*/
+.ycFixPrint .ycPriPicking .ycMdDetInfo .ycMdDataTbl .itemCode p { width:160px; }
+.ycFixPrint .ycPriPicking .ycMdDetInfo .ycMdDataTbl .itemName p { width:250px; }
+.ycFixPrint .ycPriPicking .ycMdDetInfo .ycMdDataTbl .option p { width:170px; }
+.ycFixPrint .ycPriPicking .ycMdDetInfo .ycMdDataTbl .quantity p { width:44px; }
+
+.ycFixPrint .ycPriPicking .ycMdDetInfo .ycMdDataTbl th { font-weight: bold; }
+.ycFixPrint .ycPriPicking .ycMdDetInfo .ycMdDataTbl td.itemCode { vertical-align: top; }
+.ycFixPrint .ycPriPicking .ycMdDetInfo .ycMdDataTbl td.itemName { vertical-align: top; }
+.ycFixPrint .ycPriPicking .ycMdDetInfo .ycMdDataTbl td.option { vertical-align: top; }
+.ycFixPrint .ycPriPicking .ycMdDetInfo .ycMdDataTbl td.quantity { vertical-align: top; }
+.ycFixPrint .ycPriPicking .ycMdDetInfo .ycMdDataTbl td.quantity p { text-align: right; }
+/*end*/
+
+/*プリント用A4（出荷リスト）*/
+.ycFixPrint .ycPriShipList { line-height:140%; }
+/*ycMdOrdInfo*/
+.ycFixPrint .ycPriShipList .ycMdOrdInfo .ycMdItemInfo { margin-bottom: 10px; }
+.ycFixPrint .ycPriShipList .ycMdOrdInfo .ycMdItemInfo th.ThLeft { width:100px; }
+.ycFixPrint .ycPriShipList .ycMdOrdInfo .ycMdItemInfo th.ThCenter { width:55px; border-left:solid 1px #bbc3c3; }
+.ycFixPrint .ycPriShipList .ycMdOrdInfo .ycMdItemInfo th.ThRight { width:90px; border-left:solid 1px #bbc3c3; }
+.ycFixPrint .ycPriShipList .ycMdOrdInfo .ycMdItemInfo td.TdLeft { width:105px; }
+.ycFixPrint .ycPriShipList .ycMdOrdInfo .ycMdItemInfo td.TdCenter { width:105px; }
+/*ycMdDetInfo*/
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl .itemName p { width:240px; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl .itemCode p { width:150px; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl .price p { width:90px; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl .quantity p { width:35px; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl .subTotal p { width:97px; }
+
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl { margin-bottom: 10px; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl th { font-weight: bold; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl td.itemName { vertical-align: top; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl td.itemCode { vertical-align: top; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl td.price { vertical-align: top; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl td.quantity { vertical-align: top; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl td.subTotal { vertical-align: top; }
+
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl td.price p { text-align: right; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl td.quantity p { text-align: right; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl td.subTotal p { text-align: right; }
+.ycFixPrint .ycPriShipList .ycMdDetInfo .ycMdDataTbl .Total p { text-align: right; }
+/*ycMdListInfo*/
+.ycFixPrint .ycPriShipList .ycMdListInfo .ycMdItemInfo { margin-bottom: 10px; }
+.ycFixPrint .ycPriShipList .ycMdListInfo .ycMdItemInfo th.ThLeft { width:100px; }
+.ycFixPrint .ycPriShipList .ycMdListInfo .ycMdItemInfo th.ThCenter { width:100px; border-left:solid 1px #bbc3c3; }
+.ycFixPrint .ycPriShipList .ycMdListInfo .ycMdItemInfo th.ThRight { width:100px; border-left:solid 1px #bbc3c3; }
+.ycFixPrint .ycPriShipList .ycMdListInfo .ycMdItemInfo td.TdLeft { width:105px; }
+.ycFixPrint .ycPriShipList .ycMdListInfo .ycMdItemInfo td.TdCenter { width:105px; }
+/* ycMdGiftNoshi */
+.ycFixPrint .ycMdGiftNoshi .ycMdItemInfo { margin-bottom: 10px; }
+.ycFixPrint .ycMdGiftNoshi .ycMdItemInfo th { width: 160px; }
+.ycFixPrint .ycMdGiftNoshi .ycMdItemInfo td.pd0 div { padding:0; }
+.ycFixPrint .ycMdGiftNoshi .ycMdItemInfo td.pd0 div table.ycMdInnerTbl tr.borderBtm th { border-bottom:none; }
+.ycFixPrint .ycMdGiftNoshi .ycMdItemInfo td.pd0 div table.ycMdInnerTbl tr.borderBtm td { border-bottom:none; }
+.ycFixPrint .ycMdGiftNoshi .ycMdItemInfo td.pd0 div table.ycMdInnerTbl th { padding:8px; background-color:#fff; font-weight:lighter; width:100px; font-size:12px; }
+.ycFixPrint .ycMdGiftNoshi .ycMdItemInfo td.pd0 div table.ycMdInnerTbl th span { font-weight:bold; font-size:100%; }
+.ycFixPrint .ycMdGiftNoshi .ycMdItemInfo td.pd0 div table.ycMdInnerTbl td div.tdBody { padding:8px; }
+
+.ycFixPrint .ycMdGiftNoshi .ycMdItemInfo td.pd0 div table.ycMdInnerTbl th { width:100px; }
+.ycFixPrint .ycMdGiftNoshi .ycMdItemInfo td.pd0 div table.ycMdInnerTbl td p { width:355px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+/*ycMdDeliInfo*/
+.ycFixPrint .ycPriShipList .ycMdDeliInfo .ycMdItemInfo { margin-bottom: 10px; }
+.ycFixPrint .ycPriShipList .ycMdDeliInfo .ycMdItemInfo th.ThLeft { width:105px; }
+.ycFixPrint .ycPriShipList .ycMdDeliInfo .ycMdItemInfo th.ThCenter { width:95px; border-left:solid 1px #bbc3c3; }
+.ycFixPrint .ycPriShipList .ycMdDeliInfo .ycMdItemInfo th.ThRight { width:110px; border-left:solid 1px #bbc3c3; }
+.ycFixPrint .ycPriShipList .ycMdDeliInfo .ycMdItemInfo td.TdCenter { width:80px; }
+.ycFixPrint .ycPriShipList .ycMdDeliInfo .ycMdItemInfo td.TdRight { width:100px; }
+/*end*/
+
+/*プリント用A4（注文伝票）*/
+.ycFixPrint .ycOrdTicket { line-height:130%; font-size:10px; }
+/*ycMdHeaderGr*/
+.ycFixPrint .ycOrdTicket .ycMdHeaderGr { padding-left:10px; margin-bottom:10px; border-bottom: 2px solid #666; }
+.ycFixPrint .ycOrdTicket .ycMdHeaderGr h1 { line-height:34px; font-weight:bold; font-size:18px; float: left; }
+.ycFixPrint .ycOrdTicket .ycMdHeaderGr .notes { float: left; margin-left: 8px; padding-top:14px; }
+.ycFixPrint .ycOrdTicket .ycMdHeaderGr .issDate { float: right; text-align:right; margin-right: 8px; padding-top:14px; }
+/*ycMdHeaderSubGr*/
+.ycFixPrint .ycOrdTicket .ycMdHeaderSubGr { height:24px; margin-bottom:5px; }
+.ycFixPrint .ycOrdTicket .ycMdHeaderSubGr h2 { font-size:12px; line-height:26px; }
+.ycFixPrint .ycOrdTicket .ycMdHeaderSubGr span { margin:0 10px; color:#333; font-size:10px; line-height:26px; }
+/*ycMdHdGr*/
+.ycFixPrint .ycOrdTicket .ycMdHdGr { border-left:solid 2px #aeaeae; line-height:16px; padding-left:10px; margin-bottom:5px; font-weight:bold; font-size:12px;}
+/*ycMdOrdBasInfo*/
+.ycFixPrint .ycOrdTicket .ycMdOrdBasInfo .ycMdItemInfo { margin-bottom: 5px; }
+.ycFixPrint .ycOrdTicket .ycMdOrdBasInfo .ycMdItemInfo th { padding: 5px 8px; font-size: 10px; }
+.ycFixPrint .ycOrdTicket .ycMdOrdBasInfo .ycMdItemInfo th.ThLeft { width:85px; }
+.ycFixPrint .ycOrdTicket .ycMdOrdBasInfo .ycMdItemInfo th.ThCenter { width:95px; border-left:solid 1px #bbc3c3; }
+.ycFixPrint .ycOrdTicket .ycMdOrdBasInfo .ycMdItemInfo th.ThRight { width:70px; border-left:solid 1px #bbc3c3; }
+.ycFixPrint .ycOrdTicket .ycMdOrdBasInfo .ycMdItemInfo td .tdBody { padding: 5px 8px; }
+/*ycMdDeliInfoSep*/
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep { margin-bottom:5px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo { margin-bottom:0; }
+
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo th { background-color:#fff; text-align:left; font-size:10px; width:120px; padding:2px 8px; border-right:solid 1px #bbc3c3;border-bottom:solid 1px #bbc3c3; vertical-align:top; font-weight: lighter; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo tr.title th { background-color:#ebeeee; border-right:none; border-bottom:solid 2px #bbc3c3; font-weight: bold; text-align:center; font-size:10px; width:315px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo td .tdBody { padding:2px 8px; }
+
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td { width:315px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl { border:none; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl th{ border:none; background-color:#fff; font-weight:lighter; width:65px; font-size:10px; text-align: left; padding:0; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl td{ border:none; width:230px; padding:0; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td table.ycMdNolineTbl td p{ width:230px; overflow:hidden; word-break:break-all; word-wrap:break-word;}
+
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td .ycMdBillAdd table.ycMdNolineTbl th{ width:125px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td .ycMdBillAdd table.ycMdNolineTbl td{ width:210px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ycMdItemInfo tr.nolineTbl td .ycMdBillAdd table.ycMdNolineTbl td p{ width:210px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ReceAdd { float:left; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ReceMeth { float:right; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ReceAdd .ycMdItemInfo th { width:130px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ReceMeth .ycMdItemInfo th { width:85px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ReceAdd .ycMdItemInfo td { width:210px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .ReceMeth .ycMdItemInfo td p { width:210px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .OpGift { float:left; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .OpNoshi { float:right; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .OpGift .ycMdItemInfo th { width:100px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .OpNoshi .ycMdItemInfo th { width:85px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .OpGift .ycMdItemInfo td { width:210px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .OpNoshi .ycMdItemInfo td p { width:210px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .Orderer { float:left; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .PayMeth { float:right; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .Orderer .ycMdItemInfo th { width:130px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .PayMeth .ycMdItemInfo th { width:85px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .Orderer .ycMdItemInfo td { width:210px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .PayMeth .ycMdItemInfo td p { width:210px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .EncHope { float:left; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .AgeCheck { float:right; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .EncHope .ycMdItemInfo th { width:100px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .EncHope .ycMdItemInfo td { width:200px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfoSep .AgeCheck .ycMdItemInfo td p { width:310px; overflow:hidden; word-break:break-all; word-wrap: }
+/*ycMdDeliInfo*/
+.ycFixPrint .ycOrdTicket .ycMdDeliInfo .ycMdItemInfo { margin-bottom:5px; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfo .ycMdItemInfo th { padding:8px; background-color:#fff; font-weight:lighter; width:16%; font-size:10px; text-align:left; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfo .ycMdItemInfo td { border-right:solid 1px #bbc3c3; width:34%; }
+.ycFixPrint .ycOrdTicket .ycMdDeliInfo .ycMdItemInfo td.borderRnone { border-right: none; }
+/*ycMdDemand*/
+.ycFixPrint .ycOrdTicket .ycMdDemand { border:solid 2px #bbc3c3; padding: 8px; margin-bottom: 5px; }
+/*ycMdPurcInfo*/
+.ycFixPrint .ycOrdTicket .ycMdPurcInfo .ycMdItemInfo { margin-bottom: 5px; }
+.ycFixPrint .ycOrdTicket .ycMdPurcInfo .ycMdItemInfo th { width:100px; padding:2px 8px; font-size: 10px; }
+.ycFixPrint .ycOrdTicket .ycMdPurcInfo .ycMdItemInfo td .tdBody{ padding:2px 8px; font-size: 10px; }
+.ycFixPrint .ycOrdTicket .ycMdPurcInfo .ycMdItemInfo ul.orderList li { float: left; margin-right: 15px; }
+.ycFixPrint .ycOrdTicket .ycMdPurcInfo .ycMdItemInfo td p { width: 530px; overflow:hidden; word-break:break-all; word-wrap:break-word; }
+.ycFixPrint .ycOrdTicket .ycMdPurcInfo .ycMdItemInfo td .batsu { color: #fe0000; }
+/*ycMdDetInfo*/
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl { margin-bottom:5px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl th { padding:2px 5px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td { padding:2px 5px; }
+
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl .L p { width:15px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl .itemName p { width:100px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl .itemCode p { width:105px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl .price p { width:58px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl .quantity p { width:30px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl .sellDate p { width:44px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl .fund p { width:30px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl .pointCode p { width:30px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl .grantPoi p { width:70px; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl .subTotal p { width:70px; }
+
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.L { vertical-align: top; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.itemName { vertical-align: top; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.itemCode { vertical-align: top; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.price { vertical-align: top; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.quantity { vertical-align: top; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.sellDate { vertical-align: top; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.fund { vertical-align: top; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.pointCode { vertical-align: top; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.grantPoi { vertical-align: top; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.subTotal { vertical-align: top; }
+
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.L p { text-align: center; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.price p { text-align: right; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.quantity p { text-align: right; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.sellDate p { text-align: center; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.fund p { text-align: center; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.pointCode p { text-align: center; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.grantPoi p { text-align: right; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl td.subTotal p { text-align: right; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl span.serviceic { text-indent: -9999px; vertical-align:middle; line-height:1.7; }
+.ycFixPrint .ycOrdTicket .ycMdDetInfo .ycMdDataTbl span.serviceic img { margin-left:3px; margin-right: 3px; vertical-align:middle;}
+/*ycMdSystemFee*/
+.ycFixPrint .ycOrdTicket .ycMdSystemFee { margin-bottom:5px; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .txtArea { float: left; width:395px; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .tblArea { float: right; width:275px; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .ycMdSysFeeTbl { border-top:solid 1px #bcc4c4; border-bottom:solid 2px #a4a4a4; margin-bottom:0; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .ycMdSysFeeTbl th { border-left:solid 2px #bcc4c4; border-right:solid 1px #bcc4c4; font-size:10px; text-align:left; width:135px; border-top:solid 1px #bcc4c4; background-color:#ebeeee; text-align: right; padding: 2px 8px; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .ycMdSysFeeTbl td { border-top:solid 1px #bcc4c4; border-right:solid 2px #bcc4c4; text-align: right; padding: 2px 8px; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .ycMdSysFeeTbl td input.priceInp { width: 100px; text-align: right; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum th { background-color:#a4a4a4; color:#ffffff; border-left-color:#a4a4a4; border-right-color:#a4a4a4; border-bottom-color:#a4a4a4;  border-top:solid 2px #a4a4a4; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum td { background-color:#ebebeb; border-right-color:#a4a4a4; border-bottom-color:#a4a4a4; border-top:solid 2px #a4a4a4; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum td strong { font-size:10px; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .ycMdSysFeeTbl tr.feeSum td p { margin-top:3px; }
+.ycFixPrint .ycOrdTicket .ycMdSystemFee .ycMdSysFeeTbl th .inliBt { float: right; vertical-align:top; font-size:10px; margin-left: 5px; }
+/*ycMdInComMemo*/
+.ycFixPrint .ycOrdTicket .ycMdInComMemo { border:solid 2px #bbc3c3; padding: 8px; margin-bottom: 10px; }
+/*end*/
+
+.ycMdDetInfo td.errArea, .ycMdItemInfo tr.errArea td{ background-color:#fee9ee; }
+.ycMdDetInfo td span.errItem, .ycMdItemInfo td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+.ycMdDetInfo td p.errItem, .ycMdItemInfo td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+.ycMdDetInfo td p.errMsgEh { color:#cc0000; font-weight:bold; margin-bottom:5px; font-size:14px; }
+
+.ycMdSysFeeTbl errArea, .ycMdItemInfo tr.errArea td{ background-color:#fee9ee; }
+.ycMdSysFeeTbl span.errItem, .ycMdItemInfo td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+.ycMdSysFeeTbl p.errItem, .ycMdItemInfo td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+.ycMdSysFeeTbl p.errMsgEh { color:#cc0000; font-weight:bold; margin-bottom:5px; font-size:14px; }
+
+.ycMdOperation errArea, .ycMdItemInfo tr.errArea td{ background-color:#fee9ee; }
+.ycMdOperation span.errItem, .ycMdItemInfo td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+.ycMdOperation p.errItem, .ycMdItemInfo td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+.ycMdOperation p.errMsgEh { color:#cc0000; font-weight:bold; margin-bottom:5px; font-size:14px; }
+
+/*.SearchTable td span.errItem, .ycMdItemInfo td span.errItem{ border:solid 2px #cc0000; display:inline-block;}*/
+.SearchTable td span.errItem, .ycMdItemInfo td span.errItem, .ycMdDataTbl td span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+.SearchTable td p.errMsgEh { color:#cc0000; font-weight:bold; margin-bottom:5px; font-size:14px; }
+
+/* ycMdCatSrhBox */
+.ycMdCatSrhBox span.errItem{ border:solid 2px #cc0000; display:inline-block;}
+
+/* ycLastAccessStoreList */
+.ycLastAccessStoreList .ycMdOpeItem { background-color:#ffffff; border-top:solid 2px #bcc4c4; border-bottom:solid 2px #bcc4c4; padding:2px 0; }
+.ycLastAccessStoreList .ycMdOpeItem .bd { background-color:#ebeeee; padding:5px 10px; }
+.ycLastAccessStoreList .ycMdOpeItem .bd p { float:left; vertical-align:middle; margin-right:10px; padding:2px 0; }
+.ycLastAccessStoreList .ycMdOpeItem .btnBlS a { margin-right:5px; }
+.ycLastAccessStoreList .ycMdOpeItem table { margin-left:90px; margin-top:5px; }
+.ycLastAccessStoreList .ycMdOpeItem th { text-align:left; width:160px; border-top:dashed 1px #bcc4c4; }
+.ycLastAccessStoreList .ycMdOpeItem td { border-top:dashed 1px #bcc4c4; }
+.ycLastAccessStoreList .ycMdOpeItem td.select,  .ycMdOpeItem select{ width:160px; }
+.ycLastAccessStoreList .ycMdOpeItem td .ycMdBtn a { margin-right:5px; }
+.ycLastAccessStoreList .ycMdOpeItem .dvLt { float:left; }
+.ycLastAccessStoreList .expandTab { margin-left:102px; margin-bottom:10px; }
+.ycLastAccessStoreList .ycMdSorting { margin-bottom:10px; }
+.ycLastAccessStoreList .ycMdSorting .dvLt { float:left; }
+.ycLastAccessStoreList .ycMdSorting .dvRt { float:right; }
+
+.ycLastAccessStoreList .ycMdIcDes { border:solid 2px #bbc3c3; border-top-width:1px; border-right-width:1px; margin-bottom:10px; }
+.ycLastAccessStoreList .ycMdIcDes th { width:50px; text-align:left; border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3;}
+.ycLastAccessStoreList .ycMdIcDes th.thTitle { width:30px; }
+.ycLastAccessStoreList .ycMdIcDes td { border-top:solid 1px #bbc3c3; border-right:solid 1px #bbc3c3; }
+.ycLastAccessStoreList .ycMdIcDes td span img { margin-right:2px;}
+.ycLastAccessStoreList .ycMdIcDes td .icTxt { color:#666666; font-weight:bold; }
+
+.ycLastAccessStoreList .ycMdDataTbl th {  padding:10px; }
+.ycLastAccessStoreList .ycMdDataTbl .chk p { width:25px; }
+.ycLastAccessStoreList .ycMdDataTbl td.chk { text-align:center; }
+.ycLastAccessStoreList .ycMdDataTbl .StoreId p { white-space:normal; text-align:center; width:400px; }
+.ycLastAccessStoreList .ycMdDataTbl .LastAccessTime p { white-space:normal; text-align:center; width:300px; }
+.ycLastAccessStoreList .ycMdDataTbl .StatusOpenStore p {white-space:normal; text-align:center; width:135px; }
+.ycLastAccessStoreList .ycMdDataTbl td{ padding: 10px 5px; }
+
+.ycLastAccessStoreList dl.ycMdSecLineBtn dt { float: left; width:95px; }
+.ycLastAccessStoreList dl.ycMdSecLineBtn dd { float: right; width:835px; }
+.ycLastAccessStoreList .ycMdOpeItem .bd .ycMdSecLineBtn p { margin-right:0; }

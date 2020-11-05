@@ -1,0 +1,1380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="X-UA-Compatible" content="IE=10">
+
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://s.yimg.jp/images/commerce/etc/storecreatorpro/img/1.0.0/favicon.ico">
+<link href="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/common.css" rel="stylesheet" type="text/css" media="all">
+<link href="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/bizTmplCom.css" rel="stylesheet" type="text/css" media="all">
+<link href="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/str_ordermgr.css" media="all" rel="stylesheet" type="text/css">
+<link href="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/str_cartset_modal.css" media="all" rel="stylesheet" type="text/css">
+<link href="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/jquery-ui-1.css" media="all" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/jquery-1.js"></script>
+<script src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/common_003.js" type="text/javascript"></script>
+<script type="text/javascript" src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/common.js"></script>
+<script type="text/javascript" src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/common_002.js"></script>
+<script type="text/javascript" src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/jquery.js"></script>
+<script type="text/javascript" src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/jquery-ui-1.js"></script>
+<script type="text/javascript" src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/yjbfp.js"></script>
+
+<title>注文詳細：注文情報 - ストアクリエイターPro</title>
+</head>
+<body class="ycFix">
+
+  <div id="wrapper">
+    <!-- js用定数 -->
+    <script type="text/javascript">
+      var JS_GLOBAL_IMAGE_URL = 'https://s.yimg.jp/images/commerce/etc/storecreatorpro/img/1.0.0';
+    </script>
+    <!-- /js用定数 -->
+
+    <!-- ycWrHeader -->
+    <div id="ycWrHeader">
+      <!--BizMH-->
+<a href="https://pro.store.yahoo.co.jp/protop">
+  <img class="logo100" id="ygmhlog" name="ygmhlog" alt="Yahoo!ストアクリエイターPro" src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/pro.png" height="34" width="324">
+</a>
+<div style="float:right;font-size:smaller;line-height:110%;margin:10px 3px 0 0;text-align:right;">
+  <p class="closeBtn"><a href="javascript:void(0);" onclick="window.close();"><img src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/btn_close.png" alt="閉じる" height="22" width="74"></a></p>
+</div>      <!--/BizMH-->
+
+      <!--noscript-->
+      <noscript>
+<div class="mdJsOffAlert">
+<div class="dvBox">
+<p class="dcAlert">現在JavaScriptの設定が無効になっています。</p>
+<p class="dcMintxt">すべての機能を利用するためには、設定を有効にしてください。詳しい設定方法は「<a href="http://www.yahoo-help.jp/app/noscript">JavaScriptの設定方法</a>」をご覧ください。</p>
+</div>
+</div>
+</noscript>
+      <!--/noscript-->
+    </div>
+    <!-- /ycWrHeader -->
+
+    <!-- ycWrContentsFix -->
+     <form id="f" name="f" method="post" action="/pro.fkstyle/order/manage/detail/fkstyle-10014977/update">
+    <div id="ycWrContentsFix" class="ycOrderDetail">
+    <div class="ycMdHeader exCfx">
+      <h1>注文管理 - 注文詳細</h1><span>[<a href="http://storedoc.ec.yahoo.co.jp/shopping/toolmanual/orderdata/c/114.html" target="_blank"><b>マニュアル</b></a>]</span>    </div>
+
+    <div class="ycMdErrMsg" style="display:none;"></div>
+        
+        <div class="ycMdBtn">
+      <ul class="tabList exCfx">
+        <li class="cur"><strong><span>注文情報</span></strong></li>
+        <li><a href="javascript:void(0);" onclick="doWindowLocation('/pro.fkstyle/order/manage/detail/mail_and_form/fkstyle-10014977');"><span>メール・帳票</span></a></li>
+        <li><a href="javascript:void(0);" onclick="doWindowLocation('/pro.fkstyle/order/manage/detail/history/fkstyle-10014977');"><span>変更履歴</span></a></li>
+      </ul>
+    </div>
+
+        <div class="anchorLk">
+      <ul class="exCfx">
+        <li><a href="#ordBasic">注文基本情報</a></li>
+        <li><a href="#deliInfo">お届け情報</a></li>
+        <li><a href="#billAdd">注文者情報</a></li>
+                <li><a href="#detailInfo">明細情報</a></li>
+        <li><a href="#purchInfo">購入時情報</a></li>
+        <li><a href="#inComMemo">ストア内メモ</a></li>
+      </ul>
+    </div>
+
+        <div class="exCfx">
+      <div class="ycMdHeaderSub exCfx">
+        <h2>注文基本情報</h2>
+        <span class="ycMdShowChg">
+          <a id="ycMdOrdBasInfoAreaClose" class="close" href="javascript:void(0);" onclick="openArea('ycMdOrdBasInfoArea');">閉じる</a>
+          <a id="ycMdOrdBasInfoAreaOpen" class="open" href="javascript:void(0);" onclick="closeArea('ycMdOrdBasInfoArea');" style="display:none;">開く</a>
+        </span>
+      </div>
+    </div>
+    <div class="ycMdOrdBasInfoArea ycMdOrdBasInfo" id="ordBasic">
+      <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <th class="ThLeft">
+      注文ID
+                </th>
+    <td>
+      <div class="tdBody">
+        <p>fkstyle-10014977</p>
+                      </div>
+    </td>
+    <th class="ThCenter">
+      注文日時
+    </th>
+    <td>
+      <div class="tdBody">
+        <p>2016年8月12日<br>10時34分42秒</p>
+      </div>
+    </td>
+    <th class="ThCenter">発売日</th>
+    <td>
+      <div class="tdBody">
+        <p>&nbsp;</p>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <th class="ThLeft">
+      付与ポイント確定予定日
+    </th>
+    <td>
+      <div class="tdBody">
+                                            </div>
+    </td>
+    <th class="ThCenter">
+      注文自動完了予定日
+    </th>
+    <td>
+      <div class="tdBody">
+        <p>2016年9月26日</p>
+      </div>
+    </td>
+    <th class="ThCenter">
+      ログイン状態<br>
+      （スタンプラリー）
+    </th>
+    <td>
+      <div class="tdBody">
+        <p>ゲスト</p>
+              </div>
+    </td>
+  </tr>
+  <tr>
+    <th class="ThLeft">
+      注文媒体
+    </th>
+    <td>
+      <div class="tdBody">
+        <p>パソコン</p>
+      </div>
+    </td>
+    <th class="ThCenter">
+      この注文への評価
+    </th>
+    <td>
+      <div class="tdBody">
+        <p> [ <a href="http://review.store.shopping.yahoo.co.jp/fkstyle/store/review/?order_id=fkstyle-10014977" target="_blank">評価を見る</a> ] </p>
+      </div>
+    </td>
+    <th class="ThRight">
+      アフィリエイト注文
+    </th>
+    <td>
+      <div class="tdBody">
+        <p>いいえ</p>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <th class="ThLeft">
+      注文ステータス
+    </th>
+    <td>
+      <div class="tdBody">
+        <p>新規注文</p>
+      </div>
+    </td>
+    <th class="ThCenter">
+      出荷ステータス
+    </th>
+    <td>
+      <div class="tdBody">
+        <p>出荷可</p>
+      </div>
+    </td>
+    <th class="ThRight">
+      入金ステータス
+    </th>
+    <td>
+      <div class="tdBody">
+        <p>入金済み</p>
+      </div>
+    </td>
+  </tr>
+</tbody></table>
+    </div>
+
+              <div class="ycMdLead">
+        <p class="disCt">
+          編集内容を確定するには「更新」ボタンを押してください。
+        </p>
+      </div>
+                        <div class="ycMdBtn mb20">
+            <div class="exCfx">
+              <div class="btnCt">
+                <div class="btnBlL"><a href="javascript:void(0);" onclick="isValid();"><span>更新</span></a></div>
+              </div>
+            </div>
+          </div>
+                  
+    <div class="ycMdLead mb20">
+      <p class="disCt" style="color:red;">
+        <a href="http://storedoc.ec.yahoo.co.jp/shopping/topics/tool/new-tool/20140709-5.html" target="_blank" style="color:red;">
+          【重要な注意事項】クレジットカード決済によるご注文は注文ステータス「完了」にしないと売上確定となりません。        </a>
+      </p>
+    </div>
+
+        
+<div class="exCfx">
+  <div class="ycMdHeaderSub exCfx">
+    <h2>注文ステータス</h2>
+    <span class="ycMdShowChg">
+      <a id="ycMdOrdStatesAreaClose" class="close" href="javascript:void(0);" onclick="openArea('ycMdOrdStatesArea');">閉じる</a>
+      <a id="ycMdOrdStatesAreaOpen" class="open" href="javascript:void(0);" onclick="closeArea('ycMdOrdStatesArea');" style="display:none;">開く</a>
+    </span>
+  </div>
+</div>
+
+
+
+<div class="ycMdOrdStatesArea ycMdOrdStates">
+  <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody><tr>
+      <th class="order">
+      <div class="w120">
+        注文ステータス
+        </div>
+      </th>
+      <td class="order">
+        <div>
+          <table class="ycMdInnerTbl" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody><tr>
+              <td class="errAreaEh errAreaEhOrderStatusChange formOrderStatusArea errAreaEhRefundStatusChange isPointFixByCompletionArea  ">
+                <div class="tdBody">
+                                  <span class=" errItemEh errItemEhOrderStatusChange formOrderStatusItem">
+                    <select name="formOrderStatus"><option value="">選択</option><option value="2f" selected="selected">新規注文</option><option value="2t">処理中</option></select>                  </span>
+                                </div>
+              </td>
+            </tr>
+            <tr class="borderBtm">
+              <td class="">
+                <div class="tdBody">
+                                      <div class="exCfx mb5">
+                      <div class="dvLt mt4">
+                          
+                            <p>ポイント確定：<span class="Undecided">対象外</span></p>
+                                              </div>
+                    </div>
+                                    <p id="orderCancelMsg" class="statesmess" style="display:none;">※注文キャンセル処理をするとポイントはキャンセルされます。</p>
+                </div>
+              </td>
+            </tr>
+          </tbody></table>
+        </div>
+      </td>
+    <th class="store">
+      ストアステータス
+    </th>
+    <td class="store errAreaEh errAreaEhOrderChange storeStatusArea">
+      <div class="tdBody">
+        <p class="errMsgEh storeStatusMsg" style="display:none">&nbsp;</p>
+        <span class="errItemEh errItemEhOrderChange storeStatusItem"><select name="storeStatus"><option value="" selected="selected">選択</option><option value="1">佐川急便(沖縄本島)</option><option value="2">ゆうメール</option><option value="3">ヤマト運輸(離島/大型)</option><option value="4">配送メモ</option><option value="5">再発送</option><option value="6">日時指定</option><option value="7">予約商品</option><option value="8">入金待ち</option><option value="9">保留</option><option value="10">処理中</option></select></span>
+      </div>
+    </td>
+  </tr>
+</tbody></table>
+</div>
+
+<p class="ycMdToTop ycMdOrdStatesArea"><a href="#ycWrHeader">▲このページのトップへ</a></p>
+
+<script type="text/javascript">
+<!--
+(function () {
+        var isPointFix = false;
+
+        $('#f [name=formOrderStatus]').change(function() {
+        var value = $('#f [name=formOrderStatus] option:selected').val();
+
+        if (value == '4') {
+            $('#isPointFixByCompletion').attr("disabled", "disabled");
+
+            if (isPointFix) {
+                $('#orderCancelMsg').show();
+            }
+
+        } else {
+            $('#isPointFixByCompletion').removeAttr("disabled");
+
+            if (isPointFix) {
+                $('#orderCancelMsg').hide();
+            }
+        }
+    });
+
+    $(document).ready(function() {
+        $('#f [name=formOrderStatus]').change();
+    });
+}());
+-->
+</script>
+
+        <div class="exCfx">
+  <div class="ycMdHeaderSub exCfx" id="deliInfo">
+    <h2>お届け情報</h2>
+        <span class="ycMdShowChg">
+      <a id="ycMdDeliInfoAreaClose" class="close" href="javascript:void(0);" onclick="openArea('ycMdDeliInfoArea');">閉じる</a>
+      <a id="ycMdDeliInfoAreaOpen" class="open" href="javascript:void(0);" onclick="closeArea('ycMdDeliInfoArea');" style="display:none;">開く</a>
+    </span>
+  </div>
+</div>
+
+<table class="ycMdDeliInfoArea ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <th>出荷ステータス</th>
+          <td class="errAreaEh errAreaEhOrderShipStatusChange shipStatusArea ">
+        <div class="tdBody">
+          <span class=" errItemEh errItemEhOrderShipStatusChange shipStatusItem"><select name="shipStatus"><option value="">選択</option><option value="1" selected="selected">出荷可</option><option value="2">出荷処理中</option><option value="3">出荷済み</option><option value="4">着荷済み</option></select></span>
+        </div>
+      </td>
+      </tr>
+</tbody></table>
+
+<div class="ycMdDeliInfoArea ycMdDeliInfoSep exCfx">
+  <div class="ReceAdd">
+    <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="465">
+      <tbody><tr class="title">
+        <th colspan="2">お届け先情報</th>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td>
+          <div class="tdBody">
+            <p>794-0081</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td>
+          <div class="tdBody">
+            <p>愛媛県今治市阿方甲187-3<br>サンシャイン砂子101</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>住所カナ</th>
+        <td>
+          <div class="tdBody">
+            <p><br></p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>氏名</th>
+        <td>
+          <div class="tdBody">
+            <p>木村恵美</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>氏名カナ</th>
+        <td>
+          <div class="tdBody">
+            <p>キムラメグミ</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td>
+          <div class="tdBody">
+            <p>090-5273-4303</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>緊急連絡先</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+          </tbody></table>
+  </div>
+  <div class="ReceMeth">
+    <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="465">
+      <tbody><tr class="title">
+        <th colspan="2">お届け方法</th>
+      </tr>
+      <tr>
+        <th>お届け方法</th>
+        <td>
+          <div class="tdBody">
+            <p>【当社指定】の配送業者となります</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>お届け希望日</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>お届け希望時間帯</th>
+        <td>
+          <div class="tdBody">
+            <p>時間指定なし</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>配送メモ</th>
+        <td>
+          <div class="tdBody">
+            <p class="pre">&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>出荷日</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>着荷日</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>配送伝票番号1</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>配送伝票番号2</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+            <tr>
+        <th>配送会社URL</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+          </tbody></table>
+  </div>
+</div>
+<p class="ycMdHdCom ycMdDeliInfoArea">お届けオプション</p>
+
+<div class="ycMdDeliInfoArea ycMdDeliInfoSep exCfx">
+  <div class="OpGift">
+    <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="465">
+      <tbody><tr class="title">
+        <th colspan="2">ギフト包装</th>
+      </tr>
+      <tr>
+        <th>ギフト包装希望</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>ギフト包装種類</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>ギフトメッセージ</th>
+        <td>
+          <div class="tdBody">
+            <p class="pre">&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+    </tbody></table>
+  </div>
+  <div class="OpNoshi">
+    <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="465">
+      <tbody><tr class="title">
+        <th colspan="2">のし</th>
+      </tr>
+      <tr>
+        <th>のし希望</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>のし種類</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>名入れ</th>
+        <td>
+          <div class="tdBody">
+            <p class="pre">&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<p class="ycMdToTop ycMdDeliInfoArea"><a href="#ycWrHeader">▲このページのトップへ</a></p>
+        
+<div class="exCfx">
+  <div class="ycMdHeaderSub exCfx" id="billAdd">
+    <h2>注文者情報</h2>
+        <span class="ycMdShowChg">
+      <a id="ycMdPayInfoAreaClose" class="close" href="javascript:void(0);" onclick="openArea('ycMdPayInfoArea');">閉じる</a>
+      <a id="ycMdPayInfoAreaOpen" class="open" href="javascript:void(0);" onclick="closeArea('ycMdPayInfoArea');" style="display:none;">開く</a>
+    </span>
+  </div>
+</div>
+
+<table class="ycMdItemInfo ycMdPayInfoArea" border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <th>入金ステータス</th>
+          <td>
+        <div class="tdBody">
+          <span>入金済み</span><span style="display:none;"><select name="payStatus"><option value="">選択</option><option value="0">入金待ち</option><option value="1" selected="selected">入金済み</option></select></span>
+        </div>
+      </td>
+      </tr>
+</tbody></table>
+
+<div class="ycMdPayInfoArea ycMdDeliInfoSep exCfx">
+  <div class="Orderer">
+    <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="465">
+      <tbody><tr class="title">
+        <th colspan="2">注文者情報</th>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <td>
+          <div class="tdBody">
+            <p>794-0081</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td>
+          <div class="tdBody">
+            <p>愛媛県今治市阿方甲187-3<br>サンシャイン砂子101</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>住所カナ</th>
+        <td>
+          <div class="tdBody">
+            <p><br></p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>氏名</th>
+        <td>
+          <div class="tdBody">
+            <p>木村恵美</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>氏名カナ</th>
+        <td>
+          <div class="tdBody">
+            <p>キムラメグミ</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td>
+          <div class="tdBody">
+            <p>090-5273-4303</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>緊急連絡先</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td>
+          <div class="tdBody">
+            <p>megumi.k44@gmail.com</p>
+          </div>
+        </td>
+      </tr>
+          </tbody></table>
+  </div>
+
+  <div class="ycMdPayInfoArea PayMeth">
+    <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="465">
+      <tbody><tr class="title">
+        <th colspan="2">お支払方法</th>
+      </tr>
+      <tr>
+        <th>お支払方法</th>
+        <td>
+          <div class="tdBody">
+            <div class="dvLt mb5 w100">
+                <p>クレジットカード決済</p>
+            </div>
+
+                      </div>
+        </td>
+      </tr>
+      <tr>
+        <th>請求金額（税込）</th>
+        <td>
+          <div class="tdBody">
+            <p>4,971円</p>
+          </div>
+        </td>
+      </tr>
+                                    <tr>
+        <th>決済ステータス</th>
+        <td>
+          <div class="tdBody">
+                                <p>支払完了(オーソリ完了)　（決済ID k1608121240325）</p>
+                    </div>
+        </td>
+      </tr>
+                                                      <tr>
+        <th>お支払区分</th>
+        <td>
+          <div class="tdBody">
+            <p>一回払い　&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+                </tbody></table>
+  </div>
+</div>
+
+<p class="ycMdPayInfoArea ycMdHdCom">ご注文オプション</p>
+<div class="ycMdPayInfoArea ycMdDeliInfoSep exCfx">
+  <div class="EncHope">
+    <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="465">
+      <tbody><tr class="title">
+        <th colspan="2">帳票同梱希望</th>
+      </tr>
+      <tr>
+        <th>領収書</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>納品書</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>請求書</th>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+    </tbody></table>
+  </div>
+  <div class="AgeCheck">
+    <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="465">
+      <tbody><tr class="title">
+        <th>年齢確認</th>
+      </tr>
+      <tr>
+        <td>
+          <div class="tdBody">
+            <p>&nbsp;</p>
+          </div>
+        </td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<p class="ycMdPayInfoArea ycMdHdCom">ご要望</p>
+<div class="">
+    <div class="ycMdPayInfoArea ycMdDemand">
+        <pre class="pre ml8 mt5 mb5 mr8">&nbsp;</pre>
+    </div>
+</div>
+  <p class="ycMdToTop ycMdPayInfoArea"><a href="#ycWrHeader">▲このページのトップへ</a></p>
+
+
+
+<script type="text/javascript">
+<!--
+(function () {
+// -----------------------------------------------------------------------------
+    $(document).ready(function(){
+        // Modal box
+        YAHOO.JP.commerce.sellerfrontB.ModalBox.set({
+            MODALBOX    : 'PaymentMethodUpdate',    // ID of the element that modal display 
+            OPEN        : '.updatePaymentMethod',   // class of element call modal display
+            CLOSE       : '.close'                  // close button
+        });
+        // set paymentTitle to hidden input
+        $("#paymentMethodU").change(function() {
+            var paymentTitle = $(this).find("option:selected").val();
+            $('input:hidden[name=paymentTitle]').val(paymentTitle );
+        });
+    });
+}());
+-->
+</script>
+
+    
+        <div class="exCfx">
+  <div class="ycMdHeaderSub exCfx" id="detailInfo">
+    <h2>明細情報</h2>
+            <span class="ycMdShowChg">
+      <a id="ycMdItemInfoAreaClose" class="close" href="javascript:void(0);" onclick="openArea('ycMdItemInfoArea');">閉じる</a>
+      <a id="ycMdItemInfoAreaOpen" class="open" href="javascript:void(0);" onclick="closeArea('ycMdItemInfoArea');" style="display:none;">開く</a>
+    </span>
+  </div>
+</div>
+
+<div class="ycMdItemInfoArea ycMdDetInfo">
+  <table class="ycMdDataTbl" border="0" cellpadding="5" cellspacing="0">
+    <tbody><tr>
+      <th class="L"><p>L</p></th>
+      <th class="itemName"><p>商品名/商品オプション</p></th>
+      <th class="itemCode"><p>商品コード/サブコード</p></th>
+      <th class="price"><p>価格（税込）</p></th>
+      <th class="quantity"><p>数量</p></th>
+      <th class="sellDate"><p>発売日</p></th>
+      <th class="pointCode"><p>ポイント<br>コード※1</p></th>
+      <th class="grantPoi"><p>付与ポイント数※2<br>確定予定日</p></th>
+      <th class="subTotal"><p>小計（税込）</p></th>
+    </tr>
+
+            <tr class=" borderBtm ">
+      <td class="L">
+        <p>1</p>
+      </td>
+      <td class="itemName">
+        <p>
+                      <a href="http://store.shopping.yahoo.co.jp/fkstyle/ad023.html" target="_blank">
+            ハンモック 自立式 スタンド おしゃれ 室内 屋外 インテリア ビーチ カフェ アウトドア リゾート テラス AD023            </a>
+          <br>
+          カラー選択=レインボー/ゆうメール配送不可(宅配便のみ)=了承済み！/生産時に錆び防止用オイルがスタンドに塗布されています=了承済み！/輸入輸送時に生じた小さな破れが収納袋にございます！=品質には問題なくご使用できます！        </p>
+      </td>
+      <td class="itemCode">
+        <p>ad023/ad023-ra</p>
+      </td>
+      <td class="price">
+        <p>3,999円</p>
+      </td>
+      <td class="quantity">
+        <p>1</p>
+      </td>
+      <td class="sellDate">
+        <p>&nbsp;</p>
+      </td>
+      <td class="pointCode">
+        <p>&nbsp;</p>
+      </td>
+      <td class="grantPoi">
+              <p>
+                    0(0)ポイント<br>
+                    <br>
+        </p>
+            </td>
+      <td class="subTotal">
+        <p>3,999円</p>
+      </td>
+    </tr>
+      </tbody></table>
+</div>
+
+<div class="ycMdItemInfoArea ycMdSystemFee exCfx">
+  <div class="tblArea">
+    <div style="text-align:right; width:338px;" class="mb10">※1 <a href="http://storedoc.ec.yahoo.co.jp/shopping/toolmanual/editor/d/415.html#a" target="_blank">ポイントコード一覧</a></div>
+    <div style="text-align:right; width:338px;" class="mb10">※2 付与ポイント数(ストア負担のポイント原資)</div>
+        <table class="ycMdSysFeeTbl" border="0" cellpadding="8" cellspacing="0" width="385">
+      <tbody><tr>
+        <th nowrap="nowrap">商品金額合計（税込）</th>
+        <td>3,999円</td>
+      </tr>
+      <tr>
+        <th>ギフト包装料</th>
+        <td>0円</td>
+      </tr>
+      <tr>
+        <th>送料</th>
+        <td>972円</td>
+      </tr>
+      <tr>
+        <th>手数料</th>
+        <td>0円</td>
+      </tr>
+      <tr>
+        <th>値引き</th>
+        <td>0円</td>
+      </tr>
+      <tr>
+        <th>ポイント利用分</th>
+        <td>0ポイント</td>
+      </tr>
+                        <tr class="feeSum">
+        <th nowrap="nowrap">合計金額（税込）</th>
+        <td><strong>4,971円</strong></td>
+      </tr>
+    </tbody></table>
+      </div>
+</div>
+<p class="ycMdToTop ycMdItemInfoArea"><a href="#ycWrHeader">▲このページのトップへ</a></p>
+
+        <div class="exCfx">
+      <div class="ycMdHeaderSub exCfx" id="purchInfo">
+        <h2>購入時情報</h2>
+        <span class="ycMdShowChg">
+          <a id="ycMdBuyerInfoAreaClose" class="close" href="javascript:void(0);" onclick="openArea('ycMdBuyerInfoArea');">閉じる</a>
+          <a id="ycMdBuyerInfoAreaOpen" class="open" href="javascript:void(0);" onclick="closeArea('ycMdBuyerInfoArea');" style="display:none;">開く</a>
+        </span>
+      </div>
+    </div>
+
+    <div class="ycMdBuyerInfoArea ycMdPurcInfo">
+      <table class="ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <th>参照元（リファラー）</th>
+          <td>
+            <div class="tdBody">
+              <p>http://search.yahoo.co.jp/search;_ylt=A7YWOS8CIq1XKk0AZ6uJBtF7?p=%E3%82%B5%E3%83%83%E3%83%97&amp;search.x=1&amp;fr=top_ga1_sa&amp;tid=top_ga1_sa&amp;ei=UTF-8&amp;aq=1&amp;oq=%E3%81%95%E3%81%A3%E3%81%B7&amp;afs=</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>入力ポイント（ランディングページ）</th>
+          <td>
+            <div class="tdBody">
+                                            <p><a href="http://store.shopping.yahoo.co.jp/fkstyle/ad066.html?sc_e=sydr_sspdspro">http://store.shopping.yahoo.co.jp/fkstyle/ad066.html?sc_e=sydr_sspdspro</a></p>
+                          </div>
+          </td>
+        </tr>
+        <tr>
+          <th>同一購入者からの注文一覧</th>
+          <td>
+            <div class="tdBody">
+                          <div class="ycMdBtn exCfx mb10">
+                <div class="btnGrS">
+                  <a href="javascript:void(0);" onclick="getRepeatOrderList();"><span>表示</span></a>
+                </div>
+              </div>
+                          <ul class="orderList exCfx" style="display:none;">
+                <li><a href="#">000-0000000000-000000000000</a></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+                <tr>
+          <th>管理者注文</th>
+          <td>
+            <div class="tdBody">
+              <p>いいえ</p>
+            </div>
+          </td>
+        </tr>
+                      </tbody></table>
+    </div>
+
+    <p class="ycMdToTop ycMdBuyerInfoArea"><a href="#ycWrHeader">▲このページのトップへ</a></p>
+
+        <div class="exCfx">
+      <div class="ycMdHeaderSub exCfx" id="inComMemo">
+        <h2>ストア内メモ</h2>
+        <span class="ycMdShowChg">
+          <a id="ycMdNotesInfoAreaClose" class="close" href="javascript:void(0);" onclick="openArea('ycMdNotesInfoArea');">閉じる</a>
+          <a id="ycMdNotesInfoAreaOpen" class="open" href="javascript:void(0);" onclick="closeArea('ycMdNotesInfoArea');" style="display:none;">開く</a>
+        </span>
+      </div>
+    </div>
+
+            <div class="ycMdNotesInfoArea ycMdInComMemo exCfx errAreaEh errAreaEhOrderChange notesArea">
+          <div class="EncHope">
+            <table class="ml8 mt5 mb5 mr8" border="0" cellpadding="0" cellspacing="0" width="930">
+              <tbody><tr>
+                <td>
+                  <div class="tdBody">
+                    <span class="errItemEh errItemEhOrderChange notesItem">
+                      <textarea class="inpdemandWm" rows="2" cols="5" name="notes"></textarea>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tbody></table>
+          </div>
+        </div>
+    
+                          <div class="ycMdBtnAreaBtm ml300 mb20">
+          <div class="ycMdBtn">
+            <div class="exCfx">
+              <div class="btnGrL"><a href="javascript:void(0);" onclick="window.close();"><span>閉じる</span></a></div>
+              <div class="btnBlL"><a href="javascript:void(0);" onclick="isValid();"><span>更新</span></a></div>
+            </div>
+          </div>
+        </div>
+                        <div class="ycMdLead">
+      <p class="disCt" style="color:red;">
+        <a href="http://storedoc.ec.yahoo.co.jp/shopping/topics/tool/new-tool/20140709-5.html" target="_blank" style="color:red;">
+          【重要な注意事項】クレジットカード決済によるご注文は注文ステータス「完了」にしないと売上確定となりません。        </a>
+      </p>
+      </div>
+  </div>
+  <input value="" name="cancelReason" type="hidden">
+  <input name="parentOrderId" value="" type="hidden"><input name="orderTime" value="2016-08-12T10:34:42+09:00" type="hidden"><input name="releaseDate" value="" type="hidden"><input name="deviceType" value="1" type="hidden"><input name="isRoyaltyFix" value="false" type="hidden"><input name="royaltyFixTime" value="2016-09-26T00:00:00+09:00" type="hidden"><input name="firstOrderDoneDate" value="" type="hidden"><input name="isLogin" value="false" type="hidden"><input name="fspLicenseName" value="" type="hidden"><input name="usePointType" value="" type="hidden"><input name="isAffiliate" value="false" type="hidden"><input name="orderId" value="fkstyle-10014977" type="hidden"><input name="suspect" value="0" type="hidden"><input name="suspectMessage" value="" type="hidden"><input name="childOrderId" value="" type="hidden"><input name="adjustments" value="" type="hidden"><input name="orderStatus" value="2" type="hidden"><input name="isSeen" value="false" type="hidden"><input name="beforeOrderStatus" value="2f" type="hidden"><input name="isUsePointFix" value="" type="hidden"><input name="refundStatus" value="" type="hidden"><input name="refundTotalPrice" value="" type="hidden"><input name="shipZipCode" value="794-0081" type="hidden"><input name="shipPrefecture" value="愛媛県" type="hidden"><input name="shipCity" value="今治市" type="hidden"><input name="shipAddress1" value="阿方甲187-3" type="hidden"><input name="shipAddress2" value="サンシャイン砂子101" type="hidden"><input name="shipPrefectureKana" value="" type="hidden"><input name="shipCityKana" value="" type="hidden"><input name="shipAddress1Kana" value="" type="hidden"><input name="shipAddress2Kana" value="" type="hidden"><input name="shipLastName" value="木村" type="hidden"><input name="shipFirstName" value="恵美" type="hidden"><input name="shipLastNameKana" value="キムラ" type="hidden"><input name="shipFirstNameKana" value="メグミ" type="hidden"><input name="shipPhoneNumber" value="090-5273-4303" type="hidden"><input name="shipEmgPhoneNumber" value="" type="hidden"><input name="shipSection1Field" value="" type="hidden"><input name="shipSection1Value" value="" type="hidden"><input name="shipSection2Field" value="" type="hidden"><input name="shipSection2Value" value="" type="hidden"><input name="needGiftWrap" value="" type="hidden"><input name="giftWrapType" value="" type="hidden"><input name="giftWrapMessage" value="" type="hidden"><input name="needGiftWrapPaper" value="" type="hidden"><input name="giftWrapPaperType" value="" type="hidden"><input name="giftWrapName" value="" type="hidden"><input name="option1Field" value="" type="hidden"><input name="option1Value" value="" type="hidden"><input name="option2Field" value="" type="hidden"><input name="option2Value" value="" type="hidden"><input name="shipRequestDate" value="" type="hidden"><input name="shipRequestTime" value="" type="hidden"><input name="shipRequestTimeStart" value="00" type="hidden"><input name="shipRequestTimeEnd" value="" type="hidden"><input name="arriveType" value="0" type="hidden"><input name="shipNotes" value="" type="hidden"><input name="shipDate" value="" type="hidden"><input name="arrivalDate" value="" type="hidden"><input name="shipInvoiceNumber1" value="" type="hidden"><input name="shipInvoiceNumber2" value="" type="hidden"><input name="shipUrl" value="" type="hidden"><input name="shipMethod" value="postage1" type="hidden"><input name="shipMethodName" value="【当社指定】の配送業者となります" type="hidden"><input name="isLinkDeliverSeino" value="false" type="hidden"><input name="beforeShipStatus" value="1" type="hidden"><input name="billZipCode" value="794-0081" type="hidden"><input name="billPrefecture" value="愛媛県" type="hidden"><input name="billCity" value="今治市" type="hidden"><input name="billAddress1" value="阿方甲187-3" type="hidden"><input name="billAddress2" value="サンシャイン砂子101" type="hidden"><input name="billPrefectureKana" value="" type="hidden"><input name="billCityKana" value="" type="hidden"><input name="billAddress1Kana" value="" type="hidden"><input name="billAddress2Kana" value="" type="hidden"><input name="billLastName" value="木村" type="hidden"><input name="billFirstName" value="恵美" type="hidden"><input name="billLastNameKana" value="キムラ" type="hidden"><input name="billFirstNameKana" value="メグミ" type="hidden"><input name="billPhoneNumber" value="090-5273-4303" type="hidden"><input name="billEmgPhoneNumber" value="" type="hidden"><input name="billMailAddress" value="megumi.k44@gmail.com" type="hidden"><input name="needDetailedSlip" value="" type="hidden"><input name="needReceipt" value="" type="hidden"><input name="needBillSlip" value="" type="hidden"><input name="buyerComments" value="" type="hidden"><input name="buyerId" value="" type="hidden"><input name="billSection1Field" value="" type="hidden"><input name="billSection1Value" value="" type="hidden"><input name="billSection2Field" value="" type="hidden"><input name="billSection2Value" value="" type="hidden"><input name="payActionTime" value="2016-08-12T10:34:44+09:00" type="hidden"><input name="ageConfirmField" value="" type="hidden"><input name="ageConfirmValue" value="" type="hidden"><input name="ageConfirmCheck" value="" type="hidden"><input name="payMethod" value="payment_a1" type="hidden"><input name="payMethodName" value="クレジットカード決済" type="hidden"><input name="settleStatus" value="3" type="hidden"><input name="settleId" value="k1608121240325" type="hidden"><input name="isAutoPayNo" value="1" type="hidden"><input name="cardPayType" value="1" type="hidden"><input name="cardPayCount" value="" type="hidden"><input name="payNo" value="" type="hidden"><input name="payNoIssueDate" value="" type="hidden"><input name="agencyNumber" value="" type="hidden"><input name="confirmNumber" value="" type="hidden"><input name="beforePayStatus" value="1" type="hidden"><input name="paymentTitle" value="" type="hidden"><input name="payment_sort" value="a1%_^A_%a16%_^A_%a9%_^A_%a10%_^A_%a11%_^A_%a8%_^A_%a6%_^A_%a7%_^A_%a15%_^A_%b1%_^A_%d1" type="hidden"><input name="paymentTitleList[b1]" value="銀行振込" type="hidden"><input name="paymentTitleList[d1]" value="商品代引" type="hidden"><input name="useCouponData" value="" type="hidden"><input name="totalCouponDiscount" value="" type="hidden"><input name="shippingCouponDiscount" value="0" type="hidden"><input name="shippingCouponFlg" value="0" type="hidden"><input name="couponCampaignCode" value="" type="hidden"><input name="totalMallCouponDiscount" value="" type="hidden"><input name="giftWrapCharge" value="0" type="hidden"><input name="shipCharge" value="972" type="hidden"><input name="payCharge" value="0" type="hidden"><input name="discount" value="0" type="hidden"><input name="title1" value="ハンモック 自立式 スタンド おしゃれ 室内 屋外 インテリア ビーチ カフェ アウトドア リゾート テラス AD023" type="hidden"><input name="subCodeOption1" value="" type="hidden"><input name="itemOption1" value="カラー選択=レインボー/ゆうメール配送不可(宅配便のみ)=了承済み！/生産時に錆び防止用オイルがスタンドに塗布されています=了承済み！/輸入輸送時に生じた小さな破れが収納袋にございます！=品質には問題なくご使用できます！" type="hidden"><input name="inscription1" value="" type="hidden"><input name="itemId1" value="ad023" type="hidden"><input name="subCode1" value="ad023-ra" type="hidden"><input name="unitPrice1" value="3999" type="hidden"><input name="quantity1" value="1" type="hidden"><input name="releaseDate1" value="" type="hidden"><input name="pointFspCode1" value="" type="hidden"><input name="unitGetPoint1" value="0" type="hidden"><input name="getPointType1" value="" type="hidden"><input name="isGetPointFix1" value="false" type="hidden"><input name="getPointFixDate1" value="" type="hidden"><input name="lineTotalPrice1" value="3999" type="hidden"><input name="isUsed1" value="false" type="hidden"><input name="beforeReleaseDate1" value="" type="hidden"><input name="subtotalPrice" value="3999" type="hidden"><input name="usePoint" value="0" type="hidden"><input name="totalPrice" value="4971" type="hidden"><input name="itemCount" value="1" type="hidden"><input name="cartMaxLine" value="50" type="hidden"><input name="referer" value="http://search.yahoo.co.jp/search;_ylt=A7YWOS8CIq1XKk0AZ6uJBtF7?p=%E3%82%B5%E3%83%83%E3%83%97&amp;search.x=1&amp;fr=top_ga1_sa&amp;tid=top_ga1_sa&amp;ei=UTF-8&amp;aq=1&amp;oq=%E3%81%95%E3%81%A3%E3%81%B7&amp;afs=" type="hidden"><input name="entryPoint" value="http://store.shopping.yahoo.co.jp/fkstyle/ad066.html?sc_e=sydr_sspdspro" type="hidden"><input name="isSeller" value="false" type="hidden">  <input name="csrf" value="NDA3MWNkYThmZDIzYThkMWRmYjk0MjliMjQyNzdhZTlhMGEyYTM3MGMxYzA2YmUxNjYwMmM2ZWQyNWVmOGRiOVd3K1luR0xxb0tWZDJibEdZdkxBVjJmdzk1aGswSzkxc1Q1OVBSbTJuOG1LcWFWSThWaEdsZk9GZXZubTRFSFlZRWRmWEpLWk5KejhnTjZ4SjdpazdrNllQMkJRLzFkSUpQb2hNUXArODlvPQ==" type="hidden"><input value="uaMozilla/5.0 (Windows NT 6.1; WOW64; rv:48.0) Gecko/20100101 Firefox/48.0langjascreen_height1080screen_width1920timezone_offset-540plugins360安全卫士 快速登录|Adobe Acrobat|Adobe Acrobat|AdobeAAMDetect|Microsoft Office 2010|Microsoft Office 2010|QQ2013 Chrome Plugin for Chrome V23.0.1271.64 or latest version|QQ2013 Firefox Plugin|Tencent SSO Platform|XunLei User Plugincanvas_imageiVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAABFklEQVQ4jdWTsYoDIRCGfY40FnmIbJc2L2GTJ0grghCWgEVsbGwiadJkINWmljzDFj7CvsafQty7vYPdzV3gOGEQx5nP+Udl7B0DIPzU/gmgbQmM5flvJXTdGc5JdN35O0AIwno9TFAq+2ZJuN9z0OdNzgnev9ADzglaG1yv9QB4uVhUVY3HY0RCkbHZeDgnoVReA4TjUWO5dNOAcmoIGquVg/eElDwOBwnGaBpQZOx2BlVVAyDEaHE6mfkApQiLhcd2KwHkam43Nx9QZOz3GjFaOCf7W5gFaNssoyQ3jXkNoFS2lPJtpOT7qkYBJYjzj2cbgoYQ2S/ExFP+ajFaxGgHvlLVKKAEhaAHyU1j+p68/zv/ZjwBdjbRY1EcNikAAAAASUVORK5CYII=" name="yjbfp_items" id="yjbfp_items" type="hidden"></form>
+<br>
+<input name="dummy" class="update" value="" style="display:none;" type="button">
+<input name="dummy" class="updateCancel" value="" style="display:none;" type="button">
+
+  
+    
+
+<script type="text/javascript">
+<!--
+(function () {
+    openArea = function(name) {
+        $('.' + name).hide();
+        $('#' + name + 'Open').show();
+        $('#' + name + 'Close').hide();
+    };
+
+    closeArea = function(name) {
+        $('.' + name).show();
+        $('#' + name + 'Open').hide();
+        $('#' + name + 'Close').show();
+    };
+
+        doAjaxFlg = false;
+    resData   = '';
+
+    doAjax = function(url, postData, successFunc, errorFunc) {
+        // 2度押し防止
+        if (doAjaxFlg == true) {
+            return;
+
+        } else {
+            doAjaxFlg = true;
+        }
+
+        // レスポンスデータ変数を初期化
+        resData = '';
+
+                $.ajax({
+            type    : 'post',
+            url     : url,
+            data    : postData,
+            success : successFunc,
+            error   : errorFunc
+        });
+    };
+
+        initError = function() {
+                $('.ycMdErrMsg').hide();
+        $('.errMsgEh').hide();
+        $('.errMsgRow').hide();
+        $('.errAreaEh').removeClass('errArea');
+        $('.errItemEh').removeClass('errItem');
+    };
+
+        setError = function() {
+        var errorMsg  = '\x3Cp\x3E\x3Cstrong\x3E';
+        var diffList  = new Array();
+        var errorItem = null;
+
+        for (var i = 1; i < resData.length; i++) {
+            errorItem = resData[i].split('=');
+
+            // 重複メッセージは表示しない
+            if (diffList[errorItem[1]] != true) {
+                errorMsg += errorItem[1] + '\x3Cbr\x3E';
+                diffList[errorItem[1]] = true;
+            }
+
+            // 項目毎のメッセージとCSS設定
+            $('.' + errorItem[0] + 'Msg').html(errorItem[1]);
+            $('.' + errorItem[0] + 'Msg').show();
+            $('.' + errorItem[0] + 'MsgRow').show();
+
+            $('.' + errorItem[0] + 'Area').addClass('errArea');
+            $('.' + errorItem[0] + 'Item').addClass('errItem');
+        }
+        errorMsg += '\x3C\x2Fstrong\x3E\x3C\x2Fp\x3E';
+
+        // 画面上部のメッセージ設定
+        $('.ycMdErrMsg').html(errorMsg);
+        $('.ycMdErrMsg').show();
+
+        $('html,body').animate({ scrollTop: 0 }, 'fast');
+    };
+
+    setErrorCancel = function() {
+        var errorMsg  = '\x3Cp\x3E\x3Cstrong\x3E';
+        var diffList  = new Array();
+        var errorItem = null;
+
+        for (var i = 1; i < resData.length; i++) {
+            errorItem = resData[i].split('=');
+
+            // 重複メッセージは表示しない
+            if (diffList[errorItem[1]] != true) {
+                errorMsg += errorItem[1] + '\x3Cbr\x3E';
+                diffList[errorItem[1]] = true;
+            }
+
+            // 項目毎のメッセージとCSS設定
+            $('.' + errorItem[0] + 'Msg').html(errorItem[1]);
+            $('.' + errorItem[0] + 'Msg').show();
+            $('.' + errorItem[0] + 'MsgRow').show();
+
+            $('.' + errorItem[0] + 'Area').addClass('errArea');
+            $('.' + errorItem[0] + 'Item').addClass('errItem');
+        }
+        errorMsg += '\x3C\x2Fstrong\x3E\x3C\x2Fp\x3E';
+
+        // 画面上部のメッセージ設定
+        $('#msgErrorCancel').html(errorMsg);
+        $('#msgErrorCancel').show();
+
+        $('.radErr').addClass('errArea');
+    };
+
+    setErrorForAll = function() {
+        $('.errAreaEh').addClass('errArea');
+        $('.errItemEh').addClass('errItem');
+    };
+
+    errorFunc = function(XMLHttpRequest, textStatus, errorThrown) {
+        resData    = new Array();
+        resData[0] = '0';
+        resData[1] = 'dummy=システムエラーが発生しました。しばらく時間をおいてから再度お試しください。';
+        setError();
+
+        doAjaxFlg = false;
+    }
+
+        getRepeatOrderList = function() {
+        var url      = '/pro.fkstyle/order/manage/detail/fkstyle-10014977/getRepeatOrderList';
+        var postData = {
+                buyerId         : '',
+                billMailAddress : 'megumi.k44@gmail.com',
+                billLastName    : '木村',
+                billFirstName   : '恵美'
+            };
+        var successFunc = function(data) {
+            var startTag = '\x3Cli\x3E\x3Ca\x20href\x3D\x22javascript\x3Avoid\x280\x29\x3B\x22\x20onclick\x3D\x22openOrderDetailWindow\x28\x27\x2Fpro.fkstyle\x2Forder\x2Fmanage\x2Fdetail\x2FXXXXXXXXXX\x27,\x20\x27XXXXXXXXXX\x27\x29\x3B\x22\x3E';
+            var endTag   = '\x3C\x2Fa\x3E\x3C\x2Fli\x3E';
+
+            var dispData = data.split(',');
+
+            // エラー時
+            if (dispData[0] == '0') {
+                // エラー処理
+
+            // 正常時
+            } else if (dispData[0] == '1') {
+                var outputHtml = '';
+
+                if (1 < dispData.length) {
+                    for (var i = 1; i < dispData.length; i++) {
+                        outputHtml += startTag.replace('XXXXXXXXXX', dispData[i]) + dispData[i] + endTag;
+                    }
+
+                    $('.orderList').html(outputHtml);
+                    $('.orderList').show();
+                } else {
+                    emptyHtml = '該当する注文情報がありませんでした。';
+                    $('.orderList').html(emptyHtml);
+                    $('.orderList').show();
+                }
+            }
+            doAjaxFlg = false;
+        };
+        doAjax(url, postData, successFunc, errorFunc);
+    };
+
+        goBack = function() {
+        doWindowLocation('/pro.fkstyle/order/manage/detail/fkstyle-10014977');
+    };
+
+        goSplit = function() {
+        doWindowLocation('/pro.fkstyle/order/manage/detail/fkstyle-10014977/split#jumpSplitItem');
+    };
+
+        goUpdate = function(url) {
+        if (typeof url !== 'undefined') {
+            $('#f').attr('action', url);
+        }
+        doSubmit(document.f);
+    };
+
+        goSuspectCancel = function(url) {
+        if (typeof url !== 'undefined') {
+            $('#f').attr('action', url);
+        }
+        doSubmit(document.f);
+    };
+
+    
+            
+    $(document).ready(function() {
+        //モーダルボックス
+        YAHOO.JP.commerce.sellerfrontB.ModalBox.set({
+            MODALBOX    : 'ycWrPanel',     //モーダル表示するボックスのID名（兼 識別名）
+            OPEN        : '.update',       //起動ボタンのID
+            CLOSE       : '.close'         //閉じる機能をもつ要素のIDまたはクラス名
+        });
+                YAHOO.JP.commerce.sellerfrontB.ModalBox.set({
+            MODALBOX    : 'ycWrPanelCancel',//モーダル表示するボックスのID名（兼 識別名）
+            OPEN        : '.updateCancel',       //起動ボタンのID
+            CLOSE       : '.closeCancel'         //閉じる機能をもつ要素のIDまたはクラス名
+        });
+            });
+
+        isValid = function() {
+        var url      = '/pro.fkstyle/order/manage/detail/fkstyle-10014977/isValid';
+        var postData = {
+            formOrderStatus        : $('select[name=formOrderStatus]').val(),    // 注文ステータス
+            formRefundStatus       : $('select[name=formRefundStatus]').val(),   // 返金ステータス
+            isPointFixByCompletion : $('[name=isPointFixByCompletion]').val(),   // ポイントを確定
+            shipStatus             : $('select[name=shipStatus]').val(),         // 出荷ステータス
+            payStatus              : $('select[name=payStatus]').val(),          // 入金ステータス
+            storeStatus            : $('select[name=storeStatus]').val(),        // ストアステータス
+            shipMethod             : $('select[name=shipMethod]').val(),         // お届け方法
+            shipMethodName         : $('[name=shipMethodName]').val(),           // お届け方法名
+            shipRequestDate        : $('[name=shipRequestDate]').val(),          // お届け希望日
+            shipRequestTimeStart   : $('[name=shipRequestTimeStart]').val(),     // お届け希望時間帯(開始)
+            shipRequestTimeEnd     : $('[name=shipRequestTimeEnd]').val(),       // お届け希望時間帯(終了)
+            arriveType             : $('[name=arriveType]').val(),               // あすつく、きょうつく
+            shipNotes              : $('[name=shipNotes]').val(),                // 配送メモ
+            shipDate               : $('[name=shipDate]').val(),                 // 出荷日
+            shipInvoiceNumber1     : $('[name=shipInvoiceNumber1]').val(),       // 配送伝票番号1
+            shipInvoiceNumber2     : $('[name=shipInvoiceNumber2]').val(),       // 配送伝票番号2
+            shipUrl                : $('[name=shipUrl]').val(),                  // 配送会社URL
+            payDate                : $('[name=payDate]').val(),                  // 入金日
+            payNotes               : $('[name=payNotes]').val(),                 // 備考
+            suspect                : $('[name=suspect]').val()                   // いたずら注文
+        };
+        var successFunc = function(data) {
+            resData = data.split(',');
+            initError();
+
+            // エラー時
+            if (resData[0] == '0') {
+                setError();
+
+            // 正常時
+            } else if (resData[0] == '1') {
+                // 注文ステータスをキャンセルに変更する場合はアラート表示
+                if ($('[name=orderStatus]').val() != '4' && $('select[name=formOrderStatus]').val() == '4') {
+                    $('.updateCancel').click();
+
+                // 返金必要->済にする場合、アラート表示
+                } else if ($('[name=refundStatus]').val() == '1' && $('select[name=formRefundStatus]').val() == '2') {
+                    document.getElementById("modalMessage").innerHTML = "返金ステータスを「返金済み」にします。<br>一度「返金済み」にすると取り消すことはできません。<br>返金ステータスの変更を実行しますか？";
+                    $('.update').click();
+
+                // その他の更新の場合はアラートは表示しない
+                } else {
+                    goUpdate();
+                }
+            }
+
+            doAjaxFlg = false;
+
+        };
+        doAjax(url, postData, successFunc, errorFunc);
+    };
+        isValidCancel = function() {
+        var url      = '/pro.fkstyle/order/manage/detail/fkstyle-10014977/isValidCancel';
+        var postData = {
+            cancelReason        : $('input[name=radCancelReason]:checked').val()    // 注文ステータス
+        };
+        var successFunc = function(data) {
+            resData = data.split(',');
+            initError();
+
+            // エラー時
+            if (resData[0] == '0') {
+                setErrorCancel();
+
+            // 正常時
+            } else if (resData[0] == '1') {
+                // clear error message
+                $('#msgErrorCancel').hide();
+                $('.radErr').removeClass('errArea');
+
+                // set back to form input
+                $('input[name=cancelReason]').val($('input[name=radCancelReason]:checked').val());
+
+                goUpdate();
+            }
+
+            doAjaxFlg = false;
+
+        };
+        doAjax(url, postData, successFunc, errorFunc);
+    };
+    }());
+-->
+</script>
+    <!-- /ycWrContentsFix -->
+
+    <!-- ycWrFooter -->
+    <div id="ycWrFooter">
+  <div class="ycMdFooter">
+    <ul>
+      <li class="top"><a href="http://storedoc.ec.yahoo.co.jp/shopping/toolmanual/">マニュアル</a></li>
+      <li><a href="http://storedoc.ec.yahoo.co.jp/shopping/faq/">FAQ</a></li>
+      <li><a href="http://docs.yahoo.co.jp/docs/info/terms/chapter1.html#cf2nd">プライバシーポリシー</a></li>
+      <li><a href="https://login.bizmanager.yahoo.co.jp/info/guidelines">Yahoo! JAPANビジネスID利用規約</a></li>
+      <li><a href="http://www.yahoo-help.jp/">ヘルプ・お問い合わせ</a></li>
+    </ul>
+    <p>Copyright (C) 2016 Yahoo Japan Corporation. All Rights Reserved.</p>
+  </div>
+</div>
+    <!-- /ycWrFooter -->
+  </div>
+
+
+<div class="ModalMask" style="position: absolute; left: 0px; top: 0px; z-index: 9000; background-color: rgb(0, 0, 0); display: none;"></div><div id="PaymentMethodUpdate" class="ModalBox">
+  <div class="ycMdPanelHd exCfx"><a href="javascript:void(0);" class="close"><img src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/ic_win_close.png" alt="閉じる" height="16" width="16"></a></div>
+  <div class="ycMdPanelBd">
+    <div class="ycMdLead">
+      <p>以下の内容で更新します。</p>
+      <p>更新するには「更新」ボタンを、内容を変更する場合は「キャンセル」ボタンを押してください。</p>
+    </div>
+    <table class="itemTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tbody>
+        <tr>
+          <th style="width:200px">現在のお支払い方法</th>
+          <td><div id="processDetail">クレジットカード決済</div></td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="itemTable" border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tbody>
+        <tr>
+          <th style="width:200px">変更後のお支払い方法</th>
+          <td>
+            <div id="processDetail">
+                          </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="ycMdBtn">
+      <div class="btnCtFl exCfx">
+        <div class="btnGrL"><a class="close" href="javascript:void(0);"><span>キャンセル</span></a></div>
+        <div class="btnBlL"><a href="javascript:void(0);" onclick="goUpdate('/pro.fkstyle/order/manage/detail/fkstyle-10014977/payMethodChange');"><span>更新</span></a></div>
+      </div>
+    </div>
+  </div>
+</div><div class="ModalMask" style="position: absolute; left: 0px; top: 0px; z-index: 9000; background-color: rgb(0, 0, 0); display: none;"></div><div id="ycWrPanel" class="ModalBox">
+    <div class="ycMdPanelHd exCfx">
+      <a href="javascript:void(0);" class="close"><img src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/ic_win_close_002.png" alt="閉じる" height="16" width="16"></a>
+    </div>
+    <div class="ycMdPanelBd">
+      <p class="ycMdLead" id="modalMessage"></p>
+      <div class="ycMdBtn">
+        <div class="btnCtFl exCfx">
+          <div class="btnGrL">
+            <a href="javascript:void(0);" class="close"><span>キャンセル</span></a>
+          </div>
+          <div class="btnBlL">
+            <a href="javascript:void(0);" onclick="goUpdate();"><span>実行</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><div class="ModalMask" style="position: absolute; left: 0px; top: 0px; z-index: 9000; background-color: rgb(0, 0, 0); display: none;"></div><div id="ycWrPanelCancel" class="ModalBox" style="width: 630px">
+    <div class="ycMdPanelHd exCfx">
+        <a href="javascript:void(0);" class="closeCancel"><img src="%E6%B3%A8%E6%96%87%E8%A9%B3%E7%B4%B0%EF%BC%9A%E6%B3%A8%E6%96%87%E6%83%85%E5%A0%B1%20-%20%E3%82%B9%E3%83%88%E3%82%A2%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BCPro_files/ic_win_close_002.png" alt="閉じる" height="16" width="16"></a>
+    </div>
+    <div class="ycMdPanelBd">
+        <div style="display:none;" class="ycMdErrMsg" id="msgErrorCancel"></div>
+        <p class="ycMdLead">注文をキャンセルします。<br>なお、一度キャンセルを行ったら取り消すことはできません。<br>キャンセルを実行しますか？</p>
+        <table class="ycMdDeliInfoArea ycMdItemInfo" border="0" cellpadding="0" cellspacing="0" width="100%">
+            <tbody>
+                <tr>
+                    <th>注文者都合</th>
+                    <td class="radErr">
+                        <div class="tdBody">
+                                                        <input name="radCancelReason" id="cancelReason100" value="100" type="radio"><label for="cancelReason100">キャンセル</label><br>
+                                                        <input name="radCancelReason" id="cancelReason110" value="110" type="radio"><label for="cancelReason110">返品</label><br>
+                                                        <input name="radCancelReason" id="cancelReason120" value="120" type="radio"><label for="cancelReason120">未入金</label><br>
+                                                        <input name="radCancelReason" id="cancelReason130" value="130" type="radio"><label for="cancelReason130">住所不明</label><br>
+                                                        <input name="radCancelReason" id="cancelReason140" value="140" type="radio"><label for="cancelReason140">受け取り拒否</label><br>
+                                                        <input name="radCancelReason" id="cancelReason150" value="150" type="radio"><label for="cancelReason150">連絡不通</label><br>
+                                                        <input name="radCancelReason" id="cancelReason160" value="160" type="radio"><label for="cancelReason160">重複注文</label><br>
+                                                        <input name="radCancelReason" id="cancelReason170" value="170" type="radio"><label for="cancelReason170">決済審査不可</label><br>
+                                                        <input name="radCancelReason" id="cancelReason180" value="180" type="radio"><label for="cancelReason180">その他</label><br>
+                                                    </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ストア都合</th>
+                    <td class="radErr">
+                        <div class="tdBody">
+                                                        <input name="radCancelReason" id="cancelReason200" value="200" type="radio"><label for="cancelReason200">決済方法都合</label><br>
+                                                        <input name="radCancelReason" id="cancelReason210" value="210" type="radio"><label for="cancelReason210">欠品</label><br>
+                                                        <input name="radCancelReason" id="cancelReason220" value="220" type="radio"><label for="cancelReason220">販売中止</label><br>
+                                                        <input name="radCancelReason" id="cancelReason230" value="230" checked="checked" type="radio"><label for="cancelReason230">その他</label><br>
+                                                    </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="ycMdBtn">
+            <div class="btnCtFl exCfx">
+                <div class="btnGrL">
+                    <a href="javascript:void(0);" class="closeCancel"><span>キャンセル</span></a>
+                </div>
+                <div class="btnBlL">
+                    <a href="javascript:void(0);" onclick="isValidCancel();"><span>実行</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div></body></html>

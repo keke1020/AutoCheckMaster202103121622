@@ -1,0 +1,23 @@
+﻿<table width=670 cellpadding=0 cellspacing=0>
+<tr>
+<td><a href="$A1"><img src="$A2" width=325 border=0></a></td>
+<td width=20></td>
+<td><a href="$B1"><img src="$B2" width=325 border=0></a></td>
+</tr>
+<tr><td colspan=3 height=10></td></tr>
+<tr>
+<th align=left>$A3</th>
+<td></td>
+<th align=left>$B3</th>
+</tr>
+<tr>
+<td>$A5</td>
+<td></td>
+<td>$B5</td>
+</tr>
+<tr>
+<th align=right><font size=+2 color=red>$A4円 (税込)</font></th>
+<td></td>
+<th align=right><font size=+2 color=red>$B4円(税込)</font></th>
+</tr>
+</table>

@@ -1,0 +1,34 @@
+Set PrintJobSet = GetObject("winmgmts:").InstancesOf ("Win32_PrintJob")
+
+If (PrintJobSet.Count = 0) Then WScript.Echo "ÉWÉáÉuÇÕÇ†ÇËÇ‹ÇπÇÒÅB"
+for each PrintJob in PrintJobSet
+    WScript.Echo _
+        " Caption=" &         PrintJob.Caption & vbCr & _
+        " Description=" &     PrintJob.Description & vbCr & _
+        " InstallDate=" &     PrintJob.InstallDate & vbCr & _
+        " Name=" &            PrintJob.Name & vbCr & _
+        " Status=" &          PrintJob.Status & vbCr & _
+        " ElapsedTime=" &     PrintJob.ElapsedTime & vbCr & _
+        " JobStatus=" &       PrintJob.JobStatus & vbCr & _
+        " Notify=" &          PrintJob.Notify & vbCr & _
+        " Owner=" &           PrintJob.Owner & vbCr & _
+        " Priority=" &        PrintJob.Priority & vbCr & _
+        " StartTime=" &       PrintJob.StartTime & vbCr & _
+        " TimeSubmitted=" &   PrintJob.TimeSubmitted & vbCr & _
+        " UntilTime=" &       PrintJob.UntilTime & vbCr & _
+        " Color=" &           PrintJob.Color & vbCr & _
+        " DataType=" &        PrintJob.DataType & vbCr & _
+        " Document=" &        PrintJob.Document & vbCr & _
+        " DriverName=" &      PrintJob.DriverName & vbCr & _
+        " HostPrintQueue=" &  PrintJob.HostPrintQueue & vbCr & _
+        " JobId=" &           PrintJob.JobId & vbCr & _
+        " PagesPrinted=" &    PrintJob.PagesPrinted & vbCr & _
+        " PaperLength=" &     PrintJob.PaperLength & vbCr & _
+        " PaperSize=" &       PrintJob.PaperSize & vbCr & _
+        " PaperWidth=" &      PrintJob.PaperWidth & vbCr & _
+        " Parameters=" &      PrintJob.Parameters & vbCr & _
+        " PrintProcessor=" &  PrintJob.PrintProcessor & vbCr & _
+        " Size=" &            PrintJob.Size & vbCr & _
+        " StatusMask=" &      PrintJob.StatusMask & vbCr & _
+        " TotalPages=" &      PrintJob.TotalPages
+next

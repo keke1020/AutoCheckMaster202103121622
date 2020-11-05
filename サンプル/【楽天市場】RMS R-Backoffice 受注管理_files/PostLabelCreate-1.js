@@ -1,0 +1,10 @@
+/*
+ PostLabelCreate-1.0.0.min.js
+ Copyright (c) 2014 Rakuten.Inc
+ Date : 2014/9/18 18:00:00
+*/
+function PostLabelCreate(labelDialog){this.labelDialog=labelDialog}
+PostLabelCreate.prototype={post:function(){var labelXhr=$.ajax(this.getRequest()).done(this.displayMsgList()).fail(this.displaySysErrDialog());this.labelDialog.setLabelXhr(labelXhr)},getRequest:function(){var request={};request.url="https://order.rms.rakuten.co.jp/rms/mall/order/rb/vc";request.type="POST";request.dataType="json";request.traditional=true;request.data={"__event":"LabelCreate","appCode":"appCode","orderNumber":this.labelDialog.getOrderNumber(),"labelType":0};return request},displayMsgList:function(){var self=
+this;return function(data,status,xhr){self.emptyDialog();if(data.resultCode!="N00-000"){self.processFail(data);return}self.processSucc(data)}},processSucc:function(data){this.displayLoader();this.mapData(data);this.setBindId();this.overwriteClass();var message="GetMessageList#get";this.labelDialog.broadcast(message)},processFail:function(data){this.setMsgData(data);this.displayErrDialog()},setMsgData:function(data){var nowMsgData=this.labelDialog.getMsgData();var msgData=$.extend(true,{},nowMsgData,
+data);this.labelDialog.setMsgData(msgData)},mapData:function(data){var $Label=this.labelDialog.get$Label();var labelData={};labelData.bindId=data.results.bindId;$Label.data(labelData)},setBindId:function(){var $Label=this.labelDialog.get$Label();var bindId=$Label.data("bindId");this.labelDialog.setBindId(bindId)},overwriteClass:function(){var $Label=this.labelDialog.get$Label();$Label.removeClass("PostLabelCreate");$Label.addClass("GetMessageList")},displayErrDialog:function(){var message="DisplayErrDialog#display";
+this.labelDialog.broadcast(message)},displaySysErrDialog:function(){var self=this;return function(xhr,status,error){var message="DisplayErrDialog#dispSysErr";self.labelDialog.broadcast(message)}},emptyDialog:function(){var $Dialog=this.labelDialog.get$Dialog();$Dialog.empty()},displayLoader:function(){var $Dialog=this.labelDialog.get$Dialog();var $Loader=this.labelDialog.get$Loader();$Dialog.append($Loader)}};
