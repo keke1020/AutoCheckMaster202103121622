@@ -449,7 +449,7 @@ Public Class Tuiseki
 
     Private Sub CB3save()
         Dim flag As Boolean = False
-        If InStr(Environment.MachineName, "TAK") > 0 Then
+        If InStr(Environment.MachineName, "TAK") > 0 Or InStr(Environment.MachineName, "PING2") Or InStr(Environment.MachineName, "PING") Or InStr(Environment.MachineName, "MAO") Then
             flag = True
         ElseIf InStr(Environment.MachineName, "NAKA") > 0 And InStr(appPath, "Debug") > 0 Then
             If Directory.Exists(dPath) Then
@@ -664,7 +664,7 @@ Public Class Tuiseki
 
         'サーバーに保存
         Dim serverNewPath As String = ""
-        If Regex.IsMatch(Environment.MachineName, "TAK|NAKA") Then
+        If Regex.IsMatch(Environment.MachineName, "TAK|NAKA|PING|PING2|MAO") Then
             Try
                 Dim saveFlag As Boolean = False
                 Dim files As String() = Directory.GetFiles(serverPath, "*.csv", System.IO.SearchOption.AllDirectories)

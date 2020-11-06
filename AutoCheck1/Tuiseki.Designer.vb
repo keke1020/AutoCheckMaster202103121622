@@ -24,19 +24,19 @@ Partial Class Tuiseki
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Tuiseki))
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CheckBox13 = New System.Windows.Forms.CheckBox()
         Me.TextBox17 = New System.Windows.Forms.TextBox()
@@ -161,6 +161,7 @@ Partial Class Tuiseki
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button21 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
@@ -200,7 +201,6 @@ Partial Class Tuiseki
         Me.Column40 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column44 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BackgroundWorker3 = New System.ComponentModel.BackgroundWorker()
-        Me.Button21 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -1489,6 +1489,16 @@ Partial Class Tuiseki
         Me.Panel1.Size = New System.Drawing.Size(328, 29)
         Me.Panel1.TabIndex = 19
         '
+        'Button21
+        '
+        Me.Button21.BackColor = System.Drawing.Color.Azure
+        Me.Button21.Location = New System.Drawing.Point(234, 3)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(89, 23)
+        Me.Button21.TabIndex = 21
+        Me.Button21.Text = "エクスポート"
+        Me.Button21.UseVisualStyleBackColor = False
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption
@@ -1657,48 +1667,48 @@ Partial Class Tuiseki
         '
         'Column43
         '
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column43.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column43.DefaultCellStyle = DataGridViewCellStyle1
         Me.Column43.HeaderText = "すべて"
         Me.Column43.Name = "Column43"
         Me.Column43.Width = 65
         '
         'Column49
         '
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column49.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column49.DefaultCellStyle = DataGridViewCellStyle2
         Me.Column49.HeaderText = "未"
         Me.Column49.Name = "Column49"
         Me.Column49.Width = 65
         '
         'Column50
         '
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column50.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column50.DefaultCellStyle = DataGridViewCellStyle3
         Me.Column50.HeaderText = "該当無"
         Me.Column50.Name = "Column50"
         Me.Column50.Width = 65
         '
         'Column51
         '
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column51.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column51.DefaultCellStyle = DataGridViewCellStyle4
         Me.Column51.HeaderText = "対応確認"
         Me.Column51.Name = "Column51"
         Me.Column51.Width = 65
         '
         'Column52
         '
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column52.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column52.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column52.HeaderText = "返送"
         Me.Column52.Name = "Column52"
         Me.Column52.Width = 65
         '
         'Column53
         '
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column53.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column53.DefaultCellStyle = DataGridViewCellStyle6
         Me.Column53.HeaderText = "C"
         Me.Column53.Name = "Column53"
         Me.Column53.Width = 65
@@ -1766,56 +1776,56 @@ Partial Class Tuiseki
         '
         'Column35
         '
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column35.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column35.DefaultCellStyle = DataGridViewCellStyle7
         Me.Column35.HeaderText = "全"
         Me.Column35.Name = "Column35"
         Me.Column35.Width = 40
         '
         'Column36
         '
-        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column36.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column36.DefaultCellStyle = DataGridViewCellStyle8
         Me.Column36.HeaderText = "済"
         Me.Column36.Name = "Column36"
         Me.Column36.Width = 40
         '
         'Column39
         '
-        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column39.DefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column39.DefaultCellStyle = DataGridViewCellStyle9
         Me.Column39.HeaderText = "未"
         Me.Column39.Name = "Column39"
         Me.Column39.Width = 30
         '
         'Column37
         '
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column37.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column37.DefaultCellStyle = DataGridViewCellStyle10
         Me.Column37.HeaderText = "該"
         Me.Column37.Name = "Column37"
         Me.Column37.Width = 30
         '
         'Column41
         '
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column41.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column41.DefaultCellStyle = DataGridViewCellStyle11
         Me.Column41.HeaderText = "対"
         Me.Column41.Name = "Column41"
         Me.Column41.Width = 30
         '
         'Column38
         '
-        DataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column38.DefaultCellStyle = DataGridViewCellStyle25
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column38.DefaultCellStyle = DataGridViewCellStyle12
         Me.Column38.HeaderText = "返"
         Me.Column38.Name = "Column38"
         Me.Column38.Width = 30
         '
         'Column40
         '
-        DataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column40.DefaultCellStyle = DataGridViewCellStyle26
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column40.DefaultCellStyle = DataGridViewCellStyle13
         Me.Column40.HeaderText = "C"
         Me.Column40.Name = "Column40"
         Me.Column40.Width = 30
@@ -1830,16 +1840,6 @@ Partial Class Tuiseki
         '
         Me.BackgroundWorker3.WorkerReportsProgress = True
         Me.BackgroundWorker3.WorkerSupportsCancellation = True
-        '
-        'Button21
-        '
-        Me.Button21.BackColor = System.Drawing.Color.Azure
-        Me.Button21.Location = New System.Drawing.Point(234, 3)
-        Me.Button21.Name = "Button21"
-        Me.Button21.Size = New System.Drawing.Size(89, 23)
-        Me.Button21.TabIndex = 21
-        Me.Button21.Text = "エクスポート"
-        Me.Button21.UseVisualStyleBackColor = False
         '
         'Tuiseki
         '

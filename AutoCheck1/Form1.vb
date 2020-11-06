@@ -2701,6 +2701,16 @@ Public Class Form1
         SagawaSpare.Show()
     End Sub
 
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+        If Me.Timer1.Enabled Then
+            Me.Timer1.Enabled = False
+            Button14.BackColor = Color.LightPink
+        Else
+            Me.Timer1.Enabled = True
+            Button14.BackColor = Color.PaleGreen
+        End If
+    End Sub
+
 
     'Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Integer
     'Declare Function FindWindowEx Lib "user32.dll" Alias "FindWindowExA" (ByVal hwndParent As Integer, ByVal hwndChildAfter As Integer, ByVal lpszClass As String, ByVal lpszWindow As String) As Integer

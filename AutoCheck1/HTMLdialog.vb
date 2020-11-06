@@ -6,7 +6,7 @@ Imports System.Text.RegularExpressions
 Public Class HTMLdialog
     Dim secValue As String = ""
     'Dim tenpo As String() = New String() {"FKstyle", "Lucky9", "あかねYahoo", "暁", "アリス", "あかね楽天", "KuraNavi", "雑貨倉庫", "海東KT", "問よか", "Amazon(5%)", "Amazon(8%)", "Amazon(10%)"}
-    Dim tenpo As String() = New String() {"FKstyle(以前)", "FKstyle", "Lucky9", "海東KT", "暁", "アリス", "あかね楽天", "KuraNavi", "雑貨倉庫", "あかねYahoo", "Amazon(105%)", "Amazon(108%)", "Amazon(110%)"}
+    Dim tenpo As String() = New String() {"FKstyle(以前)", "FKstyle", "Lucky9", "海東KT", "暁", "アリス", "あかね楽天", "KuraNavi", "雑貨倉庫", "あかねYahoo", "問よか", "Amazon(105%)", "Amazon(108%)", "Amazon(110%)"}
     Dim donya_vip As String() = New String() {"ブロンズ", "シルバー", "ゴールド", "プラチナ", "ダイヤ"}
 
     Private Sub HTMLdialog_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -863,9 +863,9 @@ Public Class HTMLdialog
     'Private SouryoTakuhai As String() = New String() {"750", "650", "0", "0", "530", "0", "0", "0", "756", "530", "0", "0", "0"}
     'Private SouryoOhgata As String() = New String() {"990", "890", "0", "0", "1260", "0", "0", "0", "972", "1260", "0", "0", "0"}
 
-    Private SouryoMail As String() = New String() {"190", "120", "0", "0", "190", "0", "0", "0", "240", "0", "0", "0", "0"}
-    Private SouryoTakuhai As String() = New String() {"750", "650", "0", "0", "530", "0", "0", "0", "756", "0", "0", "0", "0"}
-    Private SouryoOhgata As String() = New String() {"990", "890", "0", "0", "1260", "0", "0", "0", "972", "0", "0", "0", "0"}
+    Private SouryoMail As String() = New String() {"190", "120", "0", "0", "190", "0", "0", "0", "240", "0", "190", "0", "0", "0"}
+    Private SouryoTakuhai As String() = New String() {"750", "650", "0", "0", "530", "0", "0", "0", "756", "0", "530", "0", "0", "0"}
+    Private SouryoOhgata As String() = New String() {"990", "890", "0", "0", "1260", "0", "0", "0", "972", "0", "1260", "0", "0", "0"}
     Private Sub PriceCalc2()
         '"FKstyle", "Lucky9", "あかねYahoo", "暁", "アリス", "あかね楽天", "KuraNavi", "雑貨倉庫", "海東KT, "問よか""
         Select Case ComboBox11.SelectedItem

@@ -94,6 +94,7 @@ Partial Class Form1
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.Button14 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.CheckBox9 = New System.Windows.Forms.CheckBox()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
@@ -907,6 +908,7 @@ Partial Class Form1
         '
         'TabPage4
         '
+        Me.TabPage4.Controls.Add(Me.Button14)
         Me.TabPage4.Controls.Add(Me.Button11)
         Me.TabPage4.Controls.Add(Me.CheckBox9)
         Me.TabPage4.Location = New System.Drawing.Point(4, 40)
@@ -916,11 +918,23 @@ Partial Class Form1
         Me.TabPage4.Text = "設定"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'Button14
+        '
+        Me.Button14.BackColor = System.Drawing.Color.PaleGreen
+        Me.Button14.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Button14.Location = New System.Drawing.Point(8, 40)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(125, 18)
+        Me.Button14.TabIndex = 2
+        Me.Button14.Text = "アップデーNG"
+        Me.Button14.UseVisualStyleBackColor = False
+        '
         'Button11
         '
-        Me.Button11.Location = New System.Drawing.Point(8, 37)
+        Me.Button11.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Button11.Location = New System.Drawing.Point(8, 19)
         Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(125, 23)
+        Me.Button11.Size = New System.Drawing.Size(125, 18)
         Me.Button11.TabIndex = 1
         Me.Button11.Text = "DOM検索"
         Me.Button11.UseVisualStyleBackColor = True
@@ -930,7 +944,7 @@ Partial Class Form1
         Me.CheckBox9.AutoSize = True
         Me.CheckBox9.Checked = True
         Me.CheckBox9.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBox9.Location = New System.Drawing.Point(8, 15)
+        Me.CheckBox9.Location = New System.Drawing.Point(8, 3)
         Me.CheckBox9.Name = "CheckBox9"
         Me.CheckBox9.Size = New System.Drawing.Size(125, 16)
         Me.CheckBox9.TabIndex = 0
@@ -2470,4 +2484,5 @@ Partial Class Form1
     Friend WithEvents ToolStripSeparator20 As ToolStripSeparator
     Friend WithEvents Qoo10チェックToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 佐川送料比較ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button14 As Button
 End Class

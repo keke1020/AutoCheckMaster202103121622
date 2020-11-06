@@ -809,7 +809,7 @@ Partial Class HTMLdialog
         Me.TabControl3.Location = New System.Drawing.Point(6, 5)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(495, 386)
+        Me.TabControl3.Size = New System.Drawing.Size(495, 408)
         Me.TabControl3.TabIndex = 40
         '
         'TabPage2
@@ -830,7 +830,7 @@ Partial Class HTMLdialog
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(487, 360)
+        Me.TabPage2.Size = New System.Drawing.Size(487, 382)
         Me.TabPage2.TabIndex = 0
         Me.TabPage2.Text = "楽天、ヤフー"
         '
@@ -849,7 +849,7 @@ Partial Class HTMLdialog
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowTemplate.Height = 21
-        Me.DataGridView1.Size = New System.Drawing.Size(354, 297)
+        Me.DataGridView1.Size = New System.Drawing.Size(354, 319)
         Me.DataGridView1.TabIndex = 11
         '
         'Column1
@@ -893,7 +893,7 @@ Partial Class HTMLdialog
         '
         'Label6
         '
-        Me.Label6.Location = New System.Drawing.Point(69, 335)
+        Me.Label6.Location = New System.Drawing.Point(69, 361)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(42, 12)
         Me.Label6.TabIndex = 35
@@ -913,7 +913,7 @@ Partial Class HTMLdialog
         'CheckBox21
         '
         Me.CheckBox21.AutoSize = True
-        Me.CheckBox21.Location = New System.Drawing.Point(8, 306)
+        Me.CheckBox21.Location = New System.Drawing.Point(8, 329)
         Me.CheckBox21.Name = "CheckBox21"
         Me.CheckBox21.Size = New System.Drawing.Size(62, 16)
         Me.CheckBox21.TabIndex = 34
@@ -924,7 +924,7 @@ Partial Class HTMLdialog
         '
         Me.TextBox6.BackColor = System.Drawing.SystemColors.Info
         Me.TextBox6.ImeMode = System.Windows.Forms.ImeMode.Alpha
-        Me.TextBox6.Location = New System.Drawing.Point(8, 332)
+        Me.TextBox6.Location = New System.Drawing.Point(8, 358)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.ReadOnly = True
         Me.TextBox6.Size = New System.Drawing.Size(55, 19)
@@ -934,7 +934,7 @@ Partial Class HTMLdialog
         '
         'TextBox39
         '
-        Me.TextBox39.Location = New System.Drawing.Point(130, 306)
+        Me.TextBox39.Location = New System.Drawing.Point(130, 329)
         Me.TextBox39.Multiline = True
         Me.TextBox39.Name = "TextBox39"
         Me.TextBox39.ReadOnly = True
