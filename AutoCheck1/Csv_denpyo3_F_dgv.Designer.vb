@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Csv_denpyo3_F_dgv
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,10 @@ Partial Class Csv_denpyo3_F_dgv
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -32,6 +32,7 @@ Partial Class Csv_denpyo3_F_dgv
         Me.Button4 = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox33 = New System.Windows.Forms.TextBox()
         Me.Button21 = New System.Windows.Forms.Button()
@@ -45,14 +46,15 @@ Partial Class Csv_denpyo3_F_dgv
         Me.Column34 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column35 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -62,8 +64,8 @@ Partial Class Csv_denpyo3_F_dgv
         Me.StatusStrip1.SuspendLayout()
         CType(Me.DGV3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -139,6 +141,8 @@ Partial Class Csv_denpyo3_F_dgv
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button6)
+        Me.GroupBox1.Controls.Add(Me.Button5)
         Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.TextBox33)
         Me.GroupBox1.Controls.Add(Me.Button21)
@@ -148,11 +152,24 @@ Partial Class Csv_denpyo3_F_dgv
         Me.GroupBox1.TabIndex = 24
         Me.GroupBox1.TabStop = False
         '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Button5.Location = New System.Drawing.Point(219, 12)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(24, 23)
+        Me.Button5.TabIndex = 77
+        Me.Button5.Text = "↓"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.PaleTurquoise
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(208, 12)
+        Me.Button3.Location = New System.Drawing.Point(165, 12)
         Me.Button3.Margin = New System.Windows.Forms.Padding(0)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(24, 23)
@@ -163,18 +180,18 @@ Partial Class Csv_denpyo3_F_dgv
         'TextBox33
         '
         Me.TextBox33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox33.Location = New System.Drawing.Point(18, 14)
+        Me.TextBox33.Location = New System.Drawing.Point(8, 14)
         Me.TextBox33.MaxLength = 25
         Me.TextBox33.Multiline = True
         Me.TextBox33.Name = "TextBox33"
-        Me.TextBox33.Size = New System.Drawing.Size(133, 19)
+        Me.TextBox33.Size = New System.Drawing.Size(80, 19)
         Me.TextBox33.TabIndex = 75
         '
         'Button21
         '
         Me.Button21.BackColor = System.Drawing.Color.PaleTurquoise
         Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button21.Location = New System.Drawing.Point(154, 12)
+        Me.Button21.Location = New System.Drawing.Point(111, 12)
         Me.Button21.Margin = New System.Windows.Forms.Padding(0)
         Me.Button21.Name = "Button21"
         Me.Button21.Size = New System.Drawing.Size(51, 23)
@@ -193,7 +210,7 @@ Partial Class Csv_denpyo3_F_dgv
         Me.DGV1.Location = New System.Drawing.Point(0, 49)
         Me.DGV1.Name = "DGV1"
         Me.DGV1.RowTemplate.Height = 21
-        Me.DGV1.Size = New System.Drawing.Size(763, 405)
+        Me.DGV1.Size = New System.Drawing.Size(763, 446)
         Me.DGV1.TabIndex = 9
         '
         'ContextMenuStrip1
@@ -213,7 +230,7 @@ Partial Class Csv_denpyo3_F_dgv
         '
         Me.StatusStrip1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 454)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 495)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(922, 27)
         Me.StatusStrip1.TabIndex = 10
@@ -250,7 +267,7 @@ Partial Class Csv_denpyo3_F_dgv
         Me.DGV3.Name = "DGV3"
         Me.DGV3.RowHeadersVisible = False
         Me.DGV3.RowTemplate.Height = 21
-        Me.DGV3.Size = New System.Drawing.Size(159, 277)
+        Me.DGV3.Size = New System.Drawing.Size(159, 318)
         Me.DGV3.TabIndex = 23
         '
         'Column34
@@ -261,8 +278,8 @@ Partial Class Csv_denpyo3_F_dgv
         '
         'Column35
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column35.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.Column35.DefaultCellStyle = DataGridViewCellStyle5
         Me.Column35.HeaderText = "便数"
         Me.Column35.Name = "Column35"
         Me.Column35.Width = 55
@@ -275,8 +292,26 @@ Partial Class Csv_denpyo3_F_dgv
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel2.Location = New System.Drawing.Point(763, 49)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(159, 405)
+        Me.Panel2.Size = New System.Drawing.Size(159, 446)
         Me.Panel2.TabIndex = 24
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.Label3)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel4.Location = New System.Drawing.Point(0, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(159, 24)
+        Me.Panel4.TabIndex = 26
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(17, 8)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(93, 12)
+        Me.Label3.TabIndex = 79
+        Me.Label3.Text = "◆出力された枚数"
         '
         'Panel3
         '
@@ -286,10 +321,19 @@ Partial Class Csv_denpyo3_F_dgv
         Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Controls.Add(Me.Label9)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(0, 301)
+        Me.Panel3.Location = New System.Drawing.Point(0, 342)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(159, 104)
         Me.Panel3.TabIndex = 25
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(17, 7)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(120, 12)
+        Me.Label4.TabIndex = 181
+        Me.Label4.Text = "枚数と件数は異なります"
         '
         'Label2
         '
@@ -331,39 +375,25 @@ Partial Class Csv_denpyo3_F_dgv
         Me.Label9.Text = "0/0"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Panel4
+        'Button6
         '
-        Me.Panel4.Controls.Add(Me.Label3)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel4.Location = New System.Drawing.Point(0, 0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(159, 24)
-        Me.Panel4.TabIndex = 26
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 8)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(93, 12)
-        Me.Label3.TabIndex = 79
-        Me.Label3.Text = "◆出力された枚数"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(17, 7)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(120, 12)
-        Me.Label4.TabIndex = 181
-        Me.Label4.Text = "枚数と件数は異なります"
+        Me.Button6.BackColor = System.Drawing.Color.PaleTurquoise
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button6.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Button6.Location = New System.Drawing.Point(192, 12)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(24, 23)
+        Me.Button6.TabIndex = 78
+        Me.Button6.Text = "↓"
+        Me.Button6.UseVisualStyleBackColor = False
         '
         'Csv_denpyo3_F_dgv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ClientSize = New System.Drawing.Size(922, 481)
+        Me.ClientSize = New System.Drawing.Size(922, 522)
         Me.Controls.Add(Me.DGV1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.StatusStrip1)
@@ -383,10 +413,10 @@ Partial Class Csv_denpyo3_F_dgv
         Me.StatusStrip1.PerformLayout()
         CType(Me.DGV3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -421,4 +451,6 @@ Partial Class Csv_denpyo3_F_dgv
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Button6 As Button
 End Class

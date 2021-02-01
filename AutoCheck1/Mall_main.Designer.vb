@@ -23,13 +23,15 @@ Partial Class Mall_main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mall_main))
         Dim FontInfo1 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Dim FontInfo2 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Dim FontInfo3 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Dim FontInfo4 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mall_main))
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
+        Me.ToolStripDropDownButton6 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.フォームのリセットToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -91,6 +93,8 @@ Partial Class Mall_main
         Me.画像URL全てToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.文字列整形取得ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.デバッグToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.サブウィンドウToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -306,10 +310,15 @@ Partial Class Mall_main
         Me.AzukiControl1 = New Sgry.Azuki.WinForms.AzukiControl()
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripComboBox2 = New System.Windows.Forms.ToolStripComboBox()
+        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripComboBox1 = New System.Windows.Forms.ToolStripComboBox()
+        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripComboBox3 = New System.Windows.Forms.ToolStripComboBox()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripComboBox4 = New System.Windows.Forms.ToolStripComboBox()
+        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripTextBox3 = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripButton12 = New System.Windows.Forms.ToolStripButton()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.SplitContainer7 = New System.Windows.Forms.SplitContainer()
         Me.DGV2 = New System.Windows.Forms.DataGridView()
@@ -318,9 +327,15 @@ Partial Class Mall_main
         Me.DGV5 = New System.Windows.Forms.DataGridView()
         Me.ToolStrip5 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripTextBox2 = New System.Windows.Forms.ToolStripTextBox()
+        Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton9 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage36 = New System.Windows.Forms.TabPage()
         Me.TabControl10 = New System.Windows.Forms.TabControl()
         Me.TabPage39 = New System.Windows.Forms.TabPage()
@@ -331,8 +346,18 @@ Partial Class Mall_main
         Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ToolStrip3 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButton10 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator14 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton11 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator15 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
+        Me.再表示ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.詳細表示ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.リストビューToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.小アイコンToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.大アイコンToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.タイルToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel16 = New System.Windows.Forms.Panel()
         Me.ListBox10 = New System.Windows.Forms.ListBox()
         Me.Panel24 = New System.Windows.Forms.Panel()
@@ -340,6 +365,7 @@ Partial Class Mall_main
         Me.Button47 = New System.Windows.Forms.Button()
         Me.Button52 = New System.Windows.Forms.Button()
         Me.CheckBox29 = New System.Windows.Forms.CheckBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TextBox31 = New System.Windows.Forms.TextBox()
         Me.Button48 = New System.Windows.Forms.Button()
         Me.Label28 = New System.Windows.Forms.Label()
@@ -507,7 +533,9 @@ Partial Class Mall_main
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer16 = New System.Windows.Forms.SplitContainer()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.TextBox35 = New System.Windows.Forms.TextBox()
         Me.CheckBox28 = New System.Windows.Forms.CheckBox()
@@ -540,34 +568,6 @@ Partial Class Mall_main
         Me.VistaFolderBrowserDialog1 = New Ookii.Dialogs.VistaFolderBrowserDialog()
         Me.Panel23 = New System.Windows.Forms.Panel()
         Me.Label34 = New System.Windows.Forms.Label()
-        Me.ToolStripSeparator16 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton12 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton8 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton9 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton7 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.MasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripButton10 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton11 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.再表示ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
-        Me.詳細表示ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.リストビューToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.小アイコンToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.大アイコンToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.タイルToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripDropDownButton6 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.フォームのリセットToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -673,6 +673,7 @@ Partial Class Mall_main
         Me.ToolStrip3.SuspendLayout()
         Me.Panel16.SuspendLayout()
         Me.Panel24.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage40.SuspendLayout()
         CType(Me.DGV18, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel19.SuspendLayout()
@@ -758,7 +759,6 @@ Partial Class Mall_main
         Me.Panel7.SuspendLayout()
         CType(Me.DGV11, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel23.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip1
@@ -775,6 +775,22 @@ Partial Class Mall_main
         '
         Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
         Me.ToolStripProgressBar1.Size = New System.Drawing.Size(150, 18)
+        '
+        'ToolStripDropDownButton6
+        '
+        Me.ToolStripDropDownButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton6.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.フォームのリセットToolStripMenuItem})
+        Me.ToolStripDropDownButton6.Image = CType(resources.GetObject("ToolStripDropDownButton6.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownButton6.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton6.Name = "ToolStripDropDownButton6"
+        Me.ToolStripDropDownButton6.Size = New System.Drawing.Size(69, 22)
+        Me.ToolStripDropDownButton6.Text = "リセット"
+        '
+        'フォームのリセットToolStripMenuItem
+        '
+        Me.フォームのリセットToolStripMenuItem.Name = "フォームのリセットToolStripMenuItem"
+        Me.フォームのリセットToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.フォームのリセットToolStripMenuItem.Text = "フォームのリセット"
         '
         'ToolStripStatusLabel3
         '
@@ -1156,6 +1172,17 @@ Partial Class Mall_main
         Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(226, 22)
         Me.ToolStripMenuItem2.Text = "<img src=""""(?<text>.*?)"""".*>"
+        '
+        'ToolStripSeparator16
+        '
+        Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
+        Me.ToolStripSeparator16.Size = New System.Drawing.Size(273, 6)
+        '
+        'ToolStripMenuItem4
+        '
+        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(276, 22)
+        Me.ToolStripMenuItem4.Text = "自動予約(楽天)"
         '
         'デバッグToolStripMenuItem
         '
@@ -1675,8 +1702,8 @@ Partial Class Mall_main
         'SplitContainer10.Panel2
         '
         Me.SplitContainer10.Panel2.Controls.Add(Me.GroupBox4)
-        Me.SplitContainer10.Size = New System.Drawing.Size(218, 423)
-        Me.SplitContainer10.SplitterDistance = 273
+        Me.SplitContainer10.Size = New System.Drawing.Size(218, 405)
+        Me.SplitContainer10.SplitterDistance = 261
         Me.SplitContainer10.TabIndex = 4
         '
         'GroupBox5
@@ -1688,7 +1715,7 @@ Partial Class Mall_main
         Me.GroupBox5.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(10, 3, 10, 3)
-        Me.GroupBox5.Size = New System.Drawing.Size(218, 273)
+        Me.GroupBox5.Size = New System.Drawing.Size(218, 261)
         Me.GroupBox5.TabIndex = 9
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "検索・置換"
@@ -1703,7 +1730,7 @@ Partial Class Mall_main
         Me.TextBox16.Multiline = True
         Me.TextBox16.Name = "TextBox16"
         Me.TextBox16.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBox16.Size = New System.Drawing.Size(198, 134)
+        Me.TextBox16.Size = New System.Drawing.Size(198, 122)
         Me.TextBox16.TabIndex = 8
         '
         'TextBox15
@@ -1731,7 +1758,7 @@ Partial Class Mall_main
         Me.Panel6.Controls.Add(Me.Button21)
         Me.Panel6.Controls.Add(Me.Button22)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel6.Location = New System.Drawing.Point(10, 199)
+        Me.Panel6.Location = New System.Drawing.Point(10, 187)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(198, 71)
         Me.Panel6.TabIndex = 4
@@ -1848,7 +1875,7 @@ Partial Class Mall_main
         Me.GroupBox4.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(10, 3, 10, 3)
-        Me.GroupBox4.Size = New System.Drawing.Size(218, 146)
+        Me.GroupBox4.Size = New System.Drawing.Size(218, 140)
         Me.GroupBox4.TabIndex = 8
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "一括追加・削除"
@@ -1862,7 +1889,7 @@ Partial Class Mall_main
         Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBox2.Size = New System.Drawing.Size(198, 98)
+        Me.TextBox2.Size = New System.Drawing.Size(198, 92)
         Me.TextBox2.TabIndex = 7
         '
         'Panel5
@@ -1871,7 +1898,7 @@ Partial Class Mall_main
         Me.Panel5.Controls.Add(Me.Button17)
         Me.Panel5.Controls.Add(Me.Button18)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel5.Location = New System.Drawing.Point(10, 113)
+        Me.Panel5.Location = New System.Drawing.Point(10, 107)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(198, 30)
         Me.Panel5.TabIndex = 4
@@ -2130,7 +2157,7 @@ Partial Class Mall_main
         Me.GroupBox2.Location = New System.Drawing.Point(6, 6)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(8)
-        Me.GroupBox2.Size = New System.Drawing.Size(218, 423)
+        Me.GroupBox2.Size = New System.Drawing.Size(218, 405)
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "一括データチェック"
@@ -2144,7 +2171,7 @@ Partial Class Mall_main
         Me.ListBox5.Name = "ListBox5"
         Me.ListBox5.ScrollAlwaysVisible = True
         Me.ListBox5.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.ListBox5.Size = New System.Drawing.Size(202, 226)
+        Me.ListBox5.Size = New System.Drawing.Size(202, 208)
         Me.ListBox5.TabIndex = 4
         '
         'Panel14
@@ -2154,7 +2181,7 @@ Partial Class Mall_main
         Me.Panel14.Controls.Add(Me.CheckedListBox1)
         Me.Panel14.Controls.Add(Me.CheckBox10)
         Me.Panel14.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel14.Location = New System.Drawing.Point(8, 246)
+        Me.Panel14.Location = New System.Drawing.Point(8, 228)
         Me.Panel14.Name = "Panel14"
         Me.Panel14.Size = New System.Drawing.Size(202, 169)
         Me.Panel14.TabIndex = 12
@@ -2230,7 +2257,7 @@ Partial Class Mall_main
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox3.Location = New System.Drawing.Point(10, 10)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(210, 365)
+        Me.GroupBox3.Size = New System.Drawing.Size(210, 347)
         Me.GroupBox3.TabIndex = 8
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "プログラム"
@@ -2243,7 +2270,7 @@ Partial Class Mall_main
         Me.Panel27.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel27.Location = New System.Drawing.Point(3, 260)
         Me.Panel27.Name = "Panel27"
-        Me.Panel27.Size = New System.Drawing.Size(204, 102)
+        Me.Panel27.Size = New System.Drawing.Size(204, 84)
         Me.Panel27.TabIndex = 13
         '
         'TextBox10
@@ -2254,7 +2281,7 @@ Partial Class Mall_main
         Me.TextBox10.Multiline = True
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox10.Size = New System.Drawing.Size(144, 77)
+        Me.TextBox10.Size = New System.Drawing.Size(144, 59)
         Me.TextBox10.TabIndex = 13
         Me.TextBox10.WordWrap = False
         '
@@ -2267,7 +2294,7 @@ Partial Class Mall_main
         Me.TextBox42.Multiline = True
         Me.TextBox42.Name = "TextBox42"
         Me.TextBox42.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox42.Size = New System.Drawing.Size(60, 77)
+        Me.TextBox42.Size = New System.Drawing.Size(60, 59)
         Me.TextBox42.TabIndex = 14
         Me.TextBox42.WordWrap = False
         '
@@ -2594,7 +2621,7 @@ Partial Class Mall_main
         Me.GroupBox6.Controls.Add(Me.Button27)
         Me.GroupBox6.Controls.Add(Me.ComboBox11)
         Me.GroupBox6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GroupBox6.Location = New System.Drawing.Point(10, 375)
+        Me.GroupBox6.Location = New System.Drawing.Point(10, 357)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(210, 50)
         Me.GroupBox6.TabIndex = 10
@@ -3557,6 +3584,16 @@ Partial Class Mall_main
         Me.ToolStripComboBox2.Name = "ToolStripComboBox2"
         Me.ToolStripComboBox2.Size = New System.Drawing.Size(110, 27)
         '
+        'ToolStripButton5
+        '
+        Me.ToolStripButton5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
+        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton5.Name = "ToolStripButton5"
+        Me.ToolStripButton5.Size = New System.Drawing.Size(23, 24)
+        Me.ToolStripButton5.Text = "上"
+        '
         'ToolStripComboBox1
         '
         Me.ToolStripComboBox1.BackColor = System.Drawing.Color.LightCyan
@@ -3564,6 +3601,15 @@ Partial Class Mall_main
         Me.ToolStripComboBox1.Items.AddRange(New Object() {"master", "page", "item", "select", "item-cat"})
         Me.ToolStripComboBox1.Name = "ToolStripComboBox1"
         Me.ToolStripComboBox1.Size = New System.Drawing.Size(75, 27)
+        '
+        'ToolStripButton6
+        '
+        Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
+        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton6.Name = "ToolStripButton6"
+        Me.ToolStripButton6.Size = New System.Drawing.Size(23, 24)
+        Me.ToolStripButton6.Text = "下"
         '
         'ToolStripComboBox3
         '
@@ -3573,6 +3619,16 @@ Partial Class Mall_main
         Me.ToolStripComboBox3.Name = "ToolStripComboBox3"
         Me.ToolStripComboBox3.Size = New System.Drawing.Size(75, 27)
         '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(35, 24)
+        Me.ToolStripButton1.Text = "読込"
+        '
         'ToolStripComboBox4
         '
         Me.ToolStripComboBox4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
@@ -3581,11 +3637,29 @@ Partial Class Mall_main
         Me.ToolStripComboBox4.Name = "ToolStripComboBox4"
         Me.ToolStripComboBox4.Size = New System.Drawing.Size(75, 27)
         '
+        'ToolStripButton4
+        '
+        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
+        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton4.Name = "ToolStripButton4"
+        Me.ToolStripButton4.Size = New System.Drawing.Size(35, 24)
+        Me.ToolStripButton4.Text = "保存"
+        '
         'ToolStripTextBox3
         '
         Me.ToolStripTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ToolStripTextBox3.Name = "ToolStripTextBox3"
         Me.ToolStripTextBox3.Size = New System.Drawing.Size(65, 25)
+        '
+        'ToolStripButton12
+        '
+        Me.ToolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton12.Image = CType(resources.GetObject("ToolStripButton12.Image"), System.Drawing.Image)
+        Me.ToolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton12.Name = "ToolStripButton12"
+        Me.ToolStripButton12.Size = New System.Drawing.Size(35, 19)
+        Me.ToolStripButton12.Text = "削除"
         '
         'RichTextBox1
         '
@@ -3708,20 +3782,69 @@ Partial Class Mall_main
         Me.ToolStripTextBox2.Name = "ToolStripTextBox2"
         Me.ToolStripTextBox2.Size = New System.Drawing.Size(200, 25)
         '
+        'ToolStripButton8
+        '
+        Me.ToolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton8.Image = CType(resources.GetObject("ToolStripButton8.Image"), System.Drawing.Image)
+        Me.ToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton8.Name = "ToolStripButton8"
+        Me.ToolStripButton8.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton8.Text = "×"
+        '
         'ToolStripSeparator12
         '
         Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
         Me.ToolStripSeparator12.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripButton9
+        '
+        Me.ToolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton9.Image = CType(resources.GetObject("ToolStripButton9.Image"), System.Drawing.Image)
+        Me.ToolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton9.Name = "ToolStripButton9"
+        Me.ToolStripButton9.Size = New System.Drawing.Size(35, 22)
+        Me.ToolStripButton9.Text = "検索"
         '
         'ToolStripSeparator10
         '
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
         Me.ToolStripSeparator10.Size = New System.Drawing.Size(6, 25)
         '
+        'ToolStripButton7
+        '
+        Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"), System.Drawing.Image)
+        Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton7.Name = "ToolStripButton7"
+        Me.ToolStripButton7.Size = New System.Drawing.Size(35, 22)
+        Me.ToolStripButton7.Text = "抽出"
+        '
         'ToolStripSeparator11
         '
         Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
         Me.ToolStripSeparator11.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripDropDownButton1
+        '
+        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterToolStripMenuItem, Me.PageToolStripMenuItem})
+        Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(56, 22)
+        Me.ToolStripDropDownButton1.Text = "master"
+        '
+        'MasterToolStripMenuItem
+        '
+        Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
+        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.MasterToolStripMenuItem.Text = "master"
+        '
+        'PageToolStripMenuItem
+        '
+        Me.PageToolStripMenuItem.Name = "PageToolStripMenuItem"
+        Me.PageToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+        Me.PageToolStripMenuItem.Text = "page"
         '
         'TabPage36
         '
@@ -3818,15 +3941,84 @@ Partial Class Mall_main
         Me.ToolStrip3.TabIndex = 23
         Me.ToolStrip3.Text = "ToolStrip3"
         '
+        'ToolStripButton10
+        '
+        Me.ToolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton10.Image = CType(resources.GetObject("ToolStripButton10.Image"), System.Drawing.Image)
+        Me.ToolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton10.Name = "ToolStripButton10"
+        Me.ToolStripButton10.Size = New System.Drawing.Size(35, 22)
+        Me.ToolStripButton10.Text = "追加"
+        '
         'ToolStripSeparator14
         '
         Me.ToolStripSeparator14.Name = "ToolStripSeparator14"
         Me.ToolStripSeparator14.Size = New System.Drawing.Size(6, 25)
         '
+        'ToolStripButton11
+        '
+        Me.ToolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton11.Image = CType(resources.GetObject("ToolStripButton11.Image"), System.Drawing.Image)
+        Me.ToolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton11.Name = "ToolStripButton11"
+        Me.ToolStripButton11.Size = New System.Drawing.Size(35, 22)
+        Me.ToolStripButton11.Text = "削除"
+        '
         'ToolStripSeparator15
         '
         Me.ToolStripSeparator15.Name = "ToolStripSeparator15"
         Me.ToolStripSeparator15.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToolStripDropDownButton2
+        '
+        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.再表示ToolStripMenuItem, Me.ToolStripSeparator5, Me.詳細表示ToolStripMenuItem, Me.リストビューToolStripMenuItem, Me.小アイコンToolStripMenuItem, Me.大アイコンToolStripMenuItem, Me.タイルToolStripMenuItem})
+        Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
+        Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
+        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(44, 22)
+        Me.ToolStripDropDownButton2.Text = "表示"
+        '
+        '再表示ToolStripMenuItem
+        '
+        Me.再表示ToolStripMenuItem.Name = "再表示ToolStripMenuItem"
+        Me.再表示ToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.再表示ToolStripMenuItem.Text = "再表示"
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(143, 6)
+        '
+        '詳細表示ToolStripMenuItem
+        '
+        Me.詳細表示ToolStripMenuItem.Name = "詳細表示ToolStripMenuItem"
+        Me.詳細表示ToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.詳細表示ToolStripMenuItem.Text = "詳細表示"
+        '
+        'リストビューToolStripMenuItem
+        '
+        Me.リストビューToolStripMenuItem.Name = "リストビューToolStripMenuItem"
+        Me.リストビューToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.リストビューToolStripMenuItem.Text = "リストビュー"
+        '
+        '小アイコンToolStripMenuItem
+        '
+        Me.小アイコンToolStripMenuItem.Name = "小アイコンToolStripMenuItem"
+        Me.小アイコンToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.小アイコンToolStripMenuItem.Text = "小アイコン"
+        '
+        '大アイコンToolStripMenuItem
+        '
+        Me.大アイコンToolStripMenuItem.Name = "大アイコンToolStripMenuItem"
+        Me.大アイコンToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.大アイコンToolStripMenuItem.Text = "大アイコン"
+        '
+        'タイルToolStripMenuItem
+        '
+        Me.タイルToolStripMenuItem.Name = "タイルToolStripMenuItem"
+        Me.タイルToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.タイルToolStripMenuItem.Text = "タイル"
         '
         'Panel16
         '
@@ -3911,6 +4103,16 @@ Partial Class Mall_main
         Me.CheckBox29.TabIndex = 27
         Me.CheckBox29.Text = "ローカルに無いデータは削除する"
         Me.CheckBox29.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Location = New System.Drawing.Point(11, 55)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(229, 225)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 19
+        Me.PictureBox1.TabStop = False
         '
         'TextBox31
         '
@@ -5764,10 +5966,28 @@ Partial Class Mall_main
         Me.ToolStrip1.TabIndex = 5
         Me.ToolStrip1.Text = "ToolStrip1"
         '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(60, 21)
+        Me.ToolStripButton2.Text = "価格比較"
+        '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 24)
+        '
+        'ToolStripButton3
+        '
+        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
+        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton3.Name = "ToolStripButton3"
+        Me.ToolStripButton3.Size = New System.Drawing.Size(84, 21)
+        Me.ToolStripButton3.Text = "送料抜き比較"
         '
         'ToolStripSeparator7
         '
@@ -5977,15 +6197,16 @@ Partial Class Mall_main
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(255, 15)
+        Me.Label37.Location = New System.Drawing.Point(241, 12)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(89, 12)
         Me.Label37.TabIndex = 5
-        Me.Label37.Text = "2020/03/04更新"
+        Me.Label37.Text = "2020/11/09更新"
         Me.Label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Button59
         '
+        Me.Button59.Enabled = False
         Me.Button59.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button59.Location = New System.Drawing.Point(366, 30)
         Me.Button59.Name = "Button59"
@@ -5998,6 +6219,7 @@ Partial Class Mall_main
         'Button58
         '
         Me.Button58.BackColor = System.Drawing.Color.Yellow
+        Me.Button58.Enabled = False
         Me.Button58.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button58.Location = New System.Drawing.Point(243, 30)
         Me.Button58.Name = "Button58"
@@ -6106,226 +6328,6 @@ Partial Class Mall_main
         Me.Label34.TabIndex = 15
         Me.Label34.Text = "---"
         Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'ToolStripSeparator16
-        '
-        Me.ToolStripSeparator16.Name = "ToolStripSeparator16"
-        Me.ToolStripSeparator16.Size = New System.Drawing.Size(273, 6)
-        '
-        'ToolStripMenuItem4
-        '
-        Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(276, 22)
-        Me.ToolStripMenuItem4.Text = "自動予約解除(楽天)"
-        '
-        'ToolStripButton5
-        '
-        Me.ToolStripButton5.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
-        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(23, 24)
-        Me.ToolStripButton5.Text = "上"
-        '
-        'ToolStripButton6
-        '
-        Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
-        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.Size = New System.Drawing.Size(23, 24)
-        Me.ToolStripButton6.Text = "下"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(35, 24)
-        Me.ToolStripButton1.Text = "読込"
-        '
-        'ToolStripButton4
-        '
-        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
-        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(35, 24)
-        Me.ToolStripButton4.Text = "保存"
-        '
-        'ToolStripButton12
-        '
-        Me.ToolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton12.Image = CType(resources.GetObject("ToolStripButton12.Image"), System.Drawing.Image)
-        Me.ToolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton12.Name = "ToolStripButton12"
-        Me.ToolStripButton12.Size = New System.Drawing.Size(35, 19)
-        Me.ToolStripButton12.Text = "削除"
-        '
-        'ToolStripButton8
-        '
-        Me.ToolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton8.Image = CType(resources.GetObject("ToolStripButton8.Image"), System.Drawing.Image)
-        Me.ToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton8.Name = "ToolStripButton8"
-        Me.ToolStripButton8.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton8.Text = "×"
-        '
-        'ToolStripButton9
-        '
-        Me.ToolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton9.Image = CType(resources.GetObject("ToolStripButton9.Image"), System.Drawing.Image)
-        Me.ToolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton9.Name = "ToolStripButton9"
-        Me.ToolStripButton9.Size = New System.Drawing.Size(35, 22)
-        Me.ToolStripButton9.Text = "検索"
-        '
-        'ToolStripButton7
-        '
-        Me.ToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton7.Image = CType(resources.GetObject("ToolStripButton7.Image"), System.Drawing.Image)
-        Me.ToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton7.Name = "ToolStripButton7"
-        Me.ToolStripButton7.Size = New System.Drawing.Size(35, 22)
-        Me.ToolStripButton7.Text = "抽出"
-        '
-        'ToolStripDropDownButton1
-        '
-        Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterToolStripMenuItem, Me.PageToolStripMenuItem})
-        Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(56, 22)
-        Me.ToolStripDropDownButton1.Text = "master"
-        '
-        'MasterToolStripMenuItem
-        '
-        Me.MasterToolStripMenuItem.Name = "MasterToolStripMenuItem"
-        Me.MasterToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
-        Me.MasterToolStripMenuItem.Text = "master"
-        '
-        'PageToolStripMenuItem
-        '
-        Me.PageToolStripMenuItem.Name = "PageToolStripMenuItem"
-        Me.PageToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
-        Me.PageToolStripMenuItem.Text = "page"
-        '
-        'ToolStripButton10
-        '
-        Me.ToolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton10.Image = CType(resources.GetObject("ToolStripButton10.Image"), System.Drawing.Image)
-        Me.ToolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton10.Name = "ToolStripButton10"
-        Me.ToolStripButton10.Size = New System.Drawing.Size(35, 22)
-        Me.ToolStripButton10.Text = "追加"
-        '
-        'ToolStripButton11
-        '
-        Me.ToolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton11.Image = CType(resources.GetObject("ToolStripButton11.Image"), System.Drawing.Image)
-        Me.ToolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton11.Name = "ToolStripButton11"
-        Me.ToolStripButton11.Size = New System.Drawing.Size(35, 22)
-        Me.ToolStripButton11.Text = "削除"
-        '
-        'ToolStripDropDownButton2
-        '
-        Me.ToolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton2.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.再表示ToolStripMenuItem, Me.ToolStripSeparator5, Me.詳細表示ToolStripMenuItem, Me.リストビューToolStripMenuItem, Me.小アイコンToolStripMenuItem, Me.大アイコンToolStripMenuItem, Me.タイルToolStripMenuItem})
-        Me.ToolStripDropDownButton2.Image = CType(resources.GetObject("ToolStripDropDownButton2.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton2.Name = "ToolStripDropDownButton2"
-        Me.ToolStripDropDownButton2.Size = New System.Drawing.Size(44, 22)
-        Me.ToolStripDropDownButton2.Text = "表示"
-        '
-        '再表示ToolStripMenuItem
-        '
-        Me.再表示ToolStripMenuItem.Name = "再表示ToolStripMenuItem"
-        Me.再表示ToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.再表示ToolStripMenuItem.Text = "再表示"
-        '
-        'ToolStripSeparator5
-        '
-        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(143, 6)
-        '
-        '詳細表示ToolStripMenuItem
-        '
-        Me.詳細表示ToolStripMenuItem.Name = "詳細表示ToolStripMenuItem"
-        Me.詳細表示ToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.詳細表示ToolStripMenuItem.Text = "詳細表示"
-        '
-        'リストビューToolStripMenuItem
-        '
-        Me.リストビューToolStripMenuItem.Name = "リストビューToolStripMenuItem"
-        Me.リストビューToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.リストビューToolStripMenuItem.Text = "リストビュー"
-        '
-        '小アイコンToolStripMenuItem
-        '
-        Me.小アイコンToolStripMenuItem.Name = "小アイコンToolStripMenuItem"
-        Me.小アイコンToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.小アイコンToolStripMenuItem.Text = "小アイコン"
-        '
-        '大アイコンToolStripMenuItem
-        '
-        Me.大アイコンToolStripMenuItem.Name = "大アイコンToolStripMenuItem"
-        Me.大アイコンToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.大アイコンToolStripMenuItem.Text = "大アイコン"
-        '
-        'タイルToolStripMenuItem
-        '
-        Me.タイルToolStripMenuItem.Name = "タイルToolStripMenuItem"
-        Me.タイルToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
-        Me.タイルToolStripMenuItem.Text = "タイル"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(11, 55)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(229, 225)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 19
-        Me.PictureBox1.TabStop = False
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(60, 21)
-        Me.ToolStripButton2.Text = "価格比較"
-        '
-        'ToolStripButton3
-        '
-        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(84, 21)
-        Me.ToolStripButton3.Text = "送料抜き比較"
-        '
-        'ToolStripDropDownButton6
-        '
-        Me.ToolStripDropDownButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton6.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.フォームのリセットToolStripMenuItem})
-        Me.ToolStripDropDownButton6.Image = CType(resources.GetObject("ToolStripDropDownButton6.Image"), System.Drawing.Image)
-        Me.ToolStripDropDownButton6.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripDropDownButton6.Name = "ToolStripDropDownButton6"
-        Me.ToolStripDropDownButton6.Size = New System.Drawing.Size(69, 22)
-        Me.ToolStripDropDownButton6.Text = "リセット"
-        '
-        'フォームのリセットToolStripMenuItem
-        '
-        Me.フォームのリセットToolStripMenuItem.Name = "フォームのリセットToolStripMenuItem"
-        Me.フォームのリセットToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
-        Me.フォームのリセットToolStripMenuItem.Text = "フォームのリセット"
         '
         'Mall_main
         '
@@ -6480,6 +6482,7 @@ Partial Class Mall_main
         Me.Panel16.ResumeLayout(False)
         Me.Panel24.ResumeLayout(False)
         Me.Panel24.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage40.ResumeLayout(False)
         CType(Me.DGV18, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel19.ResumeLayout(False)
@@ -6587,7 +6590,6 @@ Partial Class Mall_main
         CType(Me.DGV11, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel23.ResumeLayout(False)
         Me.Panel23.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

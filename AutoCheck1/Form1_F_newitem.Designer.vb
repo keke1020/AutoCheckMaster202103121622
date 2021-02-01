@@ -165,6 +165,9 @@ Partial Class Form1_F_Newitem
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.TextBox30 = New System.Windows.Forms.TextBox()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -453,6 +456,9 @@ Partial Class Form1_F_Newitem
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.Panel1.Controls.Add(Me.Label19)
+        Me.Panel1.Controls.Add(Me.Label20)
+        Me.Panel1.Controls.Add(Me.TextBox30)
         Me.Panel1.Controls.Add(Me.Label16)
         Me.Panel1.Controls.Add(Me.Label14)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -493,7 +499,7 @@ Partial Class Form1_F_Newitem
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(335, 70)
+        Me.Label14.Location = New System.Drawing.Point(334, 68)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(17, 12)
         Me.Label14.TabIndex = 30
@@ -502,7 +508,7 @@ Partial Class Form1_F_Newitem
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(142, 95)
+        Me.Label1.Location = New System.Drawing.Point(142, 93)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(17, 12)
         Me.Label1.TabIndex = 4
@@ -701,7 +707,7 @@ Partial Class Form1_F_Newitem
         Me.ComboBox1.BackColor = System.Drawing.Color.Yellow
         Me.ComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"暁", "1:・・・", "2:・・・", "3:・・・", "4:・・・", "5:・・・", "6:宅配のみ", "7:メールのみ", "8:定形外郵便", "---", "アリス・あかね楽天", "1:メール便", "2:宅配便", "2:宅配便（大型）", "3:使用不可（大型）", "4:定形外郵便", "---", "Yahoo共通", "1:宅配便(佐川急便)", "2:ゆうパケット", "3:定形外郵便", "4:大型宅配便(佐川急便)"})
+        Me.ComboBox1.Items.AddRange(New Object() {"暁", "1:・・・", "2:宅配のみ", "3:大型のみ", "4:メールのみ", "5:定形外郵便", "6:・・・", "7:・・・", "8:・・・", "---", "アリス・あかね楽天", "1:メール便", "2:宅配便", "2:宅配便（大型）", "3:使用不可（大型）", "4:定形外郵便", "---", "Yahoo共通", "1:宅配便(佐川急便)", "2:ゆうパケット", "3:定形外郵便", "4:大型宅配便(佐川急便)"})
         Me.ComboBox1.Location = New System.Drawing.Point(78, 63)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(98, 20)
@@ -1566,6 +1572,39 @@ Partial Class Form1_F_Newitem
         '
         Me.Timer1.Interval = 1000
         '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(348, 93)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(17, 12)
+        Me.Label19.TabIndex = 32
+        Me.Label19.Text = "円"
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label20.ForeColor = System.Drawing.Color.White
+        Me.Label20.Location = New System.Drawing.Point(166, 89)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Padding = New System.Windows.Forms.Padding(3, 0, 0, 0)
+        Me.Label20.Size = New System.Drawing.Size(119, 19)
+        Me.Label20.TabIndex = 34
+        Me.Label20.Text = "価格_送料無し(暁用)"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TextBox30
+        '
+        Me.TextBox30.BackColor = System.Drawing.Color.DimGray
+        Me.TextBox30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox30.Enabled = False
+        Me.TextBox30.ImeMode = System.Windows.Forms.ImeMode.Disable
+        Me.TextBox30.Location = New System.Drawing.Point(285, 89)
+        Me.TextBox30.Name = "TextBox30"
+        Me.TextBox30.Size = New System.Drawing.Size(61, 19)
+        Me.TextBox30.TabIndex = 33
+        Me.TextBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'Form1_F_Newitem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1759,4 +1798,7 @@ Partial Class Form1_F_Newitem
     Friend WithEvents TextBox27 As TextBox
     Friend WithEvents Label18 As Label
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label20 As Label
+    Friend WithEvents TextBox30 As TextBox
 End Class

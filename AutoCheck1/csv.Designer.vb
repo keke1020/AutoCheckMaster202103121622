@@ -124,6 +124,10 @@ Partial Class Csv
         Me.英数全角チェックToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator26 = New System.Windows.Forms.ToolStripSeparator()
         Me.イメージリスト操作楽天ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.よんよか卸チェックToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator30 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExchangePostCodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripDropDownButton7 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.KuraNaviToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.佐川伝票変換出力ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -188,6 +192,7 @@ Partial Class Csv
         Me.行を削除ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.空行一括削除ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.列を削除ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.指定配列から空要素を削除ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -203,9 +208,12 @@ Partial Class Csv
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
-        Me.指定配列から空要素を削除ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -222,6 +230,9 @@ Partial Class Csv
         Me.Panel1.SuspendLayout()
         Me.ToolStrip2.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.SuspendLayout()
         '
         'StatusStrip1
@@ -390,7 +401,7 @@ Partial Class Csv
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDropDownButton1, Me.ToolStripDropDownButton2, Me.ToolStripDropDownButton4, Me.ToolStripDropDownButton8, Me.ToolStripDropDownButton7, Me.ToolStripDropDownButton3, Me.ToolStripDropDownButton5, Me.ToolStripSeparator22, Me.ToolStripButton4, Me.ToolStripSeparator23})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(580, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(425, 25)
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -721,7 +732,7 @@ Partial Class Csv
         'ToolStripDropDownButton8
         '
         Me.ToolStripDropDownButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton8.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.変更した行のみ残すToolStripMenuItem, Me.抽出ToolStripMenuItem, Me.抽出リストリセットToolStripMenuItem, Me.ToolStripSeparator9, Me.区切り処理ToolStripMenuItem, Me.ToolStripSeparator24, Me.配達営業所検索ToolStripMenuItem, Me.ToolStripSeparator25, Me.ファイル一覧取得ToolStripMenuItem, Me.画像取得ダウンロードToolStripMenuItem, Me.HTMLTIDYANDFORMATToolStripMenuItem, Me.英数全角チェックToolStripMenuItem, Me.ToolStripSeparator26, Me.イメージリスト操作楽天ToolStripMenuItem})
+        Me.ToolStripDropDownButton8.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.変更した行のみ残すToolStripMenuItem, Me.抽出ToolStripMenuItem, Me.抽出リストリセットToolStripMenuItem, Me.ToolStripSeparator9, Me.区切り処理ToolStripMenuItem, Me.ToolStripSeparator24, Me.配達営業所検索ToolStripMenuItem, Me.ToolStripSeparator25, Me.ファイル一覧取得ToolStripMenuItem, Me.画像取得ダウンロードToolStripMenuItem, Me.HTMLTIDYANDFORMATToolStripMenuItem, Me.英数全角チェックToolStripMenuItem, Me.ToolStripSeparator26, Me.イメージリスト操作楽天ToolStripMenuItem, Me.ToolStripSeparator6, Me.よんよか卸チェックToolStripMenuItem, Me.ToolStripSeparator30, Me.ExchangePostCodeToolStripMenuItem})
         Me.ToolStripDropDownButton8.Image = CType(resources.GetObject("ToolStripDropDownButton8.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton8.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton8.Name = "ToolStripDropDownButton8"
@@ -879,6 +890,28 @@ Partial Class Csv
         Me.イメージリスト操作楽天ToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
         Me.イメージリスト操作楽天ToolStripMenuItem.Size = New System.Drawing.Size(272, 22)
         Me.イメージリスト操作楽天ToolStripMenuItem.Text = "イメージリスト操作（楽天）"
+        '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(269, 6)
+        '
+        'よんよか卸チェックToolStripMenuItem
+        '
+        Me.よんよか卸チェックToolStripMenuItem.Name = "よんよか卸チェックToolStripMenuItem"
+        Me.よんよか卸チェックToolStripMenuItem.Size = New System.Drawing.Size(272, 22)
+        Me.よんよか卸チェックToolStripMenuItem.Text = "よんよか卸チェック"
+        '
+        'ToolStripSeparator30
+        '
+        Me.ToolStripSeparator30.Name = "ToolStripSeparator30"
+        Me.ToolStripSeparator30.Size = New System.Drawing.Size(269, 6)
+        '
+        'ExchangePostCodeToolStripMenuItem
+        '
+        Me.ExchangePostCodeToolStripMenuItem.Name = "ExchangePostCodeToolStripMenuItem"
+        Me.ExchangePostCodeToolStripMenuItem.Size = New System.Drawing.Size(272, 22)
+        Me.ExchangePostCodeToolStripMenuItem.Text = "県住所 >> 〒"
         '
         'ToolStripDropDownButton7
         '
@@ -1123,7 +1156,7 @@ Partial Class Csv
         Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
         Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(95, 22)
+        Me.ToolStripButton4.Size = New System.Drawing.Size(95, 19)
         Me.ToolStripButton4.Text = "特殊処理に移行"
         '
         'ToolStripSeparator23
@@ -1148,7 +1181,7 @@ Partial Class Csv
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.DataGridView1.RowTemplate.Height = 21
-        Me.DataGridView1.Size = New System.Drawing.Size(708, 479)
+        Me.DataGridView1.Size = New System.Drawing.Size(700, 479)
         Me.DataGridView1.TabIndex = 2
         '
         'ContextMenuStrip1
@@ -1156,7 +1189,7 @@ Partial Class Csv
         Me.ContextMenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.切り取りToolStripMenuItem1, Me.コピーToolStripMenuItem1, Me.ToolStripMenuItem1, Me.貼り付けToolStripMenuItem1, Me.ToolStripSeparator1, Me.挿入ToolStripMenuItem, Me.行を選択直下に複製ToolStripMenuItem, Me.行を上へ移動ToolStripMenuItem, Me.行を下へ移動ToolStripMenuItem, Me.列を挿入ToolStripMenuItem1, Me.ToolStripSeparator18, Me.削除ToolStripMenuItem1, Me.列選択ToolStripMenuItem1, Me.列選択ヘッダー除外ToolStripMenuItem, Me.ToolStripSeparator19, Me.行を削除ToolStripMenuItem1, Me.空行一括削除ToolStripMenuItem, Me.列を削除ToolStripMenuItem1, Me.指定配列から空要素を削除ToolStripMenuItem2})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(244, 396)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(244, 374)
         '
         '切り取りToolStripMenuItem1
         '
@@ -1278,6 +1311,7 @@ Partial Class Csv
         '行を削除ToolStripMenuItem1
         '
         Me.行を削除ToolStripMenuItem1.Name = "行を削除ToolStripMenuItem1"
+        Me.行を削除ToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
         Me.行を削除ToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
         Me.行を削除ToolStripMenuItem1.Text = "行を削除"
         '
@@ -1293,18 +1327,24 @@ Partial Class Csv
         Me.列を削除ToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
         Me.列を削除ToolStripMenuItem1.Text = "列を削除"
         '
+        '指定配列から空要素を削除ToolStripMenuItem2
+        '
+        Me.指定配列から空要素を削除ToolStripMenuItem2.Name = "指定配列から空要素を削除ToolStripMenuItem2"
+        Me.指定配列から空要素を削除ToolStripMenuItem2.Size = New System.Drawing.Size(243, 22)
+        Me.指定配列から空要素を削除ToolStripMenuItem2.Text = ">指定配列から空要素を削除"
+        '
         'DataGridView2
         '
         Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView2.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1})
-        Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.DataGridView2.Location = New System.Drawing.Point(708, 0)
+        Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView2.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.RowTemplate.Height = 21
-        Me.DataGridView2.Size = New System.Drawing.Size(92, 479)
+        Me.DataGridView2.Size = New System.Drawing.Size(86, 447)
         Me.DataGridView2.TabIndex = 3
         Me.DataGridView2.Visible = False
         '
@@ -1329,7 +1369,7 @@ Partial Class Csv
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.TabControl1)
         Me.SplitContainer1.Size = New System.Drawing.Size(800, 576)
         Me.SplitContainer1.SplitterDistance = 93
         Me.SplitContainer1.TabIndex = 5
@@ -1352,7 +1392,7 @@ Partial Class Csv
         Me.SplitContainer2.Panel2.Controls.Add(Me.Panel1)
         Me.SplitContainer2.Panel2.Controls.Add(Me.ToolStrip2)
         Me.SplitContainer2.Size = New System.Drawing.Size(800, 93)
-        Me.SplitContainer2.SplitterDistance = 580
+        Me.SplitContainer2.SplitterDistance = 425
         Me.SplitContainer2.TabIndex = 4
         '
         'AzukiControl1
@@ -1382,7 +1422,7 @@ Partial Class Csv
         Me.AzukiControl1.ScrollPos = New System.Drawing.Point(0, 0)
         Me.AzukiControl1.ShowsHRuler = True
         Me.AzukiControl1.ShowsHScrollBar = False
-        Me.AzukiControl1.Size = New System.Drawing.Size(580, 68)
+        Me.AzukiControl1.Size = New System.Drawing.Size(425, 68)
         Me.AzukiControl1.TabIndex = 4
         Me.AzukiControl1.ViewType = Sgry.Azuki.ViewType.WrappedProportional
         Me.AzukiControl1.ViewWidth = 555
@@ -1395,7 +1435,7 @@ Partial Class Csv
         Me.TextBox2.Multiline = True
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBox2.Size = New System.Drawing.Size(216, 44)
+        Me.TextBox2.Size = New System.Drawing.Size(371, 44)
         Me.TextBox2.TabIndex = 4
         '
         'Panel1
@@ -1405,7 +1445,7 @@ Partial Class Csv
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel1.Location = New System.Drawing.Point(0, 69)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(216, 24)
+        Me.Panel1.Size = New System.Drawing.Size(371, 24)
         Me.Panel1.TabIndex = 6
         '
         'CheckBox2
@@ -1435,7 +1475,7 @@ Partial Class Csv
         Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3})
         Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip2.Name = "ToolStrip2"
-        Me.ToolStrip2.Size = New System.Drawing.Size(216, 25)
+        Me.ToolStrip2.Size = New System.Drawing.Size(371, 25)
         Me.ToolStrip2.TabIndex = 5
         Me.ToolStrip2.Text = "ToolStrip2"
         '
@@ -1485,15 +1525,51 @@ Partial Class Csv
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "処理中"
         '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.TabControl1.Location = New System.Drawing.Point(700, 0)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(100, 479)
+        Me.TabControl1.TabIndex = 6
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.DataGridView2)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(92, 453)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "チェック"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.WebBrowser1)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(92, 453)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "ウェブ"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'WebBrowser1
+        '
+        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WebBrowser1.Location = New System.Drawing.Point(3, 3)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.Size = New System.Drawing.Size(86, 447)
+        Me.WebBrowser1.TabIndex = 0
+        '
         'Timer1
         '
         Me.Timer1.Enabled = True
-        '
-        '指定配列から空要素を削除ToolStripMenuItem2
-        '
-        Me.指定配列から空要素を削除ToolStripMenuItem2.Name = "指定配列から空要素を削除ToolStripMenuItem2"
-        Me.指定配列から空要素を削除ToolStripMenuItem2.Size = New System.Drawing.Size(243, 22)
-        Me.指定配列から空要素を削除ToolStripMenuItem2.Text = ">指定配列から空要素を削除"
         '
         'Csv
         '
@@ -1529,6 +1605,9 @@ Partial Class Csv
         Me.ToolStrip2.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1714,4 +1793,12 @@ Partial Class Csv
     Friend WithEvents 行を下へ移動ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 重複チェック行全て対象ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 指定配列から空要素を削除ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
+    Friend WithEvents よんよか卸チェックToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator30 As ToolStripSeparator
+    Friend WithEvents ExchangePostCodeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents WebBrowser1 As WebBrowser
 End Class

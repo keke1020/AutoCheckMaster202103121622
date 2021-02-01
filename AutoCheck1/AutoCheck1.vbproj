@@ -160,6 +160,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\MonthCalendarM.dll</HintPath>
     </Reference>
+    <Reference Include="mysql.data">
+      <HintPath>..\mysql.data.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
     </Reference>
@@ -338,6 +341,12 @@
       <DependentUpon>csv.vb</DependentUpon>
     </Compile>
     <Compile Include="csv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Freezaiko.Designer.vb">
+      <DependentUpon>Freezaiko.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Freezaiko.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GlobalSuppressions.vb" />
@@ -525,9 +534,7 @@
     <Compile Include="PrintData.Designer.vb">
       <DependentUpon>PrintData.vb</DependentUpon>
     </Compile>
-    <Compile Include="PrintData.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="PrintData.vb" />
     <Compile Include="ZaikoList.Designer.vb">
       <DependentUpon>ZaikoList.vb</DependentUpon>
     </Compile>
@@ -593,6 +600,9 @@
       <DependentUpon>csv.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Freezaiko.resx">
+      <DependentUpon>Freezaiko.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HTMLcreate.resx">
       <DependentUpon>HTMLcreate.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -635,9 +645,9 @@
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1_F_newitem.resx">
       <DependentUpon>Form1_F_newitem.vb</DependentUpon>

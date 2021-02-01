@@ -67,6 +67,22 @@ Public Class Form1_F_Newitem
             Else
                 TextBox22.Enabled = True
             End If
+
+            If InStr(ToolStripComboBox1.SelectedItem, "暁") > 0 Then
+                'TextBox30.BackColor = Color.PaleGreen
+                'TextBox30.Enabled = True
+                'TextBox13.Enabled = False
+                TextBox2.Enabled = False
+                ComboBox4.Enabled = False
+                ComboBox4.BackColor = Color.DimGray
+            Else
+                'TextBox30.BackColor = Color.DimGray
+                'TextBox30.Enabled = False
+                'TextBox13.Enabled = True
+                TextBox2.Enabled = True
+                ComboBox4.Enabled = True
+                ComboBox4.BackColor = Color.White
+            End If
         End If
     End Sub
 
@@ -225,6 +241,47 @@ Public Class Form1_F_Newitem
                     Case Regex.IsMatch(value, "_H_")
                         Dim selStr As String() = Split(ComboBox1.SelectedItem, ":")
                         value = Replace(value, "_H_", selStr(0))
+
+                        '暁
+                        Dim haiso_no As Integer = 0
+                        If ToolStripComboBox1.SelectedItem = "楽天-通販の暁用" Then
+                            If InStr(selStr(1), "宅配のみ") > 0 Then
+                                haiso_no = 2
+                                '単品配送設定
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r50").SetAttribute("Checked", "True")
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r51").SetAttribute("Checked", "")
+                            ElseIf InStr(selStr(1), "大型のみ") > 0 Then
+                                haiso_no = 3
+                                '単品配送設定
+                                'Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input").GetElementsByName("postage")(0).SetAttribute("text", "1260")
+
+                                'Dim jqueryCode As String = "$('[id='r51']').removeAttr('disabled'); $('label[for='r51']').css({color:'#000000'}); $('[name='single_item_shipping_reason']').removeAttr('disabled');"
+                                'Form1.TabBrowser1.SelectedTab.WebBrowser.Document.InvokeScript("eval", New Object() {jqueryCode})
+                                'Dim jqueryCode As String = "alert(123);"
+                                'Form1.TabBrowser1.SelectedTab.WebBrowser.Document.InvokeScript(jqueryCode)
+                                'Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input").GetElementsByName("postage")(0).SetAttribute("text", "123")
+                                'Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input").GetElementsByName("postage")(0).RaiseEvent("OnMouseDown")
+
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r43").InvokeMember("Click")
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r42").InvokeMember("Click")
+                                'Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r50").SetAttribute("Checked", "")
+                                'Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r51").SetAttribute("disabled", "")
+                                'Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r51").SetAttribute("Checked", "True")
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("Select").GetElementsByName("single_item_shipping_reason")(0).SetAttribute("value", 3)
+                            ElseIf InStr(selStr(1), "メールのみ") > 0 Then
+                                haiso_no = 4
+                                '単品配送設定
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r50").SetAttribute("Checked", "True")
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r51").SetAttribute("Checked", "")
+                            ElseIf InStr(selStr(1), "定形外郵便") > 0 Then
+                                haiso_no = 5
+                                '単品配送設定
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r50").SetAttribute("Checked", "True")
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r51").SetAttribute("Checked", "")
+                            End If
+                            value = Replace(value, "_H_", haiso_no)
+                        End If
+
                     Case Regex.IsMatch(value, "_S_")
                         value = Replace(value, "_S_", TextBox2.Text)
                     Case Regex.IsMatch(value, "_SA_")   '_SA_=0     'searchArrayの呼び出し
@@ -239,8 +296,9 @@ Public Class Form1_F_Newitem
                         Dim selStr As String() = Split(ComboBox4.SelectedItem, ":")
                         value = Replace(value, "_W_", selStr(0))
                         If InStr(value, "/*/") > 0 Then   '暁選択肢用
-                            Dim vA As String() = Split(value, "/*/")
-                            value = CInt(vA(0)) + CInt(vA(1))
+                            'Dim vA As String() = Split(value, "/*/")
+                            'value = CInt(vA(0)) + CInt(vA(1))
+                            Exit Select
                         End If
                 End Select
 
@@ -318,42 +376,53 @@ Public Class Form1_F_Newitem
                         Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName(form)(name).SetAttribute("value", str)
                     Case "入力"
                         Dim value2 As String = ""
+                        '暁　大型　個別送料
+                        'If ToolStripComboBox1.SelectedItem = "楽天-通販の暁用" And ComboBox4.SelectedIndex = 3 And name = "postage" Then
+                        '    value2 = 1260
+                        'Else
                         If value <> "" Then
-                            value = Okikae(value)
-                            Select Case True
-                                Case Regex.IsMatch(value, "_link_") '画像リンクを取得
-                                    Dim rowNum As Integer = Replace(value, "_link_", "")
-                                    If rowNum < DataGridView2.RowCount - 1 Then
-                                        If DataGridView2.Item(0, rowNum).Value <> "" Then
-                                            value2 = DataGridView2.Item(0, rowNum).Value
-                                        Else
-                                            value2 = ""
-                                        End If
-                                    End If
-                                Case Regex.IsMatch(value, "_code_") 'コード+番号
-                                    Dim rowNum As Integer = Replace(value, "_code_", "")
-                                    If rowNum < DataGridView2.RowCount - 1 Then
-                                        If DataGridView2.Item(0, rowNum).Value <> "" Then
-                                            If rowNum = 0 Then
-                                                value2 = TextBox3.Text
+                                value = Okikae(value)
+                                Select Case True
+                                    Case Regex.IsMatch(value, "_link_") '画像リンクを取得
+                                        Dim rowNum As Integer = Replace(value, "_link_", "")
+                                        If rowNum < DataGridView2.RowCount - 1 Then
+                                            If DataGridView2.Item(0, rowNum).Value <> "" Then
+                                                value2 = DataGridView2.Item(0, rowNum).Value
                                             Else
-                                                value2 = TextBox3.Text & TextBox9.Text & rowNum
+                                                value2 = ""
                                             End If
-                                        Else
-                                            value2 = ""
                                         End If
-                                    End If
-                                Case Else
-                                    If value = "none" Then
-                                        value2 = ""
-                                    Else
-                                        value2 = value
-                                    End If
-                            End Select
-                        Else
-                            value2 = value
-                        End If
+                                    Case Regex.IsMatch(value, "_code_") 'コード+番号
+                                        Dim rowNum As Integer = Replace(value, "_code_", "")
+                                        If rowNum < DataGridView2.RowCount - 1 Then
+                                            If DataGridView2.Item(0, rowNum).Value <> "" Then
+                                                If rowNum = 0 Then
+                                                    value2 = TextBox3.Text
+                                                Else
+                                                    value2 = TextBox3.Text & TextBox9.Text & rowNum
+                                                End If
+                                            Else
+                                                value2 = ""
+                                            End If
+                                        End If
+                                    Case Else
+                                        If value = "none" Then
+                                            value2 = ""
+                                        Else
+                                            value2 = value
+                                        End If
+                                End Select
+                            Else
+                                value2 = value
+                            End If
+                        'End If
+
                         Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName(form)(name).SetAttribute("value", value2)
+                        If name = "postage" And ToolStripComboBox1.SelectedItem = "楽天-通販の暁用" And ComboBox1.SelectedItem = "3:大型のみ" Then
+                            Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r43").InvokeMember("Click")
+                            Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r42").InvokeMember("Click")
+                            Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("r51").InvokeMember("Click")
+                        End If
                     Case "整形"
                         If value = "0" Then     'HTML TIDY
                             Dim str As String = Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName(form)(name).GetAttribute("value")
@@ -430,8 +499,12 @@ Public Class Form1_F_Newitem
                             Dim hCollection As HtmlElementCollection = Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("select")
                             If IsNumeric(value) Then
                                 If ToolStripComboBox1.SelectedItem = "楽天-通販の暁用" And name = "soryo_kbn1" Then
-                                    If value = 0 Or value = 3 Then
-                                        value = 1
+                                    If ComboBox4.SelectedIndex = 3 Then
+                                        value = 0
+                                    Else
+                                        If value = 0 Or value = 3 Then
+                                            value = 1
+                                        End If
                                     End If
                                 End If
                                 Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("select")(name).SetAttribute("selectedIndex", value)
@@ -2453,15 +2526,96 @@ Public Class Form1_F_Newitem
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         Select Case ComboBox1.SelectedItem
             Case "1:メール便", "4:メールのみ", "7:メールのみ"
-                ComboBox4.SelectedItem = "1:メール便"
+                If ToolStripComboBox1.SelectedItem = "楽天-通販の暁用" Then
+                    ComboBox4.SelectedIndex = -1
+                Else
+                    ComboBox4.SelectedItem = "1:メール便"
+                End If
+                TextBox2.Text = ""
             Case "1:宅配メール", "2:宅配のみ", "2:宅配便", "6:宅配のみ"
-                ComboBox4.SelectedItem = "2:宅配便"
+                If ToolStripComboBox1.SelectedItem = "楽天-通販の暁用" Then
+                    ComboBox4.SelectedIndex = -1
+                Else
+                    ComboBox4.SelectedItem = "2:宅配便"
+                End If
+                TextBox2.Text = ""
             Case "3:大型のみ", "2:宅配便（大型）", "3:使用不可（大型）"
                 ComboBox4.SelectedItem = "3:大型宅配便"
+                If ToolStripComboBox1.SelectedItem = "楽天-通販の暁用" Then
+                    TextBox2.Text = 1260
+                Else
+                    TextBox2.Text = ""
+                End If
+                ComboBox4.SelectedIndex = -1
             Case "5:定形外郵便", "4:定形外郵便", "8:定形外郵便"
-                ComboBox4.SelectedItem = "4:定形外郵便"
+                If ToolStripComboBox1.SelectedItem = "楽天-通販の暁用" Then
+                    ComboBox4.SelectedIndex = -1
+                Else
+                    ComboBox4.SelectedItem = "4:定形外郵便"
+                End If
+                TextBox2.Text = ""
         End Select
     End Sub
 
+    Private Sub TextBox30_TextChanged(sender As Object, e As EventArgs) Handles TextBox30.TextChanged
+        akatuki_price()
+    End Sub
+
+    Private Sub akatuki_price()
+        Dim price As String = TextBox30.Text.Trim
+        Dim price_rs As Integer = 0
+        If price <> "" And ComboBox1.SelectedIndex <> -1 Then
+            If IsNumeric(price) Then
+                If price = Int(price) Then
+                    Select Case ComboBox1.SelectedItem.ToString
+                        Case "2:宅配のみ"
+                            If price > 3980 Then
+                                TextBox2.Text = ""
+                                'price_rs = Math.Round((price + 400) * 1.04)
+                            Else
+                                TextBox2.Text = ""
+                                'price_rs = Math.Round((price - 400) * 1.04)
+                            End If
+                        Case "3:大型のみ"
+                            TextBox2.Text = 1260
+                            'price_rs = Math.Round((price - 1260) * 1.04)
+                        Case "4:メールのみ", "5:定形外郵便"
+                            TextBox2.Text = ""
+                            'price_rs = Math.Round((price - 80) * 1.04)
+                    End Select
+                    TextBox13.Text = price_rs
+                    If price_rs < 0 Or price_rs = 0 Then
+                        TextBox13.BackColor = Color.Red
+                    Else
+                        TextBox13.BackColor = Color.Yellow
+                    End If
+                End If
+            End If
+        Else
+            TextBox13.Text = ""
+            TextBox2.Text = ""
+            TextBox13.BackColor = Color.Yellow
+        End If
+
+
+    End Sub
+
+    Private Sub ComboBox1_TextChanged(sender As Object, e As EventArgs) Handles ComboBox1.TextChanged
+        akatuki_price()
+    End Sub
+
+    'Private Sub ComboBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox4.SelectedIndexChanged
+    '    If ToolStripComboBox1.SelectedIndex = 7 Then
+    '        If ComboBox4.SelectedIndex = 3 Then
+    '            TextBox2.Text = 1260
+    '        Else
+    '            TextBox2.Text = ""
+    '        End If
+    '    End If
+    'End Sub
+
+    Private Sub resultEventHandler(sender As Object, e As EventArgs)
+        MessageBox.Show("Loaded")
+    End Sub
 End Class
 

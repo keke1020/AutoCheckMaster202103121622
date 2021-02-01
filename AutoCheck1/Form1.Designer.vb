@@ -167,6 +167,8 @@ Partial Class Form1
         Me.ToolStripSeparator20 = New System.Windows.Forms.ToolStripSeparator()
         Me.Qoo10チェックToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.佐川送料比較ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator21 = New System.Windows.Forms.ToolStripSeparator()
+        Me.フリー在庫不足ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.ミニサイズToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
@@ -1309,7 +1311,7 @@ Partial Class Form1
         'ToolStripDropDownButton5
         '
         Me.ToolStripDropDownButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Yahoo出荷日入力ToolStripMenuItem, Me.ToolStripSeparator6, Me.Yahoo追跡番号確認ToolStripMenuItem, Me.楽天追跡番号確認ToolStripMenuItem, Me.ToolStripSeparator5, Me.特殊処理ToolStripMenuItem, Me.Csv1ToolStripMenuItem, Me.Csv2ToolStripMenuItem, Me.ToolStripSeparator10, Me.ファイル名操作ToolStripMenuItem, Me.ファイル名操作2ToolStripMenuItem, Me.ToolStripSeparator13, Me.モールチェックToolStripMenuItem, Me.ソースToolStripMenuItem, Me.画像ダウンロードToolStripMenuItem, Me.HTML操作ToolStripMenuItem, Me.在庫チェックリストToolStripMenuItem, Me.荷物追跡ToolStripMenuItem1, Me.ToolStripSeparator20, Me.Qoo10チェックToolStripMenuItem, Me.佐川送料比較ToolStripMenuItem})
+        Me.ToolStripDropDownButton5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Yahoo出荷日入力ToolStripMenuItem, Me.ToolStripSeparator6, Me.Yahoo追跡番号確認ToolStripMenuItem, Me.楽天追跡番号確認ToolStripMenuItem, Me.ToolStripSeparator5, Me.特殊処理ToolStripMenuItem, Me.Csv1ToolStripMenuItem, Me.Csv2ToolStripMenuItem, Me.ToolStripSeparator10, Me.ファイル名操作ToolStripMenuItem, Me.ファイル名操作2ToolStripMenuItem, Me.ToolStripSeparator13, Me.モールチェックToolStripMenuItem, Me.ソースToolStripMenuItem, Me.画像ダウンロードToolStripMenuItem, Me.HTML操作ToolStripMenuItem, Me.在庫チェックリストToolStripMenuItem, Me.荷物追跡ToolStripMenuItem1, Me.ToolStripSeparator20, Me.Qoo10チェックToolStripMenuItem, Me.佐川送料比較ToolStripMenuItem, Me.ToolStripSeparator21, Me.フリー在庫不足ToolStripMenuItem})
         Me.ToolStripDropDownButton5.Image = CType(resources.GetObject("ToolStripDropDownButton5.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton5.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton5.Name = "ToolStripDropDownButton5"
@@ -1451,6 +1453,18 @@ Partial Class Form1
         Me.佐川送料比較ToolStripMenuItem.Name = "佐川送料比較ToolStripMenuItem"
         Me.佐川送料比較ToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.佐川送料比較ToolStripMenuItem.Text = "佐川送料チェック"
+        '
+        'ToolStripSeparator21
+        '
+        Me.ToolStripSeparator21.Name = "ToolStripSeparator21"
+        Me.ToolStripSeparator21.Size = New System.Drawing.Size(179, 6)
+        '
+        'フリー在庫不足ToolStripMenuItem
+        '
+        Me.フリー在庫不足ToolStripMenuItem.Image = CType(resources.GetObject("フリー在庫不足ToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.フリー在庫不足ToolStripMenuItem.Name = "フリー在庫不足ToolStripMenuItem"
+        Me.フリー在庫不足ToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.フリー在庫不足ToolStripMenuItem.Text = "予約変更"
         '
         'ToolStripDropDownButton2
         '
@@ -2485,4 +2499,6 @@ Partial Class Form1
     Friend WithEvents Qoo10チェックToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 佐川送料比較ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Button14 As Button
+    Friend WithEvents ToolStripSeparator21 As ToolStripSeparator
+    Friend WithEvents フリー在庫不足ToolStripMenuItem As ToolStripMenuItem
 End Class

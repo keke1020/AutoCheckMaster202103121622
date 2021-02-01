@@ -863,9 +863,9 @@ Public Class HTMLdialog
     'Private SouryoTakuhai As String() = New String() {"750", "650", "0", "0", "530", "0", "0", "0", "756", "530", "0", "0", "0"}
     'Private SouryoOhgata As String() = New String() {"990", "890", "0", "0", "1260", "0", "0", "0", "972", "1260", "0", "0", "0"}
 
-    Private SouryoMail As String() = New String() {"190", "120", "0", "0", "190", "0", "0", "0", "240", "0", "190", "0", "0", "0"}
-    Private SouryoTakuhai As String() = New String() {"750", "650", "0", "0", "530", "0", "0", "0", "756", "0", "530", "0", "0", "0"}
-    Private SouryoOhgata As String() = New String() {"990", "890", "0", "0", "1260", "0", "0", "0", "972", "0", "1260", "0", "0", "0"}
+    Private SouryoMail As String() = New String() {"190", "190", "0", "0", "190", "0", "0", "0", "240", "0", "190", "0", "0", "0"}
+    Private SouryoTakuhai As String() = New String() {"750", "750", "0", "0", "530", "0", "0", "0", "756", "0", "530", "0", "0", "0"}
+    Private SouryoOhgata As String() = New String() {"990", "990", "0", "0", "1260", "0", "0", "0", "972", "0", "1260", "0", "0", "0"}
     Private Sub PriceCalc2()
         '"FKstyle", "Lucky9", "あかねYahoo", "暁", "アリス", "あかね楽天", "KuraNavi", "雑貨倉庫", "海東KT, "問よか""
         Select Case ComboBox11.SelectedItem
@@ -1004,16 +1004,16 @@ Public Class HTMLdialog
                             price = priceA + 150
                             TextBox40.Text = 150
                         End If
-                        DataGridView1.Item(dH1.IndexOf("価格"), r).Value = price
+                        DataGridView1.Item(dH1.IndexOf("価格"), r).Value = Math.Floor(price * 1.02)
                     ElseIf RadioButton6.Checked = True Then
                         DataGridView1.Item(dH1.IndexOf("価格"), r).Value = TextBox7.Text
                     Else
                         If ComboBox11.SelectedItem = "メール便" Then
-                            DataGridView1.Item(dH1.IndexOf("価格"), r).Value = TextBox7.Text + 51
+                            DataGridView1.Item(dH1.IndexOf("価格"), r).Value = Math.Floor((TextBox7.Text + 51) * 1.02)
                         ElseIf ComboBox11.SelectedItem = "宅配便" Then
-                            DataGridView1.Item(dH1.IndexOf("価格"), r).Value = TextBox7.Text + 10
+                            DataGridView1.Item(dH1.IndexOf("価格"), r).Value = Math.Floor((TextBox7.Text + 10) * 1.02)
                         Else
-                            DataGridView1.Item(dH1.IndexOf("価格"), r).Value = TextBox7.Text + 10
+                            DataGridView1.Item(dH1.IndexOf("価格"), r).Value = Math.Floor((TextBox7.Text + 10) * 1.02)
                         End If
                     End If
 

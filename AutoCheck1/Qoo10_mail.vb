@@ -254,7 +254,7 @@ Public Class Qoo10_mail
         ChromeOptions.AddArguments("--disable-dev-shm-usage")
         'ChromeOptions.AddArgument("--headless")
 
-        Dim nextenginePath As String = "https://ne81.next-engine.com/"
+        Dim nextenginePath As String = "https://ne107.next-engine.com/"
         cr = New ChromeDriver(DriverService, ChromeOptions, TimeSpan.FromSeconds(180)) With {
             .Url = nextenginePath
         }

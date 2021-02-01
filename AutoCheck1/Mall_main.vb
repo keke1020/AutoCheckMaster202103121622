@@ -3985,18 +3985,22 @@ Public Class Mall_main
 
         For i As Integer = 0 To MasterRow.Length - 1
             If InStr(MasterRow(i)("商品分類タグ").ToString, "宅配便") Then
-                kubun = {"2|3", "宅配便"}
+                If InStr(ToolStripComboBox2.SelectedItem, "暁") > 0 Then
+                    kubun = {"6", "宅配便"}
+                Else
+                    kubun = {"2|3", "宅配便"}
+                End If
                 Exit For
             ElseIf InStr(MasterRow(i)("商品分類タグ").ToString, "メール便") Then
                 If InStr(ToolStripComboBox2.SelectedItem, "暁") > 0 Then
-                    kubun = {"4", "メール便"}
+                    kubun = {"7", "メール便"}
                 Else
                     kubun = {"1", "メール便"}
                 End If
                 Exit For
             ElseIf InStr(MasterRow(i)("商品分類タグ").ToString, "定形外") Then
                 If InStr(ToolStripComboBox2.SelectedItem, "暁") > 0 Then
-                    kubun = {"5", "定形外"}
+                    kubun = {"8", "定形外"}
                 Else
                     kubun = {"4", "定形外"}
                 End If

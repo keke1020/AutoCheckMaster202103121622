@@ -62,6 +62,21 @@ Partial Class Csv_denpyo3_F_count
         Me.Label87 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LB_n = New System.Windows.Forms.Label()
+        Me.LB34 = New System.Windows.Forms.Label()
+        Me.LB33 = New System.Windows.Forms.Label()
+        Me.LB32 = New System.Windows.Forms.Label()
+        Me.LB31 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.LB28 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.LB30 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.LB29 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.LB26 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label21
@@ -215,7 +230,7 @@ Partial Class Csv_denpyo3_F_count
         Me.Label18.ForeColor = System.Drawing.Color.Black
         Me.Label18.Location = New System.Drawing.Point(953, 3)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(9, 43)
+        Me.Label18.Size = New System.Drawing.Size(10, 66)
         Me.Label18.TabIndex = 165
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -223,7 +238,7 @@ Partial Class Csv_denpyo3_F_count
         '
         Me.LinkLabel2.AutoSize = True
         Me.LinkLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LinkLabel2.Location = New System.Drawing.Point(169, 4)
+        Me.LinkLabel2.Location = New System.Drawing.Point(169, 5)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Padding = New System.Windows.Forms.Padding(2)
         Me.LinkLabel2.Size = New System.Drawing.Size(35, 18)
@@ -236,7 +251,7 @@ Partial Class Csv_denpyo3_F_count
         '
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LinkLabel1.Location = New System.Drawing.Point(55, 4)
+        Me.LinkLabel1.Location = New System.Drawing.Point(55, 5)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Padding = New System.Windows.Forms.Padding(2)
         Me.LinkLabel1.Size = New System.Drawing.Size(35, 18)
@@ -248,7 +263,7 @@ Partial Class Csv_denpyo3_F_count
         'DateTimePicker1
         '
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(90, 4)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(90, 5)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(80, 19)
         Me.DateTimePicker1.TabIndex = 162
@@ -258,7 +273,7 @@ Partial Class Csv_denpyo3_F_count
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Location = New System.Drawing.Point(55, 25)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(85, 21)
+        Me.Button3.Size = New System.Drawing.Size(149, 21)
         Me.Button3.TabIndex = 161
         Me.Button3.Text = "修正(当日)"
         Me.Button3.UseVisualStyleBackColor = True
@@ -268,7 +283,7 @@ Partial Class Csv_denpyo3_F_count
         Me.Button2.BackColor = System.Drawing.Color.Gainsboro
         Me.Button2.Location = New System.Drawing.Point(966, 3)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(46, 44)
+        Me.Button2.Size = New System.Drawing.Size(46, 66)
         Me.Button2.TabIndex = 160
         Me.Button2.Text = "テスト"
         Me.Button2.UseVisualStyleBackColor = False
@@ -277,7 +292,7 @@ Partial Class Csv_denpyo3_F_count
         '
         Me.Button1.Location = New System.Drawing.Point(4, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(46, 44)
+        Me.Button1.Size = New System.Drawing.Size(46, 66)
         Me.Button1.TabIndex = 159
         Me.Button1.Text = "CSV"
         Me.Button1.UseVisualStyleBackColor = True
@@ -506,20 +521,215 @@ Partial Class Csv_denpyo3_F_count
         'Button4
         '
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Location = New System.Drawing.Point(144, 25)
+        Me.Button4.Location = New System.Drawing.Point(55, 48)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(60, 21)
+        Me.Button4.Size = New System.Drawing.Size(149, 21)
         Me.Button4.TabIndex = 178
         Me.Button4.Text = "閲覧"
         Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(876, 49)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(22, 20)
+        Me.Label1.TabIndex = 193
+        Me.Label1.Text = "計"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LB_n
+        '
+        Me.LB_n.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.LB_n.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB_n.ForeColor = System.Drawing.Color.White
+        Me.LB_n.Location = New System.Drawing.Point(898, 49)
+        Me.LB_n.Name = "LB_n"
+        Me.LB_n.Size = New System.Drawing.Size(50, 20)
+        Me.LB_n.TabIndex = 192
+        Me.LB_n.Text = "0"
+        Me.LB_n.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LB34
+        '
+        Me.LB34.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.LB34.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB34.ForeColor = System.Drawing.Color.Black
+        Me.LB34.Location = New System.Drawing.Point(822, 49)
+        Me.LB34.Name = "LB34"
+        Me.LB34.Size = New System.Drawing.Size(50, 20)
+        Me.LB34.TabIndex = 191
+        Me.LB34.Text = "0"
+        Me.LB34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LB33
+        '
+        Me.LB33.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.LB33.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB33.ForeColor = System.Drawing.Color.Black
+        Me.LB33.Location = New System.Drawing.Point(671, 49)
+        Me.LB33.Name = "LB33"
+        Me.LB33.Size = New System.Drawing.Size(50, 20)
+        Me.LB33.TabIndex = 190
+        Me.LB33.Text = "0"
+        Me.LB33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LB32
+        '
+        Me.LB32.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.LB32.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB32.ForeColor = System.Drawing.Color.Black
+        Me.LB32.Location = New System.Drawing.Point(520, 49)
+        Me.LB32.Name = "LB32"
+        Me.LB32.Size = New System.Drawing.Size(50, 20)
+        Me.LB32.TabIndex = 189
+        Me.LB32.Text = "0"
+        Me.LB32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LB31
+        '
+        Me.LB31.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.LB31.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB31.ForeColor = System.Drawing.Color.Black
+        Me.LB31.Location = New System.Drawing.Point(369, 49)
+        Me.LB31.Name = "LB31"
+        Me.LB31.Size = New System.Drawing.Size(50, 20)
+        Me.LB31.TabIndex = 188
+        Me.LB31.Text = "0"
+        Me.LB31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label14
+        '
+        Me.Label14.BackColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.Label14.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.White
+        Me.Label14.Location = New System.Drawing.Point(210, 49)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(58, 20)
+        Me.Label14.TabIndex = 187
+        Me.Label14.Text = "名古屋"
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LB28
+        '
+        Me.LB28.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.LB28.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB28.ForeColor = System.Drawing.Color.White
+        Me.LB28.Location = New System.Drawing.Point(469, 49)
+        Me.LB28.Name = "LB28"
+        Me.LB28.Size = New System.Drawing.Size(50, 20)
+        Me.LB28.TabIndex = 186
+        Me.LB28.Text = "0"
+        Me.LB28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label19
+        '
+        Me.Label19.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label19.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.White
+        Me.Label19.Location = New System.Drawing.Point(423, 49)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(46, 20)
+        Me.Label19.TabIndex = 185
+        Me.Label19.Text = "航空便"
+        Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LB30
+        '
+        Me.LB30.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.LB30.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB30.ForeColor = System.Drawing.Color.White
+        Me.LB30.Location = New System.Drawing.Point(771, 49)
+        Me.LB30.Name = "LB30"
+        Me.LB30.Size = New System.Drawing.Size(50, 20)
+        Me.LB30.TabIndex = 184
+        Me.LB30.Text = "0"
+        Me.LB30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label23
+        '
+        Me.Label23.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label23.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.White
+        Me.Label23.Location = New System.Drawing.Point(725, 49)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(46, 20)
+        Me.Label23.TabIndex = 183
+        Me.Label23.Text = "定形外"
+        Me.Label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LB29
+        '
+        Me.LB29.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.LB29.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB29.ForeColor = System.Drawing.Color.White
+        Me.LB29.Location = New System.Drawing.Point(620, 49)
+        Me.LB29.Name = "LB29"
+        Me.LB29.Size = New System.Drawing.Size(50, 20)
+        Me.LB29.TabIndex = 182
+        Me.LB29.Text = "0"
+        Me.LB29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label25
+        '
+        Me.Label25.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label25.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.White
+        Me.Label25.Location = New System.Drawing.Point(574, 49)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(46, 20)
+        Me.Label25.TabIndex = 181
+        Me.Label25.Text = "ゆパケ"
+        Me.Label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LB26
+        '
+        Me.LB26.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.LB26.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB26.ForeColor = System.Drawing.Color.White
+        Me.LB26.Location = New System.Drawing.Point(318, 49)
+        Me.LB26.Name = "LB26"
+        Me.LB26.Size = New System.Drawing.Size(50, 20)
+        Me.LB26.TabIndex = 180
+        Me.LB26.Text = "0"
+        Me.LB26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label27
+        '
+        Me.Label27.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label27.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.White
+        Me.Label27.Location = New System.Drawing.Point(272, 49)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(46, 20)
+        Me.Label27.TabIndex = 179
+        Me.Label27.Text = "宅配便"
+        Me.Label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Csv_denpyo3_F_count
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.ClientSize = New System.Drawing.Size(1017, 50)
+        Me.ClientSize = New System.Drawing.Size(1017, 72)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.LB_n)
+        Me.Controls.Add(Me.LB34)
+        Me.Controls.Add(Me.LB33)
+        Me.Controls.Add(Me.LB32)
+        Me.Controls.Add(Me.LB31)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.LB28)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.LB30)
+        Me.Controls.Add(Me.Label23)
+        Me.Controls.Add(Me.LB29)
+        Me.Controls.Add(Me.Label25)
+        Me.Controls.Add(Me.LB26)
+        Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.Label22)
@@ -606,4 +816,19 @@ Partial Class Csv_denpyo3_F_count
     Friend WithEvents Label87 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Button4 As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents LB_n As Label
+    Friend WithEvents LB34 As Label
+    Friend WithEvents LB33 As Label
+    Friend WithEvents LB32 As Label
+    Friend WithEvents LB31 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents LB28 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents LB30 As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents LB29 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents LB26 As Label
+    Friend WithEvents Label27 As Label
 End Class

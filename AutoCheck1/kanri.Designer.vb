@@ -22,9 +22,9 @@ Partial Class Kanri
     'コード エディタを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim FontInfo7 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim FontInfo1 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Kanri))
-        Dim FontInfo8 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim FontInfo2 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Me.AzukiControl3 = New Sgry.Azuki.WinForms.AzukiControl()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
@@ -125,10 +125,10 @@ Partial Class Kanri
             Or Sgry.Azuki.DrawingOption.HighlightsMatchedBracket), Sgry.Azuki.DrawingOption)
         Me.AzukiControl3.FirstVisibleLine = 0
         Me.AzukiControl3.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.0!)
-        FontInfo7.Name = "ＭＳ ゴシック"
-        FontInfo7.Size = 9
-        FontInfo7.Style = System.Drawing.FontStyle.Regular
-        Me.AzukiControl3.FontInfo = FontInfo7
+        FontInfo1.Name = "ＭＳ ゴシック"
+        FontInfo1.Size = 9
+        FontInfo1.Style = System.Drawing.FontStyle.Regular
+        Me.AzukiControl3.FontInfo = FontInfo1
         Me.AzukiControl3.ForeColor = System.Drawing.Color.Black
         Me.AzukiControl3.Location = New System.Drawing.Point(0, 44)
         Me.AzukiControl3.Name = "AzukiControl3"
@@ -610,6 +610,7 @@ Partial Class Kanri
         '
         '強制ファイル更新ToolStripMenuItem
         '
+        Me.強制ファイル更新ToolStripMenuItem.Enabled = False
         Me.強制ファイル更新ToolStripMenuItem.Name = "強制ファイル更新ToolStripMenuItem"
         Me.強制ファイル更新ToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.強制ファイル更新ToolStripMenuItem.Text = "全ファイル更新"
@@ -700,10 +701,10 @@ Partial Class Kanri
             Or Sgry.Azuki.DrawingOption.HighlightsMatchedBracket), Sgry.Azuki.DrawingOption)
         Me.AzukiControl1.FirstVisibleLine = 0
         Me.AzukiControl1.Font = New System.Drawing.Font("ＭＳ ゴシック", 10.0!)
-        FontInfo8.Name = "ＭＳ ゴシック"
-        FontInfo8.Size = 10
-        FontInfo8.Style = System.Drawing.FontStyle.Regular
-        Me.AzukiControl1.FontInfo = FontInfo8
+        FontInfo2.Name = "ＭＳ ゴシック"
+        FontInfo2.Size = 10
+        FontInfo2.Style = System.Drawing.FontStyle.Regular
+        Me.AzukiControl1.FontInfo = FontInfo2
         Me.AzukiControl1.ForeColor = System.Drawing.Color.Black
         Me.AzukiControl1.Location = New System.Drawing.Point(203, 22)
         Me.AzukiControl1.Name = "AzukiControl1"

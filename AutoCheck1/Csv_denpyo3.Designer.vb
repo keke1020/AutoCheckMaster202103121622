@@ -25,6 +25,7 @@ Partial Class Csv_denpyo3
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Csv_denpyo3))
         Dim FontInfo1 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim FontInfo2 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Dim FontInfo3 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
@@ -73,16 +74,24 @@ Partial Class Csv_denpyo3
         Me.CheckBox8 = New System.Windows.Forms.CheckBox()
         Me.KryptonButton3 = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.GroupBox19 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.LinkLabel13 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel27 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel28 = New System.Windows.Forms.LinkLabel()
+        Me.Label98 = New System.Windows.Forms.Label()
+        Me.Label99 = New System.Windows.Forms.Label()
+        Me.Label100 = New System.Windows.Forms.Label()
+        Me.CheckBox32 = New System.Windows.Forms.CheckBox()
         Me.CheckBox18 = New System.Windows.Forms.CheckBox()
         Me.CheckBox17 = New System.Windows.Forms.CheckBox()
         Me.Label88 = New System.Windows.Forms.Label()
         Me.Label87 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label78 = New System.Windows.Forms.Label()
         Me.LinkLabel14 = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabel13 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel12 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel11 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel10 = New System.Windows.Forms.LinkLabel()
@@ -95,11 +104,9 @@ Partial Class Csv_denpyo3
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.KryptonButton1 = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.Button36 = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -163,6 +170,8 @@ Partial Class Csv_denpyo3
         Me.Button8 = New System.Windows.Forms.Button()
         Me.KryptonComboBox1 = New ComponentFactory.Krypton.Toolkit.KryptonComboBox()
         Me.TabPage34 = New System.Windows.Forms.TabPage()
+        Me.Label93 = New System.Windows.Forms.Label()
+        Me.HS4 = New System.Windows.Forms.TextBox()
         Me.Label92 = New System.Windows.Forms.Label()
         Me.Label91 = New System.Windows.Forms.Label()
         Me.Label90 = New System.Windows.Forms.Label()
@@ -404,10 +413,18 @@ Partial Class Csv_denpyo3
         Me.TextBox11 = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.LinkLabel20 = New System.Windows.Forms.LinkLabel()
-        Me.Label84 = New System.Windows.Forms.Label()
         Me.Label73 = New System.Windows.Forms.Label()
+        Me.Label84 = New System.Windows.Forms.Label()
         Me.LinkLabel19 = New System.Windows.Forms.LinkLabel()
+        Me.Label94 = New System.Windows.Forms.Label()
+        Me.LinkLabel20 = New System.Windows.Forms.LinkLabel()
+        Me.Label95 = New System.Windows.Forms.Label()
+        Me.Label96 = New System.Windows.Forms.Label()
+        Me.LinkLabel23 = New System.Windows.Forms.LinkLabel()
+        Me.Label97 = New System.Windows.Forms.Label()
+        Me.LinkLabel24 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel25 = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel26 = New System.Windows.Forms.LinkLabel()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -476,15 +493,6 @@ Partial Class Csv_denpyo3
         Me.TabControl6 = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.DGV2 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage15 = New System.Windows.Forms.TabPage()
         Me.AzukiControl1 = New Sgry.Azuki.WinForms.AzukiControl()
         Me.TabPage24 = New System.Windows.Forms.TabPage()
@@ -504,6 +512,16 @@ Partial Class Csv_denpyo3
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column43 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -678,7 +696,7 @@ Partial Class Csv_denpyo3
         '
         'ネコポス出力ToolStripMenuItem
         '
-        Me.ネコポス出力ToolStripMenuItem.Image = Global.AutoCheck1.My.Resources.Resources.nekoposu
+        Me.ネコポス出力ToolStripMenuItem.Image = CType(resources.GetObject("ネコポス出力ToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ネコポス出力ToolStripMenuItem.Name = "ネコポス出力ToolStripMenuItem"
         Me.ネコポス出力ToolStripMenuItem.Size = New System.Drawing.Size(195, 22)
         Me.ネコポス出力ToolStripMenuItem.Text = "ネコポス出力"
@@ -957,7 +975,7 @@ Partial Class Csv_denpyo3
         '
         Me.CheckBox14.AutoSize = True
         Me.CheckBox14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox14.Location = New System.Drawing.Point(120, 288)
+        Me.CheckBox14.Location = New System.Drawing.Point(120, 291)
         Me.CheckBox14.Name = "CheckBox14"
         Me.CheckBox14.Size = New System.Drawing.Size(57, 16)
         Me.CheckBox14.TabIndex = 103
@@ -968,7 +986,7 @@ Partial Class Csv_denpyo3
         '
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(102, 261)
+        Me.Button2.Location = New System.Drawing.Point(102, 266)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(19, 21)
         Me.Button2.TabIndex = 102
@@ -981,7 +999,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox9.Checked = True
         Me.CheckBox9.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox9.Location = New System.Drawing.Point(55, 288)
+        Me.CheckBox9.Location = New System.Drawing.Point(55, 291)
         Me.CheckBox9.Name = "CheckBox9"
         Me.CheckBox9.Size = New System.Drawing.Size(66, 16)
         Me.CheckBox9.TabIndex = 12
@@ -992,7 +1010,7 @@ Partial Class Csv_denpyo3
         '
         Me.CheckBox8.AutoSize = True
         Me.CheckBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox8.Location = New System.Drawing.Point(7, 288)
+        Me.CheckBox8.Location = New System.Drawing.Point(7, 291)
         Me.CheckBox8.Name = "CheckBox8"
         Me.CheckBox8.Size = New System.Drawing.Size(45, 16)
         Me.CheckBox8.TabIndex = 11
@@ -1001,9 +1019,9 @@ Partial Class Csv_denpyo3
         '
         'KryptonButton3
         '
-        Me.KryptonButton3.Location = New System.Drawing.Point(7, 167)
+        Me.KryptonButton3.Location = New System.Drawing.Point(7, 185)
         Me.KryptonButton3.Name = "KryptonButton3"
-        Me.KryptonButton3.Size = New System.Drawing.Size(89, 63)
+        Me.KryptonButton3.Size = New System.Drawing.Size(89, 51)
         Me.KryptonButton3.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.KryptonButton3.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.KryptonButton3.StateCommon.Border.Color1 = System.Drawing.Color.Gray
@@ -1046,16 +1064,24 @@ Partial Class Csv_denpyo3
         '
         'GroupBox19
         '
+        Me.GroupBox19.Controls.Add(Me.CheckBox3)
+        Me.GroupBox19.Controls.Add(Me.Label5)
+        Me.GroupBox19.Controls.Add(Me.Label10)
+        Me.GroupBox19.Controls.Add(Me.LinkLabel13)
+        Me.GroupBox19.Controls.Add(Me.LinkLabel27)
+        Me.GroupBox19.Controls.Add(Me.LinkLabel28)
+        Me.GroupBox19.Controls.Add(Me.Label98)
+        Me.GroupBox19.Controls.Add(Me.Label99)
+        Me.GroupBox19.Controls.Add(Me.Label100)
+        Me.GroupBox19.Controls.Add(Me.CheckBox32)
         Me.GroupBox19.Controls.Add(Me.CheckBox18)
         Me.GroupBox19.Controls.Add(Me.CheckBox17)
         Me.GroupBox19.Controls.Add(Me.Label88)
         Me.GroupBox19.Controls.Add(Me.Label87)
-        Me.GroupBox19.Controls.Add(Me.Label5)
         Me.GroupBox19.Controls.Add(Me.Label4)
         Me.GroupBox19.Controls.Add(Me.Label3)
         Me.GroupBox19.Controls.Add(Me.Label78)
         Me.GroupBox19.Controls.Add(Me.LinkLabel14)
-        Me.GroupBox19.Controls.Add(Me.LinkLabel13)
         Me.GroupBox19.Controls.Add(Me.LinkLabel12)
         Me.GroupBox19.Controls.Add(Me.LinkLabel11)
         Me.GroupBox19.Controls.Add(Me.LinkLabel10)
@@ -1068,18 +1094,159 @@ Partial Class Csv_denpyo3
         Me.GroupBox19.Controls.Add(Me.Label21)
         Me.GroupBox19.Controls.Add(Me.Label20)
         Me.GroupBox19.Controls.Add(Me.Label19)
-        Me.GroupBox19.Controls.Add(Me.CheckBox3)
         Me.GroupBox19.Controls.Add(Me.CheckBox1)
         Me.GroupBox19.Controls.Add(Me.CheckBox4)
         Me.GroupBox19.Controls.Add(Me.Label11)
-        Me.GroupBox19.Controls.Add(Me.Label10)
         Me.GroupBox19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox19.Location = New System.Drawing.Point(6, 5)
         Me.GroupBox19.Name = "GroupBox19"
-        Me.GroupBox19.Size = New System.Drawing.Size(166, 154)
+        Me.GroupBox19.Size = New System.Drawing.Size(166, 177)
         Me.GroupBox19.TabIndex = 2
         Me.GroupBox19.TabStop = False
         Me.GroupBox19.Text = "元データ（便数計算無し）"
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Checked = True
+        Me.CheckBox3.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckBox3.Font = New System.Drawing.Font("MS UI Gothic", 8.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.CheckBox3.Location = New System.Drawing.Point(111, 91)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(55, 15)
+        Me.CheckBox3.TabIndex = 142
+        Me.CheckBox3.Text = "e飛伝2"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.BackColor = System.Drawing.Color.Teal
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(87, 91)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(19, 14)
+        Me.Label5.TabIndex = 144
+        Me.Label5.Text = "空"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label10
+        '
+        Me.Label10.BackColor = System.Drawing.Color.Teal
+        Me.Label10.ForeColor = System.Drawing.Color.White
+        Me.Label10.Location = New System.Drawing.Point(5, 92)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(19, 14)
+        Me.Label10.TabIndex = 143
+        Me.Label10.Text = "名"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LinkLabel13
+        '
+        Me.LinkLabel13.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
+        Me.LinkLabel13.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.LinkLabel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LinkLabel13.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel13.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel13.LinkColor = System.Drawing.Color.Black
+        Me.LinkLabel13.Location = New System.Drawing.Point(123, 108)
+        Me.LinkLabel13.Name = "LinkLabel13"
+        Me.LinkLabel13.Size = New System.Drawing.Size(30, 16)
+        Me.LinkLabel13.TabIndex = 141
+        Me.LinkLabel13.TabStop = True
+        Me.LinkLabel13.Text = "0"
+        Me.LinkLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel13.VisitedLinkColor = System.Drawing.SystemColors.Desktop
+        '
+        'LinkLabel27
+        '
+        Me.LinkLabel27.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
+        Me.LinkLabel27.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.LinkLabel27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LinkLabel27.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel27.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel27.LinkColor = System.Drawing.Color.Black
+        Me.LinkLabel27.Location = New System.Drawing.Point(73, 108)
+        Me.LinkLabel27.Name = "LinkLabel27"
+        Me.LinkLabel27.Size = New System.Drawing.Size(30, 16)
+        Me.LinkLabel27.TabIndex = 140
+        Me.LinkLabel27.TabStop = True
+        Me.LinkLabel27.Text = "0"
+        Me.LinkLabel27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel27.VisitedLinkColor = System.Drawing.SystemColors.Desktop
+        '
+        'LinkLabel28
+        '
+        Me.LinkLabel28.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
+        Me.LinkLabel28.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.LinkLabel28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LinkLabel28.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel28.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel28.LinkColor = System.Drawing.Color.Black
+        Me.LinkLabel28.Location = New System.Drawing.Point(24, 108)
+        Me.LinkLabel28.Name = "LinkLabel28"
+        Me.LinkLabel28.Size = New System.Drawing.Size(32, 16)
+        Me.LinkLabel28.TabIndex = 139
+        Me.LinkLabel28.TabStop = True
+        Me.LinkLabel28.Text = "0"
+        Me.LinkLabel28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel28.VisitedLinkColor = System.Drawing.SystemColors.Desktop
+        '
+        'Label98
+        '
+        Me.Label98.AutoSize = True
+        Me.Label98.BackColor = System.Drawing.Color.Teal
+        Me.Label98.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label98.ForeColor = System.Drawing.Color.White
+        Me.Label98.Location = New System.Drawing.Point(106, 108)
+        Me.Label98.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label98.Name = "Label98"
+        Me.Label98.Padding = New System.Windows.Forms.Padding(1)
+        Me.Label98.Size = New System.Drawing.Size(21, 16)
+        Me.Label98.TabIndex = 138
+        Me.Label98.Text = "定"
+        '
+        'Label99
+        '
+        Me.Label99.AutoSize = True
+        Me.Label99.BackColor = System.Drawing.Color.Teal
+        Me.Label99.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label99.ForeColor = System.Drawing.Color.White
+        Me.Label99.Location = New System.Drawing.Point(58, 108)
+        Me.Label99.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label99.Name = "Label99"
+        Me.Label99.Padding = New System.Windows.Forms.Padding(1)
+        Me.Label99.Size = New System.Drawing.Size(17, 16)
+        Me.Label99.TabIndex = 137
+        Me.Label99.Text = "メ"
+        '
+        'Label100
+        '
+        Me.Label100.AutoSize = True
+        Me.Label100.BackColor = System.Drawing.Color.Teal
+        Me.Label100.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label100.ForeColor = System.Drawing.Color.White
+        Me.Label100.Location = New System.Drawing.Point(5, 108)
+        Me.Label100.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label100.Name = "Label100"
+        Me.Label100.Padding = New System.Windows.Forms.Padding(1)
+        Me.Label100.Size = New System.Drawing.Size(21, 16)
+        Me.Label100.TabIndex = 136
+        Me.Label100.Text = "宅"
+        '
+        'CheckBox32
+        '
+        Me.CheckBox32.AutoSize = True
+        Me.CheckBox32.Checked = True
+        Me.CheckBox32.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox32.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckBox32.Font = New System.Drawing.Font("MS UI Gothic", 8.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.CheckBox32.Location = New System.Drawing.Point(29, 91)
+        Me.CheckBox32.Name = "CheckBox32"
+        Me.CheckBox32.Size = New System.Drawing.Size(55, 15)
+        Me.CheckBox32.TabIndex = 135
+        Me.CheckBox32.Text = "e飛伝2"
+        Me.CheckBox32.UseVisualStyleBackColor = True
         '
         'CheckBox18
         '
@@ -1088,7 +1255,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox18.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox18.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox18.Font = New System.Drawing.Font("MS UI Gothic", 8.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.CheckBox18.Location = New System.Drawing.Point(115, 55)
+        Me.CheckBox18.Location = New System.Drawing.Point(111, 52)
         Me.CheckBox18.Name = "CheckBox18"
         Me.CheckBox18.Size = New System.Drawing.Size(55, 15)
         Me.CheckBox18.TabIndex = 129
@@ -1102,7 +1269,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox17.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox17.Font = New System.Drawing.Font("MS UI Gothic", 8.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.CheckBox17.Location = New System.Drawing.Point(115, 18)
+        Me.CheckBox17.Location = New System.Drawing.Point(111, 14)
         Me.CheckBox17.Name = "CheckBox17"
         Me.CheckBox17.Size = New System.Drawing.Size(55, 15)
         Me.CheckBox17.TabIndex = 128
@@ -1113,7 +1280,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label88.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Label88.ForeColor = System.Drawing.Color.White
-        Me.Label88.Location = New System.Drawing.Point(91, 55)
+        Me.Label88.Location = New System.Drawing.Point(87, 52)
         Me.Label88.Name = "Label88"
         Me.Label88.Size = New System.Drawing.Size(19, 14)
         Me.Label88.TabIndex = 134
@@ -1124,29 +1291,18 @@ Partial Class Csv_denpyo3
         '
         Me.Label87.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label87.ForeColor = System.Drawing.Color.White
-        Me.Label87.Location = New System.Drawing.Point(91, 18)
+        Me.Label87.Location = New System.Drawing.Point(87, 14)
         Me.Label87.Name = "Label87"
         Me.Label87.Size = New System.Drawing.Size(19, 14)
         Me.Label87.TabIndex = 133
         Me.Label87.Text = "空"
         Me.Label87.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label5
-        '
-        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(9, 95)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(29, 14)
-        Me.Label5.TabIndex = 132
-        Me.Label5.Text = "物流"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Label4.ForeColor = System.Drawing.Color.White
-        Me.Label4.Location = New System.Drawing.Point(9, 56)
+        Me.Label4.Location = New System.Drawing.Point(5, 53)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(19, 14)
         Me.Label4.TabIndex = 131
@@ -1157,7 +1313,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label3.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(9, 18)
+        Me.Label3.Location = New System.Drawing.Point(5, 14)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(19, 14)
         Me.Label3.TabIndex = 130
@@ -1167,7 +1323,7 @@ Partial Class Csv_denpyo3
         'Label78
         '
         Me.Label78.BackColor = System.Drawing.Color.White
-        Me.Label78.Location = New System.Drawing.Point(9, 132)
+        Me.Label78.Location = New System.Drawing.Point(10, 155)
         Me.Label78.Name = "Label78"
         Me.Label78.Size = New System.Drawing.Size(145, 14)
         Me.Label78.TabIndex = 127
@@ -1182,7 +1338,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel14.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel14.ForeColor = System.Drawing.Color.White
         Me.LinkLabel14.LinkColor = System.Drawing.Color.White
-        Me.LinkLabel14.Location = New System.Drawing.Point(125, 111)
+        Me.LinkLabel14.Location = New System.Drawing.Point(125, 134)
         Me.LinkLabel14.Name = "LinkLabel14"
         Me.LinkLabel14.Size = New System.Drawing.Size(30, 16)
         Me.LinkLabel14.TabIndex = 126
@@ -1190,23 +1346,6 @@ Partial Class Csv_denpyo3
         Me.LinkLabel14.Text = "0"
         Me.LinkLabel14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.LinkLabel14.VisitedLinkColor = System.Drawing.Color.White
-        '
-        'LinkLabel13
-        '
-        Me.LinkLabel13.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
-        Me.LinkLabel13.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LinkLabel13.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LinkLabel13.ForeColor = System.Drawing.Color.White
-        Me.LinkLabel13.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel13.Location = New System.Drawing.Point(28, 111)
-        Me.LinkLabel13.Name = "LinkLabel13"
-        Me.LinkLabel13.Size = New System.Drawing.Size(32, 16)
-        Me.LinkLabel13.TabIndex = 125
-        Me.LinkLabel13.TabStop = True
-        Me.LinkLabel13.Text = "0"
-        Me.LinkLabel13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LinkLabel13.VisitedLinkColor = System.Drawing.SystemColors.Desktop
         '
         'LinkLabel12
         '
@@ -1216,7 +1355,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel12.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel12.ForeColor = System.Drawing.Color.White
         Me.LinkLabel12.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel12.Location = New System.Drawing.Point(127, 72)
+        Me.LinkLabel12.Location = New System.Drawing.Point(123, 69)
         Me.LinkLabel12.Name = "LinkLabel12"
         Me.LinkLabel12.Size = New System.Drawing.Size(30, 16)
         Me.LinkLabel12.TabIndex = 124
@@ -1233,7 +1372,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel11.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel11.ForeColor = System.Drawing.Color.White
         Me.LinkLabel11.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel11.Location = New System.Drawing.Point(77, 72)
+        Me.LinkLabel11.Location = New System.Drawing.Point(73, 69)
         Me.LinkLabel11.Name = "LinkLabel11"
         Me.LinkLabel11.Size = New System.Drawing.Size(30, 16)
         Me.LinkLabel11.TabIndex = 123
@@ -1250,7 +1389,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel10.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel10.ForeColor = System.Drawing.Color.White
         Me.LinkLabel10.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel10.Location = New System.Drawing.Point(28, 72)
+        Me.LinkLabel10.Location = New System.Drawing.Point(24, 69)
         Me.LinkLabel10.Name = "LinkLabel10"
         Me.LinkLabel10.Size = New System.Drawing.Size(32, 16)
         Me.LinkLabel10.TabIndex = 122
@@ -1267,7 +1406,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel9.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel9.ForeColor = System.Drawing.Color.White
         Me.LinkLabel9.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel9.Location = New System.Drawing.Point(127, 34)
+        Me.LinkLabel9.Location = New System.Drawing.Point(123, 30)
         Me.LinkLabel9.Name = "LinkLabel9"
         Me.LinkLabel9.Size = New System.Drawing.Size(30, 16)
         Me.LinkLabel9.TabIndex = 121
@@ -1284,7 +1423,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel8.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel8.ForeColor = System.Drawing.Color.White
         Me.LinkLabel8.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel8.Location = New System.Drawing.Point(77, 34)
+        Me.LinkLabel8.Location = New System.Drawing.Point(73, 30)
         Me.LinkLabel8.Name = "LinkLabel8"
         Me.LinkLabel8.Size = New System.Drawing.Size(30, 16)
         Me.LinkLabel8.TabIndex = 120
@@ -1301,7 +1440,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel7.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel7.ForeColor = System.Drawing.Color.White
         Me.LinkLabel7.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel7.Location = New System.Drawing.Point(28, 34)
+        Me.LinkLabel7.Location = New System.Drawing.Point(24, 30)
         Me.LinkLabel7.Name = "LinkLabel7"
         Me.LinkLabel7.Size = New System.Drawing.Size(32, 16)
         Me.LinkLabel7.TabIndex = 88
@@ -1316,7 +1455,7 @@ Partial Class Csv_denpyo3
         Me.Label23.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Label23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label23.ForeColor = System.Drawing.Color.White
-        Me.Label23.Location = New System.Drawing.Point(110, 72)
+        Me.Label23.Location = New System.Drawing.Point(106, 69)
         Me.Label23.Margin = New System.Windows.Forms.Padding(0)
         Me.Label23.Name = "Label23"
         Me.Label23.Padding = New System.Windows.Forms.Padding(1)
@@ -1330,7 +1469,7 @@ Partial Class Csv_denpyo3
         Me.Label24.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label24.ForeColor = System.Drawing.Color.White
-        Me.Label24.Location = New System.Drawing.Point(110, 34)
+        Me.Label24.Location = New System.Drawing.Point(106, 30)
         Me.Label24.Margin = New System.Windows.Forms.Padding(0)
         Me.Label24.Name = "Label24"
         Me.Label24.Padding = New System.Windows.Forms.Padding(1)
@@ -1344,7 +1483,7 @@ Partial Class Csv_denpyo3
         Me.Label22.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Label22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label22.ForeColor = System.Drawing.Color.White
-        Me.Label22.Location = New System.Drawing.Point(62, 72)
+        Me.Label22.Location = New System.Drawing.Point(58, 69)
         Me.Label22.Margin = New System.Windows.Forms.Padding(0)
         Me.Label22.Name = "Label22"
         Me.Label22.Padding = New System.Windows.Forms.Padding(1)
@@ -1358,7 +1497,7 @@ Partial Class Csv_denpyo3
         Me.Label21.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label21.ForeColor = System.Drawing.Color.White
-        Me.Label21.Location = New System.Drawing.Point(62, 34)
+        Me.Label21.Location = New System.Drawing.Point(58, 30)
         Me.Label21.Margin = New System.Windows.Forms.Padding(0)
         Me.Label21.Name = "Label21"
         Me.Label21.Padding = New System.Windows.Forms.Padding(1)
@@ -1372,7 +1511,7 @@ Partial Class Csv_denpyo3
         Me.Label20.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label20.ForeColor = System.Drawing.Color.White
-        Me.Label20.Location = New System.Drawing.Point(9, 34)
+        Me.Label20.Location = New System.Drawing.Point(5, 30)
         Me.Label20.Margin = New System.Windows.Forms.Padding(0)
         Me.Label20.Name = "Label20"
         Me.Label20.Padding = New System.Windows.Forms.Padding(1)
@@ -1386,7 +1525,7 @@ Partial Class Csv_denpyo3
         Me.Label19.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.Label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Label19.ForeColor = System.Drawing.Color.White
-        Me.Label19.Location = New System.Drawing.Point(9, 72)
+        Me.Label19.Location = New System.Drawing.Point(5, 69)
         Me.Label19.Margin = New System.Windows.Forms.Padding(0)
         Me.Label19.Name = "Label19"
         Me.Label19.Padding = New System.Windows.Forms.Padding(1)
@@ -1394,24 +1533,12 @@ Partial Class Csv_denpyo3
         Me.Label19.TabIndex = 112
         Me.Label19.Text = "宅"
         '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox3.Font = New System.Drawing.Font("MS UI Gothic", 8.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.CheckBox3.Location = New System.Drawing.Point(42, 94)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(52, 15)
-        Me.CheckBox3.TabIndex = 101
-        Me.CheckBox3.Text = "BIZlogi"
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
         Me.CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox1.Font = New System.Drawing.Font("MS UI Gothic", 8.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(33, 17)
+        Me.CheckBox1.Location = New System.Drawing.Point(29, 13)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(52, 15)
         Me.CheckBox1.TabIndex = 11
@@ -1425,7 +1552,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox4.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CheckBox4.Font = New System.Drawing.Font("MS UI Gothic", 8.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.CheckBox4.Location = New System.Drawing.Point(33, 55)
+        Me.CheckBox4.Location = New System.Drawing.Point(29, 52)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(55, 15)
         Me.CheckBox4.TabIndex = 102
@@ -1435,29 +1562,15 @@ Partial Class Csv_denpyo3
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(125, 97)
+        Me.Label11.Location = New System.Drawing.Point(93, 135)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(30, 12)
         Me.Label11.TabIndex = 107
         Me.Label11.Text = "Error"
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label10.ForeColor = System.Drawing.Color.White
-        Me.Label10.Location = New System.Drawing.Point(9, 111)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Padding = New System.Windows.Forms.Padding(1)
-        Me.Label10.Size = New System.Drawing.Size(21, 16)
-        Me.Label10.TabIndex = 12
-        Me.Label10.Text = "宅"
-        '
         'KryptonButton1
         '
-        Me.KryptonButton1.Location = New System.Drawing.Point(7, 234)
+        Me.KryptonButton1.Location = New System.Drawing.Point(7, 239)
         Me.KryptonButton1.Name = "KryptonButton1"
         Me.KryptonButton1.Size = New System.Drawing.Size(89, 48)
         Me.KryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -1504,7 +1617,7 @@ Partial Class Csv_denpyo3
         '
         Me.Button36.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Button36.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button36.Location = New System.Drawing.Point(123, 261)
+        Me.Button36.Location = New System.Drawing.Point(123, 266)
         Me.Button36.Name = "Button36"
         Me.Button36.Size = New System.Drawing.Size(49, 21)
         Me.Button36.TabIndex = 86
@@ -1514,7 +1627,7 @@ Partial Class Csv_denpyo3
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(100, 168)
+        Me.Label16.Location = New System.Drawing.Point(105, 185)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(51, 12)
         Me.Label16.TabIndex = 101
@@ -1527,10 +1640,10 @@ Partial Class Csv_denpyo3
         Me.ListBox3.ForeColor = System.Drawing.Color.Red
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.ItemHeight = 12
-        Me.ListBox3.Location = New System.Drawing.Point(102, 182)
+        Me.ListBox3.Location = New System.Drawing.Point(102, 199)
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
-        Me.ListBox3.Size = New System.Drawing.Size(70, 76)
+        Me.ListBox3.Size = New System.Drawing.Size(70, 64)
         Me.ListBox3.TabIndex = 84
         '
         'ListBox1
@@ -1742,7 +1855,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox30.Checked = True
         Me.CheckBox30.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox30.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox30.Location = New System.Drawing.Point(7, 249)
+        Me.CheckBox30.Location = New System.Drawing.Point(7, 264)
         Me.CheckBox30.Name = "CheckBox30"
         Me.CheckBox30.Size = New System.Drawing.Size(153, 16)
         Me.CheckBox30.TabIndex = 107
@@ -1755,7 +1868,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox29.Checked = True
         Me.CheckBox29.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox29.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox29.Location = New System.Drawing.Point(7, 233)
+        Me.CheckBox29.Location = New System.Drawing.Point(7, 248)
         Me.CheckBox29.Name = "CheckBox29"
         Me.CheckBox29.Size = New System.Drawing.Size(136, 16)
         Me.CheckBox29.TabIndex = 106
@@ -1765,7 +1878,7 @@ Partial Class Csv_denpyo3
         'Label70
         '
         Me.Label70.AutoSize = True
-        Me.Label70.Location = New System.Drawing.Point(23, 218)
+        Me.Label70.Location = New System.Drawing.Point(23, 233)
         Me.Label70.Name = "Label70"
         Me.Label70.Size = New System.Drawing.Size(135, 12)
         Me.Label70.TabIndex = 102
@@ -1777,7 +1890,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox11.Checked = True
         Me.CheckBox11.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox11.Location = New System.Drawing.Point(7, 200)
+        Me.CheckBox11.Location = New System.Drawing.Point(7, 215)
         Me.CheckBox11.Name = "CheckBox11"
         Me.CheckBox11.Size = New System.Drawing.Size(119, 16)
         Me.CheckBox11.TabIndex = 101
@@ -1790,7 +1903,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox10.Checked = True
         Me.CheckBox10.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox10.Location = New System.Drawing.Point(7, 184)
+        Me.CheckBox10.Location = New System.Drawing.Point(7, 199)
         Me.CheckBox10.Name = "CheckBox10"
         Me.CheckBox10.Size = New System.Drawing.Size(145, 16)
         Me.CheckBox10.TabIndex = 98
@@ -1827,7 +1940,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox6.Checked = True
         Me.CheckBox6.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox6.Location = New System.Drawing.Point(7, 119)
+        Me.CheckBox6.Location = New System.Drawing.Point(7, 134)
         Me.CheckBox6.Name = "CheckBox6"
         Me.CheckBox6.Size = New System.Drawing.Size(156, 16)
         Me.CheckBox6.TabIndex = 96
@@ -1864,7 +1977,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox22.Checked = True
         Me.CheckBox22.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox22.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox22.Location = New System.Drawing.Point(7, 103)
+        Me.CheckBox22.Location = New System.Drawing.Point(7, 118)
         Me.CheckBox22.Name = "CheckBox22"
         Me.CheckBox22.Size = New System.Drawing.Size(106, 16)
         Me.CheckBox22.TabIndex = 49
@@ -1877,7 +1990,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox25.Checked = True
         Me.CheckBox25.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox25.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox25.Location = New System.Drawing.Point(7, 167)
+        Me.CheckBox25.Location = New System.Drawing.Point(7, 182)
         Me.CheckBox25.Name = "CheckBox25"
         Me.CheckBox25.Size = New System.Drawing.Size(81, 16)
         Me.CheckBox25.TabIndex = 78
@@ -1888,7 +2001,7 @@ Partial Class Csv_denpyo3
         '
         Me.CheckBox23.AutoSize = True
         Me.CheckBox23.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox23.Location = New System.Drawing.Point(7, 135)
+        Me.CheckBox23.Location = New System.Drawing.Point(7, 150)
         Me.CheckBox23.Name = "CheckBox23"
         Me.CheckBox23.Size = New System.Drawing.Size(103, 16)
         Me.CheckBox23.TabIndex = 50
@@ -1901,7 +2014,7 @@ Partial Class Csv_denpyo3
         Me.CheckBox20.Checked = True
         Me.CheckBox20.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox20.Location = New System.Drawing.Point(7, 151)
+        Me.CheckBox20.Location = New System.Drawing.Point(7, 166)
         Me.CheckBox20.Name = "CheckBox20"
         Me.CheckBox20.Size = New System.Drawing.Size(81, 16)
         Me.CheckBox20.TabIndex = 77
@@ -2248,6 +2361,8 @@ Partial Class Csv_denpyo3
         'TabPage34
         '
         Me.TabPage34.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.TabPage34.Controls.Add(Me.Label93)
+        Me.TabPage34.Controls.Add(Me.HS4)
         Me.TabPage34.Controls.Add(Me.Label92)
         Me.TabPage34.Controls.Add(Me.Label91)
         Me.TabPage34.Controls.Add(Me.Label90)
@@ -2262,10 +2377,30 @@ Partial Class Csv_denpyo3
         Me.TabPage34.TabIndex = 4
         Me.TabPage34.Text = "5"
         '
+        'Label93
+        '
+        Me.Label93.AutoSize = True
+        Me.Label93.Location = New System.Drawing.Point(18, 98)
+        Me.Label93.Name = "Label93"
+        Me.Label93.Size = New System.Drawing.Size(26, 12)
+        Me.Label93.TabIndex = 102
+        Me.Label93.Text = "HS4"
+        '
+        'HS4
+        '
+        Me.HS4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.HS4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.HS4.Location = New System.Drawing.Point(46, 95)
+        Me.HS4.Name = "HS4"
+        Me.HS4.ReadOnly = True
+        Me.HS4.Size = New System.Drawing.Size(81, 19)
+        Me.HS4.TabIndex = 101
+        Me.HS4.Text = "名古屋"
+        '
         'Label92
         '
         Me.Label92.AutoSize = True
-        Me.Label92.Location = New System.Drawing.Point(18, 78)
+        Me.Label92.Location = New System.Drawing.Point(18, 76)
         Me.Label92.Name = "Label92"
         Me.Label92.Size = New System.Drawing.Size(26, 12)
         Me.Label92.TabIndex = 100
@@ -2274,7 +2409,7 @@ Partial Class Csv_denpyo3
         'Label91
         '
         Me.Label91.AutoSize = True
-        Me.Label91.Location = New System.Drawing.Point(18, 55)
+        Me.Label91.Location = New System.Drawing.Point(18, 54)
         Me.Label91.Name = "Label91"
         Me.Label91.Size = New System.Drawing.Size(26, 12)
         Me.Label91.TabIndex = 99
@@ -2293,7 +2428,7 @@ Partial Class Csv_denpyo3
         '
         Me.HS3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.HS3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.HS3.Location = New System.Drawing.Point(46, 75)
+        Me.HS3.Location = New System.Drawing.Point(46, 73)
         Me.HS3.Name = "HS3"
         Me.HS3.ReadOnly = True
         Me.HS3.Size = New System.Drawing.Size(81, 19)
@@ -2304,7 +2439,7 @@ Partial Class Csv_denpyo3
         '
         Me.HS2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.HS2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.HS2.Location = New System.Drawing.Point(46, 52)
+        Me.HS2.Location = New System.Drawing.Point(46, 51)
         Me.HS2.Name = "HS2"
         Me.HS2.ReadOnly = True
         Me.HS2.Size = New System.Drawing.Size(81, 19)
@@ -2963,7 +3098,7 @@ Partial Class Csv_denpyo3
         '
         Me.ComboBox3.BackColor = System.Drawing.Color.White
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"", "太宰府", "井相田", "物流"})
+        Me.ComboBox3.Items.AddRange(New Object() {"", "太宰府", "井相田", "物流", "名古屋"})
         Me.ComboBox3.Location = New System.Drawing.Point(67, 110)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(73, 20)
@@ -4859,17 +4994,74 @@ Partial Class Csv_denpyo3
         '
         'GroupBox7
         '
-        Me.GroupBox7.Controls.Add(Me.LinkLabel20)
-        Me.GroupBox7.Controls.Add(Me.Label84)
         Me.GroupBox7.Controls.Add(Me.Label73)
+        Me.GroupBox7.Controls.Add(Me.Label84)
         Me.GroupBox7.Controls.Add(Me.LinkLabel19)
+        Me.GroupBox7.Controls.Add(Me.Label94)
+        Me.GroupBox7.Controls.Add(Me.LinkLabel20)
+        Me.GroupBox7.Controls.Add(Me.Label95)
+        Me.GroupBox7.Controls.Add(Me.Label96)
+        Me.GroupBox7.Controls.Add(Me.LinkLabel23)
+        Me.GroupBox7.Controls.Add(Me.Label97)
+        Me.GroupBox7.Controls.Add(Me.LinkLabel24)
+        Me.GroupBox7.Controls.Add(Me.LinkLabel25)
+        Me.GroupBox7.Controls.Add(Me.LinkLabel26)
         Me.GroupBox7.ForeColor = System.Drawing.Color.Yellow
-        Me.GroupBox7.Location = New System.Drawing.Point(247, 6)
+        Me.GroupBox7.Location = New System.Drawing.Point(241, 6)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(107, 125)
+        Me.GroupBox7.Size = New System.Drawing.Size(112, 125)
         Me.GroupBox7.TabIndex = 128
         Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "物流（代引き 0）"
+        Me.GroupBox7.Text = "名古屋（代引き 0）"
+        '
+        'Label73
+        '
+        Me.Label73.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label73.ForeColor = System.Drawing.Color.White
+        Me.Label73.Location = New System.Drawing.Point(8, 101)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(52, 17)
+        Me.Label73.TabIndex = 144
+        Me.Label73.Text = "定形外"
+        Me.Label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label84
+        '
+        Me.Label84.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label84.ForeColor = System.Drawing.Color.White
+        Me.Label84.Location = New System.Drawing.Point(8, 84)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(52, 17)
+        Me.Label84.TabIndex = 143
+        Me.Label84.Text = "メール便"
+        Me.Label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LinkLabel19
+        '
+        Me.LinkLabel19.ActiveLinkColor = System.Drawing.Color.Yellow
+        Me.LinkLabel19.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LinkLabel19.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel19.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel19.LinkColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.LinkLabel19.Location = New System.Drawing.Point(60, 101)
+        Me.LinkLabel19.Name = "LinkLabel19"
+        Me.LinkLabel19.Size = New System.Drawing.Size(42, 17)
+        Me.LinkLabel19.TabIndex = 138
+        Me.LinkLabel19.TabStop = True
+        Me.LinkLabel19.Text = "0"
+        Me.LinkLabel19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel19.VisitedLinkColor = System.Drawing.SystemColors.GradientInactiveCaption
+        '
+        'Label94
+        '
+        Me.Label94.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label94.ForeColor = System.Drawing.Color.White
+        Me.Label94.Location = New System.Drawing.Point(8, 67)
+        Me.Label94.Name = "Label94"
+        Me.Label94.Size = New System.Drawing.Size(52, 17)
+        Me.Label94.TabIndex = 140
+        Me.Label94.Text = "BIZ空"
+        Me.Label94.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'LinkLabel20
         '
@@ -4878,52 +5070,111 @@ Partial Class Csv_denpyo3
         Me.LinkLabel20.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel20.ForeColor = System.Drawing.Color.White
         Me.LinkLabel20.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LinkLabel20.Location = New System.Drawing.Point(53, 35)
+        Me.LinkLabel20.Location = New System.Drawing.Point(60, 84)
         Me.LinkLabel20.Name = "LinkLabel20"
-        Me.LinkLabel20.Size = New System.Drawing.Size(45, 19)
-        Me.LinkLabel20.TabIndex = 134
+        Me.LinkLabel20.Size = New System.Drawing.Size(42, 17)
+        Me.LinkLabel20.TabIndex = 137
         Me.LinkLabel20.TabStop = True
         Me.LinkLabel20.Text = "0"
         Me.LinkLabel20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.LinkLabel20.VisitedLinkColor = System.Drawing.SystemColors.GradientActiveCaption
         '
-        'Label84
+        'Label95
         '
-        Me.Label84.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label84.ForeColor = System.Drawing.Color.White
-        Me.Label84.Location = New System.Drawing.Point(9, 35)
-        Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(44, 19)
-        Me.Label84.TabIndex = 135
-        Me.Label84.Text = "空便"
-        Me.Label84.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label95.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label95.ForeColor = System.Drawing.Color.White
+        Me.Label95.Location = New System.Drawing.Point(8, 33)
+        Me.Label95.Name = "Label95"
+        Me.Label95.Size = New System.Drawing.Size(52, 17)
+        Me.Label95.TabIndex = 142
+        Me.Label95.Text = "空便"
+        Me.Label95.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label73
+        'Label96
         '
-        Me.Label73.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label73.ForeColor = System.Drawing.Color.White
-        Me.Label73.Location = New System.Drawing.Point(9, 16)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(44, 19)
-        Me.Label73.TabIndex = 133
-        Me.Label73.Text = "陸便"
-        Me.Label73.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label96.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label96.ForeColor = System.Drawing.Color.White
+        Me.Label96.Location = New System.Drawing.Point(8, 50)
+        Me.Label96.Name = "Label96"
+        Me.Label96.Size = New System.Drawing.Size(52, 17)
+        Me.Label96.TabIndex = 139
+        Me.Label96.Text = "BIZ陸"
+        Me.Label96.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'LinkLabel19
+        'LinkLabel23
         '
-        Me.LinkLabel19.ActiveLinkColor = System.Drawing.Color.Yellow
-        Me.LinkLabel19.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.LinkLabel19.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LinkLabel19.ForeColor = System.Drawing.Color.White
-        Me.LinkLabel19.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LinkLabel19.Location = New System.Drawing.Point(53, 16)
-        Me.LinkLabel19.Name = "LinkLabel19"
-        Me.LinkLabel19.Size = New System.Drawing.Size(45, 19)
-        Me.LinkLabel19.TabIndex = 115
-        Me.LinkLabel19.TabStop = True
-        Me.LinkLabel19.Text = "0"
-        Me.LinkLabel19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LinkLabel19.VisitedLinkColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.LinkLabel23.ActiveLinkColor = System.Drawing.Color.Yellow
+        Me.LinkLabel23.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.LinkLabel23.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel23.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel23.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.LinkLabel23.Location = New System.Drawing.Point(60, 50)
+        Me.LinkLabel23.Name = "LinkLabel23"
+        Me.LinkLabel23.Size = New System.Drawing.Size(42, 17)
+        Me.LinkLabel23.TabIndex = 133
+        Me.LinkLabel23.TabStop = True
+        Me.LinkLabel23.Text = "0"
+        Me.LinkLabel23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel23.VisitedLinkColor = System.Drawing.SystemColors.GradientActiveCaption
+        '
+        'Label97
+        '
+        Me.Label97.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label97.ForeColor = System.Drawing.Color.White
+        Me.Label97.Location = New System.Drawing.Point(8, 16)
+        Me.Label97.Name = "Label97"
+        Me.Label97.Size = New System.Drawing.Size(52, 17)
+        Me.Label97.TabIndex = 141
+        Me.Label97.Text = "陸便"
+        Me.Label97.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LinkLabel24
+        '
+        Me.LinkLabel24.ActiveLinkColor = System.Drawing.Color.Yellow
+        Me.LinkLabel24.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LinkLabel24.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel24.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel24.LinkColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.LinkLabel24.Location = New System.Drawing.Point(60, 67)
+        Me.LinkLabel24.Name = "LinkLabel24"
+        Me.LinkLabel24.Size = New System.Drawing.Size(42, 17)
+        Me.LinkLabel24.TabIndex = 134
+        Me.LinkLabel24.TabStop = True
+        Me.LinkLabel24.Text = "0"
+        Me.LinkLabel24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel24.VisitedLinkColor = System.Drawing.SystemColors.GradientInactiveCaption
+        '
+        'LinkLabel25
+        '
+        Me.LinkLabel25.ActiveLinkColor = System.Drawing.Color.Yellow
+        Me.LinkLabel25.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.LinkLabel25.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel25.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel25.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.LinkLabel25.Location = New System.Drawing.Point(60, 16)
+        Me.LinkLabel25.Name = "LinkLabel25"
+        Me.LinkLabel25.Size = New System.Drawing.Size(42, 17)
+        Me.LinkLabel25.TabIndex = 135
+        Me.LinkLabel25.TabStop = True
+        Me.LinkLabel25.Text = "0"
+        Me.LinkLabel25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel25.VisitedLinkColor = System.Drawing.SystemColors.GradientActiveCaption
+        '
+        'LinkLabel26
+        '
+        Me.LinkLabel26.ActiveLinkColor = System.Drawing.Color.Yellow
+        Me.LinkLabel26.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LinkLabel26.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel26.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel26.LinkColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.LinkLabel26.Location = New System.Drawing.Point(60, 33)
+        Me.LinkLabel26.Name = "LinkLabel26"
+        Me.LinkLabel26.Size = New System.Drawing.Size(42, 17)
+        Me.LinkLabel26.TabIndex = 136
+        Me.LinkLabel26.TabStop = True
+        Me.LinkLabel26.Text = "0"
+        Me.LinkLabel26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel26.VisitedLinkColor = System.Drawing.SystemColors.GradientInactiveCaption
         '
         'GroupBox6
         '
@@ -4940,9 +5191,9 @@ Partial Class Csv_denpyo3
         Me.GroupBox6.Controls.Add(Me.LinkLabel16)
         Me.GroupBox6.Controls.Add(Me.LinkLabel15)
         Me.GroupBox6.ForeColor = System.Drawing.Color.Yellow
-        Me.GroupBox6.Location = New System.Drawing.Point(129, 6)
+        Me.GroupBox6.Location = New System.Drawing.Point(124, 6)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(113, 125)
+        Me.GroupBox6.Size = New System.Drawing.Size(112, 125)
         Me.GroupBox6.TabIndex = 127
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "井相田（代引き 0）"
@@ -4951,7 +5202,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(10, 101)
+        Me.Label6.Location = New System.Drawing.Point(9, 101)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(52, 17)
         Me.Label6.TabIndex = 132
@@ -4962,7 +5213,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label7.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(10, 84)
+        Me.Label7.Location = New System.Drawing.Point(9, 84)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(52, 17)
         Me.Label7.TabIndex = 131
@@ -4976,7 +5227,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel18.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel18.ForeColor = System.Drawing.Color.White
         Me.LinkLabel18.LinkColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel18.Location = New System.Drawing.Point(62, 101)
+        Me.LinkLabel18.Location = New System.Drawing.Point(61, 101)
         Me.LinkLabel18.Name = "LinkLabel18"
         Me.LinkLabel18.Size = New System.Drawing.Size(42, 17)
         Me.LinkLabel18.TabIndex = 125
@@ -4989,7 +5240,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label74.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label74.ForeColor = System.Drawing.Color.White
-        Me.Label74.Location = New System.Drawing.Point(10, 67)
+        Me.Label74.Location = New System.Drawing.Point(9, 67)
         Me.Label74.Name = "Label74"
         Me.Label74.Size = New System.Drawing.Size(52, 17)
         Me.Label74.TabIndex = 128
@@ -5003,7 +5254,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel17.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel17.ForeColor = System.Drawing.Color.White
         Me.LinkLabel17.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LinkLabel17.Location = New System.Drawing.Point(62, 84)
+        Me.LinkLabel17.Location = New System.Drawing.Point(61, 84)
         Me.LinkLabel17.Name = "LinkLabel17"
         Me.LinkLabel17.Size = New System.Drawing.Size(42, 17)
         Me.LinkLabel17.TabIndex = 123
@@ -5016,7 +5267,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label77.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label77.ForeColor = System.Drawing.Color.White
-        Me.Label77.Location = New System.Drawing.Point(10, 33)
+        Me.Label77.Location = New System.Drawing.Point(9, 33)
         Me.Label77.Name = "Label77"
         Me.Label77.Size = New System.Drawing.Size(52, 17)
         Me.Label77.TabIndex = 130
@@ -5027,7 +5278,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label75.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label75.ForeColor = System.Drawing.Color.White
-        Me.Label75.Location = New System.Drawing.Point(10, 50)
+        Me.Label75.Location = New System.Drawing.Point(9, 50)
         Me.Label75.Name = "Label75"
         Me.Label75.Size = New System.Drawing.Size(52, 17)
         Me.Label75.TabIndex = 127
@@ -5041,7 +5292,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel3.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel3.ForeColor = System.Drawing.Color.White
         Me.LinkLabel3.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LinkLabel3.Location = New System.Drawing.Point(62, 50)
+        Me.LinkLabel3.Location = New System.Drawing.Point(61, 50)
         Me.LinkLabel3.Name = "LinkLabel3"
         Me.LinkLabel3.Size = New System.Drawing.Size(42, 17)
         Me.LinkLabel3.TabIndex = 108
@@ -5054,7 +5305,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label76.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label76.ForeColor = System.Drawing.Color.White
-        Me.Label76.Location = New System.Drawing.Point(10, 16)
+        Me.Label76.Location = New System.Drawing.Point(9, 16)
         Me.Label76.Name = "Label76"
         Me.Label76.Size = New System.Drawing.Size(52, 17)
         Me.Label76.TabIndex = 129
@@ -5068,7 +5319,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel4.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel4.ForeColor = System.Drawing.Color.White
         Me.LinkLabel4.LinkColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel4.Location = New System.Drawing.Point(62, 67)
+        Me.LinkLabel4.Location = New System.Drawing.Point(61, 67)
         Me.LinkLabel4.Name = "LinkLabel4"
         Me.LinkLabel4.Size = New System.Drawing.Size(42, 17)
         Me.LinkLabel4.TabIndex = 109
@@ -5084,7 +5335,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel16.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel16.ForeColor = System.Drawing.Color.White
         Me.LinkLabel16.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LinkLabel16.Location = New System.Drawing.Point(62, 16)
+        Me.LinkLabel16.Location = New System.Drawing.Point(61, 16)
         Me.LinkLabel16.Name = "LinkLabel16"
         Me.LinkLabel16.Size = New System.Drawing.Size(42, 17)
         Me.LinkLabel16.TabIndex = 111
@@ -5100,7 +5351,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel15.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel15.ForeColor = System.Drawing.Color.White
         Me.LinkLabel15.LinkColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel15.Location = New System.Drawing.Point(62, 33)
+        Me.LinkLabel15.Location = New System.Drawing.Point(61, 33)
         Me.LinkLabel15.Name = "LinkLabel15"
         Me.LinkLabel15.Size = New System.Drawing.Size(42, 17)
         Me.LinkLabel15.TabIndex = 112
@@ -5126,7 +5377,7 @@ Partial Class Csv_denpyo3
         Me.GroupBox2.ForeColor = System.Drawing.Color.Yellow
         Me.GroupBox2.Location = New System.Drawing.Point(7, 6)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(116, 125)
+        Me.GroupBox2.Size = New System.Drawing.Size(112, 125)
         Me.GroupBox2.TabIndex = 126
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "太宰府（代引き 0）"
@@ -5135,7 +5386,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label85.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label85.ForeColor = System.Drawing.Color.White
-        Me.Label85.Location = New System.Drawing.Point(10, 67)
+        Me.Label85.Location = New System.Drawing.Point(7, 67)
         Me.Label85.Name = "Label85"
         Me.Label85.Size = New System.Drawing.Size(52, 17)
         Me.Label85.TabIndex = 132
@@ -5146,7 +5397,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label86.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label86.ForeColor = System.Drawing.Color.White
-        Me.Label86.Location = New System.Drawing.Point(10, 50)
+        Me.Label86.Location = New System.Drawing.Point(7, 50)
         Me.Label86.Name = "Label86"
         Me.Label86.Size = New System.Drawing.Size(52, 17)
         Me.Label86.TabIndex = 131
@@ -5160,7 +5411,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel21.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel21.ForeColor = System.Drawing.Color.White
         Me.LinkLabel21.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LinkLabel21.Location = New System.Drawing.Point(62, 50)
+        Me.LinkLabel21.Location = New System.Drawing.Point(59, 50)
         Me.LinkLabel21.Name = "LinkLabel21"
         Me.LinkLabel21.Size = New System.Drawing.Size(45, 17)
         Me.LinkLabel21.TabIndex = 129
@@ -5176,7 +5427,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel22.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel22.ForeColor = System.Drawing.Color.White
         Me.LinkLabel22.LinkColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel22.Location = New System.Drawing.Point(62, 67)
+        Me.LinkLabel22.Location = New System.Drawing.Point(59, 67)
         Me.LinkLabel22.Name = "LinkLabel22"
         Me.LinkLabel22.Size = New System.Drawing.Size(45, 17)
         Me.LinkLabel22.TabIndex = 130
@@ -5192,7 +5443,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel1.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel1.ForeColor = System.Drawing.Color.White
         Me.LinkLabel1.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LinkLabel1.Location = New System.Drawing.Point(62, 16)
+        Me.LinkLabel1.Location = New System.Drawing.Point(59, 16)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(45, 17)
         Me.LinkLabel1.TabIndex = 87
@@ -5205,7 +5456,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label12.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label12.ForeColor = System.Drawing.Color.White
-        Me.Label12.Location = New System.Drawing.Point(10, 101)
+        Me.Label12.Location = New System.Drawing.Point(7, 101)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(52, 17)
         Me.Label12.TabIndex = 107
@@ -5216,7 +5467,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label8.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(10, 84)
+        Me.Label8.Location = New System.Drawing.Point(7, 84)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(52, 17)
         Me.Label8.TabIndex = 102
@@ -5227,7 +5478,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label71.BackColor = System.Drawing.SystemColors.HotTrack
         Me.Label71.ForeColor = System.Drawing.Color.White
-        Me.Label71.Location = New System.Drawing.Point(10, 16)
+        Me.Label71.Location = New System.Drawing.Point(7, 16)
         Me.Label71.Name = "Label71"
         Me.Label71.Size = New System.Drawing.Size(52, 17)
         Me.Label71.TabIndex = 116
@@ -5238,7 +5489,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label72.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label72.ForeColor = System.Drawing.Color.White
-        Me.Label72.Location = New System.Drawing.Point(10, 33)
+        Me.Label72.Location = New System.Drawing.Point(7, 33)
         Me.Label72.Name = "Label72"
         Me.Label72.Size = New System.Drawing.Size(52, 17)
         Me.Label72.TabIndex = 117
@@ -5252,7 +5503,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel2.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel2.ForeColor = System.Drawing.Color.Black
         Me.LinkLabel2.LinkColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel2.Location = New System.Drawing.Point(62, 33)
+        Me.LinkLabel2.Location = New System.Drawing.Point(59, 33)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(45, 17)
         Me.LinkLabel2.TabIndex = 108
@@ -5268,7 +5519,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel5.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel5.ForeColor = System.Drawing.Color.White
         Me.LinkLabel5.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LinkLabel5.Location = New System.Drawing.Point(62, 84)
+        Me.LinkLabel5.Location = New System.Drawing.Point(59, 84)
         Me.LinkLabel5.Name = "LinkLabel5"
         Me.LinkLabel5.Size = New System.Drawing.Size(45, 17)
         Me.LinkLabel5.TabIndex = 110
@@ -5284,7 +5535,7 @@ Partial Class Csv_denpyo3
         Me.LinkLabel6.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LinkLabel6.ForeColor = System.Drawing.Color.Black
         Me.LinkLabel6.LinkColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel6.Location = New System.Drawing.Point(62, 101)
+        Me.LinkLabel6.Location = New System.Drawing.Point(59, 101)
         Me.LinkLabel6.Name = "LinkLabel6"
         Me.LinkLabel6.Size = New System.Drawing.Size(45, 17)
         Me.LinkLabel6.TabIndex = 110
@@ -5634,81 +5885,25 @@ Partial Class Csv_denpyo3
         '
         Me.DGV2.AllowUserToAddRows = False
         Me.DGV2.AllowUserToDeleteRows = False
-        Me.DGV2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DGV2.BackgroundColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.DGV2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.Column22, Me.Column29})
+        Me.DGV2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn17, Me.Column43, Me.DataGridViewTextBoxColumn18, Me.Column22, Me.Column29})
         Me.DGV2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGV2.Location = New System.Drawing.Point(3, 3)
         Me.DGV2.Name = "DGV2"
         Me.DGV2.ReadOnly = True
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV2.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DGV2.RowHeadersVisible = False
         Me.DGV2.RowTemplate.Height = 21
         Me.DGV2.Size = New System.Drawing.Size(347, 125)
         Me.DGV2.TabIndex = 25
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.HeaderText = "コード"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 57
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.HeaderText = "注"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 42
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.HeaderText = "SW"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 46
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.HeaderText = "タグ"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 47
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.HeaderText = "商品名"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 66
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.HeaderText = "ロケーション"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        Me.DataGridViewTextBoxColumn17.ReadOnly = True
-        Me.DataGridViewTextBoxColumn17.Width = 83
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.HeaderText = "梱包サイズ"
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        Me.DataGridViewTextBoxColumn18.ReadOnly = True
-        Me.DataGridViewTextBoxColumn18.Width = 83
-        '
-        'Column22
-        '
-        Me.Column22.HeaderText = "特殊"
-        Me.Column22.Name = "Column22"
-        Me.Column22.ReadOnly = True
-        Me.Column22.Width = 54
-        '
-        'Column29
-        '
-        Me.Column29.HeaderText = "sw2"
-        Me.Column29.Name = "Column29"
-        Me.Column29.ReadOnly = True
-        Me.Column29.Width = 50
         '
         'TabPage15
         '
@@ -5907,6 +6102,74 @@ Partial Class Csv_denpyo3
         '
         Me.Timer2.Enabled = True
         Me.Timer2.Interval = 1000
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.HeaderText = "コード"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 80
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.HeaderText = "注"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 42
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.HeaderText = "SW"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 60
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.HeaderText = "タグ"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 60
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.HeaderText = "商品名"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Width = 66
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.HeaderText = "ロケーション"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.ReadOnly = True
+        '
+        'Column43
+        '
+        Me.Column43.HeaderText = "ロケーション(名古屋)"
+        Me.Column43.Name = "Column43"
+        Me.Column43.ReadOnly = True
+        Me.Column43.Width = 130
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.HeaderText = "梱包サイズ"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        Me.DataGridViewTextBoxColumn18.ReadOnly = True
+        '
+        'Column22
+        '
+        Me.Column22.HeaderText = "特殊"
+        Me.Column22.Name = "Column22"
+        Me.Column22.ReadOnly = True
+        Me.Column22.Width = 80
+        '
+        'Column29
+        '
+        Me.Column29.HeaderText = "sw2"
+        Me.Column29.Name = "Column29"
+        Me.Column29.ReadOnly = True
+        Me.Column29.Width = 80
         '
         'Csv_denpyo3
         '
@@ -6204,7 +6467,6 @@ Partial Class Csv_denpyo3
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
     Friend WithEvents CheckBox4 As CheckBox
     Friend WithEvents Label8 As Label
     Friend WithEvents SplitContainer7 As SplitContainer
@@ -6235,15 +6497,6 @@ Partial Class Csv_denpyo3
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents Label9 As Label
     Friend WithEvents DGV2 As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
-    Friend WithEvents Column22 As DataGridViewTextBoxColumn
-    Friend WithEvents Column29 As DataGridViewTextBoxColumn
     Friend WithEvents CheckBox16 As CheckBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
@@ -6266,7 +6519,6 @@ Partial Class Csv_denpyo3
     Friend WithEvents Column19 As DataGridViewTextBoxColumn
     Friend WithEvents ToolStrip2 As ToolStrip
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
-    Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents CheckBox21 As CheckBox
     Friend WithEvents ToolStripTextBox1 As ToolStripTextBox
@@ -6409,7 +6661,6 @@ Partial Class Csv_denpyo3
     Friend WithEvents LinkLabel10 As LinkLabel
     Friend WithEvents LinkLabel11 As LinkLabel
     Friend WithEvents LinkLabel12 As LinkLabel
-    Friend WithEvents LinkLabel13 As LinkLabel
     Friend WithEvents LinkLabel14 As LinkLabel
     Friend WithEvents CheckBox11 As CheckBox
     Friend WithEvents ComboBox3 As ComboBox
@@ -6430,7 +6681,6 @@ Partial Class Csv_denpyo3
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents Timer2 As Timer
     Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents LinkLabel19 As LinkLabel
     Friend WithEvents Label72 As Label
     Friend WithEvents Label71 As Label
     Friend WithEvents LinkLabel15 As LinkLabel
@@ -6446,7 +6696,6 @@ Partial Class Csv_denpyo3
     Friend WithEvents Label75 As Label
     Friend WithEvents Label76 As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Label73 As Label
     Friend WithEvents Column24 As DataGridViewTextBoxColumn
     Friend WithEvents Column28 As DataGridViewTextBoxColumn
     Friend WithEvents Column25 As DataGridViewTextBoxColumn
@@ -6497,8 +6746,6 @@ Partial Class Csv_denpyo3
     Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn30 As DataGridViewTextBoxColumn
     Friend WithEvents Column36 As DataGridViewTextBoxColumn
-    Friend WithEvents LinkLabel20 As LinkLabel
-    Friend WithEvents Label84 As Label
     Friend WithEvents TabPage32 As TabPage
     Friend WithEvents DGV17 As DataGridView
     Friend WithEvents Column37 As DataGridViewTextBoxColumn
@@ -6514,7 +6761,6 @@ Partial Class Csv_denpyo3
     Friend WithEvents LinkLabel21 As LinkLabel
     Friend WithEvents LinkLabel22 As LinkLabel
     Friend WithEvents CheckBox14 As CheckBox
-    Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
@@ -6551,4 +6797,38 @@ Partial Class Csv_denpyo3
     Friend WithEvents CsvSagawaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 伝票出すToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ネコポス出力ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Label93 As Label
+    Friend WithEvents HS4 As TextBox
+    Friend WithEvents Label73 As Label
+    Friend WithEvents Label84 As Label
+    Friend WithEvents LinkLabel19 As LinkLabel
+    Friend WithEvents Label94 As Label
+    Friend WithEvents LinkLabel20 As LinkLabel
+    Friend WithEvents Label95 As Label
+    Friend WithEvents Label96 As Label
+    Friend WithEvents LinkLabel23 As LinkLabel
+    Friend WithEvents Label97 As Label
+    Friend WithEvents LinkLabel24 As LinkLabel
+    Friend WithEvents LinkLabel25 As LinkLabel
+    Friend WithEvents LinkLabel26 As LinkLabel
+    Friend WithEvents CheckBox3 As CheckBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents LinkLabel13 As LinkLabel
+    Friend WithEvents LinkLabel27 As LinkLabel
+    Friend WithEvents LinkLabel28 As LinkLabel
+    Friend WithEvents Label98 As Label
+    Friend WithEvents Label99 As Label
+    Friend WithEvents Label100 As Label
+    Friend WithEvents CheckBox32 As CheckBox
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
+    Friend WithEvents Column43 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
+    Friend WithEvents Column22 As DataGridViewTextBoxColumn
+    Friend WithEvents Column29 As DataGridViewTextBoxColumn
 End Class

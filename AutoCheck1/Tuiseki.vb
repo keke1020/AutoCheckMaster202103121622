@@ -449,7 +449,7 @@ Public Class Tuiseki
 
     Private Sub CB3save()
         Dim flag As Boolean = False
-        If InStr(Environment.MachineName, "TAK") > 0 Or InStr(Environment.MachineName, "PING2") Or InStr(Environment.MachineName, "PING") Or InStr(Environment.MachineName, "MAO") Then
+        If InStr(Environment.MachineName, "TAK") > 0 Or InStr(Environment.MachineName, "PING2") Or InStr(Environment.MachineName, "PING") Or InStr(Environment.MachineName, "MAO") Or InStr(Environment.MachineName, "SERVER5") Then
             flag = True
         ElseIf InStr(Environment.MachineName, "NAKA") > 0 And InStr(appPath, "Debug") > 0 Then
             If Directory.Exists(dPath) Then
@@ -602,19 +602,26 @@ Public Class Tuiseki
                 .CheckPathExists = True
             }
 
-            If InStr(Me.Text, "(全") = 0 Then
-                Dim dH0 As ArrayList = TM_HEADER_GET(DGV1)
-                Dim filenameA As String = DGV1.Item(dH0.IndexOf("出荷確定日"), 0).Value
-                Dim filenameB As String = Format(CDate(filenameA), "yyMMdd")
-                Dim week As String() = {"日", "月", "火", "水", "木", "金", "土"}
-                Dim filenameC As String = week(CDate(filenameA).DayOfWeek)
-                sfd.FileName = filenameB & "(" & filenameC & ")(全" & ".csv"
-            ElseIf InStr(Me.Text, "\") > 0 Then
-                Dim sPath As String = Path.GetFileNameWithoutExtension(Me.Text)
-                sfd.FileName = sPath & ".csv"
-            Else
-                sfd.FileName = "新しいファイル.csv"
-            End If
+            'If InStr(Me.Text, "(全") = 0 Then
+            '    Dim dH0 As ArrayList = TM_HEADER_GET(DGV1)
+            '    Dim filenameA As String = DGV1.Item(dH0.IndexOf("出荷確定日"), 0).Value
+            '    Dim filenameB As String = Format(CDate(filenameA), "yyMMdd")
+            '    Dim week As String() = {"日", "月", "火", "水", "木", "金", "土"}
+            '    Dim filenameC As String = week(CDate(filenameA).DayOfWeek)
+            '    sfd.FileName = filenameB & "(" & filenameC & ")(全" & ".csv"
+            'ElseIf InStr(Me.Text, "\") > 0 Then
+            '    Dim sPath As String = Path.GetFileNameWithoutExtension(Me.Text)
+            '    sfd.FileName = sPath & ".csv"
+            'Else
+            '    sfd.FileName = "新しいファイル.csv"
+            'End If
+
+            Dim dH0 As ArrayList = TM_HEADER_GET(DGV1)
+            Dim filenameA As String = DGV1.Item(dH0.IndexOf("出荷確定日"), 0).Value
+            Dim filenameB As String = Format(CDate(filenameA), "yyMMdd")
+            Dim week As String() = {"日", "月", "火", "水", "木", "金", "土"}
+            Dim filenameC As String = week(CDate(filenameA).DayOfWeek)
+            sfd.FileName = filenameB & "(" & filenameC & ")(全" & ".csv"
 
             'ダイアログを表示する
             If sfd.ShowDialog(Me) = DialogResult.OK Then
@@ -664,7 +671,7 @@ Public Class Tuiseki
 
         'サーバーに保存
         Dim serverNewPath As String = ""
-        If Regex.IsMatch(Environment.MachineName, "TAK|NAKA|PING|PING2|MAO") Then
+        If Regex.IsMatch(Environment.MachineName, "TAK|NAKA|PING|PING2|MAO|SERVER5") Then
             Try
                 Dim saveFlag As Boolean = False
                 Dim files As String() = Directory.GetFiles(serverPath, "*.csv", System.IO.SearchOption.AllDirectories)
@@ -783,6 +790,7 @@ Public Class Tuiseki
     Private TM1 As Boolean = True
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         TM1 = False
+        BackgroundWorker1.CancelAsync()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -1392,6 +1400,8 @@ Public Class Tuiseki
                         If kanryou.Length < 15 Then
                             kanryou = Regex.Replace(kanryou, "　| ", "")
                             DGV1.Item(dH1.IndexOf("配達完了日"), r).Value = kanryou
+                            Dim kosuu As String = HTMLgetTxt(doc, "td", 5, 0, "")(0)
+                            DGV1.Item(dH1.IndexOf("個数"), r).Value = kosuu
                         End If
                         DGV1.Item(dH1.IndexOf("調査日"), r).Value = Format(Now, "yyyy/MM/dd HH:mm:ss")
                         If DGV1.Item(dH1.IndexOf("初回反応"), r).Value Is Nothing Then

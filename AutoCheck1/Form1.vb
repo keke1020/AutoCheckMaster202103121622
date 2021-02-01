@@ -202,14 +202,16 @@ Public Class Form1
         AddHandler Application.ApplicationExit, AddressOf Application_ApplicationExit
 
         '開発環境用
-        If Regex.IsMatch(My.Computer.Name, "ABCD|tak|NAKA|PING|MAO|PING2", RegexOptions.IgnoreCase) And Regex.IsMatch(appPath, "debug", RegexOptions.IgnoreCase) Then
+        If Regex.IsMatch(My.Computer.Name, "ABCD|tak|NAKA|PING|MAO|PING2|LIU", RegexOptions.IgnoreCase) And Regex.IsMatch(appPath, "debug", RegexOptions.IgnoreCase) Then
+#If DEBUG Then
             管理ToolStripMenuItem.Enabled = True
             SplitContainer3.Panel1.BackColor = Color.Yellow
             TextBox6.BackColor = Color.MediumAquamarine
             TextBox6.ForeColor = Color.LightYellow
         Else
             管理ToolStripMenuItem.Enabled = False
-        End If
+            End If
+#End If
 
         '自宅環境ではアップデートしない
         If InStr(Environment.MachineName, "TAKASHI") > 0 And InStr(Path.GetDirectoryName(appPath), "Debug") > 0 Then
@@ -225,6 +227,9 @@ Public Class Form1
             updateFlag = False
             AdminFlag = True
         ElseIf InStr(Environment.MachineName, "PING2") > 0 And InStr(Path.GetDirectoryName(appPath), "Debug") > 0 Then
+            updateFlag = False
+            AdminFlag = True
+        ElseIf InStr(Environment.MachineName, "LIU") > 0 And InStr(Path.GetDirectoryName(appPath), "Debug") > 0 Then
             updateFlag = False
             AdminFlag = True
         ElseIf InStr(Environment.MachineName, "NAKA") > 0 Or InStr(Environment.MachineName, "PING") > 0 Or InStr(Environment.MachineName, "MAO") > 0 Or InStr(Environment.MachineName, "PING2") > 0 Then
@@ -279,7 +284,7 @@ Public Class Form1
         'SplitContainer2.Panel1.Controls.Add(TabBrowser1)
         TabBrowser1.BringToFront()
         TabBrowser1.Dock = DockStyle.Fill
-        '
+        'http://www.freethy.cn/post-145.html
         TabBrowser1.SelectedTab.WebBrowser.GoHome()
 
 
@@ -2219,7 +2224,7 @@ Public Class Form1
     Private Sub Button26_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button26.Click
         HTMLdialog.Show()
         'HTMLdialog.Size = New Size(439, 371)
-        HTMLdialog.Size = New Size(550, 450)
+        HTMLdialog.Size = New Size(550, 480)
         SetTabVisible(HTMLdialog.TabControl2, "計算機")
     End Sub
 
@@ -2711,6 +2716,10 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub フリー在庫不足ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles フリー在庫不足ToolStripMenuItem.Click
+        Freezaiko.Show()
+    End Sub
+
 
     'Declare Function FindWindow Lib "user32.dll" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Integer
     'Declare Function FindWindowEx Lib "user32.dll" Alias "FindWindowExA" (ByVal hwndParent As Integer, ByVal hwndChildAfter As Integer, ByVal lpszClass As String, ByVal lpszWindow As String) As Integer
@@ -3049,12 +3058,17 @@ Public Class WebTabPage
                             End If
                         End If
 
-                        If _WebBrowser.Document.GetElementsByTagName("input")(lArray(idClassColNum)).Enabled Then
-                            _WebBrowser.Document.GetElementsByTagName("input")(lArray(idClassColNum)).SetAttribute("value", lArray(idColNum))
+                        If _WebBrowser.Document.GetElementsByTagName("input")(lArray(idClassColNum)) <> Nothing Then
+                            If _WebBrowser.Document.GetElementsByTagName("input")(lArray(idClassColNum)).Enabled Then
+                                _WebBrowser.Document.GetElementsByTagName("input")(lArray(idClassColNum)).SetAttribute("value", lArray(idColNum))
+                            End If
                         End If
-                        If _WebBrowser.Document.GetElementsByTagName("input")(lArray(passClassColNum)).Enabled Then
-                            _WebBrowser.Document.GetElementsByTagName("input")(lArray(passClassColNum)).SetAttribute("value", lArray(passColNum))
-                            Exit For
+
+                        If _WebBrowser.Document.GetElementsByTagName("input")(lArray(passClassColNum)) <> Nothing Then
+                            If _WebBrowser.Document.GetElementsByTagName("input")(lArray(passClassColNum)).Enabled Then
+                                _WebBrowser.Document.GetElementsByTagName("input")(lArray(passClassColNum)).SetAttribute("value", lArray(passColNum))
+                                Exit For
+                            End If
                         End If
                     Catch ex As Exception
 
@@ -3197,10 +3211,12 @@ Public Class WebTabPage
         For i As Integer = 0 To id.Length - 1
             Dim res As String = ""
             Try
-                res = _WebBrowser.Document.GetElementsByTagName("INPUT")(id(i)).GetAttribute("value")
-                If res <> "" Then
-                    idNew = id(i) & "," & res
-                    Exit For
+                If _WebBrowser.Document.GetElementsByTagName("INPUT")(id(i)) <> Nothing Then
+                    res = _WebBrowser.Document.GetElementsByTagName("INPUT")(id(i)).GetAttribute("value")
+                    If res <> "" Then
+                        idNew = id(i) & "," & res
+                        Exit For
+                    End If
                 End If
             Catch ex As Exception
 
@@ -3209,10 +3225,12 @@ Public Class WebTabPage
         For i As Integer = 0 To pass.Length - 1
             Dim res As String = ""
             Try
-                res = _WebBrowser.Document.GetElementsByTagName("INPUT")(pass(i)).GetAttribute("value")
-                If res <> "" Then
-                    passNew = pass(i) & "," & res
-                    Exit For
+                If _WebBrowser.Document.GetElementsByTagName("INPUT")(pass(i)) <> Nothing Then
+                    res = _WebBrowser.Document.GetElementsByTagName("INPUT")(pass(i)).GetAttribute("value")
+                    If res <> "" Then
+                        passNew = pass(i) & "," & res
+                        Exit For
+                    End If
                 End If
             Catch ex As Exception
 

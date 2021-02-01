@@ -9,6 +9,10 @@ Imports NPOI.HSSF.UserModel
 Imports NPOI.SS.UserModel
 Imports NPOI.XSSF.UserModel
 
+Imports OpenQA.Selenium.Chrome
+Imports OpenQA.Selenium
+Imports OpenQA.Selenium.Interactions
+
 Public Class Csv
     Dim secValue As String = ""
 
@@ -23,6 +27,10 @@ Public Class Csv
 
     Dim splitter As String = ","    '区切り文字
 
+    Private cr As ChromeDriver = Nothing
+
+    Private sizeW As Integer = 500
+    Private sizeH As Integer = 800
 
     Private Sub Form5_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         AddHandler My.Settings.SettingChanging, AddressOf Settings_SettingChanging
@@ -1627,7 +1635,7 @@ Public Class Csv
                 If ColumnChars(_editingColumn) <> "" Then
                     ' カラムへの入力可能文字かチェック
                     If InStr(ColumnChars(_editingColumn), e.KeyChar) <= 0 AndAlso
-                       e.KeyChar <> Chr(Keys.Back) Then
+                       e.KeyChar <> Chr(System.Windows.Forms.Keys.Back) Then
                         ' カラムへの入力可能文字では無いので無効
                         e.Handled = True
                     End If
@@ -1640,11 +1648,11 @@ Public Class Csv
         Dim dgv As DataGridView = CType(sender, DataGridView)
         Dim selCell = dgv.SelectedCells
 
-        If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then    ' セルの内容を消去
+        If e.KeyCode = System.Windows.Forms.Keys.Back Or e.KeyCode = System.Windows.Forms.Keys.Delete Then    ' セルの内容を消去
             If Not DataGridView1.IsCurrentCellInEditMode Then
                 DELS(dgv, selCell)
             End If
-        ElseIf e.Modifiers = Keys.Control And e.KeyCode = Keys.Enter Then '複数セル一括入力
+        ElseIf e.Modifiers = System.Windows.Forms.Keys.Control And e.KeyCode = System.Windows.Forms.Keys.Enter Then '複数セル一括入力
             '-----------------------------------------------------------------------
             PreDIV()
             '-----------------------------------------------------------------------
@@ -4433,9 +4441,360 @@ Public Class Csv
         ToolStripDropDownButton9.Text = sender.Text
     End Sub
 
+    Private Sub よんよか卸チェックToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles よんよか卸チェックToolStripMenuItem.Click
+        If DataGridView1.Rows.Count = 0 Then
+            MsgBox("データがないです", MsgBoxStyle.SystemModal)
+            Exit Sub
+        End If
+
+        Dim dH1 As ArrayList = TM_HEADER_1ROW_GET(DataGridView1)
+
+        If dH1.Contains("購入者名") Then
+            Dim buyer_chk As ArrayList = New ArrayList(New String() {"夢みつけ隊株式会社", "株式会社壮健", "株式会社マグネット", "リンクアップ株式会社", "株式会社シイハラ", "株式会社天野製作所", "株式会社はぴねすくらぶ", "武本ホームズ株式会社", "株式会社カクマル", "YLC株式会社", "株式会社YUTAKA", "株式会社マルシン", "株式会社ハイハイ", "株式会社クレハトレーディング", "株式会社サニックス", "板山商事株式会社", "株式会社スウィング", "セリングビジョン株式会社", "株式会社ウエストコーポレーション", "西部ガス設備工業株式会社", "総合メディカル株式会社", "株式会社アマゾン・サイエンス", "株式会社ライテック", "森川産業株式会社", "株式会社ベネフィットサポート", "ダイレックス株式会社", "株式会社パティズ", "田中商事株式会社", "原田商事株式会社", "SelectingSECONDHOUSE楽天", "株式会社タカミヤ", "E&Bトラスト合同会社", "SFI安全衛生協議会", "ピスコ株式会社", "株式会社成冨建設", "株式会社フタガミ"})
+
+            For c As Integer = 1 To DataGridView1.Rows.Count - 1
+                Dim buyer As String = DataGridView1.Item(dH1.IndexOf("購入者名"), c).Value
+                If buyer_chk.Contains(buyer) Then
+                    DataGridView1.Item(dH1.IndexOf("購入者名"), c).Style.BackColor = Color.LightGreen
+                Else
+                    DataGridView1.Item(dH1.IndexOf("購入者名"), c).Style.BackColor = Color.Yellow
+                End If
+            Next
+
+            MsgBox("完了しました", MsgBoxStyle.SystemModal)
+        Else
+            MsgBox("データがないです", MsgBoxStyle.SystemModal)
+            Exit Sub
+        End If
+
+
+    End Sub
 
 
     '=================================================================================================================================
+    Private Sub ExchangePostCodeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExchangePostCodeToolStripMenuItem.Click
+        If DataGridView1.RowCount = 0 Then
+            MsgBox("csvを入れてください。", MsgBoxStyle.SystemModal)
+            Exit Sub
+        End If
 
+        Dim dH1 As ArrayList = TM_HEADER_1ROW_GET(DataGridView1)
+        If Not dH1.Contains("県住所") Then
+            MsgBox("「県住所」列がないために処理できないです。", MsgBoxStyle.SystemModal)
+            Exit Sub
+        End If
+
+        If Not dH1.Contains("〒") Then
+            MsgBox("「〒」列がないために処理できないです。", MsgBoxStyle.SystemModal)
+            Exit Sub
+        End If
+
+        Dim IsNetworkAvailable_Flag As Boolean = False
+        If NetworkInformation.NetworkInterface.GetIsNetworkAvailable() Then
+        Else
+            MsgBox("未接続ですから処理はできないです。")
+            Exit Sub
+        End If
+
+        If cr Is Nothing Then
+            ChromeStart()
+        End If
+
+        Dim wb As WebBrowser = WebBrowser1
+        wb.ScriptErrorsSuppressed = True
+
+        For r As Integer = 1 To DataGridView1.Rows.Count - 1
+            Dim jyusyo As String = DataGridView1.Item(dH1.IndexOf("県住所"), r).Value
+
+            If jyusyo <> "" Then
+                If jyusyo.Length > 0 Then
+                    Dim index As Integer = 0
+                    For c As Integer = 0 To jyusyo.Length - 1
+                        If IsNumeric(jyusyo(c)) Then
+                            index = c
+                            Exit For
+                        End If
+                    Next
+
+                    Dim jyusyo_ As String = ""
+                    jyusyo_ = jyusyo
+                    If index > 0 Then
+                        jyusyo_ = jyusyo.Substring(0, index)
+                    End If
+
+                    'Console.WriteLine(jyusyo_)
+                    If jyusyo_ <> "" Then
+                        cr.FindElementByClassName("all_keywordsearch").Clear()
+                        cr.FindElementByClassName("all_keywordsearch").SendKeys(jyusyo_)
+                        cr.FindElementByClassName("all_keywordsearchbtn").Click()
+
+                        Dim html As String = cr.ExecuteScript("return document.body.outerHTML")
+                        Application.DoEvents()
+
+                        If html Is Nothing Then
+                        Else
+                            wb.DocumentText = html
+                            Application.DoEvents()
+
+                            Dim eleSels_p As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("p")
+                            Dim result_flag As Boolean = True
+                            For Each eleSel As HtmlElement In eleSels_p
+                                If eleSel.GetAttribute("className") = "search0" Then
+                                    result_flag = False
+                                End If
+                            Next
+
+                            If result_flag Then
+                                Dim postcode As String = ""
+                                Dim dt As HtmlElementCollection = wb.Document.GetElementsByTagName("dt")
+                                For Each he As HtmlElement In dt
+                                    'https://www.adonetvb.com/dotnet/tipsseikihyogen5.html
+                                    If Regex.IsMatch(he.InnerText, "^[0-9]{3}[\-]?[0-9]{4}$") Then
+                                        postcode = he.InnerText
+                                        Application.DoEvents()
+                                        Exit For
+                                    End If
+                                Next
+                                Console.WriteLine(postcode)
+                                If postcode <> "" Then
+                                    DataGridView1.Item(dH1.IndexOf("〒"), r).Value = postcode
+                                    DataGridView1.CurrentCell = DataGridView1(dH1.IndexOf("〒"), r)
+                                    Application.DoEvents()
+                                End If
+                            End If
+                        End If
+                    End If
+                End If
+            End If
+        Next
+        MsgBox("処理しました。", MsgBoxStyle.SystemModal)
+    End Sub
+
+    'Private Sub ExchangePostCodeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExchangePostCodeToolStripMenuItem.Click
+    '    If DataGridView1.RowCount = 0 Then
+    '        MsgBox("csvを入れてください。", MsgBoxStyle.SystemModal)
+    '        Exit Sub
+    '    End If
+
+    '    Dim dH1 As ArrayList = TM_HEADER_1ROW_GET(DataGridView1)
+    '    If Not dH1.Contains("県住所") Then
+    '        MsgBox("「県住所」列がないために処理できないです。", MsgBoxStyle.SystemModal)
+    '        Exit Sub
+    '    End If
+
+    '    If Not dH1.Contains("〒") Then
+    '        MsgBox("「〒」列がないために処理できないです。", MsgBoxStyle.SystemModal)
+    '        Exit Sub
+    '    End If
+
+    '    Dim IsNetworkAvailable_Flag As Boolean = False
+    '    If NetworkInformation.NetworkInterface.GetIsNetworkAvailable() Then
+    '    Else
+    '        MsgBox("未接続ですから処理はできないです。")
+    '        Exit Sub
+    '    End If
+
+    '    'If cr Is Nothing Then
+    '    '    ChromeStart()
+    '    'End If
+
+    '    Dim wb As WebBrowser = WebBrowser1
+
+    '    For r As Integer = 1 To DataGridView1.Rows.Count - 1
+    '        Dim jyusyo As String = DataGridView1.Item(dH1.IndexOf("県住所"), r).Value
+    '        Dim click_flag As Boolean = False
+
+    '        wb.ScriptErrorsSuppressed = True
+    '        wb.Navigate(New Uri("https://postcode.goo.ne.jp/search/q/%E4%BA%95%E7%9B%B8%E7%94%B0/"))
+    '        WaitWebBrowser1Completed()
+    '        Application.DoEvents()
+
+
+    '        If jyusyo <> "" Then
+    '            If jyusyo.Length > 0 Then
+    '                Dim index As Integer = 0
+    '                For c As Integer = 0 To jyusyo.Length - 1
+    '                    If IsNumeric(jyusyo(c)) Then
+    '                        index = c
+    '                        Exit For
+    '                    End If
+    '                Next
+
+    '                Dim jyusyo_ As String = ""
+    '                jyusyo_ = jyusyo
+    '                If index > 0 Then
+    '                    jyusyo_ = jyusyo.Substring(0, index)
+    '                End If
+
+    '                'Console.WriteLine(jyusyo_)
+    '                If jyusyo_ <> "" Then
+    '                    'cr.FindElementByClassName("all_keywordsearch").Clear()
+    '                    'cr.FindElementByClassName("all_keywordsearch").SendKeys(jyusyo_)
+    '                    'cr.FindElementByClassName("all_keywordsearchbtn").Click()
+
+    '                    'Application.DoEvents()
+    '                    'dim postcode as string = cr.findelementbyclassname("result").
+
+
+    '                    'Dim html As String = cr.ExecuteScript("return document.body.outerhtml")
+
+
+
+
+
+
+    '                    'wb.DocumentText = html
+    '                    'Application.DoEvents()
+
+
+
+
+    '                    Dim eleSels As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("input")
+    '                    For Each eleSel As HtmlElement In eleSels
+    '                        If eleSel.GetAttribute("className") = "NR-text NR-search-text all_keywordsearch" Then
+    '                            eleSel.SetAttribute("value", jyusyo_)
+    '                            Application.DoEvents()
+    '                            Threading.Thread.Sleep(500)
+    '                            Exit For
+    '                        End If
+    '                    Next
+
+    '                    For Each eleSel As HtmlElement In eleSels
+    '                        If eleSel.GetAttribute("className") = "NR-button all_keywordsearchbtn" Then
+    '                            eleSel.InvokeMember("click")
+    '                            Threading.Thread.Sleep(500)
+    '                            WaitWebBrowser1Completed()
+    '                            Application.DoEvents()
+    '                            click_flag = True
+    '                            Exit For
+    '                        End If
+    '                    Next
+
+    '                    If click_flag Then
+    '                        Dim eleSels_p As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("p")
+    '                        Dim result_flag As Boolean = True
+    '                        For Each eleSel As HtmlElement In eleSels
+    '                            If eleSel.GetAttribute("className") = "search0" Then
+    '                                result_flag = False
+    '                            End If
+    '                        Next
+
+    '                        If result_flag Then
+    '                            Dim postcode As String = ""
+    '                            Dim dt As HtmlElementCollection = wb.Document.GetElementsByTagName("dt")
+    '                            For Each he As HtmlElement In dt
+    '                                'https://www.adonetvb.com/dotnet/tipsseikihyogen5.html
+    '                                If Regex.IsMatch(he.InnerText, "^[0-9]{3}[\-]?[0-9]{4}$") Then
+    '                                    postcode = he.InnerText
+    '                                    Application.DoEvents()
+    '                                    Exit For
+    '                                End If
+    '                            Next
+    '                            Console.WriteLine(postcode)
+    '                            If postcode <> "" Then
+    '                                DataGridView1.Item(dH1.IndexOf("〒"), r).Value = postcode
+    '                                DataGridView1.CurrentCell = DataGridView1(dH1.IndexOf("〒"), r)
+    '                                Application.DoEvents()
+    '                            End If
+    '                        End If
+    '                    End If
+    '                End If
+    '            End If
+    '        End If
+    '    Next
+    '    MsgBox("処理しました。", MsgBoxStyle.SystemModal)
+    'End Sub
+
+    'Chrome起動
+    Private Sub ChromeStart()
+        'chromedriver.exeをkill
+        Dim hProcesses As System.Diagnostics.Process() = System.Diagnostics.Process.GetProcessesByName("chromedriver")
+        For Each hProcess As System.Diagnostics.Process In hProcesses
+            hProcess.Kill()
+        Next hProcess
+
+        If InStr(appPath, "server2") > 0 Then
+            'chrome.exeをkill
+            Dim hProcesses2 As System.Diagnostics.Process() = System.Diagnostics.Process.GetProcessesByName("chrome")
+            For Each hProcess As System.Diagnostics.Process In hProcesses2
+                hProcess.Kill()
+            Next hProcess
+        End If
+
+        'conhost.exeをkill
+        Dim hProcesses3 As System.Diagnostics.Process() = System.Diagnostics.Process.GetProcessesByName("conhost")
+        For Each hProcess As System.Diagnostics.Process In hProcesses3
+            Try
+                hProcess.Kill()
+            Catch ex As Exception
+
+            End Try
+        Next hProcess
+
+        '---------------------------------
+        '以下を回避するために「TimeSpan.FromSeconds(180)」「ChromeOptions.AddArguments("no-sandbox")」を追加
+        'OpenQA.Selenium.WebDriverException : The HTTP request to the remote WebDriver server for URL http: //localhost:49192/session/f93057c8d4833f6a91026e82d339776f/url timed out after 60 seconds. ---> System.Net.WebException: 操作はタイムアウトになりました。
+        '---------------------------------
+        Dim DriverService = ChromeDriverService.CreateDefaultService()
+        DriverService.HideCommandPromptWindow = True
+        Dim ChromeOptions = New ChromeOptions()
+        ChromeOptions.AddArguments("disable-infobars")
+        ChromeOptions.AddArguments("no-sandbox")
+        ChromeOptions.AddArguments("--disable-dev-shm-usage")
+        'ChromeOptions.AddArgument("--headless")
+
+        Dim homeURL As String = "https://postcode.goo.ne.jp/search/q/%E4%BA%95%E7%9B%B8%E7%94%B0/"
+        cr = New ChromeDriver(DriverService, ChromeOptions, TimeSpan.FromSeconds(180)) With {
+            .Url = homeURL
+        }
+        cr.Manage.Window.Size = New Size(sizeW, sizeH)
+        cr.Manage.Window.Position = New Point(0, 0)
+        Me.Location = New Point(sizeW + 20, 0)
+
+        cr.Url = homeURL
+    End Sub
+
+
+
+    ''' <summary>
+    ''' sendkeyで書き込むと遅いので、クリップボードを経由して書き込みする
+    ''' </summary>
+    ''' <param name="element">書き込むフォームエレメント</param>
+    ''' <param name="writeStr">書き込む文字列</param>
+    Private Sub CR_SET_TEXT(element As IWebElement, writeStr As String)
+        element.Click()
+        Clipboard.SetText(writeStr)
+        Dim actionlist As Actions = New Actions(cr)
+        actionlist.KeyDown(Keys.Control).SendKeys("v").KeyUp(Keys.Control).Perform()
+    End Sub
+
+    'alertが出ているか確認する
+    Private Function IsAlertPresent()
+        Dim presentFlag As Boolean = False
+        Try
+            Dim alert As IAlert = cr.SwitchTo.Alert
+            presentFlag = True
+            alert.Accept()
+        Catch ex As Exception
+            'Alert Not present
+        End Try
+        Return presentFlag
+    End Function
+
+    Dim wb_loading_ng As Boolean = True
+    Private Sub WebBrowser1_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
+        wb_loading_ng = False
+    End Sub
+
+    Private Sub WaitWebBrowser1Completed()
+        Do While wb_loading_ng
+            If wb_loading_ng = False Then
+                Exit Do
+            Else
+                Application.DoEvents()
+            End If
+        Loop
+        wb_loading_ng = True
+    End Sub
 
 End Class
