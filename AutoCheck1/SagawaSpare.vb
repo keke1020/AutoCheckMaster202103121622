@@ -118,7 +118,7 @@ Public Class SagawaSpare
         Next
     End Sub
 
-    Private Sub DGV1_DragDrop(sender As Object, e As DragEventArgs) Handles DGV1.DragDrop, DGV11.DragDrop, DGV12.DragDrop
+    Private Sub DGV1_DragDrop(sender As Object, e As DragEventArgs) Handles DGV1.DragDrop, DGV11.DragDrop, DGV12.DragDrop, DGV14.DragDrop, DGV15.DragDrop
         dataPathArray.Clear()
 
         Dim fCount As Integer = 0
@@ -235,7 +235,7 @@ Public Class SagawaSpare
         '-----------------------------------------------------------------------
     End Sub
 
-    Private Sub DGV1_DragEnter(sender As Object, e As DragEventArgs) Handles DGV1.DragEnter, DGV8.DragEnter, DGV11.DragEnter, DGV12.DragEnter
+    Private Sub DGV1_DragEnter(sender As Object, e As DragEventArgs) Handles DGV1.DragEnter, DGV8.DragEnter, DGV11.DragEnter, DGV12.DragEnter, DGV14.DragEnter, DGV15.DragEnter
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
             e.Effect = DragDropEffects.Copy
         End If
@@ -1230,7 +1230,7 @@ Public Class SagawaSpare
 
     End Sub
 
-    Private Sub DGV_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DGV7.RowPostPaint, DGV6.RowPostPaint, DGV2.RowPostPaint, DGV1.RowPostPaint, DGV8.RowPostPaint, DGV9.RowPostPaint, DGV11.RowPostPaint, DGV12.RowPostPaint, DGV13.RowPostPaint
+    Private Sub DGV_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DGV7.RowPostPaint, DGV6.RowPostPaint, DGV2.RowPostPaint, DGV1.RowPostPaint, DGV8.RowPostPaint, DGV9.RowPostPaint, DGV11.RowPostPaint, DGV12.RowPostPaint, DGV13.RowPostPaint, DGV14.RowPostPaint, DGV15.RowPostPaint, DGV16.RowPostPaint
         ' 行ヘッダのセル領域を、行番号を描画する長方形とする（ただし右端に4ドットのすき間を空ける）
         Dim rect As New Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, sender.RowHeadersWidth - 4, sender.Rows(e.RowIndex).Height)
 
@@ -1529,7 +1529,7 @@ Public Class SagawaSpare
 
         Dim dH11 As ArrayList = TM_HEADER_GET(DGV11)
 
-        If dH11.IndexOf("お客様管理№") = 0 Then
+        If dH11.IndexOf("お客様管理№") = -1 Then
             MsgBox("「お客様管理№」フィールドがないです。")
             Exit Sub
         End If
@@ -1556,15 +1556,15 @@ Public Class SagawaSpare
         Label16.Text = 0
         Label12.Text = DGV11.Rows.Count
 
+        Dim dH6 As ArrayList = TM_HEADER_GET(DGV6)
+        Dim dH7 As ArrayList = TM_HEADER_GET(DGV7)
+
         For r As Integer = 0 To DGV11.Rows.Count - 1
             DGV13.Rows.Add(1)
             For c As Integer = 0 To dH11.Count - 1
                 DGV13.Item(dH13.IndexOf(dH11(c)), r).Value = DGV11.Item(dH11.IndexOf(dH11(c)), r).Value
             Next
             Application.DoEvents()
-
-            Dim dH6 As ArrayList = TM_HEADER_GET(DGV6)
-            Dim dH7 As ArrayList = TM_HEADER_GET(DGV7)
             Dim denpyono As String = DGV11.Item(dH11.IndexOf("お客様管理№"), r).Value
             Dim place As String = DGV11.Item(dH11.IndexOf("都道府県"), r).Value
             Dim fare_sg As Integer = DGV11.Item(dH11.IndexOf("運賃"), r).Value
@@ -1812,6 +1812,114 @@ Public Class SagawaSpare
         'ダイアログを表示する
         If sfd.ShowDialog(Me) = DialogResult.OK Then
             SaveCsv(sfd.FileName, 0, DGV13, True)
+            MsgBox(sfd.FileName & vbCrLf & "保存しました", MsgBoxStyle.SystemModal)
+        End If
+    End Sub
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        'If TextBox1.Text.Trim <> "" And NumericUpDown2.Value <> 0 And ComboBox1.SelectedItem <> "" Then
+        Dim dH14 As ArrayList = TM_HEADER_GET(DGV14)
+            Dim dH15 As ArrayList = TM_HEADER_GET(DGV15)
+
+            Dim search_code As String = TextBox1.Text.Trim
+            Dim search_komoku As String = ComboBox1.SelectedItem
+            Dim search_count As Integer = NumericUpDown2.Value
+
+            If dH14.IndexOf("伝票番号") = -1 Then
+                MsgBox("伝票データに「伝票番号」項目がないです。")
+                Exit Sub
+            End If
+
+            If dH15.IndexOf("商品ｺｰﾄﾞ") = -1 Then
+                MsgBox("伝票明細に「商品ｺｰﾄﾞ」項目がないです。")
+                Exit Sub
+            End If
+
+            If DGV14.RowCount = 0 Then
+                MsgBox("伝票データがないです。")
+                Exit Sub
+            End If
+
+            If DGV15.RowCount = 0 Then
+                MsgBox("伝票明細データがないです。")
+                Exit Sub
+            End If
+
+            DGV16.Rows.Clear()
+            DGV16.Columns.Clear()
+
+            Button12.Enabled = False
+
+            For c As Integer = 0 To dH14.Count - 1
+                DGV16.Columns.Add(c, dH14(c))
+            Next
+
+            Dim add_line As Integer = 0
+
+            Label22.Text = DGV14.RowCount
+
+            For r As Integer = 0 To DGV14.Rows.Count - 1
+                Dim denpyono As String = DGV14.Item(dH14.IndexOf("伝票番号"), r).Value
+
+                Label24.Text = r + 1
+                DGV14.CurrentCell = DGV14(dH14.IndexOf("伝票番号"), r)
+
+                If denpyono <> "" Then
+                'Dim count = 0
+                'For r2 As Integer = 0 To DGV15.Rows.Count - 1
+                '    If denpyono = DGV15.Item(dH15.IndexOf("伝票番号"), r2).Value Then
+                '        If DGV15.Item(dH15.IndexOf("商品ｺｰﾄﾞ"), r2).Value = search_code Then
+                '            count += DGV15.Item(dH15.IndexOf(search_komoku), r2).Value
+                '        End If
+                '    End If
+                'Next
+
+                'If count > 0 And count <= search_count Then
+                '    DGV16.Rows.Add(1)
+                '    For c As Integer = 0 To dH14.Count - 1
+                '        DGV16.Item(dH14.IndexOf(dH14(c)), add_line).Value = DGV14.Item(dH14.IndexOf(dH14(c)), r).Value
+                '    Next
+                '    add_line += 1
+                'End If
+                DGV16.Rows.Add(1)
+                For c As Integer = 0 To dH14.Count - 1
+                    DGV16.Item(dH14.IndexOf(dH14(c)), add_line).Value = DGV14.Item(dH14.IndexOf(dH14(c)), r).Value
+                Next
+                add_line += 1
+            End If
+            Next
+            MsgBox("処理が終わりました。")
+            Button12.Enabled = True
+        'End If
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        If DGV16.Rows.Count = 0 Then
+            MsgBox("データがないです。", MsgBoxStyle.SystemModal)
+            Exit Sub
+        End If
+
+        Dim sfd As New SaveFileDialog With {
+            .InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory),
+            .Filter = "CSVファイル(*.csv)|*.csv|すべてのファイル(*.*)|*.*",
+                    .AutoUpgradeEnabled = False,
+            .FilterIndex = 0,
+            .Title = "保存先のファイルを選択してください",
+            .RestoreDirectory = True,
+            .OverwritePrompt = True,
+            .CheckPathExists = True
+        }
+
+        If InStr(Me.Text, "\") > 0 Then
+            Dim sPath As String = IO.Path.GetFileNameWithoutExtension(Me.Text)
+            sfd.FileName = sPath & ".csv"
+        Else
+            sfd.FileName = "佐川送料チェック.csv"
+        End If
+
+        'ダイアログを表示する
+        If sfd.ShowDialog(Me) = DialogResult.OK Then
+            SaveCsv(sfd.FileName, 0, DGV16, True)
             MsgBox(sfd.FileName & vbCrLf & "保存しました", MsgBoxStyle.SystemModal)
         End If
     End Sub

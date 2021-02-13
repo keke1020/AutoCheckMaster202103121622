@@ -4,7 +4,7 @@ Public Class Csv_denpyo3_F_count
     Private serverDir As String = Form1.サーバーToolStripMenuItem.Text & "\denpyoLog\"
 
     Private Sub Csv_denpyo3_F_count_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Me.Size = New Size(1033, 110)
+        Me.Size = New Size(1088, 110)
         If Form1.AdminFlag Then
             Button2.BackColor = Color.Yellow
         End If
@@ -45,8 +45,11 @@ Public Class Csv_denpyo3_F_count
                         LB29.Text = lineArray(10)
                         LB30.Text = lineArray(11)
 
-                        LB_d.Text = CInt(LB1.Text) + CInt(LB2.Text) + CInt(LB3.Text) + CInt(LB4.Text)
-                        LB_i.Text = CInt(LB5.Text) + CInt(LB6.Text) + CInt(LB7.Text) + CInt(LB8.Text)
+                        LB37.Text = lineArray(12)
+                        LB38.Text = lineArray(13)
+
+                        LB_d.Text = CInt(LB1.Text) + CInt(LB2.Text) + CInt(LB3.Text) + CInt(LB4.Text) + CInt(LB37.Text)
+                        LB_i.Text = CInt(LB5.Text) + CInt(LB6.Text) + CInt(LB7.Text) + CInt(LB8.Text) + CInt(LB38.Text)
                         LB_n.Text = CInt(LB26.Text) + CInt(LB28.Text) + CInt(LB29.Text) + CInt(LB30.Text)
                         timer1Count = 0
                     End If

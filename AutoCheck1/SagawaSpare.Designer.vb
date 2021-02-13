@@ -66,6 +66,22 @@ Partial Class SagawaSpare
         Me.Button13 = New System.Windows.Forms.Button()
         Me.DGV12 = New System.Windows.Forms.DataGridView()
         Me.DGV11 = New System.Windows.Forms.DataGridView()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.DGV16 = New System.Windows.Forms.DataGridView()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.DGV15 = New System.Windows.Forms.DataGridView()
+        Me.DGV14 = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DGV7 = New System.Windows.Forms.DataGridView()
@@ -108,6 +124,7 @@ Partial Class SagawaSpare
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.DGV8 = New System.Windows.Forms.DataGridView()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -119,6 +136,11 @@ Partial Class SagawaSpare
         CType(Me.DGV13, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGV12, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DGV11, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage6.SuspendLayout()
+        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGV16, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGV15, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGV14, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DGV7, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,6 +159,7 @@ Partial Class SagawaSpare
         '
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage5)
+        Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Location = New System.Drawing.Point(3, 3)
         Me.TabControl1.Name = "TabControl1"
@@ -588,6 +611,177 @@ Partial Class SagawaSpare
         Me.DGV11.Size = New System.Drawing.Size(1035, 126)
         Me.DGV11.TabIndex = 1
         '
+        'TabPage6
+        '
+        Me.TabPage6.Controls.Add(Me.ComboBox2)
+        Me.TabPage6.Controls.Add(Me.ComboBox1)
+        Me.TabPage6.Controls.Add(Me.NumericUpDown2)
+        Me.TabPage6.Controls.Add(Me.Label26)
+        Me.TabPage6.Controls.Add(Me.Label25)
+        Me.TabPage6.Controls.Add(Me.TextBox1)
+        Me.TabPage6.Controls.Add(Me.DGV16)
+        Me.TabPage6.Controls.Add(Me.Label22)
+        Me.TabPage6.Controls.Add(Me.Label23)
+        Me.TabPage6.Controls.Add(Me.Label24)
+        Me.TabPage6.Controls.Add(Me.Button6)
+        Me.TabPage6.Controls.Add(Me.Button12)
+        Me.TabPage6.Controls.Add(Me.Label20)
+        Me.TabPage6.Controls.Add(Me.Label21)
+        Me.TabPage6.Controls.Add(Me.DGV15)
+        Me.TabPage6.Controls.Add(Me.DGV14)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(1320, 582)
+        Me.TabPage6.TabIndex = 3
+        Me.TabPage6.Text = "検索"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"受注数", "引当数"})
+        Me.ComboBox1.Location = New System.Drawing.Point(690, 279)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(87, 20)
+        Me.ComboBox1.TabIndex = 54
+        '
+        'NumericUpDown2
+        '
+        Me.NumericUpDown2.Location = New System.Drawing.Point(623, 280)
+        Me.NumericUpDown2.Name = "NumericUpDown2"
+        Me.NumericUpDown2.Size = New System.Drawing.Size(61, 19)
+        Me.NumericUpDown2.TabIndex = 53
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(573, 283)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(45, 12)
+        Me.Label26.TabIndex = 52
+        Me.Label26.Text = "数量 <="
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(432, 283)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(29, 12)
+        Me.Label25.TabIndex = 51
+        Me.Label25.Text = "商品"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(467, 280)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 19)
+        Me.TextBox1.TabIndex = 50
+        '
+        'DGV16
+        '
+        Me.DGV16.AllowDrop = True
+        Me.DGV16.AllowUserToAddRows = False
+        Me.DGV16.BackgroundColor = System.Drawing.Color.White
+        Me.DGV16.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGV16.Location = New System.Drawing.Point(3, 306)
+        Me.DGV16.Name = "DGV16"
+        Me.DGV16.RowTemplate.Height = 21
+        Me.DGV16.Size = New System.Drawing.Size(1067, 246)
+        Me.DGV16.TabIndex = 49
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("メイリオ", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label22.Location = New System.Drawing.Point(104, 267)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(30, 36)
+        Me.Label22.TabIndex = 48
+        Me.Label22.Text = "0"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("メイリオ", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label23.Location = New System.Drawing.Point(72, 267)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(26, 36)
+        Me.Label23.TabIndex = 47
+        Me.Label23.Text = "/"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("メイリオ", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label24.Location = New System.Drawing.Point(4, 267)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(30, 36)
+        Me.Label24.TabIndex = 46
+        Me.Label24.Text = "0"
+        '
+        'Button6
+        '
+        Me.Button6.BackColor = System.Drawing.Color.LavenderBlush
+        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Button6.Location = New System.Drawing.Point(974, 263)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(96, 40)
+        Me.Button6.TabIndex = 45
+        Me.Button6.Text = "エクスポート"
+        Me.Button6.UseVisualStyleBackColor = False
+        '
+        'Button12
+        '
+        Me.Button12.BackColor = System.Drawing.Color.LightGreen
+        Me.Button12.Location = New System.Drawing.Point(875, 263)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(96, 40)
+        Me.Button12.TabIndex = 44
+        Me.Button12.Text = "スタート"
+        Me.Button12.UseVisualStyleBackColor = False
+        '
+        'Label20
+        '
+        Me.Label20.Font = New System.Drawing.Font("ＭＳ ゴシック", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label20.Location = New System.Drawing.Point(7, 151)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(21, 108)
+        Me.Label20.TabIndex = 43
+        Me.Label20.Text = "明細データ"
+        '
+        'Label21
+        '
+        Me.Label21.Font = New System.Drawing.Font("ＭＳ ゴシック", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label21.Location = New System.Drawing.Point(7, 21)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(21, 108)
+        Me.Label21.TabIndex = 42
+        Me.Label21.Text = "伝票データ"
+        '
+        'DGV15
+        '
+        Me.DGV15.AllowDrop = True
+        Me.DGV15.AllowUserToAddRows = False
+        Me.DGV15.BackgroundColor = System.Drawing.Color.White
+        Me.DGV15.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGV15.Location = New System.Drawing.Point(34, 133)
+        Me.DGV15.Name = "DGV15"
+        Me.DGV15.RowTemplate.Height = 21
+        Me.DGV15.Size = New System.Drawing.Size(1035, 126)
+        Me.DGV15.TabIndex = 41
+        '
+        'DGV14
+        '
+        Me.DGV14.AllowDrop = True
+        Me.DGV14.AllowUserToAddRows = False
+        Me.DGV14.BackgroundColor = System.Drawing.Color.White
+        Me.DGV14.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGV14.Location = New System.Drawing.Point(34, 3)
+        Me.DGV14.Name = "DGV14"
+        Me.DGV14.RowTemplate.Height = 21
+        Me.DGV14.Size = New System.Drawing.Size(1035, 126)
+        Me.DGV14.TabIndex = 40
+        '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.GroupBox2)
@@ -975,6 +1169,15 @@ Partial Class SagawaSpare
         Me.DGV8.Size = New System.Drawing.Size(1118, 196)
         Me.DGV8.TabIndex = 1
         '
+        'ComboBox2
+        '
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"ゆうパケット"})
+        Me.ComboBox2.Location = New System.Drawing.Point(783, 279)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(87, 20)
+        Me.ComboBox2.TabIndex = 55
+        '
         'SagawaSpare
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1002,6 +1205,12 @@ Partial Class SagawaSpare
         CType(Me.DGV13, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGV12, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DGV11, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage6.ResumeLayout(False)
+        Me.TabPage6.PerformLayout()
+        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV16, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV15, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV14, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.DGV7, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1105,4 +1314,21 @@ Partial Class SagawaSpare
     Friend WithEvents Label18 As Label
     Friend WithEvents Label17 As Label
     Friend WithEvents Label19 As Label
+    Friend WithEvents TabPage6 As TabPage
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents DGV15 As DataGridView
+    Friend WithEvents DGV14 As DataGridView
+    Friend WithEvents DGV16 As DataGridView
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button12 As Button
+    Friend WithEvents Label25 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents NumericUpDown2 As NumericUpDown
+    Friend WithEvents Label26 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ComboBox2 As ComboBox
 End Class
