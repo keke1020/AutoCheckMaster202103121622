@@ -163,7 +163,7 @@ Public Class Mall_main
     End Sub
 
     '行番号を表示する
-    Private Sub DataGridView_RowPostPaint(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles _
+    Private Sub DataGridView_RowPostPaint(ByVal sender As Object, ByVal e As Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles _
             DGV1.RowPostPaint, DGV2.RowPostPaint, DGV3.RowPostPaint, DGV4.RowPostPaint, DGV5.RowPostPaint,
             DGV6.RowPostPaint, DGV7.RowPostPaint, DGV8.RowPostPaint, DGV9.RowPostPaint, DGV10.RowPostPaint,
             DGV11.RowPostPaint, DGV12.RowPostPaint, DGV13.RowPostPaint, DGV14.RowPostPaint, DGV15.RowPostPaint,
@@ -216,7 +216,7 @@ Public Class Mall_main
         End If
     End Sub
 
-    Private Sub DataGridView_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles DGV9.DragDrop
+    Private Sub DataGridView_DragDrop(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles DGV9.DragDrop
         Me.Activate()
         For Each filename As String In e.Data.GetData(DataFormats.FileDrop)
             LIST4VIEW("ドラッグドロップ認識", "s")
@@ -224,7 +224,7 @@ Public Class Mall_main
         Next
     End Sub
 
-    Private Sub DataGridView12_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles _
+    Private Sub DataGridView12_DragDrop(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles _
             DGV12.DragDrop, DGV13.DragDrop, DGV17.DragDrop
         Me.Activate()
         For Each filename As String In e.Data.GetData(DataFormats.FileDrop)
@@ -233,7 +233,7 @@ Public Class Mall_main
         Next
     End Sub
 
-    Private Sub DataGridView14_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles DGV14.DragDrop
+    Private Sub DataGridView14_DragDrop(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles DGV14.DragDrop
         Me.Activate()
         For Each filename As String In e.Data.GetData(DataFormats.FileDrop)
             LIST4VIEW("ドラッグドロップ認識", "s")
@@ -241,7 +241,7 @@ Public Class Mall_main
         Next
     End Sub
 
-    Private Sub DataGridView16_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles _
+    Private Sub DataGridView16_DragDrop(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles _
             DGV15.DragDrop, DGV16.DragDrop
         Me.Activate()
         For Each filename As String In e.Data.GetData(DataFormats.FileDrop)
@@ -250,7 +250,7 @@ Public Class Mall_main
         Next
     End Sub
 
-    Private Sub DataGridView20_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles _
+    Private Sub DataGridView20_DragDrop(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles _
             DGV20.DragDrop
         Me.Activate()
         For Each filename As String In e.Data.GetData(DataFormats.FileDrop)
@@ -259,7 +259,7 @@ Public Class Mall_main
         Next
     End Sub
 
-    Private Sub DataGridView11_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles _
+    Private Sub DataGridView11_DragDrop(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles _
             DGV11.DragDrop
         Me.Activate()
         For Each filename As String In e.Data.GetData(DataFormats.FileDrop)
@@ -268,7 +268,7 @@ Public Class Mall_main
         Next
     End Sub
 
-    Private Sub DataGridView_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles _
+    Private Sub DataGridView_DragEnter(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles _
             DGV9.DragEnter, DGV12.DragEnter, DGV13.DragEnter, DGV17.DragEnter, DGV14.DragEnter,
             DGV15.DragEnter, DGV16.DragEnter, DGV20.DragEnter, DGV11.DragEnter, DGV22.DragEnter
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
@@ -7455,7 +7455,7 @@ Public Class Mall_main
         End If
     End Sub
 
-    Private Sub DataGridView_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles _
+    Private Sub DataGridView_KeyUp(ByVal sender As Object, ByVal e As Windows.Forms.KeyEventArgs) Handles _
         DGV1.KeyUp, DGV2.KeyUp, DGV3.KeyUp, DGV4.KeyUp, DGV5.KeyUp,
         DGV6.KeyUp, DGV7.KeyUp, DGV8.KeyUp, DGV9.KeyUp, DGV10.KeyUp,
         DGV11.KeyUp, DGV16.KeyUp
@@ -10256,7 +10256,7 @@ Public Class Mall_main
     '**************************************
     'ヤフオク在庫チェック
     '**************************************
-    Private Sub ListBox7_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles _
+    Private Sub ListBox7_DragDrop(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles _
             ListBox7.DragDrop, ListBox8.DragDrop
         Me.Activate()
         ListBox7.Items.Clear()
@@ -10310,7 +10310,7 @@ Public Class Mall_main
         Next
     End Sub
 
-    Private Sub ListBox7_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles _
+    Private Sub ListBox7_DragEnter(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles _
             ListBox7.DragEnter, ListBox8.DragEnter
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
             e.Effect = DragDropEffects.Copy

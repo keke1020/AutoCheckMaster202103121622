@@ -22,7 +22,7 @@ Public Class Form1_F_Newitem
         Next
     End Sub
 
-    Private Sub Newitem_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Newitem_FormClosing(ByVal sender As Object, ByVal e As Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         If e.CloseReason = CloseReason.FormOwnerClosing Or e.CloseReason = CloseReason.UserClosing Then
             Me.Visible = False
             e.Cancel = True
@@ -121,7 +121,7 @@ Public Class Form1_F_Newitem
     End Function
 
     '全角チェック
-    Private Sub DataGridView3_CellValueChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView3.CellValueChanged
+    Private Sub DataGridView3_CellValueChanged(ByVal sender As Object, ByVal e As Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView3.CellValueChanged
         If e.ColumnIndex >= 0 And e.RowIndex >= 0 Then
             Dim checkStr As String = DataGridView3.Item(e.ColumnIndex, e.RowIndex).Value
             If checkStr <> "" Then
@@ -150,7 +150,7 @@ Public Class Form1_F_Newitem
 
 
     '行番号を表示する
-    Private Sub DataGridView1_RowPostPaint(ByVal sender As DataGridView, ByVal e As System.Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles _
+    Private Sub DataGridView1_RowPostPaint(ByVal sender As DataGridView, ByVal e As Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles _
             DataGridView1.RowPostPaint, DataGridView2.RowPostPaint, DataGridView3.RowPostPaint, DGV6.RowPostPaint
         ' 行ヘッダのセル領域を、行番号を描画する長方形とする（ただし右端に4ドットのすき間を空ける）
         Dim rect As New Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, sender.RowHeadersWidth - 4, sender.Rows(e.RowIndex).Height)
@@ -381,40 +381,40 @@ Public Class Form1_F_Newitem
                         '    value2 = 1260
                         'Else
                         If value <> "" Then
-                                value = Okikae(value)
-                                Select Case True
-                                    Case Regex.IsMatch(value, "_link_") '画像リンクを取得
-                                        Dim rowNum As Integer = Replace(value, "_link_", "")
-                                        If rowNum < DataGridView2.RowCount - 1 Then
-                                            If DataGridView2.Item(0, rowNum).Value <> "" Then
-                                                value2 = DataGridView2.Item(0, rowNum).Value
-                                            Else
-                                                value2 = ""
-                                            End If
-                                        End If
-                                    Case Regex.IsMatch(value, "_code_") 'コード+番号
-                                        Dim rowNum As Integer = Replace(value, "_code_", "")
-                                        If rowNum < DataGridView2.RowCount - 1 Then
-                                            If DataGridView2.Item(0, rowNum).Value <> "" Then
-                                                If rowNum = 0 Then
-                                                    value2 = TextBox3.Text
-                                                Else
-                                                    value2 = TextBox3.Text & TextBox9.Text & rowNum
-                                                End If
-                                            Else
-                                                value2 = ""
-                                            End If
-                                        End If
-                                    Case Else
-                                        If value = "none" Then
-                                            value2 = ""
+                            value = Okikae(value)
+                            Select Case True
+                                Case Regex.IsMatch(value, "_link_") '画像リンクを取得
+                                    Dim rowNum As Integer = Replace(value, "_link_", "")
+                                    If rowNum < DataGridView2.RowCount - 1 Then
+                                        If DataGridView2.Item(0, rowNum).Value <> "" Then
+                                            value2 = DataGridView2.Item(0, rowNum).Value
                                         Else
-                                            value2 = value
+                                            value2 = ""
                                         End If
-                                End Select
-                            Else
-                                value2 = value
-                            End If
+                                    End If
+                                Case Regex.IsMatch(value, "_code_") 'コード+番号
+                                    Dim rowNum As Integer = Replace(value, "_code_", "")
+                                    If rowNum < DataGridView2.RowCount - 1 Then
+                                        If DataGridView2.Item(0, rowNum).Value <> "" Then
+                                            If rowNum = 0 Then
+                                                value2 = TextBox3.Text
+                                            Else
+                                                value2 = TextBox3.Text & TextBox9.Text & rowNum
+                                            End If
+                                        Else
+                                            value2 = ""
+                                        End If
+                                    End If
+                                Case Else
+                                    If value = "none" Then
+                                        value2 = ""
+                                    Else
+                                        value2 = value
+                                    End If
+                            End Select
+                        Else
+                            value2 = value
+                        End If
                         'End If
 
                         Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName(form)(name).SetAttribute("value", value2)
@@ -1343,7 +1343,7 @@ Public Class Form1_F_Newitem
         End If
     End Sub
 
-    Private Sub DataGridView_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DataGridView1.KeyUp
+    Private Sub DataGridView_KeyUp(ByVal sender As Object, ByVal e As Windows.Forms.KeyEventArgs) Handles DataGridView1.KeyUp
         Dim dgv As DataGridView = CType(sender, DataGridView)
         Dim selCell = dgv.SelectedCells
 
@@ -1384,7 +1384,7 @@ Public Class Form1_F_Newitem
     End Sub
 
     Public Shared DGV1tb As TextBox
-    Private Sub DataGridView1_EditingControlShowing(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles _
+    Private Sub DataGridView1_EditingControlShowing(ByVal sender As Object, ByVal e As Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles _
             DataGridView1.EditingControlShowing, DataGridView3.EditingControlShowing
         If TypeOf e.Control Is DataGridViewTextBoxEditingControl Then
             '編集のために表示されているコントロールを取得

@@ -28,7 +28,7 @@ Public Class ZaikoList
     End Sub
 
     '行番号を表示する
-    Private Sub DataGridView_RowPostPaint(ByVal sender As DataGridView, ByVal e As System.Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles _
+    Private Sub DataGridView_RowPostPaint(ByVal sender As DataGridView, ByVal e As Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles _
         DGV1.RowPostPaint
         ' 行ヘッダのセル領域を、行番号を描画する長方形とする（ただし右端に4ドットのすき間を空ける）
         Dim rect As New Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, sender.RowHeadersWidth - 4, sender.Rows(e.RowIndex).Height)
@@ -36,7 +36,7 @@ Public Class ZaikoList
         TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), sender.RowHeadersDefaultCellStyle.Font, rect, sender.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter Or TextFormatFlags.Right)
     End Sub
 
-    Private Sub DataGridView1_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles DGV1.DragDrop
+    Private Sub DataGridView1_DragDrop(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles DGV1.DragDrop
         For Each filename As String In e.Data.GetData(DataFormats.FileDrop)
             readData(filename)
             Exit For
@@ -54,7 +54,7 @@ Public Class ZaikoList
         MsgBox("読込終了")
     End Sub
 
-    Private Sub DataGridView1_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles DGV1.DragEnter
+    Private Sub DataGridView1_DragEnter(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles DGV1.DragEnter
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
             e.Effect = DragDropEffects.Copy
         End If

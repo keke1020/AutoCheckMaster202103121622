@@ -13,6 +13,12 @@ Imports OpenQA.Selenium.Chrome
 Imports OpenQA.Selenium
 Imports OpenQA.Selenium.Interactions
 
+Imports System.Text
+
+Imports System.Runtime.InteropServices.Marshal
+Imports Microsoft.Office.Interop
+Imports Excel = Microsoft.Office.Interop.Excel
+
 Public Class Csv
     Dim secValue As String = ""
 
@@ -251,7 +257,7 @@ Public Class Csv
                     Exit Sub
                 End If
                 Dim DR As DialogResult = MsgBox("在庫変動のチェックをします", MsgBoxStyle.OkCancel Or MsgBoxStyle.SystemModal)
-                If DR = Windows.Forms.DialogResult.Cancel Then
+                If DR = System.Windows.Forms.DialogResult.Cancel Then
                     Exit Sub
                 End If
             End If
@@ -451,7 +457,7 @@ Public Class Csv
         '            csvStr &= s & vbLf
         '        End If
         '        ToolStripStatusLabel8.Text += 1
-        '        Application.DoEvents()
+        '        System.Windows.Forms.Application.DoEvents()
         '    Loop
         'End Using
 
@@ -1059,8 +1065,8 @@ Public Class Csv
 
     Private Sub ColSelect(ByVal mode As Integer)
         Panel2.Visible = True
-        Panel2.Location = New Point(SplitContainer1.Width / 2 - 40, SplitContainer1.Height / 2 - 30)
-        Application.DoEvents()
+        Panel2.Location = New System.Drawing.Point(SplitContainer1.Width / 2 - 40, SplitContainer1.Height / 2 - 30)
+        System.Windows.Forms.Application.DoEvents()
 
         selChangeFlag = False
 
@@ -1959,7 +1965,7 @@ Public Class Csv
         If delR.Count > 100 Then
             Panel2.Visible = True
             dgv.Visible = False
-            Application.DoEvents()
+            System.Windows.Forms.Application.DoEvents()
         End If
         For r As Integer = delR.Count - 1 To 0 Step -1
             If delR(r) < dgv.RowCount - 1 Then
@@ -2048,7 +2054,7 @@ Public Class Csv
             For r As Integer = 0 To DataGridView1.Rows.Count - 2
                 If DataGridView1.Rows(r).Visible = False Then
                     Dim DR As DialogResult = MsgBox("表示行のみ保存しますか？", MsgBoxStyle.YesNo Or MsgBoxStyle.SystemModal)
-                    If DR = Windows.Forms.DialogResult.Yes Then
+                    If DR = System.Windows.Forms.DialogResult.Yes Then
                         visibleFlag = True
                         Exit For
                     Else
@@ -2102,7 +2108,7 @@ Public Class Csv
             End If
             ToolStripProgressBar1.Value += 1
             If ToolStripProgressBar1.Value Mod 500 = 0 Then
-                Application.DoEvents()
+                System.Windows.Forms.Application.DoEvents()
             End If
         Next
 
@@ -2118,7 +2124,7 @@ Public Class Csv
     '行番号を表示する
     Private Sub DataGridView1_RowPostPaint(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewRowPostPaintEventArgs) Handles DataGridView1.RowPostPaint
         ' 行ヘッダのセル領域を、行番号を描画する長方形とする（ただし右端に4ドットのすき間を空ける）
-        Dim rect As New Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, DataGridView1.RowHeadersWidth - 4, DataGridView1.Rows(e.RowIndex).Height)
+        Dim rect As New System.Drawing.Rectangle(e.RowBounds.Location.X, e.RowBounds.Location.Y, DataGridView1.RowHeadersWidth - 4, DataGridView1.Rows(e.RowIndex).Height)
 
         ' 上記の長方形内に行番号を縦方向中央＆右詰で描画する　フォントや色は行ヘッダの既定値を使用する
         TextRenderer.DrawText(e.Graphics, (e.RowIndex + 1).ToString(), DataGridView1.RowHeadersDefaultCellStyle.Font, rect, DataGridView1.RowHeadersDefaultCellStyle.ForeColor, TextFormatFlags.VerticalCenter Or TextFormatFlags.Right)
@@ -2403,7 +2409,7 @@ Public Class Csv
         End If
 
         Dim DR As DialogResult = OtherDialog.ShowDialog()
-        If DR = Windows.Forms.DialogResult.Cancel Then
+        If DR = System.Windows.Forms.DialogResult.Cancel Then
             Exit Sub
         End If
 
@@ -2804,7 +2810,7 @@ Public Class Csv
 
     '            ToolStripProgressBar1.Value += 1
     '            If z Mod 100 = 0 Then
-    '                Application.DoEvents()
+    '                System.Windows.Forms.Application.DoEvents()
     '            End If
     '        End If
     '    Next
@@ -2900,7 +2906,7 @@ Public Class Csv
 
     '            ToolStripProgressBar1.Value += 1
     '            If z Mod 100 = 0 Then
-    '                Application.DoEvents()
+    '                System.Windows.Forms.Application.DoEvents()
     '            End If
     '        End If
     '    Next
@@ -3009,7 +3015,7 @@ Public Class Csv
             DataGridView1.Rows(r).Visible = True
             ToolStripProgressBar1.Value += 1
             If r Mod 500 = 0 Then
-                Application.DoEvents()
+                System.Windows.Forms.Application.DoEvents()
             End If
         Next
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
@@ -3053,7 +3059,7 @@ Public Class Csv
             End If
             ToolStripProgressBar1.Value += 1
             If r Mod 500 = 0 Then
-                Application.DoEvents()
+                System.Windows.Forms.Application.DoEvents()
             End If
         Next
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
@@ -3091,7 +3097,7 @@ Public Class Csv
             End If
             ToolStripProgressBar1.Value += 1
             If r Mod 500 = 0 Then
-                Application.DoEvents()
+                System.Windows.Forms.Application.DoEvents()
             End If
         Next
         DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
@@ -3581,13 +3587,13 @@ Public Class Csv
     Dim direction As System.ComponentModel.ListSortDirection = System.ComponentModel.ListSortDirection.Descending
     Private Sub DataGridView1_ColumnHeaderMouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.ColumnHeaderMouseClick
         Dim DR As DialogResult = MsgBox(e.ColumnIndex & "列目でソートします。" & vbCrLf & "1行目除外する。", MsgBoxStyle.YesNoCancel Or MsgBoxStyle.SystemModal)
-        If DR = Windows.Forms.DialogResult.Yes Then
+        If DR = System.Windows.Forms.DialogResult.Yes Then
             topArray = New String(DataGridView1.ColumnCount) {}
             For c As Integer = 0 To DataGridView1.ColumnCount - 1
                 topArray(c) = DataGridView1.Item(c, 0).Value
             Next
             DataGridView1.Rows.RemoveAt(0)
-        ElseIf DR = Windows.Forms.DialogResult.Cancel Then
+        ElseIf DR = System.Windows.Forms.DialogResult.Cancel Then
             Exit Sub
         End If
 
@@ -3604,7 +3610,7 @@ Public Class Csv
             ToolStripStatusLabel6.Text = "[sort/" & e.ColumnIndex & ":降順]"
         End If
 
-        If DR = Windows.Forms.DialogResult.Yes Then
+        If DR = System.Windows.Forms.DialogResult.Yes Then
             DataGridView1.Rows.Insert(0)
             For c As Integer = 0 To DataGridView1.ColumnCount - 1
                 DataGridView1.Item(c, 0).Value = topArray(c)
@@ -3648,7 +3654,7 @@ Public Class Csv
                 topArray(c) = DataGridView1.Item(c, 0).Value
             Next
             DataGridView1.Rows.RemoveAt(0)
-        ElseIf DR = Windows.Forms.DialogResult.Cancel Then
+        ElseIf DR = System.Windows.Forms.DialogResult.Cancel Then
             Exit Sub
         End If
 
@@ -3669,7 +3675,7 @@ Public Class Csv
             ToolStripStatusLabel6.Text = "[sort/" & dH1.IndexOf(sortHeaderStr) & ":昇順]"
         End If
 
-        If DR = Windows.Forms.DialogResult.OK Then
+        If DR = System.Windows.Forms.DialogResult.OK Then
             DataGridView1.Rows.Insert(0)
             For c As Integer = 0 To DataGridView1.ColumnCount - 1
                 DataGridView1.Item(c, 0).Value = topArray(c)
@@ -3861,7 +3867,7 @@ Public Class Csv
             DataGridView1.SelectedCells(i).Value = Form1.StrConvNumeric(DataGridView1.SelectedCells(i).Value)
             DataGridView1.SelectedCells(i).Value = Form1.StrConvEnglish(DataGridView1.SelectedCells(i).Value)
             ToolStripProgressBar1.Value += 1
-            Application.DoEvents()
+            System.Windows.Forms.Application.DoEvents()
         Next
         ToolStripProgressBar1.Value = 0
         '-----------------------------------------------------------------------
@@ -3879,7 +3885,7 @@ Public Class Csv
         For i As Integer = 0 To DataGridView1.SelectedCells.Count - 1
             DataGridView1.SelectedCells(i).Value = Form1.StrConvZSpaceToH(DataGridView1.SelectedCells(i).Value)
             ToolStripProgressBar1.Value += 1
-            Application.DoEvents()
+            System.Windows.Forms.Application.DoEvents()
         Next
         ToolStripProgressBar1.Value = 0
         '-----------------------------------------------------------------------
@@ -4529,12 +4535,12 @@ Public Class Csv
                         cr.FindElementByClassName("all_keywordsearchbtn").Click()
 
                         Dim html As String = cr.ExecuteScript("return document.body.outerHTML")
-                        Application.DoEvents()
+                        System.Windows.Forms.Application.DoEvents()
 
                         If html Is Nothing Then
                         Else
                             wb.DocumentText = html
-                            Application.DoEvents()
+                            System.Windows.Forms.Application.DoEvents()
 
                             Dim eleSels_p As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("p")
                             Dim result_flag As Boolean = True
@@ -4551,7 +4557,7 @@ Public Class Csv
                                     'https://www.adonetvb.com/dotnet/tipsseikihyogen5.html
                                     If Regex.IsMatch(he.InnerText, "^[0-9]{3}[\-]?[0-9]{4}$") Then
                                         postcode = he.InnerText
-                                        Application.DoEvents()
+                                        System.Windows.Forms.Application.DoEvents()
                                         Exit For
                                     End If
                                 Next
@@ -4559,7 +4565,7 @@ Public Class Csv
                                 If postcode <> "" Then
                                     DataGridView1.Item(dH1.IndexOf("〒"), r).Value = postcode
                                     DataGridView1.CurrentCell = DataGridView1(dH1.IndexOf("〒"), r)
-                                    Application.DoEvents()
+                                    System.Windows.Forms.Application.DoEvents()
                                 End If
                             End If
                         End If
@@ -4607,7 +4613,7 @@ Public Class Csv
     '        wb.ScriptErrorsSuppressed = True
     '        wb.Navigate(New Uri("https://postcode.goo.ne.jp/search/q/%E4%BA%95%E7%9B%B8%E7%94%B0/"))
     '        WaitWebBrowser1Completed()
-    '        Application.DoEvents()
+    '        System.Windows.Forms.Application.DoEvents()
 
 
     '        If jyusyo <> "" Then
@@ -4632,7 +4638,7 @@ Public Class Csv
     '                    'cr.FindElementByClassName("all_keywordsearch").SendKeys(jyusyo_)
     '                    'cr.FindElementByClassName("all_keywordsearchbtn").Click()
 
-    '                    'Application.DoEvents()
+    '                    'System.Windows.Forms.Application.DoEvents()
     '                    'dim postcode as string = cr.findelementbyclassname("result").
 
 
@@ -4644,7 +4650,7 @@ Public Class Csv
 
 
     '                    'wb.DocumentText = html
-    '                    'Application.DoEvents()
+    '                    'System.Windows.Forms.Application.DoEvents()
 
 
 
@@ -4653,7 +4659,7 @@ Public Class Csv
     '                    For Each eleSel As HtmlElement In eleSels
     '                        If eleSel.GetAttribute("className") = "NR-text NR-search-text all_keywordsearch" Then
     '                            eleSel.SetAttribute("value", jyusyo_)
-    '                            Application.DoEvents()
+    '                            System.Windows.Forms.Application.DoEvents()
     '                            Threading.Thread.Sleep(500)
     '                            Exit For
     '                        End If
@@ -4664,7 +4670,7 @@ Public Class Csv
     '                            eleSel.InvokeMember("click")
     '                            Threading.Thread.Sleep(500)
     '                            WaitWebBrowser1Completed()
-    '                            Application.DoEvents()
+    '                            System.Windows.Forms.Application.DoEvents()
     '                            click_flag = True
     '                            Exit For
     '                        End If
@@ -4686,7 +4692,7 @@ Public Class Csv
     '                                'https://www.adonetvb.com/dotnet/tipsseikihyogen5.html
     '                                If Regex.IsMatch(he.InnerText, "^[0-9]{3}[\-]?[0-9]{4}$") Then
     '                                    postcode = he.InnerText
-    '                                    Application.DoEvents()
+    '                                    System.Windows.Forms.Application.DoEvents()
     '                                    Exit For
     '                                End If
     '                            Next
@@ -4694,7 +4700,7 @@ Public Class Csv
     '                            If postcode <> "" Then
     '                                DataGridView1.Item(dH1.IndexOf("〒"), r).Value = postcode
     '                                DataGridView1.CurrentCell = DataGridView1(dH1.IndexOf("〒"), r)
-    '                                Application.DoEvents()
+    '                                System.Windows.Forms.Application.DoEvents()
     '                            End If
     '                        End If
     '                    End If
@@ -4748,8 +4754,8 @@ Public Class Csv
             .Url = homeURL
         }
         cr.Manage.Window.Size = New Size(sizeW, sizeH)
-        cr.Manage.Window.Position = New Point(0, 0)
-        Me.Location = New Point(sizeW + 20, 0)
+        cr.Manage.Window.Position = New System.Drawing.Point(0, 0)
+        Me.Location = New System.Drawing.Point(sizeW + 20, 0)
 
         cr.Url = homeURL
     End Sub
@@ -4791,10 +4797,80 @@ Public Class Csv
             If wb_loading_ng = False Then
                 Exit Do
             Else
-                Application.DoEvents()
+                System.Windows.Forms.Application.DoEvents()
             End If
         Loop
         wb_loading_ng = True
     End Sub
 
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        'Dim docPath As String = "E:\\test.doc"
+        'Dim missing As Object = System.Reflection.Missing.Value
+        'Dim wordApp As New Word.Application()
+        'Dim wordDoc As Word.Document = wordApp.Documents.Add(docPath)
+
+        'For i As Integer = 0 To wordDoc.Tables.Count - 1
+        '    Dim nowTable As Word.Table = wordDoc.Tables(i)
+        '    For rowPos As Integer = 0 To nowTable.Rows.Count - 1
+        '        For columPos As Integer = 0 To nowTable.Columns.Count - 1
+        '            Console.WriteLine(nowTable.Cell(rowPos, columPos).Range.Text)
+        '        Next
+        '    Next
+        'Next
+
+
+        'Dim Str As String = "123"
+        'File.WriteAllText(saveName, Str, Encoding.GetEncoding("shift-jis"))
+
+        Dim appXL As Excel.Application '声明一个application对象
+        Dim wbXl As Excel.Workbook '声明一个工作簿对象
+        Dim shXL As Excel.Worksheet '声明一个工作表对象
+        'Dim raXL As Excel.Range '声明一个范围对象
+
+        appXL = CreateObject("Excel.Application")
+        appXL.Visible = True
+
+        wbXl = appXL.Workbooks.Add
+        shXL = wbXl.ActiveSheet
+
+        shXL.Cells(1, 1).Value = "First Name"
+        shXL.Cells(1, 2).Value = "Last Name"
+        shXL.Cells(1, 3).Value = "Full Name"
+        shXL.Cells(1, 4).Value = "Specialization"
+
+        With shXL.Range("A1", "D1")
+            '.Font.Bold = True
+            '.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter
+            .Columns.ColumnWidth = 12
+        End With
+        With shXL
+            .Cells(2, 3).Value = "Biology"
+            .Cells(3, 3).Value = "Mathmematics"
+            .Cells(4, 3).Value = "Physics"
+            .Cells(5, 3).Value = "Mathmematics"
+            .Cells(6, 3).Value = "Arabic"
+            .Cells(2, 1).Value = "Biology"
+            .Cells(3, 1).Value = "Mathmematics"
+            .Cells(4, 1).Value = "Physics"
+            .Cells(5, 1).Value = "Mathmematics"
+            .Cells(6, 1).Value = "Arabic"
+        End With
+
+        shXL.PageSetup.PaperSize = Excel.XlPaperSize.xlPaperA4 '21*29.7
+        shXL.PageSetup.PrintArea = ""
+        'appXL.Visible = True
+        'appXL.UserControl = True
+
+        Dim desktopPath As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
+        Dim filename As String = desktopPath & "\" & Format(Now, "yyyyMMddhhmmsss") & ".xls"
+
+        wbXl.SaveAs(filename)
+        wbXl.Close()
+        shXL = Nothing
+        wbXl = Nothing
+        appXL.Quit()
+
+
+
+    End Sub
 End Class

@@ -77,7 +77,7 @@ Public Class Csv_denpyo3_F_dgv
     Private Sub DGV1_count()
         DGV3.Rows.Clear()
 
-        Dim binsu As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+        Dim binsu As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         Dim dH1 As ArrayList = TM_HEADER_GET(DGV1)
         For r As Integer = 0 To DGV1.RowCount - 1
             Dim checkStr As String = DGV1.Item(dH1.IndexOf("倉庫"), r).Value & DGV1.Item(dH1.IndexOf("便種"), r).Value & DGV1.Item(dH1.IndexOf("伝票ソフト"), r).Value
@@ -106,8 +106,18 @@ Public Class Csv_denpyo3_F_dgv
                     binsu(10) += CInt(DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value)
                 Case "名古屋陸便定形外", "名古屋航空便定形外"
                     binsu(11) += CInt(DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value)
-                Case Else
+                Case "太宰府陸便ヤマト"
                     binsu(12) += CInt(DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value)
+                Case "井相田陸便ヤマト"
+                    binsu(13) += CInt(DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value)
+                Case "太宰府船便ヤマト"
+                    binsu(16) += CInt(DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value)
+                Case "井相田船便ヤマト"
+                    binsu(17) += CInt(DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value)
+                Case "複数倉庫陸便", "複数倉庫航空便"
+                    binsu(15) += CInt(DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value)
+                Case Else
+                    binsu(14) += CInt(DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value)
             End Select
         Next
 
@@ -142,7 +152,18 @@ Public Class Csv_denpyo3_F_dgv
         DGV3.Item(0, 10).Style.BackColor = Color.FromArgb(212, 242, 231)
         DGV3.Item(0, 11).Style.BackColor = Color.FromArgb(212, 242, 231)
 
-        DGV3.Rows.Add("不明", binsu(12))
+        DGV3.Rows.Add("(太)ヤマト_陸便", binsu(12))
+        DGV3.Rows.Add("(太)ヤマト_船便", binsu(16))
+        DGV3.Rows.Add("(井)ヤマト_陸便", binsu(13))
+        DGV3.Rows.Add("(井)ヤマト_船便", binsu(17))
+
+        DGV3.Item(0, 12).Style.BackColor = Color.FromArgb(240, 248, 255)
+        DGV3.Item(0, 13).Style.BackColor = Color.FromArgb(240, 248, 255)
+        DGV3.Item(0, 14).Style.BackColor = Color.FromArgb(240, 248, 255)
+        DGV3.Item(0, 15).Style.BackColor = Color.FromArgb(240, 248, 255)
+
+        DGV3.Rows.Add("複数倉庫", binsu(15))
+        DGV3.Rows.Add("不明", binsu(14))
     End Sub
 
     '行番号を表示する

@@ -305,7 +305,7 @@ Public Class Tuiseki
         e.DrawFocusRectangle()
     End Sub
 
-    Private Sub DGV1_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles DGV1.DragDrop
+    Private Sub DGV1_DragDrop(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles DGV1.DragDrop
         If DGV1.RowCount > 1 Then
             Dim DR As DialogResult = MsgBox("追加しますか", MsgBoxStyle.YesNo Or MsgBoxStyle.SystemModal)
             If DR = Windows.Forms.DialogResult.No Then
@@ -573,7 +573,7 @@ Public Class Tuiseki
         Next
     End Sub
 
-    Private Sub DGV1_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles DGV1.DragEnter
+    Private Sub DGV1_DragEnter(ByVal sender As Object, ByVal e As Windows.Forms.DragEventArgs) Handles DGV1.DragEnter
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
             e.Effect = DragDropEffects.Copy
         End If
@@ -1987,7 +1987,7 @@ Public Class Tuiseki
                     If DGV1.Item(dH1.IndexOf("済"), r).Value = "" Then
                         Counter("gaitouNasi") += 1
                         DGV3.Item(dH3.IndexOf("該"), hR).Value += 1
-                    ElseIf Not regex.IsMatch(DGV1.Item(dH1.IndexOf("済"), r).Value, "対応確認|不明") Then
+                    ElseIf Not Regex.IsMatch(DGV1.Item(dH1.IndexOf("済"), r).Value, "対応確認|不明") Then
                         Counter("gaitouNasi") += 1
                         DGV3.Item(dH3.IndexOf("該"), hR).Value += 1
                     End If
@@ -2609,7 +2609,7 @@ Public Class Tuiseki
         End If
     End Sub
 
-    Private Sub DataGridView_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DGV1.KeyUp
+    Private Sub DataGridView_KeyUp(ByVal sender As Object, ByVal e As Windows.Forms.KeyEventArgs) Handles DGV1.KeyUp
         Dim dgv As DataGridView = CType(sender, DataGridView)
         Dim selCell = dgv.SelectedCells
 
@@ -2649,7 +2649,7 @@ Public Class Tuiseki
     End Sub
 
     Public Shared DGV1tb As TextBox
-    Private Sub DataGridView1_EditingControlShowing(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles DGV1.EditingControlShowing
+    Private Sub DataGridView1_EditingControlShowing(ByVal sender As Object, ByVal e As Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles DGV1.EditingControlShowing
         If TypeOf e.Control Is DataGridViewTextBoxEditingControl Then
             Dim dgv As DataGridView = CType(sender, DataGridView)
 

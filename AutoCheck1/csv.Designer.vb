@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Csv
-    Inherits System.Windows.Forms.Form
+    Inherits Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -24,7 +24,7 @@ Partial Class Csv
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Csv))
-        Dim FontInfo1 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim FontInfo2 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripDropDownButton6 = New System.Windows.Forms.ToolStripDropDownButton()
@@ -214,6 +214,8 @@ Partial Class Csv
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
+        Me.ToolStripSeparator31 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -732,7 +734,7 @@ Partial Class Csv
         'ToolStripDropDownButton8
         '
         Me.ToolStripDropDownButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripDropDownButton8.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.変更した行のみ残すToolStripMenuItem, Me.抽出ToolStripMenuItem, Me.抽出リストリセットToolStripMenuItem, Me.ToolStripSeparator9, Me.区切り処理ToolStripMenuItem, Me.ToolStripSeparator24, Me.配達営業所検索ToolStripMenuItem, Me.ToolStripSeparator25, Me.ファイル一覧取得ToolStripMenuItem, Me.画像取得ダウンロードToolStripMenuItem, Me.HTMLTIDYANDFORMATToolStripMenuItem, Me.英数全角チェックToolStripMenuItem, Me.ToolStripSeparator26, Me.イメージリスト操作楽天ToolStripMenuItem, Me.ToolStripSeparator6, Me.よんよか卸チェックToolStripMenuItem, Me.ToolStripSeparator30, Me.ExchangePostCodeToolStripMenuItem})
+        Me.ToolStripDropDownButton8.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.変更した行のみ残すToolStripMenuItem, Me.抽出ToolStripMenuItem, Me.抽出リストリセットToolStripMenuItem, Me.ToolStripSeparator9, Me.区切り処理ToolStripMenuItem, Me.ToolStripSeparator24, Me.配達営業所検索ToolStripMenuItem, Me.ToolStripSeparator25, Me.ファイル一覧取得ToolStripMenuItem, Me.画像取得ダウンロードToolStripMenuItem, Me.HTMLTIDYANDFORMATToolStripMenuItem, Me.英数全角チェックToolStripMenuItem, Me.ToolStripSeparator26, Me.イメージリスト操作楽天ToolStripMenuItem, Me.ToolStripSeparator6, Me.よんよか卸チェックToolStripMenuItem, Me.ToolStripSeparator30, Me.ExchangePostCodeToolStripMenuItem, Me.ToolStripSeparator31, Me.ToolStripMenuItem2})
         Me.ToolStripDropDownButton8.Image = CType(resources.GetObject("ToolStripDropDownButton8.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton8.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton8.Name = "ToolStripDropDownButton8"
@@ -1412,10 +1414,10 @@ Partial Class Csv
         Me.AzukiControl1.DrawsSpace = True
         Me.AzukiControl1.FirstVisibleLine = 0
         Me.AzukiControl1.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.0!)
-        FontInfo1.Name = "ＭＳ ゴシック"
-        FontInfo1.Size = 9
-        FontInfo1.Style = System.Drawing.FontStyle.Regular
-        Me.AzukiControl1.FontInfo = FontInfo1
+        FontInfo2.Name = "ＭＳ ゴシック"
+        FontInfo2.Size = 9
+        FontInfo2.Style = System.Drawing.FontStyle.Regular
+        Me.AzukiControl1.FontInfo = FontInfo2
         Me.AzukiControl1.ForeColor = System.Drawing.Color.Black
         Me.AzukiControl1.Location = New System.Drawing.Point(0, 25)
         Me.AzukiControl1.Name = "AzukiControl1"
@@ -1571,6 +1573,17 @@ Partial Class Csv
         '
         Me.Timer1.Enabled = True
         '
+        'ToolStripSeparator31
+        '
+        Me.ToolStripSeparator31.Name = "ToolStripSeparator31"
+        Me.ToolStripSeparator31.Size = New System.Drawing.Size(269, 6)
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(272, 22)
+        Me.ToolStripMenuItem2.Text = "ラベル(24面)"
+        '
         'Csv
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -1612,164 +1625,164 @@ Partial Class Csv
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
-    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
-    Friend WithEvents ToolStripDropDownButton1 As System.Windows.Forms.ToolStripDropDownButton
-    Friend WithEvents ToolStripDropDownButton2 As System.Windows.Forms.ToolStripDropDownButton
-    Friend WithEvents 切り取りToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents コピーToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 貼り付けToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 削除ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 上書き保存ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 名前を付けて保存ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents ToolStripDropDownButton3 As System.Windows.Forms.ToolStripDropDownButton
-    Friend WithEvents 挿入ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 行を削除ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripDropDownButton4 As System.Windows.Forms.ToolStripDropDownButton
-    Friend WithEvents 選択セルの左で固定ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 固定解除ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 元に戻すToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents やり直しToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents セルの自動幅調整ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents セルの自動幅調整切ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripStatusLabel2 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents ToolStripStatusLabel3 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents ToolStripDropDownButton5 As System.Windows.Forms.ToolStripDropDownButton
-    Friend WithEvents ToolStripSeparator5 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 検索と置換ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ToolStripSeparator7 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents チェック欄非表示ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripDropDownButton6 As System.Windows.Forms.ToolStripDropDownButton
-    Friend WithEvents フォームのリセットToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripStatusLabel4 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents 通常モードToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 在庫チェックモードToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripProgressBar1 As System.Windows.Forms.ToolStripProgressBar
-    Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 変更有りのみToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents マイナス在庫ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 表示リセットToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 名前を付けて保存エクセルxlsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator10 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripSeparator11 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 佐川伝票データ自動削除ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripDropDownButton7 As System.Windows.Forms.ToolStripDropDownButton
-    Friend WithEvents KuraNaviToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 佐川伝票変換出力ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ヤマト伝票変換出力ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ゆうパケット伝票変換出力ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Qoo10追跡番号リストモードToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 列を削除ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents 重複ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator12 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents ToolStrip2 As System.Windows.Forms.ToolStrip
-    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripDropDownButton8 As System.Windows.Forms.ToolStripDropDownButton
-    Friend WithEvents 変更した行のみ残すToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 行目を残すToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 行目を残さないToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 表示フォントを変更ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FontDialog1 As System.Windows.Forms.FontDialog
-    Friend WithEvents ToolStripSeparator13 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 抽出ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 列選択ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator14 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 抽出リストリセットToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 全て選択ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 新規作成ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator15 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripStatusLabel6 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents ToolStripSeparator16 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 注文順並べ替えToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator17 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 英数全角半角変換ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents スペース半角変換ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 列を挿入ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator20 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripSeparator21 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents 古い順通常ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 新しい順ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator22 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripSeparator23 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents ToolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 区切り処理ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator24 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 配達営業所検索ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 佐川急便ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 注文順自動並べ替えToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 並べ替え後自動上書き保存ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents 切り取りToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents コピーToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 貼り付けToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 挿入ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 行を選択直下に複製ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 列を挿入ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator18 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 削除ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 列選択ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator19 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 行を削除ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 列を削除ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 上に挿入ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 下に挿入ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 右に挿入ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 左に挿入ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 上に挿入ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 下に挿入ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 右に挿入ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 左に挿入ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents ToolStripStatusLabel7 As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents StatusStrip1 As Windows.Forms.StatusStrip
+    Friend WithEvents ToolStrip1 As Windows.Forms.ToolStrip
+    Friend WithEvents ToolStripDropDownButton1 As Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents ToolStripDropDownButton2 As Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents 切り取りToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents コピーToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 貼り付けToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 削除ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 上書き保存ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 名前を付けて保存ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripStatusLabel1 As Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents ToolStripDropDownButton3 As Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents 挿入ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 行を削除ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripDropDownButton4 As Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents 選択セルの左で固定ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 固定解除ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator3 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 元に戻すToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents やり直しToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents セルの自動幅調整ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents セルの自動幅調整切ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripStatusLabel2 As Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel3 As Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents ToolStripDropDownButton5 As Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents ToolStripSeparator5 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 検索と置換ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DataGridView2 As Windows.Forms.DataGridView
+    Friend WithEvents Column1 As Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ToolStripSeparator7 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents チェック欄非表示ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripDropDownButton6 As Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents フォームのリセットToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripStatusLabel4 As Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents 通常モードToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 在庫チェックモードToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripProgressBar1 As Windows.Forms.ToolStripProgressBar
+    Friend WithEvents ToolStripSeparator8 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 変更有りのみToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents マイナス在庫ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 表示リセットToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 名前を付けて保存エクセルxlsToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator10 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripSeparator11 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 佐川伝票データ自動削除ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripDropDownButton7 As Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents KuraNaviToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 佐川伝票変換出力ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ヤマト伝票変換出力ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ゆうパケット伝票変換出力ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Qoo10追跡番号リストモードToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 列を削除ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SplitContainer1 As Windows.Forms.SplitContainer
+    Friend WithEvents Timer1 As Windows.Forms.Timer
+    Friend WithEvents 重複ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator12 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents SplitContainer2 As Windows.Forms.SplitContainer
+    Friend WithEvents TextBox2 As Windows.Forms.TextBox
+    Friend WithEvents ToolStrip2 As Windows.Forms.ToolStrip
+    Friend WithEvents ToolStripButton1 As Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButton2 As Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripButton3 As Windows.Forms.ToolStripButton
+    Friend WithEvents ToolStripDropDownButton8 As Windows.Forms.ToolStripDropDownButton
+    Friend WithEvents 変更した行のみ残すToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 行目を残すToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 行目を残さないToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 表示フォントを変更ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FontDialog1 As Windows.Forms.FontDialog
+    Friend WithEvents ToolStripSeparator13 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 抽出ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 列選択ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator14 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 抽出リストリセットToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 全て選択ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 新規作成ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator15 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripStatusLabel6 As Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents ToolStripSeparator16 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 注文順並べ替えToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator17 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 英数全角半角変換ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents スペース半角変換ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 列を挿入ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator20 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripSeparator21 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripButton4 As Windows.Forms.ToolStripButton
+    Friend WithEvents 古い順通常ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 新しい順ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator22 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripSeparator23 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents CheckBox1 As Windows.Forms.CheckBox
+    Friend WithEvents ToolStripSeparator9 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 区切り処理ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator24 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 配達営業所検索ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 佐川急便ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 注文順自動並べ替えToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 並べ替え後自動上書き保存ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ContextMenuStrip1 As Windows.Forms.ContextMenuStrip
+    Friend WithEvents 切り取りToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents コピーToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 貼り付けToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 挿入ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 行を選択直下に複製ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 列を挿入ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator18 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 削除ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 列選択ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator19 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 行を削除ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 列を削除ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 上に挿入ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 下に挿入ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 右に挿入ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 左に挿入ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 上に挿入ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 下に挿入ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 右に挿入ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 左に挿入ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Panel1 As Windows.Forms.Panel
+    Friend WithEvents ToolStripStatusLabel7 As Windows.Forms.ToolStripStatusLabel
     Friend WithEvents AzukiControl1 As Sgry.Azuki.WinForms.AzukiControl
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents 行の移動ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 上へToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 下へToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator25 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ファイル一覧取得ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 画像取得ダウンロードToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripStatusLabel8 As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents 大文字小文字変換選択セルのみToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents HTMLTIDYANDFORMATToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 修正用一覧取得ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 修正実行ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Qoo10発送予定リストモードToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 英数全角チェックToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 行目ヘッダー固定ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents コピー囲み無しToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 列選択モードToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator26 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents イメージリスト操作楽天ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ImgSrctextToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 行ずつToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ファイル名でフォルダ検索ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 行複数アドレスToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents URLでダウンロードToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator27 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents 列選択ヘッダー除外ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 列選択ヘッダー除外ToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents ToolStripSeparator28 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ゆうプリ出力データより出荷分解析ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents 非表示行を削除ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Panel2 As Windows.Forms.Panel
+    Friend WithEvents Label1 As Windows.Forms.Label
+    Friend WithEvents 行の移動ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 上へToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 下へToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator25 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents ファイル一覧取得ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 画像取得ダウンロードToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripStatusLabel8 As Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents 大文字小文字変換選択セルのみToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents HTMLTIDYANDFORMATToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 修正用一覧取得ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 修正実行ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Qoo10発送予定リストモードToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 英数全角チェックToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 行目ヘッダー固定ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents コピー囲み無しToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 列選択モードToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator26 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents イメージリスト操作楽天ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ImgSrctextToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 行ずつToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ファイル名でフォルダ検索ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 行複数アドレスToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents URLでダウンロードToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator27 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents 列選択ヘッダー除外ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 列選択ヘッダー除外ToolStripMenuItem1 As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CheckBox2 As Windows.Forms.CheckBox
+    Friend WithEvents ToolStripSeparator28 As Windows.Forms.ToolStripSeparator
+    Friend WithEvents ゆうプリ出力データより出荷分解析ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
+    Friend WithEvents 非表示行を削除ToolStripMenuItem As Windows.Forms.ToolStripMenuItem
     Friend WithEvents 名前を付けて保存全てで囲むToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 名前を付けて保存タブ区切りToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripStatusLabel9 As ToolStripStatusLabel
@@ -1801,4 +1814,6 @@ Partial Class Csv
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents WebBrowser1 As WebBrowser
+    Friend WithEvents ToolStripSeparator31 As ToolStripSeparator
+    Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
 End Class
