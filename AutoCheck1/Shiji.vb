@@ -1888,11 +1888,26 @@ Public Class Shiji
                                 Dim yoyakugood As String = editkomokuArray(j).split("|#|")(0).trim
                                 Dim yoyakudate2 As String = editkomokuArray(j).split("|#|")(2).trim
 
+                                Dim yoyakugood_list As String() = Nothing
+                                If InStr(yoyakugood, "/") > 0 Then
+                                    yoyakugood_list = yoyakugood.Split("/")
+                                End If
                                 If yoyakudate_ = yoyakudate2 And yoyakugood <> "" Then
-                                    If yoyakugood = eda_name Then
-                                        Continue For
+
+                                    If yoyakugood_list Is Nothing Then
+                                        If yoyakugood = eda_name Then
+                                            Continue For
+                                        End If
+                                        yoyakugood_ += yoyakugood + "、"
+                                    Else
+                                        For k As Integer = 0 To yoyakugood_list.Count - 1
+                                            If yoyakugood_list(k) = eda_name Then
+                                                Continue For
+                                            End If
+                                            yoyakugood_ += yoyakugood_list(k) + "、"
+                                        Next
                                     End If
-                                    yoyakugood_ += yoyakugood + "、"
+
                                 End If
                             Next
 
