@@ -1981,7 +1981,7 @@ Public Class Csv_denpyo3
                     End If
 
                     If haisouKind = "宅配便" And (code(0).ToLower = "de055" Or code(0).ToLower = "de055-01" Or code(0).ToLower = "od437-wa" Or code(0).ToLower = "od437-gr" Or code(0).ToLower = "od437-co") Then
-                        weight = "130" '130 130 131 132 
+                        weight = "130" '130 130
                         sp_check = False
                     End If
 
@@ -13053,7 +13053,7 @@ Public Class Csv_denpyo3
         End If
     End Sub
 
-    Private Sub 佐川送料比較ToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+    Private Sub 佐川送料比較ToolStripMenuItem_Click(sender As Object, e As EventArgs)
         SagawaSpare.Show()
     End Sub
 
