@@ -13053,7 +13053,7 @@ Public Class Csv_denpyo3
         End If
     End Sub
 
-    Private Sub 佐川送料比較ToolStripMenuItem_Click(sender As Object, e As EventArgs) 
+    Private Sub 佐川送料比較ToolStripMenuItem_Click(sender As Object, e As EventArgs)
         SagawaSpare.Show()
     End Sub
 
