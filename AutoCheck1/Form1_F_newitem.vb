@@ -885,7 +885,7 @@ Public Class Form1_F_Newitem
         DataGridView3.Rows.Add(1)
         Dim zaikoNum As Integer = 0
 
-        'old
+        '旧版本
         'For Each node As HtmlAgilityPack.HtmlNode In nodes
         '    Dim str As String = node.InnerText
         '    str = Regex.Replace(str, "\r|\n", " ")
@@ -921,7 +921,7 @@ Public Class Form1_F_Newitem
         '    End If
         'Next
 
-        'new 加了タグID
+        '新增 加了タグID和画像
         For Each node As HtmlAgilityPack.HtmlNode In nodes
             Dim str As String = node.InnerText
             str = Regex.Replace(str, "\r|\n", " ")
