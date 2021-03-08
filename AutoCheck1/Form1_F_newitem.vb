@@ -1186,7 +1186,7 @@ Public Class Form1_F_Newitem
 
     Private Sub ZaikoKakikomi(mode As Integer)
 
-        'old
+        'old  SfB
         'For r As Integer = 1 To DataGridView3.RowCount - 1
         '    For c As Integer = 1 To DataGridView3.ColumnCount - 1
         '        If DataGridView3.Item(c, r).Value <> "" Then
