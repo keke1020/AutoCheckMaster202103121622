@@ -884,6 +884,44 @@ Public Class Form1_F_Newitem
         Dim nodes As HtmlAgilityPack.HtmlNodeCollection = doc.DocumentNode.SelectNodes(selecter)
         DataGridView3.Rows.Add(1)
         Dim zaikoNum As Integer = 0
+
+        'old
+        'For Each node As HtmlAgilityPack.HtmlNode In nodes
+        '    Dim str As String = node.InnerText
+        '    str = Regex.Replace(str, "\r|\n", " ")
+        '    str = Replace(str, " ", "")
+        '    If InStr(str, "同行一括") > 0 Or InStr(str, "/-") > 0 Or InStr(str, "在庫数:") > 0 Then
+        '        If InStr(str, "同行一括") > 0 Then
+        '            DataGridView3.Rows.Add(1)
+        '            str = Replace(str, "同行一括", "")
+        '            DataGridView3.Item(0, DataGridView3.RowCount - 2).Value = str
+        '            zaikoNum = 0
+        '        ElseIf InStr(str, "同列一括") > 0 Or InStr(str, "/-") > 0 Then
+        '            DataGridView3.Columns.Add(1, "")
+        '            DataGridView3.Columns(DataGridView3.ColumnCount - 1).SortMode = DataGridViewColumnSortMode.NotSortable
+        '            str = Replace(str, "同列一括", "")
+        '            DataGridView3.Item(DataGridView3.ColumnCount - 1, 0).Value = str
+        '        ElseIf InStr(str, "在庫数:") > 0 Then
+        '            str = Replace(str, "在庫数:", "")
+        '            DataGridView3.Item(zaikoNum + 1, DataGridView3.RowCount - 2).Value = str
+        '            '予約---------------------------------------------
+        '            doc2.LoadHtml(node.ParentNode.InnerHtml)
+        '            Dim nodes2 As HtmlAgilityPack.HtmlNodeCollection = doc2.DocumentNode.SelectNodes(selecter2)
+        '            If nodes2 IsNot Nothing Then
+        '                For Each node2 As HtmlAgilityPack.HtmlNode In nodes2
+        '                    If InStr(node2.OuterHtml, "selected") > 0 Then
+        '                        DataGridView3.Item(zaikoNum + 1, DataGridView3.RowCount - 2).Value &= "," & node2.GetAttributeValue("value", "")
+        '                    End If
+        '                Next
+        '            End If
+        '            '予約---------------------------------------------
+        '            zaikoNum += 1
+        '        End If
+        '        s &= str & vbCrLf
+        '    End If
+        'Next
+
+        'new 加了タグID
         For Each node As HtmlAgilityPack.HtmlNode In nodes
             Dim str As String = node.InnerText
             str = Regex.Replace(str, "\r|\n", " ")
@@ -918,6 +956,101 @@ Public Class Form1_F_Newitem
                 s &= str & vbCrLf
             End If
         Next
+
+        Dim ontaguid As Boolean = False 'ontaguid是true的时候，后一次循环取得id
+        Dim ongazou As Boolean = False
+        Dim index As Integer = 0
+
+        If DataGridView3.ColumnCount = 2 Then '如果是两列
+            DataGridView3.Columns.Add(2, "タグID")
+            DataGridView3.Columns.Add(3, "画像")
+            index = 1 '从第二行开始加
+            For Each node As HtmlAgilityPack.HtmlNode In nodes
+                Dim str As String = node.InnerText
+                str = Regex.Replace(str, "\r|\n", " ")
+                str = Replace(str, " ", "")
+                If InStr(str, "タグID") > 0 Then
+                    ontaguid = True
+                    Continue For
+                ElseIf InStr(str, "画像:") > 0 Then
+                    Console.WriteLine("str:" & str)
+                    ongazou = True
+                    Continue For
+                ElseIf ontaguid = True Then
+                    DataGridView3.Item(2, index).Value = str
+                    ontaguid = False
+                ElseIf ongazou = True Then
+                    DataGridView3.Item(3, index).Value = str
+                    index += 1
+                    ongazou = False
+                End If
+            Next
+        ElseIf DataGridView3.ColumnCount > 2 And DataGridView3.RowCount > 2 Then '如果是多列多行
+            Dim column_count As Integer = DataGridView3.ColumnCount - 1
+
+            Dim addTaguid_arr As New ArrayList
+            Dim addTaguid As String '要添加的タグID
+            Dim addTaguid_count As Integer = 0 '加了多少次
+
+            Dim addGazou_arr As New ArrayList
+            Dim addGazou As String '要添加的タグID
+            Dim addGazou_count As Integer = 0 '加了多少次
+
+            DataGridView3.Columns.Add(column_count, "タグID")
+            DataGridView3.Columns.Add(column_count + 1, "画像")
+
+            For Each node As HtmlAgilityPack.HtmlNode In nodes
+                Dim str As String = node.InnerText
+                str = Regex.Replace(str, "\r|\n", " ")
+                str = Replace(str, " ", "")
+                If InStr(str, "タグID") > 0 Then
+                    ontaguid = True
+                    Continue For
+                ElseIf InStr(str, "画像:") > 0 Then
+                    ongazou = True
+                    Continue For
+                ElseIf ontaguid = True Then
+                    If addTaguid_count < column_count And addTaguid_count <> (column_count - 1) Then
+                        If InStr(addTaguid, "|") > 0 Then
+                            addTaguid = addTaguid & str & "|"
+                        Else
+                            addTaguid = str & "|"
+                        End If
+                        addTaguid_count += 1
+                    ElseIf addTaguid_count = (column_count - 1) Then
+                        addTaguid = addTaguid & str
+                        addTaguid_arr.Add(addTaguid)
+                        addTaguid = "" 'clear
+                        addTaguid_count = 0
+                    End If
+                    ontaguid = False
+                ElseIf ongazou = True Then
+                    If addGazou_count < column_count And addGazou_count <> (column_count - 1) Then
+                        If InStr(addGazou, "|") > 0 Then
+                            addGazou = addGazou & str & "|"
+                        Else
+                            addGazou = str & "|"
+                        End If
+                        addGazou_count += 1
+                    ElseIf addGazou_count = (column_count - 1) Then
+                        addGazou = addGazou & str
+                        addGazou_arr.Add(addGazou)
+                        addGazou = "" 'clear
+                        addGazou_count = 0
+                    End If
+                    ongazou = False
+                End If
+            Next
+
+            If addTaguid_arr.Count > 0 Then
+                If addTaguid_arr.Count = DataGridView3.RowCount - 2 Then
+                    For r As Integer = 1 To DataGridView3.RowCount - 2
+                        DataGridView3.Item(DataGridView3.ColumnCount - 2, r).Value = addTaguid_arr(r - 1)
+                        DataGridView3.Item(DataGridView3.ColumnCount - 1, r).Value = addGazou_arr(r - 1)
+                    Next
+                End If
+            End If
+        End If
 
         TextBox10.Text = s
     End Sub
@@ -984,31 +1117,38 @@ Public Class Form1_F_Newitem
 
     '項目選択肢を書き込み
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        Dim dH3 As ArrayList = TM_HEADER_GET(DataGridView3)
+        Dim tagid_index As Integer = 0
+        If dH3.Contains("タグID") Then
+            tagid_index = dH3.IndexOf("タグID")
+        End If
         For r As Integer = 0 To 20
             If r = 0 Then
                 For c As Integer = 0 To 20
-                    If c <= DataGridView3.ColumnCount - 1 Then
-                        If DataGridView3.Item(c, r).Value <> "" Then
-                            If InStr(DataGridView3.Item(c, r).Value, "/-") = 0 Then
-                                MsgBox("「" & DataGridView3.Item(c, r).Value & "」書式が異なります", MsgBoxStyle.SystemModal)
-                            Else
-                                Try
-                                    Dim strArray As String() = Split(DataGridView3.Item(c, r).Value, "/-")
-                                    Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")("choice_name_hor_" & c).SetAttribute("value", strArray(0))
-                                    Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")("child_no_hor_" & c).SetAttribute("value", strArray(1))
-                                Catch ex As Exception
-                                    MsgBox("書き込みできません。" & vbCrLf & "ページが正しいか確認してください。", MsgBoxStyle.SystemModal)
-                                    Exit Sub
-                                End Try
+                    If c <> tagid_index Then
+                        If c <= DataGridView3.ColumnCount - 1 Then
+                            If DataGridView3.Item(c, r).Value <> "" Then
+                                If InStr(DataGridView3.Item(c, r).Value, "/-") = 0 Then
+                                    MsgBox("「" & DataGridView3.Item(c, r).Value & "」書式が異なります", MsgBoxStyle.SystemModal)
+                                Else
+                                    Try
+                                        Dim strArray As String() = Split(DataGridView3.Item(c, r).Value, "/-")
+                                        Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")("choice_name_hor_" & c).SetAttribute("value", strArray(0))
+                                        Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")("child_no_hor_" & c).SetAttribute("value", strArray(1))
+                                    Catch ex As Exception
+                                        MsgBox("書き込みできません。" & vbCrLf & "ページが正しいか確認してください。", MsgBoxStyle.SystemModal)
+                                        Exit Sub
+                                    End Try
+                                End If
                             End If
-                        End If
-                    Else
-                        Try
-                            Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")("choice_name_hor_" & c).SetAttribute("value", "")
-                            Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")("child_no_hor_" & c).SetAttribute("value", "")
-                        Catch ex As Exception
+                        Else
+                            Try
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")("choice_name_hor_" & c).SetAttribute("value", "")
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")("child_no_hor_" & c).SetAttribute("value", "")
+                            Catch ex As Exception
 
-                        End Try
+                            End Try
+                        End If
                     End If
                 Next
             Else
@@ -1045,8 +1185,69 @@ Public Class Form1_F_Newitem
     End Sub
 
     Private Sub ZaikoKakikomi(mode As Integer)
+
+        'old
+        'For r As Integer = 1 To DataGridView3.RowCount - 1
+        '    For c As Integer = 1 To DataGridView3.ColumnCount - 1
+        '        If DataGridView3.Item(c, r).Value <> "" Then
+        '            Try
+        '                Dim name1 As String = "inventory_" & c & "_" & r
+        '                Dim name2_1 As String = "inventory_" & c & "_" & r - mode
+        '                Dim name2_2 As String = "normal_delvdate_id_" & c & "_" & r - mode
+        '                Dim name2_3 As String = "backorder_delvdate_id_" & c & "_" & r - mode
+        '                Dim value As String = DataGridView3.Item(c, r).Value
+
+        '                If InStr(value, ",") > 0 Then
+        '                    Dim valueArray As String() = Split(value, ",")
+        '                    Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")(name2_1).SetAttribute("value", valueArray(0))
+        '                    If valueArray.Length > 1 Then
+        '                        If valueArray(1) <> "" Then
+        '                            Try
+        '                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("select")(name2_2).SetAttribute("value", valueArray(1))
+        '                            Catch ex As Exception
+
+        '                            End Try
+        '                        End If
+        '                    End If
+        '                    If valueArray.Length > 2 Then
+        '                        If valueArray(2) <> "" Then
+        '                            Try
+        '                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("select")(name2_3).SetAttribute("value", valueArray(2))
+        '                            Catch ex As Exception
+
+        '                            End Try
+        '                        End If
+        '                    End If
+        '                    'Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("normal_delvdate_id_1_0").RaiseEvent("onchange")
+        '                Else
+        '                    Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")(name1).SetAttribute("value", value)
+        '                End If
+        '            Catch ex As Exception
+        '                MsgBox("書き込みできません。" & vbCrLf & "ページが正しいか確認してください。", MsgBoxStyle.SystemModal)
+        '                Exit Sub
+        '            End Try
+        '        End If
+        '    Next
+        'Next
+
+        Dim dH3 As ArrayList = TM_HEADER_GET(DataGridView3)
+        Dim tagid_index As Integer = 0
+        If dH3.Contains("タグID") Then
+            tagid_index = dH3.IndexOf("タグID")
+        End If
+
+        Dim gazou_index As Integer = 0
+        If dH3.Contains("画像") Then
+            gazou_index = dH3.IndexOf("画像")
+        End If
+
+        Dim tagid_index_left As Integer = 0
+        Dim tagid_index_right As Integer = 0
         For r As Integer = 1 To DataGridView3.RowCount - 1
             For c As Integer = 1 To DataGridView3.ColumnCount - 1
+                If c = tagid_index Or c = gazou_index Then
+                    Continue For
+                End If
                 If DataGridView3.Item(c, r).Value <> "" Then
                     Try
                         Dim name1 As String = "inventory_" & c & "_" & r
@@ -1054,6 +1255,7 @@ Public Class Form1_F_Newitem
                         Dim name2_2 As String = "normal_delvdate_id_" & c & "_" & r - mode
                         Dim name2_3 As String = "backorder_delvdate_id_" & c & "_" & r - mode
                         Dim value As String = DataGridView3.Item(c, r).Value
+
                         If InStr(value, ",") > 0 Then
                             Dim valueArray As String() = Split(value, ",")
                             Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")(name2_1).SetAttribute("value", valueArray(0))
@@ -1078,6 +1280,19 @@ Public Class Form1_F_Newitem
                             'Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById("normal_delvdate_id_1_0").RaiseEvent("onchange")
                         Else
                             Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName("input")(name1).SetAttribute("value", value)
+                            tagid_index_left = c
+                            tagid_index_right = r
+
+                            If tagid_index <> 0 Then
+                                Dim tagid As String = "inventory_tag_id_" & tagid_index_left & "_" & tagid_index_right
+                                Dim tagid_val As String() = DataGridView3.Item(tagid_index, r).Value.ToString.Split("|")
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById(tagid).InnerText = tagid_val(c - 1)
+                            End If
+                            If gazou_index <> 0 Then
+                                Dim gazou As String = "inventory_image_url_" & tagid_index_left & "_" & tagid_index_right
+                                Dim gazou_val As String() = DataGridView3.Item(gazou_index, r).Value.ToString.Split("|")
+                                Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementById(gazou).InnerText = gazou_val(c - 1)
+                            End If
                         End If
                     Catch ex As Exception
                         MsgBox("書き込みできません。" & vbCrLf & "ページが正しいか確認してください。", MsgBoxStyle.SystemModal)

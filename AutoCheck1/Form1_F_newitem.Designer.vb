@@ -61,6 +61,9 @@ Partial Class Form1_F_Newitem
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.TextBox30 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -165,9 +168,6 @@ Partial Class Form1_F_Newitem
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.TextBox30 = New System.Windows.Forms.TextBox()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -486,6 +486,39 @@ Partial Class Form1_F_Newitem
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(367, 147)
         Me.Panel1.TabIndex = 6
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(348, 93)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(17, 12)
+        Me.Label19.TabIndex = 32
+        Me.Label19.Text = "円"
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label20.ForeColor = System.Drawing.Color.White
+        Me.Label20.Location = New System.Drawing.Point(166, 89)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Padding = New System.Windows.Forms.Padding(3, 0, 0, 0)
+        Me.Label20.Size = New System.Drawing.Size(119, 19)
+        Me.Label20.TabIndex = 34
+        Me.Label20.Text = "価格_送料無し(暁用)"
+        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'TextBox30
+        '
+        Me.TextBox30.BackColor = System.Drawing.Color.DimGray
+        Me.TextBox30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox30.Enabled = False
+        Me.TextBox30.ImeMode = System.Windows.Forms.ImeMode.Disable
+        Me.TextBox30.Location = New System.Drawing.Point(285, 89)
+        Me.TextBox30.Name = "TextBox30"
+        Me.TextBox30.Size = New System.Drawing.Size(61, 19)
+        Me.TextBox30.TabIndex = 33
+        Me.TextBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label16
         '
@@ -853,7 +886,7 @@ Partial Class Form1_F_Newitem
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(118, 23)
         Me.Button6.TabIndex = 10
-        Me.Button6.Text = "在庫書き込み"
+        Me.Button6.Text = "在庫,タグID,画像書き込み"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Button4
@@ -1571,39 +1604,6 @@ Partial Class Form1_F_Newitem
         'Timer1
         '
         Me.Timer1.Interval = 1000
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(348, 93)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(17, 12)
-        Me.Label19.TabIndex = 32
-        Me.Label19.Text = "円"
-        '
-        'Label20
-        '
-        Me.Label20.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label20.ForeColor = System.Drawing.Color.White
-        Me.Label20.Location = New System.Drawing.Point(166, 89)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Padding = New System.Windows.Forms.Padding(3, 0, 0, 0)
-        Me.Label20.Size = New System.Drawing.Size(119, 19)
-        Me.Label20.TabIndex = 34
-        Me.Label20.Text = "価格_送料無し(暁用)"
-        Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TextBox30
-        '
-        Me.TextBox30.BackColor = System.Drawing.Color.DimGray
-        Me.TextBox30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox30.Enabled = False
-        Me.TextBox30.ImeMode = System.Windows.Forms.ImeMode.Disable
-        Me.TextBox30.Location = New System.Drawing.Point(285, 89)
-        Me.TextBox30.Name = "TextBox30"
-        Me.TextBox30.Size = New System.Drawing.Size(61, 19)
-        Me.TextBox30.TabIndex = 33
-        Me.TextBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Form1_F_Newitem
         '
