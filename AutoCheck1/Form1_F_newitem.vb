@@ -973,7 +973,6 @@ Public Class Form1_F_Newitem
                     ontaguid = True
                     Continue For
                 ElseIf InStr(str, "画像:") > 0 Then
-                    Console.WriteLine("str:" & str)
                     ongazou = True
                     Continue For
                 ElseIf ontaguid = True Then
