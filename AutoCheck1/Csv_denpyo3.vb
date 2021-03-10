@@ -1955,7 +1955,7 @@ Public Class Csv_denpyo3
 
                     'ny264-3000
                     If haisouKind = "宅配便" And code(0).ToLower = "ny264-3000" And ny264_3000_isnagoya Then
-                        weight = "100" '3000枚一个口
+                        weight = "75" '3000枚一个口(100) => 4000枚(75)
                         sp_check = False
                     End If
 
@@ -9531,7 +9531,6 @@ Public Class Csv_denpyo3
         'とんよか卸　型番出ない
         If DGV7.RowCount > 0 Then
             For r As Integer = 0 To DGV7.RowCount - 1
-
                 If DGV7.Item(dH7.IndexOf("処理用2"), r).Value = "名古屋" Then
                     DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
                 End If

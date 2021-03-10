@@ -37,7 +37,7 @@ Public Class Mall_main
 
 
     Private Sub Mall_main_Load(sender As Object, e As EventArgs) Handles Me.Load
-        If Regex.IsMatch(My.Computer.Name, "ABCD|takashi|NAKA|ping", RegexOptions.IgnoreCase) Or Regex.IsMatch(appPath, "debug", RegexOptions.IgnoreCase) Then
+        If Regex.IsMatch(My.Computer.Name, "ABCD|takashi|NAKA|ping|LIU", RegexOptions.IgnoreCase) Or Regex.IsMatch(appPath, "debug", RegexOptions.IgnoreCase) Then
             CheckBox17.Enabled = True
             CheckBox17.Checked = False
             CheckBox18.Enabled = True
