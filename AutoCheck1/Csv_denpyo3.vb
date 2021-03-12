@@ -924,7 +924,12 @@ Public Class Csv_denpyo3
                     Dim mCode As String = DGV1.Item(dH1.IndexOf("商品マスタ"), r1).Value
                     Dim mCodeArray As String() = Split(mCode, "、")
 
+                    'If DGV1.Item(dH1.IndexOf("伝票番号"), r1).Value = "3604908" Then
+                    '    Console.WriteLine(123)
+                    'End If
+
                     isYamatoGood = True
+                    isYamatoGood_fukumu = False
                     For checkcodei As Integer = 0 To mCodeArray.Length - 1
                         Dim checkcode As String() = Split(mCodeArray(checkcodei), "*")
 
