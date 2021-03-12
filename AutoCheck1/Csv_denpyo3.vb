@@ -39,7 +39,7 @@ Public Class Csv_denpyo3
 
     Private checkaddress_oosakika As String() = New String() {"熊本県", "宮崎県", "鹿児島県", "福岡県", "佐賀県", "長崎県", "大分県", "徳島県", "香川県", "愛媛県", "高知県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"}
     Private checkaddress_oosakizyou As String() = New String() {"富山県", "石川県", "福井県", "岐阜県", "静岡県", "愛知県", "三重県", "新潟県", "長野県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "山梨県", "宮城県", "山形県", "福島県", "青森県", "岩手県", "秋田県", "北海道"}
-    Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh", "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny263-51", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344"}
+    Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh", "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny263-51", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi", "ny373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh"}
 
     'ヤマト
     Dim yamato_title As String = "お客様管理番号,送り状種類,クール区分,伝票番号,出荷予定日,お届け予定（指定）日,配達時間帯,お届け先コード,お届け先電話番号,お届け先電話番号枝番,お届け先郵便番号,お届け先住所,お届け先住所（アパートマンション名）,お届け先会社・部門名１,お届け先会社・部門名２,お届け先名,お届け先名略称カナ,敬称,ご依頼主コード,ご依頼主電話番号,ご依頼主電話番号枝番,ご依頼主郵便番号,ご依頼主住所,ご依頼主住所（アパートマンション名）,ご依頼主名,ご依頼主略称カナ,品名コード１,品名１,品名コード２,品名２,荷扱い１,荷扱い２,記事,コレクト代金引換額（税込）,コレクト内消費税額等,営業所止置き,営業所コード,発行枚数,個数口枠の印字,ご請求先顧客コード,ご請求先分類コード,運賃管理番号,クロネコwebコレクトデータ登録,クロネコwebコレクト加盟店番号,クロネコwebコレクト申込受付番号１,クロネコwebコレクト申込受付番号２,クロネコwebコレクト申込受付番号３,お届け予定ｅメール利用区分,お届け予定ｅメールe-mailアドレス,入力機種,お届け予定eメールメッセージ,お届け完了eメール利用区分,お届け完了ｅメールe-mailアドレス,お届け完了ｅメールメッセージ,クロネコ収納代行利用区分,収納代行決済ＱＲコード印刷,収納代行請求金額(税込),収納代行内消費税額等,収納代行請求先郵便番号,収納代行請求先住所,収納代行請求先住所（アパートマンション名）,収納代行請求先会社・部門名１,収納代行請求先会社・部門名２,収納代行請求先名(漢字),収納代行請求先名(カナ),収納代行問合せ先名(漢字),収納代行問合せ先郵便番号,収納代行問合せ先住所,収納代行問合せ先住所（アパートマンション名）,収納代行問合せ先電話番号,収納代行管理番号,収納代行品名,収納代行備考,複数口くくりキー,検索キータイトル１,検索キー１,検索キータイトル２,検索キー２,検索キータイトル３,検索キー３,検索キータイトル４,検索キー４,検索キータイトル５,検索キー５,予備,予備,投函予定メール利用区分,投函予定メールe-mailアドレス,投函予定メールメッセージ,投函完了メール（お届け先宛）利用区分,投函完了メール（お届け先宛）e-mailアドレス,投函完了メール（お届け先宛）メールメッセージ,投函完了メール（ご依頼主宛）利用区分,投函完了メール（ご依頼主宛）e-mailアドレス,投函完了メール（ご依頼主宛）メールメッセージ,連携管理番号,通知メールアドレス"
@@ -903,6 +903,7 @@ Public Class Csv_denpyo3
 
                 'やまとへんかん
                 Dim isYamatoGood As Boolean = True
+                Dim isYamatoGood_fukumu As Boolean = False '包含yamato的货
                 'Dim has_ny263_50_c As Boolean = False
                 'Dim ny263_50_c_count As Integer = 0
                 'Dim ny263_50_c_sw As String = Nothing
@@ -930,37 +931,51 @@ Public Class Csv_denpyo3
                         If Not yamato_goods.Contains(checkcode(0).ToLower) Then
                             isYamatoGood = False
                         End If
+
+                        If yamato_goods.Contains(checkcode(0).ToLower) Then
+                            If isYamatoGood_fukumu = False Then
+                                isYamatoGood_fukumu = True
+                            End If
+                        End If
                         'If checkcode(0).ToLower = "ny263-50-c" Then
                         '    has_ny263_50_c = True
                         '    ny263_50_c_count += checkcode(1)
                         'End If
                     Next
 
-                    If (DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value = dazaifu_str Or DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value = "井相田") And (Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "メール便") Or Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "ヤマト")) Then
-                        If isYamatoGood Then
-                            'If DGV1.Item(dH1.IndexOf("sw"), r1).Value <> Nothing And ny263_50_c_sw <> Nothing Then
-                            '    If DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "宅配便" Then
-                            '        DGV1.Item(dH1.IndexOf("sw"), r1).Value = Math.Ceiling((DGV1.Item(dH1.IndexOf("sw"), r1).Value * 100) - (ny263_50_c_sw * ny263_50_c_count) + (25 * ny263_50_c_count))
-                            '    Else
-                            '        DGV1.Item(dH1.IndexOf("sw"), r1).Value = Math.Ceiling(DGV1.Item(dH1.IndexOf("sw"), r1).Value - (ny263_50_c_sw * ny263_50_c_count) + (25 * ny263_50_c_count))
-                            '    End If
-                            '    DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(DGV1.Item(dH1.IndexOf("sw"), r1).Value / 100)
-                            'End If
+                    If isYamatoGood And (DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value = dazaifu_str Or DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value = "井相田") And (Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "メール便") Or Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "ヤマト")) Then
+                        'If DGV1.Item(dH1.IndexOf("sw"), r1).Value <> Nothing And ny263_50_c_sw <> Nothing Then
+                        '    If DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "宅配便" Then
+                        '        DGV1.Item(dH1.IndexOf("sw"), r1).Value = Math.Ceiling((DGV1.Item(dH1.IndexOf("sw"), r1).Value * 100) - (ny263_50_c_sw * ny263_50_c_count) + (25 * ny263_50_c_count))
+                        '    Else
+                        '        DGV1.Item(dH1.IndexOf("sw"), r1).Value = Math.Ceiling(DGV1.Item(dH1.IndexOf("sw"), r1).Value - (ny263_50_c_sw * ny263_50_c_count) + (25 * ny263_50_c_count))
+                        '    End If
+                        '    DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(DGV1.Item(dH1.IndexOf("sw"), r1).Value / 100)
+                        'End If
 
-                            DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "ヤマト(陸便)"
-                            DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = yamato_str
-                            DGV1.Item(dH1.IndexOf("データ"), r1).Value = "画面"
+                        DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "ヤマト(陸便)"
+                        DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = yamato_str
+                        DGV1.Item(dH1.IndexOf("データ"), r1).Value = "画面"
 
-                            If DGV1.Item(dH1.IndexOf("元便種"), r1).Value <> "陸便" Then
-                                DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "ヤマト(船便)"
-                                DGV1.Item(dH1.IndexOf("便種"), r1).Value = "船便"
-                            End If
+                        If DGV1.Item(dH1.IndexOf("元便種"), r1).Value <> "陸便" Then
+                            DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "ヤマト(船便)"
+                            DGV1.Item(dH1.IndexOf("便種"), r1).Value = "船便"
                         End If
                         'ElseIf Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "宅配便") Then
                         '    If DGV1.Item(dH1.IndexOf("sw"), r1).Value <> Nothing And ny263_50_c_sw <> Nothing Then
                         '        DGV1.Item(dH1.IndexOf("sw"), r1).Value = Math.Ceiling((DGV1.Item(dH1.IndexOf("sw"), r1).Value * 100) - (ny263_50_c_sw * ny263_50_c_count) + (2.5 * ny263_50_c_count))
                         '        DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(DGV1.Item(dH1.IndexOf("sw"), r1).Value / 100)
                         '    End If
+                    ElseIf isYamatoGood_fukumu = True And isYamatoGood = False And Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "メール便") Then 'ヤマト和メール一起的时候改成佐川
+                        ' isYamatoGood_fukumu = True And isYamatoGood = False 不是全是yamato的货，但是包含
+                        DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = "宅配便"
+                        DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "宅配便"
+                        DGV1.Item(dH1.IndexOf("データ"), r1).Value = "佐川"
+
+                        If IsNumeric(DGV1.Item(dH1.IndexOf("sw"), r1).Value) Then
+                            DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(DGV1.Item(dH1.IndexOf("sw"), r1).Value / 10000)
+                        End If
+
                     End If
                 Next
 
@@ -1961,6 +1976,11 @@ Public Class Csv_denpyo3
 
                     If special_taku = True And haisouKind = "メール便" And code(0).ToLower = "ny306-51" Then
                         weight = "250"
+                        sp_check = False
+                    End If
+
+                    If haisouKind = "宅配便" And code(0).ToLower = "ap092" Then
+                        weight = "2.5" '40一个口
                         sp_check = False
                     End If
 
@@ -10244,8 +10264,6 @@ Public Class Csv_denpyo3
             Exit Sub
         End If
 
-        Dim dH8 As ArrayList = TM_HEADER_GET(DGV8)
-
         Dim nameArray As String() = New String() {"GU", "BS", "SD", "NA", "GUK", "BSK", "SDK", "NAK", "YMD", "YMI"}
         'Dim nameArray As String() = New String() {"GU", "BS", "SD"}
         Dim fNameArray As String() = New String() {HS1.Text, HS3.Text & "倉庫", HS2.Text, HS4.Text, HS1.Text & "航空便", HS3.Text & "倉庫航空便", HS2.Text & "航空便", HS4.Text & "航空便", HS1.Text & "ヤマト便", HS2.Text & "ヤマト便"}
@@ -10262,7 +10280,11 @@ Public Class Csv_denpyo3
         Dim saveList As New ArrayList
         Dim arr_yamato_dazaifu As New ArrayList
         Dim arr_yamato_isouda As New ArrayList
+
+        Dim dH7 As ArrayList = TM_HEADER_GET(DGV7)
+        Dim dH8 As ArrayList = TM_HEADER_GET(DGV8)
         Dim dH9 As ArrayList = TM_HEADER_GET(DGV9)
+        Dim dH13 As ArrayList = TM_HEADER_GET(DGV13)
 
         Dim okurizyo_type = "7" '送り状種類 ネコポス
         Dim syukayoteibi As String = Format(Now, "yyyy/MM/dd")
@@ -11155,31 +11177,151 @@ Public Class Csv_denpyo3
                                 saveName = saveDir & "\★ヤマト" & loginName & "_ " & HS2.Text & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv"
                             End If
                             saveList.Add(Path.GetFileName(saveName))
-                        Else
-                            str = header & vbCrLf
-                            For Each row As DataRowView In view
-                                str &= row("STR") & vbCrLf
-                            Next
 
-                            Dim dstName As String = saveDir & "\★" & FileName & ".csv"
-                            If InStr(dstName, "印刷しない") > 0 Then
-                                dstName = Replace(dstName, "★", "")
+                            File.WriteAllText(saveName, str, ENC_SJ) '-------------------- 20210312 add ----------------
+                        Else
+                            '-------------------- 20210312 改修前 start ----------------
+                            'str = header & vbCrLf
+                            'For Each row As DataRowView In view
+                            '    str &= row("STR") & vbCrLf
+                            'Next
+
+                            'Dim dstName As String = saveDir & "\★" & FileName & ".csv"
+                            'If InStr(dstName, "印刷しない") > 0 Then
+                            '    dstName = Replace(dstName, "★", "")
+                            'End If
+                            'saveName = dstName
+                            'If dgvM(i) IsNot DGV1 Then
+                            '    saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+                            'End If
+                            'If File.Exists(saveName) Then
+                            '    Dim sl As String = Path.GetFileName(saveName) & "→"
+                            '    saveName = Replace(dstName, ".csv", "_" & Format(Now(), "HHmmss") & ".csv")
+                            '    sl &= Path.GetFileName(saveName)
+                            '    saveList.Add(sl)
+                            'Else
+                            '    saveList.Add(Path.GetFileName(saveName))
+                            'End If
+                            '-------------------- 20210312 改修前 end ----------------
+
+                            '-------------------- 20210312 改修后 start ----------------
+                            If dgvM(i) Is DGV1 Or (dgvM(i) IsNot DGV1 And CheckBox33.Checked = False) Or (dgvM(i) IsNot DGV1 And CheckBox33.Checked And ListBox3.Items.Count = 0) Then
+                                str = header & vbCrLf
+                                For Each row As DataRowView In view
+                                    str &= row("STR") & vbCrLf
+                                Next
+                                Dim dstName As String = saveDir & "\★" & FileName & ".csv"
+                                If InStr(dstName, "印刷しない") > 0 Then
+                                    dstName = Replace(dstName, "★", "")
+                                End If
+                                saveName = dstName
+                                If dgvM(i) IsNot DGV1 Then
+                                    saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+                                End If
+
+                                If File.Exists(saveName) Then
+                                    Dim sl As String = Path.GetFileName(saveName) & "→"
+                                    saveName = Replace(dstName, ".csv", "_" & Format(Now(), "HHmmss") & ".csv")
+                                    sl &= Path.GetFileName(saveName)
+                                    saveList.Add(sl)
+                                Else
+                                    saveList.Add(Path.GetFileName(saveName))
+                                End If
+
+                                File.WriteAllText(saveName, str, ENC_SJ)
+                            ElseIf dgvM(i) IsNot DGV1 And CheckBox33.Checked And ListBox3.Items.Count > 0 Then
+                                '循环两次 第一次是出力没有Listbox3，第二次出力Listbox3的数据
+
+                                For index As Integer = 0 To 1
+                                    str = header & vbCrLf
+                                    Dim count As Integer '计数
+
+                                    If index = 0 Then
+                                        count = 0
+                                        For Each row As DataRowView In view
+                                            Dim dataRow As String() = row("STR").ToString.Split(",")
+                                            For c As Integer = 0 To dataRow.Count - 1
+                                                dataRow(c) = dataRow(c).Replace("""", "")
+                                            Next
+
+                                            Dim denpyouno As String = ""
+                                            If dgvM(i) Is DGV7 Then
+                                                denpyouno = dataRow(dH7.IndexOf("お客様管理ナンバー"))
+                                            ElseIf dgvM(i) Is DGV8 Then
+                                                denpyouno = dataRow(dH8.IndexOf("顧客管理番号"))
+                                            ElseIf dgvM(i) Is DGV9 Then
+                                                denpyouno = dataRow(dH9.IndexOf("お客様側管理番号"))
+                                            ElseIf dgvM(i) Is DGV13 Then
+                                                denpyouno = dataRow(dH13.IndexOf("お客様側管理番号"))
+                                            End If
+
+                                            If (ListBox3.Items.Contains(denpyouno) = False) Or (denpyouno = "") Then '不包含或者可能空的话
+                                                str &= row("STR") & vbCrLf
+                                                count = count + 1
+                                            End If
+                                        Next
+                                        If count > 0 Then '有数据就出力
+                                            Dim dstName As String = saveDir & "\★" & FileName & ".csv"
+                                            saveName = dstName
+                                            saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+
+                                            If File.Exists(saveName) Then
+                                                Dim sl As String = Path.GetFileName(saveName) & "→"
+                                                saveName = Replace(dstName, ".csv", "_" & Format(Now(), "HHmmss") & ".csv")
+                                                sl &= Path.GetFileName(saveName)
+                                                saveList.Add(sl)
+                                            Else
+                                                saveList.Add(Path.GetFileName(saveName))
+                                            End If
+                                            File.WriteAllText(saveName, str, ENC_SJ)
+                                        End If
+                                    Else
+                                        count = 0
+                                        For Each row As DataRowView In view
+                                            Dim dataRow As String() = row("STR").ToString.Split(",")
+                                            For c As Integer = 0 To dataRow.Count - 1
+                                                dataRow(c) = dataRow(c).Replace("""", "")
+                                            Next
+
+                                            Dim denpyouno As String = ""
+                                            If dgvM(i) Is DGV7 Then
+                                                denpyouno = dataRow(dH7.IndexOf("お客様管理ナンバー"))
+                                            ElseIf dgvM(i) Is DGV8 Then
+                                                denpyouno = dataRow(dH8.IndexOf("顧客管理番号"))
+                                            ElseIf dgvM(i) Is DGV9 Then
+                                                denpyouno = dataRow(dH9.IndexOf("お客様側管理番号"))
+                                            ElseIf dgvM(i) Is DGV13 Then
+                                                denpyouno = dataRow(dH13.IndexOf("お客様側管理番号"))
+                                            End If
+
+                                            If ListBox3.Items.Contains(denpyouno) = True Then '不包含或者可能空的话
+                                                str &= row("STR") & vbCrLf
+                                                count = count + 1
+                                            End If
+                                        Next
+                                        If count > 0 Then '有数据就出力
+                                            Dim dstName As String = saveDir & "\★" & FileName & ".csv"
+                                            saveName = dstName
+                                            saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "(別紙)" & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+
+                                            If File.Exists(saveName) Then
+                                                Dim sl As String = Path.GetFileName(saveName) & "→"
+                                                saveName = Replace(dstName, ".csv", "_" & Format(Now(), "HHmmss") & ".csv")
+                                                sl &= Path.GetFileName(saveName)
+                                                saveList.Add(sl)
+                                            Else
+                                                saveList.Add(Path.GetFileName(saveName))
+                                            End If
+                                            File.WriteAllText(saveName, str, ENC_SJ)
+                                        End If
+                                    End If
+                                Next
                             End If
-                            saveName = dstName
-                            If dgvM(i) IsNot DGV1 Then
-                                saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
-                            End If
-                            If File.Exists(saveName) Then
-                                Dim sl As String = Path.GetFileName(saveName) & "→"
-                                saveName = Replace(dstName, ".csv", "_" & Format(Now(), "HHmmss") & ".csv")
-                                sl &= Path.GetFileName(saveName)
-                                saveList.Add(sl)
-                            Else
-                                saveList.Add(Path.GetFileName(saveName))
-                            End If
+
+                            '-------------------- 20210312 改修后 end ----------------
                         End If
 
-                        File.WriteAllText(saveName, str, ENC_SJ)
+                        'File.WriteAllText(saveName, str, ENC_SJ) '-------------------- 20210312 改修前 这里不要了 ----------------
 
                         '--------------
                         '実績

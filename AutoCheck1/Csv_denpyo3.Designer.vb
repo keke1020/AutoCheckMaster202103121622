@@ -68,6 +68,7 @@ Partial Class Csv_denpyo3
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.SplitContainer5 = New System.Windows.Forms.SplitContainer()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.CheckBox33 = New System.Windows.Forms.CheckBox()
         Me.CheckBox14 = New System.Windows.Forms.CheckBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.CheckBox9 = New System.Windows.Forms.CheckBox()
@@ -979,6 +980,7 @@ Partial Class Csv_denpyo3
         '
         'Panel6
         '
+        Me.Panel6.Controls.Add(Me.CheckBox33)
         Me.Panel6.Controls.Add(Me.CheckBox14)
         Me.Panel6.Controls.Add(Me.Button2)
         Me.Panel6.Controls.Add(Me.CheckBox9)
@@ -992,16 +994,31 @@ Partial Class Csv_denpyo3
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel6.Location = New System.Drawing.Point(0, 0)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(179, 335)
+        Me.Panel6.Size = New System.Drawing.Size(179, 347)
         Me.Panel6.TabIndex = 12
+        '
+        'CheckBox33
+        '
+        Me.CheckBox33.AutoSize = True
+        Me.CheckBox33.Checked = True
+        Me.CheckBox33.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBox33.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckBox33.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.CheckBox33.Location = New System.Drawing.Point(116, 327)
+        Me.CheckBox33.Name = "CheckBox33"
+        Me.CheckBox33.Size = New System.Drawing.Size(65, 15)
+        Me.CheckBox33.TabIndex = 104
+        Me.CheckBox33.Text = "別紙分割"
+        Me.CheckBox33.UseVisualStyleBackColor = True
         '
         'CheckBox14
         '
         Me.CheckBox14.AutoSize = True
         Me.CheckBox14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox14.Location = New System.Drawing.Point(120, 317)
+        Me.CheckBox14.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.CheckBox14.Location = New System.Drawing.Point(116, 314)
         Me.CheckBox14.Name = "CheckBox14"
-        Me.CheckBox14.Size = New System.Drawing.Size(57, 16)
+        Me.CheckBox14.Size = New System.Drawing.Size(54, 15)
         Me.CheckBox14.TabIndex = 103
         Me.CheckBox14.Text = "除中継"
         Me.CheckBox14.UseVisualStyleBackColor = True
@@ -1010,9 +1027,10 @@ Partial Class Csv_denpyo3
         '
         Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(102, 292)
+        Me.Button2.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Button2.Location = New System.Drawing.Point(102, 293)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(19, 21)
+        Me.Button2.Size = New System.Drawing.Size(19, 19)
         Me.Button2.TabIndex = 102
         Me.Button2.Text = "消"
         Me.Button2.UseVisualStyleBackColor = False
@@ -1023,9 +1041,10 @@ Partial Class Csv_denpyo3
         Me.CheckBox9.Checked = True
         Me.CheckBox9.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox9.Location = New System.Drawing.Point(55, 317)
+        Me.CheckBox9.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.CheckBox9.Location = New System.Drawing.Point(13, 327)
         Me.CheckBox9.Name = "CheckBox9"
-        Me.CheckBox9.Size = New System.Drawing.Size(66, 16)
+        Me.CheckBox9.Size = New System.Drawing.Size(62, 15)
         Me.CheckBox9.TabIndex = 12
         Me.CheckBox9.Text = "選択のみ"
         Me.CheckBox9.UseVisualStyleBackColor = True
@@ -1034,18 +1053,19 @@ Partial Class Csv_denpyo3
         '
         Me.CheckBox8.AutoSize = True
         Me.CheckBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CheckBox8.Location = New System.Drawing.Point(7, 317)
+        Me.CheckBox8.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.CheckBox8.Location = New System.Drawing.Point(13, 314)
         Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(45, 16)
+        Me.CheckBox8.Size = New System.Drawing.Size(43, 15)
         Me.CheckBox8.TabIndex = 11
         Me.CheckBox8.Text = "抽出"
         Me.CheckBox8.UseVisualStyleBackColor = True
         '
         'KryptonButton3
         '
-        Me.KryptonButton3.Location = New System.Drawing.Point(7, 209)
+        Me.KryptonButton3.Location = New System.Drawing.Point(7, 213)
         Me.KryptonButton3.Name = "KryptonButton3"
-        Me.KryptonButton3.Size = New System.Drawing.Size(89, 51)
+        Me.KryptonButton3.Size = New System.Drawing.Size(89, 47)
         Me.KryptonButton3.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.KryptonButton3.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.KryptonButton3.StateCommon.Border.Color1 = System.Drawing.Color.Gray
@@ -1727,9 +1747,9 @@ Partial Class Csv_denpyo3
         '
         'KryptonButton1
         '
-        Me.KryptonButton1.Location = New System.Drawing.Point(7, 265)
+        Me.KryptonButton1.Location = New System.Drawing.Point(7, 266)
         Me.KryptonButton1.Name = "KryptonButton1"
-        Me.KryptonButton1.Size = New System.Drawing.Size(89, 48)
+        Me.KryptonButton1.Size = New System.Drawing.Size(89, 47)
         Me.KryptonButton1.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.KryptonButton1.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.KryptonButton1.StateCommon.Border.Color1 = System.Drawing.Color.Gray
@@ -1774,9 +1794,10 @@ Partial Class Csv_denpyo3
         '
         Me.Button36.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Button36.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button36.Location = New System.Drawing.Point(123, 292)
+        Me.Button36.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Button36.Location = New System.Drawing.Point(123, 293)
         Me.Button36.Name = "Button36"
-        Me.Button36.Size = New System.Drawing.Size(49, 21)
+        Me.Button36.Size = New System.Drawing.Size(49, 19)
         Me.Button36.TabIndex = 86
         Me.Button36.Text = "←"
         Me.Button36.UseVisualStyleBackColor = False
@@ -1797,7 +1818,7 @@ Partial Class Csv_denpyo3
         Me.ListBox3.ForeColor = System.Drawing.Color.Red
         Me.ListBox3.FormattingEnabled = True
         Me.ListBox3.ItemHeight = 12
-        Me.ListBox3.Location = New System.Drawing.Point(102, 225)
+        Me.ListBox3.Location = New System.Drawing.Point(102, 226)
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.ListBox3.Size = New System.Drawing.Size(70, 64)
@@ -1808,9 +1829,9 @@ Partial Class Csv_denpyo3
         Me.ListBox1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 12
-        Me.ListBox1.Location = New System.Drawing.Point(0, 335)
+        Me.ListBox1.Location = New System.Drawing.Point(0, 347)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(179, 124)
+        Me.ListBox1.Size = New System.Drawing.Size(179, 112)
         Me.ListBox1.TabIndex = 83
         '
         'ListBox4
@@ -2788,7 +2809,7 @@ Partial Class Csv_denpyo3
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(447, 371)
+        Me.TabPage4.Size = New System.Drawing.Size(638, 371)
         Me.TabPage4.TabIndex = 0
         Me.TabPage4.Text = "元データ"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -2869,7 +2890,7 @@ Partial Class Csv_denpyo3
         Me.DGV1.Location = New System.Drawing.Point(3, 3)
         Me.DGV1.Name = "DGV1"
         Me.DGV1.RowTemplate.Height = 21
-        Me.DGV1.Size = New System.Drawing.Size(439, 363)
+        Me.DGV1.Size = New System.Drawing.Size(630, 363)
         Me.DGV1.TabIndex = 8
         '
         'ContextMenuStrip1
@@ -3015,7 +3036,7 @@ Partial Class Csv_denpyo3
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(447, 371)
+        Me.TabPage5.Size = New System.Drawing.Size(638, 371)
         Me.TabPage5.TabIndex = 1
         Me.TabPage5.Text = "佐川e飛伝2"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -3032,7 +3053,7 @@ Partial Class Csv_denpyo3
         Me.DGV7.Name = "DGV7"
         Me.DGV7.ReadOnly = True
         Me.DGV7.RowTemplate.Height = 21
-        Me.DGV7.Size = New System.Drawing.Size(439, 363)
+        Me.DGV7.Size = New System.Drawing.Size(630, 363)
         Me.DGV7.TabIndex = 9
         '
         'TabPage6
@@ -3069,7 +3090,7 @@ Partial Class Csv_denpyo3
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(447, 371)
+        Me.TabPage7.Size = New System.Drawing.Size(638, 371)
         Me.TabPage7.TabIndex = 3
         Me.TabPage7.Text = "メール便"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -3086,7 +3107,7 @@ Partial Class Csv_denpyo3
         Me.DGV9.Name = "DGV9"
         Me.DGV9.ReadOnly = True
         Me.DGV9.RowTemplate.Height = 21
-        Me.DGV9.Size = New System.Drawing.Size(439, 363)
+        Me.DGV9.Size = New System.Drawing.Size(630, 363)
         Me.DGV9.TabIndex = 9
         '
         'TabPage16
@@ -3096,7 +3117,7 @@ Partial Class Csv_denpyo3
         Me.TabPage16.Location = New System.Drawing.Point(4, 22)
         Me.TabPage16.Name = "TabPage16"
         Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage16.Size = New System.Drawing.Size(447, 371)
+        Me.TabPage16.Size = New System.Drawing.Size(638, 371)
         Me.TabPage16.TabIndex = 4
         Me.TabPage16.Text = "定形外"
         Me.TabPage16.UseVisualStyleBackColor = True
@@ -3113,7 +3134,7 @@ Partial Class Csv_denpyo3
         Me.DGV13.Name = "DGV13"
         Me.DGV13.ReadOnly = True
         Me.DGV13.RowTemplate.Height = 21
-        Me.DGV13.Size = New System.Drawing.Size(439, 363)
+        Me.DGV13.Size = New System.Drawing.Size(630, 363)
         Me.DGV13.TabIndex = 10
         '
         'TabControl3
@@ -6039,7 +6060,7 @@ Partial Class Csv_denpyo3
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(447, 146)
+        Me.TabPage9.Size = New System.Drawing.Size(638, 146)
         Me.TabPage9.TabIndex = 1
         Me.TabPage9.Text = "プレビュー"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -6057,7 +6078,7 @@ Partial Class Csv_denpyo3
         Me.DGV12.Name = "DGV12"
         Me.DGV12.ReadOnly = True
         Me.DGV12.RowTemplate.Height = 21
-        Me.DGV12.Size = New System.Drawing.Size(441, 140)
+        Me.DGV12.Size = New System.Drawing.Size(632, 140)
         Me.DGV12.TabIndex = 9
         '
         'TabPage31
@@ -6066,7 +6087,7 @@ Partial Class Csv_denpyo3
         Me.TabPage31.Controls.Add(Me.Panel10)
         Me.TabPage31.Location = New System.Drawing.Point(4, 22)
         Me.TabPage31.Name = "TabPage31"
-        Me.TabPage31.Size = New System.Drawing.Size(447, 146)
+        Me.TabPage31.Size = New System.Drawing.Size(638, 146)
         Me.TabPage31.TabIndex = 2
         Me.TabPage31.Text = "ピッキングリスト"
         Me.TabPage31.UseVisualStyleBackColor = True
@@ -6082,7 +6103,7 @@ Partial Class Csv_denpyo3
         Me.DGV16.Location = New System.Drawing.Point(105, 0)
         Me.DGV16.Name = "DGV16"
         Me.DGV16.RowTemplate.Height = 21
-        Me.DGV16.Size = New System.Drawing.Size(342, 146)
+        Me.DGV16.Size = New System.Drawing.Size(533, 146)
         Me.DGV16.TabIndex = 11
         '
         'DataGridViewTextBoxColumn16
@@ -7172,4 +7193,5 @@ Partial Class Csv_denpyo3
     Friend WithEvents LinkLabel34 As LinkLabel
     Friend WithEvents LinkLabel36 As LinkLabel
     Friend WithEvents Label108 As Label
+    Friend WithEvents CheckBox33 As CheckBox
 End Class
