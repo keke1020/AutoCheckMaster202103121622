@@ -1532,7 +1532,7 @@ Public Class Csv_denpyo3
                 Dim checkcodejuchusu_ny263_306_51 As Integer = 0
                 Dim checkcodejuchusu_ny275 As Integer = 0
                 Dim checkcodejuchusu_ny306 As Integer = 0
-                Dim checkcodejuchusu_ad228 As Integer = 0
+                'Dim checkcodejuchusu_ad228 As Integer = 0
                 'Dim checkcodejuchusu_sl065 As Integer = 0
                 'Dim checkcodejuchusu_sl066 As Integer = 0
                 'Dim checkcodejuchusu_sl067 As Integer = 0
@@ -1564,11 +1564,11 @@ Public Class Csv_denpyo3
                     '    isYamatoGood = False
                     'End If
 
-                    If checkcode(0).ToLower = "ad228" Or checkcode(0).ToLower = "ad228-be" Or checkcode(0).ToLower = "ad228-bl" Or checkcode(0).ToLower = "ad228-co" Or checkcode(0).ToLower = "ad228-gr" Or checkcode(0).ToLower = "ad228-sb" Or checkcode(0).ToLower = "ad228-wa" Then
-                        If checkcode(1) = Int(checkcode(1)) Then
-                            checkcodejuchusu_ad228 = checkcodejuchusu_ad228 + checkcode(1)
-                        End If
-                    End If
+                    'If checkcode(0).ToLower = "ad228" Or checkcode(0).ToLower = "ad228-be" Or checkcode(0).ToLower = "ad228-bl" Or checkcode(0).ToLower = "ad228-co" Or checkcode(0).ToLower = "ad228-gr" Or checkcode(0).ToLower = "ad228-sb" Or checkcode(0).ToLower = "ad228-wa" Then
+                    '    If checkcode(1) = Int(checkcode(1)) Then
+                    '        checkcodejuchusu_ad228 = checkcodejuchusu_ad228 + checkcode(1)
+                    '    End If
+                    'End If
 
                     'If Not checkcode_ Is Nothing And Regex.IsMatch(haisouSaki, "沖縄") = False And Regex.IsMatch(haisouSaki, "北海道") = False Then
                     If checkcode(0).ToLower = "ny263-51" Then
@@ -1759,16 +1759,16 @@ Public Class Csv_denpyo3
                     special_taku2 = True
                 End If
 
-                Dim checkcodejuchusu_ad228_even = False
-                Dim checkcodejuchusu_ad228_even_count = 0
-                If checkcodejuchusu_ad228 > 1 Then
-                    If checkcodejuchusu_ad228 Mod 2 = 0 Then
-                        checkcodejuchusu_ad228_even = True
-                    Else
-                        checkcodejuchusu_ad228_even = False
-                        checkcodejuchusu_ad228_even_count = checkcodejuchusu_ad228 / 2
-                    End If
-                End If
+                'Dim checkcodejuchusu_ad228_even = False
+                'Dim checkcodejuchusu_ad228_even_count = 0
+                'If checkcodejuchusu_ad228 > 1 Then
+                '    If checkcodejuchusu_ad228 Mod 2 = 0 Then
+                '        checkcodejuchusu_ad228_even = True
+                '    Else
+                '        checkcodejuchusu_ad228_even = False
+                '        checkcodejuchusu_ad228_even_count = checkcodejuchusu_ad228 / 2
+                '    End If
+                'End If
 
                 'Dim ny261_isnagoya As Boolean = False
                 'If checkcodejuchusu_ny261 > 0 Then
@@ -2011,24 +2011,24 @@ Public Class Csv_denpyo3
                     End If
 
                     'ad228 2個なら1便 
-                    If haisouKind = "宅配便" And (code(0).ToLower = "ad228" Or code(0).ToLower = "ad228-be" Or code(0).ToLower = "ad228-bl" Or code(0).ToLower = "ad228-co" Or code(0).ToLower = "ad228-gr" Or code(0).ToLower = "ad228-sb" Or code(0).ToLower = "ad228-wa") And checkcodejuchusu_ad228_even Then
-                        weight = "50"
-                        sp_check = False
-                    ElseIf haisouKind = "宅配便" And (code(0).ToLower = "ad228" Or code(0).ToLower = "ad228-be" Or code(0).ToLower = "ad228-bl" Or code(0).ToLower = "ad228-co" Or code(0).ToLower = "ad228-gr" Or code(0).ToLower = "ad228-sb" Or code(0).ToLower = "ad228-wa") And checkcodejuchusu_ad228_even = False Then
-                        If checkcodejuchusu_ad228 = 1 Then
-                            weight = "100"
-                            sp_check = False
-                        Else
-                            checkcodejuchusu_ad228_even_count = checkcodejuchusu_ad228_even_count - 1
-                            If checkcodejuchusu_ad228_even_count = 1 Then
-                                weight = "100"
-                                sp_check = False
-                            Else
-                                weight = "50"
-                                sp_check = False
-                            End If
-                        End If
-                    End If
+                    'If haisouKind = "宅配便" And (code(0).ToLower = "ad228" Or code(0).ToLower = "ad228-be" Or code(0).ToLower = "ad228-bl" Or code(0).ToLower = "ad228-co" Or code(0).ToLower = "ad228-gr" Or code(0).ToLower = "ad228-sb" Or code(0).ToLower = "ad228-wa") And checkcodejuchusu_ad228_even Then
+                    '    weight = "50"
+                    '    sp_check = False
+                    'ElseIf haisouKind = "宅配便" And (code(0).ToLower = "ad228" Or code(0).ToLower = "ad228-be" Or code(0).ToLower = "ad228-bl" Or code(0).ToLower = "ad228-co" Or code(0).ToLower = "ad228-gr" Or code(0).ToLower = "ad228-sb" Or code(0).ToLower = "ad228-wa") And checkcodejuchusu_ad228_even = False Then
+                    '    If checkcodejuchusu_ad228 = 1 Then
+                    '        weight = "100"
+                    '        sp_check = False
+                    '    Else
+                    '        checkcodejuchusu_ad228_even_count = checkcodejuchusu_ad228_even_count - 1
+                    '        If checkcodejuchusu_ad228_even_count = 1 Then
+                    '            weight = "100"
+                    '            sp_check = False
+                    '        Else
+                    '            weight = "50"
+                    '            sp_check = False
+                    '        End If
+                    '    End If
+                    'End If
 
                     If haisouKind = "宅配便" And code(0).ToLower = "de072" Then
                         weight = "100"
