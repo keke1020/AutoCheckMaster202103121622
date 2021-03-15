@@ -416,6 +416,12 @@
     <Compile Include="Mall_main.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ManagerTools.Designer.vb">
+      <DependentUpon>ManagerTools.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ManagerTools.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

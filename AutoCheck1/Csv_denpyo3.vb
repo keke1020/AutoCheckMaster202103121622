@@ -50,6 +50,8 @@ Public Class Csv_denpyo3
         sakiPath2 = Form1.ロケーションToolStripMenuItem.Text
         CnAccdb = Path.GetDirectoryName(Form1.appPath) & "\db\sagawa.accdb"
 
+
+
         'コントロール設定
         'DGV1    'メインcsv読み込み
         'DGV2    '商品表示
@@ -91,6 +93,9 @@ Public Class Csv_denpyo3
         Dim csvRecords As New ArrayList
 
 
+        'Dim Managertool As New ManagerTools
+        'Dim cc = Managertool.ManagerFun("zaizheli")
+        'PrintLine("nihao" + cc)
 
         '******************************************
         '各種設定等読み込み
@@ -98,6 +103,8 @@ Public Class Csv_denpyo3
         fName = Path.GetDirectoryName(Form1.appPath) & "\config\csvd3config.txt"
         Dim kLines As String() = File.ReadAllLines(fName, ENC_SJ)
         For i As Integer = 0 To kLines.Length - 1
+
+
             Dim kl As String() = Split(kLines(i), "=")
             Select Case kl(0)
                 Case "元データ規定" & HS1.Text
@@ -280,6 +287,10 @@ Public Class Csv_denpyo3
         Else
             住所DBアップデートToolStripMenuItem.Text = "佐川DBアップデート(ken_all.dat)"
         End If
+
+
+
+
     End Sub
 
 
@@ -2061,6 +2072,28 @@ Public Class Csv_denpyo3
                         weight = "20"
                         sp_check = False
                     End If
+
+
+                    If haisouKind = "宅配便" And (code(0).ToLower = "ee225") Then
+                        weight = "16.66"
+                        sp_check = False
+                    End If
+
+                    If haisouKind = "宅配便" And (code(0).ToLower = "ee227") Then
+                        weight = "16.66"
+                        sp_check = False
+                    End If
+
+
+                    If haisouKind = "メール便" And (code(0).ToLower = "ny373-wh" Or code(0).ToLower = "ny373-hu" Or code(0).ToLower = "ny373-pi" Or code(0).ToLower = "ny373-bk" Or code(0).ToLower = "ny373-kob" Or code(0).ToLower = "ny373-kowh" Or code(0).ToLower = "ny373-kobk") Then
+                        weight = "2.5"
+                        sp_check = False
+                    End If
+
+
+
+
+
 
                     'デフォルトがメール便で、宅配便があったら、haisouKindを宅配便にする
                     'メール便と定形外の場合は、宅配便にする
