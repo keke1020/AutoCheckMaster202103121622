@@ -8274,6 +8274,10 @@ Public Class Csv_denpyo3
             Dim souko As String = DGV1.Item(dH1.IndexOf("発送倉庫"), r).Value
             Dim binsyu As String = DGV1.Item(dH1.IndexOf("便種"), r).Value
 
+
+            '-----------------------------------------------------请删除-
+            'binsyu = "航空便"
+            '-----------------------------------------------------请删除-
             '発送倉庫にエラーがある行は処理しない
             Dim soukoError As Boolean = False
             If souko = "" Then
@@ -9699,18 +9703,42 @@ Public Class Csv_denpyo3
     End Sub
 
 
-    Private Function IsCompanyOrIndividual(r As Integer, dh7 As ArrayList)
+    Private Function IsCompanyOrIndividual_7(r As Integer, dhM As ArrayList)
 
         Dim dataB = {"医院", "組合", "会社", "機構", "法人", "薬局", "学校", "センター", "(株)", "商店"}
         '148067700195
-        Dim data1, data2, data3, data4, data5, data6
-        data1 = DGV7.Item(dh7.IndexOf("お届け先住所１"), r).Value  'お届け先住所
-        data2 = DGV7.Item(dh7.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
-        data3 = DGV7.Item(dh7.IndexOf("お届け先住所3"), r).Value 'お届け先住所
-        data4 = DGV7.Item(dh7.IndexOf("お届け先名称１"), r).Value 'お届け先名称１
-        data5 = DGV7.Item(dh7.IndexOf("お届け先名称2"), r).Value 'お届け先名称2
+        Dim data1, data2, data3, data4
+        data1 = DGV7.Item(dhM.IndexOf("お届け先住所１"), r).Value  'お届け先住所
+        data2 = DGV7.Item(dhM.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
+        data3 = DGV7.Item(dhM.IndexOf("お届け先名称１"), r).Value 'お届け先名称１
+        data4 = DGV7.Item(dhM.IndexOf("お届け先名称２"), r).Value 'お届け先名称2
 
-        Dim dataC = {data1, data2, data3, data4, data5}
+        Dim dataC = {data1, data2, data3, data4}
+
+        For i As Integer = 0 To dataC.Length - 1
+            If Not IsNothing(dataC(i)) Then
+                For j As Integer = 0 To dataB.Length - 1
+                    If InStr(dataC(i), dataB(j)) Then
+                        Return True
+                    End If
+                Next
+            End If
+        Next
+        Return False
+    End Function
+
+
+    Private Function IsCompanyOrIndividual_8(r As Integer, dhM As ArrayList)
+
+        Dim dataB = {"医院", "組合", "会社", "機構", "法人", "薬局", "学校", "センター", "(株)", "商店"}
+        '148067700195
+        Dim data1, data2, data3, data4
+        data1 = DGV8.Item(dhM.IndexOf("お届け先住所１"), r).Value  'お届け先住所
+        data2 = DGV8.Item(dhM.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
+        data3 = DGV8.Item(dhM.IndexOf("お届け先名１"), r).Value 'お届け先名称１
+        data4 = DGV8.Item(dhM.IndexOf("お届け先名２"), r).Value 'お届け先名称2
+
+        Dim dataC = {data1, data2, data3, data4}
 
         For i As Integer = 0 To dataC.Length - 1
             If Not IsNothing(dataC(i)) Then
@@ -9740,8 +9768,8 @@ Public Class Csv_denpyo3
                     DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
 
 
-                    'If IsCompanyOrIndividual(r, dH7) Then
-                    '    DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
+                    'If IsCompanyOrIndividual_7(r, dH7) Then
+                    '    DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700195"
                     'Else
                     '    DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
                     'End If
@@ -9868,6 +9896,24 @@ Public Class Csv_denpyo3
 
         If DGV8.RowCount > 0 Then
             For r As Integer = 0 To DGV8.RowCount - 1
+
+                If DGV8.Item(dH8.IndexOf("処理用2"), r).Value = "名古屋" Then
+                    DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "148067700005"
+
+                    '148067700195
+                    'If IsCompanyOrIndividual_8(r, dH8) Then
+                    '    DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "148067700195"
+                    'Else
+                    '    DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "148067700005"
+                    'End If
+
+
+                End If
+
+
+
+
+
                 Dim denpyoNum = DGV8.Item(dH8.IndexOf("顧客管理番号"), r).Value
                 For r2 As Integer = 0 To DGV3.RowCount - 1
                     If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
@@ -10597,16 +10643,20 @@ Public Class Csv_denpyo3
                     Else
                         mode = CheckBox1.Text
                     End If
+                    '井相田 只有ehiden
                 ElseIf souko = HS2.Text Then
                     If binsyu = "航空便" Then
                         mode = CheckBox18.Text
                     Else
                         mode = CheckBox4.Text
                     End If
+                    '名古屋
                 ElseIf souko = HS4.Text Then
                     If binsyu = "航空便" Then
+                        'ehiden2
                         mode = CheckBox3.Text
                     Else
+                        'ehiden2
                         mode = CheckBox32.Text
                     End If
                     'ElseIf souko = HS3.Text Then
