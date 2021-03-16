@@ -5,10 +5,12 @@
 
 
 
-    Public Function ManagerFun(ob As String)
-        Print(ob)
-        Return True
-    End Function
+    Public Sub ManagerFun(ob As String)
+
+        Debug.Print("debug输出了" + ob)
+        Console.WriteLine("输出到控制台")
+
+    End Sub
 
 
 End Class

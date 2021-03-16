@@ -41,9 +41,38 @@ Public Class Csv_denpyo3
     Private checkaddress_oosakizyou As String() = New String() {"富山県", "石川県", "福井県", "岐阜県", "静岡県", "愛知県", "三重県", "新潟県", "長野県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "山梨県", "宮城県", "山形県", "福島県", "青森県", "岩手県", "秋田県", "北海道"}
     Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh", "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny263-51", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi", "ny373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh"}
 
+
+    '需要把佐川急便转成yupaku发送的条件之一 下列地址是条件之一  条件二是code
+    Private yupaku_addressArr As String() = New String() {"和歌山県"}
+    Private yupaku_addressArrPro As String() = New String() {"北海道"}
+    Private yupaku_goods As String() = New String() {"test"}
+
+
+
+
+
+
     'ヤマト
     Dim yamato_title As String = "お客様管理番号,送り状種類,クール区分,伝票番号,出荷予定日,お届け予定（指定）日,配達時間帯,お届け先コード,お届け先電話番号,お届け先電話番号枝番,お届け先郵便番号,お届け先住所,お届け先住所（アパートマンション名）,お届け先会社・部門名１,お届け先会社・部門名２,お届け先名,お届け先名略称カナ,敬称,ご依頼主コード,ご依頼主電話番号,ご依頼主電話番号枝番,ご依頼主郵便番号,ご依頼主住所,ご依頼主住所（アパートマンション名）,ご依頼主名,ご依頼主略称カナ,品名コード１,品名１,品名コード２,品名２,荷扱い１,荷扱い２,記事,コレクト代金引換額（税込）,コレクト内消費税額等,営業所止置き,営業所コード,発行枚数,個数口枠の印字,ご請求先顧客コード,ご請求先分類コード,運賃管理番号,クロネコwebコレクトデータ登録,クロネコwebコレクト加盟店番号,クロネコwebコレクト申込受付番号１,クロネコwebコレクト申込受付番号２,クロネコwebコレクト申込受付番号３,お届け予定ｅメール利用区分,お届け予定ｅメールe-mailアドレス,入力機種,お届け予定eメールメッセージ,お届け完了eメール利用区分,お届け完了ｅメールe-mailアドレス,お届け完了ｅメールメッセージ,クロネコ収納代行利用区分,収納代行決済ＱＲコード印刷,収納代行請求金額(税込),収納代行内消費税額等,収納代行請求先郵便番号,収納代行請求先住所,収納代行請求先住所（アパートマンション名）,収納代行請求先会社・部門名１,収納代行請求先会社・部門名２,収納代行請求先名(漢字),収納代行請求先名(カナ),収納代行問合せ先名(漢字),収納代行問合せ先郵便番号,収納代行問合せ先住所,収納代行問合せ先住所（アパートマンション名）,収納代行問合せ先電話番号,収納代行管理番号,収納代行品名,収納代行備考,複数口くくりキー,検索キータイトル１,検索キー１,検索キータイトル２,検索キー２,検索キータイトル３,検索キー３,検索キータイトル４,検索キー４,検索キータイトル５,検索キー５,予備,予備,投函予定メール利用区分,投函予定メールe-mailアドレス,投函予定メールメッセージ,投函完了メール（お届け先宛）利用区分,投函完了メール（お届け先宛）e-mailアドレス,投函完了メール（お届け先宛）メールメッセージ,投函完了メール（ご依頼主宛）利用区分,投函完了メール（ご依頼主宛）e-mailアドレス,投函完了メール（ご依頼主宛）メールメッセージ,連携管理番号,通知メールアドレス"
     Private yamato_title_sp As String() = yamato_title.Split(",")
+
+
+    Dim managertool As ManagerTools
+
+    Public Sub test()
+        managertool = New ManagerTools()
+        managertool.ManagerFun("tesssss")
+
+
+    End Sub
+
+    Private Sub UpdataManagerHands_yupaku()
+        'ManagerHand_yupaku = New ManagerTools()
+
+
+    End Sub
+
+
 
     Private Sub Csv_denpyo3_Load(sender As Object, e As EventArgs) Handles Me.Load
         sakiPath = Form1.サーバーToolStripMenuItem.Text & "\update"
@@ -1548,6 +1577,8 @@ Public Class Csv_denpyo3
                 Dim checkcodejuchusu_ny263_306_51 As Integer = 0
                 Dim checkcodejuchusu_ny275 As Integer = 0
                 Dim checkcodejuchusu_ny306 As Integer = 0
+
+                Dim checkcodejuchusu_ny373 As Integer = 0
                 'Dim checkcodejuchusu_ad228 As Integer = 0
                 'Dim checkcodejuchusu_sl065 As Integer = 0
                 'Dim checkcodejuchusu_sl066 As Integer = 0
@@ -1619,6 +1650,9 @@ Public Class Csv_denpyo3
                             checkcodejuchusu_ny306 = checkcodejuchusu_ny306 + checkcode(1)
                         End If
                     End If
+
+
+
 
                     'If checkcode_(0).ToLower = "sl065" Then
                     '    checkcodejuchusu_sl065 = checkcodejuchusu_sl065 + checkcode(1)
@@ -1701,6 +1735,17 @@ Public Class Csv_denpyo3
                             checkcodejuchusu_ny264_3000 = checkcodejuchusu_ny264_3000 + checkcode(1)
                         End If
                     End If
+
+
+
+                    'ny373受注数
+                    If InStr(checkcode(0).ToLower, "ny373") Then
+                        If checkcode(1) = Int(checkcode(1)) Then
+                            checkcodejuchusu_ny373 = checkcodejuchusu_ny373 + checkcode(1)
+                        End If
+                    End If
+
+
                 Next
 
                 If checkcodejuchusu_ny331_50 >= 3 Then
@@ -1774,6 +1819,16 @@ Public Class Csv_denpyo3
                 If checkcodejuchusu_ny331_50_flwh > 0 Then
                     special_taku2 = True
                 End If
+
+
+                'ny373修改
+                If checkcodejuchusu_ny373 >= 3 Then
+                    special_taku = True
+                End If
+                'If checkcodejuchusu_ny373 > 0 Then
+                '    special_taku2 = True
+                'End If
+
 
                 'Dim checkcodejuchusu_ad228_even = False
                 'Dim checkcodejuchusu_ad228_even_count = 0
@@ -1995,6 +2050,33 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
+                    'If haisouKind = "メール便" And (code(0).ToLower = "ny373-wh" Or code(0).ToLower = "ny373-hu" Or code(0).ToLower = "ny373-pi" Or code(0).ToLower = "ny373-bk" Or code(0).ToLower = "ny373-kob" Or code(0).ToLower = "ny373-kowh" Or code(0).ToLower = "ny373-kobk") Then
+                    '    weight = "2.5"
+                    '    sp_check = False
+                    'End If
+
+                    'If special_taku = True And haisouKind = "メール便" And InStr(code(0).ToLower, "ny373") Then
+                    '    weight = "178"
+                    '    sp_check = False
+                    'End If
+
+
+
+                    'If special_taku = True And haisouKind = "メール便" And InStr(code(0).ToLower, "ny373") Then
+
+                    'End If
+
+                    If InStr(code(0).ToLower, "ny373") And haisouKind = "メール便" Then
+                        If special_taku Then
+                            weight = "178"
+                        Else
+                            weight = "2.5"
+                        End If
+                    End If
+
+
+
+
                     If haisouKind = "宅配便" And code(0).ToLower = "ap092" Then
                         weight = "2.5" '40一个口
                         sp_check = False
@@ -2085,10 +2167,6 @@ Public Class Csv_denpyo3
                     End If
 
 
-                    If haisouKind = "メール便" And (code(0).ToLower = "ny373-wh" Or code(0).ToLower = "ny373-hu" Or code(0).ToLower = "ny373-pi" Or code(0).ToLower = "ny373-bk" Or code(0).ToLower = "ny373-kob" Or code(0).ToLower = "ny373-kowh" Or code(0).ToLower = "ny373-kobk") Then
-                        weight = "2.5"
-                        sp_check = False
-                    End If
 
 
 
@@ -2197,13 +2275,38 @@ Public Class Csv_denpyo3
                                     Else
                                         special_mail = True
                                     End If
+                                    'ElseIf code(0).ToLower = "ny275-bk" Or code(0).ToLower = "ny275-pi" Then
+                                    'ElseIf InStr(code(0), "ny373") Then
+
+                                    '    If haisouSize > 200 Then
+                                    '        haisouKind = "宅配便"
+                                    '        haisouSize = haisouSize / 100   'メール便サイズ計算を宅配便に変更
+                                    '    Else
+                                    '        special_mail = True
+                                    '    End If
+
                                 Else
                                     haisouKind = "宅配便"
                                     haisouSize = haisouSize / 100   'メール便サイズ計算を宅配便に変更
                                 End If
                             End If
+
+
+                            'If InStr(code(0), "ny373") Then
+                            '    If haisouSize >= 7.5 Then
+                            '        haisouKind = "宅配便"
+                            '        haisouSize = haisouSize / 100
+                            '    Else
+                            '        special_mail = True
+                            '    End If
+                            'End If
+
+
+
+
+
                         ElseIf haisouKind = "定形外" Then
-                            If haisouSize > NumericUpDown5.Value * NumericUpDown6.Value Then
+                                If haisouSize > NumericUpDown5.Value * NumericUpDown6.Value Then
                                 haisouKind = "宅配便"
                                 haisouSize = haisouSize / 75   '定形外サイズ計算を宅配便に変更
                             End If
@@ -2697,6 +2800,19 @@ Public Class Csv_denpyo3
                         DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = "宅配便"
                         DGV1.Item(dH1.IndexOf("データ"), r1).Value = "佐川"
                     End If
+
+
+
+
+
+                    'If haisouKind = "メール便" And special_taku = True Then
+                    '    DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = "宅配便"
+                    '    DGV1.Item(dH1.IndexOf("データ"), r1).Value = "佐川"
+                    'End If
+
+
+
+
 
                     'If (mTag = dazaifu_str Or mTag = "井相田") And (Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "メール便") Or Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "ヤマト")) And DGV1.Item(dH1.IndexOf("便種"), r1).Value = "陸便" And isYamatoGood And special_taku = False Then
                     '    DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = yamato_str
@@ -6010,6 +6126,8 @@ Public Class Csv_denpyo3
     End Sub
 
     Private Sub TabControl2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl2.SelectedIndexChanged
+
+        'test()
         If InStr(TabControl2.SelectedTab.Text, "元データ") > 0 Then
             TextBox12.ReadOnly = False
             切り取りToolStripMenuItem1.Enabled = True
@@ -9580,9 +9698,38 @@ Public Class Csv_denpyo3
         Next
     End Sub
 
+
+    Private Function IsCompanyOrIndividual(r As Integer, dh7 As ArrayList)
+
+        Dim dataB = {"医院", "組合", "会社", "機構", "法人", "薬局", "学校", "センター", "(株)", "商店"}
+        '148067700195
+        Dim data1, data2, data3, data4, data5, data6
+        data1 = DGV7.Item(dh7.IndexOf("お届け先住所１"), r).Value  'お届け先住所
+        data2 = DGV7.Item(dh7.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
+        data3 = DGV7.Item(dh7.IndexOf("お届け先住所3"), r).Value 'お届け先住所
+        data4 = DGV7.Item(dh7.IndexOf("お届け先名称１"), r).Value 'お届け先名称１
+        data5 = DGV7.Item(dh7.IndexOf("お届け先名称2"), r).Value 'お届け先名称2
+
+        Dim dataC = {data1, data2, data3, data4, data5}
+
+        For i As Integer = 0 To dataC.Length - 1
+            If Not IsNothing(dataC(i)) Then
+                For j As Integer = 0 To dataB.Length - 1
+                    If InStr(dataC(i), dataB(j)) Then
+                        Return True
+                    End If
+                Next
+            End If
+        Next
+        Return False
+    End Function
+
+
+
     Private Sub Kyoseisyori()
         Dim dH3 As ArrayList = TM_HEADER_GET(DGV3)
         Dim dH7 As ArrayList = TM_HEADER_GET(DGV7)
+        '佐川bizlog
         Dim dH8 As ArrayList = TM_HEADER_GET(DGV8)
         Dim dH9 As ArrayList = TM_HEADER_GET(DGV9)
         Dim dH13 As ArrayList = TM_HEADER_GET(DGV13)
@@ -9591,6 +9738,15 @@ Public Class Csv_denpyo3
             For r As Integer = 0 To DGV7.RowCount - 1
                 If DGV7.Item(dH7.IndexOf("処理用2"), r).Value = "名古屋" Then
                     DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
+
+
+                    'If IsCompanyOrIndividual(r, dH7) Then
+                    '    DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
+                    'Else
+                    '    DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
+                    'End If
+
+
                 End If
 
                 Dim denpyoNum = DGV7.Item(dH7.IndexOf("お客様管理ナンバー"), r).Value
@@ -9613,6 +9769,69 @@ Public Class Csv_denpyo3
                             DGV7.Item(dH7.IndexOf("ご依頼主名称１"), r).Value = "万方商事株式会社"
                             DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
                             Exit For
+
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZFK" Then
+                            'If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
+                            '    DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
+                            'Else
+                            '    'DGV7.Item(dH7.IndexOf("品名１"), r).Value = ""
+                            'End If
+
+
+
+
+                            'DGV7.Item(dH7.IndexOf("品名２"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名３"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名４"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名５"), r).Value = ""
+
+
+
+
+
+                            DGV7.Item(dH7.IndexOf("ご依頼主電話番号"), r).Value = "092-586-6853"
+                            'ご依頼主　郵便番号
+
+                            'ご依頼主郵便番号
+                            DGV7.Item(dH7.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
+                            DGV7.Item(dH7.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
+
+                            DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = "33"
+                            DGV7.Item(dH7.IndexOf("ご依頼主名称１"), r).Value = "万方商事株式会社"
+                            DGV7.Item(dH7.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            Exit For
+
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZ海東" Then
+                            'If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
+                            '    DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
+                            'Else
+                            '    'DGV7.Item(dH7.IndexOf("品名１"), r).Value = ""
+                            'End If
+
+
+                            'DGV7.Item(dH7.IndexOf("品名２"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名３"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名４"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名５"), r).Value = ""
+
+
+                            DGV7.Item(dH7.IndexOf("ご依頼主電話番号"), r).Value = "092-986-5538"
+                            'ご依頼主　郵便番号
+
+                            'ご依頼主郵便番号
+                            DGV7.Item(dH7.IndexOf("ご依頼主郵便番号"), r).Value = "811-0123"
+                            DGV7.Item(dH7.IndexOf("ご依頼主住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
+
+                            DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = "33"
+                            DGV7.Item(dH7.IndexOf("ご依頼主名称１"), r).Value = "万方商事株式会社"
+                            DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+
+
+
+
                         ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "問屋よか" And (Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴A" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴B" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴C") Then
                             DGV7.Item(dH7.IndexOf("ご依頼主電話番号"), r).Value = "092-577-9205"
                             DGV7.Item(dH7.IndexOf("ご依頼主郵便番号"), r).Value = ""
@@ -9661,6 +9880,68 @@ Public Class Csv_denpyo3
                             DGV8.Item(dH8.IndexOf("代行ご依頼主名２"), r).Value = ""
                             DGV8.Item(dH8.IndexOf("代行ご依頼主メールアドレス"), r).Value = ""
                             Exit For
+
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZFK" Then
+                            'If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
+                            '    DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
+                            'Else
+                            '    'DGV7.Item(dH7.IndexOf("品名１"), r).Value = ""
+                            'End If
+
+
+
+
+                            'DGV7.Item(dH7.IndexOf("品名２"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名３"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名４"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名５"), r).Value = ""
+
+
+
+
+
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主電話"), r).Value = "092-586-6853"
+                            'ご依頼主　郵便番号
+
+                            'ご依頼主郵便番号
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主郵便番号"), r).Value = "812-0881"
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
+
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主住所２"), r).Value = "33"
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主名１"), r).Value = "万方商事株式会社"
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主名２"), r).Value = ""
+                            Exit For
+
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZ海東" Then
+                            'If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
+                            '    DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
+                            'Else
+                            '    'DGV7.Item(dH7.IndexOf("品名１"), r).Value = ""
+                            'End If
+
+
+                            'DGV7.Item(dH7.IndexOf("品名２"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名３"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名４"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名５"), r).Value = ""
+
+                            Debug.WriteLine("")
+
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主電話"), r).Value = "092-986-5538"
+                            'ご依頼主　郵便番号
+
+                            'ご依頼主郵便番号
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主郵便番号"), r).Value = "811-0123"
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
+
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主住所２"), r).Value = "33"
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主名１"), r).Value = "万方商事株式会社"
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主名２"), r).Value = ""
+                            Exit For
+
+
                         ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "問屋よか" And (Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴A" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴B" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴C") Then
                             DGV8.Item(dH8.IndexOf("代行ご依頼主電話"), r).Value = "092-577-9205"
                             DGV8.Item(dH8.IndexOf("代行ご依頼主郵便番号"), r).Value = ""
@@ -9697,6 +9978,70 @@ Public Class Csv_denpyo3
                             DGV9.Item(dH9.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
                             DGV9.Item(dH9.IndexOf("ご依頼主　名称２"), r).Value = ""
                             Exit For
+
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZFK" Then
+                            'If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
+                            '    DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
+                            'Else
+                            '    'DGV7.Item(dH7.IndexOf("品名１"), r).Value = ""
+                            'End If
+
+
+
+
+                            'DGV7.Item(dH7.IndexOf("品名２"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名３"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名４"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名５"), r).Value = ""
+
+
+
+
+
+                            DGV9.Item(dH9.IndexOf("ご依頼主　電話番号"), r).Value = "092-586-6853"
+                            'ご依頼主　郵便番号
+
+                            'ご依頼主郵便番号
+                            DGV9.Item(dH9.IndexOf("ご依頼主　郵便番号"), r).Value = "812-0881"
+                            DGV9.Item(dH9.IndexOf("ご依頼主　住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
+
+                            DGV9.Item(dH9.IndexOf("ご依頼主　住所２"), r).Value = "33"
+                            DGV9.Item(dH9.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
+                            DGV9.Item(dH9.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            Exit For
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZ海東" Then
+                            'If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
+                            '    DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
+                            'Else
+                            '    'DGV7.Item(dH7.IndexOf("品名１"), r).Value = ""
+                            'End If
+
+
+                            'DGV7.Item(dH7.IndexOf("品名２"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名３"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名４"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名５"), r).Value = ""
+
+
+                            DGV9.Item(dH9.IndexOf("ご依頼主　電話番号"), r).Value = "092-986-5538"
+                            'ご依頼主　郵便番号
+
+                            'ご依頼主郵便番号
+                            DGV9.Item(dH9.IndexOf("ご依頼主　郵便番号"), r).Value = "811-0123"
+                            DGV9.Item(dH9.IndexOf("ご依頼主　住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
+
+                            DGV9.Item(dH9.IndexOf("ご依頼主　住所２"), r).Value = "33"
+                            DGV9.Item(dH9.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
+                            DGV9.Item(dH9.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            Exit For
+
+
+
+
+
+
                         ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "問屋よか" And (Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴A" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴B" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴C") Then
                             DGV9.Item(dH9.IndexOf("ご依頼主　郵便番号"), r).Value = ""
                             DGV9.Item(dH9.IndexOf("ご依頼主　電話番号"), r).Value = "092-577-9205"
@@ -9725,6 +10070,75 @@ Public Class Csv_denpyo3
                             DGV13.Item(dH13.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
                             DGV13.Item(dH13.IndexOf("ご依頼主　名称２"), r).Value = ""
                             Exit For
+
+
+
+
+
+
+
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZFK" Then
+                            'If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
+                            '    DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
+                            'Else
+                            '    'DGV7.Item(dH7.IndexOf("品名１"), r).Value = ""
+                            'End If
+
+
+
+
+                            'DGV7.Item(dH7.IndexOf("品名２"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名３"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名４"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名５"), r).Value = ""
+
+
+
+
+
+                            DGV13.Item(dH13.IndexOf("ご依頼主　電話番号"), r).Value = "092-586-6853"
+                            'ご依頼主　郵便番号
+
+                            'ご依頼主郵便番号
+                            DGV13.Item(dH13.IndexOf("ご依頼主　郵便番号"), r).Value = "812-0881"
+                            DGV13.Item(dH13.IndexOf("ご依頼主　住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
+
+                            DGV13.Item(dH13.IndexOf("ご依頼主　住所２"), r).Value = "33"
+                            DGV13.Item(dH13.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
+                            DGV13.Item(dH13.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            Exit For
+
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZ海東" Then
+                            'If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
+                            '    DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
+                            'Else
+                            '    'DGV7.Item(dH7.IndexOf("品名１"), r).Value = ""
+                            'End If
+
+
+                            'DGV7.Item(dH7.IndexOf("品名２"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名３"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名４"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("品名５"), r).Value = ""
+
+
+                            DGV13.Item(dH13.IndexOf("ご依頼主　電話番号"), r).Value = "092-986-5538"
+                            'ご依頼主　郵便番号
+
+                            'ご依頼主郵便番号
+                            DGV13.Item(dH13.IndexOf("ご依頼主　郵便番号"), r).Value = "811-0123"
+                            DGV13.Item(dH13.IndexOf("ご依頼主　住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
+
+                            DGV13.Item(dH13.IndexOf("ご依頼主　住所２"), r).Value = "33"
+                            DGV13.Item(dH13.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
+                            DGV13.Item(dH13.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            Exit For
+
+
+
+
                         ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "問屋よか" And (Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴A" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴B" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴C") Then
                             DGV13.Item(dH13.IndexOf("ご依頼主　郵便番号"), r).Value = ""
                             DGV13.Item(dH13.IndexOf("ご依頼主　電話番号"), r).Value = "092-577-9205"
@@ -12855,6 +13269,25 @@ Public Class Csv_denpyo3
                         data &= "," 'ご依頼主住所（アパートマンション名）
                         data &= "ａｍａｚｏｎ雑貨の国のアリス," 'ご依頼主名
                         data &= "," 'ご依頼主略称カナ
+
+
+                    ElseIf DGV9.Item(dH9.IndexOf("ご依頼主　名称１"), r).Value = "AZFK" Then
+
+                        Debug.WriteLine(data)
+                        Debug.WriteLine(data)
+
+                        Debug.WriteLine(data)
+
+
+
+                    ElseIf DGV9.Item(dH9.IndexOf("ご依頼主　名称１"), r).Value = "AZ海東" Then
+
+                        Debug.WriteLine(data)
+                        Debug.WriteLine(data)
+
+                        Debug.WriteLine(data)
+                    ElseIf DGV9.Item(dH9.IndexOf("ご依頼主　名称１"), r).Value = "Amazon 雑貨の国のアリス" Then
+
                     Else
                         data &= "," 'ご依頼主コード
                         data &= DGV9.Item(dH9.IndexOf("ご依頼主　電話番号"), r).Value & "," 'ご依頼主電話番号
