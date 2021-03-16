@@ -12,7 +12,7 @@ Imports PdfGeneratorNetFree.PgnStyle
 
 Public Class Csv_denpyo3
     'Private Declare Function HideCaret Lib "user32.dll" (ByVal hwnd As IntPtr) As Boolean
-
+    'Private dgv1dNoArray As New ArrayList
     Private dgv1dNoArray As New ArrayList
     Private dgv6CodeArray As New ArrayList
     Private dgv6DaihyoCodeArray As New ArrayList
