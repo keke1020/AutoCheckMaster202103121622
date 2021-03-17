@@ -2069,8 +2069,9 @@ Public Class Csv_denpyo3
                     If InStr(code(0).ToLower, "ny373") And haisouKind = "メール便" Then
                         If special_taku Then
                             weight = "178"
-                        Else
-                            weight = "2.5"
+                            'Else
+                            '    'weight = "2.5"
+                            '    weight = "100"
                         End If
                     End If
 
