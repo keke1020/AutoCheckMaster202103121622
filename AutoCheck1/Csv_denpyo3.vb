@@ -5081,6 +5081,7 @@ Public Class Csv_denpyo3
         TM_DB_CONNECT(CnAccdb)
 
         For r As Integer = 0 To DGV1.Rows.Count - 1
+            LIST4VIEW(r, "startSagawaCheck2")
             If DGV1(TM_ArIndexof(dH1, "発送方法"), r).Value = "宅配便" Then
                 Dim SakiYubin As String = DGV1(TM_ArIndexof(dH1, "発送先郵便番号"), r).Value
 
@@ -5143,6 +5144,7 @@ Public Class Csv_denpyo3
         Next
 
         TM_DB_DISCONNECT()
+        LIST4VIEW("住所チェック", "end")
     End Sub
 
     Private Sub ListBox1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles ListBox1.DoubleClick
@@ -9825,9 +9827,9 @@ Public Class Csv_denpyo3
                             DGV7.Item(dH7.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
                             DGV7.Item(dH7.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
 
-                            DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = "33"
-                            DGV7.Item(dH7.IndexOf("ご依頼主名称１"), r).Value = "万方商事株式会社"
-                            DGV7.Item(dH7.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            DGV7.Item(dH7.IndexOf("ご依頼主名称１"), r).Value = "Amazon FK"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主　名称２"), r).Value = ""
                             Exit For
 
 
@@ -9852,9 +9854,9 @@ Public Class Csv_denpyo3
                             DGV7.Item(dH7.IndexOf("ご依頼主郵便番号"), r).Value = "811-0123"
                             DGV7.Item(dH7.IndexOf("ご依頼主住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
 
-                            DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = "33"
-                            DGV7.Item(dH7.IndexOf("ご依頼主名称１"), r).Value = "万方商事株式会社"
-                            DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            DGV7.Item(dH7.IndexOf("ご依頼主名称１"), r).Value = "Amazon 海東"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
                             Exit For
 
 
@@ -9954,9 +9956,9 @@ Public Class Csv_denpyo3
                             DGV8.Item(dH8.IndexOf("代行ご依頼主郵便番号"), r).Value = "812-0881"
                             DGV8.Item(dH8.IndexOf("代行ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
 
-                            DGV8.Item(dH8.IndexOf("代行ご依頼主住所２"), r).Value = "33"
-                            DGV8.Item(dH8.IndexOf("代行ご依頼主名１"), r).Value = "万方商事株式会社"
-                            DGV8.Item(dH8.IndexOf("代行ご依頼主名２"), r).Value = ""
+                            'DGV8.Item(dH8.IndexOf("代行ご依頼主住所２"), r).Value = ""
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主名１"), r).Value = "Amazon FK"
+                            'DGV8.Item(dH8.IndexOf("代行ご依頼主名２"), r).Value = ""
                             Exit For
 
 
@@ -9982,9 +9984,9 @@ Public Class Csv_denpyo3
                             DGV8.Item(dH8.IndexOf("代行ご依頼主郵便番号"), r).Value = "811-0123"
                             DGV8.Item(dH8.IndexOf("代行ご依頼主住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
 
-                            DGV8.Item(dH8.IndexOf("代行ご依頼主住所２"), r).Value = "33"
-                            DGV8.Item(dH8.IndexOf("代行ご依頼主名１"), r).Value = "万方商事株式会社"
-                            DGV8.Item(dH8.IndexOf("代行ご依頼主名２"), r).Value = ""
+                            'DGV8.Item(dH8.IndexOf("代行ご依頼主住所２"), r).Value = ""
+                            DGV8.Item(dH8.IndexOf("代行ご依頼主名１"), r).Value = "Amazon 海東"
+                            'DGV8.Item(dH8.IndexOf("代行ご依頼主名２"), r).Value = ""
                             Exit For
 
 
@@ -10052,9 +10054,9 @@ Public Class Csv_denpyo3
                             DGV9.Item(dH9.IndexOf("ご依頼主　郵便番号"), r).Value = "812-0881"
                             DGV9.Item(dH9.IndexOf("ご依頼主　住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
 
-                            DGV9.Item(dH9.IndexOf("ご依頼主　住所２"), r).Value = "33"
-                            DGV9.Item(dH9.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
-                            DGV9.Item(dH9.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            'DGV9.Item(dH9.IndexOf("ご依頼主　住所２"), r).Value = ""
+                            DGV9.Item(dH9.IndexOf("ご依頼主　名称１"), r).Value = "Amazon FK"
+                            'DGV9.Item(dH9.IndexOf("ご依頼主　名称２"), r).Value = ""
                             Exit For
 
                         ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZ海東" Then
@@ -10078,9 +10080,9 @@ Public Class Csv_denpyo3
                             DGV9.Item(dH9.IndexOf("ご依頼主　郵便番号"), r).Value = "811-0123"
                             DGV9.Item(dH9.IndexOf("ご依頼主　住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
 
-                            DGV9.Item(dH9.IndexOf("ご依頼主　住所２"), r).Value = "33"
-                            DGV9.Item(dH9.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
-                            DGV9.Item(dH9.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            'DGV9.Item(dH9.IndexOf("ご依頼主　住所２"), r).Value = ""
+                            DGV9.Item(dH9.IndexOf("ご依頼主　名称１"), r).Value = "Amazon 海東"
+                            'DGV9.Item(dH9.IndexOf("ご依頼主　名称２"), r).Value = ""
                             Exit For
 
 
@@ -10150,9 +10152,9 @@ Public Class Csv_denpyo3
                             DGV13.Item(dH13.IndexOf("ご依頼主　郵便番号"), r).Value = "812-0881"
                             DGV13.Item(dH13.IndexOf("ご依頼主　住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
 
-                            DGV13.Item(dH13.IndexOf("ご依頼主　住所２"), r).Value = "33"
-                            DGV13.Item(dH13.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
-                            DGV13.Item(dH13.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            'DGV13.Item(dH13.IndexOf("ご依頼主　住所２"), r).Value = ""
+                            DGV13.Item(dH13.IndexOf("ご依頼主　名称１"), r).Value = "Amazon FK"
+                            'DGV13.Item(dH13.IndexOf("ご依頼主　名称２"), r).Value = ""
                             Exit For
 
 
@@ -10177,9 +10179,9 @@ Public Class Csv_denpyo3
                             DGV13.Item(dH13.IndexOf("ご依頼主　郵便番号"), r).Value = "811-0123"
                             DGV13.Item(dH13.IndexOf("ご依頼主　住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
 
-                            DGV13.Item(dH13.IndexOf("ご依頼主　住所２"), r).Value = "33"
-                            DGV13.Item(dH13.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
-                            DGV13.Item(dH13.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            'DGV13.Item(dH13.IndexOf("ご依頼主　住所２"), r).Value = ""
+                            DGV13.Item(dH13.IndexOf("ご依頼主　名称１"), r).Value = "Amazon 海東"
+                            'DGV13.Item(dH13.IndexOf("ご依頼主　名称２"), r).Value = ""
                             Exit For
 
 
