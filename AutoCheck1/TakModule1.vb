@@ -350,7 +350,7 @@ Module TakModule1
                 fileEnc = c.Name
                 csvText = reader.Text
             End Using
-            'csvText = File.ReadAllText(path, System.Text.Encoding.Default)
+            'csvtiiaosText = File.ReadAllText(path, System.Text.Encoding.Default)
         Catch ex As Exception
             MsgBox("ファイルを開けません。" & vbNewLine & "元ファイルをエクセル等で開いていませんか？", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation Or MsgBoxStyle.SystemModal)
             Return Nothing

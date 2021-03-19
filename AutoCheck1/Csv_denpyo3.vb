@@ -9,6 +9,7 @@ Imports Ookii.Dialogs
 Imports PdfGeneratorNetFree
 Imports PdfGeneratorNetFree.PdfContentItem
 Imports PdfGeneratorNetFree.PgnStyle
+Imports Microsoft.VisualBasic
 
 Public Class Csv_denpyo3
     'Private Declare Function HideCaret Lib "user32.dll" (ByVal hwnd As IntPtr) As Boolean
@@ -42,19 +43,140 @@ Public Class Csv_denpyo3
     Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh", "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny263-51", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi", "ny373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh"}
 
 
-    '需要把佐川急便转成yupaku发送的条件之一 下列地址是条件之一  条件二是code
-    Private yupaku_addressArr As String() = New String() {"和歌山県"}
-    Private yupaku_addressArrPro As String() = New String() {"北海道"}
-    Private yupaku_goods As String() = New String() {"test"}
-
-
-
-
-
-
     'ヤマト
     Dim yamato_title As String = "お客様管理番号,送り状種類,クール区分,伝票番号,出荷予定日,お届け予定（指定）日,配達時間帯,お届け先コード,お届け先電話番号,お届け先電話番号枝番,お届け先郵便番号,お届け先住所,お届け先住所（アパートマンション名）,お届け先会社・部門名１,お届け先会社・部門名２,お届け先名,お届け先名略称カナ,敬称,ご依頼主コード,ご依頼主電話番号,ご依頼主電話番号枝番,ご依頼主郵便番号,ご依頼主住所,ご依頼主住所（アパートマンション名）,ご依頼主名,ご依頼主略称カナ,品名コード１,品名１,品名コード２,品名２,荷扱い１,荷扱い２,記事,コレクト代金引換額（税込）,コレクト内消費税額等,営業所止置き,営業所コード,発行枚数,個数口枠の印字,ご請求先顧客コード,ご請求先分類コード,運賃管理番号,クロネコwebコレクトデータ登録,クロネコwebコレクト加盟店番号,クロネコwebコレクト申込受付番号１,クロネコwebコレクト申込受付番号２,クロネコwebコレクト申込受付番号３,お届け予定ｅメール利用区分,お届け予定ｅメールe-mailアドレス,入力機種,お届け予定eメールメッセージ,お届け完了eメール利用区分,お届け完了ｅメールe-mailアドレス,お届け完了ｅメールメッセージ,クロネコ収納代行利用区分,収納代行決済ＱＲコード印刷,収納代行請求金額(税込),収納代行内消費税額等,収納代行請求先郵便番号,収納代行請求先住所,収納代行請求先住所（アパートマンション名）,収納代行請求先会社・部門名１,収納代行請求先会社・部門名２,収納代行請求先名(漢字),収納代行請求先名(カナ),収納代行問合せ先名(漢字),収納代行問合せ先郵便番号,収納代行問合せ先住所,収納代行問合せ先住所（アパートマンション名）,収納代行問合せ先電話番号,収納代行管理番号,収納代行品名,収納代行備考,複数口くくりキー,検索キータイトル１,検索キー１,検索キータイトル２,検索キー２,検索キータイトル３,検索キー３,検索キータイトル４,検索キー４,検索キータイトル５,検索キー５,予備,予備,投函予定メール利用区分,投函予定メールe-mailアドレス,投函予定メールメッセージ,投函完了メール（お届け先宛）利用区分,投函完了メール（お届け先宛）e-mailアドレス,投函完了メール（お届け先宛）メールメッセージ,投函完了メール（ご依頼主宛）利用区分,投函完了メール（ご依頼主宛）e-mailアドレス,投函完了メール（ご依頼主宛）メールメッセージ,連携管理番号,通知メールアドレス"
     Private yamato_title_sp As String() = yamato_title.Split(",")
+
+
+
+
+
+
+    '需要把佐川急便转成yupaku发送的条件之一 下列地址是条件之一  条件二是code
+    Private yupaku_addressArr As String() = New String() {"和歌山県TEST"}
+    Private yupaku_addressArrPro As String() = New String() {"北海道TEST"}
+    Private yupaku_goods As String() = New String() {"test"}
+    Public yupakucheck As Boolean = False
+    Private yupaku_str As String = "ゆうパく"
+    Dim isyupakuGoodBool As Boolean = False
+
+
+
+
+
+    Public Function isyupakuGoodsbyCode(code As String)
+        If code = "" Then
+            Return False
+        Else
+            For index = 0 To yupaku_goods.Count - 1
+                If yupaku_goods(index) = code Then
+                    Return True
+                End If
+            Next
+        End If
+        Return False
+    End Function
+
+
+
+    Public Function isyupakubyAddress(address As String)
+        If address = "" Then
+            Return False
+        Else
+            For index = 0 To yupaku_goods.Count - 1
+                If yupaku_addressArrPro(index) = address Then
+                    Return True
+                End If
+            Next
+        End If
+        Return False
+    End Function
+
+    'MaxMumAndCurMunSagawaYupakuPro
+    Dim yupakufName As String = Path.GetDirectoryName(Form1.appPath) & "\config\version2\MaxMumAndCurMunSagawaYupakuPro.txt"
+    Public Function isyupakuGoodsOverMax()
+
+        'Dim fName As String = ""
+        Dim csvRecords As New ArrayList
+        Dim max As String
+        Dim cur As String
+        Dim returndata As New ArrayList
+
+        'fName = Path.GetDirectoryName(Form1.appPath) & "\config\version2\MaxMumAndCurMunSagawaYupakuPro.txt"
+        csvRecords = TM_CSV_READ(yupakufName)(0)
+        Debug.WriteLine(csvRecords)
+        For r As Integer = 0 To csvRecords.Count - 1
+            Dim sArray As String() = Split(csvRecords(r), "|=|")
+            'Dim sArraytemp As String() = Split(sArray(0), ",")
+            Debug.WriteLine("ceshiyong")
+            Debug.WriteLine(sArray(0))
+            returndata.Add(sArray(0))
+        Next
+
+
+
+        If IsNothing(returndata) Then
+            Return -1
+        End If
+
+        Dim ss As String = Format(Now(), "yyyy-MM-dd")
+
+        If returndata(2) <> ss Then
+            WriteFile(yupakufName, returndata(0), 0)
+            Return returndata(0)
+        End If
+
+        'If returndata(0) = "" Or returndata(1) = "" Then
+        '    Return -1
+        'End If
+
+        If returndata(0) > returndata(1) Then
+            Return returndata(0) - returndata(1)
+        Else
+            'WriteFile(yupakufName, returndata(0), returndata(0))
+            Return -1
+        End If
+        Return -1
+    End Function
+
+    Public Sub WriteFile(fileName As String, max As String, cur As String)
+
+        'If fileName = "" Or data = "" Then
+        '    Exit Sub
+        'End If
+
+        Try
+            'Dim bytes() As Byte = File.ReadAllBytes(fileName)
+
+
+
+            'Dim writeFile As TextWriter = New StreamWriter("c:\textwriter.txt")
+            Dim writeFile As TextWriter = New StreamWriter(fileName)
+
+            'writeFile.WriteLine("890", "350")
+            Dim ss As String = Format(Now(), "yyyy-MM-dd")
+
+            MsgBox("开始" + ss)
+            writeFile.WriteLine(max & vbCrLf & cur & vbCrLf & ss)
+
+            writeFile.Flush()
+            writeFile.Close()
+            writeFile = Nothing
+
+
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
+
+        MsgBox("完成")
+
+
+    End Sub
+
+
+
 
 
     Dim managertool As ManagerTools
@@ -944,6 +1066,12 @@ Public Class Csv_denpyo3
                 'やまとへんかん
                 Dim isYamatoGood As Boolean = True
                 Dim isYamatoGood_fukumu As Boolean = False '包含yamato的货
+
+
+
+                '默认不是yupaku的huo
+                'Dim isyupakuGoodBool As Boolean = False
+
                 'Dim has_ny263_50_c As Boolean = False
                 'Dim ny263_50_c_count As Integer = 0
                 'Dim ny263_50_c_sw As String = Nothing
@@ -988,6 +1116,57 @@ Public Class Csv_denpyo3
                         'End If
                     Next
 
+
+
+
+
+
+
+
+
+                    For checkcodei As Integer = 0 To mCodeArray.Length - 1
+                        Dim checkcode As String() = Split(mCodeArray(checkcodei), "*")
+
+
+
+
+                        'If Not isyupakuGoodsbyCode(checkcode(0)) Then
+                        '    isyupakuGoodBool = False
+                        'End If
+                        isyupakuGoodBool = False
+                        If isyupakuGoodsbyCode(checkcode(0)) Then
+                            isyupakuGoodBool = True
+                        Else
+                            isyupakuGoodBool = False
+                        End If
+
+
+
+
+
+
+
+                        'If yamato_goods.Contains(checkcode(0).ToLower) Then
+                        '    If isYamatoGood_fukumu = False Then
+                        '        isYamatoGood_fukumu = True
+                        '    End If
+                        'End If
+
+                        'If checkcode(0).ToLower = "ny263-50-c" Then
+                        '    has_ny263_50_c = True
+                        '    ny263_50_c_count += checkcode(1)
+                        'End If
+                    Next
+
+
+
+
+
+
+
+
+
+
                     If isYamatoGood And (DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value = dazaifu_str Or DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value = "井相田") And (Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "メール便") Or Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "ヤマト")) Then
                         'If DGV1.Item(dH1.IndexOf("sw"), r1).Value <> Nothing And ny263_50_c_sw <> Nothing Then
                         '    If DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "宅配便" Then
@@ -1021,7 +1200,14 @@ Public Class Csv_denpyo3
                             DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(DGV1.Item(dH1.IndexOf("sw"), r1).Value / 10000)
                         End If
 
+                    ElseIf isyupakuGoodBool And Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "宅配便") Then
+
+                        DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = " メール便"
+                        DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "ゆうパ200"
+                        DGV1.Item(dH1.IndexOf("データ"), r1).Value = "ゆうパ200"
+
                     End If
+
                 Next
 
                 MaisuKeisanLeft()       '枚数計算メイン左
@@ -1579,6 +1765,9 @@ Public Class Csv_denpyo3
                 Dim checkcodejuchusu_ny306 As Integer = 0
 
                 Dim checkcodejuchusu_ny373 As Integer = 0
+
+                Dim checkcodejuchusu_ny385 As Integer = 0
+
                 'Dim checkcodejuchusu_ad228 As Integer = 0
                 'Dim checkcodejuchusu_sl065 As Integer = 0
                 'Dim checkcodejuchusu_sl066 As Integer = 0
@@ -1746,6 +1935,17 @@ Public Class Csv_denpyo3
                     End If
 
 
+
+
+
+                    'ny385受注数
+                    If InStr(checkcode(0).ToLower, "ny385") Then
+                        If checkcode(1) = Int(checkcode(1)) Then
+                            checkcodejuchusu_ny385 = checkcodejuchusu_ny385 + checkcode(1)
+                        End If
+                    End If
+
+
                 Next
 
                 If checkcodejuchusu_ny331_50 >= 3 Then
@@ -1825,6 +2025,15 @@ Public Class Csv_denpyo3
                 If checkcodejuchusu_ny373 >= 3 Then
                     special_taku = True
                 End If
+
+
+                If checkcodejuchusu_ny385 >= 3 Then
+                    special_taku = True
+                End If
+
+
+
+
                 'If checkcodejuchusu_ny373 > 0 Then
                 '    special_taku2 = True
                 'End If
@@ -2068,6 +2277,7 @@ Public Class Csv_denpyo3
 
                     If InStr(code(0).ToLower, "ny373") And haisouKind = "メール便" Then
                         If special_taku Then
+                            '56一个便
                             weight = "178"
                             'Else
                             '    'weight = "2.5"
@@ -2076,6 +2286,13 @@ Public Class Csv_denpyo3
                     End If
 
 
+
+                    'ny385 的 mlb 3个以上发佐川 佐川40个一便
+                    If InStr(code(0).ToLower, "ny385") And haisouKind = "メール便" Then
+                        If special_taku Then
+                            weight = "250"
+                        End If
+                    End If
 
 
                     If haisouKind = "宅配便" And code(0).ToLower = "ap092" Then
@@ -2801,6 +3018,15 @@ Public Class Csv_denpyo3
                         DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = "宅配便"
                         DGV1.Item(dH1.IndexOf("データ"), r1).Value = "佐川"
                     End If
+
+
+
+                    'If isyupakuGoodBool Then
+
+                    'End If
+
+
+
 
 
 
@@ -9772,7 +9998,7 @@ Public Class Csv_denpyo3
 
 
                     'If IsCompanyOrIndividual_7(r, dH7) Then
-                    '    DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700195"
+                    '    DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700196"
                     'Else
                     '    DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
                     'End If
@@ -9903,9 +10129,9 @@ Public Class Csv_denpyo3
                 If DGV8.Item(dH8.IndexOf("処理用2"), r).Value = "名古屋" Then
                     DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "148067700005"
 
-                    '148067700195
+                    '148067700196
                     'If IsCompanyOrIndividual_8(r, dH8) Then
-                    '    DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "148067700195"
+                    '    DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "148067700196"
                     'Else
                     '    DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "148067700005"
                     'End If
@@ -13720,6 +13946,24 @@ Public Class Csv_denpyo3
 
     Private Sub 佐川送料比較ToolStripMenuItem_Click(sender As Object, e As EventArgs)
         SagawaSpare.Show()
+    End Sub
+
+
+    Private Sub CheckBox34_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox34.CheckedChanged
+        '暂时注释掉
+
+        'yupakucheck = CheckBox34.Checked
+        'If (CheckBox34.Checked) Then
+        '    yupakucheck = True
+        '    MessageBox.Show("You are in the CheckBox.CheckedChanged event.")
+        '    isyupakuGoodsOverMax()
+        'Else
+        '    WriteFile(yupakufName, "350", "300")
+        '    yupakucheck = False
+        '    MessageBox.Show("写入成功")
+        'End If
+
+
     End Sub
 
 
