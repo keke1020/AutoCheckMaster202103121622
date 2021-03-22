@@ -4,7 +4,9 @@ Public Class Csv_denpyo3_F_count
     Private serverDir As String = Form1.サーバーToolStripMenuItem.Text & "\denpyoLog\"
 
     Private Sub Csv_denpyo3_F_count_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Me.Size = New Size(1224, 110)
+        'Me.Size = New Size(1224, 110)
+        Me.Size = New Size(1366, 110)
+
         If Form1.AdminFlag Then
             Button2.BackColor = Color.Yellow
         End If
