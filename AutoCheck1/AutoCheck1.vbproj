@@ -426,6 +426,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -555,6 +556,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Csv_denpyo3.resx">
       <DependentUpon>Csv_denpyo3.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Csv_denpyo3_F_count.resx">
       <DependentUpon>Csv_denpyo3_F_count.vb</DependentUpon>

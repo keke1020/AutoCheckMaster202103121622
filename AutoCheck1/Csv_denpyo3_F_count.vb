@@ -29,6 +29,8 @@ Public Class Csv_denpyo3_F_count
             If Directory.Exists(serverDir) Then
                 Dim todayTxtPath As String = serverDir & Format(DateTimePicker1.Value, "yyyyMMdd") & ".txt"
                 Dim todayCsvPath As String = serverDir & Format(DateTimePicker1.Value, "yyyyMMdd") & ".csv"
+                Debug.WriteLine("todayTxtPath" + todayTxtPath)
+                Debug.WriteLine("todayCsvPath" + todayCsvPath)
                 If File.Exists(todayCsvPath) Then
                     If timer1Count > 50 Or timer1Count = 0 Then
                         Dim line As String = File.ReadLines(todayTxtPath, encSJ)(0)
@@ -47,11 +49,15 @@ Public Class Csv_denpyo3_F_count
                         LB29.Text = lineArray(10)
                         LB30.Text = lineArray(11)
 
+
                         LB37.Text = lineArray(12)
                         LB38.Text = lineArray(13)
 
-                        LB_d.Text = CInt(LB1.Text) + CInt(LB2.Text) + CInt(LB3.Text) + CInt(LB4.Text) + CInt(LB37.Text)
-                        LB_i.Text = CInt(LB5.Text) + CInt(LB6.Text) + CInt(LB7.Text) + CInt(LB8.Text) + CInt(LB38.Text)
+                        LB35.Text = lineArray(16)
+                        LB33.Text = lineArray(17)
+                        'CInt(LB35.Text)  太宰府的yu2路便        'CInt(LB33.Text) 井相田 的yu2路便 
+                        LB_d.Text = CInt(LB1.Text) + CInt(LB2.Text) + CInt(LB3.Text) + CInt(LB4.Text) + CInt(LB37.Text) + CInt(LB35.Text)
+                        LB_i.Text = CInt(LB5.Text) + CInt(LB6.Text) + CInt(LB7.Text) + CInt(LB8.Text) + CInt(LB38.Text) + CInt(LB33.Text)
                         LB_n.Text = CInt(LB26.Text) + CInt(LB28.Text) + CInt(LB29.Text) + CInt(LB30.Text)
                         timer1Count = 0
                     End If

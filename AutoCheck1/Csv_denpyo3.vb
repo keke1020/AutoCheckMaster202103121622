@@ -38,9 +38,10 @@ Public Class Csv_denpyo3
     Private yamato_str As String = "ヤマト"
     Private fukususouko_str As String = "複数倉庫"
 
+    '邮局 适用P60发送地域
     Private checkaddress_oosakika As String() = New String() {"熊本県", "宮崎県", "鹿児島県", "福岡県", "佐賀県", "長崎県", "大分県", "徳島県", "香川県", "愛媛県", "高知県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"}
     Private checkaddress_oosakizyou As String() = New String() {"富山県", "石川県", "福井県", "岐阜県", "静岡県", "愛知県", "三重県", "新潟県", "長野県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "山梨県", "宮城県", "山形県", "福島県", "青森県", "岩手県", "秋田県", "北海道"}
-    Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh", "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny263-51", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi", "ny373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh"}
+    Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh", "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny331-50-lgr", "ny331-50-lor", "ny331-50-rose", "ny263-51", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi", "ny373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh", "ny385-a", "ny385-b", "ny385-c", "ny385-d"}
 
 
     'ヤマト
@@ -55,7 +56,7 @@ Public Class Csv_denpyo3
     '需要把佐川急便转成yupaku发送的条件之一 下列地址是条件之一  条件二是code
     Private yupaku_addressArr As String() = New String() {"和歌山県TEST"}
     Private yupaku_addressArrPro As String() = New String() {"北海道TEST"}
-    Private yupaku_goods As String() = New String() {"TEST"}
+    Private yupaku_goods As String() = New String() {"ad135-be"}
     Public yupakucheck As Boolean = False
     Private yupaku_str As String = "ゆう2"
     Dim isyupakuGoodBool As Boolean = False
@@ -2342,6 +2343,8 @@ Public Class Csv_denpyo3
                         weight = "16.66" '100/6
                         sp_check = False
                     End If
+
+
 
                     'ad228 2個なら1便 
                     'If haisouKind = "宅配便" And (code(0).ToLower = "ad228" Or code(0).ToLower = "ad228-be" Or code(0).ToLower = "ad228-bl" Or code(0).ToLower = "ad228-co" Or code(0).ToLower = "ad228-gr" Or code(0).ToLower = "ad228-sb" Or code(0).ToLower = "ad228-wa") And checkcodejuchusu_ad228_even Then
@@ -5840,14 +5843,14 @@ Public Class Csv_denpyo3
         Dim dH1 As ArrayList = TM_HEADER_GET(DGV1)
         Dim dH3 As ArrayList = TM_HEADER_GET(DGV3)
         'Dim kosu As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-        '名古屋は10から ヤマト(太)是第14 ヤマト(井)是第15
-        Dim kosu As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+        '名古屋は10から ヤマト(太)是第14 ヤマト(井)是第15      ゆう2(太路)是 18  ゆう2(太船)是19   ゆう2(井路)是 20  ゆう2(井船)是21   
+        Dim kosu As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
         'Dim kosuKouku As Integer() = New Integer() {0, 0, 0, 0, 0}
         '名古屋は9から
         Dim kosuKouku As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0}
         'Dim tenpoList As String() = New String() {"", "", "", "", "", "", "", "", ""}        '出力確認票用に店舗を入れる
-        '名古屋は9から ヤマト是第13 ヤマト(井)是第14
-        Dim tenpoList As String() = New String() {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}        '出力確認票用に店舗を入れる
+        '名古屋は9から ヤマト是第13 ヤマト(井)是第14      ゆう2 是第17 ゆう2(井)是第18  
+        Dim tenpoList As String() = New String() {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}        '出力確認票用に店舗を入れる
         'Dim tenpoListKouku As String() = New String() {"", "", "", "", ""}
         '名古屋は5から
         Dim tenpoListKouku As String() = New String() {"", "", "", "", "", "", ""}
@@ -6054,6 +6057,14 @@ Public Class Csv_denpyo3
                         If sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(陸便)" Or sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(船便)" Then
                             isYamato = True
                         End If
+
+
+                        Dim isyupakuGoodBoolTemp As Boolean = False
+                        'If sender.Item(dHSender.IndexOf("データ"), r).Value = "ゆう2" Then
+                        '    isyupakuGoodBoolTemp = True
+                        'End If
+
+
                         Select Case sender.Item(dHSender.IndexOf(koumoku("syori2")(i)), r).Value
                             Case HS1.Text
                                 If isYamato Then
@@ -6062,6 +6073,13 @@ Public Class Csv_denpyo3
                                     ElseIf sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(船便)" Then
                                         kosu(16) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
                                     End If
+                                ElseIf isyupakuGoodBoolTemp Then
+
+                                    '太宰府 yu 2  的路便
+                                    kosu(18) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
+
+
+
                                 Else
                                     kosu(4) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
                                 End If
@@ -6072,9 +6090,14 @@ Public Class Csv_denpyo3
                                     ElseIf sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(船便)" Then
                                         kosu(17) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
                                     End If
+
+                                ElseIf isyupakuGoodBoolTemp Then
+                                    kosu(20) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
                                 Else
                                     kosu(6) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
                                 End If
+
+                                '名古屋
                             Case HS4.Text
                                 kosu(12) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
                         End Select
@@ -6088,6 +6111,11 @@ Public Class Csv_denpyo3
                                     ElseIf sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(船便)" Then
                                         tl = tenpoList(15)
                                     End If
+
+                                ElseIf isyupakuGoodBoolTemp Then
+
+                                    '太宰府yu2路便   暂定无船便
+                                    tl = tenpoList(17)
                                 Else
                                     tl = tenpoList(4)
                                 End If
@@ -6098,6 +6126,8 @@ Public Class Csv_denpyo3
                                     ElseIf sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(船便)" Then
                                         tl = tenpoList(16)
                                     End If
+                                ElseIf isyupakuGoodBoolTemp Then
+                                    tl = tenpoList(18)
                                 Else
                                     tl = tenpoList(6)
                                 End If
@@ -6120,6 +6150,22 @@ Public Class Csv_denpyo3
                                         tenpoList(15) = tl
                                     End If
                                 End If
+
+
+
+                                If isyupakuGoodBoolTemp Then
+                                    tenpoList(4) = tl
+
+                                Else
+                                    If sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(陸便)" Then
+                                        tenpoList(13) = tl
+                                    ElseIf sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(船便)" Then
+                                        tenpoList(15) = tl
+                                    End If
+                                End If
+
+
+
                             Case HS2.Text
                                 If isYamato Then
                                     If sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(陸便)" Then
@@ -6238,6 +6284,22 @@ Public Class Csv_denpyo3
 
                 LinkLabel35.Text = kosu(17)
                 ToolTip1.SetToolTip(LinkLabel35, tenpoList(16))
+
+                '太宰府的yu2路边
+                LinkLabel38.Text = kosu(18)
+                ToolTip1.SetToolTip(LinkLabel38, tenpoList(17))
+
+                '太宰府的yu2船 暂无
+                'LinkLabel37.Text = kosu(19)
+                'ToolTip1.SetToolTip(LinkLabel37, tenpoList(16))
+                '井相田的yu2路边 暂无
+                'LinkLabel44.Text = kosu(20)
+                'ToolTip1.SetToolTip(LinkLabel44, tenpoList(17))
+                '井相田的yu2船边 暂无
+                'LinkLabel43.Text = kosu(21)
+                'ToolTip1.SetToolTip(LinkLabel43, tenpoList(18))
+
+
             Case sender Is DGV13
                 LinkLabel6.Text = kosu(5)
                 ToolTip1.SetToolTip(LinkLabel6, tenpoList(5))
@@ -6269,6 +6331,8 @@ Public Class Csv_denpyo3
         Csv_denpyo3_F_count.LB14.Text = "+" & LinkLabel6.Text
         Csv_denpyo3_F_count.LB35.Text = "+" & LinkLabel29.Text
         Csv_denpyo3_F_count.LB39.Text = "+" & LinkLabel34.Text
+        '太宰府的yu2路便
+        Csv_denpyo3_F_count.LB32.Text = "+" & LinkLabel38.Text
         Csv_denpyo3_F_count.LB40.Text = "+" & LinkLabel35.Text
         Csv_denpyo3_F_count.LB36.Text = "+" & LinkLabel30.Text
         Csv_denpyo3_F_count.LB15.Text = "+" & (CInt(LinkLabel16.Text) + CInt(LinkLabel3.Text))
@@ -9521,7 +9585,7 @@ Public Class Csv_denpyo3
                 '    Console.WriteLine(123)
                 'End If
 
-                sizeMax = 200
+                'sizeMax = 200
 
                 For i As Integer = mcCodeArray.Count - 1 To 0 Step -1
                     Dim hSouko As String = DGV1.Item(dH1.IndexOf("発送倉庫"), dgv1Row).Value
@@ -9975,17 +10039,18 @@ Public Class Csv_denpyo3
         Next
     End Sub
 
-    Dim dataB = {"医院", "組合", "会社", "機構", "法人", "薬局", "学校", "センター", "(株)", "商店"}
+    Dim dataB = {"医院", "組合", "会社", "機構", "法人", "薬局", "センター", "(株)", "（株）", "商店"}
     Private Function IsCompanyOrIndividual_7(r As Integer, dhM As ArrayList)
 
         '148067700195
-        Dim data1, data2, data3, data4
-        data1 = DGV7.Item(dhM.IndexOf("お届け先住所１"), r).Value  'お届け先住所
-        data2 = DGV7.Item(dhM.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
+        Dim data3, data4
+        'data1 = DGV7.Item(dhM.IndexOf("お届け先住所１"), r).Value  'お届け先住所
+        'data2 = DGV7.Item(dhM.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
         data3 = DGV7.Item(dhM.IndexOf("お届け先名称１"), r).Value 'お届け先名称１
         data4 = DGV7.Item(dhM.IndexOf("お届け先名称２"), r).Value 'お届け先名称2
 
-        Dim dataC = {data1, data2, data3, data4}
+        Dim dataC = {data3, data4}
+
 
         For i As Integer = 0 To dataC.Length - 1
             If Not IsNothing(dataC(i)) Then
@@ -10005,17 +10070,21 @@ Public Class Csv_denpyo3
 
 
         '148067700195
-        Dim data1, data2, data3, data4
-        data1 = DGV8.Item(dhM.IndexOf("お届け先住所１"), r).Value  'お届け先住所
-        data2 = DGV8.Item(dhM.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
+        Dim data3, data4
+        'data1 = DGV8.Item(dhM.IndexOf("お届け先住所１"), r).Value  'お届け先住所
+        'data2 = DGV8.Item(dhM.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
         data3 = DGV8.Item(dhM.IndexOf("お届け先名１"), r).Value 'お届け先名称１
         data4 = DGV8.Item(dhM.IndexOf("お届け先名２"), r).Value 'お届け先名称2
 
-        Dim dataC = {data1, data2, data3, data4}
+        Dim dataC = {data3, data4}
 
         For i As Integer = 0 To dataC.Length - 1
             If Not IsNothing(dataC(i)) Then
                 For j As Integer = 0 To dataB.Length - 1
+                    Dim d = dataC(i)
+                    Dim C = dataB(j)
+                    Debug.WriteLine(dataC(i))
+                    Debug.WriteLine(dataB(j))
                     If InStr(dataC(i), dataB(j)) Then
                         Return True
                     End If
@@ -12529,7 +12598,7 @@ Public Class Csv_denpyo3
 
                             Dim checkArray As New ArrayList
                             Dim mArray As New ArrayList
-                            Dim binsu As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+                            Dim binsu As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
                             If File.Exists(todayCsvPath) Then
                                 mArray = TM_CSV_READ(todayCsvPath)(0)
                                 Dim mH As String() = Split(mArray(0), "|=|")
