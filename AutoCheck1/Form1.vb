@@ -229,10 +229,10 @@ Public Class Form1
         ElseIf InStr(Environment.MachineName, "PING2") > 0 And InStr(Path.GetDirectoryName(appPath), "Debug") > 0 Then
             updateFlag = False
             AdminFlag = True
-        ElseIf InStr(Environment.MachineName, "LIU") > 0 And InStr(Path.GetDirectoryName(appPath), "Debug") > 0 Then
+        ElseIf InStr(Environment.MachineName, "LIU2") > 0 And InStr(Path.GetDirectoryName(appPath), "Debug") > 0 Then
             updateFlag = False
             AdminFlag = True
-        ElseIf InStr(Environment.MachineName, "NAKA") > 0 Or InStr(Environment.MachineName, "PING") > 0 Or InStr(Environment.MachineName, "MAO") > 0 Or InStr(Environment.MachineName, "PING2") > 0 Then
+        ElseIf InStr(Environment.MachineName, "NAKA") > 0 Or InStr(Environment.MachineName, "PING") > 0 Or InStr(Environment.MachineName, "LIU2") > 0 Or InStr(Environment.MachineName, "PING2") > 0 Then
             AdminFlag = True
         End If
 

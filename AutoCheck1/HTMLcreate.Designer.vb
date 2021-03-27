@@ -121,11 +121,6 @@ Partial Class HTMLcreate
         Me.AzukiControl2 = New Sgry.Azuki.WinForms.AzukiControl()
         Me.StatusStrip3 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.切り取りToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.コピーToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.貼り付けToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.全て選択ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip4 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
@@ -201,6 +196,11 @@ Partial Class HTMLcreate
         Me.ToolStripSplitButton2 = New System.Windows.Forms.ToolStripSplitButton()
         Me.OFFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.切り取りToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.コピーToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.貼り付けToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.全て選択ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.ToolStripMenuItem14 = New System.Windows.Forms.ToolStripMenuItem()
@@ -230,7 +230,6 @@ Partial Class HTMLcreate
         Me.StatusStrip1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.StatusStrip3.SuspendLayout()
-        Me.ContextMenuStrip2.SuspendLayout()
         Me.ToolStrip4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -250,6 +249,7 @@ Partial Class HTMLcreate
         Me.StatusStrip4.SuspendLayout()
         Me.ToolStrip2.SuspendLayout()
         Me.StatusStrip2.SuspendLayout()
+        Me.ContextMenuStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -965,40 +965,6 @@ Partial Class HTMLcreate
         Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(43, 18)
         Me.ToolStripStatusLabel4.Text = "00000"
         '
-        'ContextMenuStrip2
-        '
-        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.切り取りToolStripMenuItem1, Me.コピーToolStripMenuItem1, Me.貼り付けToolStripMenuItem1, Me.全て選択ToolStripMenuItem1})
-        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
-        Me.ContextMenuStrip2.Size = New System.Drawing.Size(172, 92)
-        '
-        '切り取りToolStripMenuItem1
-        '
-        Me.切り取りToolStripMenuItem1.Name = "切り取りToolStripMenuItem1"
-        Me.切り取りToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.切り取りToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
-        Me.切り取りToolStripMenuItem1.Text = "切り取り"
-        '
-        'コピーToolStripMenuItem1
-        '
-        Me.コピーToolStripMenuItem1.Name = "コピーToolStripMenuItem1"
-        Me.コピーToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.コピーToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
-        Me.コピーToolStripMenuItem1.Text = "コピー"
-        '
-        '貼り付けToolStripMenuItem1
-        '
-        Me.貼り付けToolStripMenuItem1.Name = "貼り付けToolStripMenuItem1"
-        Me.貼り付けToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.貼り付けToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
-        Me.貼り付けToolStripMenuItem1.Text = "貼り付け"
-        '
-        '全て選択ToolStripMenuItem1
-        '
-        Me.全て選択ToolStripMenuItem1.Name = "全て選択ToolStripMenuItem1"
-        Me.全て選択ToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.全て選択ToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
-        Me.全て選択ToolStripMenuItem1.Text = "全て選択"
-        '
         'ToolStrip4
         '
         Me.ToolStrip4.Font = New System.Drawing.Font("Segoe UI", 9.0!)
@@ -1643,6 +1609,40 @@ Partial Class HTMLcreate
         Me.ONToolStripMenuItem.Size = New System.Drawing.Size(99, 22)
         Me.ONToolStripMenuItem.Text = "ON"
         '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.切り取りToolStripMenuItem1, Me.コピーToolStripMenuItem1, Me.貼り付けToolStripMenuItem1, Me.全て選択ToolStripMenuItem1})
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(172, 92)
+        '
+        '切り取りToolStripMenuItem1
+        '
+        Me.切り取りToolStripMenuItem1.Name = "切り取りToolStripMenuItem1"
+        Me.切り取りToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
+        Me.切り取りToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
+        Me.切り取りToolStripMenuItem1.Text = "切り取り"
+        '
+        'コピーToolStripMenuItem1
+        '
+        Me.コピーToolStripMenuItem1.Name = "コピーToolStripMenuItem1"
+        Me.コピーToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.コピーToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
+        Me.コピーToolStripMenuItem1.Text = "コピー"
+        '
+        '貼り付けToolStripMenuItem1
+        '
+        Me.貼り付けToolStripMenuItem1.Name = "貼り付けToolStripMenuItem1"
+        Me.貼り付けToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
+        Me.貼り付けToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
+        Me.貼り付けToolStripMenuItem1.Text = "貼り付け"
+        '
+        '全て選択ToolStripMenuItem1
+        '
+        Me.全て選択ToolStripMenuItem1.Name = "全て選択ToolStripMenuItem1"
+        Me.全て選択ToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
+        Me.全て選択ToolStripMenuItem1.Size = New System.Drawing.Size(171, 22)
+        Me.全て選択ToolStripMenuItem1.Text = "全て選択"
+        '
         'Timer1
         '
         Me.Timer1.Interval = 1000
@@ -1772,7 +1772,6 @@ Partial Class HTMLcreate
         Me.TabPage2.PerformLayout()
         Me.StatusStrip3.ResumeLayout(False)
         Me.StatusStrip3.PerformLayout()
-        Me.ContextMenuStrip2.ResumeLayout(False)
         Me.ToolStrip4.ResumeLayout(False)
         Me.ToolStrip4.PerformLayout()
         Me.Panel2.ResumeLayout(False)
@@ -1800,6 +1799,7 @@ Partial Class HTMLcreate
         Me.ToolStrip2.PerformLayout()
         Me.StatusStrip2.ResumeLayout(False)
         Me.StatusStrip2.PerformLayout()
+        Me.ContextMenuStrip2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

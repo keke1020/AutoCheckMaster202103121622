@@ -12581,6 +12581,8 @@ Public Class Csv_denpyo3
                         '--------------
                         '実績
                         If InStr(FileName, "(印刷しない)元データ") > 0 And Csv_denpyo3_F_count.Button2.BackColor <> Color.Yellow Then
+
+                            'If InStr(FileName, "(印刷しない)元データ") > 0 Then
                             LIST4VIEW("実績処理開始", "START")
                             Dim serverDir As String = Form1.サーバーToolStripMenuItem.Text & "\denpyoLog\"
                             Dim desktopPath As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
@@ -12666,6 +12668,10 @@ Public Class Csv_denpyo3
                                         binsu(14) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                     Case "井相田船便ヤマト"
                                         binsu(15) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
+                                    Case "太宰府陸便ゆう2"
+                                        binsu(16) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
+                                    Case "太宰府船便ゆう2"
+                                        binsu(17) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                         'Case Else
                                         '    binsu(8) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                 End Select
@@ -12736,6 +12742,11 @@ Public Class Csv_denpyo3
                                             binsu(14) += CInt(mLine(Array.IndexOf(mH, "マスタ便数")))
                                         Case "井相田船便ヤマト"
                                             binsu(15) += CInt(mLine(Array.IndexOf(mH, "マスタ便数")))
+
+                                        Case "太宰府陸便ゆう2"
+                                            binsu(16) += CInt(mLine(Array.IndexOf(cH, "マスタ便数")))
+                                        Case "太宰府船便ゆう2"
+                                            binsu(17) += CInt(mLine(Array.IndexOf(cH, "マスタ便数")))
                                             'Case Else
                                             '    binsu(8) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                     End Select
@@ -12765,13 +12776,19 @@ Public Class Csv_denpyo3
                             For m As Integer = 0 To binsu.Length - 1
                                 countStr &= binsu(m) & ","
                             Next
+
+
+                            LIST4VIEW("number writes 18>>", "system")
+                            'Dim test = "test"
+                            'Dim readPath = Path.GetDirectoryName(Form1.appPath) & "\config" & test & ".txt"
+                            'File.WriteAllText(readPath, countStr, ENC_SJ)
                             File.WriteAllText(todayTxtPath, countStr, ENC_SJ)
                             File.Delete(lockPath)
                             LIST4VIEW("実績処理終了", "END")
                         End If
                         '--------------
                     End If
-                    LIST4VIEW("Save " & nameArray(k), "system")
+                        LIST4VIEW("Save " & nameArray(k), "system")
                 Next
 
                 LIST4VIEW("Save " & nameArray(i), "system")
