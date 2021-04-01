@@ -73,6 +73,8 @@ Public Class Csv_denpyo3
     Dim isyupakuGoodBool As Boolean = False
 
 
+    Dim denpyounoS As New ArrayList
+
 
 
 
@@ -4584,6 +4586,14 @@ Public Class Csv_denpyo3
             End If
             Exit Sub
         End If
+
+
+
+        ListBox3.Items.Clear()
+
+        For Each item As String In denpyounoS
+            ListBox3.Items.Add(item)
+        Next
 
         Dim soukoName As String() = New String() {HS1.Text, HS1.Text & "航空", HS2.Text, HS2.Text & "航空", HS3.Text, HS3.Text & "航空", HS4.Text, HS4.Text & "航空", "倉庫指定無し"}
         Dim printStrArray1 As New ArrayList     '太宰府
@@ -12181,6 +12191,29 @@ Public Class Csv_denpyo3
                                     line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
                                     line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
                                     line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon 海東" Then
+
+                                    line_yamato &= qtm & "Ama_kaitou" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-986-5538" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "811-0123" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県糟屋郡新宮町上府北3-6-3" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+
+
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon FK" Then
+
+                                    line_yamato &= qtm & "AZFK" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-586-6853" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "811-0123" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田2丁目3番43 102号" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+
                                 Else
                                     line_yamato &= qtm & "," 'ご依頼主コード
                                     line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　電話番号")) & qtm2 'ご依頼主電話番号
@@ -12273,6 +12306,9 @@ Public Class Csv_denpyo3
                                 line_yamato &= vbCrLf
 
                                 str &= line_yamato
+
+                                Debug.WriteLine(str)
+
                             Next
 
                             If nameArray(k) = "YMD" Then
@@ -12694,79 +12730,101 @@ Public Class Csv_denpyo3
 
                                     File.WriteAllText(saveName, str, ENC_SJ)
                                 ElseIf dgvM(i) IsNot DGV1 And CheckBox33.Checked And ListBox3.Items.Count > 0 Then
-                                    '循环两次 第一次是出力没有Listbox3，第二次出力Listbox3的数据
+                                '循环两次 第一次是出力没有Listbox3，第二次出力Listbox3的数据
 
-                                    For index As Integer = 0 To 1
-                                        str = header & vbCrLf
-                                        Dim count As Integer '计数
+                                For index As Integer = 0 To 1
+                                    str = header & vbCrLf
+                                    Dim count As Integer '计数
 
-                                        If index = 0 Then
-                                            count = 0
-                                            For Each row As DataRowView In view
-                                                Dim dataRow As String() = row("STR").ToString.Split(",")
-                                                For c As Integer = 0 To dataRow.Count - 1
-                                                    dataRow(c) = dataRow(c).Replace("""", "")
-                                                Next
 
-                                                Dim denpyouno As String = ""
-                                                If dgvM(i) Is DGV7 Then
-                                                    denpyouno = dataRow(dH7.IndexOf("お客様管理ナンバー"))
-                                                ElseIf dgvM(i) Is DGV8 Then
-                                                    denpyouno = dataRow(dH8.IndexOf("顧客管理番号"))
-                                                ElseIf dgvM(i) Is DGV9 Then
-                                                    denpyouno = dataRow(dH9.IndexOf("お客様側管理番号"))
-                                                ElseIf dgvM(i) Is DGV13 Then
-                                                    denpyouno = dataRow(dH13.IndexOf("お客様側管理番号"))
-                                                End If
 
-                                                If (ListBox3.Items.Contains(denpyouno) = False) Or (denpyouno = "") Then '不包含或者可能空的话
-                                                    str &= row("STR") & vbCrLf
-                                                    count = count + 1
-                                                End If
+                                    'denpyounoS.Clear()
+                                    If index = 0 Then
+                                        count = 0
+                                        For Each row As DataRowView In view
+                                            Dim dataRow As String() = row("STR").ToString.Split(",")
+                                            For c As Integer = 0 To dataRow.Count - 1
+                                                dataRow(c) = dataRow(c).Replace("""", "")
                                             Next
-                                            If count > 0 Then '有数据就出力
-                                                Dim dstName As String = saveDir & "\★" & FileName & ".csv"
-                                                saveName = dstName
-                                                saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
 
-                                                If File.Exists(saveName) Then
-                                                    Dim sl As String = Path.GetFileName(saveName) & "→"
-                                                    saveName = Replace(dstName, ".csv", "_" & Format(Now(), "HHmmss") & ".csv")
-                                                    sl &= Path.GetFileName(saveName)
-                                                    saveList.Add(sl)
-                                                Else
-                                                    saveList.Add(Path.GetFileName(saveName))
-                                                End If
-                                                File.WriteAllText(saveName, str, ENC_SJ)
+                                            Dim denpyouno As String = ""
+                                            If dgvM(i) Is DGV7 Then
+                                                denpyouno = dataRow(dH7.IndexOf("お客様管理ナンバー"))
+                                            ElseIf dgvM(i) Is DGV8 Then
+                                                denpyouno = dataRow(dH8.IndexOf("顧客管理番号"))
+                                            ElseIf dgvM(i) Is DGV9 Then
+                                                denpyouno = dataRow(dH9.IndexOf("お客様側管理番号"))
+                                            ElseIf dgvM(i) Is DGV13 Then
+                                                denpyouno = dataRow(dH13.IndexOf("お客様側管理番号"))
                                             End If
-                                        Else
-                                            count = 0
-                                            For Each row As DataRowView In view
-                                                Dim dataRow As String() = row("STR").ToString.Split(",")
-                                                For c As Integer = 0 To dataRow.Count - 1
-                                                    dataRow(c) = dataRow(c).Replace("""", "")
-                                                Next
 
-                                                Dim denpyouno As String = ""
-                                                If dgvM(i) Is DGV7 Then
-                                                    denpyouno = dataRow(dH7.IndexOf("お客様管理ナンバー"))
-                                                ElseIf dgvM(i) Is DGV8 Then
-                                                    denpyouno = dataRow(dH8.IndexOf("顧客管理番号"))
-                                                ElseIf dgvM(i) Is DGV9 Then
-                                                    denpyouno = dataRow(dH9.IndexOf("お客様側管理番号"))
-                                                ElseIf dgvM(i) Is DGV13 Then
-                                                    denpyouno = dataRow(dH13.IndexOf("お客様側管理番号"))
-                                                End If
+                                            If (ListBox3.Items.Contains(denpyouno) = False) Or (denpyouno = "") Then '不包含或者可能空的话
+                                                str &= row("STR") & vbCrLf
+                                                count = count + 1
+                                            End If
+                                        Next
+                                        If count > 0 Then '有数据就出力
+                                            Dim dstName As String = saveDir & "\★" & FileName & ".csv"
+                                            saveName = dstName
+                                            saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
 
-                                                If ListBox3.Items.Contains(denpyouno) = True Then '不包含或者可能空的话
-                                                    str &= row("STR") & vbCrLf
-                                                    count = count + 1
-                                                End If
+                                            If File.Exists(saveName) Then
+                                                Dim sl As String = Path.GetFileName(saveName) & "→"
+                                                saveName = Replace(dstName, ".csv", "_" & Format(Now(), "HHmmss") & ".csv")
+                                                sl &= Path.GetFileName(saveName)
+                                                saveList.Add(sl)
+                                            Else
+                                                saveList.Add(Path.GetFileName(saveName))
+                                            End If
+                                            File.WriteAllText(saveName, str, ENC_SJ)
+                                        End If
+                                    Else
+                                        count = 0
+                                        For Each row As DataRowView In view
+                                            Dim dataRow As String() = row("STR").ToString.Split(",")
+                                            For c As Integer = 0 To dataRow.Count - 1
+                                                dataRow(c) = dataRow(c).Replace("""", "")
                                             Next
-                                            If count > 0 Then '有数据就出力
-                                                Dim dstName As String = saveDir & "\★" & FileName & ".csv"
-                                                saveName = dstName
-                                                saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "(別紙)" & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+
+                                            Dim denpyouno As String = ""
+                                            If dgvM(i) Is DGV7 Then
+                                                denpyouno = dataRow(dH7.IndexOf("お客様管理ナンバー"))
+                                            ElseIf dgvM(i) Is DGV8 Then
+                                                denpyouno = dataRow(dH8.IndexOf("顧客管理番号"))
+                                            ElseIf dgvM(i) Is DGV9 Then
+                                                denpyouno = dataRow(dH9.IndexOf("お客様側管理番号"))
+                                            ElseIf dgvM(i) Is DGV13 Then
+                                                denpyouno = dataRow(dH13.IndexOf("お客様側管理番号"))
+                                            End If
+
+                                            If ListBox3.Items.Contains(denpyouno) = True Then '不包含或者可能空的话
+                                                str &= row("STR") & vbCrLf
+                                                count = count + 1
+
+                                                denpyounoS.Add(denpyouno)
+                                            End If
+
+
+                                            'BIAOJI
+                                            'For Each item As String In ListBox3.Items
+                                            '    Debug.WriteLine(item)
+                                            '    If item = denpyouno Then
+                                            '        str &= row("STR") & vbCrLf
+                                            '        count = count + 1
+                                            '    End If
+
+                                            'Next
+                                        Next
+
+
+
+
+
+
+                                        If count > 0 Then '有数据就出力
+                                            Dim dstName As String = saveDir & "\★" & FileName & ".csv"
+                                            saveName = dstName
+                                            saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "(別紙)" & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
 
                                             If File.Exists(saveName) Then
                                                 Dim sl As String = Path.GetFileName(saveName) & "→"
@@ -12778,15 +12836,24 @@ Public Class Csv_denpyo3
                                             End If
 
                                             File.WriteAllText(saveName, str, ENC_SJ)
-                                            End If
                                         End If
-                                    Next
-                                End If
+                                    End If
+                                Next
 
-                                '-------------------- 20210312 改修后 end ----------------
                             End If
 
+                            '-------------------- 20210312 改修后 end ----------------
 
+
+                        End If
+
+
+
+                        'ListBox3.Items.Clear()
+
+                        'For Each item As String In denpyounoS
+                        '    ListBox3.Items.Add(item)
+                        'Next
 
 
 
