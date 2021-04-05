@@ -24,10 +24,10 @@ Partial Class Csv_denpyo3
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Csv_denpyo3))
-        Dim FontInfo28 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim FontInfo29 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
-        Dim FontInfo30 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim FontInfo1 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim FontInfo2 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim FontInfo3 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
@@ -76,6 +76,14 @@ Partial Class Csv_denpyo3
         Me.CheckBox8 = New System.Windows.Forms.CheckBox()
         Me.KryptonButton3 = New ComponentFactory.Krypton.Toolkit.KryptonButton()
         Me.GroupBox19 = New System.Windows.Forms.GroupBox()
+        Me.LinkLabel42 = New System.Windows.Forms.LinkLabel()
+        Me.Label114 = New System.Windows.Forms.Label()
+        Me.LinkLabel41 = New System.Windows.Forms.LinkLabel()
+        Me.Label113 = New System.Windows.Forms.Label()
+        Me.LinkLabel40 = New System.Windows.Forms.LinkLabel()
+        Me.Label112 = New System.Windows.Forms.Label()
+        Me.LinkLabel39 = New System.Windows.Forms.LinkLabel()
+        Me.Label111 = New System.Windows.Forms.Label()
         Me.LinkLabel36 = New System.Windows.Forms.LinkLabel()
         Me.Label108 = New System.Windows.Forms.Label()
         Me.LinkLabel33 = New System.Windows.Forms.LinkLabel()
@@ -440,6 +448,10 @@ Partial Class Csv_denpyo3
         Me.LinkLabel25 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel26 = New System.Windows.Forms.LinkLabel()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Label115 = New System.Windows.Forms.Label()
+        Me.LinkLabel43 = New System.Windows.Forms.LinkLabel()
+        Me.Label116 = New System.Windows.Forms.Label()
+        Me.LinkLabel44 = New System.Windows.Forms.LinkLabel()
         Me.Label107 = New System.Windows.Forms.Label()
         Me.LinkLabel35 = New System.Windows.Forms.LinkLabel()
         Me.Label102 = New System.Windows.Forms.Label()
@@ -548,18 +560,6 @@ Partial Class Csv_denpyo3
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label111 = New System.Windows.Forms.Label()
-        Me.LinkLabel39 = New System.Windows.Forms.LinkLabel()
-        Me.Label112 = New System.Windows.Forms.Label()
-        Me.LinkLabel40 = New System.Windows.Forms.LinkLabel()
-        Me.Label113 = New System.Windows.Forms.Label()
-        Me.LinkLabel41 = New System.Windows.Forms.LinkLabel()
-        Me.LinkLabel42 = New System.Windows.Forms.LinkLabel()
-        Me.Label114 = New System.Windows.Forms.Label()
-        Me.Label115 = New System.Windows.Forms.Label()
-        Me.LinkLabel43 = New System.Windows.Forms.LinkLabel()
-        Me.Label116 = New System.Windows.Forms.Label()
-        Me.LinkLabel44 = New System.Windows.Forms.LinkLabel()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -1194,6 +1194,131 @@ Partial Class Csv_denpyo3
         Me.GroupBox19.TabIndex = 2
         Me.GroupBox19.TabStop = False
         Me.GroupBox19.Text = "元データ（便数計算無し）"
+        '
+        'LinkLabel42
+        '
+        Me.LinkLabel42.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
+        Me.LinkLabel42.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.LinkLabel42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LinkLabel42.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel42.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel42.LinkColor = System.Drawing.Color.Black
+        Me.LinkLabel42.Location = New System.Drawing.Point(130, 125)
+        Me.LinkLabel42.Name = "LinkLabel42"
+        Me.LinkLabel42.Size = New System.Drawing.Size(32, 16)
+        Me.LinkLabel42.TabIndex = 160
+        Me.LinkLabel42.TabStop = True
+        Me.LinkLabel42.Text = "0"
+        Me.LinkLabel42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel42.VisitedLinkColor = System.Drawing.SystemColors.Desktop
+        '
+        'Label114
+        '
+        Me.Label114.AutoSize = True
+        Me.Label114.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label114.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label114.ForeColor = System.Drawing.Color.White
+        Me.Label114.Location = New System.Drawing.Point(83, 125)
+        Me.Label114.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label114.Name = "Label114"
+        Me.Label114.Padding = New System.Windows.Forms.Padding(1)
+        Me.Label114.Size = New System.Drawing.Size(52, 16)
+        Me.Label114.TabIndex = 159
+        Me.Label114.Text = "ゆう2(船)"
+        '
+        'LinkLabel41
+        '
+        Me.LinkLabel41.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
+        Me.LinkLabel41.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.LinkLabel41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LinkLabel41.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel41.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel41.LinkColor = System.Drawing.Color.Black
+        Me.LinkLabel41.Location = New System.Drawing.Point(49, 123)
+        Me.LinkLabel41.Name = "LinkLabel41"
+        Me.LinkLabel41.Size = New System.Drawing.Size(32, 16)
+        Me.LinkLabel41.TabIndex = 158
+        Me.LinkLabel41.TabStop = True
+        Me.LinkLabel41.Text = "0"
+        Me.LinkLabel41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel41.VisitedLinkColor = System.Drawing.SystemColors.Desktop
+        '
+        'Label113
+        '
+        Me.Label113.AutoSize = True
+        Me.Label113.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label113.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label113.ForeColor = System.Drawing.Color.White
+        Me.Label113.Location = New System.Drawing.Point(5, 123)
+        Me.Label113.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label113.Name = "Label113"
+        Me.Label113.Padding = New System.Windows.Forms.Padding(1)
+        Me.Label113.Size = New System.Drawing.Size(52, 16)
+        Me.Label113.TabIndex = 157
+        Me.Label113.Text = "ゆう2(陸)"
+        '
+        'LinkLabel40
+        '
+        Me.LinkLabel40.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
+        Me.LinkLabel40.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.LinkLabel40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LinkLabel40.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel40.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel40.LinkColor = System.Drawing.Color.Black
+        Me.LinkLabel40.Location = New System.Drawing.Point(133, 62)
+        Me.LinkLabel40.Name = "LinkLabel40"
+        Me.LinkLabel40.Size = New System.Drawing.Size(32, 16)
+        Me.LinkLabel40.TabIndex = 156
+        Me.LinkLabel40.TabStop = True
+        Me.LinkLabel40.Text = "0"
+        Me.LinkLabel40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel40.VisitedLinkColor = System.Drawing.SystemColors.Desktop
+        '
+        'Label112
+        '
+        Me.Label112.AutoSize = True
+        Me.Label112.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label112.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label112.ForeColor = System.Drawing.Color.White
+        Me.Label112.Location = New System.Drawing.Point(85, 63)
+        Me.Label112.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label112.Name = "Label112"
+        Me.Label112.Padding = New System.Windows.Forms.Padding(1)
+        Me.Label112.Size = New System.Drawing.Size(52, 16)
+        Me.Label112.TabIndex = 155
+        Me.Label112.Text = "ゆう2(船)"
+        '
+        'LinkLabel39
+        '
+        Me.LinkLabel39.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
+        Me.LinkLabel39.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.LinkLabel39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LinkLabel39.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel39.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel39.LinkColor = System.Drawing.Color.Black
+        Me.LinkLabel39.Location = New System.Drawing.Point(51, 63)
+        Me.LinkLabel39.Name = "LinkLabel39"
+        Me.LinkLabel39.Size = New System.Drawing.Size(32, 16)
+        Me.LinkLabel39.TabIndex = 154
+        Me.LinkLabel39.TabStop = True
+        Me.LinkLabel39.Text = "0"
+        Me.LinkLabel39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel39.VisitedLinkColor = System.Drawing.SystemColors.Desktop
+        '
+        'Label111
+        '
+        Me.Label111.AutoSize = True
+        Me.Label111.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.Label111.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label111.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label111.ForeColor = System.Drawing.Color.White
+        Me.Label111.Location = New System.Drawing.Point(5, 62)
+        Me.Label111.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label111.Name = "Label111"
+        Me.Label111.Padding = New System.Windows.Forms.Padding(1)
+        Me.Label111.Size = New System.Drawing.Size(52, 16)
+        Me.Label111.TabIndex = 153
+        Me.Label111.Text = "ゆう2(陸)"
         '
         'LinkLabel36
         '
@@ -2537,10 +2662,10 @@ Partial Class Csv_denpyo3
         Me.AzukiControl2.DrawsSpace = True
         Me.AzukiControl2.FirstVisibleLine = 0
         Me.AzukiControl2.Font = New System.Drawing.Font("Meiryo UI", 9.0!)
-        FontInfo28.Name = "Meiryo UI"
-        FontInfo28.Size = 9
-        FontInfo28.Style = System.Drawing.FontStyle.Regular
-        Me.AzukiControl2.FontInfo = FontInfo28
+        FontInfo1.Name = "Meiryo UI"
+        FontInfo1.Size = 9
+        FontInfo1.Style = System.Drawing.FontStyle.Regular
+        Me.AzukiControl2.FontInfo = FontInfo1
         Me.AzukiControl2.ForeColor = System.Drawing.Color.Black
         Me.AzukiControl2.Location = New System.Drawing.Point(0, 21)
         Me.AzukiControl2.Name = "AzukiControl2"
@@ -3155,7 +3280,7 @@ Partial Class Csv_denpyo3
         Me.TabPage16.Location = New System.Drawing.Point(4, 22)
         Me.TabPage16.Name = "TabPage16"
         Me.TabPage16.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage16.Size = New System.Drawing.Size(638, 402)
+        Me.TabPage16.Size = New System.Drawing.Size(780, 402)
         Me.TabPage16.TabIndex = 4
         Me.TabPage16.Text = "定形外"
         Me.TabPage16.UseVisualStyleBackColor = True
@@ -3172,7 +3297,7 @@ Partial Class Csv_denpyo3
         Me.DGV13.Name = "DGV13"
         Me.DGV13.ReadOnly = True
         Me.DGV13.RowTemplate.Height = 21
-        Me.DGV13.Size = New System.Drawing.Size(630, 394)
+        Me.DGV13.Size = New System.Drawing.Size(772, 394)
         Me.DGV13.TabIndex = 10
         '
         'TabControl3
@@ -5467,6 +5592,60 @@ Partial Class Csv_denpyo3
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "井相田（代引き 0）"
         '
+        'Label115
+        '
+        Me.Label115.BackColor = System.Drawing.Color.Turquoise
+        Me.Label115.ForeColor = System.Drawing.Color.White
+        Me.Label115.Location = New System.Drawing.Point(9, 169)
+        Me.Label115.Name = "Label115"
+        Me.Label115.Size = New System.Drawing.Size(52, 17)
+        Me.Label115.TabIndex = 140
+        Me.Label115.Text = "ゆう2(船)"
+        Me.Label115.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LinkLabel43
+        '
+        Me.LinkLabel43.ActiveLinkColor = System.Drawing.Color.Yellow
+        Me.LinkLabel43.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.LinkLabel43.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel43.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel43.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.LinkLabel43.Location = New System.Drawing.Point(61, 169)
+        Me.LinkLabel43.Name = "LinkLabel43"
+        Me.LinkLabel43.Size = New System.Drawing.Size(42, 17)
+        Me.LinkLabel43.TabIndex = 139
+        Me.LinkLabel43.TabStop = True
+        Me.LinkLabel43.Text = "0"
+        Me.LinkLabel43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel43.VisitedLinkColor = System.Drawing.SystemColors.GradientActiveCaption
+        '
+        'Label116
+        '
+        Me.Label116.BackColor = System.Drawing.Color.Turquoise
+        Me.Label116.ForeColor = System.Drawing.Color.White
+        Me.Label116.Location = New System.Drawing.Point(9, 152)
+        Me.Label116.Name = "Label116"
+        Me.Label116.Size = New System.Drawing.Size(52, 17)
+        Me.Label116.TabIndex = 138
+        Me.Label116.Text = "ゆう2(陸)"
+        Me.Label116.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LinkLabel44
+        '
+        Me.LinkLabel44.ActiveLinkColor = System.Drawing.Color.Yellow
+        Me.LinkLabel44.BackColor = System.Drawing.SystemColors.HotTrack
+        Me.LinkLabel44.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LinkLabel44.ForeColor = System.Drawing.Color.White
+        Me.LinkLabel44.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.LinkLabel44.Location = New System.Drawing.Point(61, 152)
+        Me.LinkLabel44.Name = "LinkLabel44"
+        Me.LinkLabel44.Size = New System.Drawing.Size(42, 17)
+        Me.LinkLabel44.TabIndex = 137
+        Me.LinkLabel44.TabStop = True
+        Me.LinkLabel44.Text = "0"
+        Me.LinkLabel44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LinkLabel44.VisitedLinkColor = System.Drawing.SystemColors.GradientActiveCaption
+        '
         'Label107
         '
         Me.Label107.BackColor = System.Drawing.Color.FromArgb(CType(CType(11, Byte), Integer), CType(CType(168, Byte), Integer), CType(CType(151, Byte), Integer))
@@ -6161,7 +6340,7 @@ Partial Class Csv_denpyo3
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(638, 112)
+        Me.TabPage9.Size = New System.Drawing.Size(780, 112)
         Me.TabPage9.TabIndex = 1
         Me.TabPage9.Text = "プレビュー"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -6179,7 +6358,7 @@ Partial Class Csv_denpyo3
         Me.DGV12.Name = "DGV12"
         Me.DGV12.ReadOnly = True
         Me.DGV12.RowTemplate.Height = 21
-        Me.DGV12.Size = New System.Drawing.Size(632, 106)
+        Me.DGV12.Size = New System.Drawing.Size(774, 106)
         Me.DGV12.TabIndex = 9
         '
         'TabPage31
@@ -6188,7 +6367,7 @@ Partial Class Csv_denpyo3
         Me.TabPage31.Controls.Add(Me.Panel10)
         Me.TabPage31.Location = New System.Drawing.Point(4, 22)
         Me.TabPage31.Name = "TabPage31"
-        Me.TabPage31.Size = New System.Drawing.Size(638, 112)
+        Me.TabPage31.Size = New System.Drawing.Size(780, 112)
         Me.TabPage31.TabIndex = 2
         Me.TabPage31.Text = "ピッキングリスト"
         Me.TabPage31.UseVisualStyleBackColor = True
@@ -6204,7 +6383,7 @@ Partial Class Csv_denpyo3
         Me.DGV16.Location = New System.Drawing.Point(105, 0)
         Me.DGV16.Name = "DGV16"
         Me.DGV16.RowTemplate.Height = 21
-        Me.DGV16.Size = New System.Drawing.Size(533, 112)
+        Me.DGV16.Size = New System.Drawing.Size(675, 112)
         Me.DGV16.TabIndex = 11
         '
         'DataGridViewTextBoxColumn16
@@ -6332,14 +6511,14 @@ Partial Class Csv_denpyo3
         Me.DGV2.Location = New System.Drawing.Point(3, 3)
         Me.DGV2.Name = "DGV2"
         Me.DGV2.ReadOnly = True
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV2.RowHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV2.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DGV2.RowHeadersVisible = False
         Me.DGV2.RowTemplate.Height = 21
         Me.DGV2.Size = New System.Drawing.Size(347, 108)
@@ -6440,10 +6619,10 @@ Partial Class Csv_denpyo3
         Me.AzukiControl1.DrawsSpace = True
         Me.AzukiControl1.FirstVisibleLine = 0
         Me.AzukiControl1.Font = New System.Drawing.Font("Meiryo UI", 9.0!)
-        FontInfo29.Name = "Meiryo UI"
-        FontInfo29.Size = 9
-        FontInfo29.Style = System.Drawing.FontStyle.Regular
-        Me.AzukiControl1.FontInfo = FontInfo29
+        FontInfo2.Name = "Meiryo UI"
+        FontInfo2.Size = 9
+        FontInfo2.Style = System.Drawing.FontStyle.Regular
+        Me.AzukiControl1.FontInfo = FontInfo2
         Me.AzukiControl1.ForeColor = System.Drawing.Color.Black
         Me.AzukiControl1.Location = New System.Drawing.Point(3, 3)
         Me.AzukiControl1.Name = "AzukiControl1"
@@ -6482,10 +6661,10 @@ Partial Class Csv_denpyo3
         Me.AzukiControl3.DrawsSpace = True
         Me.AzukiControl3.FirstVisibleLine = 0
         Me.AzukiControl3.Font = New System.Drawing.Font("Meiryo UI", 9.0!)
-        FontInfo30.Name = "Meiryo UI"
-        FontInfo30.Size = 9
-        FontInfo30.Style = System.Drawing.FontStyle.Regular
-        Me.AzukiControl3.FontInfo = FontInfo30
+        FontInfo3.Name = "Meiryo UI"
+        FontInfo3.Size = 9
+        FontInfo3.Style = System.Drawing.FontStyle.Regular
+        Me.AzukiControl3.FontInfo = FontInfo3
         Me.AzukiControl3.ForeColor = System.Drawing.Color.Black
         Me.AzukiControl3.Location = New System.Drawing.Point(3, 3)
         Me.AzukiControl3.Name = "AzukiControl3"
@@ -6591,7 +6770,7 @@ Partial Class Csv_denpyo3
         '
         Me.ToolStripStatusLabel2.ForeColor = System.Drawing.Color.White
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(927, 19)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(1069, 19)
         Me.ToolStripStatusLabel2.Spring = True
         Me.ToolStripStatusLabel2.Text = "[情報]"
         Me.ToolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -6610,185 +6789,6 @@ Partial Class Csv_denpyo3
         '
         Me.Timer2.Enabled = True
         Me.Timer2.Interval = 1000
-        '
-        'Label111
-        '
-        Me.Label111.AutoSize = True
-        Me.Label111.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label111.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label111.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label111.ForeColor = System.Drawing.Color.White
-        Me.Label111.Location = New System.Drawing.Point(5, 62)
-        Me.Label111.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label111.Name = "Label111"
-        Me.Label111.Padding = New System.Windows.Forms.Padding(1)
-        Me.Label111.Size = New System.Drawing.Size(52, 16)
-        Me.Label111.TabIndex = 153
-        Me.Label111.Text = "ゆう2(陸)"
-        '
-        'LinkLabel39
-        '
-        Me.LinkLabel39.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
-        Me.LinkLabel39.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LinkLabel39.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LinkLabel39.ForeColor = System.Drawing.Color.White
-        Me.LinkLabel39.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel39.Location = New System.Drawing.Point(51, 63)
-        Me.LinkLabel39.Name = "LinkLabel39"
-        Me.LinkLabel39.Size = New System.Drawing.Size(32, 16)
-        Me.LinkLabel39.TabIndex = 154
-        Me.LinkLabel39.TabStop = True
-        Me.LinkLabel39.Text = "0"
-        Me.LinkLabel39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LinkLabel39.VisitedLinkColor = System.Drawing.SystemColors.Desktop
-        '
-        'Label112
-        '
-        Me.Label112.AutoSize = True
-        Me.Label112.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.Label112.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label112.ForeColor = System.Drawing.Color.White
-        Me.Label112.Location = New System.Drawing.Point(85, 63)
-        Me.Label112.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label112.Name = "Label112"
-        Me.Label112.Padding = New System.Windows.Forms.Padding(1)
-        Me.Label112.Size = New System.Drawing.Size(52, 16)
-        Me.Label112.TabIndex = 155
-        Me.Label112.Text = "ゆう2(船)"
-        '
-        'LinkLabel40
-        '
-        Me.LinkLabel40.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
-        Me.LinkLabel40.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LinkLabel40.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LinkLabel40.ForeColor = System.Drawing.Color.White
-        Me.LinkLabel40.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel40.Location = New System.Drawing.Point(133, 62)
-        Me.LinkLabel40.Name = "LinkLabel40"
-        Me.LinkLabel40.Size = New System.Drawing.Size(32, 16)
-        Me.LinkLabel40.TabIndex = 156
-        Me.LinkLabel40.TabStop = True
-        Me.LinkLabel40.Text = "0"
-        Me.LinkLabel40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LinkLabel40.VisitedLinkColor = System.Drawing.SystemColors.Desktop
-        '
-        'Label113
-        '
-        Me.Label113.AutoSize = True
-        Me.Label113.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label113.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label113.ForeColor = System.Drawing.Color.White
-        Me.Label113.Location = New System.Drawing.Point(5, 123)
-        Me.Label113.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label113.Name = "Label113"
-        Me.Label113.Padding = New System.Windows.Forms.Padding(1)
-        Me.Label113.Size = New System.Drawing.Size(52, 16)
-        Me.Label113.TabIndex = 157
-        Me.Label113.Text = "ゆう2(陸)"
-        '
-        'LinkLabel41
-        '
-        Me.LinkLabel41.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
-        Me.LinkLabel41.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LinkLabel41.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LinkLabel41.ForeColor = System.Drawing.Color.White
-        Me.LinkLabel41.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel41.Location = New System.Drawing.Point(49, 123)
-        Me.LinkLabel41.Name = "LinkLabel41"
-        Me.LinkLabel41.Size = New System.Drawing.Size(32, 16)
-        Me.LinkLabel41.TabIndex = 158
-        Me.LinkLabel41.TabStop = True
-        Me.LinkLabel41.Text = "0"
-        Me.LinkLabel41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LinkLabel41.VisitedLinkColor = System.Drawing.SystemColors.Desktop
-        '
-        'LinkLabel42
-        '
-        Me.LinkLabel42.ActiveLinkColor = System.Drawing.Color.DarkSlateGray
-        Me.LinkLabel42.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.LinkLabel42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.LinkLabel42.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LinkLabel42.ForeColor = System.Drawing.Color.White
-        Me.LinkLabel42.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel42.Location = New System.Drawing.Point(130, 125)
-        Me.LinkLabel42.Name = "LinkLabel42"
-        Me.LinkLabel42.Size = New System.Drawing.Size(32, 16)
-        Me.LinkLabel42.TabIndex = 160
-        Me.LinkLabel42.TabStop = True
-        Me.LinkLabel42.Text = "0"
-        Me.LinkLabel42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LinkLabel42.VisitedLinkColor = System.Drawing.SystemColors.Desktop
-        '
-        'Label114
-        '
-        Me.Label114.AutoSize = True
-        Me.Label114.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Label114.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label114.ForeColor = System.Drawing.Color.White
-        Me.Label114.Location = New System.Drawing.Point(83, 125)
-        Me.Label114.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label114.Name = "Label114"
-        Me.Label114.Padding = New System.Windows.Forms.Padding(1)
-        Me.Label114.Size = New System.Drawing.Size(52, 16)
-        Me.Label114.TabIndex = 159
-        Me.Label114.Text = "ゆう2(船)"
-        '
-        'Label115
-        '
-        Me.Label115.BackColor = System.Drawing.Color.Turquoise
-        Me.Label115.ForeColor = System.Drawing.Color.White
-        Me.Label115.Location = New System.Drawing.Point(9, 169)
-        Me.Label115.Name = "Label115"
-        Me.Label115.Size = New System.Drawing.Size(52, 17)
-        Me.Label115.TabIndex = 140
-        Me.Label115.Text = "ゆう2(船)"
-        Me.Label115.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LinkLabel43
-        '
-        Me.LinkLabel43.ActiveLinkColor = System.Drawing.Color.Yellow
-        Me.LinkLabel43.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.LinkLabel43.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LinkLabel43.ForeColor = System.Drawing.Color.White
-        Me.LinkLabel43.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LinkLabel43.Location = New System.Drawing.Point(61, 169)
-        Me.LinkLabel43.Name = "LinkLabel43"
-        Me.LinkLabel43.Size = New System.Drawing.Size(42, 17)
-        Me.LinkLabel43.TabIndex = 139
-        Me.LinkLabel43.TabStop = True
-        Me.LinkLabel43.Text = "0"
-        Me.LinkLabel43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LinkLabel43.VisitedLinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        '
-        'Label116
-        '
-        Me.Label116.BackColor = System.Drawing.Color.Turquoise
-        Me.Label116.ForeColor = System.Drawing.Color.White
-        Me.Label116.Location = New System.Drawing.Point(9, 152)
-        Me.Label116.Name = "Label116"
-        Me.Label116.Size = New System.Drawing.Size(52, 17)
-        Me.Label116.TabIndex = 138
-        Me.Label116.Text = "ゆう2(陸)"
-        Me.Label116.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LinkLabel44
-        '
-        Me.LinkLabel44.ActiveLinkColor = System.Drawing.Color.Yellow
-        Me.LinkLabel44.BackColor = System.Drawing.SystemColors.HotTrack
-        Me.LinkLabel44.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LinkLabel44.ForeColor = System.Drawing.Color.White
-        Me.LinkLabel44.LinkColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.LinkLabel44.Location = New System.Drawing.Point(61, 152)
-        Me.LinkLabel44.Name = "LinkLabel44"
-        Me.LinkLabel44.Size = New System.Drawing.Size(42, 17)
-        Me.LinkLabel44.TabIndex = 137
-        Me.LinkLabel44.TabStop = True
-        Me.LinkLabel44.Text = "0"
-        Me.LinkLabel44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.LinkLabel44.VisitedLinkColor = System.Drawing.SystemColors.GradientActiveCaption
         '
         'Csv_denpyo3
         '

@@ -2188,8 +2188,7 @@ Public Class Csv_denpyo3
                             haisouKind = "定形外"
                         End If
                     End If
-                    '一定删除
-                    'haisouKind = "メール便"
+
                     Dim weight As String = Regex.Replace(sw, "P|p|M|m|T|t", "")
                     Dim w2 As String = Regex.Match(weight, "\(.*\)").Value
                     w2 = Regex.Replace(w2, "\(|\)", "")
@@ -2310,10 +2309,12 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
-                    'If haisouKind = "メール便" And (code(0).ToLower = "ny373-wh" Or code(0).ToLower = "ny373-hu" Or code(0).ToLower = "ny373-pi" Or code(0).ToLower = "ny373-bk" Or code(0).ToLower = "ny373-kob" Or code(0).ToLower = "ny373-kowh" Or code(0).ToLower = "ny373-kobk") Then
-                    '    weight = "2.5"
-                    '    sp_check = False
-                    'End If
+                    If haisouKind = "メール便" And (code(0).ToLower = "ny373-wh" Or code(0).ToLower = "ny373-hu" Or code(0).ToLower = "ny373-pi" Or code(0).ToLower = "ny373-bk" Or code(0).ToLower = "ny373-kob" Or code(0).ToLower = "ny373-kowh" Or code(0).ToLower = "ny373-kobk") Then
+                        'weight = "2.5"
+                        weight = "178"
+
+                        sp_check = False
+                    End If
 
                     'If special_taku = True And haisouKind = "メール便" And InStr(code(0).ToLower, "ny373") Then
                     '    weight = "178"
@@ -2326,15 +2327,15 @@ Public Class Csv_denpyo3
 
                     'End If
 
-                    If InStr(code(0).ToLower, "ny373") And haisouKind = "メール便" Then
-                        If special_taku Then
-                            '56一个便
-                            weight = "178"
-                            'Else
-                            '    'weight = "2.5"
-                            '    weight = "100"
-                        End If
-                    End If
+                    'If InStr(code(0).ToLower, "ny373") And haisouKind = "メール便" Then
+                    '    If special_taku Then
+                    '        '56一个便
+                    '        weight = "178"
+                    '        'Else
+                    '        '    'weight = "2.5"
+                    '        '    weight = "100"
+                    '    End If
+                    'End If
 
 
 
@@ -2529,6 +2530,7 @@ Public Class Csv_denpyo3
                                         End If
                                     Else
                                         If sp_check Then
+
                                             haisouSize = haisouSize + (CDbl(TakuhaiPerConv(weight)) * CDbl(juchusu))
                                         Else
                                             haisouSize = haisouSize + (CDbl(weight) * CDbl(juchusu))
@@ -3538,7 +3540,11 @@ Public Class Csv_denpyo3
     Private Function TakuhaiPerConv(sizeStr As String) As String
         Dim dH10 As ArrayList = TM_HEADER_GET(DGV10)
         Dim res As String = ""
+
+
         For r As Integer = 0 To DGV10.RowCount - 1
+
+            Dim DD = DGV10.Item(dH10.IndexOf("サイズ"), r).Value
             If Regex.IsMatch(DGV10.Item(dH10.IndexOf("サイズ"), r).Value, "^" & sizeStr & "$") Then
                 res = DGV10.Item(dH10.IndexOf("容量計算"), r).Value
                 Exit For
