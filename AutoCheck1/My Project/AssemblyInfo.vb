@@ -8,7 +8,7 @@ Imports System.Runtime.InteropServices
 
 ' アセンブリ属性の値を確認します。
 
-<Assembly: AssemblyTitle("AutoCheck1（通称 くま）")> 
+<Assembly: AssemblyTitle("AutoCheck1（通称 くま）")>
 <Assembly: AssemblyDescription("各種チェック及びデータ変換ソフト")> 
 <Assembly: AssemblyCompany("TakSoft")> 
 <Assembly: AssemblyProduct("AutoCheck2")>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 既定値にすることができます:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("3.5.34.01")>
-<Assembly: AssemblyFileVersion("3.5.34.01")>
+<Assembly: AssemblyVersion("3.5.34.06")>
+<Assembly: AssemblyFileVersion("3.5.34.06")>

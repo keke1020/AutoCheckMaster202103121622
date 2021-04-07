@@ -41,10 +41,6 @@ Public Class Csv_denpyo3
 
     Public YU2Flag = False
 
-
-
-
-
     '邮局 适用P60发送地域
     Private checkaddress_oosakika As String() = New String() {"熊本県", "宮崎県", "鹿児島県", "福岡県", "佐賀県", "長崎県", "大分県", "徳島県", "香川県", "愛媛県", "高知県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"}
     Private checkaddress_oosakizyou As String() = New String() {"富山県", "石川県", "福井県", "岐阜県", "静岡県", "愛知県", "三重県", "新潟県", "長野県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "山梨県", "宮城県", "山形県", "福島県", "青森県", "岩手県", "秋田県", "北海道"}
@@ -56,17 +52,11 @@ Public Class Csv_denpyo3
     Private yamato_title_sp As String() = yamato_title.Split(",")
 
 
-
-
-
-
     '需要把佐川急便转成yupaku发送的条件之一 下列地址是条件之一  条件二是code
-    '一定
-
     Private yupaku_addressArr As String() = New String() {"香川県Test"}
     Private yupaku_addressArrPro As String() = New String() {"香川県Test"}
     'Private yupaku_goods As String() = New String() {"ad135-be"}   ad135-be
-    Private yupaku_goods As String() = New String() {"TEST"}
+    Private yupaku_goods As String() = New String() {"test"}
 
     Public yupakucheck As Boolean = False
     Private yupaku_str As String = "ゆう2"
@@ -1681,7 +1671,7 @@ Public Class Csv_denpyo3
         'Dim dH6 As ArrayList = TM_HEADER_GET(dgv6)
 
         Dim doukonArray As String() = File.ReadAllLines(appPathDir & "\config\version2\同梱特殊.txt", ENC_SJ)
-        Dim ny331_50_codes As String() = New String() {"ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye", "ny331-50-rose", "ny331-50-lor"}
+        Dim ny331_50_codes As String() = New String() {"ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye", "ny331-50-rose", "ny331-50-lor", "ny331-50-lgr", "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi"}
         Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny264-100-4000", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
         'Dim ny331_2500_codes As String() = New String() {"ny331-2500-be"}
         '扁盒口罩
@@ -2310,10 +2300,18 @@ Public Class Csv_denpyo3
                     End If
 
                     If haisouKind = "メール便" And (code(0).ToLower = "ny373-wh" Or code(0).ToLower = "ny373-hu" Or code(0).ToLower = "ny373-pi" Or code(0).ToLower = "ny373-bk" Or code(0).ToLower = "ny373-kob" Or code(0).ToLower = "ny373-kowh" Or code(0).ToLower = "ny373-kobk") Then
-                        'weight = "2.5"
-                        weight = "178"
 
-                        sp_check = False
+
+                        If special_taku Then
+                            weight = "178"
+                            sp_check = False
+                        Else
+
+
+                            weight = "2.5"
+
+                        End If
+
                     End If
 
                     'If special_taku = True And haisouKind = "メール便" And InStr(code(0).ToLower, "ny373") Then
@@ -2505,11 +2503,13 @@ Public Class Csv_denpyo3
                         Else
                             If henkouFlag Then
                                 If ny331_50_codes.Contains(code(0).ToLower) Then
-                                    '3 4 4 3 4 2 46 2
-                                    haisouSize = haisouSize + (2.28 * CDbl(juchusu))
+                                    '1 7 9 2 3 9 12 1 2
+                                    haisouSize = haisouSize + (2.5 * CDbl(juchusu))
                                 Else
                                     haisouSize = haisouSize + ((CDbl(weight) / 100) * CDbl(juchusu))
                                 End If
+
+
                             Else
                                 If w2 <> "" Then    'P160(98)、P100(3.3)は1個のパーセンテージ（優先）
                                     haisouSize = haisouSize + (CDbl(w2) * CDbl(juchusu))
@@ -2533,8 +2533,10 @@ Public Class Csv_denpyo3
 
                                             haisouSize = haisouSize + (CDbl(TakuhaiPerConv(weight)) * CDbl(juchusu))
                                         Else
+
                                             haisouSize = haisouSize + (CDbl(weight) * CDbl(juchusu))
                                         End If
+
                                     End If
                                 End If
                             End If
@@ -4348,6 +4350,7 @@ Public Class Csv_denpyo3
 
         Dim fi1 As New FileInfo(Path.GetDirectoryName(Form1.appPath) & "\location.csv")
         TextBox24.Text = fi1.LastWriteTime.ToOADate
+
 
         'サーバーの接続を確認する
         If File.Exists(sakiPath2 & "\location.csv") Then
@@ -11729,14 +11732,6 @@ Public Class Csv_denpyo3
                             Next
                         End If
 
-
-
-
-
-
-
-
-
                         '当用户需要处理
                         If CheckBox34.Checked Then
                             Dim one As String() = Split(master, "、")
@@ -11775,8 +11770,6 @@ Public Class Csv_denpyo3
                                 End If
                             Next
                         End If
-
-
 
 
                         '航空便分割

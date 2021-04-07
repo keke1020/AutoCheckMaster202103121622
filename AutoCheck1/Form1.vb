@@ -201,6 +201,12 @@ Public Class Form1
         'アプリケーション終了イベント
         AddHandler Application.ApplicationExit, AddressOf Application_ApplicationExit
 
+        '脱机版
+        'If InStr(Environment.MachineName, "LIU") > 0 Then
+        '    updateFlag = False
+        '    AdminFlag = True
+        'End If
+
         '開発環境用
         If Regex.IsMatch(My.Computer.Name, "ABCD|tak|NAKA|PING|MAO|PING2|LIU", RegexOptions.IgnoreCase) And Regex.IsMatch(appPath, "debug", RegexOptions.IgnoreCase) Then
 #If DEBUG Then
@@ -212,6 +218,9 @@ Public Class Form1
             管理ToolStripMenuItem.Enabled = False
             End If
 #End If
+
+
+
 
         '自宅環境ではアップデートしない
         If InStr(Environment.MachineName, "TAKASHI") > 0 And InStr(Path.GetDirectoryName(appPath), "Debug") > 0 Then
@@ -234,6 +243,12 @@ Public Class Form1
             AdminFlag = True
         ElseIf InStr(Environment.MachineName, "NAKA") > 0 Or InStr(Environment.MachineName, "PING") > 0 Or InStr(Environment.MachineName, "LIU") > 0 Or InStr(Environment.MachineName, "PING2") > 0 Then
             AdminFlag = True
+
+            '脱机版
+            'ElseIf instr(environment.machinename, "RYU") > 0 Then
+            '    updateFlag = False
+            '    AdminFlag = True
+
         End If
 
         Me.Text = "くま Ver." & Application.ProductVersion
@@ -242,6 +257,15 @@ Public Class Form1
             くまVer2AutoCheckToolStripMenuItem.Text &= "（管理モード）"
             Me.Text &= "（管理モード）"
         End If
+
+        '脱机版
+        'If InStr(Environment.MachineName, "RYU") > 0 Then
+        '    くまVer2AutoCheckToolStripMenuItem.Text &= "（脱机版）"
+        '    Me.Text &= "（脱机版）"
+        'End If
+
+
+
         secValue = "F1"   'iniファイルセクション
 
         '*********************************************
@@ -1702,6 +1726,7 @@ Public Class Form1
 
     Public Shared updateFlag As Boolean = True
     Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+
         If Not BackgroundWorker1.IsBusy Then
             Exit Sub
         ElseIf UpdatePanel.Visible Then
@@ -1783,6 +1808,8 @@ Public Class Form1
 
             End Try
 
+
+
             '強制アップデート
             If IsNumeric(fname3) And updateFlag = True Then
                 Dim ap As String = Replace(Application.ProductVersion, ".", "")
@@ -1808,6 +1835,9 @@ Public Class Form1
             If IsNumeric(fname) = True Then
                 sVer = fname
             End If
+
+            '脱机版
+            'mVer = sVer
             Try
                 sLoadFile = tsp_menu1 & "\update\version.txt"
                 'If mVer <> sVer And InStr(appPath, "Debug") = 0 Then

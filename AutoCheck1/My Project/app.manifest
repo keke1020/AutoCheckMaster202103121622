@@ -11,7 +11,8 @@
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
-
+<requestedExecutionLevel level="asInvoker" uiAccess="false" />
+ <requestedExecutionLevel level="requireAdministrator" uiAccess="false" />
             下位互換性のためにファイルおよびレジストリの仮想化を
             利用する場合は、requestedExecutionLevel ノードを削除してください。
         -->
@@ -19,7 +20,7 @@
       </requestedPrivileges>
       <applicationRequestMinimum>
         <defaultAssemblyRequest permissionSetReference="Custom" />
-        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <PermissionSet ID="Custom" SameSite="site" Unrestricted="true" />
       </applicationRequestMinimum>
     </security>
   </trustInfo>
