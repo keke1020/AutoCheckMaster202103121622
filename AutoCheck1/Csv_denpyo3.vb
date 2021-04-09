@@ -53,11 +53,13 @@ Public Class Csv_denpyo3
 
 
     '需要把佐川急便转成yupaku发送的条件之一 下列地址是条件之一  条件二是code
-    Private yupaku_addressArr As String() = New String() {"香川県Test"}
-    Private yupaku_addressArrPro As String() = New String() {"香川県Test"}
-    'Private yupaku_goods As String() = New String() {"ad135-be"}   ad135-be
-    Private yupaku_goods As String() = New String() {"test"}
+    Private yupaku_addressArr As String() = New String() {"TEST"}
+    'Private yupaku_addressArrPro As String() = New String() {"千葉県", "秋田県", "岩手県"}
 
+    Private yupaku_addressArrPro As String() = New String() {"TEST"}
+    'Private yupaku_goods As String() = New String() {"ad135-be"}   ad135-be
+    'Private yupaku_goods As String() = New String() {"ny263-51"， "ny385-b", "ny385-c", "ny263-306-42"}
+    Private yupaku_goods As String() = New String() {"ny263-306-42"}
     Public yupakucheck As Boolean = False
     Private yupaku_str As String = "ゆう2"
     Dim isyupakuGoodBool As Boolean = False
@@ -1129,7 +1131,7 @@ Public Class Csv_denpyo3
                     Dim haisouSaki As String = DGV1.Item(dH1.IndexOf("発送先住所"), r1).Value
 
 
-                    YU2Flag = False
+
 
 
                     If isYamatoGood And (DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value = dazaifu_str Or DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value = "井相田") And (Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "メール便") Or Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "ヤマト")) Then
@@ -1672,7 +1674,7 @@ Public Class Csv_denpyo3
 
         Dim doukonArray As String() = File.ReadAllLines(appPathDir & "\config\version2\同梱特殊.txt", ENC_SJ)
         Dim ny331_50_codes As String() = New String() {"ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye", "ny331-50-rose", "ny331-50-lor", "ny331-50-lgr", "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi"}
-        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny264-100-4000", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
+        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny264-100-4000", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a", "pa084-5", "pa084-7", "pa084-ho"}
         'Dim ny331_2500_codes As String() = New String() {"ny331-2500-be"}
         '扁盒口罩
         'Dim masuku_50codesPro As String() = New String() {"TEST"}
@@ -1762,6 +1764,11 @@ Public Class Csv_denpyo3
                 Dim checkcodejuchusu_ny264_200 As Integer = 0
                 Dim checkcodejuchusu_ny264_500 As Integer = 0
                 Dim checkcodejuchusu_ny264_3000 As Integer = 0
+                Dim checkcodejuchusu_pa084_5 As Integer = 0
+                Dim checkcodejuchusu_pa084_7 As Integer = 0
+
+                Dim checkcodejuchusu_pa084_ho As Integer = 0
+
 
                 Dim checkcodejuchusu_ny331_50 As Integer = 0 'ny331_50シリーズ
                 Dim checkcodejuchusu_ny331_2500 As Integer = 0 'ny331_2500シリーズ
@@ -1920,6 +1927,27 @@ Public Class Csv_denpyo3
                     End If
 
 
+
+                    If checkcode(0).ToLower = "pa084-5" Then
+                        If checkcode(1) = Int(checkcode(1)) Then
+                            checkcodejuchusu_pa084_5 = checkcodejuchusu_pa084_5 + checkcode(1)
+                        End If
+                    End If
+
+
+
+                    If checkcode(0).ToLower = "pa084-7" Then
+                        If checkcode(1) = Int(checkcode(1)) Then
+                            checkcodejuchusu_pa084_7 = checkcodejuchusu_pa084_7 + checkcode(1)
+                        End If
+                    End If
+
+
+                    If checkcode(0).ToLower = "pa084-ho" Then
+                        If checkcode(1) = Int(checkcode(1)) Then
+                            checkcodejuchusu_pa084_ho = checkcodejuchusu_pa084_ho + checkcode(1)
+                        End If
+                    End If
 
                     'ny373受注数
                     If InStr(checkcode(0).ToLower, "ny373") Then
@@ -2160,6 +2188,29 @@ Public Class Csv_denpyo3
                     ny264_3000_isnagoya = checkSouko_DaOrNa(tag_decide, "ny264-3000a", checkcodejuchusu_ny264_3000, haisouSaki)
                 End If
 
+                Dim pa084_5_isnagoya As Boolean = Nothing
+                If checkcodejuchusu_pa084_5 > 0 Then
+                    pa084_5_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-5", checkcodejuchusu_pa084_5, haisouSaki)
+                End If
+
+
+                Dim pa084_7_isnagoya As Boolean = Nothing
+                If checkcodejuchusu_pa084_7 > 0 Then
+                    pa084_7_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-7", checkcodejuchusu_pa084_7, haisouSaki)
+                End If
+
+
+                Dim pa084_ho_isnagoya As Boolean = Nothing
+                If checkcodejuchusu_pa084_ho > 0 Then
+                    pa084_ho_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-ho", checkcodejuchusu_pa084_ho, haisouSaki)
+                End If
+
+
+
+
+
+
+
                 Dim fukusuSoukoFlag As Boolean = False
                 For i As Integer = 0 To mCodeArray.Length - 1
                     Dim code As String() = Split(mCodeArray(i), "*")
@@ -2207,6 +2258,9 @@ Public Class Csv_denpyo3
                     '        End If
                     '    End If
                     'End If
+
+
+
 
                     If ny261_isnagoya Then
                         If haisouKind = "宅配便" And (code(0).ToLower = "ny261-1000-a") Then
@@ -2288,6 +2342,15 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
+
+
+                    'If haisouKind = "宅配便" And code(0).ToLower = "pa084-5" And pa084_5_isnagoya Then
+                    '    weight = "12.5"
+                    '    sp_check = False
+                    'End If
+
+
+
                     'ny264-3000
                     If haisouKind = "宅配便" And code(0).ToLower = "ny264-3000a" And ny264_3000_isnagoya Then
                         weight = "75" '3000枚一个口(100) => 4000枚(75)
@@ -2300,19 +2363,22 @@ Public Class Csv_denpyo3
                     End If
 
                     If haisouKind = "メール便" And (code(0).ToLower = "ny373-wh" Or code(0).ToLower = "ny373-hu" Or code(0).ToLower = "ny373-pi" Or code(0).ToLower = "ny373-bk" Or code(0).ToLower = "ny373-kob" Or code(0).ToLower = "ny373-kowh" Or code(0).ToLower = "ny373-kobk") Then
-
-
                         If special_taku Then
                             weight = "178"
                             sp_check = False
                         Else
-
-
-                            weight = "2.5"
-
+                            'weight = "100"
                         End If
-
                     End If
+
+
+                    'If isyupakubyAddress(haisouSaki) And isyupakuGoodBool And Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "宅配便") Then
+                    '    weight = "100"
+                    '    sp_check = False
+
+                    'End If
+
+
 
                     'If special_taku = True And haisouKind = "メール便" And InStr(code(0).ToLower, "ny373") Then
                     '    weight = "178"
@@ -2445,11 +2511,20 @@ Public Class Csv_denpyo3
                     End If
 
 
+                    If haisouKind = "宅配便" And InStr(code(0).ToLower, "ny331-2500") Then
+                        weight = "125"
+                        sp_check = False
+                    End If
 
 
 
 
 
+                    isyupakuGoodBool = isyupakuGoodsbyCode(code(0))
+                    If isyupakubyAddress(haisouSaki) And isyupakuGoodBool And Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "宅配便") Then
+                        'weight = "100"
+                        YU2Flag = True
+                    End If
 
                     'デフォルトがメール便で、宅配便があったら、haisouKindを宅配便にする
                     'メール便と定形外の場合は、宅配便にする
@@ -2534,6 +2609,11 @@ Public Class Csv_denpyo3
                                             haisouSize = haisouSize + (CDbl(TakuhaiPerConv(weight)) * CDbl(juchusu))
                                         Else
 
+                                            haisouSize = haisouSize + (CDbl(weight) * CDbl(juchusu))
+                                        End If
+
+
+                                        If YU2Flag Then
                                             haisouSize = haisouSize + (CDbl(weight) * CDbl(juchusu))
                                         End If
 
@@ -2962,6 +3042,7 @@ Public Class Csv_denpyo3
                                     mTag = nagoya_str
                                 ElseIf mTag = nagoya_str Then
 
+
                                 Else
                                     mTag = fukususouko_str
                                 End If
@@ -3125,7 +3206,9 @@ Public Class Csv_denpyo3
 
 
                     DGV1.Item(dH1.IndexOf("sw"), r1).Value = Math.Ceiling(haisouSize)
+
                     DGV1.Item(dH1.IndexOf("サイズ"), r1).Value = sizeName.TrimEnd("/")
+
                     DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value = mTag
 
 
@@ -5697,6 +5780,19 @@ Public Class Csv_denpyo3
             Else
                 bl = False 'false: 太宰府
             End If
+        ElseIf code = "pa084-5" Or code = "pa084-ho" Then
+            If count >= 3 Then
+                bl = True
+            Else
+                bl = False
+            End If
+        ElseIf code = "pa084-7" Then
+            If count >= 2 Then
+                bl = True
+            Else
+                bl = False
+            End If
+
         End If
 
         If bl Then
@@ -9579,7 +9675,7 @@ Public Class Csv_denpyo3
         Dim mcNameArray As New ArrayList    '表示が1つだけの時商品名を入れる
 
         Dim dH3 As ArrayList = TM_HEADER_GET(DGV3)
-
+        LIST4VIEW("HakoCodeInput", "start")
         For r As Integer = 0 To dgv.RowCount - 1
             '***************************************************************************
             'dgv1に反映するため、伝票番号取得
@@ -9653,8 +9749,10 @@ Public Class Csv_denpyo3
 
                 'test   FALSE 一定记得删除
                 'sizeMax = 200
-
+                LIST4VIEW("dgv.RowCount", "start")
                 For i As Integer = mcCodeArray.Count - 1 To 0 Step -1
+
+                    LIST4VIEW("mcCodeArray", "start")
                     Dim hSouko As String = DGV1.Item(dH1.IndexOf("発送倉庫"), dgv1Row).Value
                     If kei + mcPMArray(i) <= sizeMax Then   '100％（定形外250）までのサイズ計算
                         Dim res As String = mcCodeArray(i) & "*1"
@@ -11607,7 +11705,7 @@ Public Class Csv_denpyo3
                     Dim master As String = ""
                     Dim name As String = ""
                     Dim kiji3 As String = ""
-                    '太宰府别纸 按受注票号顺序出
+                    'denpyoNo 太宰府别纸 按受注票号顺序出  已经废弃 别纸顺序按照其他方式实现了
                     Dim denpyoNo As String = ""
                     If koumoku("bikou2")(i) <> "" Then
                         kiji2 = dgvM(i).Item(TM_ArIndexof(dHfiles, koumoku("bikou2")(i)), r).Value
@@ -12354,10 +12452,14 @@ Public Class Csv_denpyo3
                                     If dataRow(dH9.IndexOf("配送希望日")) = "" Then
                                         line_yamato &= qtm & qtm2
                                     Else
-                                        If IsNumeric(dataRow(dH9.IndexOf("配送希望日"))) Then
-                                            line_yamato &= qtm & dataRow(dH9.IndexOf("配送希望日")).Substring(0, 4) & "/" & dataRow(dH9.IndexOf("配送希望日")).Substring(4, 2) & "/" & dataRow(dH9.IndexOf("配送希望日")).Substring(6, 2) & qtm2
-                                        Else
-                                            line_yamato &= qtm & qtm2
+                                    If IsNumeric(dataRow(dH9.IndexOf("配送希望日"))) Then
+
+                                        Dim strnnnn = dataRow(dH9.IndexOf("配送希望日"))
+
+
+                                        line_yamato &= qtm & dataRow(dH9.IndexOf("配送希望日")).Substring(0, 4) & "/" & dataRow(dH9.IndexOf("配送希望日")).Substring(4, 2) & "/" & dataRow(dH9.IndexOf("配送希望日")).Substring(6, 2) & qtm2
+                                    Else
+                                        line_yamato &= qtm & qtm2
                                         End If
                                     End If
 
@@ -13250,7 +13352,7 @@ Public Class Csv_denpyo3
                                 Dim cLine As String() = Split(cArray(p), "|=|")
 
                                 Dim a = cLine(Array.IndexOf(cH, "伝票番号"))
-                                '这里有问题
+
                                 Dim B = cLine(Array.IndexOf(cH, "受注番号"))
                                 Dim K3 = cLine(Array.IndexOf(cH, "マスタ便数"))
                                 Dim check As String = cLine(Array.IndexOf(cH, "伝票番号")) & "," & cLine(Array.IndexOf(cH, "受注番号"))
