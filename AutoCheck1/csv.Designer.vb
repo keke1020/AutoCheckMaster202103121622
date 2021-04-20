@@ -1333,7 +1333,8 @@ Partial Class Csv
         '
         Me.指定配列から空要素を削除ToolStripMenuItem2.Name = "指定配列から空要素を削除ToolStripMenuItem2"
         Me.指定配列から空要素を削除ToolStripMenuItem2.Size = New System.Drawing.Size(243, 22)
-        Me.指定配列から空要素を削除ToolStripMenuItem2.Text = ">指定配列から空要素を削除"
+        'Me.指定配列から空要素を削除ToolStripMenuItem2.Text = ">指定配列から空要素を削除"
+        Me.指定配列から空要素を削除ToolStripMenuItem2.Text = ">定形外保留、送り状番号空要素を削除"
         '
         'DataGridView2
         '

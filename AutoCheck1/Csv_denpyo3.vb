@@ -52,25 +52,24 @@ Public Class Csv_denpyo3
     Private yamato_title_sp As String() = yamato_title.Split(",")
 
 
-    '需要把佐川急便转成yupaku发送的条件之一 下列地址是条件之一  条件二是code
-    Private yupaku_addressArr As String() = New String() {"TEST"}
-    'Private yupaku_addressArrPro As String() = New String() {"千葉県", "秋田県", "岩手県"}
 
-    Private yupaku_addressArrPro As String() = New String() {"TEST"}
-    'Private yupaku_goods As String() = New String() {"ad135-be"}   ad135-be
-    'Private yupaku_goods As String() = New String() {"ny263-51"， "ny385-b", "ny385-c", "ny263-306-42"}
-    Private yupaku_goods As String() = New String() {"ny263-306-42"}
+    Private yupaku_addressArr As String() = New String() {"TEST"}
+    'Private yupaku_addressArrPro As String() = New String() {"福島県", "山口県", "兵庫県", "大阪"}
+    Private yupaku_addressArrPro As String() = New String() {"test"}
+    'Private yupaku_goods As String() = New String() {"ad081-bk", "ny263-51", "ny331-50-bk", "ad009-bk", "ad109"}
+    Private yupaku_goods As String() = New String() {"test"}
+
     Public yupakucheck As Boolean = False
     Private yupaku_str As String = "ゆう2"
+    'Private yupaku_OutlyingislandsArr As String() = New String() {"沖縄"}
+    Private yupaku_OutlyingislandsArr As String() = New String() {"test"}
     Dim isyupakuGoodBool As Boolean = False
-
-
+    Dim YU2Denpyus As ArrayList = New ArrayList
     Dim denpyounoS As New ArrayList
+    Dim CurDenpyoNo As String
+    Dim siharai As String = ""
 
-
-
-
-    Public Function isyupakuGoodsbyCode(code As String)
+    Public Function isyupakuGoodsbyCode(code As String) As Boolean
         If code = "" Then
             Return False
         Else
@@ -85,11 +84,11 @@ Public Class Csv_denpyo3
 
 
 
-    Public Function isyupakubyAddress(address As String)
+    Public Function isyupakubyAddress(address As String) As Boolean
         If address = "" Then
             Return False
         Else
-            For index = 0 To yupaku_goods.Count - 1
+            For index = 0 To yupaku_addressArrPro.Count - 1
                 'If  InStr ()  yupaku_addressArrPro(index) = address Then
                 If InStr(address, yupaku_addressArrPro(index)) Then
                     Return True
@@ -98,6 +97,20 @@ Public Class Csv_denpyo3
         End If
         Return False
     End Function
+
+    Public Function IsOutlyingislandsbyAddress(address As String) As Boolean
+        If address = "" Then
+            Return False
+        Else
+            For index = 0 To yupaku_OutlyingislandsArr.Count - 1
+                If InStr(address, yupaku_OutlyingislandsArr(index)) Then
+                    Return True
+                End If
+            Next
+        End If
+        Return False
+    End Function
+
 
     'MaxMumAndCurMunSagawaYupakuPro
     Dim yupakufName As String = Path.GetDirectoryName(Form1.appPath) & "\config\version2\MaxMumAndCurMunSagawaYupakuPro.txt"
@@ -698,6 +711,16 @@ Public Class Csv_denpyo3
                     fileHaisou = "宅配便"
             End Select
 
+            'If CheckBox34.Checked And
+            '                     isyupakubyAddress(haisouSaki) And isyupakuGoodBool Then
+
+            'If CheckBox34.Checked And isyupakuGoodBool Then
+            '    fileHaisou = "メール便"
+
+            'End If
+
+
+
             ToolStripProgressBar1.Maximum += csvRecords.Count
 
             Dim fStrArray As String() = Nothing
@@ -731,7 +754,7 @@ Public Class Csv_denpyo3
                     End If
                 End If
 
-                Dim siharai As String = ""
+                'Dim siharai As String = ""
                 Dim goukei As String = ""
                 For c As Integer = 0 To dgv.ColumnCount - 1
                     'fStrArrayを「,」で区切り、ヘッダーを探す
@@ -1126,7 +1149,7 @@ Public Class Csv_denpyo3
 
                     For checkcodei As Integer = 0 To mCodeArray.Length - 1
                         Dim checkcode As String() = Split(mCodeArray(checkcodei), "*")
-                        isyupakuGoodBool = isyupakuGoodsbyCode(checkcode(0))
+                        'isyupakuGoodBool = isyupakuGoodsbyCode(checkcode(0))
                     Next
                     Dim haisouSaki As String = DGV1.Item(dH1.IndexOf("発送先住所"), r1).Value
 
@@ -1170,13 +1193,14 @@ Public Class Csv_denpyo3
 
                         'Dim haisouSaki As String = DGV1.Item(dH1.IndexOf("発送先住所"), r1).Value
 
-                    ElseIf isyupakubyAddress(haisouSaki) And isyupakuGoodBool And Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "宅配便") Then
+                    ElseIf CheckBox34.Checked And
+                            isyupakubyAddress(haisouSaki) And isyupakuGoodBool And Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "宅配便") Then
 
-                        DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = "メール便"
-                        DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "メール便"
-                        DGV1.Item(dH1.IndexOf("データ"), r1).Value = "ゆう200"
-                        '一定  
-                        YU2Flag = True
+                        'DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = "メール便"
+                        'DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "メール便"
+                        'DGV1.Item(dH1.IndexOf("データ"), r1).Value = "ゆう200"
+                        ''一定  
+                        'YU2Flag = True
                     End If
 
                 Next
@@ -1792,11 +1816,29 @@ Public Class Csv_denpyo3
 
                     'If checkcode(0).ToLower = "ad228" Or checkcode(0).ToLower = "ad228-be" Or checkcode(0).ToLower = "ad228-bl" Or checkcode(0).ToLower = "ad228-co" Or checkcode(0).ToLower = "ad228-gr" Or checkcode(0).ToLower = "ad228-sb" Or checkcode(0).ToLower = "ad228-wa" Then
                     '    If checkcode(1) = Int(checkcode(1)) Then
-                    '        checkcodejuchusu_ad228 = checkcodejuchusu_ad228 + checkcode(1)
+                    '        checkcodejuchusu_ad2   = checkcodejuchusu_ad228 + checkcode(1)
                     '    End If
                     'End If
 
                     'If Not checkcode_ Is Nothing And Regex.IsMatch(haisouSaki, "沖縄") = False And Regex.IsMatch(haisouSaki, "北海道") = False Then
+                    Dim tagYU2 As String = MasterTag(checkcode(0).ToLower)
+                    YU2Flag = False
+                    Dim haisousoku As String = DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value
+
+                    '这里是判断是否YU2的最初的判断
+                    If CheckBox34.Checked And InStr(tagYU2, "太宰府") And siharai <> "代金引換" Then
+                        'If CheckBox34.Checked And InStr(tagYU2, "") Then
+                        'siharai <> "代金引換" 
+                        If (isyupakubyAddress(haisouSaki) And isyupakuGoodsbyCode(checkcode(0))) Or IsOutlyingislandsbyAddress(haisouSaki) Then
+                            DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = "メール便"
+                            'DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "メール便"
+                            DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "ゆう200"
+                            DGV1.Item(dH1.IndexOf("データ"), r1).Value = "ゆう200"
+                            haisouKind_moto = "メール便"
+                            YU2Flag = True
+                        End If
+                    End If
+
                     If checkcode(0).ToLower = "ny263-51" Then
                         '個数は整数
                         If checkcode(1) = Int(checkcode(1)) Then
@@ -2210,15 +2252,16 @@ Public Class Csv_denpyo3
 
 
 
-
                 Dim fukusuSoukoFlag As Boolean = False
                 For i As Integer = 0 To mCodeArray.Length - 1
                     Dim code As String() = Split(mCodeArray(i), "*")
                     Dim sw As String = MasterWeight(code(0).ToLower)
+
                     sizeName &= sw & "/"
                     Dim tag As String = MasterTag(code(0).ToLower)
                     Dim itemName As String = MasterItemName(code(0).ToLower)
                     Dim juchusu As String = code(1)
+
 
                     If haisouKind = "" Then
                         If Regex.IsMatch(sw, "P|p") Then
@@ -2353,7 +2396,7 @@ Public Class Csv_denpyo3
 
                     'ny264-3000
                     If haisouKind = "宅配便" And code(0).ToLower = "ny264-3000a" And ny264_3000_isnagoya Then
-                        weight = "75" '3000枚一个口(100) => 4000枚(75)
+                        weight = "100" '3000枚一个口(100) => 4000枚(75) 又改回一个一口 100
                         sp_check = False
                     End If
 
@@ -2510,21 +2553,34 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
+                    If haisouKind = "宅配便" And InStr(code(0).ToLower, "ny331-2500") And InStr(code(0).ToLower, "2000") = False Then
 
-                    If haisouKind = "宅配便" And InStr(code(0).ToLower, "ny331-2500") Then
+                        'If haisouKind = "宅配便" And InStr(code(0).ToLower, "ny331-2500") Then
+
                         weight = "125"
+                        sp_check = False
+                    End If
+                    If haisouKind = "宅配便" And (code(0).ToLower = "ny365-xl" Or code(0).ToLower = "ny365-xxl" Or code(0).ToLower = "ny365-xxxl") Then
+                        weight = "20"
                         sp_check = False
                     End If
 
 
 
+                    'isyupakuGoodBool = isyupakuGoodsbyCode(code(0))
+                    'If CheckBox34.Checked And isyupakubyAddress(haisouSaki) And isyupakuGoodBool And Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "宅配便") Then
+                    '    'weight = "100"
 
-
-                    isyupakuGoodBool = isyupakuGoodsbyCode(code(0))
-                    If isyupakubyAddress(haisouSaki) And isyupakuGoodBool And Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "宅配便") Then
-                        'weight = "100"
-                        YU2Flag = True
-                    End If
+                    '    DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = "メール便"
+                    '    DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "メール便"
+                    '    DGV1.Item(dH1.IndexOf("データ"), r1).Value = "ゆう200"
+                    '    '一定  
+                    '    'DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = hakoArray.Count
+                    '    YU2Flag = True
+                    '    haisouKind = "メール便"
+                    '    haisouKind_moto = DGV1.Item(dH1.IndexOf("発送方法"), r1).Value
+                    '    sw = "M100"
+                    'End If
 
                     'デフォルトがメール便で、宅配便があったら、haisouKindを宅配便にする
                     'メール便と定形外の場合は、宅配便にする
@@ -2613,9 +2669,10 @@ Public Class Csv_denpyo3
                                         End If
 
 
-                                        If YU2Flag Then
-                                            haisouSize = haisouSize + (CDbl(weight) * CDbl(juchusu))
-                                        End If
+                                        'If YU2Flag Then
+                                        '    'haisouSize = haisouSize + (CDbl(weight) * CDbl(juchusu))
+                                        '    haisouSize = haisouSize + (CDbl(TakuhaiPerConv(weight)) * CDbl(juchusu))
+                                        'End If
 
                                     End If
                                 End If
@@ -3136,17 +3193,17 @@ Public Class Csv_denpyo3
                                     DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = hakoArray.Count
                                 End If
                             Else
-                                If hakoArray.Count > NumericUpDown5.Value Then
-                                    haisouKind = "宅配便"
-                                    haisouSize = haisouSize * 0.01
-                                    DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(haisouSize / 100)
-                                ElseIf haisouKind_moto = "宅配便" Then
-                                    haisouSize = haisouSize * 0.01
-                                    DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(haisouSize / 100)
-                                Else
-                                    DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = hakoArray.Count
-                                End If
+                            If hakoArray.Count > NumericUpDown5.Value Then
+                                haisouKind = "宅配便"
+                                haisouSize = haisouSize * 0.01
+                                DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(haisouSize / 100)
+                            ElseIf haisouKind_moto = "宅配便" Then
+                                haisouSize = haisouSize * 0.01
+                                DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(haisouSize / 100)
+                            Else
+                                DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = hakoArray.Count
                             End If
+                        End If
 
                         'End If
                         ''「最大重量 / 2 > 最大数」なら宅配便
@@ -3486,10 +3543,24 @@ Public Class Csv_denpyo3
         Return weight
     End Function
 
+
+    'YU2FlagMasterWeight 重新计算
+    Public Function YU2FlagMasterWeight(code As String) As String
+        Dim res As String = ""
+        res = "M100"
+        Return res
+    End Function
+
     'マスタのweightを読み込む
     Private Function MasterWeight(code As String) As String
         Dim res As String = ""
         res = DGV6.Item(dH6.IndexOf("ship-weight"), dgv6CodeArray.IndexOf(code.ToLower)).Value
+
+
+        If CheckBox34.Checked And (YU2Flag Or YU2Denpyus.Contains(CurDenpyoNo)) Then
+            res = YU2FlagMasterWeight(code)
+        End If
+
         Return res
     End Function
 
@@ -3560,50 +3631,55 @@ Public Class Csv_denpyo3
             Dim masutahaiso As String = DGV1.Item(dH1.IndexOf("マスタ配送"), r).Value
             Dim souko As String = DGV1.Item(dH1.IndexOf("発送倉庫"), r).Value
             Dim binsu As String = DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value
+            Dim YU2 As String = DGV1.Item(dH1.IndexOf("データ"), r).Value
 
             If IsNumeric(binsu) Then
                 Select Case True
                     '太宰府
-                    Case hassou = "宅配便" And souko = HS1.Text
+                    Case hassou = "宅配便" And souko = HS1.Text And YU2 <> "ゆう200"
                         LinkLabel7.Text += 1 'CInt(binsu) 
                         '井相田
-                    Case hassou = "宅配便" And souko = HS2.Text
+                    Case hassou = "宅配便" And souko = HS2.Text And YU2 <> "ゆう200"
                         LinkLabel10.Text += 1 'CInt(binsu)
                         '名古屋
-                    Case hassou = "宅配便" And souko = HS4.Text
+                    Case hassou = "宅配便" And souko = HS4.Text And YU2 <> "ゆう200"
                         LinkLabel28.Text += 1 'CInt(binsu)
                     'Case hassou = "宅配便" And souko = HS3.Text
                     '    LinkLabel13.Text += 1 'CInt(binsu)
-                    Case hassou = "メール便" And souko = HS1.Text
+                    Case hassou = "メール便" And souko = HS1.Text And YU2 <> "ゆう200"
                         LinkLabel8.Text += 1 'CInt(binsu)
-                    Case hassou = "メール便" And souko = HS2.Text
+                    Case hassou = "メール便" And souko = HS2.Text And YU2 <> "ゆう200"
                         LinkLabel11.Text += 1 'CInt(binsu)
                     'Case hassou = "メール便" And souko = HS3.Text
                     '    LinkLabel14.Text += 1 'CInt(binsu)
                     '    DGV15.Rows.Add(dNo, "メール便が" & HS3.Text)
-                    Case hassou = "メール便" And souko = HS4.Text
+                    Case hassou = "メール便" And souko = HS4.Text And YU2 <> "ゆう200"
                         LinkLabel27.Text += 1 'CInt(binsu)
-                    Case hassou = "定形外" And souko = HS1.Text
+                    Case hassou = "定形外" And souko = HS1.Text And YU2 <> "ゆう200"
                         LinkLabel9.Text += 1 'CInt(binsu)
-                    Case hassou = "定形外" And souko = HS2.Text
+                    Case hassou = "定形外" And souko = HS2.Text And YU2 <> "ゆう200"
                         LinkLabel12.Text += 1 'CInt(binsu)
-                    Case hassou = "定形外" And souko = HS4.Text
+                    Case hassou = "定形外" And souko = HS4.Text And YU2 <> "ゆう200"
                         LinkLabel13.Text += 1 'CInt(binsu)
-                    Case masutahaiso = "ヤマト(陸便)" And souko = HS1.Text
+                    Case masutahaiso = "ヤマト(陸便)" And souko = HS1.Text And YU2 <> "ゆう200"
                         LinkLabel31.Text += 1 'CInt(binsu)
-                    Case masutahaiso = "ヤマト(船便)" And souko = HS1.Text
+                    Case masutahaiso = "ヤマト(船便)" And souko = HS1.Text And YU2 <> "ゆう200"
                         LinkLabel33.Text += 1 'CInt(binsu)
-                    Case masutahaiso = "ヤマト(陸便)" And souko = HS2.Text
+                    Case masutahaiso = "ヤマト(陸便)" And souko = HS2.Text And YU2 <> "ゆう200"
                         LinkLabel32.Text += 1 'CInt(binsu)
-                    Case masutahaiso = "ヤマト(船便)" And souko = HS2.Text
+                    Case masutahaiso = "ヤマト(船便)" And souko = HS2.Text And YU2 <> "ゆう200"
                         LinkLabel36.Text += 1 'CInt(binsu)
-                    Case masutahaiso = "ゆう2(陸)" And souko = HS1.Text
-                        LinkLabel39.Text += 1 'CInt(binsu)
-                    Case masutahaiso = "ゆう2(船)" And souko = HS1.Text
+                        '太宰府路便
+                    Case YU2 = "ゆう200" And souko = HS1.Text
+                        LinkLabel39.Text += 1 'CInt(binsu) 
+                        '太宰府船便
+                    Case YU2 = "ゆう200" And souko = HS1.Text
                         LinkLabel40.Text += 1 'CInt(binsu)
-                    Case masutahaiso = "ゆう2(陸)" And souko = HS2.Text
+                        '井相田路便
+                    Case YU2 = "ゆう200" And souko = HS2.Text
                         LinkLabel41.Text += 1 'CInt(binsu)
-                    Case masutahaiso = "ゆう2(船)" And souko = HS2.Text
+                        '井相田船便
+                    Case YU2 = "ゆう200" And souko = HS2.Text
                         LinkLabel42.Text += 1 'CInt(binsu)
                     Case Else
                         LinkLabel14.Text += 1 'CInt(binsu)
@@ -6019,7 +6095,7 @@ Public Class Csv_denpyo3
         '名古屋は9から
         Dim kosuKouku As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0}
         'Dim tenpoList As String() = New String() {"", "", "", "", "", "", "", "", ""}        '出力確認票用に店舗を入れる
-        '名古屋は9から ヤマト是第13 ヤマト(井)是第14      ゆう2 是第17 ゆう2(井)是第18  
+        '名古屋は9から ヤマト是第13 ヤマト(井)是第14      ゆう2太宰府 是第17 ゆう2(井)是第18  
         Dim tenpoList As String() = New String() {"", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""}        '出力確認票用に店舗を入れる
         'Dim tenpoListKouku As String() = New String() {"", "", "", "", ""}
         '名古屋は5から
@@ -6227,12 +6303,17 @@ Public Class Csv_denpyo3
                         If sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(陸便)" Or sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(船便)" Then
                             isYamato = True
                         End If
-
-
                         Dim isyupakuGoodBoolTemp As Boolean = False
-                        'If sender.Item(dHSender.IndexOf("データ"), r).Value = "ゆう2" Then
+                        Dim denpyoNum = sender.Item(dHSender.IndexOf("お客様側管理番号"), r).Value
+
+                        'If sender.Item(dHSender.IndexOf("処理用"), r).Value = "ゆう200" Then
                         '    isyupakuGoodBoolTemp = True
                         'End If
+
+                        If YU2Denpyus.Contains(denpyoNum) Then
+                            isyupakuGoodBoolTemp = True
+                        End If
+
 
 
                         Select Case sender.Item(dHSender.IndexOf(koumoku("syori2")(i)), r).Value
@@ -6244,12 +6325,9 @@ Public Class Csv_denpyo3
                                         kosu(16) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
                                     End If
                                 ElseIf isyupakuGoodBoolTemp Then
-
                                     '太宰府 yu 2  的路便
                                     kosu(18) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
-
-
-
+                                    kosu(17) += 0
                                 Else
                                     kosu(4) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
                                 End If
@@ -6454,12 +6532,14 @@ Public Class Csv_denpyo3
 
 
                 '太宰府的yu2路边
-                LinkLabel38.Text = kosu(17)
-                ToolTip1.SetToolTip(LinkLabel38, tenpoList(16))
+                LinkLabel38.Text = kosu(18)
+                ToolTip1.SetToolTip(LinkLabel38, tenpoList(17))
+                Console.WriteLine(">>>" + tenpoList(16))
 
-                '太宰府的yu2船边
-                LinkLabel37.Text = kosu(18)
-                ToolTip1.SetToolTip(LinkLabel37, tenpoList(17))
+                '太宰府的yu2船边  暂时不会有船便
+                LinkLabel37.Text = "0"
+                LinkLabel37.Text = "0"
+                ToolTip1.SetToolTip(LinkLabel37, "0")
 
 
             Case sender Is DGV13
@@ -6485,7 +6565,7 @@ Public Class Csv_denpyo3
                 lkArray(i).VisitedLinkColor = Color.Yellow
             End If
         Next
-
+        Dim cc = LinkLabel38.Text
         '実績表示（2019/11/13）
         Csv_denpyo3_F_count.LB11.Text = "+" & (CInt(LinkLabel1.Text) + CInt(LinkLabel21.Text))
         Csv_denpyo3_F_count.LB12.Text = "+" & (CInt(LinkLabel2.Text) + CInt(LinkLabel22.Text))
@@ -6494,7 +6574,10 @@ Public Class Csv_denpyo3
         Csv_denpyo3_F_count.LB35.Text = "+" & LinkLabel29.Text
         Csv_denpyo3_F_count.LB39.Text = "+" & LinkLabel34.Text
         '太宰府的yu2路便
-        Csv_denpyo3_F_count.LB32.Text = "+" & LinkLabel38.Text
+        'Csv_denpyo3_F_count.LB32.Text = "+" & LinkLabel38.Text
+        Csv_denpyo3_F_count.LB60.Text = "+" & LinkLabel38.Text
+        '太宰府的yu2船便
+        Csv_denpyo3_F_count.LB61.Text = "+" & "0"
         Csv_denpyo3_F_count.LB40.Text = "+" & LinkLabel35.Text
         Csv_denpyo3_F_count.LB36.Text = "+" & LinkLabel30.Text
         Csv_denpyo3_F_count.LB15.Text = "+" & (CInt(LinkLabel16.Text) + CInt(LinkLabel3.Text))
@@ -8766,9 +8849,19 @@ Public Class Csv_denpyo3
 
         LIST4VIEW("変換処理", "start")
         For r As Integer = 0 To DGV1.RowCount - 1
+
             Dim hassou As String = DGV1.Item(dH1.IndexOf("発送方法"), r).Value
             Dim souko As String = DGV1.Item(dH1.IndexOf("発送倉庫"), r).Value
             Dim binsyu As String = DGV1.Item(dH1.IndexOf("便種"), r).Value
+
+            Dim codecc As String = DGV1.Item(dH1.IndexOf("商品マスタ"), r).Value
+
+            Dim YU2flag As String = DGV1.Item(dH1.IndexOf("データ"), r).Value
+
+            If YU2flag = "ゆう200" Then
+                YU2Denpyus.Add(DGV1.Item(dH1.IndexOf("伝票番号"), r).Value)
+            End If
+
 
 
             '-----------------------------------------------------请删除-
@@ -9681,6 +9774,7 @@ Public Class Csv_denpyo3
             'dgv1に反映するため、伝票番号取得
             '***************************************************************************
             Dim selDenpyoNo As String = dgv.Item(dHSel.IndexOf(koumoku("denpyoNo")(num)), r).Value  '伝票番号取得
+            CurDenpyoNo = selDenpyoNo
             Dim dgv1Row As Integer = 0      'dgv1の伝票番号列を取得する
             For r1 As Integer = 0 To DGV1.RowCount - 1
                 If selDenpyoNo = DGV1.Item(dH1.IndexOf("伝票番号"), r1).Value Then
@@ -9721,6 +9815,10 @@ Public Class Csv_denpyo3
                         Dim code As String() = Split(masterCode(i), "*")
                         For k As Integer = 0 To code(1) - 1
                             mcCodeArray.Add(code(0))
+
+                            If InStr(code(0), "ny331-50-bk") Then
+                                Console.WriteLine("")
+                            End If
                             Dim mStr As String = MasterWeight(code(0))
                             mcPMArray.Add(Regex.Replace(MasterWeight(code(0)), "M|m|P|p|T|t", ""))
                             mcNameArray.Add(MasterItemName(code(0)))
@@ -9729,6 +9827,7 @@ Public Class Csv_denpyo3
                 End If
 
                 '1便のMAX
+
                 Dim sizeMax As Integer = 100
                 If dgv Is DGV13 Then
                     sizeMax = NumericUpDown6.Value
@@ -9749,10 +9848,16 @@ Public Class Csv_denpyo3
 
                 'test   FALSE 一定记得删除
                 'sizeMax = 200
-                LIST4VIEW("dgv.RowCount", "start")
+
+                'LIST4VIEW("dgv RowCount1", "system")
+
                 For i As Integer = mcCodeArray.Count - 1 To 0 Step -1
 
-                    LIST4VIEW("mcCodeArray", "start")
+                    If InStr(mcCodeArray(0), "ny331-50-bk") Then
+                        Console.WriteLine("")
+                    End If
+
+                    'LIST4VIEW("dgv RowCount2", "system")
                     Dim hSouko As String = DGV1.Item(dH1.IndexOf("発送倉庫"), dgv1Row).Value
                     If kei + mcPMArray(i) <= sizeMax Then   '100％（定形外250）までのサイズ計算
                         Dim res As String = mcCodeArray(i) & "*1"
@@ -10134,7 +10239,8 @@ Public Class Csv_denpyo3
 
         Dim denpyoNo As String = dgv.Item(dHSel.IndexOf(koumoku("denpyoNo")(dgvNum)), r).Value
         Dim hinmeiStr As String() = Nothing
-        Dim siharai As String = ""
+        'Dim siharai As String = ""
+
 
         'dgv1から品名を取得
         For r1 As Integer = 0 To DGV1.RowCount - 1
@@ -10534,6 +10640,11 @@ Public Class Csv_denpyo3
         If DGV9.RowCount > 0 Then
             For r As Integer = 0 To DGV9.RowCount - 1
                 Dim denpyoNum = DGV9.Item(dH9.IndexOf("お客様側管理番号"), r).Value
+                If YU2Denpyus.Contains(denpyoNum) Then
+
+
+                    DGV9.Item(dH9.IndexOf("処理用"), r).Value = "ゆう200"
+                End If
                 For r2 As Integer = 0 To DGV3.RowCount - 1
                     If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
                         If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "とんよか卸" Then
@@ -10626,6 +10737,7 @@ Public Class Csv_denpyo3
         If DGV13.RowCount > 0 Then
             For r As Integer = 0 To DGV13.RowCount - 1
                 Dim denpyoNum = DGV13.Item(dH13.IndexOf("お客様側管理番号"), r).Value
+
                 For r2 As Integer = 0 To DGV3.RowCount - 1
                     If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
                         If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "とんよか卸" Then
@@ -10636,33 +10748,16 @@ Public Class Csv_denpyo3
                             DGV13.Item(dH13.IndexOf("ご依頼主　名称１"), r).Value = "万方商事株式会社"
                             DGV13.Item(dH13.IndexOf("ご依頼主　名称２"), r).Value = ""
                             Exit For
-
-
-
-
-
-
-
-
                         ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZFK" Then
                             'If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
                             '    DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
                             'Else
                             '    'DGV7.Item(dH7.IndexOf("品名１"), r).Value = ""
                             'End If
-
-
-
-
                             'DGV7.Item(dH7.IndexOf("品名２"), r).Value = ""
                             'DGV7.Item(dH7.IndexOf("品名３"), r).Value = ""
                             'DGV7.Item(dH7.IndexOf("品名４"), r).Value = ""
                             'DGV7.Item(dH7.IndexOf("品名５"), r).Value = ""
-
-
-
-
-
                             DGV13.Item(dH13.IndexOf("ご依頼主　電話番号"), r).Value = "092-586-6853"
                             'ご依頼主　郵便番号
 
@@ -10701,10 +10796,6 @@ Public Class Csv_denpyo3
                             DGV13.Item(dH13.IndexOf("ご依頼主　名称１"), r).Value = "Amazon 海東"
                             'DGV13.Item(dH13.IndexOf("ご依頼主　名称２"), r).Value = ""
                             Exit For
-
-
-
-
                         ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "問屋よか" And (Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴A" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴B" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴C") Then
                             DGV13.Item(dH13.IndexOf("ご依頼主　郵便番号"), r).Value = ""
                             DGV13.Item(dH13.IndexOf("ご依頼主　電話番号"), r).Value = "092-577-9205"
@@ -10718,8 +10809,6 @@ Public Class Csv_denpyo3
                 Next
             Next
         End If
-
-
 
         If False Then
             '別紙により並べ替え
@@ -11290,7 +11379,7 @@ Public Class Csv_denpyo3
             Exit Sub
         End If
 
-        Dim nameArray As String() = New String() {"GU", "BS", "SD", "NA", "GUK", "BSK", "SDK", "NAK", "YMD", "YMI", "YPK2J", "YPK2T"}
+        Dim nameArray As String() = New String() {"GU", "BS", "SD", "NA", "GUK", "BSK", "SDK", "NAK", "YMD", "YMI", "YPK2T", "YPK2J"}
         'Dim nameArray As String() = New String() {"GU", "BS", "SD"}
         Dim fNameArray As String() = New String() {HS1.Text, HS3.Text & "倉庫", HS2.Text, HS4.Text, HS1.Text & "航空便", HS3.Text & "倉庫航空便", HS2.Text & "航空便", HS4.Text & "航空便", HS1.Text & "ヤマト便", HS2.Text & "ヤマト便", HS1.Text & "ゆう2", HS2.Text & "ゆう2"}
         'Dim fNameArray As String() = New String() {HS1.Text, HS3.Text & "倉庫", HS2.Text, HS1.Text & "航空便", HS3.Text & "倉庫航空便", HS2.Text & "航空便"}
@@ -11838,8 +11927,11 @@ Public Class Csv_denpyo3
                                     'Dim onecode As String() = Split(one(k), "*")
                                     'Dim checkCode As String = ValiationAdd1(onecode(0),,, False)
                                     Dim souko As String = dgvM(i).Item(TM_ArIndexof(dHfiles, "処理用2"), r).Value
-
-
+                                    Dim YU2FlagPro As String = dgvM(i).Item(TM_ArIndexof(dHfiles, "処理用"), r).Value
+                                    Dim YU2Flag = False
+                                    If YU2FlagPro = "ゆう200" Then
+                                        YU2Flag = True
+                                    End If
 
                                     'If isyupakuGoodBool And YU2Flag Then
                                     If YU2Flag Then
@@ -11848,7 +11940,9 @@ Public Class Csv_denpyo3
                                             PlaceFlag = "YPK2T"
                                             'HS2.Tex 井相田
                                         ElseIf InStr(souko, HS2.Text) > 0 Then
-                                            'PlaceFlag = "YPK2J"
+                                            PlaceFlag = "YPK2J"
+                                        Else
+                                            PlaceFlag = "YPK2T"
                                         End If
                                         Exit For
                                         'Else
@@ -12051,7 +12145,7 @@ Public Class Csv_denpyo3
 
 
 
-                        'ヤマト
+                        'ヤマト 和 yu2
                         If nameArray(k) = "YMD" Or nameArray(k) = "YMI" Then
                             For c As Integer = 0 To yamato_title_sp.Count - 1
                                 If CStr(yamato_header) = "" Then
@@ -12111,6 +12205,7 @@ Public Class Csv_denpyo3
                                 line_yamato &= qtm & qtm2 'お届け先電話番号枝番
                                 line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　郵便番号")) & qtm2 'お届け先郵便番号
                                 line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　住所1")) & qtm2 'お届け先住所
+                                Dim bbbyamato = dataRow(dH9.IndexOf("お届け先　住所2"))
                                 line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　住所2")) & qtm2 'お届け先住所（アパートマンション名）
                                 line_yamato &= qtm & qtm2 'お届け先会社・部門名１
                                 line_yamato &= qtm & qtm2 'お届け先会社・部門名２
@@ -12420,9 +12515,8 @@ Public Class Csv_denpyo3
                             'ElseIf nameArray(k) = "YPK2T" Or nameArray(k) = "YPK2J" And isyupakubyAddress(haisouSaki) And isyupakuGoodBool Then
 
 
-                            'ElseIf YU2Flag Then
-                            'ゆう2 删除
-                        ElseIf (nameArray(k) = "YPK2T" Or nameArray(k) = "YPK2J") Then
+                            '暂时注释  走yu
+                        ElseIf (nameArray(k) = "YPK2T" Or nameArray(k) = "YPK2J") And False Then
 
                             LIST4VIEW("YPK2T", "start")
 
@@ -12435,23 +12529,23 @@ Public Class Csv_denpyo3
                                 Next
                                 str = yamato_header & vbCrLf
                                 Dim line_yamato As String = ""
-                                For Each row As DataRowView In view
-                                    Dim dataRow As String() = row("STR").ToString.Split(",")
+                            For Each row As DataRowView In view
+                                Dim dataRow As String() = row("STR").ToString.Split(",")
 
-                                    For c As Integer = 0 To dataRow.Count - 1
-                                        dataRow(c) = dataRow(c).Replace("""", "")
-                                    Next
-                                    line_yamato = qtm & dataRow(dH9.IndexOf("お客様側管理番号")) & qtm & "," 'お客様管理番号
+                                For c As Integer = 0 To dataRow.Count - 1
+                                    dataRow(c) = dataRow(c).Replace("""", "")
+                                Next
+                                line_yamato = qtm & dataRow(dH9.IndexOf("お客様側管理番号")) & qtm & "," 'お客様管理番号
 
-                                    line_yamato &= qtm & okurizyo_type & qtm2
-                                    line_yamato &= qtm & cool_kubun & qtm2  'クール区分
-                                    line_yamato &= qtm & qtm2 '伝票番号
-                                    line_yamato &= qtm & syukayoteibi & qtm2 '出荷予定日
+                                line_yamato &= qtm & okurizyo_type & qtm2
+                                line_yamato &= qtm & cool_kubun & qtm2  'クール区分
+                                line_yamato &= qtm & qtm2 '伝票番号
+                                line_yamato &= qtm & syukayoteibi & qtm2 '出荷予定日
 
-                                    'お届け予定（指定）日
-                                    If dataRow(dH9.IndexOf("配送希望日")) = "" Then
-                                        line_yamato &= qtm & qtm2
-                                    Else
+                                'お届け予定（指定）日
+                                If dataRow(dH9.IndexOf("配送希望日")) = "" Then
+                                    line_yamato &= qtm & qtm2
+                                Else
                                     If IsNumeric(dataRow(dH9.IndexOf("配送希望日"))) Then
 
                                         Dim strnnnn = dataRow(dH9.IndexOf("配送希望日"))
@@ -12460,325 +12554,313 @@ Public Class Csv_denpyo3
                                         line_yamato &= qtm & dataRow(dH9.IndexOf("配送希望日")).Substring(0, 4) & "/" & dataRow(dH9.IndexOf("配送希望日")).Substring(4, 2) & "/" & dataRow(dH9.IndexOf("配送希望日")).Substring(6, 2) & qtm2
                                     Else
                                         line_yamato &= qtm & qtm2
-                                        End If
                                     End If
-
-                                    '配達時間帯
-                                    '0812: 午前中
-                                    '1416: 14～16時
-                                    '1618: 16～18時
-                                    '1820: 18～20時
-                                    '1921: 19～21時
-                                    If dataRow(dH9.IndexOf("配送希望時間帯")) = "午前中" Then
-                                        line_yamato &= qtm & "0812" & qtm2
-                                    ElseIf dataRow(dH9.IndexOf("配送希望時間帯")) = "12～14時" Or dataRow(dH9.IndexOf("配送希望時間帯")) = "14～16時" Then
-                                        line_yamato &= qtm & "1416" & qtm2
-                                    ElseIf dataRow(dH9.IndexOf("配送希望時間帯")) = "16～18時" Then
-                                        line_yamato &= qtm & "1618" & qtm2
-                                    ElseIf dataRow(dH9.IndexOf("配送希望時間帯")) = "18～20時" Then
-                                        line_yamato &= qtm & "1820" & qtm2
-                                    ElseIf dataRow(dH9.IndexOf("配送希望時間帯")) = "19～21時" Or dataRow(dH9.IndexOf("配送希望時間帯")) = "20～21時" Then
-                                        line_yamato &= qtm & "1921" & qtm2
-                                    Else
-                                        line_yamato &= qtm & qtm2
-                                    End If
-
-                                    line_yamato &= qtm & qtm2 'お届け先コード
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　電話番号")) & qtm2 'お届け先電話番号
-                                    line_yamato &= qtm & qtm2 'お届け先電話番号枝番
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　郵便番号")) & qtm2 'お届け先郵便番号
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　住所1")) & qtm2 'お届け先住所
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　住所2")) & qtm2 'お届け先住所（アパートマンション名）
-                                    line_yamato &= qtm & qtm2 'お届け先会社・部門名１
-                                    line_yamato &= qtm & qtm2 'お届け先会社・部門名２
-
-                                    'お届け先名
-                                    If InStr(dataRow(dH9.IndexOf("お届け先　名称")), ")") Then
-                                        Dim todokesakimei As String() = Split(dataRow(dH9.IndexOf("お届け先　名称")), ")")
-                                        line_yamato &= qtm & todokesakimei(1) & qtm2
-                                    Else
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　名称")) & qtm2
-                                    End If
-
-                                    line_yamato &= qtm & qtm2 'お届け先名略称カナ
-                                    line_yamato &= qtm & "様" & qtm2 '敬称
-
-                                    If dataRow(dH9.IndexOf("ご依頼主　名称１")) = "auPAYマーケット KuraNavi" Then
-                                        line_yamato &= qtm & "au_KuraNavi" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-980-1144" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-102" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & "au PAY マーケット" & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Yahoo!FKstyle" Then
-                                        line_yamato &= qtm & "Yahoo_Fk" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-586-6853" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & "2" & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "816-0911" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県大野城市大城4-13-15" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "楽天 通販の暁" Then
-                                        line_yamato &= qtm & "Ra_Akatuki" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-986-1116" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-203" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon通販のトココ" Then
-                                        line_yamato &= qtm & "Ama_tokoko" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "816-0922" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県大野城市山田2-2-35" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & "," 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "楽天 雑貨の国のアリス" Then
-                                        line_yamato &= qtm & "Ra_Alice" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-985-2056" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & "1" & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "816-0901" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県大野城市乙金東１－２－５２－１" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Qoo10通販の雑貨倉庫" Then
-                                        line_yamato &= qtm & "Qo_zakka" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "0120-699-991" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-203" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Qoo10福岡通販堂" Then
-                                        line_yamato &= qtm & "Qo_tuhan_do" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-586-6853" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-205" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "万方商事株式会社" Then
-                                        line_yamato &= qtm & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-980-1866" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-101" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Yahoo!Lucky9" Then
-                                        line_yamato &= qtm & "Yahoo_Lucky9" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-985-0275" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-202" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "べんけい（soing1702）" Then
-                                        line_yamato &= qtm & "Yaho_oku" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県福岡市博多区井相田２－３－４３－１０２" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "サラダ" Or dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon Sarada" Then
-                                        line_yamato &= qtm & "Ama_Sarada" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-2F" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon Charyee" Then
-                                        line_yamato &= qtm & "Ama_Charyee" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-103" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Yahoo!あかねAshop" Then
-                                        line_yamato &= qtm & "Yahoo_Akane" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-985-0302" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "816-0922" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県大野城市山田2-2-35" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "楽天 あかねAshop" Then
-                                        line_yamato &= qtm & "Ra_Akane" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-985-0295" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "816-0922" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県大野城市山田2-2-35" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon Hewflit" Then
-                                        line_yamato &= qtm & "Ama_Hewflit" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "816-0901" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県大野城市乙金東１－２－５２－１" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "雑貨ショップKT 海東" Then
-                                        line_yamato &= qtm & "Yahoo_KT" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-986-5538" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "811-0123" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県糟屋郡新宮町上府北3-6-3" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon 雑貨の国のアリス" Then
-                                        line_yamato &= qtm & "a_Alice" & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "816-0901" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県大野城市乙金東１－２－５２－１" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "雑貨KT海東（ヤフオク）" Then
-                                        line_yamato &= qtm & qtm2 'ご依頼主コード
-                                        line_yamato &= qtm & "092-986-5538" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "811-0123" & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & "福岡県糟屋郡新宮町上府北3-6-3" & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    Else
-                                        line_yamato &= qtm & "," 'ご依頼主コード
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　電話番号")) & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & "," 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　郵便番号")) & qtm2 'ご依頼主郵便番号
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　住所１")) & qtm2 'ご依頼主住所
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　住所２")) & qtm2 'ご依頼主住所（アパートマンション名）
-                                        line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                        line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-                                    End If
-
-                                    line_yamato &= qtm & changeMarumozi(dataRow(dH9.IndexOf("フリー項目２"))) & qtm2  '品名コード１
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目２")) & "(" & dataRow(dH9.IndexOf("フリー項目３")) & ")" & qtm2  '品名１
-
-                                    line_yamato &= qtm & qtm2  '品名コード２
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '品名２
-                                    line_yamato &= qtm & qtm2  '荷扱い１
-                                    line_yamato &= qtm & qtm2  '荷扱い２
-
-                                    If dataRow(dH9.IndexOf("マスタ配送")) = "ヤマト(陸便)" Then
-                                        line_yamato &= qtm & qtm2  '記事
-                                    Else
-                                        line_yamato &= qtm & "船便" & qtm2  '記事
-                                    End If
-
-                                    line_yamato &= qtm & qtm2  'コレクト代金引換額（税込）
-                                    line_yamato &= qtm & qtm2  'コレクト内消費税額等
-                                    line_yamato &= qtm & "0" & qtm2 '営業所止置き
-                                    line_yamato &= qtm & qtm2  '営業所コード
-                                    line_yamato &= qtm & "1" & qtm2 '発行枚数
-                                    line_yamato &= qtm & qtm2  '個数口枠の印字
-                                    line_yamato &= qtm & seikyukyakucode & qtm2  'ご請求先顧客コード
-                                    line_yamato &= qtm & qtm2  'ご請求先分類コード
-                                    line_yamato &= qtm & "01" & qtm2 '運賃管理番号
-                                    line_yamato &= qtm & "0" & qtm2 'クロネコwebコレクトデータ登録
-                                    line_yamato &= qtm & qtm2  'クロネコwebコレクト加盟店番号
-                                    line_yamato &= qtm & qtm2  'クロネコwebコレクト申込受付番号１
-                                    line_yamato &= qtm & qtm2  'クロネコwebコレクト申込受付番号２
-                                    line_yamato &= qtm & qtm2  'クロネコwebコレクト申込受付番号３
-                                    line_yamato &= qtm & "0" & qtm2 'お届け予定ｅメール利用区分
-                                    line_yamato &= qtm & qtm2  'お届け予定ｅメールe-mailアドレス
-                                    line_yamato &= qtm & qtm2  '入力機種
-                                    line_yamato &= qtm & qtm2  'お届け予定eメールメッセージ
-                                    line_yamato &= qtm & "0" & qtm2 'お届け完了eメール利用区分
-                                    line_yamato &= qtm & qtm2  'お届け完了ｅメールe-mailアドレス
-                                    line_yamato &= qtm & qtm2  'お届け完了ｅメールメッセージ
-                                    line_yamato &= qtm & "0" & qtm2 'クロネコ収納代行利用区分
-                                    line_yamato &= qtm & qtm2  '収納代行決済ＱＲコード印刷
-                                    line_yamato &= qtm & qtm2  '収納代行請求金額(税込)
-                                    line_yamato &= qtm & qtm2  '収納代行内消費税額等
-                                    line_yamato &= qtm & qtm2  '収納代行請求先郵便番号
-                                    line_yamato &= qtm & qtm2  '収納代行請求先住所
-                                    line_yamato &= qtm & qtm2  '収納代行請求先住所（アパートマンション名）
-                                    line_yamato &= qtm & qtm2  '収納代行請求先会社・部門名１
-                                    line_yamato &= qtm & qtm2  '収納代行請求先会社・部門名２
-                                    line_yamato &= qtm & qtm2  '収納代行請求先名(漢字)
-                                    line_yamato &= qtm & qtm2  '収納代行請求先名(カナ)
-                                    line_yamato &= qtm & qtm2  '収納代行問合せ先名(漢字)
-                                    line_yamato &= qtm & qtm2  '収納代行問合せ先郵便番号
-                                    line_yamato &= qtm & qtm2  '収納代行問合せ先住所
-                                    line_yamato &= qtm & qtm2  '収納代行問合せ先住所（アパートマンション名）
-                                    line_yamato &= qtm & qtm2  '収納代行問合せ先電話番号
-                                    line_yamato &= qtm & qtm2  '収納代行管理番号
-                                    line_yamato &= qtm & qtm2  '収納代行品名
-                                    line_yamato &= qtm & qtm2  '収納代行備考
-                                    line_yamato &= qtm & qtm2  '複数口くくりキー
-                                    line_yamato &= qtm & qtm2  '検索キータイトル１
-                                    line_yamato &= qtm & qtm2  '検索キー１
-                                    line_yamato &= qtm & qtm2  '検索キータイトル２
-                                    line_yamato &= qtm & qtm2  '検索キー２
-                                    line_yamato &= qtm & qtm2  '検索キータイトル３
-                                    line_yamato &= qtm & qtm2  '検索キー３
-                                    line_yamato &= qtm & qtm2  '検索キータイトル４
-                                    line_yamato &= qtm & qtm2  '検索キー４
-                                    line_yamato &= qtm & qtm2  '検索キータイトル５
-                                    line_yamato &= qtm & qtm2  '検索キー５
-                                    line_yamato &= qtm & qtm2  '予備
-                                    line_yamato &= qtm & qtm2  '予備
-                                    line_yamato &= qtm & "0" & qtm2 '投函予定メール利用区分
-                                    line_yamato &= qtm & qtm2  '投函予定メールe-mailアドレス
-                                    line_yamato &= qtm & qtm2  '投函予定メールメッセージ
-                                    line_yamato &= qtm & "0" & qtm2 '投函完了メール（お届け先宛）利用区分
-                                    line_yamato &= qtm & qtm2  '投函完了メール（お届け先宛）e-mailアドレス
-                                    line_yamato &= qtm & qtm2  '投函完了メール（お届け先宛）メールメッセージ
-                                    line_yamato &= qtm & "0" & qtm2 '投函完了メール（ご依頼主宛）利用区分
-                                    line_yamato &= qtm & qtm2  '投函完了メール（ご依頼主宛）e-mailアドレス
-                                    line_yamato &= qtm & qtm2  '投函完了メール（ご依頼主宛）メールメッセージ
-                                    line_yamato &= qtm & qtm2  '連携管理番号
-                                    line_yamato &= qtm & qtm  '通知メールアドレス
-                                    line_yamato &= vbCrLf
-
-                                    str &= line_yamato
-                                Next
-
-
-
-                            If nameArray(k) = "YPK2J" Then
-                                    saveName = saveDir & "\★ゆう2" & loginName & "_" & HS1.Text & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv"
-                                Else
-                                    saveName = saveDir & "\★ゆう2" & loginName & "_ " & HS2.Text & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv"
                                 End If
 
+                                '配達時間帯
+                                '0812: 午前中
+                                '1416: 14～16時
+                                '1618: 16～18時
+                                '1820: 18～20時
+                                '1921: 19～21時
+                                If dataRow(dH9.IndexOf("配送希望時間帯")) = "午前中" Then
+                                    line_yamato &= qtm & "0812" & qtm2
+                                ElseIf dataRow(dH9.IndexOf("配送希望時間帯")) = "12～14時" Or dataRow(dH9.IndexOf("配送希望時間帯")) = "14～16時" Then
+                                    line_yamato &= qtm & "1416" & qtm2
+                                ElseIf dataRow(dH9.IndexOf("配送希望時間帯")) = "16～18時" Then
+                                    line_yamato &= qtm & "1618" & qtm2
+                                ElseIf dataRow(dH9.IndexOf("配送希望時間帯")) = "18～20時" Then
+                                    line_yamato &= qtm & "1820" & qtm2
+                                ElseIf dataRow(dH9.IndexOf("配送希望時間帯")) = "19～21時" Or dataRow(dH9.IndexOf("配送希望時間帯")) = "20～21時" Then
+                                    line_yamato &= qtm & "1921" & qtm2
+                                Else
+                                    line_yamato &= qtm & qtm2
+                                End If
 
+                                line_yamato &= qtm & qtm2 'お届け先コード
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　電話番号")) & qtm2 'お届け先電話番号
+                                line_yamato &= qtm & qtm2 'お届け先電話番号枝番
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　郵便番号")) & qtm2 'お届け先郵便番号
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　住所1")) & qtm2 'お届け先住所
+                                Dim caaaaa = dataRow(dH9.IndexOf("お届け先　住所2"))
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　住所2")) & qtm2 'お届け先住所（アパートマンション名）
+                                line_yamato &= qtm & qtm2 'お届け先会社・部門名１
+                                line_yamato &= qtm & qtm2 'お届け先会社・部門名２
 
+                                'お届け先名
+                                If InStr(dataRow(dH9.IndexOf("お届け先　名称")), ")") Then
+                                    Dim todokesakimei As String() = Split(dataRow(dH9.IndexOf("お届け先　名称")), ")")
+                                    line_yamato &= qtm & todokesakimei(1) & qtm2
+                                Else
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　名称")) & qtm2
+                                End If
 
-                                saveList.Add(Path.GetFileName(saveName))
+                                line_yamato &= qtm & qtm2 'お届け先名略称カナ
+                                line_yamato &= qtm & "様" & qtm2 '敬称
 
-                                File.WriteAllText(saveName, str, ENC_SJ)
+                                If dataRow(dH9.IndexOf("ご依頼主　名称１")) = "auPAYマーケット KuraNavi" Then
+                                    line_yamato &= qtm & "au_KuraNavi" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-980-1144" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-102" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & "au PAY マーケット" & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Yahoo!FKstyle" Then
+                                    line_yamato &= qtm & "Yahoo_Fk" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-586-6853" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & "2" & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "816-0911" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県大野城市大城4-13-15" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "楽天 通販の暁" Then
+                                    line_yamato &= qtm & "Ra_Akatuki" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-986-1116" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-203" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon通販のトココ" Then
+                                    line_yamato &= qtm & "Ama_tokoko" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "816-0922" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県大野城市山田2-2-35" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & "," 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "楽天 雑貨の国のアリス" Then
+                                    line_yamato &= qtm & "Ra_Alice" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-985-2056" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & "1" & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "816-0901" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県大野城市乙金東１－２－５２－１" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Qoo10通販の雑貨倉庫" Then
+                                    line_yamato &= qtm & "Qo_zakka" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "0120-699-991" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-203" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Qoo10福岡通販堂" Then
+                                    line_yamato &= qtm & "Qo_tuhan_do" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-586-6853" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-205" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "万方商事株式会社" Then
+                                    line_yamato &= qtm & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-980-1866" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-101" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Yahoo!Lucky9" Then
+                                    line_yamato &= qtm & "Yahoo_Lucky9" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-985-0275" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-202" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "べんけい（soing1702）" Then
+                                    line_yamato &= qtm & "Yaho_oku" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田２－３－４３－１０２" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "サラダ" Or dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon Sarada" Then
+                                    line_yamato &= qtm & "Ama_Sarada" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-2F" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon Charyee" Then
+                                    line_yamato &= qtm & "Ama_Charyee" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-103" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Yahoo!あかねAshop" Then
+                                    line_yamato &= qtm & "Yahoo_Akane" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-985-0302" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "816-0922" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県大野城市山田2-2-35" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "楽天 あかねAshop" Then
+                                    line_yamato &= qtm & "Ra_Akane" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-985-0295" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "816-0922" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県大野城市山田2-2-35" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon Hewflit" Then
+                                    line_yamato &= qtm & "Ama_Hewflit" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "816-0901" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県大野城市乙金東１－２－５２－１" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "雑貨ショップKT 海東" Then
+                                    line_yamato &= qtm & "Yahoo_KT" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-986-5538" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "811-0123" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県糟屋郡新宮町上府北3-6-3" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon 雑貨の国のアリス" Then
+                                    line_yamato &= qtm & "a_Alice" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "816-0901" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県大野城市乙金東１－２－５２－１" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "雑貨KT海東（ヤフオク）" Then
+                                    line_yamato &= qtm & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "092-986-5538" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "811-0123" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県糟屋郡新宮町上府北3-6-3" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                Else
+                                    line_yamato &= qtm & "," 'ご依頼主コード
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　電話番号")) & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & "," 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　郵便番号")) & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　住所１")) & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　住所２")) & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+                                End If
 
+                                line_yamato &= qtm & changeMarumozi(dataRow(dH9.IndexOf("フリー項目２"))) & qtm2  '品名コード１
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目２")) & "(" & dataRow(dH9.IndexOf("フリー項目３")) & ")" & qtm2  '品名１
+
+                                line_yamato &= qtm & qtm2  '品名コード２
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '品名２
+                                line_yamato &= qtm & qtm2  '荷扱い１
+                                line_yamato &= qtm & qtm2  '荷扱い２
+
+                                If dataRow(dH9.IndexOf("マスタ配送")) = "ヤマト(陸便)" Then
+                                    line_yamato &= qtm & qtm2  '記事
+                                Else
+                                    line_yamato &= qtm & "船便" & qtm2  '記事
+                                End If
+
+                                line_yamato &= qtm & qtm2  'コレクト代金引換額（税込）
+                                line_yamato &= qtm & qtm2  'コレクト内消費税額等
+                                line_yamato &= qtm & "0" & qtm2 '営業所止置き
+                                line_yamato &= qtm & qtm2  '営業所コード
+                                line_yamato &= qtm & "1" & qtm2 '発行枚数
+                                line_yamato &= qtm & qtm2  '個数口枠の印字
+                                line_yamato &= qtm & seikyukyakucode & qtm2  'ご請求先顧客コード
+                                line_yamato &= qtm & qtm2  'ご請求先分類コード
+                                line_yamato &= qtm & "01" & qtm2 '運賃管理番号
+                                line_yamato &= qtm & "0" & qtm2 'クロネコwebコレクトデータ登録
+                                line_yamato &= qtm & qtm2  'クロネコwebコレクト加盟店番号
+                                line_yamato &= qtm & qtm2  'クロネコwebコレクト申込受付番号１
+                                line_yamato &= qtm & qtm2  'クロネコwebコレクト申込受付番号２
+                                line_yamato &= qtm & qtm2  'クロネコwebコレクト申込受付番号３
+                                line_yamato &= qtm & "0" & qtm2 'お届け予定ｅメール利用区分
+                                line_yamato &= qtm & qtm2  'お届け予定ｅメールe-mailアドレス
+                                line_yamato &= qtm & qtm2  '入力機種
+                                line_yamato &= qtm & qtm2  'お届け予定eメールメッセージ
+                                line_yamato &= qtm & "0" & qtm2 'お届け完了eメール利用区分
+                                line_yamato &= qtm & qtm2  'お届け完了ｅメールe-mailアドレス
+                                line_yamato &= qtm & qtm2  'お届け完了ｅメールメッセージ
+                                line_yamato &= qtm & "0" & qtm2 'クロネコ収納代行利用区分
+                                line_yamato &= qtm & qtm2  '収納代行決済ＱＲコード印刷
+                                line_yamato &= qtm & qtm2  '収納代行請求金額(税込)
+                                line_yamato &= qtm & qtm2  '収納代行内消費税額等
+                                line_yamato &= qtm & qtm2  '収納代行請求先郵便番号
+                                line_yamato &= qtm & qtm2  '収納代行請求先住所
+                                line_yamato &= qtm & qtm2  '収納代行請求先住所（アパートマンション名）
+                                line_yamato &= qtm & qtm2  '収納代行請求先会社・部門名１
+                                line_yamato &= qtm & qtm2  '収納代行請求先会社・部門名２
+                                line_yamato &= qtm & qtm2  '収納代行請求先名(漢字)
+                                line_yamato &= qtm & qtm2  '収納代行請求先名(カナ)
+                                line_yamato &= qtm & qtm2  '収納代行問合せ先名(漢字)
+                                line_yamato &= qtm & qtm2  '収納代行問合せ先郵便番号
+                                line_yamato &= qtm & qtm2  '収納代行問合せ先住所
+                                line_yamato &= qtm & qtm2  '収納代行問合せ先住所（アパートマンション名）
+                                line_yamato &= qtm & qtm2  '収納代行問合せ先電話番号
+                                line_yamato &= qtm & qtm2  '収納代行管理番号
+                                line_yamato &= qtm & qtm2  '収納代行品名
+                                line_yamato &= qtm & qtm2  '収納代行備考
+                                line_yamato &= qtm & qtm2  '複数口くくりキー
+                                line_yamato &= qtm & qtm2  '検索キータイトル１
+                                line_yamato &= qtm & qtm2  '検索キー１
+                                line_yamato &= qtm & qtm2  '検索キータイトル２
+                                line_yamato &= qtm & qtm2  '検索キー２
+                                line_yamato &= qtm & qtm2  '検索キータイトル３
+                                line_yamato &= qtm & qtm2  '検索キー３
+                                line_yamato &= qtm & qtm2  '検索キータイトル４
+                                line_yamato &= qtm & qtm2  '検索キー４
+                                line_yamato &= qtm & qtm2  '検索キータイトル５
+                                line_yamato &= qtm & qtm2  '検索キー５
+                                line_yamato &= qtm & qtm2  '予備
+                                line_yamato &= qtm & qtm2  '予備
+                                line_yamato &= qtm & "0" & qtm2 '投函予定メール利用区分
+                                line_yamato &= qtm & qtm2  '投函予定メールe-mailアドレス
+                                line_yamato &= qtm & qtm2  '投函予定メールメッセージ
+                                line_yamato &= qtm & "0" & qtm2 '投函完了メール（お届け先宛）利用区分
+                                line_yamato &= qtm & qtm2  '投函完了メール（お届け先宛）e-mailアドレス
+                                line_yamato &= qtm & qtm2  '投函完了メール（お届け先宛）メールメッセージ
+                                line_yamato &= qtm & "0" & qtm2 '投函完了メール（ご依頼主宛）利用区分
+                                line_yamato &= qtm & qtm2  '投函完了メール（ご依頼主宛）e-mailアドレス
+                                line_yamato &= qtm & qtm2  '投函完了メール（ご依頼主宛）メールメッセージ
+                                line_yamato &= qtm & qtm2  '連携管理番号
+                                line_yamato &= qtm & qtm  '通知メールアドレス
+                                line_yamato &= vbCrLf
+
+                                str &= line_yamato
+                            Next
+                            If nameArray(k) = "YPK2J" Then
+                                saveName = saveDir & "\★ゆう2" & loginName & "_" & HS2.Text & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv"
+                            Else
+                                saveName = saveDir & "\★ゆう2" & loginName & "_ " & HS1.Text & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv"
+                            End If
+                            saveList.Add(Path.GetFileName(saveName))
+                            File.WriteAllText(saveName, str, ENC_SJ)
                             'End If
-
-
-
-
                             '这里
                         Else
                             '-------------------- 20210312 改修前 start ----------------
@@ -12816,20 +12898,27 @@ Public Class Csv_denpyo3
                                         dstName = Replace(dstName, "★", "")
                                     End If
                                     saveName = dstName
-                                    If dgvM(i) IsNot DGV1 Then
-                                        saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+                                If dgvM(i) IsNot DGV1 Then
+                                    saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+                                    If (nameArray(k) = "YPK2J" Or nameArray(k) = "YPK2T") Then
+                                        saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_YU2DEMO" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+                                        'saveName = Replace("YU200", ".csv", "_" & "YU200" & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
                                     End If
+
+                                End If
 
                                     If File.Exists(saveName) Then
-                                        Dim sl As String = Path.GetFileName(saveName) & "→"
-                                        saveName = Replace(dstName, ".csv", "_" & Format(Now(), "HHmmss") & ".csv")
-                                        sl &= Path.GetFileName(saveName)
-                                        saveList.Add(sl)
-                                    Else
-                                        saveList.Add(Path.GetFileName(saveName))
-                                    End If
+                                    Dim sl As String = Path.GetFileName(saveName) & "→"
 
-                                    File.WriteAllText(saveName, str, ENC_SJ)
+                                    saveName = Replace(dstName, ".csv", "_" & Format(Now(), "HHmmss") & ".csv")
+
+                                    sl &= Path.GetFileName(saveName)
+                                    saveList.Add(sl)
+                                Else
+                                    saveList.Add(Path.GetFileName(saveName))
+                                End If
+
+                                File.WriteAllText(saveName, str, ENC_SJ)
                                 ElseIf dgvM(i) IsNot DGV1 And CheckBox33.Checked And ListBox3.Items.Count > 0 Then
                                 '循环两次 第一次是出力没有Listbox3，第二次出力Listbox3的数据
 
@@ -13290,6 +13379,7 @@ Public Class Csv_denpyo3
                                 line_yamato &= vbCrLf
 
                                 str &= line_yamato
+                                Console.WriteLine(">> " + str)
                             Next
 
                             If nameArray(k) = "YPK2T" Then
@@ -13299,26 +13389,16 @@ Public Class Csv_denpyo3
                             Else
                                 saveName = saveDir & "\★ゆう2" & loginName & "_ " & "_ " & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv"
                             End If
-
-
-
-
                             saveList.Add(Path.GetFileName(saveName))
-
                             File.WriteAllText(saveName, str, ENC_SJ)
-
                         End If
-
-
-
                         'File.WriteAllText(saveName, str, ENC_SJ) '-------------------- 20210312 改修前 这里不要了 ----------------
 
                         '--------------
                         '実績
                         If InStr(FileName, "(印刷しない)元データ") > 0 And Csv_denpyo3_F_count.Button2.BackColor <> Color.Yellow Then
-
-                                'If InStr(FileName, "(印刷しない)元データ") > 0 Then
-                                LIST4VIEW("実績処理開始", "START")
+                            'If InStr(FileName, "(印刷しない)元データ") > 0 Then
+                            LIST4VIEW("実績処理開始", "START")
                                 Dim serverDir As String = Form1.サーバーToolStripMenuItem.Text & "\denpyoLog\"
                                 Dim desktopPath As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
 
@@ -13333,6 +13413,15 @@ Public Class Csv_denpyo3
                                     todayCsvPath = serverDir & Format(Now, "yyyyMMdd") & ".csv"
                                 End If
 
+
+
+                                LIST4VIEW("todayTxtPath", "START")
+                                todayTxtPath = serverDir & Format(Now, "yyyyMMdd") & ".txt"
+                                todayCsvPath = serverDir & Format(Now, "yyyyMMdd") & ".csv"
+                                LIST4VIEW("todayCsvPath", "START")
+
+
+
                                 Dim checkArray As New ArrayList
                                 Dim mArray As New ArrayList
                                 Dim binsu As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
@@ -13341,6 +13430,7 @@ Public Class Csv_denpyo3
                                     Dim mH As String() = Split(mArray(0), "|=|")
                                     For p As Integer = 1 To mArray.Count - 1
                                         Dim mLine As String() = Split(mArray(p), "|=|")
+
                                         checkArray.Add(mLine(Array.IndexOf(mH, "伝票番号")) & "," & mLine(Array.IndexOf(mH, "受注番号")))
                                     Next
                                 End If
@@ -13349,13 +13439,13 @@ Public Class Csv_denpyo3
                                 Dim cH As String() = Split(cArray(0), "|=|")
                                 Dim nTime As String = Format(Now(), "HHmmss")
                                 For p As Integer = 1 To cArray.Count - 1
-                                Dim cLine As String() = Split(cArray(p), "|=|")
+                                    Dim cLine As String() = Split(cArray(p), "|=|")
 
-                                Dim a = cLine(Array.IndexOf(cH, "伝票番号"))
+                                    Dim a = cLine(Array.IndexOf(cH, "伝票番号"))
 
-                                Dim B = cLine(Array.IndexOf(cH, "受注番号"))
-                                Dim K3 = cLine(Array.IndexOf(cH, "マスタ便数"))
-                                Dim check As String = cLine(Array.IndexOf(cH, "伝票番号")) & "," & cLine(Array.IndexOf(cH, "受注番号"))
+                                    Dim B = cLine(Array.IndexOf(cH, "受注番号"))
+                                    Dim K3 = cLine(Array.IndexOf(cH, "マスタ便数"))
+                                    Dim check As String = cLine(Array.IndexOf(cH, "伝票番号")) & "," & cLine(Array.IndexOf(cH, "受注番号"))
                                     '重複しない
                                     If checkArray.Contains(check) Then
                                         Dim cNum As Integer = checkArray.IndexOf(check)
@@ -13400,11 +13490,8 @@ Public Class Csv_denpyo3
                                             binsu(10) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                         Case "名古屋陸便定形外", "名古屋航空便定形外"
                                             binsu(11) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
-                                    Case "太宰府陸便ヤマト"
-
-                                        Debug.WriteLine(Array.IndexOf(cH, "マスタ便数"))
-                                        Debug.WriteLine(cLine(23))
-                                        binsu(12) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
+                                        Case "太宰府陸便ヤマト"
+                                            binsu(12) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                         Case "井相田陸便ヤマト"
                                             binsu(13) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                         Case "太宰府船便ヤマト"
@@ -13413,8 +13500,8 @@ Public Class Csv_denpyo3
                                             binsu(15) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                         Case "太宰府陸便ゆう2"
                                             binsu(16) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
-                                    Case "井相田陸便ゆう2"
-                                        binsu(17) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
+                                        Case "井相田陸便ゆう2"
+                                            binsu(17) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                             'Case Else
                                             '    binsu(8) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                     End Select
@@ -13423,6 +13510,9 @@ Public Class Csv_denpyo3
                                         LIST4VIEW("確認(1)..." & p, "system")
                                     End If
                                 Next
+
+                                LIST4VIEW("実績処理....", "START")
+
                                 Dim mStrArray As New ArrayList
                                 If mArray.Count > 1 Then
                                     For m As Integer = 1 To mArray.Count - 1
@@ -13488,8 +13578,8 @@ Public Class Csv_denpyo3
 
                                             Case "太宰府陸便ゆう2"
                                                 binsu(16) += CInt(mLine(Array.IndexOf(cH, "マスタ便数")))
-                                        Case "井相田陸便ゆう2"
-                                            binsu(17) += CInt(mLine(Array.IndexOf(cH, "マスタ便数")))
+                                            Case "井相田陸便ゆう2"
+                                                binsu(17) += CInt(mLine(Array.IndexOf(cH, "マスタ便数")))
                                                 'Case Else
                                                 '    binsu(8) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
                                         End Select
@@ -13509,30 +13599,28 @@ Public Class Csv_denpyo3
                                         End If
                                     Next
                                     Dim writeArray As String() = CType(mStrArray.ToArray(Type.GetType("System.String")), String())
+
+
                                     File.WriteAllLines(todayCsvPath, writeArray, ENC_SJ)
-                                    'File.WriteAllText(todayCsvPath, jStr & sStr, ENC_SJ)
+
                                 Else
                                     jStr = "伝票ソフト,伝票番号,店舗,受注番号,購入者名,発送先名,便種,マスタ便数,商品マスタ,時間,担当,倉庫,ファイル名" & vbCrLf & jStr
+
+
                                     File.WriteAllText(todayCsvPath, jStr, ENC_SJ)
                                 End If
                                 Dim countStr As String = ""
-                                For m As Integer = 0 To binsu.Length - 1
-                                    countStr &= binsu(m) & ","
-                                Next
-
-
-                                LIST4VIEW("number writes 18>>", "system")
-                            'Dim test = "test"
-                            'Dim readPath = Path.GetDirectoryName(Form1.appPath) & "\config" & test & ".txt"
-                            'File.WriteAllText(readPath, countStr, ENC_SJ)
+                            For m As Integer = 0 To binsu.Length - 1
+                                countStr &= binsu(m) & ","
+                            Next
+                            LIST4VIEW("実績処理......", "system")
                             File.WriteAllText(todayTxtPath, countStr, ENC_SJ)
+                                If File.Exists(lockPath) Then
+                                    File.Delete(lockPath)
 
-                            If File.Exists(lockPath) Then
-                                File.Delete(lockPath)
+                                End If
 
-                            End If
-
-                            LIST4VIEW("実績処理終了", "END")
+                                LIST4VIEW("実績処理終了", "END")
                             End If
                             '--------------
                         End If

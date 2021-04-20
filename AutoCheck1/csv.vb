@@ -1573,27 +1573,55 @@ Public Class Csv
         '-----------------------------------------------------------------------
     End Sub
 
+    'Private Sub 指定配列から空要素を削除ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles 指定配列から空要素を削除ToolStripMenuItem2.Click
+    '    '-----------------------------------------------------------------------
+    '    PreDIV()
+    '    '-----------------------------------------------------------------------
+    '    Dim dgv As DataGridView = DataGridView1
+    '    Dim selCell = dgv.SelectedCells
+
+    '    Dim delC As New ArrayList
+    '    For i As Integer = 0 To selCell.Count - 1
+    '        If Not delC.Contains(selCell(i).ColumnIndex) Then
+    '            delC.Add(selCell(i).ColumnIndex)
+    '        End If
+    '    Next
+
+    '    For r As Integer = dgv.RowCount - 1 To 0 Step -1
+    '        If dgv.Rows(r).IsNewRow Then
+    '            Continue For
+    '        End If
+    '        Dim delFlag As Boolean = True
+    '        For c As Integer = 0 To delC.Count - 1
+    '            If CStr(dgv.Item(delC(c), r).Value) <> "" Then
+    '                delFlag = False
+    '                Continue For
+    '            Else
+    '                Exit For
+    '            End If
+    '        Next
+    '        If delFlag Then
+    '            dgv.Rows.RemoveAt(r)
+    '            Continue For
+    '        End If
+    '    Next
+    'End Sub
+
+
+
     Private Sub 指定配列から空要素を削除ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles 指定配列から空要素を削除ToolStripMenuItem2.Click
         '-----------------------------------------------------------------------
         PreDIV()
         '-----------------------------------------------------------------------
         Dim dgv As DataGridView = DataGridView1
-        Dim selCell = dgv.SelectedCells
-
-        Dim delC As New ArrayList
-        For i As Integer = 0 To selCell.Count - 1
-            If Not delC.Contains(selCell(i).ColumnIndex) Then
-                delC.Add(selCell(i).ColumnIndex)
-            End If
-        Next
 
         For r As Integer = dgv.RowCount - 1 To 0 Step -1
             If dgv.Rows(r).IsNewRow Then
                 Continue For
             End If
             Dim delFlag As Boolean = True
-            For c As Integer = 0 To delC.Count - 1
-                If CStr(dgv.Item(delC(c), r).Value) <> "" Then
+            For c As Integer = 0 To 14
+                If CStr(dgv.Item(4, r).Value) <> "" Or InStr(CStr(dgv.Item(3, r).Value), "定形外") Then
                     delFlag = False
                     Continue For
                 Else
@@ -1606,6 +1634,10 @@ Public Class Csv
             End If
         Next
     End Sub
+
+
+
+
 
     '↑↑=======================================================================↑↑
     'ContextMenuStripここまで

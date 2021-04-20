@@ -216,7 +216,7 @@ Public Class Form1
             TextBox6.ForeColor = Color.LightYellow
         Else
             管理ToolStripMenuItem.Enabled = False
-            End If
+        End If
 #End If
 
 

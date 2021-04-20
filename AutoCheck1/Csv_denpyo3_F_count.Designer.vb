@@ -89,8 +89,8 @@ Partial Class Csv_denpyo3_F_count
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
+        Me.LB61 = New System.Windows.Forms.Label()
+        Me.LB60 = New System.Windows.Forms.Label()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label35 = New System.Windows.Forms.Label()
@@ -870,29 +870,29 @@ Partial Class Csv_denpyo3_F_count
         Me.Label24.Text = "ヤ(船)"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label31
+        'LB61
         '
-        Me.Label31.BackColor = System.Drawing.SystemColors.HighlightText
-        Me.Label31.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label31.ForeColor = System.Drawing.Color.Black
-        Me.Label31.Location = New System.Drawing.Point(1169, 26)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(40, 20)
-        Me.Label31.TabIndex = 211
-        Me.Label31.Text = "0"
-        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LB61.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.LB61.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB61.ForeColor = System.Drawing.Color.Black
+        Me.LB61.Location = New System.Drawing.Point(1169, 26)
+        Me.LB61.Name = "LB61"
+        Me.LB61.Size = New System.Drawing.Size(40, 20)
+        Me.LB61.TabIndex = 211
+        Me.LB61.Text = "0"
+        Me.LB61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label32
+        'LB60
         '
-        Me.Label32.BackColor = System.Drawing.SystemColors.HighlightText
-        Me.Label32.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label32.ForeColor = System.Drawing.Color.Black
-        Me.Label32.Location = New System.Drawing.Point(1169, 3)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(40, 20)
-        Me.Label32.TabIndex = 210
-        Me.Label32.Text = "0"
-        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LB60.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.LB60.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LB60.ForeColor = System.Drawing.Color.Black
+        Me.LB60.Location = New System.Drawing.Point(1169, 3)
+        Me.LB60.Name = "LB60"
+        Me.LB60.Size = New System.Drawing.Size(40, 20)
+        Me.LB60.TabIndex = 210
+        Me.LB60.Text = "0"
+        Me.LB60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label33
         '
@@ -949,8 +949,8 @@ Partial Class Csv_denpyo3_F_count
         Me.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.ClientSize = New System.Drawing.Size(1350, 72)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Label31)
-        Me.Controls.Add(Me.Label32)
+        Me.Controls.Add(Me.LB61)
+        Me.Controls.Add(Me.LB60)
         Me.Controls.Add(Me.Label33)
         Me.Controls.Add(Me.Label34)
         Me.Controls.Add(Me.Label35)
@@ -1095,8 +1095,8 @@ Partial Class Csv_denpyo3_F_count
     Friend WithEvents Label12 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents Label24 As Label
-    Friend WithEvents Label31 As Label
-    Friend WithEvents Label32 As Label
+    Friend WithEvents LB61 As Label
+    Friend WithEvents LB60 As Label
     Friend WithEvents Label33 As Label
     Friend WithEvents Label34 As Label
     Friend WithEvents Label35 As Label

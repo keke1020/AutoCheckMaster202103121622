@@ -892,7 +892,7 @@ Public Class HTMLdialog
                 TextBox7.Text = TextBox38.Text
             Case "Lucky9"
                 If RadioButton5.Checked Or RadioButton9.Checked Then
-                    TextBox7.Text = Math.Round(TextBox38.Text / 107 * 100)
+                    TextBox7.Text = Math.Round(TextBox38.Text / 104 * 100)
                 ElseIf RadioButton6.Checked Then
                     TextBox7.Text = "計算不能"
                 End If
@@ -1040,9 +1040,9 @@ Public Class HTMLdialog
             Select Case r
                 Case tenpoArray.IndexOf("Lucky9")
                     If RadioButton5.Checked Or RadioButton9.Checked Then
-                        DataGridView1.Item(dH1.IndexOf("価格"), r).Value = Math.Floor(TextBox7.Text * 1.07)
+                        DataGridView1.Item(dH1.IndexOf("価格"), r).Value = Math.Floor(TextBox7.Text * 1.04)
                     Else
-                        DataGridView1.Item(dH1.IndexOf("価格"), r).Value = Math.Floor(priceFK * 1.07)
+                        DataGridView1.Item(dH1.IndexOf("価格"), r).Value = Math.Floor(priceFK * 1.04)
                     End If
                 Case tenpoArray.IndexOf("アリス")
                     If RadioButton5.Checked Or RadioButton9.Checked Then

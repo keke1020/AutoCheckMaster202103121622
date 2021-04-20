@@ -62,7 +62,7 @@ Public Class Freezaiko
 
         cr.FindElementById("btn_search_item").Click()
         cr.FindElementById("btn_search_item_clear").Click()
-        SelectChangeMulti("dlg_search_syohin_kbn", "0 : 通常", False, False)
+        SelectChangeMulti("dlg_search_syohin_kbn", "0 : 通常", "False", False)
 
         Application.DoEvents()
 
