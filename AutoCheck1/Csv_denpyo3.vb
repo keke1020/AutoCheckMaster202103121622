@@ -39,12 +39,15 @@ Public Class Csv_denpyo3
     Private fukususouko_str As String = "複数倉庫"
 
 
-    Public YU2Flag = False
+    Public YU2FlagLoad = False
 
     '邮局 适用P60发送地域
     Private checkaddress_oosakika As String() = New String() {"熊本県", "宮崎県", "鹿児島県", "福岡県", "佐賀県", "長崎県", "大分県", "徳島県", "香川県", "愛媛県", "高知県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"}
     Private checkaddress_oosakizyou As String() = New String() {"富山県", "石川県", "福井県", "岐阜県", "静岡県", "愛知県", "三重県", "新潟県", "長野県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "山梨県", "宮城県", "山形県", "福島県", "青森県", "岩手県", "秋田県", "北海道"}
-    Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh", "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny331-50-lgr", "ny331-50-lor", "ny331-50-rose", "ny263-51", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi", "ny373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh", "ny385-a", "ny385-b", "ny385-c", "ny385-d"}
+    Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh", "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny331-50-lgr", "ny331-50-lor", "ny331-50-rose", "ny263-51", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi", "ny373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh", "ny385-a", "ny385-b", "ny385-c",
+        "ny385-d", "od304", "ny100-bk", "ny100-gr", "ny100-wh", "ee247",
+        "ad205-bk", "ad205-bl", "ad205-gl", "ad205-gr", "ad205-pi", "mb077-bk", "mb077-pi",
+     "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi"}
 
 
     'ヤマト
@@ -54,20 +57,35 @@ Public Class Csv_denpyo3
 
 
     Private yupaku_addressArr As String() = New String() {"TEST"}
-    'Private yupaku_addressArrPro As String() = New String() {"福島県", "山口県", "兵庫県", "大阪"}
-    Private yupaku_addressArrPro As String() = New String() {"test"}
-    'Private yupaku_goods As String() = New String() {"ad081-bk", "ny263-51", "ny331-50-bk", "ad009-bk", "ad109"}
-    Private yupaku_goods As String() = New String() {"test"}
+    'Private yupaku_addressArrPro As String() = New String() {"福島県", "山口県", "兵庫県", "大阪", "東京"}
+    Private yupaku_addressArrPro As String() = New String() {"test県"}
+    'Private yupaku_goods As String() = New String() {"ad081-bk", "ny263-51", "ny331-50-bk", "ad009-bk", "ad109", "ny098-mint"}
+    Private yupaku_goods As String() = New String() {""}
 
     Public yupakucheck As Boolean = False
     Private yupaku_str As String = "ゆう2"
-    'Private yupaku_OutlyingislandsArr As String() = New String() {"沖縄"}
-    Private yupaku_OutlyingislandsArr As String() = New String() {"test"}
+    Private yupaku_OutlyingislandsArr As String() = New String() {"沖縄"}
+    'Private yupaku_OutlyingislandsArr As String() = New String() {"test"}
     Dim isyupakuGoodBool As Boolean = False
     Dim YU2Denpyus As ArrayList = New ArrayList
     Dim denpyounoS As New ArrayList
     Dim CurDenpyoNo As String
-    Dim siharai As String = ""
+    Dim siharaiYU2 As String = ""
+    Dim YU2tenpuArr As String() = New String() {"test"}
+
+
+    Public Function isyupakutenpu(tenpo As String) As Boolean
+        If tenpo = "" Then
+            Return False
+        Else
+            For Each ten In YU2tenpuArr
+                If InStr(tenpo, ten) Then
+                    Return True
+                End If
+            Next
+        End If
+        Return False
+    End Function
 
     Public Function isyupakuGoodsbyCode(code As String) As Boolean
         If code = "" Then
@@ -754,7 +772,7 @@ Public Class Csv_denpyo3
                     End If
                 End If
 
-                'Dim siharai As String = ""
+                Dim siharai As String = ""
                 Dim goukei As String = ""
                 For c As Integer = 0 To dgv.ColumnCount - 1
                     'fStrArrayを「,」で区切り、ヘッダーを探す
@@ -801,7 +819,7 @@ Public Class Csv_denpyo3
                                         End If
                                     Case "支払方法"
                                         siharai = sArray(Array.IndexOf(header, hA(i)))
-
+                                        siharaiYU2 = siharai
                                         If addFlag Then '追加
                                             If CStr(dgv.Item(c, changeRowNo).Value) = "" Then
                                                 dgv.Item(c, changeRowNo).Value = siharai
@@ -1131,7 +1149,7 @@ Public Class Csv_denpyo3
                     For checkcodei As Integer = 0 To mCodeArray.Length - 1
                         Dim checkcode As String() = Split(mCodeArray(checkcodei), "*")
 
-                        If Not yamato_goods.Contains(checkcode(0).ToLower) Then
+                        If Not (yamato_goods.Contains(checkcode(0).ToLower) Or InStr(checkcode(0).ToLower, "ny393-50-")) Then
                             isYamatoGood = False
                         End If
 
@@ -1822,23 +1840,28 @@ Public Class Csv_denpyo3
 
                     'If Not checkcode_ Is Nothing And Regex.IsMatch(haisouSaki, "沖縄") = False And Regex.IsMatch(haisouSaki, "北海道") = False Then
                     Dim tagYU2 As String = MasterTag(checkcode(0).ToLower)
-                    YU2Flag = False
-                    Dim haisousoku As String = DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value
+                    Dim YU2tenpo As String = DGV1.Item(dH1.IndexOf("店舗"), r1).Value
+                    'YU2Flag = False
+                    'Dim haisousoku As String = DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value
 
                     '这里是判断是否YU2的最初的判断
-                    If CheckBox34.Checked And InStr(tagYU2, "太宰府") And siharai <> "代金引換" Then
-                        'If CheckBox34.Checked And InStr(tagYU2, "") Then
-                        'siharai <> "代金引換" 
-                        If (isyupakubyAddress(haisouSaki) And isyupakuGoodsbyCode(checkcode(0))) Or IsOutlyingislandsbyAddress(haisouSaki) Then
-                            DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = "メール便"
-                            'DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "メール便"
-                            DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "ゆう200"
-                            DGV1.Item(dH1.IndexOf("データ"), r1).Value = "ゆう200"
-                            haisouKind_moto = "メール便"
-                            YU2Flag = True
+                    If CheckBox34.Checked And isyupakutenpu(YU2tenpo) = False Then
+                        If InStr(tagYU2, "太宰府") And siharaiYU2 <> "代金引換" Then
+                            'If CheckBox34.Checked And InStr(tagYU2, "太宰府") Then
+                            'If CheckBox34.Checked And InStr(tagYU2, "") Then
+                            'siharai <> "代金引換" 
+                            If (isyupakubyAddress(haisouSaki) And isyupakuGoodsbyCode(checkcode(0))) Or IsOutlyingislandsbyAddress(haisouSaki) Then
+                                DGV1.Item(dH1.IndexOf("発送方法"), r1).Value = "メール便"
+                                'DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "メール便"
+                                DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "ゆう200"
+                                DGV1.Item(dH1.IndexOf("データ"), r1).Value = "ゆう200"
+                                DGV1.Item(dH1.IndexOf("ピック指示内容"), r1).Value = "ゆうパック元払"
+                                'ピック指示内容,,,ピック指示内容,ﾋﾟｯｷﾝｸﾞ指示内容,ピッキング指示,
+                                haisouKind_moto = "メール便"
+                                YU2FlagLoad = True
+                            End If
                         End If
                     End If
-
                     If checkcode(0).ToLower = "ny263-51" Then
                         '個数は整数
                         If checkcode(1) = Int(checkcode(1)) Then
@@ -2709,30 +2732,14 @@ Public Class Csv_denpyo3
                                 ElseIf masuku_50codesPro.Contains(code(0).ToLower) Then
 
                                     Debug.WriteLine("masuku_50codesPro")
-
-
                                 Else
                                     haisouKind = "宅配便"
                                     haisouSize = haisouSize / 100   'メール便サイズ計算を宅配便に変更
                                 End If
                             End If
 
-
-                            'If InStr(code(0), "ny373") Then
-                            '    If haisouSize >= 7.5 Then
-                            '        haisouKind = "宅配便"
-                            '        haisouSize = haisouSize / 100
-                            '    Else
-                            '        special_mail = True
-                            '    End If
-                            'End If
-
-
-
-
-
                         ElseIf haisouKind = "定形外" Then
-                                If haisouSize > NumericUpDown5.Value * NumericUpDown6.Value Then
+                            If haisouSize > NumericUpDown5.Value * NumericUpDown6.Value Then
                                 haisouKind = "宅配便"
                                 haisouSize = haisouSize / 75   '定形外サイズ計算を宅配便に変更
                             End If
@@ -3177,22 +3184,22 @@ Public Class Csv_denpyo3
 
                         'If special_takumasukuPro Then
                         If Regex.IsMatch(haisouKind, "メール便") Then
-                                If hakoArray.Count > NumericUpDown4.Value Then
+                            If hakoArray.Count > NumericUpDown4.Value Then
 
-                                    If special_mail = False Then
-                                        haisouKind = "宅配便"
-                                        haisouSize = haisouSize * 0.01
-                                        DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(haisouSize / 100)
-                                    Else
-                                        DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = hakoArray.Count
-                                    End If
-                                ElseIf haisouKind_moto = "宅配便" Then
+                                If special_mail = False Then
+                                    haisouKind = "宅配便"
                                     haisouSize = haisouSize * 0.01
                                     DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(haisouSize / 100)
                                 Else
                                     DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = hakoArray.Count
                                 End If
+                            ElseIf haisouKind_moto = "宅配便" Then
+                                haisouSize = haisouSize * 0.01
+                                DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = Math.Ceiling(haisouSize / 100)
                             Else
+                                DGV1.Item(dH1.IndexOf("マスタ便数"), r1).Value = hakoArray.Count
+                            End If
+                        Else
                             If hakoArray.Count > NumericUpDown5.Value Then
                                 haisouKind = "宅配便"
                                 haisouSize = haisouSize * 0.01
@@ -3557,7 +3564,7 @@ Public Class Csv_denpyo3
         res = DGV6.Item(dH6.IndexOf("ship-weight"), dgv6CodeArray.IndexOf(code.ToLower)).Value
 
 
-        If CheckBox34.Checked And (YU2Flag Or YU2Denpyus.Contains(CurDenpyoNo)) Then
+        If CheckBox34.Checked And (YU2FlagLoad Or YU2Denpyus.Contains(CurDenpyoNo)) Then
             res = YU2FlagMasterWeight(code)
         End If
 
@@ -5856,12 +5863,14 @@ Public Class Csv_denpyo3
             Else
                 bl = False 'false: 太宰府
             End If
-        ElseIf code = "pa084-5" Or code = "pa084-ho" Then
+        ElseIf code = "pa084-5" Then
             If count >= 3 Then
                 bl = True
             Else
                 bl = False
             End If
+        ElseIf code = "pa084-ho" Then
+            bl = True
         ElseIf code = "pa084-7" Then
             If count >= 2 Then
                 bl = True
@@ -8847,6 +8856,7 @@ Public Class Csv_denpyo3
         ToolStripProgressBar1.Value = 0
         Application.DoEvents()
 
+        '变换处理
         LIST4VIEW("変換処理", "start")
         For r As Integer = 0 To DGV1.RowCount - 1
 
@@ -8856,9 +8866,9 @@ Public Class Csv_denpyo3
 
             Dim codecc As String = DGV1.Item(dH1.IndexOf("商品マスタ"), r).Value
 
-            Dim YU2flag As String = DGV1.Item(dH1.IndexOf("データ"), r).Value
+            Dim YU2flagTemp As String = DGV1.Item(dH1.IndexOf("データ"), r).Value
 
-            If YU2flag = "ゆう200" Then
+            If YU2flagTemp = "ゆう200" Then
                 YU2Denpyus.Add(DGV1.Item(dH1.IndexOf("伝票番号"), r).Value)
             End If
 
@@ -10239,7 +10249,7 @@ Public Class Csv_denpyo3
 
         Dim denpyoNo As String = dgv.Item(dHSel.IndexOf(koumoku("denpyoNo")(dgvNum)), r).Value
         Dim hinmeiStr As String() = Nothing
-        'Dim siharai As String = ""
+        Dim siharai As String = ""
 
 
         'dgv1から品名を取得
@@ -10640,12 +10650,16 @@ Public Class Csv_denpyo3
         If DGV9.RowCount > 0 Then
             For r As Integer = 0 To DGV9.RowCount - 1
                 Dim denpyoNum = DGV9.Item(dH9.IndexOf("お客様側管理番号"), r).Value
-                If YU2Denpyus.Contains(denpyoNum) Then
-
-
-                    DGV9.Item(dH9.IndexOf("処理用"), r).Value = "ゆう200"
-                End If
+                'If YU2Denpyus.Contains(denpyoNum)    Then
+                '    DGV9.Item(dH9.IndexOf("処理用"), r).Value = "ゆう200"
+                'End If
                 For r2 As Integer = 0 To DGV3.RowCount - 1
+                    Dim YU2tenpo = DGV3.Item(dH3.IndexOf("店舗"), r2).Value
+                    If YU2Denpyus.Contains(denpyoNum) Then
+                        DGV9.Item(dH9.IndexOf("処理用"), r).Value = "ゆう200"
+                        DGV9.Item(dH9.IndexOf("お客様指定配送種類"), r).Value = "ゆうパック元払"
+                    End If
+
                     If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
                         If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "とんよか卸" Then
                             DGV9.Item(dH9.IndexOf("ご依頼主　郵便番号"), r).Value = "812-0881"
@@ -12890,28 +12904,28 @@ Public Class Csv_denpyo3
                             '-------------------- 20210312 改修后 start ----------------
                             If dgvM(i) Is DGV1 Or (dgvM(i) IsNot DGV1 And CheckBox33.Checked = False) Or (dgvM(i) IsNot DGV1 And CheckBox33.Checked And ListBox3.Items.Count = 0) Then
                                     str = header & vbCrLf
-                                    For Each row As DataRowView In view
-                                        str &= row("STR") & vbCrLf
-                                    Next
-                                    Dim dstName As String = saveDir & "\★" & FileName & ".csv"
+                                For Each row As DataRowView In view
+                                    str &= row("STR") & vbCrLf
+                                Next
+                                Dim dstName As String = saveDir & "\★" & FileName & ".csv"
                                     If InStr(dstName, "印刷しない") > 0 Then
                                         dstName = Replace(dstName, "★", "")
                                     End If
                                     saveName = dstName
                                 If dgvM(i) IsNot DGV1 Then
-                                    saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
                                     If (nameArray(k) = "YPK2J" Or nameArray(k) = "YPK2T") Then
-                                        saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_YU2DEMO" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+                                        saveName = Replace(dstName, "ゆうパケット", "ゆうパック")
+                                        saveName = Replace(saveName, ".csv", "_" & fNameArray(k) & "_YU2TEST" & Format(Now, "yyyyMMddHHmmss") & ".csv")
                                         'saveName = Replace("YU200", ".csv", "_" & "YU200" & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+                                    Else
+                                        saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
                                     End If
 
                                 End If
 
                                     If File.Exists(saveName) Then
                                     Dim sl As String = Path.GetFileName(saveName) & "→"
-
                                     saveName = Replace(dstName, ".csv", "_" & Format(Now(), "HHmmss") & ".csv")
-
                                     sl &= Path.GetFileName(saveName)
                                     saveList.Add(sl)
                                 Else
@@ -13405,24 +13419,15 @@ Public Class Csv_denpyo3
                                 Dim todayTxtPath As String = ""
                                 Dim todayCsvPath As String = ""
 
-                                If Regex.IsMatch(appPath, "debug", RegexOptions.IgnoreCase) Then
-                                    todayTxtPath = desktopPath & "\" & Format(Now, "yyyyMMdd") & ".txt"
-                                    todayCsvPath = desktopPath & "\" & Format(Now, "yyyyMMdd") & ".csv"
-                                Else
-                                    todayTxtPath = serverDir & Format(Now, "yyyyMMdd") & ".txt"
-                                    todayCsvPath = serverDir & Format(Now, "yyyyMMdd") & ".csv"
-                                End If
-
-
-
-                                LIST4VIEW("todayTxtPath", "START")
+                            If Regex.IsMatch(appPath, "debug", RegexOptions.IgnoreCase) Then
+                                todayTxtPath = desktopPath & "\" & Format(Now, "yyyyMMdd") & ".txt"
+                                todayCsvPath = desktopPath & "\" & Format(Now, "yyyyMMdd") & ".csv"
+                            Else
                                 todayTxtPath = serverDir & Format(Now, "yyyyMMdd") & ".txt"
                                 todayCsvPath = serverDir & Format(Now, "yyyyMMdd") & ".csv"
-                                LIST4VIEW("todayCsvPath", "START")
+                            End If
 
-
-
-                                Dim checkArray As New ArrayList
+                            Dim checkArray As New ArrayList
                                 Dim mArray As New ArrayList
                                 Dim binsu As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
                                 If File.Exists(todayCsvPath) Then
