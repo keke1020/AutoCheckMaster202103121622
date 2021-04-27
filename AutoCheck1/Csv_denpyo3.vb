@@ -64,8 +64,8 @@ Public Class Csv_denpyo3
 
     Public yupakucheck As Boolean = False
     Private yupaku_str As String = "ゆう2"
-    Private yupaku_OutlyingislandsArr As String() = New String() {"沖縄"}
-    'Private yupaku_OutlyingislandsArr As String() = New String() {"test"}
+    'Private yupaku_OutlyingislandsArr As String() = New String() {"沖縄"}
+    Private yupaku_OutlyingislandsArr As String() = New String() {"test"}
     Dim isyupakuGoodBool As Boolean = False
     Dim YU2Denpyus As ArrayList = New ArrayList
     Dim denpyounoS As New ArrayList
@@ -725,6 +725,7 @@ Public Class Csv_denpyo3
                     fileHaisou = "宅配便"
                     'Case Regex.IsMatch(filename, "ymailCSV")
                     '    fileHaisou = "ヤマト"
+
                 Case Else
                     fileHaisou = "宅配便"
             End Select
@@ -1841,12 +1842,13 @@ Public Class Csv_denpyo3
                     'If Not checkcode_ Is Nothing And Regex.IsMatch(haisouSaki, "沖縄") = False And Regex.IsMatch(haisouSaki, "北海道") = False Then
                     Dim tagYU2 As String = MasterTag(checkcode(0).ToLower)
                     Dim YU2tenpo As String = DGV1.Item(dH1.IndexOf("店舗"), r1).Value
+                    Dim YU2Send As String = DGV1.Item(dH1.IndexOf("発送方法"), r1).Value
                     'YU2Flag = False
                     'Dim haisousoku As String = DGV1.Item(dH1.IndexOf("発送倉庫"), r1).Value
 
                     '这里是判断是否YU2的最初的判断
                     If CheckBox34.Checked And isyupakutenpu(YU2tenpo) = False Then
-                        If InStr(tagYU2, "太宰府") And siharaiYU2 <> "代金引換" Then
+                        If InStr(tagYU2, "太宰府") And siharaiYU2 <> "代金引換" And InStr(YU2Send, "宅配便") Then
                             'If CheckBox34.Checked And InStr(tagYU2, "太宰府") Then
                             'If CheckBox34.Checked And InStr(tagYU2, "") Then
                             'siharai <> "代金引換" 
@@ -10333,17 +10335,17 @@ Public Class Csv_denpyo3
         Next
     End Sub
 
-    Dim dataB = {"医院", "組合", "会社", "機構", "法人", "薬局", "センター", "(株)", "（株）", "商店"}
+    Dim dataB = {"医院", "組合", "会社", "機構", "法人", "薬局", "センター", "(株)", "（株）", "商店", "店", "支社", "(有)"， "(合)"}
     Private Function IsCompanyOrIndividual_7(r As Integer, dhM As ArrayList)
 
         '148067700195
-        Dim data3, data4
-        'data1 = DGV7.Item(dhM.IndexOf("お届け先住所１"), r).Value  'お届け先住所
-        'data2 = DGV7.Item(dhM.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
+        Dim data1， data2， data3, data4
+        data1 = DGV7.Item(dhM.IndexOf("お届け先住所１"), r).Value  'お届け先住所
+        data2 = DGV7.Item(dhM.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
         data3 = DGV7.Item(dhM.IndexOf("お届け先名称１"), r).Value 'お届け先名称１
         data4 = DGV7.Item(dhM.IndexOf("お届け先名称２"), r).Value 'お届け先名称2
 
-        Dim dataC = {data3, data4}
+        Dim dataC = {data1， data2， data3, data4}
 
 
         For i As Integer = 0 To dataC.Length - 1
@@ -10364,13 +10366,13 @@ Public Class Csv_denpyo3
 
 
         '148067700195
-        Dim data3, data4
-        'data1 = DGV8.Item(dhM.IndexOf("お届け先住所１"), r).Value  'お届け先住所
-        'data2 = DGV8.Item(dhM.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
+        Dim data1， data2， data3, data4
+        data1 = DGV8.Item(dhM.IndexOf("お届け先住所１"), r).Value  'お届け先住所
+        data2 = DGV8.Item(dhM.IndexOf("お届け先住所２"), r).Value 'お届け先住所（アパートマンション名）
         data3 = DGV8.Item(dhM.IndexOf("お届け先名１"), r).Value 'お届け先名称１
         data4 = DGV8.Item(dhM.IndexOf("お届け先名２"), r).Value 'お届け先名称2
 
-        Dim dataC = {data3, data4}
+        Dim dataC = {data1， data2， data3, data4}
 
         For i As Integer = 0 To dataC.Length - 1
             If Not IsNothing(dataC(i)) Then
@@ -10649,6 +10651,7 @@ Public Class Csv_denpyo3
 
         If DGV9.RowCount > 0 Then
             For r As Integer = 0 To DGV9.RowCount - 1
+
                 Dim denpyoNum = DGV9.Item(dH9.IndexOf("お客様側管理番号"), r).Value
                 'If YU2Denpyus.Contains(denpyoNum)    Then
                 '    DGV9.Item(dH9.IndexOf("処理用"), r).Value = "ゆう200"
@@ -10658,6 +10661,7 @@ Public Class Csv_denpyo3
                     If YU2Denpyus.Contains(denpyoNum) Then
                         DGV9.Item(dH9.IndexOf("処理用"), r).Value = "ゆう200"
                         DGV9.Item(dH9.IndexOf("お客様指定配送種類"), r).Value = "ゆうパック元払"
+                        DGV9.Item(dH9.IndexOf("商品サイズ／厚さ区分"), r).Value = "60"
                     End If
 
                     If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
@@ -12270,7 +12274,9 @@ Public Class Csv_denpyo3
                                     line_yamato &= qtm & "福岡県大野城市山田2-2-35" & qtm2 'ご依頼主住所
                                     line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
                                     line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                    line_yamato &= qtm & "," 'ご依頼主略称カナ
+                                    'line_yamato &= qtm & "," 'ご依頼主略称カナ
+                                    line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+
                                 ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "楽天 雑貨の国のアリス" Then
                                     line_yamato &= qtm & "Ra_Alice" & qtm2 'ご依頼主コード
                                     line_yamato &= qtm & "092-985-2056" & qtm2 'ご依頼主電話番号
@@ -12915,8 +12921,7 @@ Public Class Csv_denpyo3
                                 If dgvM(i) IsNot DGV1 Then
                                     If (nameArray(k) = "YPK2J" Or nameArray(k) = "YPK2T") Then
                                         saveName = Replace(dstName, "ゆうパケット", "ゆうパック")
-                                        saveName = Replace(saveName, ".csv", "_" & fNameArray(k) & "_YU2TEST" & Format(Now, "yyyyMMddHHmmss") & ".csv")
-                                        'saveName = Replace("YU200", ".csv", "_" & "YU200" & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
+                                        saveName = Replace(saveName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
                                     Else
                                         saveName = Replace(dstName, ".csv", "_" & fNameArray(k) & "_" & Format(Now, "yyyyMMddHHmmss") & ".csv")
                                     End If

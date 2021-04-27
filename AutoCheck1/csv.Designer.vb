@@ -128,6 +128,8 @@ Partial Class Csv
         Me.よんよか卸チェックToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator30 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExchangePostCodeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator31 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripDropDownButton7 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.KuraNaviToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.佐川伝票変換出力ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -214,8 +216,7 @@ Partial Class Csv
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
-        Me.ToolStripSeparator31 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupTag = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -915,6 +916,17 @@ Partial Class Csv
         Me.ExchangePostCodeToolStripMenuItem.Size = New System.Drawing.Size(272, 22)
         Me.ExchangePostCodeToolStripMenuItem.Text = "県住所 >> 〒"
         '
+        'ToolStripSeparator31
+        '
+        Me.ToolStripSeparator31.Name = "ToolStripSeparator31"
+        Me.ToolStripSeparator31.Size = New System.Drawing.Size(269, 6)
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(272, 22)
+        Me.ToolStripMenuItem2.Text = "ラベル(24面)"
+        '
         'ToolStripDropDownButton7
         '
         Me.ToolStripDropDownButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
@@ -1189,44 +1201,44 @@ Partial Class Csv
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.切り取りToolStripMenuItem1, Me.コピーToolStripMenuItem1, Me.ToolStripMenuItem1, Me.貼り付けToolStripMenuItem1, Me.ToolStripSeparator1, Me.挿入ToolStripMenuItem, Me.行を選択直下に複製ToolStripMenuItem, Me.行を上へ移動ToolStripMenuItem, Me.行を下へ移動ToolStripMenuItem, Me.列を挿入ToolStripMenuItem1, Me.ToolStripSeparator18, Me.削除ToolStripMenuItem1, Me.列選択ToolStripMenuItem1, Me.列選択ヘッダー除外ToolStripMenuItem, Me.ToolStripSeparator19, Me.行を削除ToolStripMenuItem1, Me.空行一括削除ToolStripMenuItem, Me.列を削除ToolStripMenuItem1, Me.指定配列から空要素を削除ToolStripMenuItem2})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.切り取りToolStripMenuItem1, Me.コピーToolStripMenuItem1, Me.ToolStripMenuItem1, Me.貼り付けToolStripMenuItem1, Me.ToolStripSeparator1, Me.挿入ToolStripMenuItem, Me.行を選択直下に複製ToolStripMenuItem, Me.行を上へ移動ToolStripMenuItem, Me.行を下へ移動ToolStripMenuItem, Me.列を挿入ToolStripMenuItem1, Me.ToolStripSeparator18, Me.削除ToolStripMenuItem1, Me.列選択ToolStripMenuItem1, Me.列選択ヘッダー除外ToolStripMenuItem, Me.ToolStripSeparator19, Me.行を削除ToolStripMenuItem1, Me.空行一括削除ToolStripMenuItem, Me.列を削除ToolStripMenuItem1, Me.指定配列から空要素を削除ToolStripMenuItem2, Me.GroupTag})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(244, 374)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(287, 396)
         '
         '切り取りToolStripMenuItem1
         '
         Me.切り取りToolStripMenuItem1.Name = "切り取りToolStripMenuItem1"
-        Me.切り取りToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
+        Me.切り取りToolStripMenuItem1.Size = New System.Drawing.Size(286, 22)
         Me.切り取りToolStripMenuItem1.Text = "切り取り"
         '
         'コピーToolStripMenuItem1
         '
         Me.コピーToolStripMenuItem1.Name = "コピーToolStripMenuItem1"
-        Me.コピーToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
+        Me.コピーToolStripMenuItem1.Size = New System.Drawing.Size(286, 22)
         Me.コピーToolStripMenuItem1.Text = "コピー"
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(286, 22)
         Me.ToolStripMenuItem1.Text = "コピー（「""」囲み無し）"
         '
         '貼り付けToolStripMenuItem1
         '
         Me.貼り付けToolStripMenuItem1.Name = "貼り付けToolStripMenuItem1"
-        Me.貼り付けToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
+        Me.貼り付けToolStripMenuItem1.Size = New System.Drawing.Size(286, 22)
         Me.貼り付けToolStripMenuItem1.Text = "貼り付け"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(240, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(283, 6)
         '
         '挿入ToolStripMenuItem
         '
         Me.挿入ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.上に挿入ToolStripMenuItem, Me.下に挿入ToolStripMenuItem})
         Me.挿入ToolStripMenuItem.Name = "挿入ToolStripMenuItem"
-        Me.挿入ToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.挿入ToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
         Me.挿入ToolStripMenuItem.Text = "行を挿入"
         '
         '上に挿入ToolStripMenuItem
@@ -1244,7 +1256,7 @@ Partial Class Csv
         '行を選択直下に複製ToolStripMenuItem
         '
         Me.行を選択直下に複製ToolStripMenuItem.Name = "行を選択直下に複製ToolStripMenuItem"
-        Me.行を選択直下に複製ToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.行を選択直下に複製ToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
         Me.行を選択直下に複製ToolStripMenuItem.Text = "行を選択直下に複製"
         '
         '行を上へ移動ToolStripMenuItem
@@ -1252,7 +1264,7 @@ Partial Class Csv
         Me.行を上へ移動ToolStripMenuItem.Name = "行を上へ移動ToolStripMenuItem"
         Me.行を上へ移動ToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.Up), System.Windows.Forms.Keys)
-        Me.行を上へ移動ToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.行を上へ移動ToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
         Me.行を上へ移動ToolStripMenuItem.Text = "行を上へ移動"
         '
         '行を下へ移動ToolStripMenuItem
@@ -1260,14 +1272,14 @@ Partial Class Csv
         Me.行を下へ移動ToolStripMenuItem.Name = "行を下へ移動ToolStripMenuItem"
         Me.行を下へ移動ToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.Down), System.Windows.Forms.Keys)
-        Me.行を下へ移動ToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.行を下へ移動ToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
         Me.行を下へ移動ToolStripMenuItem.Text = "行を下へ移動"
         '
         '列を挿入ToolStripMenuItem1
         '
         Me.列を挿入ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.右に挿入ToolStripMenuItem, Me.左に挿入ToolStripMenuItem})
         Me.列を挿入ToolStripMenuItem1.Name = "列を挿入ToolStripMenuItem1"
-        Me.列を挿入ToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
+        Me.列を挿入ToolStripMenuItem1.Size = New System.Drawing.Size(286, 22)
         Me.列を挿入ToolStripMenuItem1.Text = "列を挿入"
         '
         '右に挿入ToolStripMenuItem
@@ -1285,55 +1297,54 @@ Partial Class Csv
         'ToolStripSeparator18
         '
         Me.ToolStripSeparator18.Name = "ToolStripSeparator18"
-        Me.ToolStripSeparator18.Size = New System.Drawing.Size(240, 6)
+        Me.ToolStripSeparator18.Size = New System.Drawing.Size(283, 6)
         '
         '削除ToolStripMenuItem1
         '
         Me.削除ToolStripMenuItem1.Name = "削除ToolStripMenuItem1"
-        Me.削除ToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
+        Me.削除ToolStripMenuItem1.Size = New System.Drawing.Size(286, 22)
         Me.削除ToolStripMenuItem1.Text = "値を削除"
         '
         '列選択ToolStripMenuItem1
         '
         Me.列選択ToolStripMenuItem1.Name = "列選択ToolStripMenuItem1"
-        Me.列選択ToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
+        Me.列選択ToolStripMenuItem1.Size = New System.Drawing.Size(286, 22)
         Me.列選択ToolStripMenuItem1.Text = "列選択"
         '
         '列選択ヘッダー除外ToolStripMenuItem
         '
         Me.列選択ヘッダー除外ToolStripMenuItem.Name = "列選択ヘッダー除外ToolStripMenuItem"
-        Me.列選択ヘッダー除外ToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.列選択ヘッダー除外ToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
         Me.列選択ヘッダー除外ToolStripMenuItem.Text = "列選択（ヘッダー除外）"
         '
         'ToolStripSeparator19
         '
         Me.ToolStripSeparator19.Name = "ToolStripSeparator19"
-        Me.ToolStripSeparator19.Size = New System.Drawing.Size(240, 6)
+        Me.ToolStripSeparator19.Size = New System.Drawing.Size(283, 6)
         '
         '行を削除ToolStripMenuItem1
         '
         Me.行を削除ToolStripMenuItem1.Name = "行を削除ToolStripMenuItem1"
         Me.行を削除ToolStripMenuItem1.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.行を削除ToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
+        Me.行を削除ToolStripMenuItem1.Size = New System.Drawing.Size(286, 22)
         Me.行を削除ToolStripMenuItem1.Text = "行を削除"
         '
         '空行一括削除ToolStripMenuItem
         '
         Me.空行一括削除ToolStripMenuItem.Name = "空行一括削除ToolStripMenuItem"
-        Me.空行一括削除ToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.空行一括削除ToolStripMenuItem.Size = New System.Drawing.Size(286, 22)
         Me.空行一括削除ToolStripMenuItem.Text = ">空行一括削除"
         '
         '列を削除ToolStripMenuItem1
         '
         Me.列を削除ToolStripMenuItem1.Name = "列を削除ToolStripMenuItem1"
-        Me.列を削除ToolStripMenuItem1.Size = New System.Drawing.Size(243, 22)
+        Me.列を削除ToolStripMenuItem1.Size = New System.Drawing.Size(286, 22)
         Me.列を削除ToolStripMenuItem1.Text = "列を削除"
         '
         '指定配列から空要素を削除ToolStripMenuItem2
         '
         Me.指定配列から空要素を削除ToolStripMenuItem2.Name = "指定配列から空要素を削除ToolStripMenuItem2"
-        Me.指定配列から空要素を削除ToolStripMenuItem2.Size = New System.Drawing.Size(243, 22)
-        'Me.指定配列から空要素を削除ToolStripMenuItem2.Text = ">指定配列から空要素を削除"
+        Me.指定配列から空要素を削除ToolStripMenuItem2.Size = New System.Drawing.Size(286, 22)
         Me.指定配列から空要素を削除ToolStripMenuItem2.Text = ">定形外保留、送り状番号空要素を削除"
         '
         'DataGridView2
@@ -1574,16 +1585,11 @@ Partial Class Csv
         '
         Me.Timer1.Enabled = True
         '
-        'ToolStripSeparator31
+        'GroupTag
         '
-        Me.ToolStripSeparator31.Name = "ToolStripSeparator31"
-        Me.ToolStripSeparator31.Size = New System.Drawing.Size(269, 6)
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(272, 22)
-        Me.ToolStripMenuItem2.Text = "ラベル(24面)"
+        Me.GroupTag.Name = "GroupTag"
+        Me.GroupTag.Size = New System.Drawing.Size(286, 22)
+        Me.GroupTag.Text = "GroupTag"
         '
         'Csv
         '
@@ -1817,4 +1823,5 @@ Partial Class Csv
     Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents ToolStripSeparator31 As ToolStripSeparator
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents GroupTag As ToolStripMenuItem
 End Class

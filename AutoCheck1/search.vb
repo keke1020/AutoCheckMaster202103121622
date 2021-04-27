@@ -124,12 +124,19 @@ Public Class Search
                             If CheckBox2.Checked = True Then
                                 dgselCell(i).Style.BackColor = Color.LightBlue
                             End If
+
                             If searchNum = 0 Then
                                 dg.CurrentCell = dg(dgselCell(i).ColumnIndex, dgselCell(i).RowIndex)
                                 'dg.FirstDisplayedScrollingRowIndex = dgselCell(i).RowIndex
                                 'dg.FirstDisplayedScrollingColumnIndex = dgselCell(i).ColumnIndex
                             End If
                             searchNum += 1
+                        End If
+                        If CheckBox4.Checked = True Then
+                            If IsGroup(dgselCell(i).Value) Then
+
+                                dg.Rows(dgselCell(i).RowIndex).DefaultCellStyle.BackColor = Color.Red
+                            End If
                         End If
                     End If
                 Next
@@ -140,6 +147,27 @@ Public Class Search
         '    MsgBox(ex.Message, MsgBoxStyle.SystemModal)
         'End Try
     End Sub
+
+
+
+    Private Sub IsGroupStyly()
+        Dim dgselRows As DataGridViewSelectedRowCollection = dg.SelectedRows
+        For index = 0 To dgselRows.Count - 1
+            If IsGroup(dgselRows(index).Cells(2)) Or IsGroup(dgselRows(index).Cells(3)) Or IsGroup(dgselRows(index).Cells(5)) Then
+                dgselRows(index).DefaultCellStyle.BackColor = Color.Red
+            End If
+        Next
+    End Sub
+
+    Dim Group As String() = {"医院", "組合", "会社", "機構", "法人", "薬局", "センター", "(株)", "（株）", "商店", "店", "支社", "(有)"， "(合)"}
+    Private Function IsGroup(obj As Object) As Boolean
+        For index = 0 To Group.Count - 1
+            If InStr(obj, Group(index)) Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 
     Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
         If ComboBox2.Text = "" Then

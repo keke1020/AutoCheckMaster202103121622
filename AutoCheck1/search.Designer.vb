@@ -79,6 +79,7 @@ Partial Class Search
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -194,6 +195,7 @@ Partial Class Search
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TabPage1.Controls.Add(Me.CheckBox4)
         Me.TabPage1.Controls.Add(Me.ComboBox18)
         Me.TabPage1.Controls.Add(Me.RadioButton14)
         Me.TabPage1.Controls.Add(Me.RadioButton13)
@@ -224,7 +226,7 @@ Partial Class Search
         Me.ComboBox18.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.ComboBox18.FormattingEnabled = True
         Me.ComboBox18.Items.AddRange(New Object() {"無し", "複数行", "単一行", "小文字"})
-        Me.ComboBox18.Location = New System.Drawing.Point(191, 234)
+        Me.ComboBox18.Location = New System.Drawing.Point(187, 234)
         Me.ComboBox18.Name = "ComboBox18"
         Me.ComboBox18.Size = New System.Drawing.Size(56, 20)
         Me.ComboBox18.TabIndex = 9
@@ -247,6 +249,7 @@ Partial Class Search
         Me.RadioButton13.Name = "RadioButton13"
         Me.RadioButton13.Size = New System.Drawing.Size(14, 13)
         Me.RadioButton13.TabIndex = 32
+        Me.RadioButton13.TabStop = True
         Me.RadioButton13.UseVisualStyleBackColor = True
         '
         'TextBox3
@@ -346,6 +349,7 @@ Partial Class Search
         Me.RadioButton10.Name = "RadioButton10"
         Me.RadioButton10.Size = New System.Drawing.Size(59, 16)
         Me.RadioButton10.TabIndex = 25
+        Me.RadioButton10.TabStop = True
         Me.RadioButton10.Text = "文字列"
         Me.RadioButton10.UseVisualStyleBackColor = True
         '
@@ -400,6 +404,7 @@ Partial Class Search
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(137, 12)
         Me.LinkLabel1.TabIndex = 22
+        Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "「次を置換」をキャンセルする"
         '
         'GroupBox2
@@ -445,6 +450,7 @@ Partial Class Search
         Me.RadioButton6.Name = "RadioButton6"
         Me.RadioButton6.Size = New System.Drawing.Size(35, 16)
         Me.RadioButton6.TabIndex = 99
+        Me.RadioButton6.TabStop = True
         Me.RadioButton6.Text = "**"
         Me.RadioButton6.UseVisualStyleBackColor = True
         '
@@ -474,9 +480,9 @@ Partial Class Search
         '
         Me.ComboBox4.FormattingEnabled = True
         Me.ComboBox4.Items.AddRange(New Object() {"0:HTML1", "1:CSV1", "2:CSV2"})
-        Me.ComboBox4.Location = New System.Drawing.Point(306, 234)
+        Me.ComboBox4.Location = New System.Drawing.Point(325, 234)
         Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(80, 20)
+        Me.ComboBox4.Size = New System.Drawing.Size(61, 20)
         Me.ComboBox4.TabIndex = 99
         Me.ComboBox4.TabStop = False
         '
@@ -485,6 +491,7 @@ Partial Class Search
         Me.ComboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.ComboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList
         Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Items.AddRange(New Object() {"testdemo2"})
         Me.ComboBox2.Location = New System.Drawing.Point(34, 23)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(352, 20)
@@ -504,7 +511,7 @@ Partial Class Search
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"検索保存リスト"})
+        Me.ComboBox1.Items.AddRange(New Object() {"検索保存リスト", "<团体>"})
         Me.ComboBox1.Location = New System.Drawing.Point(12, 338)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(374, 20)
@@ -694,6 +701,16 @@ Partial Class Search
         Me.ListBox1.Size = New System.Drawing.Size(114, 316)
         Me.ListBox1.TabIndex = 0
         '
+        'CheckBox4
+        '
+        Me.CheckBox4.AutoSize = True
+        Me.CheckBox4.Location = New System.Drawing.Point(244, 238)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(79, 16)
+        Me.CheckBox4.TabIndex = 100
+        Me.CheckBox4.Text = "GroupMark"
+        Me.CheckBox4.UseVisualStyleBackColor = True
+        '
         'Search
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -783,4 +800,5 @@ Partial Class Search
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents ComboBox18 As ComboBox
+    Friend WithEvents CheckBox4 As CheckBox
 End Class

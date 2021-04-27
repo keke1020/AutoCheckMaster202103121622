@@ -3562,7 +3562,7 @@ Public Class Csv
 
         For r As Integer = 0 To dgv.RowCount - 1
             If DataGridView1.Rows(r).DefaultCellStyle.BackColor <> BeforeColor Then
-                DataGridView1.Rows(r).DefaultCellStyle.BackColor = BeforeColor
+                'DataGridView1.Rows(r).DefaultCellStyle.BackColor = BeforeColor
             End If
         Next
 
@@ -3574,8 +3574,8 @@ Public Class Csv
         Next
 
         For i As Integer = 0 To selRow.Count - 1
-            BeforeColor = DataGridView1.Rows(selRow(i)).DefaultCellStyle.BackColor
-            DataGridView1.Rows(selRow(i)).DefaultCellStyle.BackColor = Color.LightCyan
+            'BeforeColor = DataGridView1.Rows(selRow(i)).DefaultCellStyle.BackColor
+            'DataGridView1.Rows(selRow(i)).DefaultCellStyle.BackColor = Color.LightCyan
         Next
     End Sub
 
@@ -4905,4 +4905,31 @@ Public Class Csv
 
 
     End Sub
+
+    Private Sub GroupTag_Click(sender As Object, e As EventArgs) Handles GroupTag.Click
+        IsGroupStyly()
+    End Sub
+    Private Sub IsGroupStyly()
+        Dim dgv As DataGridView = DataGridView1
+        Dim dgselRows As DataGridViewRowCollection = dgv.Rows
+        For index = 0 To dgselRows.Count - 1
+            Dim BeforeColorGroup = DataGridView1.Rows(index).DefaultCellStyle.BackColor
+            If IsGroup(dgselRows(index).Cells(2).Value) Or IsGroup(dgselRows(index).Cells(3).Value) Or IsGroup(dgselRows(index).Cells(5).Value) Then
+                dgselRows(index).DefaultCellStyle.BackColor = Color.Red
+            Else
+                dgselRows(index).DefaultCellStyle.BackColor = Color.White
+            End If
+
+        Next
+    End Sub
+
+    Dim Group As String() = {"医院", "組合", "会社", "機構", "法人", "薬局", "センター", "(株)", "（株）", "商店", "店", "支社", "(有)"， "(合)"}
+    Private Function IsGroup(obj As Object) As Boolean
+        For index = 0 To Group.Count - 1
+            If InStr(obj, Group(index)) Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 End Class
