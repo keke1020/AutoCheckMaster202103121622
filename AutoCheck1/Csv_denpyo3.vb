@@ -44,7 +44,9 @@ Public Class Csv_denpyo3
     Public YU2FlagLoad = False
 
     '邮局 适用P60发送地域
+    '大阪以下
     Private checkaddress_oosakika As String() = New String() {"熊本県", "宮崎県", "鹿児島県", "福岡県", "佐賀県", "長崎県", "大分県", "徳島県", "香川県", "愛媛県", "高知県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"}
+    '大阪以上
     Private checkaddress_oosakizyou As String() = New String() {"富山県", "石川県", "福井県", "岐阜県", "静岡県", "愛知県", "三重県", "新潟県", "長野県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "山梨県", "宮城県", "山形県", "福島県", "青森県", "岩手県", "秋田県", "北海道"}
     Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh",
     "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny331-50-lgr",
@@ -11203,6 +11205,7 @@ Public Class Csv_denpyo3
 
     '============================================
     '--------------------------------------------
+    '保存  出力
     '保存系
     '--------------------------------------------
     '============================================
@@ -12320,7 +12323,9 @@ Public Class Csv_denpyo3
                                 End If
 
                                 line_yamato &= qtm & changeMarumozi(dataRow(dH9.IndexOf("フリー項目２"))) & qtm2  '品名コード１
-                                line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目２")) & "(" & dataRow(dH9.IndexOf("フリー項目３")) & ")" & qtm2  '品名１
+                                'line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目２")) & "(" & dataRow(dH9.IndexOf("フリー項目３")) & ")" & qtm2  '品名１
+                                'line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目1")) & dataRow(dH9.IndexOf("フリー項目２")) & "(" & dataRow(dH9.IndexOf("フリー項目３")) & ")" & qtm2  '品名１
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("マスタコード")) & qtm2  '品名１
 
                                 line_yamato &= qtm & qtm2  '品名コード２
                                 line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '品名２
@@ -12328,9 +12333,10 @@ Public Class Csv_denpyo3
                                 line_yamato &= qtm & qtm2  '荷扱い２
 
                                 If dataRow(dH9.IndexOf("マスタ配送")) = "ヤマト(陸便)" Then
-                                    line_yamato &= qtm & qtm2  '記事
+                                    'line_yamato &= qtm & qtm2  '記事
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & qtm2  '記事
                                 Else
-                                    line_yamato &= qtm & "船便" & qtm2  '記事
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & "船便" & qtm2  '記事
                                 End If
 
                                 line_yamato &= qtm & qtm2  'コレクト代金引換額（税込）
