@@ -2620,6 +2620,15 @@ Public Class Csv_denpyo3
                     End If
 
 
+                    If haisouKind = "宅配便" And code(0).ToLower = "ad149" Then
+                        weight = "16.5"
+                        sp_check = False
+                    End If
+
+                    If haisouKind = "宅配便" And code(0).ToLower = "ny084" Then
+                        weight = "12.5"
+                        sp_check = False
+                    End If
 
                     'isyupakuGoodBool = isyupakuGoodsbyCode(code(0))
                     'If CheckBox34.Checked And isyupakubyAddress(haisouSaki) And isyupakuGoodBool And Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "宅配便") Then
@@ -2687,7 +2696,7 @@ Public Class Csv_denpyo3
                             haisouSize = haisouSize + (CDbl(weight) * CDbl(juchusu))
                         Else
                             If henkouFlag Then
-                                If ny331_50_codes.Contains(code(0).ToLower) Then
+                                If ny331_50_codes.Contains(code(0).ToLower) Or code(0).ToLower.Contains("ny263-331-50") Or code(0).ToLower.Contains("ny393-50-") Then
                                     '1 7 9 2 3 9 12 1 2
                                     haisouSize = haisouSize + (2.5 * CDbl(juchusu))
                                 Else
@@ -4315,6 +4324,7 @@ Public Class Csv_denpyo3
     '配送マスタ
     '--------------------------------------------
     '============================================
+    'dgv6加载
     Private Sub DGV6_update()
         'datagridview6再表示
         If DGV6.RowCount > 0 Then
@@ -9750,7 +9760,8 @@ Public Class Csv_denpyo3
                         Dim valiCode As String = Split(res, "*")(0)
                         Dim inputStr As String = ""
 
-
+                        '删除
+                        'hSettei(1) = 0
                         If dhCol >= 0 And dhCol < hSettei(1) Then
 
                             If dhCol = 0 Then
@@ -12324,8 +12335,8 @@ Public Class Csv_denpyo3
 
                                 line_yamato &= qtm & changeMarumozi(dataRow(dH9.IndexOf("フリー項目２"))) & qtm2  '品名コード１
                                 'line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目２")) & "(" & dataRow(dH9.IndexOf("フリー項目３")) & ")" & qtm2  '品名１
-                                'line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目1")) & dataRow(dH9.IndexOf("フリー項目２")) & "(" & dataRow(dH9.IndexOf("フリー項目３")) & ")" & qtm2  '品名１
-                                line_yamato &= qtm & dataRow(dH9.IndexOf("マスタコード")) & qtm2  '品名１
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目２")) & dataRow(dH9.IndexOf("フリー項目３")) & dataRow(dH9.IndexOf("フリー項目４")) & dataRow(dH9.IndexOf("フリー項目５")) & qtm2  '品名１
+                                'line_yamato &= qtm & dataRow(dH9.IndexOf("マスタコード")) & qtm2  '品名１
 
                                 line_yamato &= qtm & qtm2  '品名コード２
                                 line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '品名２
@@ -12334,9 +12345,9 @@ Public Class Csv_denpyo3
 
                                 If dataRow(dH9.IndexOf("マスタ配送")) = "ヤマト(陸便)" Then
                                     'line_yamato &= qtm & qtm2  '記事
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & qtm2  '記事
-                                Else
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & "船便" & qtm2  '記事
+                                    line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & "__" & dataRow(dH9.IndexOf("箱番号")) & qtm2  '記事
+                                    Else
+                                        line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & "船便" & "__" & dataRow(dH9.IndexOf("箱番号")) & qtm2  '記事
                                 End If
 
                                 line_yamato &= qtm & qtm2  'コレクト代金引換額（税込）
