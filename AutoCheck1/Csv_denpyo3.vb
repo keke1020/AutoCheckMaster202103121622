@@ -9942,7 +9942,10 @@ Public Class Csv_denpyo3
                             code1 = Regex.Replace(code1, "[0123][A-Za-z][0-9A-Za-z][0-9]{0,3}-|BS[0-9]{0,3}-|SD[0-9]{0,3}-|XX[0-9Xx]{0,3}-", "")
                             Dim codeName As String = DGV6.Item(dH6.IndexOf("商品名"), dgv6CodeArray.IndexOf(code1.ToLower)).Value
                             Dim nameStr As String() = Regex.Split(codeName, "\s|　")
-                            dgv.Item(dHSel.IndexOf(hSetteiHeader(1)), r).Value = "※" & nameStr(0)
+                            If dgv IsNot DGV9 Then
+                                dgv.Item(dHSel.IndexOf(hSetteiHeader(1)), r).Value = "※" & nameStr(0)
+                            End If
+                            'dgv.Item(dHSel.IndexOf(hSetteiHeader(1)), r).Value = "※" & nameStr(0)
                         Catch ex As Exception
 
                         End Try
@@ -12344,36 +12347,48 @@ Public Class Csv_denpyo3
 
 
 
-                                    'line_yamato &= qtm & "seiyishi" & qtm2 'ご依頼主コード
-                                    'line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
-                                    'line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                    'line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
-                                    'line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-101" & qtm2 'ご依頼主住所
-                                    'line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
-                                    'line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
-                                    'line_yamato &= qtm & qtm2 'ご依頼主略称カナ
-
-
-
-
-                                    line_yamato &= qtm & "," 'ご依頼主コード
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　電話番号")) & qtm2 'ご依頼主電話番号
-                                    line_yamato &= qtm & "," 'ご依頼主電話番号枝番
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　郵便番号")) & qtm2 'ご依頼主郵便番号
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　住所１")) & qtm2 'ご依頼主住所
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　住所２")) & qtm2 'ご依頼主住所（アパートマンション名）
+                                    line_yamato &= qtm & "seiyishi" & qtm2 'ご依頼主コード
+                                    line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-101" & qtm2 'ご依頼主住所
+                                    line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
                                     line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
                                     line_yamato &= qtm & qtm2 'ご依頼主略称カナ
+
+
+
+
+                                    'line_yamato &= qtm & "," 'ご依頼主コード
+                                    'line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　電話番号")) & qtm2 'ご依頼主電話番号
+                                    'line_yamato &= qtm & "," 'ご依頼主電話番号枝番
+                                    'line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　郵便番号")) & qtm2 'ご依頼主郵便番号
+                                    'line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　住所１")) & qtm2 'ご依頼主住所
+                                    'line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　住所２")) & qtm2 'ご依頼主住所（アパートマンション名）
+                                    'line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名
+                                    'line_yamato &= qtm & qtm2 'ご依頼主略称カナ
                                 End If
+
+
+                                Dim temp2 = dataRow(dH9.IndexOf("フリー項目２"))
+                                Dim temp3 = dataRow(dH9.IndexOf("フリー項目３"))
+                                Dim temp4 = dataRow(dH9.IndexOf("フリー項目４"))
+                                Dim temp5 = dataRow(dH9.IndexOf("フリー項目５"))
+
+                                'Dim temp2ss As String = Regex.Replace(temp2, "\([^\(]*\)", "")
+                                'Dim temp3ss As String = Regex.Replace(temp3, "\([^\(]*\)", "")
+                                'Dim temp4ss As String = Regex.Replace(temp4, "\([^\(]*\)", "")
+                                'Dim temp5ss As String = Regex.Replace(temp5, "\([^\(]*\)", "")
 
                                 line_yamato &= qtm & changeMarumozi(dataRow(dH9.IndexOf("フリー項目２"))) & qtm2  '品名コード１
                                 'line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目２")) & "(" & dataRow(dH9.IndexOf("フリー項目３")) & ")" & qtm2  '品名１
-                                line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目２")) & dataRow(dH9.IndexOf("フリー項目３")) & dataRow(dH9.IndexOf("フリー項目４")) & dataRow(dH9.IndexOf("フリー項目５")) & qtm2  '品名１
+                                line_yamato &= qtm & temp2 & "  " & temp3 & qtm2  '品名１
                                 'line_yamato &= qtm & dataRow(dH9.IndexOf("マスタコード")) & qtm2  '品名１
 
                                 line_yamato &= qtm & qtm2  '品名コード２
-                                line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '品名２
-                                line_yamato &= qtm & qtm2  '荷扱い１
+                                'line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '品名２
+                                line_yamato &= qtm & temp4 & "  " & temp5 & qtm2  '品名２
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '荷扱い１
                                 line_yamato &= qtm & qtm2  '荷扱い２
 
                                 If dataRow(dH9.IndexOf("マスタ配送")) = "ヤマト(陸便)" Then

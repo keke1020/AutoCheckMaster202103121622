@@ -1515,7 +1515,7 @@ Partial Class Form1
         'ログイン名ToolStripMenuItem
         '
         Me.ログイン名ToolStripMenuItem.Name = "ログイン名ToolStripMenuItem"
-        Me.ログイン名ToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.ログイン名ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ログイン名ToolStripMenuItem.Text = "ログイン名"
         '
         'GodModeToolStripMenuItem
