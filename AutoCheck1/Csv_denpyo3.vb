@@ -9776,11 +9776,9 @@ Public Class Csv_denpyo3
                         Dim res As String = mcCodeArray(i) & "*1"
                         Dim valiCode As String = Split(res, "*")(0)
                         Dim inputStr As String = ""
-
+                        'hSettei(1) = 2
                         '删除
-                        'hSettei(1) = 0
                         If dhCol >= 0 And dhCol < hSettei(1) Then
-
                             If dhCol = 0 Then
                                 'inputStr = valiCode & "*1"
                                 'dgv.Item(dHSel.IndexOf(hSetteiHeader(dhCol)), r).Value = res
@@ -12388,15 +12386,17 @@ Public Class Csv_denpyo3
                                 line_yamato &= qtm & qtm2  '品名コード２
                                 'line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '品名２
                                 line_yamato &= qtm & temp4 & "  " & temp5 & qtm2  '品名２
-                                line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '荷扱い１
+                                'line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '荷扱い１
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & "__" & dataRow(dH9.IndexOf("箱番号")) & qtm2  '荷扱い１
                                 line_yamato &= qtm & qtm2  '荷扱い２
 
-                                If dataRow(dH9.IndexOf("マスタ配送")) = "ヤマト(陸便)" Then
-                                    'line_yamato &= qtm & qtm2  '記事
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & "__" & dataRow(dH9.IndexOf("箱番号")) & qtm2  '記事
-                                Else
-                                    line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & "船便" & "__" & dataRow(dH9.IndexOf("箱番号")) & qtm2  '記事
-                                End If
+                                'If dataRow(dH9.IndexOf("マスタ配送")) = "ヤマト(陸便)" Then
+                                '    'line_yamato &= qtm & qtm2  '記事
+                                '    line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & "__" & dataRow(dH9.IndexOf("箱番号")) & qtm2  '記事
+                                'Else
+                                '    line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & "船便" & "__" & dataRow(dH9.IndexOf("箱番号")) & qtm2  '記事
+                                'End If
+                                line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '記事
 
                                 line_yamato &= qtm & qtm2  'コレクト代金引換額（税込）
                                 line_yamato &= qtm & qtm2  'コレクト内消費税額等
