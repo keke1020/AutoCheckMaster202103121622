@@ -1829,10 +1829,10 @@ Public Class Csv_denpyo3
                 Dim checkcodejuchusu_ny264_500 As Integer = 0
                 Dim checkcodejuchusu_ny264_3000 As Integer = 0
                 Dim checkcodejuchusu_pa084_5 As Integer = 0
-                Dim checkcodejuchusu_pa084_7 As Integer = 0
+                'Dim checkcodejuchusu_pa084_7 As Integer = 0
 
                 Dim checkcodejuchusu_pa084_ho As Integer = 0
-                Dim checkcodejuchusu_od433_co As Integer = 0
+                'Dim checkcodejuchusu_od433_co As Integer = 0
                 Dim checkcodejuchusu_od433_wa As Integer = 0
                 Dim checkcodejuchusu_ny331_50 As Integer = 0 'ny331_50シリーズ
                 Dim checkcodejuchusu_ny331_2500 As Integer = 0 'ny331_2500シリーズ
@@ -2013,11 +2013,11 @@ Public Class Csv_denpyo3
 
 
 
-                    If checkcode(0).ToLower = "pa084-7" Then
-                        If checkcode(1) = Int(checkcode(1)) Then
-                            checkcodejuchusu_pa084_7 = checkcodejuchusu_pa084_7 + checkcode(1)
-                        End If
-                    End If
+                    'If checkcode(0).ToLower = "pa084-7" Then
+                    '    If checkcode(1) = Int(checkcode(1)) Then
+                    '        checkcodejuchusu_pa084_7 = checkcodejuchusu_pa084_7 + checkcode(1)
+                    '    End If
+                    'End If
 
 
                     If checkcode(0).ToLower = "pa084-ho" Then
@@ -2027,11 +2027,11 @@ Public Class Csv_denpyo3
                     End If
 
 
-                    If checkcode(0).ToLower = "od433-co" Then
-                        If checkcode(1) = Int(checkcode(1)) Then
-                            checkcodejuchusu_od433_co = checkcodejuchusu_od433_co + checkcode(1)
-                        End If
-                    End If
+                    'If checkcode(0).ToLower = "od433-co" Then
+                    '    If checkcode(1) = Int(checkcode(1)) Then
+                    '        checkcodejuchusu_od433_co = checkcodejuchusu_od433_co + checkcode(1)
+                    '    End If
+                    'End If
 
                     If checkcode(0).ToLower = "od433-wa" Then
                         If checkcode(1) = Int(checkcode(1)) Then
@@ -2285,10 +2285,10 @@ Public Class Csv_denpyo3
                 End If
 
 
-                Dim pa084_7_isnagoya As Boolean = Nothing
-                If checkcodejuchusu_pa084_7 > 0 Then
-                    pa084_7_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-7", checkcodejuchusu_pa084_7, haisouSaki)
-                End If
+                'Dim pa084_7_isnagoya As Boolean = Nothing
+                'If checkcodejuchusu_pa084_7 > 0 Then
+                '    pa084_7_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-7", checkcodejuchusu_pa084_7, haisouSaki)
+                'End If
 
 
                 Dim pa084_ho_isnagoya As Boolean = Nothing
@@ -2296,10 +2296,10 @@ Public Class Csv_denpyo3
                     pa084_ho_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-ho", checkcodejuchusu_pa084_ho, haisouSaki)
                 End If
 
-                Dim od433_co_isnagoya As Boolean = Nothing
-                If checkcodejuchusu_od433_co > 0 Then
-                    od433_co_isnagoya = checkSouko_DaOrNa(tag_decide, "od433-co", checkcodejuchusu_od433_co, haisouSaki)
-                End If
+                'Dim od433_co_isnagoya As Boolean = Nothing
+                'If checkcodejuchusu_od433_co > 0 Then
+                '    od433_co_isnagoya = checkSouko_DaOrNa(tag_decide, "od433-co", checkcodejuchusu_od433_co, haisouSaki)
+                'End If
 
                 Dim od433_wa_isnagoya As Boolean = Nothing
                 If checkcodejuchusu_od433_wa > 0 Then
@@ -2615,10 +2615,10 @@ Public Class Csv_denpyo3
                         weight = "125"
                         sp_check = False
                     End If
-                    If haisouKind = "宅配便" And (code(0).ToLower = "ny365-xl" Or code(0).ToLower = "ny365-xxl" Or code(0).ToLower = "ny365-xxxl") Then
-                        weight = "20"
-                        sp_check = False
-                    End If
+                    'If haisouKind = "宅配便" And (code(0).ToLower = "ny365-xl" Or code(0).ToLower = "ny365-xxl" Or code(0).ToLower = "ny365-xxxl") Then
+                    '    weight = "20"
+                    '    sp_check = False
+                    'End If
 
 
                     If haisouKind = "宅配便" And code(0).ToLower = "ad149" Then
@@ -5752,18 +5752,18 @@ Public Class Csv_denpyo3
             bl = False
         ElseIf code = "pa084-ho" Then
             bl = True
-        ElseIf code = "pa084-7" Then
-            If count >= 2 Then
-                bl = True
-            Else
-                bl = False
-            End If
-        ElseIf code = "od433-co" Then
-            If checkHaisosaki_DaOrNa(haisouSaki) Then
-                bl = True 'true: 名古屋
-            Else
-                bl = False 'false: 太宰府
-            End If
+            'ElseIf code = "pa084-7" Then
+            '    If count >= 2 Then
+            '        bl = True
+            '    Else
+            '        bl = False
+            '    End If
+            'ElseIf code = "od433-co" Then
+            '    If checkHaisosaki_DaOrNa(haisouSaki) Then
+            '        bl = True 'true: 名古屋
+            '    Else
+            '        bl = False 'false: 太宰府
+            '    End If
         ElseIf code = "od433-wa" Then
             If checkHaisosaki_DaOrNa(haisouSaki) Then
                 bl = True 'true: 名古屋
@@ -12382,21 +12382,57 @@ Public Class Csv_denpyo3
                                 Dim temp3 = dataRow(dH9.IndexOf("フリー項目３"))
                                 Dim temp4 = dataRow(dH9.IndexOf("フリー項目４"))
                                 Dim temp5 = dataRow(dH9.IndexOf("フリー項目５"))
+                                Dim n = dataRow(dH9.IndexOf("箱番号"))
+                                Dim mastrcode As String = dataRow(dH9.IndexOf("マスタコード"))
+
+
+
+                                Dim mastrStr As String() = mastrcode.Split("、")
+                                'Dim fushuflag = False
+
+                                'If InStr(temp2, "★") Then
+                                '    fushuflag = True
+                                'End If
 
                                 'Dim temp2ss As String = Regex.Replace(temp2, "\([^\(]*\)", "")
                                 'Dim temp3ss As String = Regex.Replace(temp3, "\([^\(]*\)", "")
                                 'Dim temp4ss As String = Regex.Replace(temp4, "\([^\(]*\)", "")
                                 'Dim temp5ss As String = Regex.Replace(temp5, "\([^\(]*\)", "")
 
+                                'If fushuflag Then
+                                'line_yamato &= qtm & "" & qtm2  '品名コード１
+                                'Else
                                 line_yamato &= qtm & changeMarumozi(dataRow(dH9.IndexOf("フリー項目２"))) & qtm2  '品名コード１
-                                'line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目２")) & "(" & dataRow(dH9.IndexOf("フリー項目３")) & ")" & qtm2  '品名１
+                                'End If
+
+
+
+
+                                'If fushuflag Then
+                                'line_yamato &= qtm & "★全★ " & mastrStr(0) & " " & mastrStr(1) & " " & mastrStr(2) & qtm2
+                                'Else
                                 line_yamato &= qtm & temp2 & "  " & temp3 & qtm2  '品名１
+                                'End If
+
+
+
                                 'line_yamato &= qtm & dataRow(dH9.IndexOf("マスタコード")) & qtm2  '品名１
 
                                 line_yamato &= qtm & qtm2  '品名コード２
                                 'line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '品名２
+
+                                'If fushuflag Then
+                                '    Dim temp = ""
+                                '    For index = 3 To mastrStr.Length - 1
+                                '        temp &= mastrStr(index) + "  "
+                                '    Next
+
+                                '    line_yamato &= qtm & temp & qtm2
+                                'Else
                                 line_yamato &= qtm & temp4 & "  " & temp5 & qtm2  '品名２
-                                'line_yamato &= qtm & dataRow(dH9.IndexOf("品名")) & qtm2  '荷扱い１
+                                'End If
+
+
                                 line_yamato &= qtm & dataRow(dH9.IndexOf("フリー項目１")) & "__" & dataRow(dH9.IndexOf("箱番号")) & qtm2  '荷扱い１
                                 line_yamato &= qtm & qtm2  '荷扱い２
 
