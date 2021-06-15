@@ -1736,7 +1736,7 @@ Public Class Csv_denpyo3
         Dim doukonArray As String() = File.ReadAllLines(appPathDir & "\config\version2\同梱特殊.txt", ENC_SJ)
         Dim ny331_50_codes As String() = New String() {"ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye", "ny331-50-rose", "ny331-50-lor", "ny331-50-lgr", "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi"}
         'pa084-5
-        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny264-100-4000", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a", "pa084-7", "pa084-ho"}
+        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny264-100-4000", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a", "pa084-ho"}
         'Dim ny331_2500_codes As String() = New String() {"ny331-2500-be"}
         '扁盒口罩
         'Dim masuku_50codesPro As String() = New String() {"TEST"}
@@ -1980,12 +1980,11 @@ Public Class Csv_denpyo3
                     End If
 
 
-                    If ny331_50_codes.Contains(checkcode(0).ToLower) Then
-                        If checkcode(1) = Int(checkcode(1)) Then
-                            checkcodejuchusu_ny331_50 = checkcodejuchusu_ny331_50 + checkcode(1)
-                        End If
-                    End If
-
+                    'If ny331_50_codes.Contains(checkcode(0).ToLower) Then
+                    '    If checkcode(1) = Int(checkcode(1)) Then
+                    '        checkcodejuchusu_ny331_50 = checkcodejuchusu_ny331_50 + checkcode(1)
+                    '    End If
+                    'End If
 
 
                     If masuku_50codesPro.Contains(checkcode(0).ToLower) Then
@@ -2704,7 +2703,10 @@ Public Class Csv_denpyo3
                             haisouSize = haisouSize + (CDbl(weight) * CDbl(juchusu))
                         Else
                             If henkouFlag Then
-                                If ny331_50_codes.Contains(code(0).ToLower) Or code(0).ToLower.Contains("ny263-331-50") Or code(0).ToLower.Contains("ny393-50-") Then
+                                'If ny331_50_codes.Contains(code(0).ToLower) Or code(0).ToLower.Contains("ny263-331-50") Or code(0).ToLower.Contains("ny393-50-") Then
+
+                                If (code(0).ToLower.Contains("ny331-50") And Not code(0).ToLower.Contains("ny331-500")) Or code(0).ToLower.Contains("ny263-331-50") Or (code(0).ToLower.Contains("ny393-50") And Not code(0).ToLower.Contains("ny393-500")) Then
+
                                     '1 7 9 2 3 9 12 1 2
                                     haisouSize = haisouSize + (2.5 * CDbl(juchusu))
                                 Else
@@ -9739,9 +9741,7 @@ Public Class Csv_denpyo3
                         For k As Integer = 0 To code(1) - 1
                             mcCodeArray.Add(code(0))
 
-                            If InStr(code(0), "ny331-50-bk") Then
-                                Console.WriteLine("")
-                            End If
+
                             Dim mStr As String = MasterWeight(code(0))
                             mcPMArray.Add(Regex.Replace(MasterWeight(code(0)), "M|m|P|p|T|t", ""))
                             mcNameArray.Add(MasterItemName(code(0)))
@@ -9776,9 +9776,8 @@ Public Class Csv_denpyo3
 
                 For i As Integer = mcCodeArray.Count - 1 To 0 Step -1
 
-                    If InStr(mcCodeArray(0), "ny331-50-bk") Then
-                        Console.WriteLine("")
-                    End If
+
+
 
                     'LIST4VIEW("dgv RowCount2", "system")
                     Dim hSouko As String = DGV1.Item(dH1.IndexOf("発送倉庫"), dgv1Row).Value
