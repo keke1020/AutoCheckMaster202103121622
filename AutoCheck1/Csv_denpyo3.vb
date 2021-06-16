@@ -6426,6 +6426,7 @@ Public Class Csv_denpyo3
                 'ToolTip1.SetToolTip(LinkLabel20, tenpoListKouku(2))
 
                 LinkLabel23.Text = kosu(11)
+
                 ToolTip1.SetToolTip(LinkLabel23, tenpoList(10))
                 LinkLabel24.Text = kosuKouku(6)
                 ToolTip1.SetToolTip(LinkLabel24, tenpoListKouku(6))
@@ -12145,8 +12146,22 @@ Public Class Csv_denpyo3
 
                                 'お届け先名
                                 If InStr(dataRow(dH9.IndexOf("お届け先　名称")), ")") Then
+
+
                                     Dim todokesakimei As String() = Split(dataRow(dH9.IndexOf("お届け先　名称")), ")")
-                                    line_yamato &= qtm & todokesakimei(1) & qtm2
+
+                                    If todokesakimei.Length > 2 Then
+
+                                        Dim startIndex = dataRow(dH9.IndexOf("お届け先　名称")).IndexOf(")")
+                                        Dim ccstr = dataRow(dH9.IndexOf("お届け先　名称")).Substring(0, startIndex + 1)
+
+                                        Dim Strtempc = Split(dataRow(dH9.IndexOf("お届け先　名称")), ccstr)
+                                        Strtempc(1).TrimStart(")")
+                                        line_yamato &= qtm & Strtempc(1) & qtm2
+                                    Else
+                                        line_yamato &= qtm & todokesakimei(1) & qtm2
+                                    End If
+
                                 Else
                                     line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　名称")) & qtm2
                                 End If
@@ -12602,9 +12617,14 @@ Public Class Csv_denpyo3
 
                                     'お届け先名
                                     If InStr(dataRow(dH9.IndexOf("お届け先　名称")), ")") Then
-                                        Dim todokesakimei As String() = Split(dataRow(dH9.IndexOf("お届け先　名称")), ")")
-                                        line_yamato &= qtm & todokesakimei(1) & qtm2
-                                    Else
+                                    Dim todokesakimei As String() = Split(dataRow(dH9.IndexOf("お届け先　名称")), ")")
+
+                                    Dim temp = ""
+                                    For intemp = 1 To todokesakimei.Length - 1
+                                        temp &= todokesakimei(intemp)
+                                    Next
+                                    line_yamato &= qtm & temp & qtm2
+                                Else
                                         line_yamato &= qtm & dataRow(dH9.IndexOf("お届け先　名称")) & qtm2
                                     End If
 
