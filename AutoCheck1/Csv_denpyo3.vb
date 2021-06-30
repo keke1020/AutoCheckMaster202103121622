@@ -1654,10 +1654,14 @@ Public Class Csv_denpyo3
 
         For r1 As Integer = 0 To DGV1.RowCount - 1
             Dim dNum As String = DGV1.Item(dH1.IndexOf("伝票番号"), r1).Value
+
+
+
             Dim str As String = ""
             Dim tenpo As String = ""
             For r2 As Integer = 0 To DGV3.RowCount - 1
                 If dNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
+
                     DGV3.Item(dH3.IndexOf("伝票番号"), r2).Style.BackColor = Color.LemonChiffon
 
                     Dim codeHeader As String = "商品ｺｰﾄﾞ"
@@ -1829,7 +1833,7 @@ Public Class Csv_denpyo3
                 Dim checkcodejuchusu_ny264_500 As Integer = 0
                 Dim checkcodejuchusu_ny264_3000 As Integer = 0
                 Dim checkcodejuchusu_pa084_5 As Integer = 0
-                'Dim checkcodejuchusu_pa084_7 As Integer = 0
+                Dim checkcodejuchusu_pa084_7 As Integer = 0
 
                 Dim checkcodejuchusu_pa084_ho As Integer = 0
                 'Dim checkcodejuchusu_od433_co As Integer = 0
@@ -2012,11 +2016,11 @@ Public Class Csv_denpyo3
 
 
 
-                    'If checkcode(0).ToLower = "pa084-7" Then
-                    '    If checkcode(1) = Int(checkcode(1)) Then
-                    '        checkcodejuchusu_pa084_7 = checkcodejuchusu_pa084_7 + checkcode(1)
-                    '    End If
-                    'End If
+                    If checkcode(0).ToLower = "pa084-7" Then
+                        If checkcode(1) = Int(checkcode(1)) Then
+                            checkcodejuchusu_pa084_7 = checkcodejuchusu_pa084_7 + checkcode(1)
+                        End If
+                    End If
 
 
                     If checkcode(0).ToLower = "pa084-ho" Then
@@ -2284,10 +2288,10 @@ Public Class Csv_denpyo3
                 End If
 
 
-                'Dim pa084_7_isnagoya As Boolean = Nothing
-                'If checkcodejuchusu_pa084_7 > 0 Then
-                '    pa084_7_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-7", checkcodejuchusu_pa084_7, haisouSaki)
-                'End If
+                Dim pa084_7_isnagoya As Boolean = Nothing
+                If checkcodejuchusu_pa084_7 > 0 Then
+                    pa084_7_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-7", checkcodejuchusu_pa084_7, haisouSaki)
+                End If
 
 
                 Dim pa084_ho_isnagoya As Boolean = Nothing
@@ -2441,6 +2445,13 @@ Public Class Csv_denpyo3
 
 
 
+                    If haisouKind = "宅配便" And InStr(code(0).ToLower, "ny373-150-") Then
+                        weight = "12.5"
+                        sp_check = False
+                    End If
+
+
+
                     'If haisouKind = "宅配便" And code(0).ToLower = "pa084-5" And pa084_5_isnagoya Then
                     '    weight = "12.5"
                     '    sp_check = False
@@ -2459,9 +2470,12 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
-                    If haisouKind = "メール便" And (code(0).ToLower = "ny373-wh" Or code(0).ToLower = "ny373-hu" Or code(0).ToLower = "ny373-pi" Or code(0).ToLower = "ny373-bk" Or code(0).ToLower = "ny373-kob" Or code(0).ToLower = "ny373-kowh" Or code(0).ToLower = "ny373-kobk") Then
+                    'If haisouKind = "メール便" And (code(0).ToLower = "ny373-wh" Or code(0).ToLower = "ny373-hu" Or code(0).ToLower = "ny373-pi" Or code(0).ToLower = "ny373-bk" Or code(0).ToLower = "ny373-kob" Or code(0).ToLower = "ny373-kowh" Or code(0).ToLower = "ny373-kobk") Then
+                    If haisouKind = "メール便" And InStr(code(0).ToLower, "ny373") And Not InStr(code(0).ToLower, "ny373-600") And Not InStr(code(0).ToLower, "ny373-150") Then
+
                         If special_taku Then
-                            weight = "178"
+                            'weight = "178"
+                            weight = "250"
                             sp_check = False
                         Else
                             'weight = "100"
@@ -2537,7 +2551,7 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
-                    If haisouKind = "宅配便" And (code(0).ToLower = "de055" Or code(0).ToLower = "de055-01" Or code(0).ToLower = "od437-wa" Or code(0).ToLower = "od437-gr" Or code(0).ToLower = "od437-co") Then
+                    If haisouKind = "宅配便" And (code(0).ToLower = "de055" Or code(0).ToLower = "de055-01" Or code(0).ToLower = "od437-wa" Or code(0).ToLower = "od437-gr" Or code(0).ToLower = "od437-co" Or code(0).ToLower = "od437-hu") Then
                         weight = "130"
                         sp_check = False
                     End If
@@ -2585,7 +2599,7 @@ Public Class Csv_denpyo3
                     End If
 
                     '1個１便
-                    If haisouKind = "宅配便" And (code(0).ToLower = "zk101-a" Or code(0).ToLower = "zk101-b" Or code(0).ToLower = "zk101-c" Or code(0).ToLower = "zk101-d" Or code(0).ToLower = "zk101-e" Or code(0).ToLower = "zk101-f") Then
+                    If haisouKind = "宅配便" And (code(0).ToLower = "zk101-a" Or code(0).ToLower = "zk101-b" Or code(0).ToLower = "zk101-c" Or code(0).ToLower = "zk101-d" Or code(0).ToLower = "zk101-e" Or code(0).ToLower = "zk101-f" Or code(0).ToLower = "zk101-g" Or code(0).ToLower = "zk101-h" Or code(0).ToLower = "zk101-i") Then
                         weight = "100"
                         sp_check = False
                     End If
@@ -2692,6 +2706,7 @@ Public Class Csv_denpyo3
                         End If
                     Else
                         '-------
+                        'weight = 20
                         If Not IsNumeric(weight) Then
                             DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value = "計算不能"
                             DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Style.BackColor = Color.Red
@@ -5751,15 +5766,15 @@ Public Class Csv_denpyo3
             'Else
             '    bl = False
             'End If
-            bl = False
+            bl = True
         ElseIf code = "pa084-ho" Then
             bl = True
-            'ElseIf code = "pa084-7" Then
-            '    If count >= 2 Then
-            '        bl = True
-            '    Else
-            '        bl = False
-            '    End If
+        ElseIf code = "pa084-7" Then
+            If count >= 2 Then
+                bl = True
+            Else
+                bl = False
+            End If
             'ElseIf code = "od433-co" Then
             '    If checkHaisosaki_DaOrNa(haisouSaki) Then
             '        bl = True 'true: 名古屋
@@ -12724,8 +12739,8 @@ Public Class Csv_denpyo3
                                     ElseIf dataRow(dH9.IndexOf("ご依頼主　名称１")) = "サラダ" Or dataRow(dH9.IndexOf("ご依頼主　名称１")) = "Amazon Sarada" Then
                                         line_yamato &= qtm & "Ama_Sarada" & qtm2 'ご依頼主コード
                                         line_yamato &= qtm & "000-0000-0000" & qtm2 'ご依頼主電話番号
-                                        line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
-                                        line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
+                                    line_yamato &= qtm & qtm2 'ご依頼主電話番号枝番
+                                    line_yamato &= qtm & "812-0881" & qtm2 'ご依頼主郵便番号
                                         line_yamato &= qtm & "福岡県福岡市博多区井相田1-8-33-2F" & qtm2 'ご依頼主住所
                                         line_yamato &= qtm & qtm2 'ご依頼主住所（アパートマンション名）
                                         line_yamato &= qtm & dataRow(dH9.IndexOf("ご依頼主　名称１")) & qtm2 'ご依頼主名

@@ -396,6 +396,11 @@ Public Class Form1
         hotkeyID = GlobalAddAtom("GlobalHotKey " & Me.GetHashCode().ToString())
         ' Ctrl+Aキーを登録する
         RegisterHotKey(Me.Handle, hotkeyID, MOD_SHIFT, Keys.F2)
+
+
+
+
+        'CookieForm.Show()
     End Sub
 
     Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
@@ -2995,6 +3000,9 @@ Public Class WebTabPage
             'Else
             UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko"
             'UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+            'UserAgent = " Mozilla / 5.0(Windows NT 6.1) AppleWebKit/537.36 (KHTML, Like Gecko) Chrome/79.0.3945.117 Safari/537.36"
+            'UserAgent = "Mozilla/ 5.0(Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, Like Gecko) Chrome/84.0.4147.125 Safari/537.36"
+
 
             'End If
         Else
@@ -3413,7 +3421,7 @@ Public Class ExWebBrowser2
     End Sub
 
     'NewWindow2イベントの拡張
-    Private cookie As AxHost.ConnectionPointCookie
+    Public cookie As AxHost.ConnectionPointCookie
     Private helper As WebBrowser2EventHelper
 
     Public Event NewWindow3 As WebBrowserNewWindow3EventHandler

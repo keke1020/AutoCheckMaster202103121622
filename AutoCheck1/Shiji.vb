@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Text.RegularExpressions
 Imports System.Text
+Imports System.Windows
 Public Class Shiji
     'Private cr As ChromeDriver = Nothing
 
@@ -616,7 +617,25 @@ Public Class Shiji
                     search_code = code_m(0) & "-" & code_m(1)
                 End If
 
-                WebBrowser1.Navigate(New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_001_002&shop_bid=" & shop_bid & "&mng_number=" & search_code))
+
+                Dim cc = New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_001_002&shop_bid=" & shop_bid & "&mng_number=" & search_code)
+
+
+                Dim Request As HttpWebRequest = HttpWebRequest.Create(cc)
+                Dim tool As CookieContainer = New CookieContainer()
+
+                Console.WriteLine(">>>>>> " & tool.GetCookies(cc).Count)
+
+                For Each cookie As Cookie In tool.GetCookies(cc)
+                    Console.WriteLine(cookie.Name)
+                    cookie.Expires = Now.Date.AddDays(-1)
+                    cookie = Nothing
+                Next
+
+                WebBrowser1.Navigate(cc)
+
+
+
                 WaitWebBrowser1Completed()
 
                 If WebBrowser1.Document.Body.InnerText.Contains("以下のエラーがあります") Then
@@ -2263,6 +2282,8 @@ Public Class Shiji
     End Sub
 
     Private Function findSelectById(element As String) As String
+
+        'WebBrowser1.Document.Cookie.e
         Dim eleSels As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("select")
         Dim item As String = ""
         For Each eleSel As HtmlElement In eleSels
