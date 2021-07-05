@@ -1832,10 +1832,10 @@ Public Class Csv_denpyo3
                 Dim checkcodejuchusu_ny264_200 As Integer = 0
                 Dim checkcodejuchusu_ny264_500 As Integer = 0
                 Dim checkcodejuchusu_ny264_3000 As Integer = 0
-                Dim checkcodejuchusu_pa084_5 As Integer = 0
-                Dim checkcodejuchusu_pa084_7 As Integer = 0
+                'Dim checkcodejuchusu_pa084_5 As Integer = 0
+                'Dim checkcodejuchusu_pa084_7 As Integer = 0
 
-                Dim checkcodejuchusu_pa084_ho As Integer = 0
+                'Dim checkcodejuchusu_pa084_ho As Integer = 0
                 'Dim checkcodejuchusu_od433_co As Integer = 0
                 Dim checkcodejuchusu_od433_wa As Integer = 0
                 Dim checkcodejuchusu_ny331_50 As Integer = 0 'ny331_50シリーズ
@@ -2008,26 +2008,26 @@ Public Class Csv_denpyo3
 
 
 
-                    If checkcode(0).ToLower = "pa084-5" Then
-                        If checkcode(1) = Int(checkcode(1)) Then
-                            checkcodejuchusu_pa084_5 = checkcodejuchusu_pa084_5 + checkcode(1)
-                        End If
-                    End If
+                    'If checkcode(0).ToLower = "pa084-5" Then
+                    '    If checkcode(1) = Int(checkcode(1)) Then
+                    '        checkcodejuchusu_pa084_5 = checkcodejuchusu_pa084_5 + checkcode(1)
+                    '    End If
+                    'End If
 
 
 
-                    If checkcode(0).ToLower = "pa084-7" Then
-                        If checkcode(1) = Int(checkcode(1)) Then
-                            checkcodejuchusu_pa084_7 = checkcodejuchusu_pa084_7 + checkcode(1)
-                        End If
-                    End If
+                    'If checkcode(0).ToLower = "pa084-7" Then
+                    '    If checkcode(1) = Int(checkcode(1)) Then
+                    '        checkcodejuchusu_pa084_7 = checkcodejuchusu_pa084_7 + checkcode(1)
+                    '    End If
+                    'End If
 
 
-                    If checkcode(0).ToLower = "pa084-ho" Then
-                        If checkcode(1) = Int(checkcode(1)) Then
-                            checkcodejuchusu_pa084_ho = checkcodejuchusu_pa084_ho + checkcode(1)
-                        End If
-                    End If
+                    'If checkcode(0).ToLower = "pa084-ho" Then
+                    '    If checkcode(1) = Int(checkcode(1)) Then
+                    '        checkcodejuchusu_pa084_ho = checkcodejuchusu_pa084_ho + checkcode(1)
+                    '    End If
+                    'End If
 
 
                     'If checkcode(0).ToLower = "od433-co" Then
@@ -2282,22 +2282,22 @@ Public Class Csv_denpyo3
                     ny264_3000_isnagoya = checkSouko_DaOrNa(tag_decide, "ny264-3000a", checkcodejuchusu_ny264_3000, haisouSaki)
                 End If
 
-                Dim pa084_5_isnagoya As Boolean = Nothing
-                If checkcodejuchusu_pa084_5 > 0 Then
-                    pa084_5_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-5", checkcodejuchusu_pa084_5, haisouSaki)
-                End If
+                'Dim pa084_5_isnagoya As Boolean = Nothing
+                'If checkcodejuchusu_pa084_5 > 0 Then
+                '    pa084_5_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-5", checkcodejuchusu_pa084_5, haisouSaki)
+                'End If
 
 
-                Dim pa084_7_isnagoya As Boolean = Nothing
-                If checkcodejuchusu_pa084_7 > 0 Then
-                    pa084_7_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-7", checkcodejuchusu_pa084_7, haisouSaki)
-                End If
+                'Dim pa084_7_isnagoya As Boolean = Nothing
+                'If checkcodejuchusu_pa084_7 > 0 Then
+                '    pa084_7_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-7", checkcodejuchusu_pa084_7, haisouSaki)
+                'End If
 
 
-                Dim pa084_ho_isnagoya As Boolean = Nothing
-                If checkcodejuchusu_pa084_ho > 0 Then
-                    pa084_ho_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-ho", checkcodejuchusu_pa084_ho, haisouSaki)
-                End If
+                'Dim pa084_ho_isnagoya As Boolean = Nothing
+                'If checkcodejuchusu_pa084_ho > 0 Then
+                '    pa084_ho_isnagoya = checkSouko_DaOrNa(tag_decide, "pa084-ho", checkcodejuchusu_pa084_ho, haisouSaki)
+                'End If
 
                 'Dim od433_co_isnagoya As Boolean = Nothing
                 'If checkcodejuchusu_od433_co > 0 Then
@@ -5760,21 +5760,21 @@ Public Class Csv_denpyo3
             Else
                 bl = False 'false: 太宰府
             End If
-        ElseIf code = "pa084-5" Then
-            'If count >= 3 Then
+            'ElseIf code = "pa084-5" Then
+            '    'If count >= 3 Then
+            '    '    bl = True
+            '    'Else
+            '    '    bl = False
+            '    'End If
             '    bl = True
-            'Else
-            '    bl = False
-            'End If
-            bl = True
-        ElseIf code = "pa084-ho" Then
-            bl = True
-        ElseIf code = "pa084-7" Then
-            If count >= 2 Then
-                bl = True
-            Else
-                bl = False
-            End If
+            'ElseIf code = "pa084-ho" Then
+            '    bl = True
+            'ElseIf code = "pa084-7" Then
+            '    If count >= 2 Then
+            '        bl = True
+            '    Else
+            '        bl = False
+            '    End If
             'ElseIf code = "od433-co" Then
             '    If checkHaisosaki_DaOrNa(haisouSaki) Then
             '        bl = True 'true: 名古屋
@@ -10333,7 +10333,7 @@ Public Class Csv_denpyo3
                 If DGV7.Item(dH7.IndexOf("処理用2"), r).Value = "名古屋" Then
                     'DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
 
-
+                    '法人
                     If IsCompanyOrIndividual_7(r, dH7) Then
                         DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700196"
                     Else
