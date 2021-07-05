@@ -2831,5 +2831,9 @@ Public Class Form1_F_Newitem
     Private Sub resultEventHandler(sender As Object, e As EventArgs)
         MessageBox.Show("Loaded")
     End Sub
+    '保存
+    Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
+
+    End Sub
 End Class
 

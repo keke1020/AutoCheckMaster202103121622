@@ -168,6 +168,7 @@ Partial Class Form1_F_Newitem
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Button22 = New System.Windows.Forms.Button()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -202,7 +203,7 @@ Partial Class Form1_F_Newitem
         '
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 627)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(381, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(555, 22)
         Me.StatusStrip1.TabIndex = 1
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -212,7 +213,7 @@ Partial Class Form1_F_Newitem
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripDropDownButton1, Me.ToolStripSeparator2, Me.ToolStripComboBox1, Me.ToolStripSeparator3, Me.ToolStripButton1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(381, 26)
+        Me.ToolStrip1.Size = New System.Drawing.Size(555, 26)
         Me.ToolStrip1.TabIndex = 2
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -276,7 +277,7 @@ Partial Class Form1_F_Newitem
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowTemplate.Height = 21
-        Me.DataGridView1.Size = New System.Drawing.Size(367, 240)
+        Me.DataGridView1.Size = New System.Drawing.Size(541, 255)
         Me.DataGridView1.TabIndex = 3
         '
         'Column1
@@ -434,7 +435,7 @@ Partial Class Form1_F_Newitem
         Me.DataGridView2.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowTemplate.Height = 21
-        Me.DataGridView2.Size = New System.Drawing.Size(367, 133)
+        Me.DataGridView2.Size = New System.Drawing.Size(541, 133)
         Me.DataGridView2.TabIndex = 4
         '
         'DataGridViewTextBoxColumn1
@@ -450,7 +451,7 @@ Partial Class Form1_F_Newitem
         Me.TextBox1.Location = New System.Drawing.Point(0, 0)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(367, 27)
+        Me.TextBox1.Size = New System.Drawing.Size(541, 30)
         Me.TextBox1.TabIndex = 5
         '
         'Panel1
@@ -484,7 +485,7 @@ Partial Class Form1_F_Newitem
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(3, 136)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(367, 147)
+        Me.Panel1.Size = New System.Drawing.Size(541, 147)
         Me.Panel1.TabIndex = 6
         '
         'Label19
@@ -770,7 +771,7 @@ Partial Class Form1_F_Newitem
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(381, 601)
+        Me.TabControl1.Size = New System.Drawing.Size(555, 601)
         Me.TabControl1.TabIndex = 7
         '
         'TabPage1
@@ -778,10 +779,10 @@ Partial Class Form1_F_Newitem
         Me.TabPage1.Controls.Add(Me.SplitContainer1)
         Me.TabPage1.Controls.Add(Me.Panel1)
         Me.TabPage1.Controls.Add(Me.DataGridView2)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 40)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(373, 557)
+        Me.TabPage1.Size = New System.Drawing.Size(547, 575)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "新規用"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -800,8 +801,8 @@ Partial Class Form1_F_Newitem
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.TextBox1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(367, 271)
-        Me.SplitContainer1.SplitterDistance = 240
+        Me.SplitContainer1.Size = New System.Drawing.Size(541, 289)
+        Me.SplitContainer1.SplitterDistance = 255
         Me.SplitContainer1.TabIndex = 7
         '
         'TabPage2
@@ -1605,11 +1606,21 @@ Partial Class Form1_F_Newitem
         '
         Me.Timer1.Interval = 1000
         '
+        'Button22
+        '
+        Me.Button22.Location = New System.Drawing.Point(343, 3)
+        Me.Button22.Name = "Button22"
+        Me.Button22.Size = New System.Drawing.Size(75, 23)
+        Me.Button22.TabIndex = 8
+        Me.Button22.Text = "Save"
+        Me.Button22.UseVisualStyleBackColor = True
+        '
         'Form1_F_Newitem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(381, 649)
+        Me.ClientSize = New System.Drawing.Size(555, 649)
+        Me.Controls.Add(Me.Button22)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.StatusStrip1)
@@ -1801,4 +1812,5 @@ Partial Class Form1_F_Newitem
     Friend WithEvents Label19 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents TextBox30 As TextBox
+    Friend WithEvents Button22 As Button
 End Class

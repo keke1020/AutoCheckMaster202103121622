@@ -1110,14 +1110,29 @@ Public Class Csv_change
                             If sArray2(0) = "" Then
                                 If DGV4.Item(TM_ArIndexof(dH4, henkanC), r).Value = "" Then
                                     DGV1.Item(c, r).Value = sArray2(1)
+                                    If DGV1.Item(c, r).Value = "ヤマト運輸" Then
+                                        DGV1.Item(c - 1, r).Value = "YAMATO"
+                                    ElseIf DGV1.Item(c, r).Value = "佐川急便" Then
+                                        DGV1.Item(c - 1, r).Value = "SAGAWA"
+                                    End If
                                     Exit For
                                 End If
                             Else
                                 If InStr(DGV4.Item(TM_ArIndexof(dH4, henkanC), r).Value, sArray2(0)) > 0 Then
                                     DGV1.Item(c, r).Value = sArray2(1)
+
+                                    If DGV1.Item(c, r).Value = "ヤマト運輸" Then
+                                        DGV1.Item(c - 1, r).Value = "YAMATO"
+                                    ElseIf DGV1.Item(c, r).Value = "佐川急便" Then
+                                        DGV1.Item(c - 1, r).Value = "SAGAWA"
+                                    End If
                                     Exit For
                                 End If
                             End If
+
+
+
+
                         Next
                     '==================================================
                     Case Regex.IsMatch(DGV2.Item(1, c).Value, "\[分割\]")
