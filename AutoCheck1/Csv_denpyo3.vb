@@ -766,7 +766,7 @@ Public Class Csv_denpyo3
             '------------------------------------------------------------------
             '根据文件名字决定发送方式
             Select Case True
-                Case Regex.IsMatch(filename, "sagawaMail|yupacketCSV|ymailCSV", RegexOptions.IgnoreCase)
+                Case Regex.IsMatch(filename, "sagawaMail|yupacketCSV|ymailCSV|yamatonekopos", RegexOptions.IgnoreCase)
                     fileHaisou = "メール便"
                 Case Regex.IsMatch(filename, "yucreCSV", RegexOptions.IgnoreCase)
                     fileHaisou = "定形外"
@@ -784,6 +784,7 @@ Public Class Csv_denpyo3
 
             Dim fStrArray As String() = Nothing
             If dgv Is DGV1 Then
+                Dim cc = Path.GetDirectoryName(Form1.appPath) & "\template\" & TextBox8.Text
                 fStrArray = File.ReadAllLines(Path.GetDirectoryName(Form1.appPath) & "\template\" & TextBox8.Text & ".dat", Encoding.GetEncoding("shift-jis"))
             Else
                 fStrArray = Split(csvRecords(0), "|=|")
@@ -847,7 +848,7 @@ Public Class Csv_denpyo3
                                                 str = "メール便"
                                             Case Regex.IsMatch(str, "定形外")
                                                 str = "定形外"
-                                            Case Regex.IsMatch(str, "ヤマト(DM便)")
+                                            Case Regex.IsMatch(str, "ヤマト(DM便)|ヤマト(ネコポス)")
                                                 'str = "ヤマト"
                                                 str = "メール便"
                                         End Select
@@ -1740,7 +1741,7 @@ Public Class Csv_denpyo3
         Dim doukonArray As String() = File.ReadAllLines(appPathDir & "\config\version2\同梱特殊.txt", ENC_SJ)
         Dim ny331_50_codes As String() = New String() {"ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye", "ny331-50-rose", "ny331-50-lor", "ny331-50-lgr", "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi"}
         'pa084-5
-        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny264-100-4000", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a", "pa084-ho"}
+        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny264-100-4000", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
         'Dim ny331_2500_codes As String() = New String() {"ny331-2500-be"}
         '扁盒口罩
         'Dim masuku_50codesPro As String() = New String() {"TEST"}
@@ -2103,13 +2104,20 @@ Public Class Csv_denpyo3
 
                 special_takumasukuPro = False
                 special_takuyamoto = False
+                '发往冲绳的货物标记
+                Dim sentToOkinawa = False
                 If InStr(haisouSaki, "沖縄") Then
 
                     If checkcodejuchusu_ny331_50 > 5 Or masuku_50codesProjuchusu > 5 Then
                         'special_taku = True
                         special_takumasukuPro = True
 
+
                     End If
+
+                    sentToOkinawa = True
+
+
                 Else
                     'If checkcodejuchusu_ny331_50 > 3 Or masuku_50codesProjuchusu > 3 Then
                     '    special_taku = True
@@ -2184,7 +2192,7 @@ Public Class Csv_denpyo3
 
 
                 'ny373修改
-                If checkcodejuchusu_ny373 >= 3 Then
+                If checkcodejuchusu_ny373 >= 5 Then
                     special_taku = True
                 End If
 
@@ -2543,6 +2551,20 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
+                    'Or (code(0).ToLower = "ny405-ne")
+                    If haisouKind_moto = "宅配便" And (code(0).ToLower = "ny405-bk" Or (code(0).ToLower = "ny405-bl") Or (code(0).ToLower = "ny405-bl") Or
+                       (code(0).ToLower = "ny405-blhu") Or (code(0).ToLower = "ny405-ne") Or (code(0).ToLower = "ny405-hu") Or (code(0).ToLower = "ny405-iv") Or (code(0).ToLower = "ny405-lash") Or (code(0).ToLower = "ny405-milk") Or (code(0).ToLower = "ny405-pi") Or (code(0).ToLower = "ny405-rose") Or (code(0).ToLower = "ny405-wh") Or (code(0).ToLower = "ny405-ye")) Then
+                        weight = "250"
+                        sp_check = False
+                    End If
+
+
+
+                    'If haisouKind = "メール便" And (code(0).ToLower = "ny405-bk" Or (code(0).ToLower = "ny405-bl") Or (code(0).ToLower = "ny405-bl") Or
+                    '   (code(0).ToLower = "ny405-blhu") Or (code(0).ToLower = "ny405-ne") Or (code(0).ToLower = "ny405-hu") Or (code(0).ToLower = "ny405-iv") Or (code(0).ToLower = "ny405-lash") Or (code(0).ToLower = "ny405-milk") Or (code(0).ToLower = "ny405-pi") Or (code(0).ToLower = "ny405-rose") Or (code(0).ToLower = "ny405-wh") Or (code(0).ToLower = "ny405-ye")) Then
+                    '    weight = "250"
+                    '    sp_check = False
+                    'End If
 
 
 
@@ -2781,7 +2803,12 @@ Public Class Csv_denpyo3
                     If special_taku = False Then
                         Dim cc = DGV1.Item(dH1.IndexOf("マスタ配送"), r1).Value
                         If cc = "ヤマト" Then
-                            If haisouSize >= NumericUpDown4.Value * 100 Then
+                            '只要不是扁盒口罩  yamato三个以上变成佐川
+
+
+
+                            If haisouSize >= NumericUpDown4.Value * 100 And Not masuku_50codesPro.Contains(code(0).ToLower) And Not code(0).Contains("ny373") And Not (code(0).Contains("ny417")) And Not code(0).Contains("ny411") And Not sentToOkinawa Then
+
                                 special_taku = True
                                 special_takuyamoto = True
                                 haisouKind = "宅配便"
@@ -2789,6 +2816,21 @@ Public Class Csv_denpyo3
                             Else
                                 'c213 'haisouKind = "ヤマト"
                             End If
+
+
+                            If haisouSize >= 5 * 100 And (masuku_50codesPro.Contains(code(0).ToLower) Or code(0).Contains("ny373") Or (code(0).Contains("ny417") Or code(0).Contains("ny411"))) And sentToOkinawa Then
+
+                                special_taku = True
+                                special_takuyamoto = True
+                                haisouKind = "宅配便"
+                                haisouSize = haisouSize / 100
+                            Else
+                                'c213 'haisouKind = "ヤマト"
+                            End If
+
+
+
+
                         End If
 
                     End If

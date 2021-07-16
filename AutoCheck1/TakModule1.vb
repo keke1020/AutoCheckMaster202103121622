@@ -350,6 +350,7 @@ Module TakModule1
                 fileEnc = c.Name
                 csvText = reader.Text
             End Using
+
             'csvtiiaosText = File.ReadAllText(path, System.Text.Encoding.Default)
         Catch ex As Exception
             MsgBox("ファイルを開けません。" & vbNewLine & "元ファイルをエクセル等で開いていませんか？", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation Or MsgBoxStyle.SystemModal)
@@ -430,6 +431,7 @@ Module TakModule1
                 field = field.TrimEnd()
             End If
 
+
             'フィールドの追加
             csvFields.Add(field)
 
@@ -447,6 +449,7 @@ Module TakModule1
                         str &= "|=|" & csvFields(i)
                     End If
                 Next
+
                 'csvRecords.Add(csvFields)
                 csvRecords.Add(str)
                 csvFields = New ArrayList(csvFields.Count)

@@ -310,6 +310,7 @@ Public Class Form1_F_Newitem
 
                         Dim replaceRes As String() = Split(value, "「=」")
                         Dim str As String = Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName(form)(name).GetAttribute("value")
+                        'Dim str As String = ""
                         Select Case True
                             Case Regex.IsMatch(replaceRes(1), "_link_") '画像リンクを置換
                                 Dim value2 As String = ""
@@ -332,15 +333,15 @@ Public Class Form1_F_Newitem
                                 '    Next
                                 'Else
                                 '新変更ロジック（とりあえずYahoo用）
-                                Dim lineArray As String() = Regex.Split(str, vbCrLf & "|" & vbCr & "|" & vbLf)
-                                str = ""
+                                Dim lineArray As String() = Regex.Split(Str, vbCrLf & "|" & vbCr & "|" & vbLf)
+                                Str = ""
                                 For Each lA As String In lineArray
                                     If Regex.IsMatch(lA, replaceRes(0)) Then
                                         If rowNum = Num(0) Then
                                             For rr As Integer = 0 To DataGridView2.RowCount - 1
                                                 If DataGridView2.Item(0, rr).Value <> "" Then
                                                     value2 = DataGridView2.Item(0, rr).Value
-                                                    str &= Regex.Replace(lA, replaceRes(0), value2) & vbCrLf
+                                                    Str &= Regex.Replace(lA, replaceRes(0), value2) & vbCrLf
                                                 End If
                                                 rowNum += 1
                                             Next
@@ -348,7 +349,7 @@ Public Class Form1_F_Newitem
                                             '行削除
                                         End If
                                     Else
-                                        str &= lA & vbCrLf
+                                        Str &= lA & vbCrLf
                                     End If
                                 Next
                                 'End If
@@ -369,9 +370,9 @@ Public Class Form1_F_Newitem
                                 Next
                                 value1 &= "</p>" & vbLf & "<br>" & vbLf
                                 value1 &= "<!--imgE-->" & vbLf
-                                str = Regex.Replace(str, replaceRes(0), value1)
+                                Str = Regex.Replace(Str, replaceRes(0), value1)
                             Case Else   '文字の置換
-                                str = Regex.Replace(str, replaceRes(0), replaceRes(1))
+                                Str = Regex.Replace(Str, replaceRes(0), replaceRes(1))
                         End Select
                         Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName(form)(name).SetAttribute("value", str)
                     Case "入力"
@@ -542,6 +543,8 @@ Public Class Form1_F_Newitem
                     Case "処理"
                         If command(3) = "全半" Then
                             Dim str As String = Form1.TabBrowser1.SelectedTab.WebBrowser.Document.GetElementsByTagName(form)(name).GetAttribute("value")
+                            'Dim str As String = "tesT"
+
                             str = Form1.StrConvNumeric(str)
                             str = Form1.StrConvEnglish(str)
                             str = Form1.StrConvComma(str)
