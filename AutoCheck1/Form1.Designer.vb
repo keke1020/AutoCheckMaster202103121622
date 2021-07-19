@@ -1237,47 +1237,47 @@ Partial Class Form1
         '荷物追跡ToolStripMenuItem
         '
         Me.荷物追跡ToolStripMenuItem.Name = "荷物追跡ToolStripMenuItem"
-        Me.荷物追跡ToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.荷物追跡ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.荷物追跡ToolStripMenuItem.Text = "荷物追跡"
         '
         '売行動向ToolStripMenuItem
         '
         Me.売行動向ToolStripMenuItem.Name = "売行動向ToolStripMenuItem"
-        Me.売行動向ToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.売行動向ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.売行動向ToolStripMenuItem.Text = "売行動向"
         '
         'ランクチェックToolStripMenuItem
         '
         Me.ランクチェックToolStripMenuItem.Name = "ランクチェックToolStripMenuItem"
-        Me.ランクチェックToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.ランクチェックToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ランクチェックToolStripMenuItem.Text = "ランクチェック"
         '
         'ToolStripSeparator9
         '
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(170, 6)
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(177, 6)
         '
         'NE連携チェックToolStripMenuItem
         '
         Me.NE連携チェックToolStripMenuItem.Name = "NE連携チェックToolStripMenuItem"
-        Me.NE連携チェックToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.NE連携チェックToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NE連携チェックToolStripMenuItem.Text = "NE連携チェック"
         '
         'NEコードチェックToolStripMenuItem
         '
         Me.NEコードチェックToolStripMenuItem.Name = "NEコードチェックToolStripMenuItem"
-        Me.NEコードチェックToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.NEコードチェックToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.NEコードチェックToolStripMenuItem.Text = "NEコードチェック"
         '
         'ToolStripSeparator18
         '
         Me.ToolStripSeparator18.Name = "ToolStripSeparator18"
-        Me.ToolStripSeparator18.Size = New System.Drawing.Size(170, 6)
+        Me.ToolStripSeparator18.Size = New System.Drawing.Size(177, 6)
         '
         'テストToolStripMenuItem
         '
         Me.テストToolStripMenuItem.Name = "テストToolStripMenuItem"
-        Me.テストToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.テストToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.テストToolStripMenuItem.Text = "楽くまDB"
         '
         'ToolStripDropDownButton4

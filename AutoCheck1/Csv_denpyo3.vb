@@ -5739,16 +5739,20 @@ Public Class Csv_denpyo3
                 '    bl = False
                 'End If
                 If count = 1 Then
-                    If checkHaisosaki_DaOrNa(haisouSaki) Then
-                        bl = True 'true: 名古屋
-                    Else
-                        bl = False 'false: 太宰府
-                    End If
+                    'If checkHaisosaki_DaOrNa(haisouSaki) Then
+                    '    bl = True 'true: 名古屋
+                    'Else
+                    bl = False 'false: 太宰府
+                    'End If
                 Else
                     bl = True 'true: 名古屋
                 End If
             Else
-                bl = True
+                If count Mod 2 = 1 Then
+                    bl = False 'false: 太宰府
+                Else
+                    bl = True 'true: 名古屋
+                End If
             End If
         ElseIf code = "ny264" Then
             If count Mod 20 = 0 Then

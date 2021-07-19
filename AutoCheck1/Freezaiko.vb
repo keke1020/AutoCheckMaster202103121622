@@ -81,45 +81,60 @@ Public Class Freezaiko
         Dim dlFolder As String = TextBox1.Text
         Dim files As String() = Directory.GetFiles(dlFolder, "*.csv", SearchOption.AllDirectories)
 
-        Dim fdatenum1 As Integer = 0
-        Dim fdatenum2 As Integer = 0
-        Dim fName As String = ""
+
+        'Dim fdatenum1 As Integer = 0
+        'Dim fdatenum2 As Integer = 0
+        'Dim fName As String = ""
         Dim fName_all As String = ""
-        For i As Integer = 0 To files.Length - 1
-            Dim fName_ As String = Path.GetFileName(files(i))
+        'For i As Integer = 0 To files.Length - 1
+        '    Dim fName_ As String = Path.GetFileName(files(i))
 
-            If fName_.Contains("data") And fName_.Length = 30 Then
-                Dim fName_all_ As String = files(i)
-                Dim fdatenum_ As String = fName_.Replace("data", "").Replace(".csv", "").Substring(0, 15)
+        '    If fName_.Contains("data") And fName_.Length = 30 Then
+        '        Dim fName_all_ As String = files(i)
+        '        Dim fdatenum_ As String = fName_.Replace("data", "").Replace(".csv", "").Substring(0, 15)
 
-                If IsNumeric(fdatenum_) Then
-                    Dim fdatenum3 As Integer = CInt(fdatenum_.Substring(0, 8))
-                    Dim fdatenum4 As Integer = CInt(fdatenum_.Substring(8, 7))
+        '        If IsNumeric(fdatenum_) Then
+        '            Dim fdatenum3 As Integer = CInt(fdatenum_.Substring(0, 8))
+        '            Dim fdatenum4 As Integer = CInt(fdatenum_.Substring(8, 7))
 
-                    If (fdatenum1 = 0 And fdatenum2 = 0) Or (fdatenum3 > fdatenum1 And fdatenum4 > fdatenum2) Then
-                        fdatenum1 = fdatenum3
-                        fdatenum2 = fdatenum4
-                        fName = fName_
-                        fName_all = fName_all_
-                    Else
-                        '同じ日
-                        If fdatenum3 = fdatenum1 Then
-                            If fdatenum4 > fdatenum2 Then
-                                fdatenum1 = fdatenum3
-                                fdatenum2 = fdatenum4
-                                fName = fName_
-                                fName_all = fName_all_
-                            End If
-                        ElseIf fdatenum3 > fdatenum1 Then
-                            fdatenum1 = fdatenum3
-                            fdatenum2 = fdatenum4
-                            fName = fName_
-                            fName_all = fName_all_
-                        End If
-                    End If
-                End If
+        '            If (fdatenum1 = 0 And fdatenum2 = 0) Or (fdatenum3 > fdatenum1 And fdatenum4 > fdatenum2) Then
+        '                fdatenum1 = fdatenum3
+        '                fdatenum2 = fdatenum4
+        '                fName = fName_
+        '                fName_all = fName_all_
+        '            Else
+        '                '同じ日
+        '                If fdatenum3 = fdatenum1 Then
+        '                    If fdatenum4 > fdatenum2 Then
+        '                        fdatenum1 = fdatenum3
+        '                        fdatenum2 = fdatenum4
+        '                        fName = fName_
+        '                        fName_all = fName_all_
+        '                    End If
+        '                ElseIf fdatenum3 > fdatenum1 Then
+        '                    fdatenum1 = fdatenum3
+        '                    fdatenum2 = fdatenum4
+        '                    fName = fName_
+        '                    fName_all = fName_all_
+        '                End If
+        '            End If
+        '        End If
+        '    End If
+        'Next
+
+
+        Dim newfile As List(Of String) = New List(Of String)()
+        For index = 0 To files.Length - 1
+
+            Dim cc = Path.GetFileName(files(index)).Length
+            If files(index).Contains("data") And Path.GetFileName(files(index)).Length = 30 Then
+                newfile.Add(files(index))
             End If
         Next
+
+        Array.Sort(newfile.ToArray())
+
+        fName_all = newfile(newfile.Count - 1)
 
         If fName_all <> "" Then
             TextBox2.Text = fName_all
