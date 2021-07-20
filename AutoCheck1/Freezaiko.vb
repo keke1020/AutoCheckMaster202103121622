@@ -76,7 +76,7 @@ Public Class Freezaiko
 
         Application.DoEvents()
 
-        Threading.Thread.Sleep(5000)
+        Threading.Thread.Sleep(10000)
 
         Dim dlFolder As String = TextBox1.Text
         Dim files As String() = Directory.GetFiles(dlFolder, "*.csv", SearchOption.AllDirectories)
