@@ -5,7 +5,7 @@ Public Class Csv_denpyo3_F_count
 
     Private Sub Csv_denpyo3_F_count_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Me.Size = New Size(1224, 110)
-        Me.Size = New Size(1366, 110)
+        Me.Size = New Size(1407, 110)
 
         If Form1.AdminFlag Then
             Button2.BackColor = Color.Yellow
@@ -55,6 +55,12 @@ Public Class Csv_denpyo3_F_count
 
                         LB35.Text = lineArray(16)
                         LB33.Text = lineArray(17)
+
+                        '太宰府TMS
+                        LB45.Text = lineArray(18)
+                        '井相田TMS
+                        LB46.Text = lineArray(19)
+
                         'CInt(LB35.Text)  太宰府的yu2路便        'CInt(LB33.Text) 井相田 的yu2路便 
                         LB_d.Text = CInt(LB1.Text) + CInt(LB2.Text) + CInt(LB3.Text) + CInt(LB4.Text) + CInt(LB37.Text) + CInt(Label35.Text)
                         LB_i.Text = CInt(LB5.Text) + CInt(LB6.Text) + CInt(LB7.Text) + CInt(LB8.Text) + CInt(LB38.Text) + CInt(Label33.Text)

@@ -548,5 +548,6 @@ Public Class Kanri
         AzukiControl3.Text = Replace(AzukiControl3.Text, moto, "[" & verNew & "]")
     End Sub
 
+
 End Class
 

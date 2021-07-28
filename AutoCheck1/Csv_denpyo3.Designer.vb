@@ -24,10 +24,10 @@ Partial Class Csv_denpyo3
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Csv_denpyo3))
-        Dim FontInfo1 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim FontInfo2 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
-        Dim FontInfo3 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim FontInfo7 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim FontInfo8 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim FontInfo9 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripDropDownButton2 = New System.Windows.Forms.ToolStripDropDownButton()
@@ -248,6 +248,8 @@ Partial Class Csv_denpyo3
         Me.DGV9 = New System.Windows.Forms.DataGridView()
         Me.TabPage16 = New System.Windows.Forms.TabPage()
         Me.DGV13 = New System.Windows.Forms.DataGridView()
+        Me.TabPage38 = New System.Windows.Forms.TabPage()
+        Me.TMSDGV = New System.Windows.Forms.DataGridView()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
         Me.TabControl4 = New System.Windows.Forms.TabControl()
@@ -564,131 +566,142 @@ Partial Class Csv_denpyo3
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.ToolStrip1.SuspendLayout()
-        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer1.Panel1.SuspendLayout()
-        Me.SplitContainer1.Panel2.SuspendLayout()
-        Me.SplitContainer1.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
-        CType(Me.SplitContainer5, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer5.Panel1.SuspendLayout()
-        Me.SplitContainer5.Panel2.SuspendLayout()
-        Me.SplitContainer5.SuspendLayout()
-        Me.Panel6.SuspendLayout()
-        Me.GroupBox19.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
-        CType(Me.SplitContainer6, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer6.Panel1.SuspendLayout()
-        Me.SplitContainer6.Panel2.SuspendLayout()
-        Me.SplitContainer6.SuspendLayout()
-        Me.TabControl7.SuspendLayout()
-        Me.TabPage17.SuspendLayout()
-        Me.TabPage18.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
-        CType(Me.NumericUpDown6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage21.SuspendLayout()
-        CType(Me.DGV10, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DGV11, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage23.SuspendLayout()
-        CType(Me.KryptonComboBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage34.SuspendLayout()
-        CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer3.Panel1.SuspendLayout()
-        Me.SplitContainer3.Panel2.SuspendLayout()
-        Me.SplitContainer3.SuspendLayout()
-        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer2.Panel1.SuspendLayout()
-        Me.SplitContainer2.Panel2.SuspendLayout()
-        Me.SplitContainer2.SuspendLayout()
-        CType(Me.SplitContainer7, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer7.Panel1.SuspendLayout()
-        Me.SplitContainer7.Panel2.SuspendLayout()
-        Me.SplitContainer7.SuspendLayout()
-        Me.Panel5.SuspendLayout()
-        Me.ToolStrip2.SuspendLayout()
-        Me.TabControl2.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
-        Me.Panel7.SuspendLayout()
-        Me.Panel8.SuspendLayout()
-        CType(Me.DGV1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ContextMenuStrip1.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
-        CType(Me.DGV7, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage6.SuspendLayout()
-        CType(Me.DGV8, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage7.SuspendLayout()
-        CType(Me.DGV9, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage16.SuspendLayout()
-        CType(Me.DGV13, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabControl3.SuspendLayout()
-        Me.TabPage11.SuspendLayout()
-        Me.TabControl4.SuspendLayout()
-        Me.TabPage13.SuspendLayout()
-        Me.GroupBox14.SuspendLayout()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage19.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
-        Me.TabPage20.SuspendLayout()
-        Me.GroupBox5.SuspendLayout()
-        Me.TabPage14.SuspendLayout()
-        CType(Me.DGV5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage12.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
-        Me.TabControl8.SuspendLayout()
-        Me.TabPage27.SuspendLayout()
-        CType(Me.DGV6, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox3.SuspendLayout()
-        Me.TabPage28.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.TabPage22.SuspendLayout()
-        Me.TabControl9.SuspendLayout()
-        Me.TabPage29.SuspendLayout()
-        CType(Me.DGV14, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage30.SuspendLayout()
-        CType(Me.DGV15, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage32.SuspendLayout()
-        CType(Me.DGV17, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage33.SuspendLayout()
-        CType(Me.DGV18, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage26.SuspendLayout()
-        CType(Me.DGV4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel9.SuspendLayout()
-        Me.TabPage35.SuspendLayout()
-        Me.TabControl10.SuspendLayout()
-        Me.TabPage36.SuspendLayout()
-        Me.TabPage37.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.GroupBox7.SuspendLayout()
-        Me.GroupBox6.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        CType(Me.SplitContainer4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer4.Panel1.SuspendLayout()
-        Me.SplitContainer4.Panel2.SuspendLayout()
-        Me.SplitContainer4.SuspendLayout()
-        Me.TabControl5.SuspendLayout()
-        Me.TabPage8.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        CType(Me.DGV3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage9.SuspendLayout()
-        CType(Me.DGV12, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage31.SuspendLayout()
-        CType(Me.DGV16, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel10.SuspendLayout()
-        Me.TabControl6.SuspendLayout()
-        Me.TabPage10.SuspendLayout()
-        CType(Me.DGV2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage15.SuspendLayout()
-        Me.TabPage24.SuspendLayout()
-        Me.TabPage25.SuspendLayout()
-        Me.StatusStrip1.SuspendLayout()
-        Me.SuspendLayout()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.Label121 = New System.Windows.Forms.Label()
+        Me.Label122 = New System.Windows.Forms.Label()
+        Me.Label123 = New System.Windows.Forms.Label()
+        Me.Label124 = New System.Windows.Forms.Label()
+        Me.Label125 = New System.Windows.Forms.Label()
+        Me.Label126 = New System.Windows.Forms.Label()
+        Me.Label127 = New System.Windows.Forms.Label()
+        Me.Label128 = New System.Windows.Forms.Label()
+        Me.ToolStrip1.SuspendLayout
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer1.Panel1.SuspendLayout
+        Me.SplitContainer1.Panel2.SuspendLayout
+        Me.SplitContainer1.SuspendLayout
+        Me.TabControl1.SuspendLayout
+        Me.TabPage1.SuspendLayout
+        CType(Me.SplitContainer5, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer5.Panel1.SuspendLayout
+        Me.SplitContainer5.Panel2.SuspendLayout
+        Me.SplitContainer5.SuspendLayout
+        Me.Panel6.SuspendLayout
+        Me.GroupBox19.SuspendLayout
+        Me.TabPage2.SuspendLayout
+        CType(Me.SplitContainer6, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer6.Panel1.SuspendLayout
+        Me.SplitContainer6.Panel2.SuspendLayout
+        Me.SplitContainer6.SuspendLayout
+        Me.TabControl7.SuspendLayout
+        Me.TabPage17.SuspendLayout
+        Me.TabPage18.SuspendLayout
+        Me.GroupBox8.SuspendLayout
+        CType(Me.NumericUpDown6, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage21.SuspendLayout
+        CType(Me.DGV10, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.DGV11, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage23.SuspendLayout
+        CType(Me.KryptonComboBox1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage34.SuspendLayout
+        CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer3.Panel1.SuspendLayout
+        Me.SplitContainer3.Panel2.SuspendLayout
+        Me.SplitContainer3.SuspendLayout
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer2.Panel1.SuspendLayout
+        Me.SplitContainer2.Panel2.SuspendLayout
+        Me.SplitContainer2.SuspendLayout
+        CType(Me.SplitContainer7, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer7.Panel1.SuspendLayout
+        Me.SplitContainer7.Panel2.SuspendLayout
+        Me.SplitContainer7.SuspendLayout
+        Me.Panel5.SuspendLayout
+        Me.ToolStrip2.SuspendLayout
+        Me.TabControl2.SuspendLayout
+        Me.TabPage4.SuspendLayout
+        Me.Panel7.SuspendLayout
+        Me.Panel8.SuspendLayout
+        CType(Me.DGV1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.ContextMenuStrip1.SuspendLayout
+        Me.TabPage5.SuspendLayout
+        CType(Me.DGV7, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage6.SuspendLayout
+        CType(Me.DGV8, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage7.SuspendLayout
+        CType(Me.DGV9, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage16.SuspendLayout
+        CType(Me.DGV13, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage38.SuspendLayout
+        CType(Me.TMSDGV, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabControl3.SuspendLayout
+        Me.TabPage11.SuspendLayout
+        Me.TabControl4.SuspendLayout
+        Me.TabPage13.SuspendLayout
+        Me.GroupBox14.SuspendLayout
+        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage19.SuspendLayout
+        Me.GroupBox4.SuspendLayout
+        Me.TabPage20.SuspendLayout
+        Me.GroupBox5.SuspendLayout
+        Me.TabPage14.SuspendLayout
+        CType(Me.DGV5, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage12.SuspendLayout
+        Me.TabPage3.SuspendLayout
+        Me.TabControl8.SuspendLayout
+        Me.TabPage27.SuspendLayout
+        CType(Me.DGV6, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.Panel1.SuspendLayout
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.GroupBox3.SuspendLayout
+        Me.TabPage28.SuspendLayout
+        Me.GroupBox1.SuspendLayout
+        Me.TabPage22.SuspendLayout
+        Me.TabControl9.SuspendLayout
+        Me.TabPage29.SuspendLayout
+        CType(Me.DGV14, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage30.SuspendLayout
+        CType(Me.DGV15, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage32.SuspendLayout
+        CType(Me.DGV17, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage33.SuspendLayout
+        CType(Me.DGV18, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage26.SuspendLayout
+        CType(Me.DGV4, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.Panel9.SuspendLayout
+        Me.TabPage35.SuspendLayout
+        Me.TabControl10.SuspendLayout
+        Me.TabPage36.SuspendLayout
+        Me.TabPage37.SuspendLayout
+        Me.Panel2.SuspendLayout
+        Me.GroupBox7.SuspendLayout
+        Me.GroupBox6.SuspendLayout
+        Me.GroupBox2.SuspendLayout
+        CType(Me.SplitContainer4, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SplitContainer4.Panel1.SuspendLayout
+        Me.SplitContainer4.Panel2.SuspendLayout
+        Me.SplitContainer4.SuspendLayout
+        Me.TabControl5.SuspendLayout
+        Me.TabPage8.SuspendLayout
+        Me.Panel3.SuspendLayout
+        CType(Me.DGV3, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage9.SuspendLayout
+        CType(Me.DGV12, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage31.SuspendLayout
+        CType(Me.DGV16, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.Panel10.SuspendLayout
+        Me.TabControl6.SuspendLayout
+        Me.TabPage10.SuspendLayout
+        CType(Me.DGV2, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage15.SuspendLayout
+        Me.TabPage24.SuspendLayout
+        Me.TabPage25.SuspendLayout
+        Me.StatusStrip1.SuspendLayout
+        Me.SuspendLayout
         '
         'ToolStrip1
         '
@@ -697,7 +710,7 @@ Partial Class Csv_denpyo3
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.ToolStripDropDownButton2, Me.ToolStripDropDownButton4, Me.ToolStripSeparator2, Me.ToolStripButton2, Me.ToolStripDropDownButton3, Me.ToolStripLabel2, Me.ToolStripSeparator9, Me.ToolStripLabel3})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1350, 25)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1391, 25)
         Me.ToolStrip1.TabIndex = 3
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -952,7 +965,7 @@ Partial Class Csv_denpyo3
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer3)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1350, 625)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1391, 659)
         Me.SplitContainer1.SplitterDistance = 193
         Me.SplitContainer1.TabIndex = 4
         '
@@ -965,7 +978,7 @@ Partial Class Csv_denpyo3
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(193, 625)
+        Me.TabControl1.Size = New System.Drawing.Size(193, 659)
         Me.TabControl1.TabIndex = 11
         '
         'TabPage1
@@ -975,7 +988,7 @@ Partial Class Csv_denpyo3
         Me.TabPage1.Location = New System.Drawing.Point(4, 25)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(185, 596)
+        Me.TabPage1.Size = New System.Drawing.Size(185, 630)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "メイン"
         '
@@ -995,7 +1008,7 @@ Partial Class Csv_denpyo3
         'SplitContainer5.Panel2
         '
         Me.SplitContainer5.Panel2.Controls.Add(Me.ListBox4)
-        Me.SplitContainer5.Size = New System.Drawing.Size(179, 590)
+        Me.SplitContainer5.Size = New System.Drawing.Size(179, 624)
         Me.SplitContainer5.SplitterDistance = 459
         Me.SplitContainer5.TabIndex = 88
         '
@@ -2011,7 +2024,7 @@ Partial Class Csv_denpyo3
         Me.ListBox4.Location = New System.Drawing.Point(0, 0)
         Me.ListBox4.Name = "ListBox4"
         Me.ListBox4.ScrollAlwaysVisible = True
-        Me.ListBox4.Size = New System.Drawing.Size(179, 127)
+        Me.ListBox4.Size = New System.Drawing.Size(179, 161)
         Me.ListBox4.TabIndex = 87
         '
         'TabPage2
@@ -2020,7 +2033,7 @@ Partial Class Csv_denpyo3
         Me.TabPage2.Location = New System.Drawing.Point(4, 25)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(185, 596)
+        Me.TabPage2.Size = New System.Drawing.Size(185, 630)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "設定"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -2035,6 +2048,7 @@ Partial Class Csv_denpyo3
         'SplitContainer6.Panel1
         '
         Me.SplitContainer6.Panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.SplitContainer6.Panel1.Controls.Add(Me.TextBox14)
         Me.SplitContainer6.Panel1.Controls.Add(Me.TextBox42)
         Me.SplitContainer6.Panel1.Controls.Add(Me.TextBox41)
         Me.SplitContainer6.Panel1.Controls.Add(Me.TextBox8)
@@ -2048,15 +2062,15 @@ Partial Class Csv_denpyo3
         '
         Me.SplitContainer6.Panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.SplitContainer6.Panel2.Controls.Add(Me.TabControl7)
-        Me.SplitContainer6.Size = New System.Drawing.Size(179, 590)
-        Me.SplitContainer6.SplitterDistance = 242
+        Me.SplitContainer6.Size = New System.Drawing.Size(179, 624)
+        Me.SplitContainer6.SplitterDistance = 255
         Me.SplitContainer6.TabIndex = 11
         '
         'TextBox42
         '
         Me.TextBox42.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox42.Location = New System.Drawing.Point(8, 93)
+        Me.TextBox42.Location = New System.Drawing.Point(8, 125)
         Me.TextBox42.Name = "TextBox42"
         Me.TextBox42.ReadOnly = True
         Me.TextBox42.Size = New System.Drawing.Size(163, 19)
@@ -2067,7 +2081,7 @@ Partial Class Csv_denpyo3
         '
         Me.TextBox41.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox41.Location = New System.Drawing.Point(8, 114)
+        Me.TextBox41.Location = New System.Drawing.Point(8, 146)
         Me.TextBox41.Name = "TextBox41"
         Me.TextBox41.ReadOnly = True
         Me.TextBox41.Size = New System.Drawing.Size(163, 19)
@@ -2089,7 +2103,7 @@ Partial Class Csv_denpyo3
         '
         Me.TextBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(8, 72)
+        Me.TextBox1.Location = New System.Drawing.Point(8, 104)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(163, 19)
@@ -2099,7 +2113,7 @@ Partial Class Csv_denpyo3
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(8, 142)
+        Me.Label18.Location = New System.Drawing.Point(8, 174)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(160, 12)
         Me.Label18.TabIndex = 95
@@ -2120,7 +2134,7 @@ Partial Class Csv_denpyo3
         '
         Me.TextBox3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox3.Location = New System.Drawing.Point(8, 51)
+        Me.TextBox3.Location = New System.Drawing.Point(8, 83)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.ReadOnly = True
         Me.TextBox3.Size = New System.Drawing.Size(163, 19)
@@ -2131,7 +2145,7 @@ Partial Class Csv_denpyo3
         '
         Me.TextBox40.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox40.Location = New System.Drawing.Point(8, 158)
+        Me.TextBox40.Location = New System.Drawing.Point(8, 190)
         Me.TextBox40.Name = "TextBox40"
         Me.TextBox40.ReadOnly = True
         Me.TextBox40.Size = New System.Drawing.Size(163, 19)
@@ -2151,7 +2165,7 @@ Partial Class Csv_denpyo3
         Me.TabControl7.Location = New System.Drawing.Point(0, 0)
         Me.TabControl7.Name = "TabControl7"
         Me.TabControl7.SelectedIndex = 0
-        Me.TabControl7.Size = New System.Drawing.Size(179, 344)
+        Me.TabControl7.Size = New System.Drawing.Size(179, 365)
         Me.TabControl7.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabControl7.TabIndex = 11
         '
@@ -2177,7 +2191,7 @@ Partial Class Csv_denpyo3
         Me.TabPage17.Location = New System.Drawing.Point(4, 25)
         Me.TabPage17.Name = "TabPage17"
         Me.TabPage17.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage17.Size = New System.Drawing.Size(171, 315)
+        Me.TabPage17.Size = New System.Drawing.Size(171, 336)
         Me.TabPage17.TabIndex = 0
         Me.TabPage17.Text = "1"
         '
@@ -2666,10 +2680,10 @@ Partial Class Csv_denpyo3
         Me.AzukiControl2.DrawsSpace = True
         Me.AzukiControl2.FirstVisibleLine = 0
         Me.AzukiControl2.Font = New System.Drawing.Font("Meiryo UI", 9.0!)
-        FontInfo1.Name = "Meiryo UI"
-        FontInfo1.Size = 9
-        FontInfo1.Style = System.Drawing.FontStyle.Regular
-        Me.AzukiControl2.FontInfo = FontInfo1
+        FontInfo7.Name = "Meiryo UI"
+        FontInfo7.Size = 9
+        FontInfo7.Style = System.Drawing.FontStyle.Regular
+        Me.AzukiControl2.FontInfo = FontInfo7
         Me.AzukiControl2.ForeColor = System.Drawing.Color.Black
         Me.AzukiControl2.Location = New System.Drawing.Point(0, 21)
         Me.AzukiControl2.Name = "AzukiControl2"
@@ -2718,7 +2732,7 @@ Partial Class Csv_denpyo3
         Me.TabPage34.Location = New System.Drawing.Point(4, 25)
         Me.TabPage34.Name = "TabPage34"
         Me.TabPage34.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage34.Size = New System.Drawing.Size(171, 315)
+        Me.TabPage34.Size = New System.Drawing.Size(171, 336)
         Me.TabPage34.TabIndex = 4
         Me.TabPage34.Text = "5"
         '
@@ -2825,8 +2839,8 @@ Partial Class Csv_denpyo3
         'SplitContainer3.Panel2
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.SplitContainer4)
-        Me.SplitContainer3.Size = New System.Drawing.Size(1153, 625)
-        Me.SplitContainer3.SplitterDistance = 483
+        Me.SplitContainer3.Size = New System.Drawing.Size(1194, 659)
+        Me.SplitContainer3.SplitterDistance = 509
         Me.SplitContainer3.TabIndex = 0
         '
         'SplitContainer2
@@ -2846,8 +2860,8 @@ Partial Class Csv_denpyo3
         Me.SplitContainer2.Panel2.Controls.Add(Me.TabControl3)
         Me.SplitContainer2.Panel2.Controls.Add(Me.Panel2)
         Me.SplitContainer2.Panel2MinSize = 50
-        Me.SplitContainer2.Size = New System.Drawing.Size(1153, 483)
-        Me.SplitContainer2.SplitterDistance = 788
+        Me.SplitContainer2.Size = New System.Drawing.Size(1194, 509)
+        Me.SplitContainer2.SplitterDistance = 829
         Me.SplitContainer2.TabIndex = 5
         '
         'SplitContainer7
@@ -2865,8 +2879,8 @@ Partial Class Csv_denpyo3
         'SplitContainer7.Panel2
         '
         Me.SplitContainer7.Panel2.Controls.Add(Me.TabControl2)
-        Me.SplitContainer7.Size = New System.Drawing.Size(788, 483)
-        Me.SplitContainer7.SplitterDistance = 51
+        Me.SplitContainer7.Size = New System.Drawing.Size(829, 509)
+        Me.SplitContainer7.SplitterDistance = 53
         Me.SplitContainer7.TabIndex = 12
         '
         'Panel5
@@ -2877,7 +2891,7 @@ Partial Class Csv_denpyo3
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel5.Location = New System.Drawing.Point(0, 25)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(788, 22)
+        Me.Panel5.Size = New System.Drawing.Size(829, 22)
         Me.Panel5.TabIndex = 12
         '
         'TextBox12
@@ -2886,13 +2900,13 @@ Partial Class Csv_denpyo3
         Me.TextBox12.Location = New System.Drawing.Point(0, 0)
         Me.TextBox12.Multiline = True
         Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(698, 22)
+        Me.TextBox12.Size = New System.Drawing.Size(739, 22)
         Me.TextBox12.TabIndex = 0
         '
         'TextBox39
         '
         Me.TextBox39.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TextBox39.Location = New System.Drawing.Point(698, 0)
+        Me.TextBox39.Location = New System.Drawing.Point(739, 0)
         Me.TextBox39.Multiline = True
         Me.TextBox39.Name = "TextBox39"
         Me.TextBox39.ReadOnly = True
@@ -2903,7 +2917,7 @@ Partial Class Csv_denpyo3
         'TextBox48
         '
         Me.TextBox48.Dock = System.Windows.Forms.DockStyle.Right
-        Me.TextBox48.Location = New System.Drawing.Point(743, 0)
+        Me.TextBox48.Location = New System.Drawing.Point(784, 0)
         Me.TextBox48.Multiline = True
         Me.TextBox48.Name = "TextBox48"
         Me.TextBox48.ReadOnly = True
@@ -2917,7 +2931,7 @@ Partial Class Csv_denpyo3
         Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.ToolStripTextBox1, Me.ToolStripButton3, Me.ToolStripButton1})
         Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip2.Name = "ToolStrip2"
-        Me.ToolStrip2.Size = New System.Drawing.Size(788, 25)
+        Me.ToolStrip2.Size = New System.Drawing.Size(829, 25)
         Me.ToolStrip2.TabIndex = 1
         Me.ToolStrip2.Text = "ToolStrip2"
         '
@@ -2959,11 +2973,12 @@ Partial Class Csv_denpyo3
         Me.TabControl2.Controls.Add(Me.TabPage6)
         Me.TabControl2.Controls.Add(Me.TabPage7)
         Me.TabControl2.Controls.Add(Me.TabPage16)
+        Me.TabControl2.Controls.Add(Me.TabPage38)
         Me.TabControl2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl2.Location = New System.Drawing.Point(0, 0)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(788, 428)
+        Me.TabControl2.Size = New System.Drawing.Size(829, 452)
         Me.TabControl2.TabIndex = 12
         '
         'TabPage4
@@ -2976,7 +2991,7 @@ Partial Class Csv_denpyo3
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(780, 402)
+        Me.TabPage4.Size = New System.Drawing.Size(821, 426)
         Me.TabPage4.TabIndex = 0
         Me.TabPage4.Text = "元データ"
         Me.TabPage4.UseVisualStyleBackColor = True
@@ -3057,7 +3072,7 @@ Partial Class Csv_denpyo3
         Me.DGV1.Location = New System.Drawing.Point(3, 3)
         Me.DGV1.Name = "DGV1"
         Me.DGV1.RowTemplate.Height = 21
-        Me.DGV1.Size = New System.Drawing.Size(772, 394)
+        Me.DGV1.Size = New System.Drawing.Size(813, 418)
         Me.DGV1.TabIndex = 8
         '
         'ContextMenuStrip1
@@ -3304,6 +3319,31 @@ Partial Class Csv_denpyo3
         Me.DGV13.Size = New System.Drawing.Size(772, 394)
         Me.DGV13.TabIndex = 10
         '
+        'TabPage38
+        '
+        Me.TabPage38.Controls.Add(Me.TMSDGV)
+        Me.TabPage38.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage38.Name = "TabPage38"
+        Me.TabPage38.Size = New System.Drawing.Size(780, 402)
+        Me.TabPage38.TabIndex = 5
+        Me.TabPage38.Text = "TMS"
+        Me.TabPage38.UseVisualStyleBackColor = True
+        '
+        'TMSDGV
+        '
+        Me.TMSDGV.AllowDrop = True
+        Me.TMSDGV.AllowUserToAddRows = False
+        Me.TMSDGV.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TMSDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.TMSDGV.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.TMSDGV.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TMSDGV.Location = New System.Drawing.Point(0, 0)
+        Me.TMSDGV.Name = "TMSDGV"
+        Me.TMSDGV.ReadOnly = True
+        Me.TMSDGV.RowTemplate.Height = 21
+        Me.TMSDGV.Size = New System.Drawing.Size(780, 402)
+        Me.TMSDGV.TabIndex = 11
+        '
         'TabControl3
         '
         Me.TabControl3.Controls.Add(Me.TabPage11)
@@ -3317,7 +3357,7 @@ Partial Class Csv_denpyo3
         Me.TabControl3.Location = New System.Drawing.Point(0, 0)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(361, 270)
+        Me.TabControl3.Size = New System.Drawing.Size(361, 264)
         Me.TabControl3.TabIndex = 1
         '
         'TabPage11
@@ -3327,7 +3367,7 @@ Partial Class Csv_denpyo3
         Me.TabPage11.Location = New System.Drawing.Point(4, 20)
         Me.TabPage11.Name = "TabPage11"
         Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(353, 246)
+        Me.TabPage11.Size = New System.Drawing.Size(353, 240)
         Me.TabPage11.TabIndex = 1
         Me.TabPage11.Text = "入力補助"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -3343,7 +3383,7 @@ Partial Class Csv_denpyo3
         Me.TabControl4.Location = New System.Drawing.Point(3, 3)
         Me.TabControl4.Name = "TabControl4"
         Me.TabControl4.SelectedIndex = 0
-        Me.TabControl4.Size = New System.Drawing.Size(347, 240)
+        Me.TabControl4.Size = New System.Drawing.Size(347, 234)
         Me.TabControl4.TabIndex = 77
         '
         'TabPage13
@@ -3353,7 +3393,7 @@ Partial Class Csv_denpyo3
         Me.TabPage13.Location = New System.Drawing.Point(4, 25)
         Me.TabPage13.Name = "TabPage13"
         Me.TabPage13.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage13.Size = New System.Drawing.Size(339, 211)
+        Me.TabPage13.Size = New System.Drawing.Size(339, 205)
         Me.TabPage13.TabIndex = 0
         Me.TabPage13.Text = "伝票"
         '
@@ -5377,13 +5417,17 @@ Partial Class Csv_denpyo3
         Me.Panel2.Controls.Add(Me.GroupBox6)
         Me.Panel2.Controls.Add(Me.GroupBox2)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 270)
+        Me.Panel2.Location = New System.Drawing.Point(0, 264)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(361, 213)
+        Me.Panel2.Size = New System.Drawing.Size(361, 245)
         Me.Panel2.TabIndex = 7
         '
         'GroupBox7
         '
+        Me.GroupBox7.Controls.Add(Me.Label127)
+        Me.GroupBox7.Controls.Add(Me.Label126)
+        Me.GroupBox7.Controls.Add(Me.Label122)
+        Me.GroupBox7.Controls.Add(Me.Label125)
         Me.GroupBox7.Controls.Add(Me.Label73)
         Me.GroupBox7.Controls.Add(Me.Label84)
         Me.GroupBox7.Controls.Add(Me.LinkLabel19)
@@ -5399,7 +5443,7 @@ Partial Class Csv_denpyo3
         Me.GroupBox7.ForeColor = System.Drawing.Color.Yellow
         Me.GroupBox7.Location = New System.Drawing.Point(241, 6)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(112, 125)
+        Me.GroupBox7.Size = New System.Drawing.Size(112, 232)
         Me.GroupBox7.TabIndex = 128
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "名古屋（代引き 0）"
@@ -5568,6 +5612,8 @@ Partial Class Csv_denpyo3
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.Label124)
+        Me.GroupBox6.Controls.Add(Me.Label123)
         Me.GroupBox6.Controls.Add(Me.Label120)
         Me.GroupBox6.Controls.Add(Me.Label119)
         Me.GroupBox6.Controls.Add(Me.Label115)
@@ -5593,7 +5639,7 @@ Partial Class Csv_denpyo3
         Me.GroupBox6.ForeColor = System.Drawing.Color.Yellow
         Me.GroupBox6.Location = New System.Drawing.Point(124, 2)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(112, 209)
+        Me.GroupBox6.Size = New System.Drawing.Size(112, 236)
         Me.GroupBox6.TabIndex = 127
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "井相田（代引き 0）"
@@ -5602,7 +5648,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label120.BackColor = System.Drawing.Color.Transparent
         Me.Label120.ForeColor = System.Drawing.Color.Red
-        Me.Label120.Location = New System.Drawing.Point(5, 192)
+        Me.Label120.Location = New System.Drawing.Point(5, 216)
         Me.Label120.Name = "Label120"
         Me.Label120.Size = New System.Drawing.Size(57, 17)
         Me.Label120.TabIndex = 143
@@ -5613,7 +5659,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label119.BackColor = System.Drawing.Color.Transparent
         Me.Label119.ForeColor = System.Drawing.Color.Red
-        Me.Label119.Location = New System.Drawing.Point(62, 193)
+        Me.Label119.Location = New System.Drawing.Point(62, 218)
         Me.Label119.Name = "Label119"
         Me.Label119.Size = New System.Drawing.Size(57, 17)
         Me.Label119.TabIndex = 143
@@ -5892,7 +5938,9 @@ Partial Class Csv_denpyo3
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label128)
         Me.GroupBox2.Controls.Add(Me.Label118)
+        Me.GroupBox2.Controls.Add(Me.Label121)
         Me.GroupBox2.Controls.Add(Me.Label117)
         Me.GroupBox2.Controls.Add(Me.LinkLabel38)
         Me.GroupBox2.Controls.Add(Me.Label110)
@@ -5917,7 +5965,7 @@ Partial Class Csv_denpyo3
         Me.GroupBox2.ForeColor = System.Drawing.Color.Yellow
         Me.GroupBox2.Location = New System.Drawing.Point(7, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(111, 208)
+        Me.GroupBox2.Size = New System.Drawing.Size(111, 238)
         Me.GroupBox2.TabIndex = 126
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "太宰府（代引き 0）"
@@ -5926,7 +5974,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label118.BackColor = System.Drawing.Color.Transparent
         Me.Label118.ForeColor = System.Drawing.Color.Red
-        Me.Label118.Location = New System.Drawing.Point(55, 192)
+        Me.Label118.Location = New System.Drawing.Point(55, 218)
         Me.Label118.Name = "Label118"
         Me.Label118.Size = New System.Drawing.Size(57, 17)
         Me.Label118.TabIndex = 142
@@ -5937,7 +5985,7 @@ Partial Class Csv_denpyo3
         '
         Me.Label117.BackColor = System.Drawing.Color.Transparent
         Me.Label117.ForeColor = System.Drawing.Color.Red
-        Me.Label117.Location = New System.Drawing.Point(2, 191)
+        Me.Label117.Location = New System.Drawing.Point(2, 217)
         Me.Label117.Name = "Label117"
         Me.Label117.Size = New System.Drawing.Size(57, 17)
         Me.Label117.TabIndex = 141
@@ -6230,8 +6278,8 @@ Partial Class Csv_denpyo3
         '
         Me.SplitContainer4.Panel2.Controls.Add(Me.TabControl6)
         Me.SplitContainer4.Panel2MinSize = 50
-        Me.SplitContainer4.Size = New System.Drawing.Size(1153, 138)
-        Me.SplitContainer4.SplitterDistance = 788
+        Me.SplitContainer4.Size = New System.Drawing.Size(1194, 146)
+        Me.SplitContainer4.SplitterDistance = 829
         Me.SplitContainer4.TabIndex = 6
         '
         'TabControl5
@@ -6243,7 +6291,7 @@ Partial Class Csv_denpyo3
         Me.TabControl5.Location = New System.Drawing.Point(0, 0)
         Me.TabControl5.Name = "TabControl5"
         Me.TabControl5.SelectedIndex = 0
-        Me.TabControl5.Size = New System.Drawing.Size(788, 138)
+        Me.TabControl5.Size = New System.Drawing.Size(829, 146)
         Me.TabControl5.TabIndex = 12
         '
         'TabPage8
@@ -6253,7 +6301,7 @@ Partial Class Csv_denpyo3
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(780, 112)
+        Me.TabPage8.Size = New System.Drawing.Size(821, 120)
         Me.TabPage8.TabIndex = 0
         Me.TabPage8.Text = "明細データ"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -6288,7 +6336,7 @@ Partial Class Csv_denpyo3
         Me.DGV3.Location = New System.Drawing.Point(3, 3)
         Me.DGV3.Name = "DGV3"
         Me.DGV3.RowTemplate.Height = 21
-        Me.DGV3.Size = New System.Drawing.Size(774, 106)
+        Me.DGV3.Size = New System.Drawing.Size(815, 114)
         Me.DGV3.TabIndex = 10
         '
         'Column1
@@ -6538,7 +6586,7 @@ Partial Class Csv_denpyo3
         Me.TabControl6.Location = New System.Drawing.Point(0, 0)
         Me.TabControl6.Name = "TabControl6"
         Me.TabControl6.SelectedIndex = 0
-        Me.TabControl6.Size = New System.Drawing.Size(361, 138)
+        Me.TabControl6.Size = New System.Drawing.Size(361, 146)
         Me.TabControl6.TabIndex = 8
         '
         'TabPage10
@@ -6547,7 +6595,7 @@ Partial Class Csv_denpyo3
         Me.TabPage10.Location = New System.Drawing.Point(4, 20)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(353, 114)
+        Me.TabPage10.Size = New System.Drawing.Size(353, 122)
         Me.TabPage10.TabIndex = 0
         Me.TabPage10.Text = "商品コード"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -6563,17 +6611,17 @@ Partial Class Csv_denpyo3
         Me.DGV2.Location = New System.Drawing.Point(3, 3)
         Me.DGV2.Name = "DGV2"
         Me.DGV2.ReadOnly = True
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGV2.RowHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGV2.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DGV2.RowHeadersVisible = False
         Me.DGV2.RowTemplate.Height = 21
-        Me.DGV2.Size = New System.Drawing.Size(347, 108)
+        Me.DGV2.Size = New System.Drawing.Size(347, 116)
         Me.DGV2.TabIndex = 25
         '
         'DataGridViewTextBoxColumn3
@@ -6671,10 +6719,10 @@ Partial Class Csv_denpyo3
         Me.AzukiControl1.DrawsSpace = True
         Me.AzukiControl1.FirstVisibleLine = 0
         Me.AzukiControl1.Font = New System.Drawing.Font("Meiryo UI", 9.0!)
-        FontInfo2.Name = "Meiryo UI"
-        FontInfo2.Size = 9
-        FontInfo2.Style = System.Drawing.FontStyle.Regular
-        Me.AzukiControl1.FontInfo = FontInfo2
+        FontInfo8.Name = "Meiryo UI"
+        FontInfo8.Size = 9
+        FontInfo8.Style = System.Drawing.FontStyle.Regular
+        Me.AzukiControl1.FontInfo = FontInfo8
         Me.AzukiControl1.ForeColor = System.Drawing.Color.Black
         Me.AzukiControl1.Location = New System.Drawing.Point(3, 3)
         Me.AzukiControl1.Name = "AzukiControl1"
@@ -6713,10 +6761,10 @@ Partial Class Csv_denpyo3
         Me.AzukiControl3.DrawsSpace = True
         Me.AzukiControl3.FirstVisibleLine = 0
         Me.AzukiControl3.Font = New System.Drawing.Font("Meiryo UI", 9.0!)
-        FontInfo3.Name = "Meiryo UI"
-        FontInfo3.Size = 9
-        FontInfo3.Style = System.Drawing.FontStyle.Regular
-        Me.AzukiControl3.FontInfo = FontInfo3
+        FontInfo9.Name = "Meiryo UI"
+        FontInfo9.Size = 9
+        FontInfo9.Style = System.Drawing.FontStyle.Regular
+        Me.AzukiControl3.FontInfo = FontInfo9
         Me.AzukiControl3.ForeColor = System.Drawing.Color.Black
         Me.AzukiControl3.Location = New System.Drawing.Point(3, 3)
         Me.AzukiControl3.Name = "AzukiControl3"
@@ -6764,9 +6812,9 @@ Partial Class Csv_denpyo3
         '
         Me.StatusStrip1.BackColor = System.Drawing.Color.Navy
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel3, Me.ToolStripDropDownButton1, Me.ToolStripProgressBar1, Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 650)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 684)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(1350, 24)
+        Me.StatusStrip1.Size = New System.Drawing.Size(1391, 24)
         Me.StatusStrip1.TabIndex = 5
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -6822,7 +6870,7 @@ Partial Class Csv_denpyo3
         '
         Me.ToolStripStatusLabel2.ForeColor = System.Drawing.Color.White
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(1069, 19)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(1110, 19)
         Me.ToolStripStatusLabel2.Spring = True
         Me.ToolStripStatusLabel2.Text = "[情報]"
         Me.ToolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -6842,12 +6890,111 @@ Partial Class Csv_denpyo3
         Me.Timer2.Enabled = True
         Me.Timer2.Interval = 1000
         '
+        'TextBox14
+        '
+        Me.TextBox14.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TextBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox14.Location = New System.Drawing.Point(8, 57)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.ReadOnly = True
+        Me.TextBox14.Size = New System.Drawing.Size(163, 19)
+        Me.TextBox14.TabIndex = 101
+        Me.TextBox14.Text = "☆共通-(佐川e飛伝2)TMS"
+        '
+        'Label121
+        '
+        Me.Label121.BackColor = System.Drawing.Color.Transparent
+        Me.Label121.ForeColor = System.Drawing.Color.Transparent
+        Me.Label121.Location = New System.Drawing.Point(3, 200)
+        Me.Label121.Name = "Label121"
+        Me.Label121.Size = New System.Drawing.Size(44, 17)
+        Me.Label121.TabIndex = 144
+        Me.Label121.Text = "TMS"
+        Me.Label121.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label122
+        '
+        Me.Label122.BackColor = System.Drawing.Color.Transparent
+        Me.Label122.ForeColor = System.Drawing.Color.Transparent
+        Me.Label122.Location = New System.Drawing.Point(47, 196)
+        Me.Label122.Name = "Label122"
+        Me.Label122.Size = New System.Drawing.Size(59, 17)
+        Me.Label122.TabIndex = 144
+        Me.Label122.Text = "0"
+        Me.Label122.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label123
+        '
+        Me.Label123.BackColor = System.Drawing.Color.Transparent
+        Me.Label123.ForeColor = System.Drawing.Color.Transparent
+        Me.Label123.Location = New System.Drawing.Point(5, 199)
+        Me.Label123.Name = "Label123"
+        Me.Label123.Size = New System.Drawing.Size(44, 17)
+        Me.Label123.TabIndex = 145
+        Me.Label123.Text = "TMS"
+        Me.Label123.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label124
+        '
+        Me.Label124.BackColor = System.Drawing.Color.Transparent
+        Me.Label124.ForeColor = System.Drawing.Color.Transparent
+        Me.Label124.Location = New System.Drawing.Point(62, 199)
+        Me.Label124.Name = "Label124"
+        Me.Label124.Size = New System.Drawing.Size(59, 17)
+        Me.Label124.TabIndex = 145
+        Me.Label124.Text = "0"
+        Me.Label124.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label125
+        '
+        Me.Label125.BackColor = System.Drawing.Color.Transparent
+        Me.Label125.ForeColor = System.Drawing.Color.Transparent
+        Me.Label125.Location = New System.Drawing.Point(6, 195)
+        Me.Label125.Name = "Label125"
+        Me.Label125.Size = New System.Drawing.Size(44, 17)
+        Me.Label125.TabIndex = 145
+        Me.Label125.Text = "TMS"
+        Me.Label125.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label126
+        '
+        Me.Label126.BackColor = System.Drawing.Color.Transparent
+        Me.Label126.ForeColor = System.Drawing.Color.Red
+        Me.Label126.Location = New System.Drawing.Point(6, 212)
+        Me.Label126.Name = "Label126"
+        Me.Label126.Size = New System.Drawing.Size(57, 17)
+        Me.Label126.TabIndex = 145
+        Me.Label126.Text = "検品中"
+        Me.Label126.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label127
+        '
+        Me.Label127.BackColor = System.Drawing.Color.Transparent
+        Me.Label127.ForeColor = System.Drawing.Color.Red
+        Me.Label127.Location = New System.Drawing.Point(47, 213)
+        Me.Label127.Name = "Label127"
+        Me.Label127.Size = New System.Drawing.Size(57, 17)
+        Me.Label127.TabIndex = 145
+        Me.Label127.Text = "0"
+        Me.Label127.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label128
+        '
+        Me.Label128.BackColor = System.Drawing.Color.Transparent
+        Me.Label128.ForeColor = System.Drawing.Color.Transparent
+        Me.Label128.Location = New System.Drawing.Point(53, 200)
+        Me.Label128.Name = "Label128"
+        Me.Label128.Size = New System.Drawing.Size(59, 17)
+        Me.Label128.TabIndex = 146
+        Me.Label128.Text = "0"
+        Me.Label128.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Csv_denpyo3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.GradientActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1350, 674)
+        Me.ClientSize = New System.Drawing.Size(1391, 708)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.ToolStrip1)
@@ -6855,160 +7002,162 @@ Partial Class Csv_denpyo3
         Me.Name = "Csv_denpyo3"
         Me.Text = "伝票変換 Ver.3"
         Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
+        Me.ToolStrip1.PerformLayout
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit
         Me.SplitContainer1.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.SplitContainer5.Panel1.ResumeLayout(False)
         Me.SplitContainer5.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitContainer5, System.ComponentModel.ISupportInitialize).EndInit
         Me.SplitContainer5.ResumeLayout(False)
         Me.Panel6.ResumeLayout(False)
-        Me.Panel6.PerformLayout()
+        Me.Panel6.PerformLayout
         Me.GroupBox19.ResumeLayout(False)
-        Me.GroupBox19.PerformLayout()
+        Me.GroupBox19.PerformLayout
         Me.TabPage2.ResumeLayout(False)
         Me.SplitContainer6.Panel1.ResumeLayout(False)
-        Me.SplitContainer6.Panel1.PerformLayout()
+        Me.SplitContainer6.Panel1.PerformLayout
         Me.SplitContainer6.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitContainer6, System.ComponentModel.ISupportInitialize).EndInit
         Me.SplitContainer6.ResumeLayout(False)
         Me.TabControl7.ResumeLayout(False)
         Me.TabPage17.ResumeLayout(False)
-        Me.TabPage17.PerformLayout()
+        Me.TabPage17.PerformLayout
         Me.TabPage18.ResumeLayout(False)
-        Me.TabPage18.PerformLayout()
+        Me.TabPage18.PerformLayout
         Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout()
-        CType(Me.NumericUpDown6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox8.PerformLayout
+        CType(Me.NumericUpDown6, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.NumericUpDown5, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.NumericUpDown4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage21.ResumeLayout(False)
-        CType(Me.DGV10, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DGV11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV10, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.DGV11, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage23.ResumeLayout(False)
-        CType(Me.KryptonComboBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.KryptonComboBox1, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage34.ResumeLayout(False)
-        Me.TabPage34.PerformLayout()
+        Me.TabPage34.PerformLayout
         Me.SplitContainer3.Panel1.ResumeLayout(False)
         Me.SplitContainer3.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitContainer3, System.ComponentModel.ISupportInitialize).EndInit
         Me.SplitContainer3.ResumeLayout(False)
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit
         Me.SplitContainer2.ResumeLayout(False)
         Me.SplitContainer7.Panel1.ResumeLayout(False)
-        Me.SplitContainer7.Panel1.PerformLayout()
+        Me.SplitContainer7.Panel1.PerformLayout
         Me.SplitContainer7.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitContainer7, System.ComponentModel.ISupportInitialize).EndInit
         Me.SplitContainer7.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
-        Me.Panel5.PerformLayout()
+        Me.Panel5.PerformLayout
         Me.ToolStrip2.ResumeLayout(False)
-        Me.ToolStrip2.PerformLayout()
+        Me.ToolStrip2.PerformLayout
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
-        Me.Panel7.PerformLayout()
+        Me.Panel7.PerformLayout
         Me.Panel8.ResumeLayout(False)
-        Me.Panel8.PerformLayout()
-        CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel8.PerformLayout
+        CType(Me.DGV1, System.ComponentModel.ISupportInitialize).EndInit
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
-        CType(Me.DGV7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV7, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage6.ResumeLayout(False)
-        CType(Me.DGV8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV8, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage7.ResumeLayout(False)
-        CType(Me.DGV9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV9, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage16.ResumeLayout(False)
-        CType(Me.DGV13, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV13, System.ComponentModel.ISupportInitialize).EndInit
+        Me.TabPage38.ResumeLayout(False)
+        CType(Me.TMSDGV, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabControl3.ResumeLayout(False)
         Me.TabPage11.ResumeLayout(False)
         Me.TabControl4.ResumeLayout(False)
         Me.TabPage13.ResumeLayout(False)
         Me.GroupBox14.ResumeLayout(False)
-        Me.GroupBox14.PerformLayout()
-        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox14.PerformLayout
+        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage19.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
+        Me.GroupBox4.PerformLayout
         Me.TabPage20.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
-        Me.GroupBox5.PerformLayout()
+        Me.GroupBox5.PerformLayout
         Me.TabPage14.ResumeLayout(False)
-        Me.TabPage14.PerformLayout()
-        CType(Me.DGV5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage14.PerformLayout
+        CType(Me.DGV5, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.NumericUpDown3, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage12.ResumeLayout(False)
-        Me.TabPage12.PerformLayout()
+        Me.TabPage12.PerformLayout
         Me.TabPage3.ResumeLayout(False)
         Me.TabControl8.ResumeLayout(False)
         Me.TabPage27.ResumeLayout(False)
-        CType(Me.DGV6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV6, System.ComponentModel.ISupportInitialize).EndInit
         Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.PerformLayout
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
         Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
+        Me.GroupBox3.PerformLayout
         Me.TabPage28.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.GroupBox1.PerformLayout
         Me.TabPage22.ResumeLayout(False)
         Me.TabControl9.ResumeLayout(False)
         Me.TabPage29.ResumeLayout(False)
-        Me.TabPage29.PerformLayout()
-        CType(Me.DGV14, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage29.PerformLayout
+        CType(Me.DGV14, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage30.ResumeLayout(False)
-        CType(Me.DGV15, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV15, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage32.ResumeLayout(False)
-        CType(Me.DGV17, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV17, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage33.ResumeLayout(False)
-        CType(Me.DGV18, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV18, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage26.ResumeLayout(False)
-        CType(Me.DGV4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV4, System.ComponentModel.ISupportInitialize).EndInit
         Me.Panel9.ResumeLayout(False)
-        Me.Panel9.PerformLayout()
+        Me.Panel9.PerformLayout
         Me.TabPage35.ResumeLayout(False)
         Me.TabControl10.ResumeLayout(False)
         Me.TabPage36.ResumeLayout(False)
-        Me.TabPage36.PerformLayout()
+        Me.TabPage36.PerformLayout
         Me.TabPage37.ResumeLayout(False)
-        Me.TabPage37.PerformLayout()
+        Me.TabPage37.PerformLayout
         Me.Panel2.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.SplitContainer4.Panel1.ResumeLayout(False)
         Me.SplitContainer4.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SplitContainer4, System.ComponentModel.ISupportInitialize).EndInit
         Me.SplitContainer4.ResumeLayout(False)
         Me.TabControl5.ResumeLayout(False)
         Me.TabPage8.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
-        Me.Panel3.PerformLayout()
-        CType(Me.DGV3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.PerformLayout
+        CType(Me.DGV3, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage9.ResumeLayout(False)
-        CType(Me.DGV12, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV12, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage31.ResumeLayout(False)
-        CType(Me.DGV16, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV16, System.ComponentModel.ISupportInitialize).EndInit
         Me.Panel10.ResumeLayout(False)
-        Me.Panel10.PerformLayout()
+        Me.Panel10.PerformLayout
         Me.TabControl6.ResumeLayout(False)
         Me.TabPage10.ResumeLayout(False)
-        CType(Me.DGV2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGV2, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage15.ResumeLayout(False)
         Me.TabPage24.ResumeLayout(False)
         Me.TabPage25.ResumeLayout(False)
-        Me.TabPage25.PerformLayout()
+        Me.TabPage25.PerformLayout
         Me.StatusStrip1.ResumeLayout(False)
-        Me.StatusStrip1.PerformLayout()
+        Me.StatusStrip1.PerformLayout
         Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.PerformLayout
 
     End Sub
 
@@ -7548,4 +7697,15 @@ Partial Class Csv_denpyo3
     Friend WithEvents Label118 As Label
     Friend WithEvents Label120 As Label
     Friend WithEvents Label119 As Label
+    Friend WithEvents TabPage38 As TabPage
+    Friend WithEvents TMSDGV As DataGridView
+    Friend WithEvents TextBox14 As TextBox
+    Friend WithEvents Label122 As Label
+    Friend WithEvents Label121 As Label
+    Friend WithEvents Label124 As Label
+    Friend WithEvents Label123 As Label
+    Friend WithEvents Label127 As Label
+    Friend WithEvents Label126 As Label
+    Friend WithEvents Label125 As Label
+    Friend WithEvents Label128 As Label
 End Class
