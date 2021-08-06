@@ -1986,6 +1986,7 @@ Public Class Csv
 
     Private Sub ROWSCUT(ByVal dgv As DataGridView, ByVal selCell As Object)
         Dim delR As New ArrayList
+        Dim cc = selCell.Count
         For i As Integer = 0 To selCell.Count - 1
             If Not delR.Contains(selCell(i).RowIndex) Then
                 delR.Add(selCell(i).RowIndex)
@@ -4932,4 +4933,67 @@ Public Class Csv
         Next
         Return False
     End Function
+
+
+    '抽出
+    Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
+
+        If DataGridView1.SelectedCells.Count = 0 Then
+            MsgBox("No range selected", MsgBoxStyle.OkOnly)
+        End If
+
+        Dim selText As String = TextBox2.Text
+        'selText.Replace(vbCr, "")
+        Dim strs = Split(selText, vbCrLf)
+
+
+        Dim ccc
+        For i As Integer = 0 To DataGridView1.SelectedCells.Count - 6
+            ccc &= i & ">" & DataGridView1.SelectedCells(i).Value & " "
+        Next
+
+
+
+        For i As Integer = 0 To DataGridView1.SelectedCells.Count - 6
+
+            '如果选择反向
+            If CheckBox3.Checked Then
+                Dim cc = DataGridView1.SelectedCells(i).Value
+                If strs.Contains(DataGridView1.SelectedCells(i).Value) Or DataGridView1.SelectedCells(i).Value Is Nothing Or DataGridView1.SelectedCells(i).Value = "" Then
+                    'PreDIV()
+                    ''-----------------------------------------------------------------------
+                    Dim dgv As DataGridView = DataGridView1
+                    Dim selCell = dgv.SelectedCells(i)
+
+                    Dim ind As Int16 = dgv.SelectedCells(i).RowIndex
+                    Dim d = dgv.Rows().Item(ind).Cells
+                    dgv.Rows()(ind).Visible = False
+
+                End If
+            Else
+
+                If Not strs.Contains(DataGridView1.SelectedCells(i).Value) Or DataGridView1.SelectedCells(i).Value Is Nothing Or DataGridView1.SelectedCells(i).Value = "" Then
+                    'PreDIV()
+                    ''-----------------------------------------------------------------------
+                    Dim dgv As DataGridView = DataGridView1
+                    Dim selCell = dgv.SelectedCells(i)
+
+                    Dim ind As Int16 = dgv.SelectedCells(i).RowIndex
+                    Dim d = dgv.Rows().Item(ind).Cells
+                    dgv.Rows()(ind).Visible = False
+
+                End If
+            End If
+
+
+            RetDIV()
+
+        Next
+    End Sub
+    '反向选择
+    Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
+
+    End Sub
+
+
 End Class

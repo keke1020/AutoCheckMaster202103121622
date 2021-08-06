@@ -24,7 +24,7 @@ Partial Class Csv
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Csv))
-        Dim FontInfo2 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
+        Dim FontInfo4 As Sgry.Azuki.FontInfo = New Sgry.Azuki.FontInfo()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripDropDownButton6 = New System.Windows.Forms.ToolStripDropDownButton()
@@ -195,6 +195,7 @@ Partial Class Csv
         Me.空行一括削除ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.列を削除ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.指定配列から空要素を削除ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupTag = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -216,7 +217,8 @@ Partial Class Csv
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.FontDialog1 = New System.Windows.Forms.FontDialog()
-        Me.GroupTag = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1347,6 +1349,12 @@ Partial Class Csv
         Me.指定配列から空要素を削除ToolStripMenuItem2.Size = New System.Drawing.Size(286, 22)
         Me.指定配列から空要素を削除ToolStripMenuItem2.Text = ">定形外保留、送り状番号空要素を削除"
         '
+        'GroupTag
+        '
+        Me.GroupTag.Name = "GroupTag"
+        Me.GroupTag.Size = New System.Drawing.Size(286, 22)
+        Me.GroupTag.Text = "GroupTag"
+        '
         'DataGridView2
         '
         Me.DataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
@@ -1426,10 +1434,10 @@ Partial Class Csv
         Me.AzukiControl1.DrawsSpace = True
         Me.AzukiControl1.FirstVisibleLine = 0
         Me.AzukiControl1.Font = New System.Drawing.Font("ＭＳ ゴシック", 9.0!)
-        FontInfo2.Name = "ＭＳ ゴシック"
-        FontInfo2.Size = 9
-        FontInfo2.Style = System.Drawing.FontStyle.Regular
-        Me.AzukiControl1.FontInfo = FontInfo2
+        FontInfo4.Name = "ＭＳ ゴシック"
+        FontInfo4.Size = 9
+        FontInfo4.Style = System.Drawing.FontStyle.Regular
+        Me.AzukiControl1.FontInfo = FontInfo4
         Me.AzukiControl1.ForeColor = System.Drawing.Color.Black
         Me.AzukiControl1.Location = New System.Drawing.Point(0, 25)
         Me.AzukiControl1.Name = "AzukiControl1"
@@ -1454,6 +1462,7 @@ Partial Class Csv
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.CheckBox3)
         Me.Panel1.Controls.Add(Me.CheckBox2)
         Me.Panel1.Controls.Add(Me.CheckBox1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -1486,7 +1495,7 @@ Partial Class Csv
         '
         Me.ToolStrip2.BackColor = System.Drawing.Color.LightSteelBlue
         Me.ToolStrip2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3})
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripButton5})
         Me.ToolStrip2.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip2.Name = "ToolStrip2"
         Me.ToolStrip2.Size = New System.Drawing.Size(371, 25)
@@ -1585,11 +1594,24 @@ Partial Class Csv
         '
         Me.Timer1.Enabled = True
         '
-        'GroupTag
+        'CheckBox3
         '
-        Me.GroupTag.Name = "GroupTag"
-        Me.GroupTag.Size = New System.Drawing.Size(286, 22)
-        Me.GroupTag.Text = "GroupTag"
+        Me.CheckBox3.AutoSize = True
+        Me.CheckBox3.Location = New System.Drawing.Point(213, 3)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(139, 16)
+        Me.CheckBox3.TabIndex = 8
+        Me.CheckBox3.Text = "Reverse Election code"
+        Me.CheckBox3.UseVisualStyleBackColor = True
+        '
+        'ToolStripButton5
+        '
+        Me.ToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
+        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton5.Name = "ToolStripButton5"
+        Me.ToolStripButton5.Size = New System.Drawing.Size(35, 22)
+        Me.ToolStripButton5.Text = "抽出"
         '
         'Csv
         '
@@ -1824,4 +1846,6 @@ Partial Class Csv
     Friend WithEvents ToolStripSeparator31 As ToolStripSeparator
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents GroupTag As ToolStripMenuItem
+    Friend WithEvents CheckBox3 As CheckBox
+    Friend WithEvents ToolStripButton5 As ToolStripButton
 End Class

@@ -2470,6 +2470,22 @@ Public Class Csv_denpyo3
                     '    sp_check = False
                     'End If
 
+                    If haisouKind = "宅配便" And code(0).ToLower = "pa084-7" Then
+                        weight = "50"
+                        sp_check = False
+                    End If
+
+                    If haisouKind = "宅配便" And code(0).ToLower = "pa084-5" Then
+                        weight = "33"
+                        sp_check = False
+                    End If
+
+
+
+                    If haisouKind = "宅配便" And code(0).ToLower = "pa084-ho" Then
+                        weight = "17"
+                        sp_check = False
+                    End If
 
 
                     'ny264-3000
@@ -3919,6 +3935,7 @@ Public Class Csv_denpyo3
                     End If
                 Catch ex As System.Runtime.InteropServices.ExternalException
                     MessageBox.Show("コピーできませんでした。")
+
                 End Try
             End If
         End If
@@ -8871,6 +8888,7 @@ Public Class Csv_denpyo3
         DGV8.Rows.Clear()
         DGV9.Rows.Clear()
         DGV13.Rows.Clear()
+        TMSDGV.Rows.Clear()
         ListBox3.Items.Clear()
         DGV17.Rows.Clear()
         ListBox1.Items.Clear()
@@ -8927,6 +8945,8 @@ Public Class Csv_denpyo3
             Dim souko As String = DGV1.Item(dH1.IndexOf("発送倉庫"), r).Value
             Dim binsyu As String = DGV1.Item(dH1.IndexOf("便種"), r).Value
             Dim bincount As String = DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value
+            Dim Purchaser As String = DGV1.Item(dH1.IndexOf("購入者名"), r).Value
+            Dim PurAddress As String = DGV1.Item(dH1.IndexOf("発送先住所"), r).Value
 
 
 
@@ -8937,6 +8957,10 @@ Public Class Csv_denpyo3
             If YU2flagTemp = "ゆう200" Then
                 YU2Denpyus.Add(DGV1.Item(dH1.IndexOf("伝票番号"), r).Value)
             End If
+
+            '这里去判断是不是法人票
+
+            Dim isGroupOrderFlag = CheckIsGroupOrder(Purchaser, PurAddress)
 
 
 
@@ -8980,7 +9004,7 @@ Public Class Csv_denpyo3
             'End If
 
             If dSoft = "" Then
-                TemplateUse = TemplateSet(hassou, souko, binsyu, bincount)    'dgv決定、伝票ソフト取得
+                TemplateUse = TemplateSet(hassou, souko, binsyu, bincount, isGroupOrderFlag)    'dgv決定、伝票ソフト取得   法人票标记
                 dSoft = denpyoSoft
             Else
                 Select Case dSoft
@@ -10413,7 +10437,7 @@ Public Class Csv_denpyo3
         Next
     End Sub
 
-    Dim dataB = {"医院", "組合", "会社", "機構", "法人", "薬局", "センター", "(株)", "（株）", "商店", "店", "支社", "(有)"， "(合)"}
+    Public dataB As String() = {"医院", "組合", "会社", "機構", "法人", "薬局", "センター", "(株)", "（株）", "商店", "店", "支社", "(有)"， "(合)"}
     Private Function IsCompanyOrIndividual_7(r As Integer, dhM As ArrayList)
 
         '148067700195
@@ -10513,6 +10537,7 @@ Public Class Csv_denpyo3
         'とんよか卸　型番出ない
         If DGV7.RowCount > 0 Then
             For r As Integer = 0 To DGV7.RowCount - 1
+                Dim CC = DGV7.Item(dH7.IndexOf("処理用2"), r).Value
                 If DGV7.Item(dH7.IndexOf("処理用2"), r).Value = "名古屋" Then
                     'DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
 
@@ -10523,16 +10548,15 @@ Public Class Csv_denpyo3
                         DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "148067700005"
                     End If
                 ElseIf DGV7.Item(dH7.IndexOf("処理用2"), r).Value = "太宰府" Then
+                    '957769750002  个人     957769750072  法人
 
                     If IsCompanyOrIndividual_7(r, dH7) Then
-                        DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "957769750002"
-                    Else
                         DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "957769750072"
+                    Else
+                        DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "957769750002"
                     End If
 
                 Else
-
-                    MsgBox("倉庫は違法です、確認してください", MsgBoxStyle.OkOnly)
                 End If
                 Dim denpyocount = DGV7.Item(dH7.IndexOf("マスタ個口"), r).Value
 
@@ -10666,7 +10690,7 @@ Public Class Csv_denpyo3
         '新任务
         If DGV8.RowCount > 0 Then
             For r As Integer = 0 To DGV8.RowCount - 1
-
+                Dim cc = DGV8.Item(dH8.IndexOf("処理用2"), r).Value
                 If DGV8.Item(dH8.IndexOf("処理用2"), r).Value = "名古屋" Then
                     'DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "148067700005"
                     ''148067700196
@@ -10678,14 +10702,13 @@ Public Class Csv_denpyo3
                 ElseIf DGV8.Item(dH8.IndexOf("処理用2"), r).Value = "太宰府" Then
 
                     If IsCompanyOrIndividual_8(r, dH8) Then
-                        DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "957769750002"
-                    Else
+                        '957769750002   957769750072
                         DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "957769750072"
+                    Else
+                        DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "957769750002"
                     End If
 
                 Else
-
-                    MsgBox("倉庫は違法です、確認してください", MsgBoxStyle.OkOnly)
                 End If
 
 
@@ -10983,16 +11006,14 @@ Public Class Csv_denpyo3
                         TMSDGV.Item(tms_dgv.IndexOf("お客様コード"), r).Value = "148067700005"
                     End If
                 ElseIf TMSDGV.Item(tms_dgv.IndexOf("処理用2"), r).Value = "太宰府" Then
-
+                    '957769750002  个人     957769750072  法人
                     If IsCompanyOrIndividual_tms(r, tms_dgv) Then
-                        TMSDGV.Item(tms_dgv.IndexOf("お客様コード"), r).Value = "957769750002"
-                    Else
                         TMSDGV.Item(tms_dgv.IndexOf("お客様コード"), r).Value = "957769750072"
+                    Else
+                        TMSDGV.Item(tms_dgv.IndexOf("お客様コード"), r).Value = "957769750002"
                     End If
 
                 Else
-
-                    MsgBox("倉庫は違法です、確認してください", MsgBoxStyle.OkOnly)
                 End If
                 Dim denpyocount = TMSDGV.Item(tms_dgv.IndexOf("マスタ個口"), r).Value
 
@@ -11531,7 +11552,7 @@ Public Class Csv_denpyo3
     'テンプレート選択
     Dim dgvT As DataGridView = Nothing
     Dim denpyoSoft As String = ""
-    Private Function TemplateSet(hassou As String, souko As String, binsyu As String, bincount As String) As String()
+    Private Function TemplateSet(hassou As String, souko As String, binsyu As String, bincount As String， isGroupOrderFlag As Boolean) As String()
         Dim TenmlateUse As String() = Nothing
         Dim mode As String = ""
         Select Case True
@@ -11573,10 +11594,10 @@ Public Class Csv_denpyo3
         '测试完删除
         'bincount = 5
         '新任务TMS@
-        If bincount > 4 And hassou = "宅配便" And souko = HS1.Text Then
-            mode = "TMS"
+        If bincount > 4 And hassou = "宅配便" And souko = HS1.Text And isGroupOrderFlag Then
+            'mode = "TMS"
         End If
-
+        'mode = "TMS"
 
         If mode = "BIZlogi" Then
             TenmlateUse = Template2
@@ -12043,6 +12064,8 @@ Public Class Csv_denpyo3
                                             denpyouno = dataRow(dH9.IndexOf("お客様側管理番号"))
                                         ElseIf dgvM(i) Is DGV13 Then
                                             denpyouno = dataRow(dH13.IndexOf("お客様側管理番号"))
+                                        ElseIf dgvM(i) Is TMSDGV Then
+                                            denpyouno = dataRow(tms_dh.IndexOf("お客様管理ナンバー"))
                                         End If
 
                                         If (ListBox3.Items.Contains(denpyouno) = False) Or (denpyouno = "") Then '不包含或者可能空的话
@@ -12082,6 +12105,8 @@ Public Class Csv_denpyo3
                                             denpyouno = datarow(dH9.IndexOf("お客様側管理番号"))
                                         ElseIf dgvM(i) Is DGV13 Then
                                             denpyouno = datarow(dH13.IndexOf("お客様側管理番号"))
+                                        ElseIf dgvM(i) Is TMSDGV Then
+                                            denpyouno = dataRow(tms_dh.IndexOf("お客様管理ナンバー"))
                                         End If
 
                                         If ListBox3.Items.Contains(denpyouno) = True Then '不包含或者可能空的话
@@ -13013,6 +13038,8 @@ Public Class Csv_denpyo3
                                                 denpyouno = dataRow(dH9.IndexOf("お客様側管理番号"))
                                             ElseIf dgvM(i) Is DGV13 Then
                                                 denpyouno = dataRow(dH13.IndexOf("お客様側管理番号"))
+                                            ElseIf dgvM(i) Is TMSDGV Then
+                                                denpyouno = dataRow(tms_dh.IndexOf("お客様管理ナンバー"))
                                             End If
 
                                             If (ListBox3.Items.Contains(denpyouno) = False) Or (denpyouno = "") Then '不包含或者可能空的话
@@ -13052,6 +13079,8 @@ Public Class Csv_denpyo3
                                                 denpyouno = dataRow(dH9.IndexOf("お客様側管理番号"))
                                             ElseIf dgvM(i) Is DGV13 Then
                                                 denpyouno = dataRow(dH13.IndexOf("お客様側管理番号"))
+                                            ElseIf dgvM(i) Is TMSDGV Then
+                                                denpyouno = dataRow(tms_dh.IndexOf("お客様管理ナンバー"))
                                             End If
 
                                             If ListBox3.Items.Contains(denpyouno) = True Then '不包含或者可能空的话
@@ -13473,16 +13502,16 @@ Public Class Csv_denpyo3
 
                                 Dim todayTxtPath As String = ""
                                 Dim todayCsvPath As String = ""
+                            '这里
+                            If Regex.IsMatch(appPath, "debug", RegexOptions.IgnoreCase) Then
+                                todayTxtPath = desktopPath & "\" & Format(Now, "yyyyMMdd") & ".txt"
+                                todayCsvPath = desktopPath & "\" & Format(Now, "yyyyMMdd") & ".csv"
+                            Else
+                                todayTxtPath = serverDir & Format(Now, "yyyyMMdd") & ".txt"
+                                todayCsvPath = serverDir & Format(Now, "yyyyMMdd") & ".csv"
+                            End If
 
-                                If Regex.IsMatch(appPath, "debug", RegexOptions.IgnoreCase) Then
-                                    todayTxtPath = desktopPath & "\" & Format(Now, "yyyyMMdd") & ".txt"
-                                    todayCsvPath = desktopPath & "\" & Format(Now, "yyyyMMdd") & ".csv"
-                                Else
-                                    todayTxtPath = serverDir & Format(Now, "yyyyMMdd") & ".txt"
-                                    todayCsvPath = serverDir & Format(Now, "yyyyMMdd") & ".csv"
-                                End If
-
-                                Dim checkArray As New ArrayList
+                            Dim checkArray As New ArrayList
                             Dim mArray As New ArrayList
                             '18.19.20 >> TMS
                             Dim binsu As Integer() = New Integer() {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
@@ -13645,18 +13674,25 @@ Public Class Csv_denpyo3
                                                 binsu(15) += CInt(mLine(Array.IndexOf(mH, "マスタ便数")))
 
                                             Case "太宰府陸便ゆう2"
-                                                binsu(16) += CInt(mLine(Array.IndexOf(cH, "マスタ便数")))
-                                            Case "井相田陸便ゆう2"
-                                            binsu(17) += CInt(mLine(Array.IndexOf(cH, "マスタ便数")))
-
+                                            binsu(16) += CInt(mLine(Array.IndexOf(mH, "マスタ便数")))
+                                        Case "井相田陸便ゆう2"
+                                            binsu(17) += CInt(mLine(Array.IndexOf(mH, "マスタ便数")))
+                                            '这里
                                         Case "太宰府陸便TMS"
-                                            binsu(18) += CInt(mLine(Array.IndexOf(cH, "マスタ便数")))
+                                            binsu(18) += CInt(mLine(Array.IndexOf(mH, "マスタ便数")))
                                         Case "井相田陸便TMS"
-                                            binsu(19) += CInt(mLine(Array.IndexOf(cH, "マスタ便数")))
+                                            binsu(19) += CInt(mLine(Array.IndexOf(mH, "マスタ便数")))
                                         Case "名古屋陸便TMS"
-                                            binsu(20) += CInt(mLine(Array.IndexOf(cH, "マスタ便数")))
-                                            'Case Else
-                                            '    binsu(8) += CInt(cLine(Array.IndexOf(cH, "マスタ便数")))
+                                            binsu(20) += CInt(mLine(Array.IndexOf(mH, "マスタ便数")))
+
+
+
+
+
+
+
+
+
                                     End Select
 
                                         If m Mod 500 = 0 Then
@@ -15419,19 +15455,21 @@ Public Class Csv_denpyo3
 
     End Sub
 
-    Private Sub DataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV9.CellDoubleClick, DGV8.CellDoubleClick, DGV7.CellDoubleClick, DGV13.CellDoubleClick
 
-    End Sub
+    '判断是不是法人票
+    Public Function CheckIsGroupOrder(purchser As String, address As String) As Boolean
 
-    Private Sub DataGridView_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles DGV9.RowPostPaint, DGV8.RowPostPaint, DGV7.RowPostPaint, DGV6.RowPostPaint, DGV4.RowPostPaint, DGV3.RowPostPaint, DGV18.RowPostPaint, DGV17.RowPostPaint, DGV16.RowPostPaint, DGV15.RowPostPaint, DGV14.RowPostPaint, DGV13.RowPostPaint, DGV12.RowPostPaint, DGV1.RowPostPaint
 
-    End Sub
+        If purchser = "" Or address = "" Then
+            Return False
+        End If
+        For index = 0 To dataB.Length - 1
 
-    Private Sub DataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles DGV9.SelectionChanged, DGV8.SelectionChanged, DGV7.SelectionChanged, DGV13.SelectionChanged, DGV1.SelectionChanged
+            If InStr(purchser, dataB(index)) > 0 Or InStr(address, dataB(index)) Then
+                Return True
+            End If
+        Next
+        Return False
 
-    End Sub
-
-    Private Sub DataGridView_DragDrop(sender As Object, e As DragEventArgs) Handles DGV9.DragDrop, DGV8.DragDrop, DGV7.DragDrop, DGV3.DragDrop, DGV13.DragDrop, DGV12.DragDrop, DGV1.DragDrop
-
-    End Sub
+    End Function
 End Class

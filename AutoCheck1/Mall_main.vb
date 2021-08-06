@@ -8350,11 +8350,17 @@ Public Class Mall_main
                 For i As Integer = 0 To cArray.Length - 1
                     Dim cA As String() = Split(cArray(i), ",")
                     For k As Integer = 0 To cA.Length - 1
+                        If i = 23 Then
+                            Dim cc = 0
+                        End If
                         If cA(k) <> "" Then
                             If Regex.IsMatch(node, "^" & cA(k)) Then
+                                Dim c = DGV21.Item(1, i).Value
+                                Dim c1 = DGV21.Item(1, i).Value
                                 DGV21.Item(1, i).Value += 1
                                 DGV21.Item(1, i).Style.BackColor = Color.Yellow
                                 DGV20.Item(dH20.IndexOf("分析"), r).Value = DGV21.Item(0, i).Value
+                                Dim cc = DGV21.Item(0, i).Value
                                 countFlag = True
                                 Exit For
                             End If
