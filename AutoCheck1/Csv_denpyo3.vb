@@ -1850,6 +1850,8 @@ Public Class Csv_denpyo3
 
 
 
+
+
                 Dim masuku_50codesProjuchusu As Integer = 0 ' 
 
 
@@ -2066,6 +2068,7 @@ Public Class Csv_denpyo3
                             checkcodejuchusu_ny385 = checkcodejuchusu_ny385 + checkcode(1)
                         End If
                     End If
+
 
 
 
@@ -2835,8 +2838,12 @@ Public Class Csv_denpyo3
                                 special_takuyamoto = True
                                 haisouKind = "宅配便"
                                 haisouSize = haisouSize / 100
-                            Else
+                            ElseIf haisouSize >= NumericUpDown4.Value * 100 And (code(0).Contains("ny417-30")) And Not sentToOkinawa Then
                                 'c213 'haisouKind = "ヤマト"
+                                special_taku = True
+                                special_takuyamoto = True
+                                haisouKind = "宅配便"
+                                haisouSize = haisouSize / 100
                             End If
 
 
