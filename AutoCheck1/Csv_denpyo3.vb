@@ -4988,7 +4988,9 @@ Public Class Csv_denpyo3
             Dim dH1 As ArrayList = TM_HEADER_GET(DGV1)
 
             For r As Integer = 0 To DGV1.Rows.Count - 1
-                If DGV1.Item(dH1.IndexOf("店舗"), r).Value = "とんよか卸" Then
+                'If DGV1.Item(dH1.IndexOf("店舗"), r).Value = "とんよか卸" Then
+
+                If DGV1.Item(dH1.IndexOf("店舗"), r).Value = "卸" Then
                     If ListBox3.Items(i) = DGV1.Item(TM_ArIndexof(dH1, koumoku("denpyoNo")(0)), r).Value Then
                         Dim printStrArray_info As New ArrayList
                         'Dim str As String = ""
@@ -5102,7 +5104,8 @@ Public Class Csv_denpyo3
                         Font.FontHeightInPoints = 12
                         Font.FontName = "ＭＳ Ｐゴシック"
 
-                        ws.GetRow(3).GetCell(1).SetCellValue("とんよか卸")
+                        'ws.GetRow(3).GetCell(1).SetCellValue("とんよか卸")
+                        ws.GetRow(3).GetCell(1).SetCellValue("卸")
                         ws.GetRow(6).GetCell(3).SetCellValue(psArray(k)(itemNum)(0).ToString)
                         ws.GetRow(7).GetCell(3).SetCellValue(psArray(k)(itemNum)(1).ToString)
                         ws.GetRow(8).GetCell(3).SetCellValue(psArray(k)(itemNum)(2).ToString)
@@ -10121,7 +10124,7 @@ Public Class Csv_denpyo3
                 If IsNumeric(dgv.Item(dHSel.IndexOf(headerDN), r).Value) Then
                     For r2 As Integer = 0 To DGV3.RowCount - 1
                         If dgv.Item(dHSel.IndexOf(headerDN), r).Value = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
-                            If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "とんよか卸" Then
+                            If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "卸" Then
                                 ListBox3.Items.Add(dgv.Item(dHSel.IndexOf(headerDN), r).Value)
                                 If binsyuDN <> "" Then
                                     DGV17.Rows.Add(dgv.Item(dHSel.IndexOf(headerDN), r).Value, dgv.Item(dHSel.IndexOf(hmeiDN), r).Value, dgv.Item(dHSel.IndexOf(soukoDN), r).Value, dgv.Item(dHSel.IndexOf(binsyuDN), r).Value)
@@ -10236,7 +10239,7 @@ Public Class Csv_denpyo3
                     If IsNumeric(dgv.Item(dHSel.IndexOf(headerDN), r).Value) Then
                         For r2 As Integer = 0 To DGV3.RowCount - 1
                             If dgv.Item(dHSel.IndexOf(headerDN), r).Value = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
-                                If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "とんよか卸" Then
+                                If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "卸" Then
                                     ListBox3.Items.Add(dgv.Item(dHSel.IndexOf(headerDN), r).Value)
                                     DGV1.Item(dH1.IndexOf(sCodeHeader(0)), dgv1Row).Value = "★商品複数別処理"
                                     If InStr(DGV1.Item(dH1.IndexOf(koumoku("bikou2")(0)), dgv1Row).Value, "★") = 0 Then
@@ -10580,7 +10583,7 @@ Public Class Csv_denpyo3
                 Dim denpyoNum = DGV7.Item(dH7.IndexOf("お客様管理ナンバー"), r).Value
                 For r2 As Integer = 0 To DGV3.RowCount - 1
                     If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
-                        If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "とんよか卸" Then
+                        If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "卸" Then
                             If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
                                 DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
                             Else
@@ -10724,7 +10727,7 @@ Public Class Csv_denpyo3
                 Dim denpyoNum = DGV8.Item(dH8.IndexOf("顧客管理番号"), r).Value
                 For r2 As Integer = 0 To DGV3.RowCount - 1
                     If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
-                        If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "とんよか卸" Then
+                        If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "卸" Then
                             DGV8.Item(dH8.IndexOf("代行ご依頼主電話"), r).Value = "092-980-1866"
                             DGV8.Item(dH8.IndexOf("代行ご依頼主郵便番号"), r).Value = "812-0881"
                             DGV8.Item(dH8.IndexOf("代行ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田１－８－"
@@ -10834,7 +10837,7 @@ Public Class Csv_denpyo3
                     End If
 
                     If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
-                        If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "とんよか卸" Then
+                        If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "卸" Then
                             DGV9.Item(dH9.IndexOf("ご依頼主　郵便番号"), r).Value = "812-0881"
                             DGV9.Item(dH9.IndexOf("ご依頼主　電話番号"), r).Value = "092-980-1866"
                             DGV9.Item(dH9.IndexOf("ご依頼主　住所１"), r).Value = "福岡県福岡市博多区井相田１－８－"
@@ -10927,7 +10930,7 @@ Public Class Csv_denpyo3
 
                 For r2 As Integer = 0 To DGV3.RowCount - 1
                     If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
-                        If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "とんよか卸" Then
+                        If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "卸" Then
                             DGV13.Item(dH13.IndexOf("ご依頼主　郵便番号"), r).Value = "812-0881"
                             DGV13.Item(dH13.IndexOf("ご依頼主　電話番号"), r).Value = "092-980-1866"
                             DGV13.Item(dH13.IndexOf("ご依頼主　住所１"), r).Value = "福岡県福岡市博多区井相田１－８－"
