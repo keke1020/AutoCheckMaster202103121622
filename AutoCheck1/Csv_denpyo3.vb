@@ -8994,8 +8994,7 @@ Public Class Csv_denpyo3
             Dim bincount As String = DGV1.Item(dH1.IndexOf("マスタ便数"), r).Value
             Dim Purchaser As String = DGV1.Item(dH1.IndexOf("購入者名"), r).Value
             Dim PurAddress As String = DGV1.Item(dH1.IndexOf("発送先住所"), r).Value
-
-
+            Dim SenderName As String = DGV1.Item(dH1.IndexOf("発送先名"), r).Value
 
             Dim codecc As String = DGV1.Item(dH1.IndexOf("商品マスタ"), r).Value
 
@@ -9007,7 +9006,7 @@ Public Class Csv_denpyo3
 
             '这里去判断是不是法人票
 
-            Dim isGroupOrderFlag = CheckIsGroupOrder(Purchaser, PurAddress)
+            Dim isGroupOrderFlag = CheckIsGroupOrder(SenderName, PurAddress)
 
 
 
@@ -10598,7 +10597,8 @@ Public Class Csv_denpyo3
                     '957769750002  个人     957769750072  法人
 
                     If IsCompanyOrIndividual_7(r, dH7) Then
-                        DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "957769750072"
+                        'DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "957769750072"
+                        DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "957769750070"
                     Else
                         DGV7.Item(dH7.IndexOf("お客様コード"), r).Value = "957769750002"
                     End If
@@ -10750,7 +10750,8 @@ Public Class Csv_denpyo3
 
                     If IsCompanyOrIndividual_8(r, dH8) Then
                         '957769750002   957769750072
-                        DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "957769750072"
+                        'DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "957769750072"
+                        DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "957769750070"
                     Else
                         DGV8.Item(dH8.IndexOf("佐川急便顧客コード"), r).Value = "957769750002"
                     End If
@@ -11055,7 +11056,8 @@ Public Class Csv_denpyo3
                 ElseIf TMSDGV.Item(tms_dgv.IndexOf("処理用2"), r).Value = "太宰府" Then
                     '957769750002  个人     957769750072  法人
                     If IsCompanyOrIndividual_tms(r, tms_dgv) Then
-                        TMSDGV.Item(tms_dgv.IndexOf("お客様コード"), r).Value = "957769750072"
+                        'TMSDGV.Item(tms_dgv.IndexOf("お客様コード"), r).Value = "957769750072"
+                        TMSDGV.Item(tms_dgv.IndexOf("お客様コード"), r).Value = "957769750070"
 
                     Else
                         TMSDGV.Item(tms_dgv.IndexOf("お客様コード"), r).Value = "957769750002"
@@ -11643,7 +11645,7 @@ Public Class Csv_denpyo3
         'bincount = 5
         '新任务TMS@
         If bincount > 4 And hassou = "宅配便" And souko = HS1.Text And isGroupOrderFlag Then
-            'mode = "TMS"
+            mode = "TMS"
         End If
         'mode = "TMS"
 
