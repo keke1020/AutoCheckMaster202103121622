@@ -5885,6 +5885,7 @@ Public Class Csv_denpyo3
             Else
                 bl = False 'false: 太宰府
             End If
+            bl = False 'false: 太宰府
             'ElseIf code = "pa084-5" Then
             '    'If count >= 3 Then
             '    '    bl = True
