@@ -11073,14 +11073,10 @@ Public Class Csv_denpyo3
                 'End If
                 Dim denpyoNum = TMSDGV.Item(tms_dgv.IndexOf("お客様管理ナンバー"), r).Value
                 For r2 As Integer = 0 To DGV3.RowCount - 1
-                    If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
-                        'If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "とんよか卸" Then
+                    'If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
+                    If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "卸" Then
 
-                        TMSDGV.Item(tms_dgv.IndexOf("品名２"), r).Value = ""
-                            TMSDGV.Item(tms_dgv.IndexOf("品名３"), r).Value = ""
-                            TMSDGV.Item(tms_dgv.IndexOf("品名４"), r).Value = ""
-                            TMSDGV.Item(tms_dgv.IndexOf("品名５"), r).Value = ""
-                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-980-1866"
+                        TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-980-1866"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田１－８－"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所２"), r).Value = "33"
@@ -11088,80 +11084,82 @@ Public Class Csv_denpyo3
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称２"), r).Value = ""
                             Exit For
 
+                    ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZFK" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-586-6853"
+                            'ご依頼主　郵便番号
 
-                        ''ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZFK" Then
-                        'TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-586-6853"
-                        '    'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
 
-                        '    'ご依頼主郵便番号
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
-
-                        '    'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Amazon FK"
-                        '    'DGV7.Item(dH7.IndexOf("ご依頼主　名称２"), r).Value = ""
-                        '    Exit For
-
-
-                        'ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZ海東" Then
-                        '    'If InStr(DGV7.Item(dH7.IndexOf("お届け先名称１"), r).Value, "夢みつけ隊株式会社") > 0 Then
-                        '    '    DGV7.Item(dH7.IndexOf("品名１"), r).Value = "★発注書有り"
-                        '    'Else
-                        '    '    'DGV7.Item(dH7.IndexOf("品名１"), r).Value = ""
-                        '    'End If
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Amazon FK"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主　名称２"), r).Value = ""
+                            Exit For
 
 
-                        '    'DGV7.Item(dH7.IndexOf("品名２"), r).Value = ""
-                        '    'DGV7.Item(dH7.IndexOf("品名３"), r).Value = ""
-                        '    'DGV7.Item(dH7.IndexOf("品名４"), r).Value = ""
-                        '    'DGV7.Item(dH7.IndexOf("品名５"), r).Value = ""
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZ海東" Then
 
 
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-986-5538"
-                        '    'ご依頼主　郵便番号
 
-                        '    'ご依頼主郵便番号
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "811-0123"
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-986-5538"
+                            'ご依頼主　郵便番号
 
-                        '    'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Amazon 海東"
-                        '    'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
-                        '    Exit For
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "811-0123"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
+
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Amazon 海東"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
 
 
 
 
-                        'ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "問屋よか" And (Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴A" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴B" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴C") Then
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-577-9205"
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = ""
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県春日市紅葉ケ丘東 3-43"
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所２"), r).Value = "SUN紅葉ヶ丘"
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "株式会社ハイハイ"
-                        '    TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称２"), r).Value = ""
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "問屋よか" And (Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴A" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴B" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴C") Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-577-9205"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県春日市紅葉ケ丘東 3-43"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所２"), r).Value = "SUN紅葉ヶ丘"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "株式会社ハイハイ"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称２"), r).Value = ""
 
-                        '    If Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴A" Then
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名１"), r).Value = "株式会社　マイウェイ様ご依頼分"
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名２"), r).Value = ""
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名３"), r).Value = ""
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名４"), r).Value = ""
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名５"), r).Value = ""
-                        '    ElseIf Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴B" Then
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名１"), r).Value = "（有）ビーサイレンス様ご依頼分"
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名２"), r).Value = ""
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名３"), r).Value = ""
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名４"), r).Value = ""
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名５"), r).Value = ""
-                        '    ElseIf Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴C" Then
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名１"), r).Value = "（株）向島自動車用品製作所様ご依"
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名２"), r).Value = "頼分"
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名３"), r).Value = ""
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名４"), r).Value = ""
-                        '        TMSDGV.Item(tms_dgv.IndexOf("品名５"), r).Value = ""
-                        '    End If
-                        '    Exit For
-                        'End If
-                    End If
+                            If Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴A" Then
+                                TMSDGV.Item(tms_dgv.IndexOf("品名１"), r).Value = "株式会社　マイウェイ様ご依頼分"
+                                TMSDGV.Item(tms_dgv.IndexOf("品名２"), r).Value = ""
+                                TMSDGV.Item(tms_dgv.IndexOf("品名３"), r).Value = ""
+                                TMSDGV.Item(tms_dgv.IndexOf("品名４"), r).Value = ""
+                                TMSDGV.Item(tms_dgv.IndexOf("品名５"), r).Value = ""
+                            ElseIf Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴B" Then
+                                TMSDGV.Item(tms_dgv.IndexOf("品名１"), r).Value = "（有）ビーサイレンス様ご依頼分"
+                                TMSDGV.Item(tms_dgv.IndexOf("品名２"), r).Value = ""
+                                TMSDGV.Item(tms_dgv.IndexOf("品名３"), r).Value = ""
+                                TMSDGV.Item(tms_dgv.IndexOf("品名４"), r).Value = ""
+                                TMSDGV.Item(tms_dgv.IndexOf("品名５"), r).Value = ""
+                            ElseIf Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴C" Then
+                                TMSDGV.Item(tms_dgv.IndexOf("品名１"), r).Value = "（株）向島自動車用品製作所様ご依"
+                                TMSDGV.Item(tms_dgv.IndexOf("品名２"), r).Value = "頼分"
+                                TMSDGV.Item(tms_dgv.IndexOf("品名３"), r).Value = ""
+                                TMSDGV.Item(tms_dgv.IndexOf("品名４"), r).Value = ""
+                                TMSDGV.Item(tms_dgv.IndexOf("品名５"), r).Value = ""
+                            End If
+                            Exit For
+                        Else
+
+                        'TMSDGV.Item(tms_dgv.IndexOf("品名２"), r).Value = ""
+                        'TMSDGV.Item(tms_dgv.IndexOf("品名３"), r).Value = ""
+                        'TMSDGV.Item(tms_dgv.IndexOf("品名４"), r).Value = ""
+                        'TMSDGV.Item(tms_dgv.IndexOf("品名５"), r).Value = ""
+                        TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-980-1866"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田１－８－"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所２"), r).Value = "33"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "万方商事株式会社"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称２"), r).Value = ""
+
+
+                        End If
                 Next
             Next
         End If
