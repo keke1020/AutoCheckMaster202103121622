@@ -11039,7 +11039,8 @@ Public Class Csv_denpyo3
             Next
         End If
 
-        '新任务
+        '
+        '新任务TMS
         If TMSDGV.RowCount > 0 Then
 
 
@@ -11073,10 +11074,11 @@ Public Class Csv_denpyo3
                 'End If
                 Dim denpyoNum = TMSDGV.Item(tms_dgv.IndexOf("お客様管理ナンバー"), r).Value
                 For r2 As Integer = 0 To DGV3.RowCount - 1
-                    'If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
-                    If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "卸" Then
 
-                        TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-980-1866"
+                    Dim cc = DGV3.Item(dH3.IndexOf("店舗"), r2).Value
+                    If denpyoNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
+                        If DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "卸" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-980-1866"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田１－８－"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所２"), r).Value = "33"
@@ -11084,39 +11086,189 @@ Public Class Csv_denpyo3
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称２"), r).Value = ""
                             Exit For
 
-                    ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZFK" Then
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZFK" Then
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-586-6853"
                             'ご依頼主　郵便番号
-
                             'ご依頼主郵便番号
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田2丁目3番43 102号"
-
                             'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Amazon FK"
                             'DGV7.Item(dH7.IndexOf("ご依頼主　名称２"), r).Value = ""
                             Exit For
-
-
                         ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZ海東" Then
-
-
-
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-986-5538"
                             'ご依頼主　郵便番号
-
                             'ご依頼主郵便番号
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "811-0123"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
-
                             'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Amazon 海東"
                             'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
                             Exit For
 
 
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "ラキナイ" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-985-0275"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "811-1361"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市南区西長住1丁目12番41号501"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Yahoo!Lucky9"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "FK" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-586-6853"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "816-0911"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県大野城市大城4-13-15"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Yahoo!Fkstyle"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
 
 
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "ヤフーKT" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-986-5538"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0123"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県糟屋郡新宮町上府北3-6-3"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "雑貨ショップＫＴ 海東"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "あかねY" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-980-1866"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "816-0922"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県大野城市山田2-2-35"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Yahoo!あかねAshop"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "あかね楽天" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-985-0295"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "816-0922"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県大野城市山田2-2-35"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "楽天 あかねAshop"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "アリス" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-985-2056"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "816-0901"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県大野城市乙金東１丁目2-52-1"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "楽天　雑貨の国のアリス"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "暁" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-986-1116"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田1-8-33-203"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "楽天　通販の暁"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "雑貨倉庫" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "012-069-9991"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田1-8-33"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Qoo10通販の雑貨倉庫"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "クラナビ" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-980-1144"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田1-8-33"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "auPAYマーケット KuraNavi"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "YオクKT" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-986-5538"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "811-0123"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県糟屋郡新宮町上府北3丁目6番地3号"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "雑貨ＫＴ海東（ヤフオク）"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "ヤフオク付" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-980-1866"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区 井相田1-8-33"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "べんけい"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "トココ" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-986-3343"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "811-0123"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県糟屋郡新宮町上府北3丁目794番23-3F"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Amazon通販のトココ"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "サラダ" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "18072377678"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "265100"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "Haiyang shi Hushanjie Youzhengju nan 171hao"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Amazonサラダ"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "フリット" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "13454959238"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "265106"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "Shangdong Sheng　Yantai Shi,Haiyang Shi Chuangxinchuangyedasha Haibing zhonglu 163hao"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Amazon Hewflit"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
+                        ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "AZアリス" Then
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-985-2056"
+                            'ご依頼主　郵便番号
+                            'ご依頼主郵便番号
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "8180114"
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県太宰府市大字北谷960番地"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主住所２"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主名称１"), r).Value = "Amazon雑貨の国のアリス"
+                            'DGV7.Item(dH7.IndexOf("ご依頼主名称２"), r).Value = ""
+                            Exit For
                         ElseIf DGV3.Item(dH3.IndexOf("店舗"), r2).Value = "問屋よか" And (Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴A" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴B" Or Replace(DGV3.Item(dH3.IndexOf("購入者名"), r2).Value, " ", "") = "山田善晴C") Then
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-577-9205"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = ""
@@ -11147,11 +11299,11 @@ Public Class Csv_denpyo3
                             Exit For
                         Else
 
-                        'TMSDGV.Item(tms_dgv.IndexOf("品名２"), r).Value = ""
-                        'TMSDGV.Item(tms_dgv.IndexOf("品名３"), r).Value = ""
-                        'TMSDGV.Item(tms_dgv.IndexOf("品名４"), r).Value = ""
-                        'TMSDGV.Item(tms_dgv.IndexOf("品名５"), r).Value = ""
-                        TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-980-1866"
+                            'TMSDGV.Item(tms_dgv.IndexOf("品名２"), r).Value = ""
+                            'TMSDGV.Item(tms_dgv.IndexOf("品名３"), r).Value = ""
+                            'TMSDGV.Item(tms_dgv.IndexOf("品名４"), r).Value = ""
+                            'TMSDGV.Item(tms_dgv.IndexOf("品名５"), r).Value = ""
+                            TMSDGV.Item(tms_dgv.IndexOf("ご依頼主電話番号"), r).Value = "092-980-1866"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主郵便番号"), r).Value = "812-0881"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所１"), r).Value = "福岡県福岡市博多区井相田１－８－"
                             TMSDGV.Item(tms_dgv.IndexOf("ご依頼主住所２"), r).Value = "33"
@@ -11160,6 +11312,7 @@ Public Class Csv_denpyo3
 
 
                         End If
+                    End If
                 Next
             Next
         End If
