@@ -1813,6 +1813,8 @@ Public Class Csv_denpyo3
                 Dim haisouSaki As String = DGV1.Item(dH1.IndexOf("発送先住所"), r1).Value
 
                 Dim checkcodejuchusu_ny263_51 As Integer = 0
+                Dim checkcodejuchusu_od492 As Integer = 0
+
                 Dim checkcodejuchusu_ny263_306_42 As Integer = 0
                 Dim checkcodejuchusu_ny263_306_51 As Integer = 0
                 Dim checkcodejuchusu_ny275 As Integer = 0
@@ -1925,6 +1927,14 @@ Public Class Csv_denpyo3
                             checkcodejuchusu_ny263_51 = checkcodejuchusu_ny263_51 + checkcode(1)
                         End If
                     End If
+
+                    If checkcode(0).ToLower = "od492" Then
+                        '個数は整数
+                        If checkcode(1) = Int(checkcode(1)) Then
+                            checkcodejuchusu_od492 = checkcodejuchusu_od492 + checkcode(1)
+                        End If
+                    End If
+
 
                     If checkcode(0).ToLower = "ny275-bk" Or checkcode(0).ToLower = "ny275-pi" Then
                         If checkcode(1) = Int(checkcode(1)) Then
@@ -2289,6 +2299,11 @@ Public Class Csv_denpyo3
                 Dim ny261_isnagoya As Boolean = Nothing
                 If checkcodejuchusu_ny261 > 0 Then
                     ny261_isnagoya = checkSouko_DaOrNa(tag_decide, "ny261", checkcodejuchusu_ny261, haisouSaki)
+                End If
+
+                Dim od492_isnagoyaortaizafu As Boolean = Nothing
+                If checkcodejuchusu_od492 > 0 Then
+                    od492_isnagoyaortaizafu = checkSouko_DaOrNa(tag_decide, "od492", checkcodejuchusu_ny261, haisouSaki)
                 End If
 
 
@@ -11793,13 +11808,11 @@ Public Class Csv_denpyo3
                 mode = "定形外"
         End Select
 
-        '测试完删除
-        'bincount = 5
-        '新任务TMS@
-        If bincount > 4 And hassou = "宅配便" And souko = HS1.Text And isGroupOrderFlag Then
-            mode = "TMS"
-        End If
-        'mode = "TMS"
+
+        '新任务TMS@  这里暂时取消掉TMS
+        'If bincount > 4 And hassou = "宅配便" And souko = HS1.Text And isGroupOrderFlag Then
+        '    mode = "TMS"
+        'End If
 
         If mode = "BIZlogi" Then
             TenmlateUse = Template2
