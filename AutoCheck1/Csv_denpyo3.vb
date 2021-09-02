@@ -5928,6 +5928,13 @@ Public Class Csv_denpyo3
             Else
                 bl = False 'false: 太宰府
             End If
+        ElseIf code = "od492" Then
+            If checkHaisosaki_DaOrNa(haisouSaki) Then
+                bl = True 'true: 名古屋
+            Else
+                bl = False 'false: 太宰府
+            End If
+
 
         End If
 
