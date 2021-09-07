@@ -1661,11 +1661,10 @@ Public Class Csv_denpyo3
         For r1 As Integer = 0 To DGV1.RowCount - 1
             Dim dNum As String = DGV1.Item(dH1.IndexOf("伝票番号"), r1).Value
 
-
-
             Dim str As String = ""
             Dim tenpo As String = ""
             For r2 As Integer = 0 To DGV3.RowCount - 1
+
                 If dNum = DGV3.Item(dH3.IndexOf("伝票番号"), r2).Value Then
 
                     DGV3.Item(dH3.IndexOf("伝票番号"), r2).Style.BackColor = Color.LemonChiffon
@@ -3297,6 +3296,7 @@ Public Class Csv_denpyo3
                 ToolStripProgressBar1.Value += 1
             Next
         ElseIf type = 1 Then
+            Dim c = 0
             'If dgvT Is DGV7 Or dgvT Is DGV8 Then
             '    Dim dHTemp As ArrayList = TM_HEADER_GET(dgvT)
             '    Dim haisouSize_ As Double = 0
@@ -5923,11 +5923,13 @@ Public Class Csv_denpyo3
             '        bl = False 'false: 太宰府
             '    End If
         ElseIf code = "od433-wa" Then
-            If checkHaisosaki_DaOrNa(haisouSaki) Then
-                bl = True 'true: 名古屋
-            Else
-                bl = False 'false: 太宰府
-            End If
+            'If checkHaisosaki_DaOrNa(haisouSaki) Then
+            '    bl = True 'true: 名古屋
+            'Else
+            '    bl = False 'false: 太宰府
+            'End If
+
+            bl = True 'true: 名古屋
         ElseIf code = "od492" Then
             If checkHaisosaki_DaOrNa(haisouSaki) Then
                 bl = True 'true: 名古屋
