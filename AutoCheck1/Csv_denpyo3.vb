@@ -2651,7 +2651,10 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
-
+                    If haisouKind = "宅配便" And ((code(0).ToLower = "ny261-450-c") Or (code(0).ToLower = "ny261-450-d")) Then
+                        weight = "16.66" '100/6
+                        sp_check = False
+                    End If
 
                     'ad228 2個なら1便 
                     'If haisouKind = "宅配便" And (code(0).ToLower = "ad228" Or code(0).ToLower = "ad228-be" Or code(0).ToLower = "ad228-bl" Or code(0).ToLower = "ad228-co" Or code(0).ToLower = "ad228-gr" Or code(0).ToLower = "ad228-sb" Or code(0).ToLower = "ad228-wa") And checkcodejuchusu_ad228_even Then
@@ -11875,6 +11878,7 @@ Public Class Csv_denpyo3
                 Exit Sub
             End If
         End If
+
 
         '実績ロックされているか確認
         If File.Exists(lockPath) Then

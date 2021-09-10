@@ -2458,7 +2458,6 @@ Public Class HTMLdialog
 
                         '名前
                         oneStr &= "," & lineSTR(1)
-
                         '価格
                         If csvStr(DH1.IndexOf(header_kakaku)) <> lineSTR(2) Then
                             DRstr &= "「" & lineSTR(0) & "」 " & lineSTR(2) & "→" & csvStr(DH1.IndexOf(header_kakaku)) & " 変更" & vbCrLf
@@ -2634,7 +2633,8 @@ Public Class HTMLdialog
                     Next
                     DRstr &= "..."
                 End If
-                MsgBox(DRstr, MsgBoxStyle.OkOnly Or MsgBoxStyle.SystemModal)
+
+                'MsgBox(DRstr, MsgBoxStyle.OkOnly Or MsgBoxStyle.SystemModal)
             End If
         End If
     End Sub

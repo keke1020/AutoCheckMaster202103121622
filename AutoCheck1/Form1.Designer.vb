@@ -1576,14 +1576,14 @@ Partial Class Form1
         'プロパティToolStripMenuItem
         '
         Me.プロパティToolStripMenuItem.Name = "プロパティToolStripMenuItem"
-        Me.プロパティToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.プロパティToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.プロパティToolStripMenuItem.Text = "プロパティ"
         '
         'UserAgentToolStripMenuItem
         '
         Me.UserAgentToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.自動ToolStripMenuItem, Me.IEToolStripMenuItem, Me.ChromeToolStripMenuItem})
         Me.UserAgentToolStripMenuItem.Name = "UserAgentToolStripMenuItem"
-        Me.UserAgentToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.UserAgentToolStripMenuItem.Size = New System.Drawing.Size(153, 22)
         Me.UserAgentToolStripMenuItem.Text = "UserAgent変更"
         '
         '自動ToolStripMenuItem
@@ -1591,19 +1591,19 @@ Partial Class Form1
         Me.自動ToolStripMenuItem.Checked = True
         Me.自動ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.自動ToolStripMenuItem.Name = "自動ToolStripMenuItem"
-        Me.自動ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.自動ToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.自動ToolStripMenuItem.Text = "自動"
         '
         'IEToolStripMenuItem
         '
         Me.IEToolStripMenuItem.Name = "IEToolStripMenuItem"
-        Me.IEToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.IEToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.IEToolStripMenuItem.Text = "IE"
         '
         'ChromeToolStripMenuItem
         '
         Me.ChromeToolStripMenuItem.Name = "ChromeToolStripMenuItem"
-        Me.ChromeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ChromeToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.ChromeToolStripMenuItem.Text = "Chrome"
         '
         '設定ToolStripMenuItem
