@@ -1124,7 +1124,13 @@ Public Class Shiji
                 End If
 
                 WebBrowser1.Navigate(New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_001_002&shop_bid=" & shop_bid & "&mng_number=" & search_code))
+                Dim C = "https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_001_002&shop_bid=" & shop_bid & "&mng_number=" & search_code
+                Console.WriteLine(C)
+
+
                 WaitWebBrowser1Completed()
+
+                Console.WriteLine(WebBrowser1.Document.Body.InnerText)
 
                 If WebBrowser1.Document.Body.InnerText.Contains("以下のエラーがあります") Then
                     DataGridView1.Item(dH1.IndexOf("結果"), r).Value = "×"
@@ -1134,193 +1140,339 @@ Public Class Shiji
                     Continue For
                 Else
                     '枝番がある
-                    If WebBrowser1.Document.GetElementById("r31").GetAttribute("checked") = "True" Then
-                        WebBrowser1.Navigate(New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_001_005&shop_bid=" & shop_bid & "&mng_number=" & search_code & "&delvdate_register_type=0"))
-                        WaitWebBrowser1Completed()
+                    Console.WriteLine("枝番がある")
 
-                        Dim buf As Byte() = New Byte(WebBrowser1.DocumentStream.Length) {}
-                        WebBrowser1.DocumentStream.Read(buf, 0, CInt(WebBrowser1.DocumentStream.Length))
-                        Dim ec As System.Text.Encoding = System.Text.Encoding.GetEncoding(WebBrowser1.Document.Encoding)
-                        Dim htmls As String = ec.GetString(buf)
+                    Console.WriteLine(WebBrowser1.Document.ToString)
+                    Dim unv = WebBrowser1.Document.ToString
+                    Dim c2 = WebBrowser1.Document.Body.InnerHtml
+                    Console.WriteLine(c2)
 
-                        Dim doc As HtmlAgilityPack.HtmlDocument = New HtmlAgilityPack.HtmlDocument
-                        doc.LoadHtml(htmls)
 
-                        '例: sh004-xl
-                        '① 行 Sサイズ/--s Mサイズ/--m
-                        '列 無し
 
-                        '例: ee270-bk-xl
-                        '② 行 ブラック/--bk シルバー/--si
-                        '列 S/--s L/--l 
 
-                        '例: zk095-02
-                        '③ 行 種類/-
-                        '列 01ブルー/--01 02羽根/--02
+                    Console.WriteLine("????????")
 
-                        '例: ny264-200 - 50kn
-                        Dim selecter As String = "//font"
-                        Dim nodes As HtmlAgilityPack.HtmlNodeCollection = doc.DocumentNode.SelectNodes(selecter)
+                    If WebBrowser1.Document.GetElementById("r31") <> Nothing Then
 
-                        Dim node_x As Integer = -1
-                        Dim node_y As Integer = -1
-                        Dim node_x_c As Integer = 0 '総個数
-                        Dim node_y_c As Integer = 0
-                        Dim node_x_ｓ As Integer = 0 '同じ個数
-                        Dim node_y_ｓ As Integer = 0
-                        Dim eda_x As String = ""
-                        Dim eda_name As String = ""
+                        MsgBox("r31 bucunzai")
 
-                        If code_m.Count = 2 Or (code_m.Count = 3 And isDaihyo) Then
-                            If code_m.Count = 2 Then
-                                eda_x = "--" & code_m(1)
-                            ElseIf (code_m.Count = 3 And isDaihyo) Then
-                                eda_x = "--" & code_m(2)
-                            End If
 
-                            For Each node As HtmlAgilityPack.HtmlNode In nodes
-                                Dim str As String = node.InnerText
-                                str = Regex.Replace(str, "\r|\n", " ")
-                                str = Replace(str, " ", "")
-                                'Console.WriteLine(str)
 
-                                If InStr(str, "同行一括") > 0 Or InStr(str, "/-") > 0 Then '列
-                                    If InStr(str, "同行一括") > 0 Then
-                                        str = Replace(str, "同行一括", "")
-                                        node_y_c += 1
 
-                                        If InStr(str, "/--") Then
-                                            Dim str_sp As String() = Split(str, "/")
+                        If WebBrowser1.Document.GetElementById("r31").GetAttribute("checked") = "True" Then
+                            'If True Then
 
-                                            If str_sp.Length = 3 Then
-                                                If str_sp(2) = eda_x Then
-                                                    node_y = node_y_c
-                                                    node_y_ｓ += 1
-                                                    eda_name = str_sp(0)
-                                                End If
-                                            Else
-                                                If str_sp(1) = eda_x Then
-                                                    node_y = node_y_c
-                                                    node_y_ｓ += 1
-                                                    eda_name = str_sp(0)
+                            'End If
+
+                            WebBrowser1.Navigate(New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_001_005&shop_bid=" & shop_bid & "&mng_number=" & search_code & "&delvdate_register_type=0"))
+                            WaitWebBrowser1Completed()
+
+
+                            Dim cc = "https://rshop.rms.rakuten.co.jp/rms/mall/rsf/shop/vc?__event=RS00_001_002&shop_bid=321434"
+                            Dim cc2 = "https://rshop.rms.rakuten.co.jp/rms/mall/rsf/shop/vc?__event=RS00_001_002&shop_bid=321434&mng_number=ad260&delvdate_register_type=0"
+
+
+
+
+                            Dim cc3 = "https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_001_005&shop_bid=321434&mng_number=ad260&delvdate_register_type=0"
+
+                            Dim buf As Byte() = New Byte(WebBrowser1.DocumentStream.Length) {}
+                            WebBrowser1.DocumentStream.Read(buf, 0, CInt(WebBrowser1.DocumentStream.Length))
+                            Dim ec As System.Text.Encoding = System.Text.Encoding.GetEncoding(WebBrowser1.Document.Encoding)
+                            Dim htmls As String = ec.GetString(buf)
+
+                            Dim doc As HtmlAgilityPack.HtmlDocument = New HtmlAgilityPack.HtmlDocument
+                            doc.LoadHtml(htmls)
+
+                            '例: sh004-xl
+                            '① 行 Sサイズ/--s Mサイズ/--m
+                            '列 無し
+
+                            '例: ee270-bk-xl
+                            '② 行 ブラック/--bk シルバー/--si
+                            '列 S/--s L/--l 
+
+                            '例: zk095-02
+                            '③ 行 種類/-
+                            '列 01ブルー/--01 02羽根/--02
+
+                            '例: ny264-200 - 50kn
+                            Dim selecter As String = "//font"
+                            Dim nodes As HtmlAgilityPack.HtmlNodeCollection = doc.DocumentNode.SelectNodes(selecter)
+
+                            Dim node_x As Integer = -1
+                            Dim node_y As Integer = -1
+                            Dim node_x_c As Integer = 0 '総個数
+                            Dim node_y_c As Integer = 0
+                            Dim node_x_ｓ As Integer = 0 '同じ個数
+                            Dim node_y_ｓ As Integer = 0
+                            Dim eda_x As String = ""
+                            Dim eda_name As String = ""
+
+                            If code_m.Count = 2 Or (code_m.Count = 3 And isDaihyo) Then
+                                If code_m.Count = 2 Then
+                                    eda_x = "--" & code_m(1)
+                                ElseIf (code_m.Count = 3 And isDaihyo) Then
+                                    eda_x = "--" & code_m(2)
+                                End If
+
+                                For Each node As HtmlAgilityPack.HtmlNode In nodes
+                                    Dim str As String = node.InnerText
+                                    str = Regex.Replace(str, "\r|\n", " ")
+                                    str = Replace(str, " ", "")
+                                    'Console.WriteLine(str)
+
+                                    If InStr(str, "同行一括") > 0 Or InStr(str, "/-") > 0 Then '列
+                                        If InStr(str, "同行一括") > 0 Then
+                                            str = Replace(str, "同行一括", "")
+                                            node_y_c += 1
+
+                                            If InStr(str, "/--") Then
+                                                Dim str_sp As String() = Split(str, "/")
+
+                                                If str_sp.Length = 3 Then
+                                                    If str_sp(2) = eda_x Then
+                                                        node_y = node_y_c
+                                                        node_y_ｓ += 1
+                                                        eda_name = str_sp(0)
+                                                    End If
+                                                Else
+                                                    If str_sp(1) = eda_x Then
+                                                        node_y = node_y_c
+                                                        node_y_ｓ += 1
+                                                        eda_name = str_sp(0)
+                                                    End If
                                                 End If
                                             End If
-                                        End If
-                                    ElseIf InStr(str, "同列一括") > 0 Or InStr(str, "/-") > 0 Then '行 
-                                        str = Replace(str, "同列一括", "")
-                                        node_x_c += 1
+                                        ElseIf InStr(str, "同列一括") > 0 Or InStr(str, "/-") > 0 Then '行 
+                                            str = Replace(str, "同列一括", "")
+                                            node_x_c += 1
 
-                                        If InStr(str, "/--") Then
-                                            Dim str_sp As String() = Split(str, "/")
-                                            If str_sp.Length = 3 Then
-                                                If str_sp(2) = eda_x Then
-                                                    node_x = node_x_c
-                                                    node_x_ｓ += 1
-                                                    eda_name = str_sp(0)
-                                                End If
-                                            Else
-                                                If str_sp(1) = eda_x Then
-                                                    node_x = node_x_c
-                                                    node_x_ｓ += 1
-                                                    eda_name = str_sp(0)
+                                            If InStr(str, "/--") Then
+                                                Dim str_sp As String() = Split(str, "/")
+                                                If str_sp.Length = 3 Then
+                                                    If str_sp(2) = eda_x Then
+                                                        node_x = node_x_c
+                                                        node_x_ｓ += 1
+                                                        eda_name = str_sp(0)
+                                                    End If
+                                                Else
+                                                    If str_sp(1) = eda_x Then
+                                                        node_x = node_x_c
+                                                        node_x_ｓ += 1
+                                                        eda_name = str_sp(0)
+                                                    End If
                                                 End If
                                             End If
                                         End If
                                     End If
-                                End If
-                            Next
+                                Next
 
-                            If node_x = -1 And node_y = -1 Then '無し
-                                dgvResult(DataGridView1, r, False, True, "")
-                                Continue For
-                            End If
-
-                            If node_x_c = 0 Or node_y_c = 0 Then '無し
-                                dgvResult(DataGridView1, r, False, True, "")
-                                Continue For
-                            End If
-
-                            '匹配到行，列只有1个
-                            If node_x <> -1 And node_y = 1 Then '無し
-                                dgvResult(DataGridView1, r, False, True, "")
-                                Continue For
-                            End If
-
-                            If node_y_ｓ > 1 Or node_y_ｓ > 1 Then '同じ枝個数が多い
-                                dgvResult(DataGridView1, r, False, True, "")
-                                Continue For
-                            End If
-
-                            If node_y_c = 1 And node_x_c = 1 Then  'サンプル③
-                                node_y = 1
-                            End If
-
-                            If node_x <> -1 And node_y = -1 Then
-                                node_y = 0
-                            End If
-
-                            If node_x <> -1 And node_y_c = 1 Then 'サンプル①
-                                Dim result As String = ""
-                                If shop = "alice" Then
-                                    result = selectShijiBySelect_index(3, "normal_delvdate_id_" & node_x & "_0")
-                                Else
-                                    result = selectShijiBySelect(shizistr, "normal_delvdate_id_" & node_x & "_0")
+                                If node_x = -1 And node_y = -1 Then '無し
+                                    dgvResult(DataGridView1, r, False, True, "")
+                                    Continue For
                                 End If
 
-                                Dim result_ As String() = Split(result, "||")
-                                If result_(1) = "true" Then
-                                    If ComboBox4.SelectedIndex = 1 Then
-                                        Dim click_flag As Boolean = False
-                                        Dim eleSels As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("input")
-                                        For Each eleSel As HtmlElement In eleSels
-                                            If eleSel.GetAttribute("value") = "　　納期情報および在庫数を変更する　" Then
-                                                eleSel.InvokeMember("Click")
-                                                WaitWebBrowser1Completed()
+                                If node_x_c = 0 Or node_y_c = 0 Then '無し
+                                    dgvResult(DataGridView1, r, False, True, "")
+                                    Continue For
+                                End If
 
-                                                If WebBrowser1.Document.Body.InnerText.Contains("R-Storefront編集禁止") <> "False" Then
-                                                    MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
-                                                    Exit Sub
+                                '匹配到行，列只有1个
+                                If node_x <> -1 And node_y = 1 Then '無し
+                                    dgvResult(DataGridView1, r, False, True, "")
+                                    Continue For
+                                End If
+
+                                If node_y_ｓ > 1 Or node_y_ｓ > 1 Then '同じ枝個数が多い
+                                    dgvResult(DataGridView1, r, False, True, "")
+                                    Continue For
+                                End If
+
+                                If node_y_c = 1 And node_x_c = 1 Then  'サンプル③
+                                    node_y = 1
+                                End If
+
+                                If node_x <> -1 And node_y = -1 Then
+                                    node_y = 0
+                                End If
+
+                                If node_x <> -1 And node_y_c = 1 Then 'サンプル①
+                                    Dim result As String = ""
+                                    If shop = "alice" Then
+                                        result = selectShijiBySelect_index(3, "normal_delvdate_id_" & node_x & "_0")
+                                    Else
+                                        result = selectShijiBySelect(shizistr, "normal_delvdate_id_" & node_x & "_0")
+                                    End If
+
+                                    Dim result_ As String() = Split(result, "||")
+                                    If result_(1) = "true" Then
+                                        If ComboBox4.SelectedIndex = 1 Then
+                                            Dim click_flag As Boolean = False
+                                            Dim eleSels As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("input")
+                                            For Each eleSel As HtmlElement In eleSels
+                                                If eleSel.GetAttribute("value") = "　　納期情報および在庫数を変更する　" Then
+                                                    eleSel.InvokeMember("Click")
+                                                    WaitWebBrowser1Completed()
+
+                                                    If WebBrowser1.Document.Body.InnerText.Contains("R-Storefront編集禁止") <> "False" Then
+                                                        MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
+                                                        Exit Sub
+                                                    End If
+
+                                                    click_flag = True
+                                                    Exit For
                                                 End If
-
-                                                click_flag = True
-                                                Exit For
+                                            Next
+                                            If click_flag Then
+                                                dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
+                                            Else
+                                                dgvResult(DataGridView1, r, False, False, "")
+                                                success = False
+                                                Continue For
                                             End If
-                                        Next
-                                        If click_flag Then
-                                            dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
                                         Else
-                                            dgvResult(DataGridView1, r, False, False, "")
-                                            success = False
-                                            Continue For
+                                            dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
                                         End If
                                     Else
-                                        dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
+                                        dgvResult(DataGridView1, r, False, False, "")
+                                        success = False
+                                        Continue For
                                     End If
-                                Else
-                                    dgvResult(DataGridView1, r, False, False, "")
+                                ElseIf node_x_c = 1 And node_y <> -1 Then 'サンプル③
+                                    Dim result As String = ""
+                                    'If node_y = 1 Then
+                                    '    If shop = "alice" Then
+                                    '        result = selectShijiBySelect_index(3, "normal_delvdate_id_1_0")
+                                    '    Else
+                                    '        result = selectShijiBySelect(shizistr, "normal_delvdate_id_1_0")
+                                    '    End If
+                                    'Else
+                                    '    If shop = "alice" Then
+                                    '        result = selectShijiBySelect_index(3, "normal_delvdate_id_1_" & node_y)
+                                    '    Else
+                                    '        result = selectShijiBySelect(shizistr, "normal_delvdate_id_1_" & node_y)
+                                    '    End If
+                                    'End If
+                                    If node_y = 1 And node_y_c = 1 Then
+                                        result = selectShijiBySelect(shizistr, "normal_delvdate_id_1_0")
+                                    Else
+                                        result = selectShijiBySelect(shizistr, "normal_delvdate_id_1_" & node_y)
+                                    End If
+                                    Dim result_ As String() = Split(result, "||")
+                                    If result_(1) = "true" Then
+                                        If ComboBox4.SelectedIndex = 1 Then
+                                            Dim click_flag As Boolean = False
+                                            Dim eleSels As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("input")
+                                            For Each eleSel As HtmlElement In eleSels
+                                                If eleSel.GetAttribute("value").Trim = "納期情報および在庫数を変更する" Then
+                                                    eleSel.InvokeMember("Click")
+                                                    WaitWebBrowser1Completed()
+
+                                                    If WebBrowser1.Document.Body.InnerText.Contains("R-Storefront編集禁止") <> "False" Then
+                                                        MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
+                                                        Exit Sub
+                                                    End If
+
+                                                    click_flag = True
+                                                    Exit For
+                                                End If
+                                            Next
+                                            If click_flag Then
+                                                dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
+                                            Else
+                                                dgvResult(DataGridView1, r, False, True, "")
+                                                success = False
+                                                Continue For
+                                            End If
+                                        Else
+                                            dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
+                                        End If
+                                    Else
+                                        dgvResult(DataGridView1, r, False, True, "")
+                                        success = False
+                                        Continue For
+                                    End If
+                                End If
+                            ElseIf code_m.Count = 3 And isDaihyo = False Then
+                                eda_x = "--" & code_m(1)
+                                Dim eda_y As String = code_m(2)
+
+                                For Each node As HtmlAgilityPack.HtmlNode In nodes
+                                    Dim str As String = node.InnerText
+                                    str = Regex.Replace(str, "\r|\n", " ")
+                                    str = Replace(str, " ", "")
+                                    'Console.WriteLine(str)
+
+                                    If InStr(str, "同行一括") > 0 Or InStr(str, "/-") > 0 Then '列
+                                        If InStr(str, "同行一括") > 0 Then
+                                            str = Replace(str, "同行一括", "")
+                                            node_y_c += 1
+
+                                            If InStr(str, "/-") Then
+                                                Dim str_sp As String() = Split(str, "/")
+                                                If str_sp(1) = "--" & eda_y Or str_sp(1) = "-" & eda_y Then
+                                                    node_y = node_y_c
+                                                    node_y_ｓ += 1
+                                                    If eda_name <> "" Then
+                                                        eda_name = eda_name & "/" & str_sp(0)
+                                                    Else
+                                                        eda_name = str_sp(0)
+                                                    End If
+                                                End If
+                                            End If
+                                        ElseIf InStr(str, "同列一括") > 0 Or InStr(str, "/-") > 0 Then '行 
+                                            str = Replace(str, "同列一括", "")
+                                            node_x_c += 1
+
+                                            If InStr(str, "/-") Then
+                                                Dim str_sp As String() = Split(str, "/")
+                                                If str_sp.Length = 3 Then
+                                                    If str_sp(2) = eda_x Then
+                                                        node_x = node_x_c
+                                                        node_x_ｓ += 1
+                                                        If eda_name <> "" Then
+                                                            eda_name = eda_name & "/" & str_sp(0)
+                                                        Else
+                                                            eda_name = str_sp(0)
+                                                        End If
+                                                    End If
+                                                ElseIf str_sp.Length = 2 Then
+                                                    If str_sp(1) = eda_x Then
+                                                        node_x = node_x_c
+                                                        node_x_ｓ += 1
+                                                        If eda_name <> "" Then
+                                                            eda_name = eda_name & "/" & str_sp(0)
+                                                        Else
+                                                            eda_name = str_sp(0)
+                                                        End If
+                                                    End If
+                                                End If
+                                            End If
+                                        End If
+                                    End If
+                                Next
+
+                                If node_x_c = 0 Or node_y_c = 0 Then '無し
+                                    dgvResult(DataGridView1, r, False, True, "")
                                     success = False
                                     Continue For
                                 End If
-                            ElseIf node_x_c = 1 And node_y <> -1 Then 'サンプル③
-                                Dim result As String = ""
-                                'If node_y = 1 Then
-                                '    If shop = "alice" Then
-                                '        result = selectShijiBySelect_index(3, "normal_delvdate_id_1_0")
-                                '    Else
-                                '        result = selectShijiBySelect(shizistr, "normal_delvdate_id_1_0")
-                                '    End If
-                                'Else
-                                '    If shop = "alice" Then
-                                '        result = selectShijiBySelect_index(3, "normal_delvdate_id_1_" & node_y)
-                                '    Else
-                                '        result = selectShijiBySelect(shizistr, "normal_delvdate_id_1_" & node_y)
-                                '    End If
-                                'End If
-                                If node_y = 1 And node_y_c = 1 Then
-                                    result = selectShijiBySelect(shizistr, "normal_delvdate_id_1_0")
-                                Else
-                                    result = selectShijiBySelect(shizistr, "normal_delvdate_id_1_" & node_y)
+
+                                If node_y_ｓ > 1 Or node_y_ｓ > 1 Then '同じ枝個数が多い
+                                    dgvResult(DataGridView1, r, False, True, "")
+                                    success = False
+                                    Continue For
                                 End If
+
+                                Dim result As String = ""
+                                'If shop = "alice" Then
+                                '    result = selectShijiBySelect_index(3, "normal_delvdate_id_" & node_x & "_" & node_y)
+                                'Else
+                                '    result = selectShijiBySelect(shizistr, "normal_delvdate_id_" & node_x & "_" & node_y)
+                                'End If
+                                result = selectShijiBySelect(shizistr, "normal_delvdate_id_" & node_x & "_" & node_y)
+
                                 Dim result_ As String() = Split(result, "||")
                                 If result_(1) = "true" Then
                                     If ComboBox4.SelectedIndex = 1 Then
@@ -1340,6 +1492,7 @@ Public Class Shiji
                                                 Exit For
                                             End If
                                         Next
+
                                         If click_flag Then
                                             dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
                                         Else
@@ -1356,137 +1509,123 @@ Public Class Shiji
                                     Continue For
                                 End If
                             End If
-                        ElseIf code_m.Count = 3 And isDaihyo = False Then
-                            eda_x = "--" & code_m(1)
-                            Dim eda_y As String = code_m(2)
 
-                            For Each node As HtmlAgilityPack.HtmlNode In nodes
-                                Dim str As String = node.InnerText
-                                str = Regex.Replace(str, "\r|\n", " ")
-                                str = Replace(str, " ", "")
-                                'Console.WriteLine(str)
+                            If success Then
+                                WebBrowser1.Navigate(New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_003_003&shop_bid=" & shop_bid & "&mng_number=" & search_code))
+                                WaitWebBrowser1Completed()
+                                If WebBrowser1.Document.GetElementById("normal_delvdate_id").GetAttribute("selectedIndex") = 0 Then
+                                    addyoyaku = False
+                                Else
+                                    addyoyaku = True
+                                End If
 
-                                If InStr(str, "同行一括") > 0 Or InStr(str, "/-") > 0 Then '列
-                                    If InStr(str, "同行一括") > 0 Then
-                                        str = Replace(str, "同行一括", "")
-                                        node_y_c += 1
+                                If ComboBox4.SelectedIndex = 1 Then
+                                    If shop = "akane" Then
+                                        '商品名
+                                        WebBrowser1.Navigate(New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_001_002&shop_bid=" & shop_bid & "&mng_number=" & search_code))
+                                        WaitWebBrowser1Completed()
 
-                                        If InStr(str, "/-") Then
-                                            Dim str_sp As String() = Split(str, "/")
-                                            If str_sp(1) = "--" & eda_y Or str_sp(1) = "-" & eda_y Then
-                                                node_y = node_y_c
-                                                node_y_ｓ += 1
-                                                If eda_name <> "" Then
-                                                    eda_name = eda_name & "/" & str_sp(0)
-                                                Else
-                                                    eda_name = str_sp(0)
-                                                End If
-                                            End If
+                                        If InStr(WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"), "＜一部商品予約＞") > 0 Then
+                                            WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value").Replace("＜一部商品予約＞", ""))
+                                        ElseIf InStr(WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"), "＜一部予約＞") > 0 Then
+                                            WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value").Replace("＜一部予約＞", ""))
+                                        ElseIf InStr(WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"), "＜予約＞") > 0 Then
+                                            WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value").Replace("＜予約＞", ""))
                                         End If
-                                    ElseIf InStr(str, "同列一括") > 0 Or InStr(str, "/-") > 0 Then '行 
-                                        str = Replace(str, "同列一括", "")
-                                        node_x_c += 1
 
-                                        If InStr(str, "/-") Then
-                                            Dim str_sp As String() = Split(str, "/")
-                                            If str_sp.Length = 3 Then
-                                                If str_sp(2) = eda_x Then
-                                                    node_x = node_x_c
-                                                    node_x_ｓ += 1
-                                                    If eda_name <> "" Then
-                                                        eda_name = eda_name & "/" & str_sp(0)
-                                                    Else
-                                                        eda_name = str_sp(0)
-                                                    End If
-                                                End If
-                                            ElseIf str_sp.Length = 2 Then
-                                                If str_sp(1) = eda_x Then
-                                                    node_x = node_x_c
-                                                    node_x_ｓ += 1
-                                                    If eda_name <> "" Then
-                                                        eda_name = eda_name & "/" & str_sp(0)
-                                                    Else
-                                                        eda_name = str_sp(0)
-                                                    End If
-                                                End If
-                                            End If
+                                        If addyoyaku Then
+                                            WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", "＜予約＞" & WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"))
+                                        Else
+                                            WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", "＜一部商品予約＞" & WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"))
+                                        End If
+
+                                        WebBrowser1.Document.GetElementById("submitButton").InvokeMember("Click")
+                                        WaitWebBrowser1Completed()
+
+                                        If WebBrowser1.Document.Body.InnerText.Contains("R-Storefront編集禁止") <> "False" Then
+                                            dgvResult(DataGridView1, r, False, False, "")
+                                            MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
+                                            Exit Sub
                                         End If
                                     End If
                                 End If
-                            Next
 
-                            If node_x_c = 0 Or node_y_c = 0 Then '無し
-                                dgvResult(DataGridView1, r, False, True, "")
-                                success = False
-                                Continue For
+                                '項目選択肢
+                                If CheckBox4.Checked And ComboBox4.SelectedIndex = 1 Then
+                                    'WebBrowser1.Navigate(New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_003_002&shop_bid=" & shop_bid & "&mng_number=" & search_code))
+                                    'WaitWebBrowser1Completed()
+
+                                    'If ComboBox4.SelectedIndex = 1 Then
+                                    '    Dim eleSels As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("input")
+                                    '    For Each eleSel As HtmlElement In eleSels
+                                    '        If eleSel.GetAttribute("value").Trim = "項目選択肢を追加する" Then
+                                    '            eleSel.InvokeMember("Click")
+                                    '            WaitWebBrowser1Completed()
+
+                                    '            If WebBrowser1.Document.Body.InnerText.Contains("R-Storefront編集禁止") <> "False" Then
+                                    '                MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
+                                    '                Exit Sub
+                                    '            End If
+                                    '            Exit For
+                                    '        End If
+                                    '    Next
+
+                                    '    If shop = "akane" Then
+                                    '        If shizistr.Contains("入荷待ち(") Then
+                                    '            Dim nichiji As String() = shizistr.Split("(")
+                                    '            Dim nichiji_ As String = nichiji(1).Replace(")", "")
+                                    '            WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("choice_name")(0).SetAttribute("value", komokusentaku_tag & "予約商品（" & eda_name & "）" & nichiji_)
+                                    '        Else
+                                    '            WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("choice_name")(0).SetAttribute("value", komokusentaku_tag & "予約商品（" & eda_name & "）" & shizistr)
+                                    '        End If
+                                    '    ElseIf shop = "akatsuki" Then
+                                    '        Dim komokusentaku As String = DataGridView1.Item(dH1.IndexOf("項目選択肢"), r).Value
+
+                                    '        If komokusentaku = "" Then
+                                    '            Continue For
+                                    '        End If
+
+                                    '        If eda_name = "" Then
+                                    '            Continue For
+                                    '        End If
+
+                                    '        Dim komokusentaku_in As String = komokusentaku_tag & komokusentaku.Substring(0, 5) & "（" & eda_name & "）" & komokusentaku.Substring(5, komokusentaku.Length - 5)
+                                    '        WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("choice_name")(0).SetAttribute("value", komokusentaku_in)
+                                    '    End If
+
+                                    '    WebBrowser1.Document.GetElementsByTagName("input").GetElementsByName("value_1")(0).SetAttribute("value", "了承済み！")
+
+                                    '    eleSels = WebBrowser1.Document.GetElementsByTagName("input")
+                                    '    For Each eleSel As HtmlElement In eleSels
+                                    '        If eleSel.GetAttribute("value").Trim = "項目選択肢を登録する" Then
+                                    '            eleSel.InvokeMember("Click")
+                                    '            WaitWebBrowser1Completed()
+
+                                    '            If WebBrowser1.Document.Body.InnerText.Contains("R-Storefront編集禁止") <> "False" Then
+                                    '                MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
+                                    '                Exit Sub
+                                    '            End If
+                                    '            Exit For
+                                    '        End If
+                                    '    Next
+                                    '    dgvResult(DataGridView1, r, True, True, "")
+                                    'End If
+
+                                    If CheckBox4.Checked And ComboBox4.SelectedIndex = 1 Then
+                                        Dim komokusentaku As String = DataGridView1.Item(dH1.IndexOf("項目選択肢"), r).Value
+                                        If komokusentaku <> Nothing And eda_name.Trim <> "" Then
+                                            komoku_syori(4, shop_bid, search_code, eda_name, r, komokusentaku)
+                                        End If
+                                    End If
+                                End If
                             End If
-
-                            If node_y_ｓ > 1 Or node_y_ｓ > 1 Then '同じ枝個数が多い
-                                dgvResult(DataGridView1, r, False, True, "")
-                                success = False
-                                Continue For
-                            End If
-
-                            Dim result As String = ""
-                            'If shop = "alice" Then
-                            '    result = selectShijiBySelect_index(3, "normal_delvdate_id_" & node_x & "_" & node_y)
-                            'Else
-                            '    result = selectShijiBySelect(shizistr, "normal_delvdate_id_" & node_x & "_" & node_y)
-                            'End If
-                            result = selectShijiBySelect(shizistr, "normal_delvdate_id_" & node_x & "_" & node_y)
-
+                        Else
+                            '枝番なし
+                            Dim result As String = selectShijiBySelect(shizistr, "normal_delvdate_id")
                             Dim result_ As String() = Split(result, "||")
                             If result_(1) = "true" Then
-                                If ComboBox4.SelectedIndex = 1 Then
-                                    Dim click_flag As Boolean = False
-                                    Dim eleSels As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("input")
-                                    For Each eleSel As HtmlElement In eleSels
-                                        If eleSel.GetAttribute("value").Trim = "納期情報および在庫数を変更する" Then
-                                            eleSel.InvokeMember("Click")
-                                            WaitWebBrowser1Completed()
-
-                                            If WebBrowser1.Document.Body.InnerText.Contains("R-Storefront編集禁止") <> "False" Then
-                                                MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
-                                                Exit Sub
-                                            End If
-
-                                            click_flag = True
-                                            Exit For
-                                        End If
-                                    Next
-
-                                    If click_flag Then
-                                        dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
-                                    Else
-                                        dgvResult(DataGridView1, r, False, True, "")
-                                        success = False
-                                        Continue For
-                                    End If
-                                Else
-                                    dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
-                                End If
-                            Else
-                                dgvResult(DataGridView1, r, False, True, "")
-                                success = False
-                                Continue For
-                            End If
-                        End If
-
-                        If success Then
-                            WebBrowser1.Navigate(New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_003_003&shop_bid=" & shop_bid & "&mng_number=" & search_code))
-                            WaitWebBrowser1Completed()
-                            If WebBrowser1.Document.GetElementById("normal_delvdate_id").GetAttribute("selectedIndex") = 0 Then
-                                addyoyaku = False
-                            Else
-                                addyoyaku = True
-                            End If
-
-                            If ComboBox4.SelectedIndex = 1 Then
                                 If shop = "akane" Then
                                     '商品名
-                                    WebBrowser1.Navigate(New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_001_002&shop_bid=" & shop_bid & "&mng_number=" & search_code))
-                                    WaitWebBrowser1Completed()
-
                                     If InStr(WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"), "＜一部商品予約＞") > 0 Then
                                         WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value").Replace("＜一部商品予約＞", ""))
                                     ElseIf InStr(WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"), "＜一部予約＞") > 0 Then
@@ -1495,12 +1634,10 @@ Public Class Shiji
                                         WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value").Replace("＜予約＞", ""))
                                     End If
 
-                                    If addyoyaku Then
-                                        WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", "＜予約＞" & WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"))
-                                    Else
-                                        WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", "＜一部商品予約＞" & WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"))
-                                    End If
+                                    WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", "＜予約＞" & WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"))
+                                End If
 
+                                If ComboBox4.SelectedIndex = 1 Then
                                     WebBrowser1.Document.GetElementById("submitButton").InvokeMember("Click")
                                     WaitWebBrowser1Completed()
 
@@ -1509,122 +1646,29 @@ Public Class Shiji
                                         MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
                                         Exit Sub
                                     End If
-                                End If
-                            End If
 
-                            '項目選択肢
-                            If CheckBox4.Checked And ComboBox4.SelectedIndex = 1 Then
-                                'WebBrowser1.Navigate(New Uri("https://item.rms.rakuten.co.jp/rms/mall/rsf/item/vc?__event=RI03_003_002&shop_bid=" & shop_bid & "&mng_number=" & search_code))
-                                'WaitWebBrowser1Completed()
+                                    If CheckBox4.Checked And ComboBox4.SelectedIndex = 1 Then
+                                        Dim komokusentaku As String = DataGridView1.Item(dH1.IndexOf("項目選択肢"), r).Value
 
-                                'If ComboBox4.SelectedIndex = 1 Then
-                                '    Dim eleSels As HtmlElementCollection = WebBrowser1.Document.GetElementsByTagName("input")
-                                '    For Each eleSel As HtmlElement In eleSels
-                                '        If eleSel.GetAttribute("value").Trim = "項目選択肢を追加する" Then
-                                '            eleSel.InvokeMember("Click")
-                                '            WaitWebBrowser1Completed()
-
-                                '            If WebBrowser1.Document.Body.InnerText.Contains("R-Storefront編集禁止") <> "False" Then
-                                '                MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
-                                '                Exit Sub
-                                '            End If
-                                '            Exit For
-                                '        End If
-                                '    Next
-
-                                '    If shop = "akane" Then
-                                '        If shizistr.Contains("入荷待ち(") Then
-                                '            Dim nichiji As String() = shizistr.Split("(")
-                                '            Dim nichiji_ As String = nichiji(1).Replace(")", "")
-                                '            WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("choice_name")(0).SetAttribute("value", komokusentaku_tag & "予約商品（" & eda_name & "）" & nichiji_)
-                                '        Else
-                                '            WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("choice_name")(0).SetAttribute("value", komokusentaku_tag & "予約商品（" & eda_name & "）" & shizistr)
-                                '        End If
-                                '    ElseIf shop = "akatsuki" Then
-                                '        Dim komokusentaku As String = DataGridView1.Item(dH1.IndexOf("項目選択肢"), r).Value
-
-                                '        If komokusentaku = "" Then
-                                '            Continue For
-                                '        End If
-
-                                '        If eda_name = "" Then
-                                '            Continue For
-                                '        End If
-
-                                '        Dim komokusentaku_in As String = komokusentaku_tag & komokusentaku.Substring(0, 5) & "（" & eda_name & "）" & komokusentaku.Substring(5, komokusentaku.Length - 5)
-                                '        WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("choice_name")(0).SetAttribute("value", komokusentaku_in)
-                                '    End If
-
-                                '    WebBrowser1.Document.GetElementsByTagName("input").GetElementsByName("value_1")(0).SetAttribute("value", "了承済み！")
-
-                                '    eleSels = WebBrowser1.Document.GetElementsByTagName("input")
-                                '    For Each eleSel As HtmlElement In eleSels
-                                '        If eleSel.GetAttribute("value").Trim = "項目選択肢を登録する" Then
-                                '            eleSel.InvokeMember("Click")
-                                '            WaitWebBrowser1Completed()
-
-                                '            If WebBrowser1.Document.Body.InnerText.Contains("R-Storefront編集禁止") <> "False" Then
-                                '                MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
-                                '                Exit Sub
-                                '            End If
-                                '            Exit For
-                                '        End If
-                                '    Next
-                                '    dgvResult(DataGridView1, r, True, True, "")
-                                'End If
-
-                                If CheckBox4.Checked And ComboBox4.SelectedIndex = 1 Then
-                                    Dim komokusentaku As String = DataGridView1.Item(dH1.IndexOf("項目選択肢"), r).Value
-                                    If komokusentaku <> Nothing And eda_name.Trim <> "" Then
-                                        komoku_syori(4, shop_bid, search_code, eda_name, r, komokusentaku)
+                                        komoku_syori(3, shop_bid, search_code, "", r, komokusentaku)
+                                    Else
+                                        dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
                                     End If
-                                End If
-                            End If
-                        End If
-                    Else
-                        '枝番なし
-                        Dim result As String = selectShijiBySelect(shizistr, "normal_delvdate_id")
-                        Dim result_ As String() = Split(result, "||")
-                        If result_(1) = "true" Then
-                            If shop = "akane" Then
-                                '商品名
-                                If InStr(WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"), "＜一部商品予約＞") > 0 Then
-                                    WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value").Replace("＜一部商品予約＞", ""))
-                                ElseIf InStr(WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"), "＜一部予約＞") > 0 Then
-                                    WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value").Replace("＜一部予約＞", ""))
-                                ElseIf InStr(WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"), "＜予約＞") > 0 Then
-                                    WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value").Replace("＜予約＞", ""))
-                                End If
-
-                                WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).SetAttribute("value", "＜予約＞" & WebBrowser1.Document.GetElementsByTagName("textarea").GetElementsByName("item_name")(0).GetAttribute("value"))
-                            End If
-
-                            If ComboBox4.SelectedIndex = 1 Then
-                                WebBrowser1.Document.GetElementById("submitButton").InvokeMember("Click")
-                                WaitWebBrowser1Completed()
-
-                                If WebBrowser1.Document.Body.InnerText.Contains("R-Storefront編集禁止") <> "False" Then
-                                    dgvResult(DataGridView1, r, False, False, "")
-                                    MsgBox("現在、商品一括編集処理中のため、R-Storefrontでの編集作業はできません。", MsgBoxStyle.SystemModal)
-                                    Exit Sub
-                                End If
-
-                                If CheckBox4.Checked And ComboBox4.SelectedIndex = 1 Then
-                                    Dim komokusentaku As String = DataGridView1.Item(dH1.IndexOf("項目選択肢"), r).Value
-
-                                    komoku_syori(3, shop_bid, search_code, "", r, komokusentaku)
                                 Else
                                     dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
                                 End If
                             Else
-                                dgvResult(DataGridView1, r, True, True, TextBox2.Text & vbCrLf & code_ & ":" & result_(0) & " --> " & shizistr)
+                                dgvResult(DataGridView1, r, False, True, "")
                             End If
-                        Else
-                            dgvResult(DataGridView1, r, False, True, "")
                         End If
+
+
+
+
                     End If
+
                 End If
-                shilyori_c += 1
+                    shilyori_c += 1
             Next
         End If
         TextBox2.Text = TextBox2.Text & vbCrLf & "--------------------- " & (Format(DateTime.Now, "yyyy/MM/dd HH:mm:ss")).ToString & "  end  ---------------------"

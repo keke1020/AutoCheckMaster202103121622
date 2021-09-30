@@ -51,7 +51,7 @@ Public Class Csv_denpyo3
     Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh",
     "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny331-50-lgr",
     "ny331-50-lor", "ny331-50-rose", "ny263-51", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi",
-    "ny373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh", "ny385-a", "ny385-b", "ny385-c",
+    "n  y373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh", "ny385-a", "ny385-b", "ny385-c",
         "ny385-d", "ny100-bk", "ny100-gr", "ny100-wh", "ee247", "zk200",
         "ad205-bk", "ad205-bl", "ad205-gl", "ad205-gr", "ad205-pi", "mb077-bk", "mb077-pi",
      "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi",
@@ -2895,6 +2895,11 @@ Public Class Csv_denpyo3
                                 haisouKind = "宅配便"
                                 haisouSize = haisouSize / 100
                             End If
+
+
+
+
+
 
 
                             'If haisouSize >= 5 * 100 And (masuku_50codesPro.Contains(code(0).ToLower) Or code(0).Contains("ny373") Or (code(0).Contains("ny417") Or code(0).Contains("ny411"))) And sentToOkinawa Then
@@ -5826,26 +5831,27 @@ Public Class Csv_denpyo3
             End If
         ElseIf code = "ny261" Then
             If count <= 2 Then '1000枚和2000枚
-                'If checkHaisosaki_DaOrNa(haisouSaki) Then
-                '    bl = True
-                'Else
-                '    bl = False
-                'End If
-                If count = 1 Then
-                    'If checkHaisosaki_DaOrNa(haisouSaki) Then
-                    '    bl = True 'true: 名古屋
-                    'Else
-                    bl = False 'false: 太宰府
-                    'End If
+                If checkHaisosaki_DaOrNa(haisouSaki) Then
+                    bl = True
                 Else
-                    bl = True 'true: 名古屋
+                    bl = False
                 End If
+                'If count = 1 Then
+                '        'If checkHaisosaki_DaOrNa(haisouSaki) Then
+                '        '    bl = True 'true: 名古屋
+                '        'Else
+                '        bl = False 'false: 太宰府
+                '        'End If
+                '    Else
+                '        bl = True 'true: 名古屋
+                '    End If
             Else
-                If count Mod 2 = 1 Then
-                    bl = False 'false: 太宰府
-                Else
-                    bl = True 'true: 名古屋
-                End If
+                '    If count Mod 2 = 1 Then
+                '    bl = False 'false: 太宰府
+                'Else
+                '    bl = True 'true: 名古屋
+                'End If
+                bl = True
             End If
         ElseIf code = "ny261ye" Then
 
@@ -6392,11 +6398,6 @@ Public Class Csv_denpyo3
                         '    isyupakuGoodBoolTemp = True
                         'End If
 
-                        If YU2Denpyus.Contains(denpyoNum) Then
-                            isyupakuGoodBoolTemp = True
-                        End If
-
-
 
                         Select Case sender.Item(dHSender.IndexOf(koumoku("syori2")(i)), r).Value
                             Case HS1.Text
@@ -6406,6 +6407,8 @@ Public Class Csv_denpyo3
                                     ElseIf sender.Item(dHSender.IndexOf("マスタ配送"), r).Value = "ヤマト(船便)" Then
                                         kosu(16) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
                                     End If
+
+
                                 ElseIf isyupakuGoodBoolTemp Then
                                     '太宰府 yu 2  的路便
                                     kosu(18) += CInt(sender.Item(dHSender.IndexOf(koumoku("koguchi")(i)), r).Value)
