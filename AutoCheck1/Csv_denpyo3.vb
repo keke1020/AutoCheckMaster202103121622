@@ -1489,6 +1489,65 @@ Public Class Csv_denpyo3
     End Sub
 
 
+
+
+
+    Dim codesidIsChangeYTT As String() = {"ny331-50", "ny263", "ny405", "ny429", "ny385", "ny411-60", "ny439", "ny373", "ny393-50", "ny417-30"}
+    Public Function isChangeYTT(codeid As String) As Boolean
+        If codesidIsChangeYTT.Contains(codeid) Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    'true 变佐川  false 不变佐川
+    Public Function IsNotChangeCode(codeid As String) As Boolean
+        If codeid.Contains("ny411") Then
+
+            If Not codeid.Contains("ny411-60-") Then
+                Return False
+            Else
+                Return True
+            End If
+        End If
+
+        If codeid.Contains("ny393") Then
+
+            If Not codeid.Contains("ny393-50-") Then
+                Return False
+            Else
+                Return True
+            End If
+        End If
+
+        If codeid.Contains("ny331") Then
+
+            If Not codeid.Contains("ny331-50-") Then
+                Return False
+            Else
+                Return True
+            End If
+        End If
+
+        If codeid.Contains("ny417") Then
+
+            If Not codeid.Contains("ny417-30-") Then
+                Return False
+            Else
+                Return True
+            End If
+        End If
+        Return True
+    End Function
+
+
+
+
+
+
+
+
+
     '---------------------------------------
     'BIZ-logi 便種コード
     '000 陸便
@@ -1750,8 +1809,9 @@ Public Class Csv_denpyo3
         '扁盒口罩
         'Dim masuku_50codesPro As String() = New String() {"TEST"}
 
-        Dim masuku_50codesPro As String() = New String() {"ny341-10", "ny263-A", "ny263-B", "ny263-C", "ny344", "ny373-30-bk", "ny373-30-pi", "ny373-30-wh", "ny373-30-kobk", "ny373-30-kowh", "ny385-40-a", "ny385-40-b", "ny385-40-c", "ny385-40-d", "ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye"}
+        'Dim masuku_50codesPro As String() = New String() {"ny341-10", "ny263-A", "ny263-B", "ny263-C", "ny344", "ny373-30-bk", "ny373-30-pi", "ny373-30-wh", "ny373-30-kobk", "ny373-30-kowh", "ny385-40-a", "ny385-40-b", "ny385-40-c", "ny385-40-d", "ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye"}
 
+        Dim masuku_50codesPro As String() = New String() {"ny341-10", "ny344"}
 
 
 
@@ -2503,6 +2563,12 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
+                    If haisouKind = "宅配便" And InStr(code(0).ToLower, "ap069") Then
+                        weight = "12.5"
+                        sp_check = False
+                    End If
+
+
 
 
                     If haisouKind = "宅配便" And InStr(code(0).ToLower, "ny373-150-") Then
@@ -2882,14 +2948,26 @@ Public Class Csv_denpyo3
 
 
                             'If haisouSize >= NumericUpDown4.Value * 100 And Not masuku_50codesPro.Contains(code(0).ToLower) And Not code(0).Contains("ny373") And Not (code(0).Contains("ny417")) And Not code(0).Contains("ny411") And Not sentToOkinawa Then
-                            If haisouSize >= NumericUpDown4.Value * 100 And Not masuku_50codesPro.Contains(code(0).ToLower) And Not (code(0).Contains("ny417")) And Not code(0).Contains("ny411") And Not sentToOkinawa Then
 
-                                special_taku = True
-                                special_takuyamoto = True
-                                haisouKind = "宅配便"
-                                haisouSize = haisouSize / 100
-                            ElseIf haisouSize >= NumericUpDown4.Value * 100 And (code(0).Contains("ny417-30")) And Not sentToOkinawa Then
-                                'c213 'haisouKind = "ヤマト"
+
+
+                            'If haisouSize >= NumericUpDown4.Value * 100 And Not masuku_50codesPro.Contains(code(0).ToLower) And Not code(0).Contains("ny411-60") Then
+
+                            '    special_taku = True
+                            '    special_takuyamoto = True
+                            '    haisouKind = "宅配便"
+                            '    haisouSize = haisouSize / 100
+                            'ElseIf haisouSize >= NumericUpDown4.Value * 100 And (code(0).Contains("ny417-30")) And Not sentToOkinawa Then
+                            '    'c213 'haisouKind = "ヤマト"
+                            '    special_taku = True
+                            '    special_takuyamoto = True
+                            '    haisouKind = "宅配便"
+                            '    haisouSize = haisouSize / 100
+                            'End If
+
+
+
+                            If haisouSize >= NumericUpDown4.Value * 100 And IsNotChangeCode(code(0)) Then
                                 special_taku = True
                                 special_takuyamoto = True
                                 haisouKind = "宅配便"
@@ -2911,6 +2989,16 @@ Public Class Csv_denpyo3
                             'Else
                             '    'c213 'haisouKind = "ヤマト"
                             'End If
+
+
+
+                            'If isChangeYTT(code(0)) And Not sentToOkinawa Then
+                            '    special_taku = True
+                            '    special_takuyamoto = True
+                            '    haisouKind = "宅配便"
+                            '    haisouSize = haisouSize / 100
+                            'End If
+
 
 
 
