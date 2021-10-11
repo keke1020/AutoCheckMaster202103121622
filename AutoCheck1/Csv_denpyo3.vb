@@ -403,7 +403,7 @@ Public Class Csv_denpyo3
         memo &= vbCrLf & "2021/02/04" & vbCrLf & "    6000枚1便: ny263-51"
         memo &= vbCrLf & "2021/02/18" & vbCrLf & "    8個1便: ad009 4個1便: ny263-50-c(ヤマト)"
         memo &= vbCrLf & "2021/02/24" & vbCrLf & "    50個1便: ny263-306-42"
-
+        memo &= vbCrLf & "2021/02/24" & vbCrLf & "    40個1便: ny263-331-50"
         TextBox11.Text = memo
 
         Dim memo2 As String = "※複数倉庫の場合はneで伝票を分割してください"
@@ -1513,11 +1513,23 @@ Public Class Csv_denpyo3
 
         If codeid.Contains("ny393") Then
 
-            If Not codeid.Contains("ny393-50-") Then
-                Return False
-            Else
+            'If Not codeid.Contains("ny393-50") And Not codeid.Contains("ny393-500") Then
+            '    Return False
+            'Else
+            '    Return True
+            'End If
+
+
+            If codeid.Contains("ny393-50") And Not codeid.Contains("ny393-500") Then
                 Return True
+            Else
+                Return False
+
             End If
+
+
+
+
         End If
 
         If codeid.Contains("ny331") Then
@@ -1804,7 +1816,9 @@ Public Class Csv_denpyo3
         Dim doukonArray As String() = File.ReadAllLines(appPathDir & "\config\version2\同梱特殊.txt", ENC_SJ)
         Dim ny331_50_codes As String() = New String() {"ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye", "ny331-50-rose", "ny331-50-lor", "ny331-50-lgr", "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi"}
         'pa084-5
-        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
+        'Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
+        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
+
         'Dim ny331_2500_codes As String() = New String() {"ny331-2500-be"}
         '扁盒口罩
         'Dim masuku_50codesPro As String() = New String() {"TEST"}
@@ -2027,7 +2041,9 @@ Public Class Csv_denpyo3
                         End If
                     End If
 
-                    If checkcode(0).ToLower = "ny261-1000-a" Or checkcode(0).ToLower = "ny261-2000-a" Or checkcode(0).ToLower = "ny264-100-4000" Or checkcode(0).ToLower = "ny264-100-4000wh" Then
+                    'If checkcode(0).ToLower = "ny261-1000-a" Or checkcode(0).ToLower = "ny261-2000-a" Or checkcode(0).ToLower = "ny264-100-4000" Or checkcode(0).ToLower = "ny264-100-4000wh" Then
+                    If checkcode(0).ToLower = "ny261-1000-a" Or checkcode(0).ToLower = "ny264-100-4000" Or checkcode(0).ToLower = "ny264-100-4000wh" Then
+
                         If checkcode(1) = Int(checkcode(1)) Then
                             If checkcode(0).ToLower = "ny261-1000-a" Then
                                 checkcodejuchusu_ny261 = checkcodejuchusu_ny261 + checkcode(1)
@@ -2359,10 +2375,10 @@ Public Class Csv_denpyo3
                 If checkcodejuchusu_ny261 > 0 Then
                     ny261_isnagoya = checkSouko_DaOrNa(tag_decide, "ny261", checkcodejuchusu_ny261, haisouSaki)
                 End If
-
+                'ny261_isnagoya = True
                 Dim od492_isnagoyaortaizafu As Boolean = Nothing
                 If checkcodejuchusu_od492 > 0 Then
-                    od492_isnagoyaortaizafu = checkSouko_DaOrNa(tag_decide, "od492", checkcodejuchusu_ny261, haisouSaki)
+                    od492_isnagoyaortaizafu = checkSouko_DaOrNa(tag_decide, "od492", checkcodejuchusu_od492, haisouSaki)
                 End If
 
 
@@ -2529,6 +2545,9 @@ Public Class Csv_denpyo3
                     ElseIf special_taku = True And haisouKind = "メール便" And code(0).ToLower = "ny263-51" And ny263_51_isnagoya = False Then
                         weight = "250" '40個2便
                         sp_check = False
+                        'ElseIf InStr(code(0).ToLower, "ny263-331-50") Then
+                        '    weight = "250" '40   1便
+                        '    sp_check = False
                     End If
 
                     'If haisouKind = "宅配便" And (code(0).ToLower = "ny264") Then
@@ -4594,7 +4613,10 @@ Public Class Csv_denpyo3
 
         For r As Integer = 0 To csvRecords2.Count - 1
             Dim sArray As String() = Split(csvRecords2(r), "|=|")
+            sArray(0) = RTrim(sArray(0))
             sArray(0) = Form1.StrConvToNarrow(sArray(0))    '商品コードを小文字で揃える
+
+
             DGV6.Rows.Add(sArray)
         Next
 
@@ -4602,7 +4624,8 @@ Public Class Csv_denpyo3
         dgv6DaihyoCodeArray.Clear()
         Dim dH6 As ArrayList = TM_HEADER_GET(DGV6)
         For r As Integer = 0 To DGV6.RowCount - 1
-            dgv6CodeArray.Add(DGV6.Item(dH6.IndexOf("商品コード"), r).Value.ToString.ToLower)
+            Dim tempcode = DGV6.Item(dH6.IndexOf("商品コード"), r).Value.ToString.ToLower
+            dgv6CodeArray.Add(tempcode)
             dgv6DaihyoCodeArray.Add(DGV6.Item(dH6.IndexOf("代表商品コード"), r).Value.ToString.ToLower)
         Next
     End Sub
