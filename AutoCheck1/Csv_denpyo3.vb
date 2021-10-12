@@ -50,8 +50,8 @@ Public Class Csv_denpyo3
     Private checkaddress_oosakizyou As String() = New String() {"富山県", "石川県", "福井県", "岐阜県", "静岡県", "愛知県", "三重県", "新潟県", "長野県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "山梨県", "宮城県", "山形県", "福島県", "青森県", "岩手県", "秋田県", "北海道"}
     Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh",
     "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny331-50-lgr",
-    "ny331-50-lor", "ny331-50-rose", "ny263-51", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi",
-    "n  y373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh", "ny385-a", "ny385-b", "ny385-c",
+    "ny331-50-lor", "ny331-50-rose", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi",
+    "n  y373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh", "ny385-a", "ny385-b", "ny385-c", "ny263-51",
         "ny385-d", "ny100-bk", "ny100-gr", "ny100-wh", "ee247", "zk200",
         "ad205-bk", "ad205-bl", "ad205-gl", "ad205-gr", "ad205-pi", "mb077-bk", "mb077-pi",
      "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi",
@@ -1817,7 +1817,7 @@ Public Class Csv_denpyo3
         Dim ny331_50_codes As String() = New String() {"ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye", "ny331-50-rose", "ny331-50-lor", "ny331-50-lgr", "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi"}
         'pa084-5
         'Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
-        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
+        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
 
         'Dim ny331_2500_codes As String() = New String() {"ny331-2500-be"}
         '扁盒口罩
@@ -1995,10 +1995,10 @@ Public Class Csv_denpyo3
                         End If
                     End If
                     If checkcode(0).ToLower = "ny263-51" Then
-                        '個数は整数
-                        If checkcode(1) = Int(checkcode(1)) Then
-                            checkcodejuchusu_ny263_51 = checkcodejuchusu_ny263_51 + checkcode(1)
-                        End If
+                        ''個数は整数
+                        'If checkcode(1) = Int(checkcode(1)) Then
+                        '    checkcodejuchusu_ny263_51 = checkcodejuchusu_ny263_51 + checkcode(1)
+                        'End If
                     End If
 
                     If checkcode(0).ToLower = "od492" Then
