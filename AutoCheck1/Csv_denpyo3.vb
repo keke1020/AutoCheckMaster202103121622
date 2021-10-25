@@ -453,6 +453,7 @@ Public Class Csv_denpyo3
             ElseIf k = 5 Then
                 fStrArray = File.ReadAllLines(Path.GetDirectoryName(Form1.appPath) & "\template\" & TextBox14.Text & ".dat", Encoding.GetEncoding("shift-jis"))
                 dgv = TMSDGV
+
             End If
 
             For i As Integer = 0 To fStrArray.Length - 1
@@ -2568,6 +2569,9 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
+
+
+
                     'ny264-100 100枚
                     If haisouKind = "宅配便" And code(0).ToLower = "ny264-100" And ny264_100_isnagoya Then
                         weight = "2.5"
@@ -2592,6 +2596,10 @@ Public Class Csv_denpyo3
                     End If
 
 
+                    If haisouKind = "宅配便" And InStr(code(0).ToLower, "pt060") Then
+                        weight = "20"
+                        sp_check = False
+                    End If
 
 
                     If haisouKind = "宅配便" And InStr(code(0).ToLower, "ny373-150-") Then
@@ -15836,4 +15844,8 @@ Public Class Csv_denpyo3
         Return False
 
     End Function
+
+    Private Sub DataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles TMSDGV.CellDoubleClick, DGV9.CellDoubleClick, DGV8.CellDoubleClick, DGV7.CellDoubleClick, DGV13.CellDoubleClick
+
+    End Sub
 End Class
