@@ -1497,7 +1497,7 @@ Partial Class Form1
         'サーバーToolStripMenuItem
         '
         Me.サーバーToolStripMenuItem.Name = "サーバーToolStripMenuItem"
-        Me.サーバーToolStripMenuItem.Size = New System.Drawing.Size(146, 22)
+        Me.サーバーToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.サーバーToolStripMenuItem.Text = "サーバー"
         '
         'ロケーションToolStripMenuItem

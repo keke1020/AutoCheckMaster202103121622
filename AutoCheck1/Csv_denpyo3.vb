@@ -48,7 +48,7 @@ Public Class Csv_denpyo3
     Private checkaddress_oosakika As String() = New String() {"熊本県", "宮崎県", "鹿児島県", "福岡県", "佐賀県", "長崎県", "大分県", "徳島県", "香川県", "愛媛県", "高知県", "鳥取県", "島根県", "岡山県", "広島県", "山口県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"}
     '大阪以上
     Private checkaddress_oosakizyou As String() = New String() {"富山県", "石川県", "福井県", "岐阜県", "静岡県", "愛知県", "三重県", "新潟県", "長野県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県", "山梨県", "宮城県", "山形県", "福島県", "青森県", "岩手県", "秋田県", "北海道"}
-    Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh",
+    Private yamato_goods As String() = New String() {"ny264-50", "ny306-51", "ny331-50-306", "ny331-50-flpi", "ny331-50-flwh", "ny331-50-393bl", "ny331-50-393blbl", "ny331-50-393blhu", "ny331-50-393hu", "ny331-50-393im", "ny331-50-393iv", "ny331-50-393kf", "ny331-50-393kh", "ny331-50-393kobl", "ny331-50-393kohu", "ny331-50-393koice", "ny331-50-393kolash", "ny331-50-393kosaku", "ny331-50-393koyegr", "ny331-50-393lash", "ny331-50-393milk", "ny331-50-393ne", "ny331-50-393rose", "ny331-50-393saku", "ny331-50-393yegr",
     "ny331-50-pi", "ny331-50-pa", "ny331-50-dapi", "ny331-50-bk", "ny331-50-hu", "ny331-50-wh", "ny331-50-be", "ny331-50-co", "ny331-50-lgr",
     "ny331-50-lor", "ny331-50-rose", "ny263-50-c", "ny341-50-40", "ny263-306-42", "ny331-50-ye", "ny344", "ny373-hu", "ny373-pi",
     "n  y373-bk", "ny373-kobk", "ny373-kowh", "ny373-wh", "ny385-a", "ny385-b", "ny385-c", "ny263-51",
@@ -1814,7 +1814,7 @@ Public Class Csv_denpyo3
         'Dim dH6 As ArrayList = TM_HEADER_GET(dgv6)
 
         Dim doukonArray As String() = File.ReadAllLines(appPathDir & "\config\version2\同梱特殊.txt", ENC_SJ)
-        Dim ny331_50_codes As String() = New String() {"ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye", "ny331-50-rose", "ny331-50-lor", "ny331-50-lgr", "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi"}
+        Dim ny331_50_codes As String() = New String() {"ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye", "ny331-50-rose", "ny331-50-lor", "ny331-50-lgr", "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi", "ny331-50-ot306"}
         'pa084-5
         'Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
         Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
@@ -1929,8 +1929,8 @@ Public Class Csv_denpyo3
                 'Dim isYamatoGood As Boolean = True
 
 
-
-
+                '强制更改标记
+                Dim souko_check = False
 
                 Dim masuku_50codesProjuchusu As Integer = 0 ' 
 
@@ -1995,10 +1995,10 @@ Public Class Csv_denpyo3
                         End If
                     End If
                     If checkcode(0).ToLower = "ny263-51" Then
-                        ''個数は整数
-                        'If checkcode(1) = Int(checkcode(1)) Then
-                        '    checkcodejuchusu_ny263_51 = checkcodejuchusu_ny263_51 + checkcode(1)
-                        'End If
+                        '個数は整数
+                        If checkcode(1) = Int(checkcode(1)) Then
+                            checkcodejuchusu_ny263_51 = checkcodejuchusu_ny263_51 + checkcode(1)
+                        End If
                     End If
 
                     If checkcode(0).ToLower = "od492" Then
@@ -2386,8 +2386,10 @@ Public Class Csv_denpyo3
                     ny261_isnagoya = checkSouko_DaOrNa(tag_decide, "ny261ye", checkcodejuchusu_ny261ye, haisouSaki)
                 End If
 
+
+                '这里
                 Dim ny263_51_isnagoya As Boolean = Nothing
-                If checkcodejuchusu_ny263_51 > 0 Then
+                If checkcodejuchusu_ny263_51 > 0 And checkcodejuchusu_ny263_51 < 20 Then
                     ny263_51_isnagoya = checkSouko_DaOrNa(tag_decide, "ny263-51", checkcodejuchusu_ny263_51, haisouSaki)
                 End If
 
@@ -2453,6 +2455,8 @@ Public Class Csv_denpyo3
                     Dim tag As String = MasterTag(code(0).ToLower)
                     Dim itemName As String = MasterItemName(code(0).ToLower)
                     Dim juchusu As String = code(1)
+
+                    souko_check = False
 
 
                     If haisouKind = "" Then
@@ -2831,6 +2835,11 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
+
+                    If code(0).ToLower = "ny263-51" Then
+                        souko_check = True
+                    End If
+
                     'isyupakuGoodBool = isyupakuGoodsbyCode(code(0))
                     'If CheckBox34.Checked And isyupakubyAddress(haisouSaki) And isyupakuGoodBool And Regex.IsMatch(DGV1.Item(dH1.IndexOf("発送方法"), r1).Value, "宅配便") Then
                     '    'weight = "100"
@@ -2905,6 +2914,8 @@ Public Class Csv_denpyo3
 
                                     '1 7 9 2 3 9 12 1 2
                                     haisouSize = haisouSize + (2.5 * CDbl(juchusu))
+                                    'ElseIf code(0).ToLower.Contains("ny439-") Then
+                                    '    haisouSize = haisouSize + (2 * CDbl(juchusu))
                                 Else
                                     haisouSize = haisouSize + ((CDbl(weight) / 100) * CDbl(juchusu))
                                 End If
@@ -3029,6 +3040,8 @@ Public Class Csv_denpyo3
 
                     'メール便指定数以上は宅配便に変更   邮局变成佐川
                     If special_taku = False Then
+
+
                         If haisouKind = "メール便" Then
                             If haisouSize > NumericUpDown4.Value * 100 Then
                                 If code(0).ToLower = "ny275-bk" Or code(0).ToLower = "ny275-pi" Then
@@ -3206,6 +3219,12 @@ Public Class Csv_denpyo3
 
                                 End If
                             End If
+                        End If
+
+                        If souko_check Then
+                            For index = 0 To tag_decide.Count - 1
+                                mTag = tag_decide(index)
+                            Next
                         End If
                     End If
 
@@ -5911,20 +5930,21 @@ Public Class Csv_denpyo3
         Dim bl As Boolean = Nothing 'true: 名古屋 false: 太宰府
 
         If code = "ny263-51" Then
-            If count Mod 20 = 0 Then
-                If count = 20 Or count = 40 Then '20，40個
-                    Dim isoosakaizyo As Boolean = checkHaisosaki_DaOrNa(haisouSaki)
-                    If checkHaisosaki_DaOrNa(haisouSaki) Then
-                        bl = True 'true: 名古屋
-                    Else
-                        bl = False 'false: 太宰府
-                    End If
-                Else
-                    bl = True '60以上(60倍数)
-                End If
-            Else
-                bl = False
-            End If
+            'If count Mod 20 = 0 Then
+            '    If count = 20 Or count = 40 Then '20，40個
+            '        Dim isoosakaizyo As Boolean = checkHaisosaki_DaOrNa(haisouSaki)
+            '        If checkHaisosaki_DaOrNa(haisouSaki) Then
+            '            bl = True 'true: 名古屋
+            '        Else
+            '            bl = False 'false: 太宰府
+            '        End If
+            '    Else
+            '        bl = True '60以上(60倍数)
+            '    End If
+            'Else
+            '    bl = False
+            'End If
+            bl = False
         ElseIf code = "ny264" Then
             If count Mod 20 = 0 Then
                 If count = 20 Or count = 40 Then '20，40個
@@ -6020,7 +6040,7 @@ Public Class Csv_denpyo3
             Else
                 bl = False 'false: 太宰府
             End If
-            bl = False 'false: 太宰府
+            bl = True 'true: 名古屋
             'ElseIf code = "pa084-5" Then
             '    'If count >= 3 Then
             '    '    bl = True
@@ -10132,8 +10152,10 @@ Public Class Csv_denpyo3
                 Dim sizeMax As Integer = 100
                 If dgv Is DGV13 Then
                     sizeMax = NumericUpDown6.Value
+                    'sizeMax = 300
                 End If
-
+                '这里
+                'sizeMax = 300
                 '無理やり変換したときの商品表示（未完成）
                 'どうするか・・・
 
@@ -10148,7 +10170,7 @@ Public Class Csv_denpyo3
                 'End If
 
                 'test   FALSE 一定记得删除
-                'sizeMax = 200
+                'sizeMax = 300
 
                 'LIST4VIEW("dgv RowCount1", "system")
 
