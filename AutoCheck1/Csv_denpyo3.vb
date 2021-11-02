@@ -229,7 +229,7 @@ Public Class Csv_denpyo3
 
         'If fileName = "" Or data = "" Then
         '    Exit Sub
-        'End If
+        'End Ifl
 
         Try
             'Dim bytes() As Byte = File.ReadAllBytes(fileName)
@@ -453,7 +453,9 @@ Public Class Csv_denpyo3
             ElseIf k = 5 Then
                 fStrArray = File.ReadAllLines(Path.GetDirectoryName(Form1.appPath) & "\template\" & TextBox14.Text & ".dat", Encoding.GetEncoding("shift-jis"))
                 dgv = TMSDGV
-
+            ElseIf k = 6 Then
+                fStrArray = File.ReadAllLines(Path.GetDirectoryName(Form1.appPath) & "\template\" & TextBox15.Text & ".dat", Encoding.GetEncoding("shift-jis"))
+                dgv = YMTDGV
             End If
 
             For i As Integer = 0 To fStrArray.Length - 1
@@ -473,11 +475,11 @@ Public Class Csv_denpyo3
         Next
 
         fName = Path.GetDirectoryName(Form1.appPath) & "\config\denpyoTaihi.csv"
-        'kind,基本,e飛伝2,佐川BIZ,日本郵便,定形外,e飛伝pro,TMS
+        'kind,基本,e飛伝2,佐川BIZ,日本郵便,定形外,e飛伝pro,TMS,YAMATO
         Dim koumokuLines As String() = File.ReadAllLines(fName, ENC_SJ)
         For i As Integer = 0 To koumokuLines.Length - 1
             Dim kl As String() = Split(koumokuLines(i), ",")
-            koumoku(kl(0)) = {kl(1), kl(2), kl(3), kl(4), kl(5), kl(6)}
+            koumoku(kl(0)) = {kl(1), kl(2), kl(3), kl(4), kl(5), kl(6), kl(7)}
         Next
         Dim cc = koumoku
         fName = Path.GetDirectoryName(Form1.appPath) & "\config\ヘルプdenpyo3.dat"
@@ -771,14 +773,15 @@ Public Class Csv_denpyo3
             '根据文件名字决定发送方式
             Select Case True
                 Case Regex.IsMatch(filename, "sagawaMail|yupacketCSV|ymailCSV|yamatonekopos", RegexOptions.IgnoreCase)
+                    'Case Regex.IsMatch(filename, "sagawaMail|yupacketCSV|ymailCSV", RegexOptions.IgnoreCase)
+
                     fileHaisou = "メール便"
                 Case Regex.IsMatch(filename, "yucreCSV", RegexOptions.IgnoreCase)
                     fileHaisou = "定形外"
                 Case Regex.IsMatch(filename, "sagawa_ePro")
                     fileHaisou = "宅配便"
-                    'Case Regex.IsMatch(filename, "ymailCSV")
+                    'Case Regex.IsMatch(filename, "yamato")
                     '    fileHaisou = "ヤマト"
-
                 Case Else
                     fileHaisou = "宅配便"
             End Select
@@ -852,11 +855,21 @@ Public Class Csv_denpyo3
                                                 str = "メール便"
                                             Case Regex.IsMatch(str, "定形外")
                                                 str = "定形外"
-                                            Case Regex.IsMatch(str, "ヤマト(DM便)|ヤマト(ネコポス)")
-                                                'str = "ヤマト"
-                                                str = "メール便"
+                                                'Case Regex.IsMatch(str, "ヤマト(DM便)|ヤマト(ネコポス)")
+                                                '    'str = "ヤマト"
+                                                '    str = "メール便"
+                                                'Case Regex.IsMatch(str, "ヤマト(DM便)|ヤマト(ネコポス)")
+                                                '    str = "ヤマト"
+                                                '    'str = "メール便"
+
+                                                'Case Regex.IsMatch(str, "ヤマト(DM便)")
+                                                '    str = "ヤマト"
+                                                '    'str = "メール便"ヤマト(ネコポス)
+                                                'Case Regex.IsMatch(str, "ヤマト(ネコポス)")
+                                                '    'Case InStr()
+                                                '    str = "ヤマト"
                                         End Select
-                                        If addFlag Then '追加
+                                        If addFlag Then '追加ヤマト(ネコポス)
                                             If CStr(dgv.Item(c, changeRowNo).Value) = "" Then
                                                 dgv.Item(c, changeRowNo).Value = str
                                             End If
@@ -981,15 +994,39 @@ Public Class Csv_denpyo3
                                         dgv.Item(c, dgv.RowCount - 1).Style.BackColor = Color.Gray
                                     Case Else
                                         If addFlag Then '追加
+                                            Dim bb = 0
                                             If CStr(dgv.Item(c, changeRowNo).Value) = "" Then
+
                                                 Dim str As String = sArray(Array.IndexOf(header, hA(i)))
+                                                Dim kk = sArray(Array.IndexOf(header, hA(i)))
                                                 If str <> "" Then
                                                     dgv.Item(c, changeRowNo).Style.BackColor = Color.Empty
                                                 End If
+                                                Dim mm = sArray(Array.IndexOf(header, hA(i)))
                                                 dgv.Item(c, changeRowNo).Value = sArray(Array.IndexOf(header, hA(i)))
                                             End If
                                         Else
-                                            dgv.Item(c, dgv.RowCount - 1).Value = sArray(Array.IndexOf(header, hA(i)))
+
+                                            If hA(i) = "届け先住所" Then
+                                                Dim ddmm As String = ""
+
+                                                'Dim cc = dgv.Item(c, dgv.RowCount - 1).Value
+                                                'Dim dd = sArray(Array.IndexOf(header, hA(i + 1)))
+                                                'Dim vv = Array.IndexOf(header, hA(i + 1))
+                                                'Dim ddmm As String = sArray(Array.IndexOf(header, hA(i + 1)))
+
+                                                'If sArray.Contains("お届け先建物名（ｱﾊﾟｰﾄﾏﾝｼｮﾝ名）") Then
+                                                '    bu = sArray("お届け先建物名（ｱﾊﾟｰﾄﾏﾝｼｮﾝ名）")
+                                                'End If
+                                                If header.Contains("お届け先建物名（ｱﾊﾟｰﾄﾏﾝｼｮﾝ名）") Then
+                                                    ddmm = sArray(Array.IndexOf(header, "お届け先建物名（ｱﾊﾟｰﾄﾏﾝｼｮﾝ名）"))
+                                                End If
+                                                dgv.Item(c, dgv.RowCount - 1).Value = sArray(Array.IndexOf(header, hA(i))) & ddmm
+                                            Else
+                                                dgv.Item(c, dgv.RowCount - 1).Value = sArray(Array.IndexOf(header, hA(i)))
+                                            End If
+                                            'dgv.Item(c, dgv.RowCount - 1).Value = sArray(Array.IndexOf(header, hA(i)))
+
                                         End If
                                 End Select
                             End If
@@ -1169,10 +1206,6 @@ Public Class Csv_denpyo3
                             'If Not (yamato_goods.Contains(checkcode(0).ToLower) And Not InStr(checkcode(0).ToLower, "ny393-50-") And Not InStr(checkcode(0).ToLower, "ap005") And Not InStr(checkcode(0).ToLower, "ap039")) Then
                             '    isYamatoGood = False
                             'End If
-
-
-
-
 
                             '这里是yamato旧的逻辑
                             If yamato_goods.Contains(checkcode(0).ToLower) Or InStr(checkcode(0).ToLower, "ny393-50-") Or InStr(checkcode(0).ToLower, "ap005") Or InStr(checkcode(0).ToLower, "ap039") Or InStr(checkcode(0).ToLower, "ee270") Or InStr(checkcode(0).ToLower, "zk218") Then
@@ -2465,12 +2498,14 @@ Public Class Csv_denpyo3
                             haisouKind = "宅配便"
                         ElseIf Regex.IsMatch(sw, "M|m") Then
                             haisouKind = "メール便"
+                        ElseIf Regex.IsMatch(sw, "Y|y") Then
+                            haisouKind = "ヤマト"
                         ElseIf Regex.IsMatch(sw, "T|t") Then
                             haisouKind = "定形外"
                         End If
                     End If
-
-                    Dim weight As String = Regex.Replace(sw, "P|p|M|m|T|t", "")
+                    'haisouKind = "ヤマト"
+                    Dim weight As String = Regex.Replace(sw, "P|p|M|m|T|t|Y|y", "")
                     Dim w2 As String = Regex.Match(weight, "\(.*\)").Value
                     w2 = Regex.Replace(w2, "\(|\)", "")
                     weight = Regex.Replace(weight, "\(.*\)", "")
@@ -2597,6 +2632,19 @@ Public Class Csv_denpyo3
 
 
                     If haisouKind = "宅配便" And InStr(code(0).ToLower, "pt060") Then
+                        weight = "20"
+                        sp_check = False
+                    End If
+
+
+
+                    If haisouKind = "宅配便" And InStr(code(0).ToLower, "ad009") Then
+                        weight = "12.5"
+                        sp_check = False
+                    End If
+
+
+                    If haisouKind = "宅配便" And InStr(code(0).ToLower, "ad010") Then
                         weight = "20"
                         sp_check = False
                     End If
@@ -2844,6 +2892,10 @@ Public Class Csv_denpyo3
                     End If
 
 
+
+
+
+
                     If code(0).ToLower = "ny263-51" Then
                         souko_check = True
                     End If
@@ -2941,13 +2993,13 @@ Public Class Csv_denpyo3
                                         'ElseIf code(0).ToLower = "ny185" Then
                                         '    '6個まで１便、以上２便
                                         '    haisouSize = haisouSize + (16.65 * CDbl(juchusu))
-                                    ElseIf Regex.IsMatch(code(0).ToLower, "ad009") Then
-                                        'If code(0).ToLower = "ad009-ne" Or code(0).ToLower = "ad009-wa" Then
-                                        '    haisouSize = haisouSize + (20 * CDbl(juchusu)) '100/5
-                                        'Else
-                                        '    haisouSize = haisouSize + (12.5 * CDbl(juchusu)) '100/8
-                                        'End If
-                                        haisouSize = haisouSize + (10 * CDbl(juchusu)) '100/10
+                                        'ElseIf Regex.IsMatch(code(0).ToLower, "ad009") Then
+                                        '    'If code(0).ToLower = "ad009-ne" Or code(0).ToLower = "ad009-wa" Then
+                                        '    '    haisouSize = haisouSize + (20 * CDbl(juchusu)) '100/5
+                                        '    'Else
+                                        '    '    haisouSize = haisouSize + (12.5 * CDbl(juchusu)) '100/8
+                                        '    'End If
+                                        '    haisouSize = haisouSize + (10 * CDbl(juchusu)) '100/10
 
                                     Else
                                         If sp_check Then
@@ -4880,6 +4932,12 @@ Public Class Csv_denpyo3
                 headerStr2 = koumoku("syori2")(6)
                 headerStr3 = koumoku("binsyu")(6)
                 headerStr4 = koumoku("sakiname")(6)
+            Case "YAMATO"
+                dgv = YMTDGV
+                headerStr = koumoku("denpyoNo")(6)
+                headerStr2 = koumoku("syori2")(6)
+                headerStr3 = koumoku("binsyu")(6)
+                headerStr4 = koumoku("sakiname")(6)
             Case Else
                 dgv = DGV1
                 headerStr = koumoku("denpyoNo")(0)
@@ -5970,11 +6028,22 @@ Public Class Csv_denpyo3
             End If
         ElseIf code = "ny261" Then
             If count <= 2 Then '1000枚和2000枚
-                If checkHaisosaki_DaOrNa(haisouSaki) Then
+                'If checkHaisosaki_DaOrNa(haisouSaki) Then
+                '    bl = True
+                'Else
+                '    bl = False
+                'End If
+
+                If count = 2 Then
                     bl = True
                 Else
-                    bl = False
+                    If checkHaisosaki_DaOrNa(haisouSaki) Then
+                        bl = True
+                    Else
+                        bl = False
+                    End If
                 End If
+
                 'If count = 1 Then
                 '        'If checkHaisosaki_DaOrNa(haisouSaki) Then
                 '        '    bl = True 'true: 名古屋
@@ -5985,12 +6054,12 @@ Public Class Csv_denpyo3
                 '        bl = True 'true: 名古屋
                 '    End If
             Else
-                '    If count Mod 2 = 1 Then
-                '    bl = False 'false: 太宰府
-                'Else
-                '    bl = True 'true: 名古屋
-                'End If
-                bl = True
+                    '    If count Mod 2 = 1 Then
+                    '    bl = False 'false: 太宰府
+                    'Else
+                    '    bl = True 'true: 名古屋
+                    'End If
+                    bl = True
             End If
         ElseIf code = "ny261ye" Then
 
@@ -6141,6 +6210,8 @@ Public Class Csv_denpyo3
                 num = 4
             Case sender Is TMSDGV
                 num = 5
+            Case sender Is YMTDGV
+                num = 6
         End Select
 
         '選択行に色を付ける
@@ -6256,6 +6327,8 @@ Public Class Csv_denpyo3
                 num = 4
             Case sender Is TMSDGV
                 num = 5
+            Case sender Is YMTDGV
+                num = 6
         End Select
 
         Dim dH As ArrayList = TM_HEADER_GET(sender)
@@ -6963,6 +7036,8 @@ Public Class Csv_denpyo3
                 dgvS = DGV13
             Case "TMS"
                 dgvS = TMSDGV
+            Case "YMT"
+                dgvS = YMTDGV
             Case Else
                 dgvS = DGV1
         End Select
@@ -9004,6 +9079,7 @@ Public Class Csv_denpyo3
     Dim Template3 As String() = Nothing
     Dim Template4 As String() = Nothing
     Dim Template5 As String() = Nothing
+    Dim Template6 As String() = Nothing
     Private Sub KryptonButton3_Click(sender As Object, e As EventArgs) Handles KryptonButton3.Click
         If DGV6.RowCount = 0 Then
             MsgBox("マスタ確認中です。ファイルサーバーが繋がっていない場合は接続してください。", MsgBoxStyle.SystemModal)
@@ -9121,6 +9197,8 @@ Public Class Csv_denpyo3
         Template3 = File.ReadAllLines(Path.GetDirectoryName(appPath) & "\template\" & TextBox1.Text & ".dat", ENC_SJ)
         Template4 = File.ReadAllLines(Path.GetDirectoryName(appPath) & "\template\" & TextBox42.Text & ".dat", ENC_SJ)
         Template5 = File.ReadAllLines(Path.GetDirectoryName(appPath) & "\template\" & TextBox14.Text & ".dat", ENC_SJ)
+        Template6 = File.ReadAllLines(Path.GetDirectoryName(appPath) & "\template\" & TextBox15.Text & ".dat", ENC_SJ)
+
         '伝票設定用ファイル読み取り
         Dim denpyoConfig As String() = File.ReadAllLines(Path.GetDirectoryName(appPath) & "\config\denpyoConfig.txt", ENC_SJ)
         Dim regStr As String = ""
@@ -9248,6 +9326,11 @@ Public Class Csv_denpyo3
                         TemplateUse = Template5
                         dgvT = TMSDGV
                         dSoft = "TMS"
+                    Case "YMT"
+                        TemplateUse = Template6
+                        dgvT = YMTDGV
+                        dSoft = "YMT"
+
                 End Select
             End If
             DGV1.Item(dH1.IndexOf("伝票ソフト"), r).Value = dSoft
@@ -9679,7 +9762,7 @@ Public Class Csv_denpyo3
                                 '    dgvT.Item(dHTemp.IndexOf(TemplateLine(0)), dgvTNum).Value = DGV1.Item(dH1.IndexOf(TemplateLine(1)), r).Value
                                 '    dgvT.Item(dHTemp.IndexOf(TemplateLine(0)), dgvTNum).Style.BackColor = MotoColor(TemplateLine(1), r)
                                 'End If
-
+                                Dim cc = DGV1.Item(dH1.IndexOf(TemplateLine(1)), r).Value
                                 dgvT.Item(dHTemp.IndexOf(TemplateLine(0)), dgvTNum).Value = DGV1.Item(dH1.IndexOf(TemplateLine(1)), r).Value
                                 dgvT.Item(dHTemp.IndexOf(TemplateLine(0)), dgvTNum).Style.BackColor = MotoColor(TemplateLine(1), r)
                                 'Console.WriteLine(TemplateLine(0) & " : " & DGV1.Item(dH1.IndexOf(TemplateLine(1)), r).Value)
@@ -10003,6 +10086,8 @@ Public Class Csv_denpyo3
             num = 4
         ElseIf dgv Is TMSDGV Then
             num = 5
+        ElseIf dgv Is YMTDGV Then
+            num = 6
         End If
         For r As Integer = 0 To dgv.RowCount - 1
             Dim sakiName As String = dgv.Item(dHSel.IndexOf(koumoku("sakiname")(num)), r).Value
@@ -10086,6 +10171,15 @@ Public Class Csv_denpyo3
             headerKS = koumoku("masterKoguchi")(5)
             marumode = 1
             num = 5
+        ElseIf dgv Is YMTDGV Then
+            hSettei = Split(rh(6), "/")
+            headerDN = koumoku("denpyoNo")(6)
+            soukoDN = koumoku("syori2")(6)
+            binsyuDN = koumoku("binsyu")(6)
+            hmeiDN = koumoku("sakiname")(6)
+            headerKS = koumoku("masterKoguchi")(6)
+            marumode = 1
+            num = 6
         End If
         Dim hSetteiHeader As String() = Split(hSettei(2), "|")
 
@@ -11990,6 +12084,10 @@ Public Class Csv_denpyo3
             TenmlateUse = Template5
             dgvT = TMSDGV
             denpyoSoft = "TMS"
+        ElseIf mode = "YMT" Then
+            TenmlateUse = Template6
+            dgvT = YMTDGV
+            denpyoSoft = "YMT"
         Else
             TenmlateUse = Template1
             dgvT = DGV7
@@ -15846,6 +15944,10 @@ Public Class Csv_denpyo3
     End Function
 
     Private Sub DataGridView_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles TMSDGV.CellDoubleClick, DGV9.CellDoubleClick, DGV8.CellDoubleClick, DGV7.CellDoubleClick, DGV13.CellDoubleClick
+
+    End Sub
+
+    Private Sub Panel8_Paint(sender As Object, e As PaintEventArgs) Handles Panel8.Paint
 
     End Sub
 End Class

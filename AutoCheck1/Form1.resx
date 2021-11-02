@@ -258,28 +258,7 @@
   <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -387,6 +366,61 @@
         TgDQASA1MVpwzwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="Qoo10チェックToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAIcSURBVDhPY0AH////Z/6x57Dvt7b+vs+RqUc+hSac/lrV
+        NO/n6g1J/168EIcqww5+Xrxm9Mkt+O4HLcv/WLGh/ddv0+dVQpWjgp+btse+17f5gVUjGv5SXLMMqg0C
+        /t16oPVB3/4bikIjh69fknJ3fc4q2fTRye/xB20rFEO+TZ9fDdXOwPApJPEUQtLq/9eatjn/373jh0qD
+        woXx56r1Ke8NHL7D1L3Xsfn17/EbGYZ/jx+rIjQDnVdYtRqqDwP83LgtBtklP+YtLWL4uXZTItwAoOS/
+        O49Voeqxgo/eEddh6j/nlK1j+NbYPQVugK33K6g6nOBrbfssmPqPdr6PGb619U6ACbw3d30HVQcH/z99
+        Evm+ZHX2z9u3tUH8r9XN8+EGOAfeA0bfjiiYAAj/vHbNCKwTCr6kFuz6oGvz/4Op09ffx065fHQJvAdT
+        +6WwZgXDvydPZJEN+JSUuxeUGqH6GT5Hpx8FGwDE7/XtfyEH4vdlq7PBij7FZe5HNuRzasGOf48eqYDk
+        QPRHl4DHMEPAGKTO1OnD/5cvJcAG/Hv4UBkkgGwICINC/GNQ3Hlw/OtYIwwA4m9N3VPAmmEA5L8PJk6f
+        0Q1BwciGmDh/+3f/viZUOwSAEtXnsOQTWDWDsL3P0w+O/k9hhvzYvS8YqhUV/Lx+R/f74lW5oEwDSizf
+        ps6u+330pDMwcNlACQ2YP7Z8a+qa/v//f1YA22rQ0+KOPT0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="佐川送料比較ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAC4AAAAgCAYAAABts0pHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAATISURBVFhHzZiLb1p1FMf5v3TOLWrmnk5dnWvUzU1NjI/E
+        ZPMVbRcXZ52Je5m0VFooFDAUiq2xKjKYgz54lcE6rNDyGu0yKAUphVLo8Z5fLwPu/QG3k1a/yTdp4XB/
+        Hy7nd875XRFwlMuvw6+mObjwzS149W097Ds2CLsOSGH3QSkcPK6Ctz74Ca6KbXDH94D9xH+jh+AbGxug
+        HfXBgeNKeOzZfkF+98MxiMbS7BV2VgS8VNqAzi4zFa6Z8Rf50x8nF9tJEfDBIS8VSqiPvvIDZFbWyAV3
+        SqK1QhH2tQ1Sgcp+fD/99WpL5NPsJXdGIuftBSoI+myHAe4/WCH5n07nQaO/C08wm5QW++JJDRPHXrWJ
+        crkcTE5O8ry0tMRGVBSNRqmxop8NfioIWsmkEBfmSvcUtL+po3o5lWOjGiuVSkFPTw/P8/PzbERFDoeD
+        Giv6xRigQqOfOiqHQY1HMJBQtQTc91ecCl1trONYv7v7HTDlvEdq/b9RS8CxFL78ho4KXM97jwzAuc7f
+        4catIBSLJXYJ4WoJOG48+3Ss7qZrZvzSrtuL7DIV5fN5CAaD4PF4iHGTlUqbX7IeuN/vh/X19RrbbDZq
+        7MPO+cd4GJ55QUGFa2ZMpd+YMQFVKBTAYrFAb28vbzGFQgGhUKgu+FZcM6skl1eZOWSqaV2nGdMnEk2C
+        VqulLlTtiYkJ6utbcQ14WdiUJuxRMkydeudHQQ0I/d65Aeoi22EqOFd/Z/Jw0xqCjq/MzJQoo0Kj205K
+        qItsh0XakbsgUUzzLFW5Scfkyumu32mPvcYHx1zHTVcsFiGTyYDRaOTFlD02NgZWq7XGw8PD1FgRjqY0
+        CHR5w1UrnshSY9HtZ/jgJpOJ/eSmsFLIZDJeHHpL5VCprT8ZYonsumIl9doyFQG17g689PoQNRb9/ll+
+        JZmdnWURKjIYDLw4NJZPruqC4zh66ISKCrIV7zncD99eFvMW4N5FTD+z2cyLk0gkpExy1aABAdhdsYab
+        Tog/7qD//F6vl0WoaHR0lBen1+thbY0/09cFZ98n5Q9PMzSoRt59SEaOfLixaAtoNBqyMctKJpPU5oSA
+        tGLQFByVWFqFS9fHyVRIg6w2xnR23YRwdPPn9fl81AXQ2JTwzjudTpDL5bz3lUolRCIRch2uBIGXlV0t
+        kLrd3e+E8wzcR+eN8MkXRrh42QJSpRuszEblTojY6gcGHq0BYergbEMTHi4CgQDPghqQUIXDYSpYI6vV
+        alhc5A9pzdRScNTc3Bz09fVRIdGYFiMjIyAWi0GlUpG7hwrMJ8HtvU/+FqKWg6Oy2SzY7XbQ6XQkp3Eq
+        RFi3201SCocs/HJY43HUtTlj8NmXJjJeC9W2gDcTfoFYLEaqyKTjHjld7X1ODsHIMhvRXC0Dx1ZOO42j
+        0+nap10IjCP09e9t0HZ6CHbtl8KTh2VkKhWqlt5xrNncnMaajYNSIpEgMSvZAoQiKTJp4gGkXF4/vXCD
+        vC9ULQVfWFioaS6Y4zMzMxCPx8ldxoP5pWvj5KSFd7gMjYeQYFh4mqBanuMI73K5SInDFo49AaG+vmol
+        hxLu8fBIuxqmPf+DclgWdu9xWxS+k9jJw6I9zF3F1Hj6eQWcYP7//KIZ8GHUoz3qAPgHsVnfrGmuZa0A
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="フリー在庫不足ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAGASURBVDhPldNLKERRHMfxMWlmMaXkkedeSkqUpZ3XwtJG
+        qSEpY2dJVramvOpkqSiWLOyspOSVpbKRt8UslJHi+P7uObc7M5L861Pn/P/nnM69939jRWFsEv3YwSM+
+        PY2VUy3pV5eEsXVYwQvOkMWUp7Fyqq2ixu/y4Tbv4h4ZVPlKFMq52gV0k1GkVUhgGbfo88uVL/OjKIyN
+        oxpd0G3ySuq0J2T8MuWasYgxxH02CmN7kEdOk22cwj2XsRXYgsUBUkG+MNz1VT/U5AFZX9J8Eh/Qgg0U
+        30CPZqzx9Tkl9Jnc9d3LPEcOz7hEY1ALw9g23OAKLaUHDOMLS0jjDetoQgrt2Mc7JoI9DKJHcN9YVxtH
+        ORbwimscQy9bN5tBJ1q1SS/xBA1QL+iAEX+gOnMAOngT8+hALY6wpkXhZ5zGLNRx3cEBhVHYF647tWdQ
+        k8JGGkIlfjZRGMb2+rVq+0SYDFv5Djr9t1ZWTWv2UO8rPv7+mdRsqmlNyeYw/v07x2Lf3ZSC3UOFd8QA
+        AAAASUVORK5CYII=
+</value>
+  </data>
   <data name="ToolStripDropDownButton5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -461,61 +495,6 @@
         mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
         kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
         TgDQASA1MVpwzwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="Qoo10チェックToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAIcSURBVDhPY0AH////Z/6x57Dvt7b+vs+RqUc+hSac/lrV
-        NO/n6g1J/168EIcqww5+Xrxm9Mkt+O4HLcv/WLGh/ddv0+dVQpWjgp+btse+17f5gVUjGv5SXLMMqg0C
-        /t16oPVB3/4bikIjh69fknJ3fc4q2fTRye/xB20rFEO+TZ9fDdXOwPApJPEUQtLq/9eatjn/373jh0qD
-        woXx56r1Ke8NHL7D1L3Xsfn17/EbGYZ/jx+rIjQDnVdYtRqqDwP83LgtBtklP+YtLWL4uXZTItwAoOS/
-        O49Voeqxgo/eEddh6j/nlK1j+NbYPQVugK33K6g6nOBrbfssmPqPdr6PGb619U6ACbw3d30HVQcH/z99
-        Evm+ZHX2z9u3tUH8r9XN8+EGOAfeA0bfjiiYAAj/vHbNCKwTCr6kFuz6oGvz/4Op09ffx065fHQJvAdT
-        +6WwZgXDvydPZJEN+JSUuxeUGqH6GT5Hpx8FGwDE7/XtfyEH4vdlq7PBij7FZe5HNuRzasGOf48eqYDk
-        QPRHl4DHMEPAGKTO1OnD/5cvJcAG/Hv4UBkkgGwICINC/GNQ3Hlw/OtYIwwA4m9N3VPAmmEA5L8PJk6f
-        0Q1BwciGmDh/+3f/viZUOwSAEtXnsOQTWDWDsL3P0w+O/k9hhvzYvS8YqhUV/Lx+R/f74lW5oEwDSizf
-        ps6u+330pDMwcNlACQ2YP7Z8a+qa/v//f1YA22rQ0+KOPT0AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="佐川送料比較ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAC4AAAAgCAYAAABts0pHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAATISURBVFhHzZiLb1p1FMf5v3TOLWrmnk5dnWvUzU1NjI/E
-        ZPMVbRcXZ52Je5m0VFooFDAUiq2xKjKYgz54lcE6rNDyGu0yKAUphVLo8Z5fLwPu/QG3k1a/yTdp4XB/
-        Hy7nd875XRFwlMuvw6+mObjwzS149W097Ds2CLsOSGH3QSkcPK6Ctz74Ca6KbXDH94D9xH+jh+AbGxug
-        HfXBgeNKeOzZfkF+98MxiMbS7BV2VgS8VNqAzi4zFa6Z8Rf50x8nF9tJEfDBIS8VSqiPvvIDZFbWyAV3
-        SqK1QhH2tQ1Sgcp+fD/99WpL5NPsJXdGIuftBSoI+myHAe4/WCH5n07nQaO/C08wm5QW++JJDRPHXrWJ
-        crkcTE5O8ry0tMRGVBSNRqmxop8NfioIWsmkEBfmSvcUtL+po3o5lWOjGiuVSkFPTw/P8/PzbERFDoeD
-        Giv6xRigQqOfOiqHQY1HMJBQtQTc91ecCl1trONYv7v7HTDlvEdq/b9RS8CxFL78ho4KXM97jwzAuc7f
-        4catIBSLJXYJ4WoJOG48+3Ss7qZrZvzSrtuL7DIV5fN5CAaD4PF4iHGTlUqbX7IeuN/vh/X19RrbbDZq
-        7MPO+cd4GJ55QUGFa2ZMpd+YMQFVKBTAYrFAb28vbzGFQgGhUKgu+FZcM6skl1eZOWSqaV2nGdMnEk2C
-        VqulLlTtiYkJ6utbcQ14WdiUJuxRMkydeudHQQ0I/d65Aeoi22EqOFd/Z/Jw0xqCjq/MzJQoo0Kj205K
-        qItsh0XakbsgUUzzLFW5Scfkyumu32mPvcYHx1zHTVcsFiGTyYDRaOTFlD02NgZWq7XGw8PD1FgRjqY0
-        CHR5w1UrnshSY9HtZ/jgJpOJ/eSmsFLIZDJeHHpL5VCprT8ZYonsumIl9doyFQG17g689PoQNRb9/ll+
-        JZmdnWURKjIYDLw4NJZPruqC4zh66ISKCrIV7zncD99eFvMW4N5FTD+z2cyLk0gkpExy1aABAdhdsYab
-        Tog/7qD//F6vl0WoaHR0lBen1+thbY0/09cFZ98n5Q9PMzSoRt59SEaOfLixaAtoNBqyMctKJpPU5oSA
-        tGLQFByVWFqFS9fHyVRIg6w2xnR23YRwdPPn9fl81AXQ2JTwzjudTpDL5bz3lUolRCIRch2uBIGXlV0t
-        kLrd3e+E8wzcR+eN8MkXRrh42QJSpRuszEblTojY6gcGHq0BYergbEMTHi4CgQDPghqQUIXDYSpYI6vV
-        alhc5A9pzdRScNTc3Bz09fVRIdGYFiMjIyAWi0GlUpG7hwrMJ8HtvU/+FqKWg6Oy2SzY7XbQ6XQkp3Eq
-        RFi3201SCocs/HJY43HUtTlj8NmXJjJeC9W2gDcTfoFYLEaqyKTjHjld7X1ODsHIMhvRXC0Dx1ZOO42j
-        0+nap10IjCP09e9t0HZ6CHbtl8KTh2VkKhWqlt5xrNncnMaajYNSIpEgMSvZAoQiKTJp4gGkXF4/vXCD
-        vC9ULQVfWFioaS6Y4zMzMxCPx8ldxoP5pWvj5KSFd7gMjYeQYFh4mqBanuMI73K5SInDFo49AaG+vmol
-        hxLu8fBIuxqmPf+DclgWdu9xWxS+k9jJw6I9zF3F1Hj6eQWcYP7//KIZ8GHUoz3qAPgHsVnfrGmuZa0A
-        AAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="フリー在庫不足ToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAGASURBVDhPldNLKERRHMfxMWlmMaXkkedeSkqUpZ3XwtJG
-        qSEpY2dJVramvOpkqSiWLOyspOSVpbKRt8UslJHi+P7uObc7M5L861Pn/P/nnM69939jRWFsEv3YwSM+
-        PY2VUy3pV5eEsXVYwQvOkMWUp7Fyqq2ixu/y4Tbv4h4ZVPlKFMq52gV0k1GkVUhgGbfo88uVL/OjKIyN
-        oxpd0G3ySuq0J2T8MuWasYgxxH02CmN7kEdOk22cwj2XsRXYgsUBUkG+MNz1VT/U5AFZX9J8Eh/Qgg0U
-        30CPZqzx9Tkl9Jnc9d3LPEcOz7hEY1ALw9g23OAKLaUHDOMLS0jjDetoQgrt2Mc7JoI9DKJHcN9YVxtH
-        ORbwimscQy9bN5tBJ1q1SS/xBA1QL+iAEX+gOnMAOngT8+hALY6wpkXhZ5zGLNRx3cEBhVHYF647tWdQ
-        k8JGGkIlfjZRGMb2+rVq+0SYDFv5Djr9t1ZWTWv2UO8rPv7+mdRsqmlNyeYw/v07x2Lf3ZSC3UOFd8QA
-        AAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

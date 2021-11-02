@@ -133,6 +133,7 @@ Partial Class Csv_denpyo3
         Me.ListBox4 = New System.Windows.Forms.ListBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.SplitContainer6 = New System.Windows.Forms.SplitContainer()
+        Me.TextBox15 = New System.Windows.Forms.TextBox()
         Me.TextBox14 = New System.Windows.Forms.TextBox()
         Me.TextBox42 = New System.Windows.Forms.TextBox()
         Me.TextBox41 = New System.Windows.Forms.TextBox()
@@ -251,6 +252,8 @@ Partial Class Csv_denpyo3
         Me.DGV13 = New System.Windows.Forms.DataGridView()
         Me.TabPage38 = New System.Windows.Forms.TabPage()
         Me.TMSDGV = New System.Windows.Forms.DataGridView()
+        Me.TabPage39 = New System.Windows.Forms.TabPage()
+        Me.YMTDGV = New System.Windows.Forms.DataGridView()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
         Me.TabControl4 = New System.Windows.Forms.TabControl()
@@ -575,8 +578,6 @@ Partial Class Csv_denpyo3
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.TabPage39 = New System.Windows.Forms.TabPage()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ToolStrip1.SuspendLayout
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SplitContainer1.Panel1.SuspendLayout
@@ -639,6 +640,8 @@ Partial Class Csv_denpyo3
         CType(Me.DGV13, System.ComponentModel.ISupportInitialize).BeginInit
         Me.TabPage38.SuspendLayout
         CType(Me.TMSDGV, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TabPage39.SuspendLayout
+        CType(Me.YMTDGV, System.ComponentModel.ISupportInitialize).BeginInit
         Me.TabControl3.SuspendLayout
         Me.TabPage11.SuspendLayout
         Me.TabControl4.SuspendLayout
@@ -703,8 +706,6 @@ Partial Class Csv_denpyo3
         Me.TabPage24.SuspendLayout
         Me.TabPage25.SuspendLayout
         Me.StatusStrip1.SuspendLayout
-        Me.TabPage39.SuspendLayout
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'ToolStrip1
@@ -1979,9 +1980,9 @@ Partial Class Csv_denpyo3
         Me.Button36.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Button36.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button36.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Button36.Location = New System.Drawing.Point(123, 301)
+        Me.Button36.Location = New System.Drawing.Point(127, 301)
         Me.Button36.Name = "Button36"
-        Me.Button36.Size = New System.Drawing.Size(49, 19)
+        Me.Button36.Size = New System.Drawing.Size(45, 19)
         Me.Button36.TabIndex = 86
         Me.Button36.Text = "←"
         Me.Button36.UseVisualStyleBackColor = False
@@ -2052,6 +2053,7 @@ Partial Class Csv_denpyo3
         'SplitContainer6.Panel1
         '
         Me.SplitContainer6.Panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.SplitContainer6.Panel1.Controls.Add(Me.TextBox15)
         Me.SplitContainer6.Panel1.Controls.Add(Me.TextBox14)
         Me.SplitContainer6.Panel1.Controls.Add(Me.TextBox42)
         Me.SplitContainer6.Panel1.Controls.Add(Me.TextBox41)
@@ -2070,11 +2072,22 @@ Partial Class Csv_denpyo3
         Me.SplitContainer6.SplitterDistance = 254
         Me.SplitContainer6.TabIndex = 11
         '
+        'TextBox15
+        '
+        Me.TextBox15.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.TextBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox15.Location = New System.Drawing.Point(8, 114)
+        Me.TextBox15.Name = "TextBox15"
+        Me.TextBox15.ReadOnly = True
+        Me.TextBox15.Size = New System.Drawing.Size(163, 19)
+        Me.TextBox15.TabIndex = 102
+        Me.TextBox15.Text = "☆共通-(ヤマト)"
+        '
         'TextBox14
         '
         Me.TextBox14.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox14.Location = New System.Drawing.Point(8, 57)
+        Me.TextBox14.Location = New System.Drawing.Point(8, 51)
         Me.TextBox14.Name = "TextBox14"
         Me.TextBox14.ReadOnly = True
         Me.TextBox14.Size = New System.Drawing.Size(163, 19)
@@ -2085,7 +2098,7 @@ Partial Class Csv_denpyo3
         '
         Me.TextBox42.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox42.Location = New System.Drawing.Point(8, 125)
+        Me.TextBox42.Location = New System.Drawing.Point(8, 134)
         Me.TextBox42.Name = "TextBox42"
         Me.TextBox42.ReadOnly = True
         Me.TextBox42.Size = New System.Drawing.Size(163, 19)
@@ -2096,7 +2109,7 @@ Partial Class Csv_denpyo3
         '
         Me.TextBox41.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox41.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox41.Location = New System.Drawing.Point(8, 146)
+        Me.TextBox41.Location = New System.Drawing.Point(8, 155)
         Me.TextBox41.Name = "TextBox41"
         Me.TextBox41.ReadOnly = True
         Me.TextBox41.Size = New System.Drawing.Size(163, 19)
@@ -2118,7 +2131,7 @@ Partial Class Csv_denpyo3
         '
         Me.TextBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(8, 104)
+        Me.TextBox1.Location = New System.Drawing.Point(8, 93)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(163, 19)
@@ -2128,7 +2141,7 @@ Partial Class Csv_denpyo3
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(8, 174)
+        Me.Label18.Location = New System.Drawing.Point(8, 177)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(160, 12)
         Me.Label18.TabIndex = 95
@@ -2149,7 +2162,7 @@ Partial Class Csv_denpyo3
         '
         Me.TextBox3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox3.Location = New System.Drawing.Point(8, 83)
+        Me.TextBox3.Location = New System.Drawing.Point(8, 72)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.ReadOnly = True
         Me.TextBox3.Size = New System.Drawing.Size(163, 19)
@@ -2160,7 +2173,7 @@ Partial Class Csv_denpyo3
         '
         Me.TextBox40.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.TextBox40.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox40.Location = New System.Drawing.Point(8, 190)
+        Me.TextBox40.Location = New System.Drawing.Point(8, 193)
         Me.TextBox40.Name = "TextBox40"
         Me.TextBox40.ReadOnly = True
         Me.TextBox40.Size = New System.Drawing.Size(163, 19)
@@ -3359,6 +3372,31 @@ Partial Class Csv_denpyo3
         Me.TMSDGV.RowTemplate.Height = 21
         Me.TMSDGV.Size = New System.Drawing.Size(821, 426)
         Me.TMSDGV.TabIndex = 11
+        '
+        'TabPage39
+        '
+        Me.TabPage39.Controls.Add(Me.YMTDGV)
+        Me.TabPage39.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage39.Name = "TabPage39"
+        Me.TabPage39.Size = New System.Drawing.Size(821, 426)
+        Me.TabPage39.TabIndex = 6
+        Me.TabPage39.Text = "YAMATO"
+        Me.TabPage39.UseVisualStyleBackColor = True
+        '
+        'YMTDGV
+        '
+        Me.YMTDGV.AllowDrop = True
+        Me.YMTDGV.AllowUserToAddRows = False
+        Me.YMTDGV.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.YMTDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.YMTDGV.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.YMTDGV.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.YMTDGV.Location = New System.Drawing.Point(0, 0)
+        Me.YMTDGV.Name = "YMTDGV"
+        Me.YMTDGV.ReadOnly = True
+        Me.YMTDGV.RowTemplate.Height = 21
+        Me.YMTDGV.Size = New System.Drawing.Size(821, 426)
+        Me.YMTDGV.TabIndex = 12
         '
         'TabControl3
         '
@@ -6994,31 +7032,6 @@ Partial Class Csv_denpyo3
         Me.Timer2.Enabled = True
         Me.Timer2.Interval = 1000
         '
-        'TabPage39
-        '
-        Me.TabPage39.Controls.Add(Me.DataGridView1)
-        Me.TabPage39.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage39.Name = "TabPage39"
-        Me.TabPage39.Size = New System.Drawing.Size(821, 426)
-        Me.TabPage39.TabIndex = 6
-        Me.TabPage39.Text = "YAMATO"
-        Me.TabPage39.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowDrop = True
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGridView1.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowTemplate.Height = 21
-        Me.DataGridView1.Size = New System.Drawing.Size(821, 426)
-        Me.DataGridView1.TabIndex = 12
-        '
         'Csv_denpyo3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -7106,6 +7119,8 @@ Partial Class Csv_denpyo3
         CType(Me.DGV13, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabPage38.ResumeLayout(False)
         CType(Me.TMSDGV, System.ComponentModel.ISupportInitialize).EndInit
+        Me.TabPage39.ResumeLayout(False)
+        CType(Me.YMTDGV, System.ComponentModel.ISupportInitialize).EndInit
         Me.TabControl3.ResumeLayout(False)
         Me.TabPage11.ResumeLayout(False)
         Me.TabControl4.ResumeLayout(False)
@@ -7186,8 +7201,6 @@ Partial Class Csv_denpyo3
         Me.TabPage25.PerformLayout
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout
-        Me.TabPage39.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -7741,5 +7754,6 @@ Partial Class Csv_denpyo3
     Friend WithEvents Label125 As Label
     Friend WithEvents Label128 As Label
     Friend WithEvents TabPage39 As TabPage
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents YMTDGV As DataGridView
+    Friend WithEvents TextBox15 As TextBox
 End Class
