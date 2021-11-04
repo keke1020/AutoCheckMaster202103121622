@@ -1851,7 +1851,7 @@ Public Class Csv_denpyo3
         Dim ny331_50_codes As String() = New String() {"ny331-50-306"， "ny331-50-be"， "ny331-50-bk"， "ny331-50-co"， "ny331-50-dapi"， "ny331-50-flpi"， "ny331-50-flwh"， "ny331-50-hu"， "ny331-50-pa"， "ny331-50-pi"， "ny331-50-wh", "ny331-50-ye", "ny331-50-rose", "ny331-50-lor", "ny331-50-lgr", "ny331-50-kobk", "ny331-50-kohu", "ny331-50-koor", "ny331-50-kopi", "ny331-50-ot306"}
         'pa084-5
         'Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-2000-a"， "ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny263-51", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
-        Dim masuku_zyogai As String() = New String() {"ny261-1000-a"， "ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
+        Dim masuku_zyogai As String() = New String() {"ny261-1000-ye"， "ny261-2000-ye"， "ny264-100-4000", "ny264-100-4000wh", "ny264-100-4000ye", "ny264-100", "ny264-200", "ny264", "ny264-500", "ny264-3000a"}
 
         'Dim ny331_2500_codes As String() = New String() {"ny331-2500-be"}
         '扁盒口罩
@@ -1951,6 +1951,8 @@ Public Class Csv_denpyo3
                 Dim checkcodejuchusu_ny264_100 As Integer = 0
                 Dim checkcodejuchusu_ny264_200 As Integer = 0
                 Dim checkcodejuchusu_ny264_500 As Integer = 0
+                Dim checkcodejuchusu_ny261_2000_1 As Integer = 0
+
                 Dim checkcodejuchusu_ny264_3000 As Integer = 0
                 'Dim checkcodejuchusu_pa084_5 As Integer = 0
                 'Dim checkcodejuchusu_pa084_7 As Integer = 0
@@ -2092,19 +2094,19 @@ Public Class Csv_denpyo3
                     End If
 
 
-                    If checkcode(0).ToLower = "ny261-1000-ye" Or checkcode(0).ToLower = "ny261-2000-ye" Or checkcode(0).ToLower = "ny264-100-4000ye" Then
-                        If checkcode(1) = Int(checkcode(1)) Then
-                            If checkcode(0).ToLower = "ny261-1000-ye" Then
-                                checkcodejuchusu_ny261ye = checkcodejuchusu_ny261ye + checkcode(1)
-                                checkcodejuchusu_ny261_1000ye = checkcodejuchusu_ny261_1000ye + checkcode(1)
-                            ElseIf checkcode(0).ToLower = "ny261-2000-ye" Then
-                                checkcodejuchusu_ny261ye = checkcodejuchusu_ny261ye + (checkcode(1) * 2)
-                                checkcodejuchusu_ny261_2000ye = checkcodejuchusu_ny261_2000ye + checkcode(1)
-                            ElseIf checkcode(0).ToLower = "ny264-100-4000ye" Then
-                                checkcodejuchusu_ny261ye = checkcodejuchusu_ny261ye + (checkcode(1) * 4)
-                            End If
-                        End If
-                    End If
+                    'If checkcode(0).ToLower = "ny261-1000-ye" Or checkcode(0).ToLower = "ny261-2000-ye" Or checkcode(0).ToLower = "ny264-100-4000ye" Then
+                    '    If checkcode(1) = Int(checkcode(1)) Then
+                    '        If checkcode(0).ToLower = "ny261-1000-ye" Then
+                    '            checkcodejuchusu_ny261ye = checkcodejuchusu_ny261ye + checkcode(1)
+                    '            checkcodejuchusu_ny261_1000ye = checkcodejuchusu_ny261_1000ye + checkcode(1)
+                    '        ElseIf checkcode(0).ToLower = "ny261-2000-ye" Then
+                    '            checkcodejuchusu_ny261ye = checkcodejuchusu_ny261ye + (checkcode(1) * 2)
+                    '            checkcodejuchusu_ny261_2000ye = checkcodejuchusu_ny261_2000ye + checkcode(1)
+                    '        ElseIf checkcode(0).ToLower = "ny264-100-4000ye" Then
+                    '            checkcodejuchusu_ny261ye = checkcodejuchusu_ny261ye + (checkcode(1) * 4)
+                    '        End If
+                    '    End If
+                    'End If
 
 
 
@@ -2114,6 +2116,10 @@ Public Class Csv_denpyo3
                             checkcodejuchusu_ny264 = checkcodejuchusu_ny264 + checkcode(1)
                         End If
                     End If
+
+
+
+
 
                     If checkcode(0).ToLower = "ny264-100" Then
                         If checkcode(1) = Int(checkcode(1)) Then
@@ -2132,6 +2138,15 @@ Public Class Csv_denpyo3
                             checkcodejuchusu_ny264_500 = checkcodejuchusu_ny264_500 + checkcode(1)
                         End If
                     End If
+
+
+
+
+                    'If checkcode(0).ToLower = "ny261-2000-1" Then
+                    '    If checkcode(1) = Int(checkcode(1)) Then
+                    '        checkcodejuchusu_ny261_2000_1 = checkcodejuchusu_ny261_2000_1 + checkcode(1)
+                    '    End If
+                    'End If
 
 
                     'If ny331_50_codes.Contains(checkcode(0).ToLower) Then
@@ -2405,10 +2420,10 @@ Public Class Csv_denpyo3
                 'End If
 
                 '这里的执行过程， 满足条件的情况下会把仓库加到tag_decide
-                Dim ny261_isnagoya As Boolean = Nothing
-                If checkcodejuchusu_ny261 > 0 Then
-                    ny261_isnagoya = checkSouko_DaOrNa(tag_decide, "ny261", checkcodejuchusu_ny261, haisouSaki)
-                End If
+                'Dim ny261_isnagoya As Boolean = Nothing
+                'If checkcodejuchusu_ny261 > 0 Then
+                '    ny261_isnagoya = checkSouko_DaOrNa(tag_decide, "ny261", checkcodejuchusu_ny261, haisouSaki)
+                'End If
                 'ny261_isnagoya = True
                 Dim od492_isnagoyaortaizafu As Boolean = Nothing
                 If checkcodejuchusu_od492 > 0 Then
@@ -2416,9 +2431,9 @@ Public Class Csv_denpyo3
                 End If
 
 
-                If checkcodejuchusu_ny261ye > 0 Then
-                    ny261_isnagoya = checkSouko_DaOrNa(tag_decide, "ny261ye", checkcodejuchusu_ny261ye, haisouSaki)
-                End If
+                'If checkcodejuchusu_ny261ye > 0 Then
+                '    ny261_isnagoya = checkSouko_DaOrNa(tag_decide, "ny261ye", checkcodejuchusu_ny261ye, haisouSaki)
+                'End If
 
 
                 '这里
@@ -2426,6 +2441,13 @@ Public Class Csv_denpyo3
                 If checkcodejuchusu_ny263_51 > 0 And checkcodejuchusu_ny263_51 < 20 Then
                     ny263_51_isnagoya = checkSouko_DaOrNa(tag_decide, "ny263-51", checkcodejuchusu_ny263_51, haisouSaki)
                 End If
+
+
+                Dim ny261_1000_isnagoya As Boolean = Nothing
+                'If checkcodejuchusu_ny261_1000 > 0 Then
+                '    ny261_1000_isnagoya = checkSouko_DaOrNa(tag_decide, "ny261-1000-a", checkcodejuchusu_ny261_1000, haisouSaki)
+                'End If
+
 
                 Dim ny264_isnagoya As Boolean = Nothing
                 If checkcodejuchusu_ny264 > 0 Then
@@ -2450,6 +2472,11 @@ Public Class Csv_denpyo3
                 Dim ny264_3000_isnagoya As Boolean = Nothing
                 If checkcodejuchusu_ny264_3000 > 0 Then
                     ny264_3000_isnagoya = checkSouko_DaOrNa(tag_decide, "ny264-3000a", checkcodejuchusu_ny264_3000, haisouSaki)
+                End If
+
+                Dim ny261_2000_1 As Boolean = Nothing
+                If checkcodejuchusu_ny261_2000_1 > 0 Then
+                    ny264_500_isnagoya = checkSouko_DaOrNa(tag_decide, "ny261_2000_1", checkcodejuchusu_ny264_500, haisouSaki)
                 End If
 
                 'Dim pa084_5_isnagoya As Boolean = Nothing
@@ -2537,14 +2564,15 @@ Public Class Csv_denpyo3
 
 
 
-                    If ny261_isnagoya Then
-                        If haisouKind = "宅配便" And ((code(0).ToLower = "ny261-1000-a") Or (code(0).ToLower = "ny261-1000-ye")) Then
-                            'weight = "16.66"
-                            weight = "25"
-                            sp_check = False
-                        End If
+                    'If ny261_isnagoya Then
+                    'ZHELI
+                    'If haisouKind = "宅配便" And ((code(0).ToLower = "ny261-1000-a") Or (code(0).ToLower = "ny261-1000-ye")) Then
+                    '        'weight = "16.66"
+                    '        weight = "25"
+                    '        sp_check = False
+                    '    End If
 
-                        If haisouKind = "宅配便" And ((code(0).ToLower = "ny261-2000-a") Or (code(0).ToLower = "ny261-2000-ye")) Then
+                    If haisouKind = "宅配便" And ((code(0).ToLower = "ny261-2000-a") Or (code(0).ToLower = "ny261-2000-ye")) Then
                             'weight = "33.32"
                             weight = "50"
                             sp_check = False
@@ -2557,23 +2585,23 @@ Public Class Csv_denpyo3
                         End If
 
 
-                    Else
-                        If haisouKind = "宅配便" And ((code(0).ToLower = "ny261-1000-a") Or (code(0).ToLower = "ny261-1000-ye")) Then
-                            weight = "50"
-                            sp_check = False
-                        End If
+                    'Else
+                    If haisouKind = "宅配便" And ((code(0).ToLower = "ny261-1000-a") Or (code(0).ToLower = "ny261-1000-ye")) Then
+                        weight = "50"
+                        sp_check = False
+                    End If
 
-                        If haisouKind = "宅配便" And ((code(0).ToLower = "ny261-2000-a") Or (code(0).ToLower = "ny261-2000-ye")) Then
-                            weight = "100"
-                            sp_check = False
-                        End If
+                    If haisouKind = "宅配便" And ((code(0).ToLower = "ny261-2000-a") Or (code(0).ToLower = "ny261-2000-ye")) Then
+                        weight = "100"
+                        sp_check = False
+                    End If
 
-                        If haisouKind = "宅配便" And ((code(0).ToLower = "ny264-100-4000") Or (code(0).ToLower = "ny264-100-4000wh") Or (code(0).ToLower = "ny264-100-4000ye")) Then
+                    If haisouKind = "宅配便" And ((code(0).ToLower = "ny264-100-4000") Or (code(0).ToLower = "ny264-100-4000wh") Or (code(0).ToLower = "ny264-100-4000ye")) Then
                             weight = "200"
                             sp_check = False
                         End If
 
-                    End If
+                    'End If
 
                     If (haisouKind = "メール便" And (code(0).ToLower = "ny263-51") And ny263_51_isnagoya And special_taku) Or (haisouKind_moto = "宅配便" And haisouKind = "宅配便" And (code(0).ToLower = "ny263-51") And ny263_51_isnagoya) Then
                         'weight = "83" '6000枚一箱 ny263-51是50枚 1/120 后面会除两次100 10000/120 
@@ -2590,10 +2618,10 @@ Public Class Csv_denpyo3
                         '    sp_check = False
                     End If
 
-                    'If haisouKind = "宅配便" And (code(0).ToLower = "ny264") Then
-                    '    weight = "2.5" '100/40
-                    '    sp_check = False
-                    'End If
+                    If haisouKind = "宅配便" And (code(0).ToLower = "ny264") Then
+                        weight = "5" '100/40
+                        sp_check = False
+                    End If
 
                     'ny264 50枚
                     If haisouKind = "宅配便" And code(0).ToLower = "ny264" And ny264_isnagoya Then
@@ -2691,6 +2719,18 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
+
+
+                    If haisouKind = "メール便" And code(0).ToLower = "ny264-100" Then
+                        weight = "200"
+                        'sp_check = False
+                    End If
+
+
+                    'If haisouKind = "メール便" And InStr(code(0).ToLower, "ny140-") Then
+                    '    weight = "167"
+                    '    sp_check = False
+                    'End If
                     'If haisouKind = "メール便" And (code(0).ToLower = "ny373-wh" Or code(0).ToLower = "ny373-hu" Or code(0).ToLower = "ny373-pi" Or code(0).ToLower = "ny373-bk" Or code(0).ToLower = "ny373-kob" Or code(0).ToLower = "ny373-kowh" Or code(0).ToLower = "ny373-kobk") Then
                     If haisouKind = "メール便" And InStr(code(0).ToLower, "ny373") And Not InStr(code(0).ToLower, "ny373-600") And Not InStr(code(0).ToLower, "ny373-150") Then
 
@@ -2758,11 +2798,29 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
+
+
+                    If haisouKind_moto = "宅配便" And InStr(code(0).ToLower, "ny140-") Then
+                        weight = "166"
+                        sp_check = False
+                    End If
+
+
+
+
                     '扁盒口罩
                     If (haisouKind_moto = "宅配便" And haisouKind = "メール便" And masuku_50codesPro.Contains(code(0).ToLower) Or (haisouKind = "メール便" And special_takumasukuPro And masuku_50codesPro.Contains(code(0).ToLower))) Then
                         weight = "228"
                         sp_check = False
                     End If
+
+
+
+                    If haisouKind_moto = "宅配便" And haisouKind = "メール便" And code(0).ToLower = "ny264-100" And ny264_100_isnagoya Then
+                        weight = "1000"
+                        sp_check = False
+                    End If
+
 
                     'Or (code(0).ToLower = "ny405-ne")
                     If haisouKind_moto = "宅配便" And (code(0).ToLower = "ny405-bk" Or (code(0).ToLower = "ny405-bl") Or (code(0).ToLower = "ny405-bl") Or
@@ -2973,9 +3031,9 @@ Public Class Csv_denpyo3
                                 If (code(0).ToLower.Contains("ny331-50") And Not code(0).ToLower.Contains("ny331-500")) Or code(0).ToLower.Contains("ny263-331-50") Or (code(0).ToLower.Contains("ny393-50") And Not code(0).ToLower.Contains("ny393-500")) Then
 
                                     '1 7 9 2 3 9 12 1 2
+                                    haisouSize = haisouSize + (2 * CDbl(juchusu))
+                                ElseIf code(0).ToLower.Contains("ny439-") Then
                                     haisouSize = haisouSize + (2.5 * CDbl(juchusu))
-                                    'ElseIf code(0).ToLower.Contains("ny439-") Then
-                                    '    haisouSize = haisouSize + (2 * CDbl(juchusu))
                                 Else
                                     haisouSize = haisouSize + ((CDbl(weight) / 100) * CDbl(juchusu))
                                 End If
@@ -6054,12 +6112,12 @@ Public Class Csv_denpyo3
                 '        bl = True 'true: 名古屋
                 '    End If
             Else
-                    '    If count Mod 2 = 1 Then
-                    '    bl = False 'false: 太宰府
-                    'Else
-                    '    bl = True 'true: 名古屋
-                    'End If
-                    bl = True
+                '    If count Mod 2 = 1 Then
+                '    bl = False 'false: 太宰府
+                'Else
+                '    bl = True 'true: 名古屋
+                'End If
+                'bl = True
             End If
         ElseIf code = "ny261ye" Then
 
@@ -6080,6 +6138,8 @@ Public Class Csv_denpyo3
             Else
                 bl = False
             End If
+
+
         ElseIf code = "ny264-100" Then
             If count Mod 10 = 0 Then
                 If count = 10 Or count = 20 Then '10，20個
@@ -6090,6 +6150,7 @@ Public Class Csv_denpyo3
             Else
                 bl = False
             End If
+
         ElseIf code = "ny264-200" Then
             If count Mod 5 = 0 Then
                 If count = 5 Or count = 10 Then '10，20個
@@ -6153,8 +6214,13 @@ Public Class Csv_denpyo3
             Else
                 bl = False 'false: 太宰府
             End If
-
-
+        ElseIf code = "ny261-1000-a" Then
+            'If checkHaisosaki_DaOrNa(haisouSaki) Then
+            '    bl = True 'true: 名古屋
+            'Else
+            '    bl = False 'false: 太宰府
+            'End If
+            bl = True 'true: 名古屋
         End If
 
         If bl Then
@@ -10211,6 +10277,12 @@ Public Class Csv_denpyo3
 
             Dim masterCode As String() = Split(dgv.Item(dHSel.IndexOf("マスタコード"), r).Value, "、")
             Dim binsu As String = dgv.Item(dHSel.IndexOf(headerKS), r).Value
+            If binsu = 2 And masterCode.Length = 1 And masterCode(0) = "ny264-100*1" Then
+                Dim temp As List(Of String) = masterCode.ToList()
+                temp.Add(masterCode(0))
+                masterCode = temp.ToArray()
+            End If
+
 
             'メール便************************************************
             If dgv Is DGV9 Or dgv Is DGV13 Then    'メール便は複製した行に商品コードを振り分ける

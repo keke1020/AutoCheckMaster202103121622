@@ -10617,6 +10617,10 @@ Public Class Mall_main
         Shiji.Show()
     End Sub
 
+    Private Sub DGV21_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV21.CellContentClick
+
+    End Sub
+
 
 
 
