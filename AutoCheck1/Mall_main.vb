@@ -9283,6 +9283,9 @@ Public Class Mall_main
         Dim category As String = Split(ComboBox14.SelectedItem, ",")(0)
 
         For i As Integer = 0 To fieldArray.Count - 1
+            If i = 13 Then
+                Dim cc = 0
+            End If
             If fieldArray(i) <> "" Or fieldArray(i) <> "//" Then
                 'プログラム行にデータが無ければ処理しない、//はコメントアウト
             ElseIf Regex.IsMatch(fieldArray(i), "^プログラム") Then  '（amazon未完成）
@@ -9298,7 +9301,6 @@ Public Class Mall_main
                 ElseIf DGV20.Item(dh20.IndexOf("分析"), r2).Value <> category Then
                     Continue For
                 End If
-
                 start += 1
                 If i = 0 Then
                     DGV16.Rows.Add()
@@ -9306,6 +9308,9 @@ Public Class Mall_main
                 If dH16.Contains(fieldArray(i)) Or Regex.IsMatch(fieldArray(i), "generic_keywords") Then
                     If Regex.IsMatch(motoArray(i), "^\[固定\]") Then
                         Dim str As String = Replace(motoArray(i), "[固定]", "")
+                        If (str = "新品") Then
+                            Dim cc = 0
+                        End If
                         DGV16.Item(dH16.IndexOf(fieldArray(i)), start).Value = str
                     ElseIf Regex.IsMatch(motoArray(i), "^\[キーワード\]") Then
                         Dim header As String = Replace(motoArray(i), "[キーワード]", "")
@@ -10097,7 +10102,9 @@ Public Class Mall_main
         ProgressBar2.Value = 0
 
         For Each fileInfo In dic.GetFiles()
-            Dim item() As String = {fileInfo.Name, fileInfo.LastWriteTime.ToString(), CStr(Math.Floor(fileInfo.Length / 1000)) & " KB"}
+            'Dim item() As String = {fileInfo.Name, fileInfo.LastWriteTime.ToString(), CStr(Math.Floor(fileInfo.Length / 1000)) & " KB"}
+            Dim item() As String = {fileInfo.Name, fileInfo.CreationTime.ToString(), CStr(Math.Floor(fileInfo.Length / 1000)) & " KB"}
+
             ListView2.Items.Add(New ListViewItem(item))
             ProgressBar2.Value += 1
         Next
@@ -10131,7 +10138,16 @@ Public Class Mall_main
         ListView2.View = View.Tile
     End Sub
 
+    'Private Sub ListView2_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles ListView2.ItemSelectionChanged, ListView2.SelectedIndexChanged
     Private Sub ListView2_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles ListView2.ItemSelectionChanged
+
+
+        Dim c = ListView2.SelectedItems
+
+        If c.Count = 0 Then
+            Return
+        End If
+
         Dim imgPath As String = TextBox32.Text & "\" & ListView2.SelectedItems(0).Text
         If File.Exists(imgPath) Then
             PictureBox1.ImageLocation = imgPath
@@ -10618,6 +10634,10 @@ Public Class Mall_main
     End Sub
 
     Private Sub DGV21_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGV21.CellContentClick
+
+    End Sub
+
+    Private Sub ListView2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView2.SelectedIndexChanged
 
     End Sub
 
