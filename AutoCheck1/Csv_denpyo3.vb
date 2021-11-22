@@ -1966,7 +1966,7 @@ Public Class Csv_denpyo3
                 'Dim isYamatoGood As Boolean = True
 
 
-                '强制更改标记
+                '强制更改标记 
                 Dim souko_check = False
 
                 Dim masuku_50codesProjuchusu As Integer = 0 ' 
@@ -2582,7 +2582,7 @@ Public Class Csv_denpyo3
 
                     If haisouKind = "宅配便" And (code(0).ToLower = "ny261-2000-2") Then
                         'weight = "33.32"
-                        weight = "200"
+                        weight = "100"
                         sp_check = False
                     End If
 
@@ -2833,9 +2833,61 @@ Public Class Csv_denpyo3
 
 
                     If haisouKind_moto = "宅配便" And haisouKind = "メール便" And code(0).ToLower = "ny264-100" And ny264_100_isnagoya Then
-                        weight = "1000"
+                        weight = "250"
                         sp_check = False
                     End If
+
+
+                    If haisouKind_moto = "メール便" And haisouKind = "メール便" And code(0).ToLower = "ny264-100" And ny264_100_isnagoya Then
+                        weight = "250"
+                        sp_check = False
+                    End If
+
+
+
+                    If haisouKind_moto = "宅配便" And haisouKind = "宅配便" And code(0).ToLower = "ny264-100" And ny264_100_isnagoya Then
+                        weight = "250"
+                        sp_check = False
+                    End If
+
+
+                    If haisouKind_moto = "宅配便" And haisouKind = "メール便" And code(0).ToLower = "ny264-100" And ny264_100_isnagoya = False And juchusu > 1 Then
+                        weight = "250"
+                        sp_check = False
+                    End If
+
+
+                    If haisouKind_moto = "メール便" And haisouKind = "メール便" And code(0).ToLower = "ny264-100" And ny264_100_isnagoya = False And juchusu > 1 Then
+                        weight = "250"
+                        sp_check = False
+                    End If
+
+
+
+                    If haisouKind_moto = "宅配便" And haisouKind = "宅配便" And code(0).ToLower = "ny264-100" And ny264_100_isnagoya = False And juchusu > 1 Then
+                        weight = "250"
+                        sp_check = False
+                    End If
+
+
+                    'If haisouKind_moto = "宅配便" And haisouKind = "メール便" And code(0).ToLower = "ny264-100" Then
+                    '    weight = "250"
+                    '    sp_check = False
+                    'End If
+
+
+                    'If haisouKind_moto = "メール便" And haisouKind = "メール便" And code(0).ToLower = "ny264-100" Then
+                    '    weight = "250"
+                    '    sp_check = False
+                    'End If
+
+
+
+                    'If haisouKind_moto = "宅配便" And haisouKind = "宅配便" And code(0).ToLower = "ny264-100" Then
+                    '    weight = "250"
+                    '    sp_check = False
+                    'End If
+
 
 
                     'If haisouKind_moto = "宅配便" And haisouKind = "メール便" And InStr(code(0).ToLower, "ny439-") Then
@@ -3049,7 +3101,7 @@ Public Class Csv_denpyo3
                         End If
                         If haisouKind = "メール便" And special_taku = False Then
                             'haisouSize = haisouSize + (CDbl(weight) * CDbl(juchusu))
-                            If code(0).ToLower.Contains("ny439-") Then
+                            If code(0).ToLower.Contains("ny439-") And juchusu > 2 Then
                                 haisouSize = haisouSize + (250 * CDbl(juchusu))
                             Else
                                 haisouSize = haisouSize + (CDbl(weight) * CDbl(juchusu))
