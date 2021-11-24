@@ -2799,6 +2799,12 @@ Public Class Csv_denpyo3
                         sp_check = False
                     End If
 
+
+                    If (haisouKind = "メール便" Or haisouKind = "宅配便") And InStr(code(0).ToLower, "ap039") And juchusu > 2 Then
+                        weight = "200" '50一个口
+                        sp_check = False
+                    End If
+
                     If (haisouKind_moto = "宅配便" And code(0).ToLower = "ny263-306-42") Or (code(0).ToLower = "ny263-306-42" And special_taku) Then
                         weight = "200" '50個1便
                         sp_check = False
@@ -3198,9 +3204,9 @@ Public Class Csv_denpyo3
                             '    haisouSize = haisouSize / 100
                             'End If
 
-
-
-                            If haisouSize >= NumericUpDown4.Value * 100 And IsNotChangeCode(code(0)) Then
+                            '5种颜色的439需要2个以及2个以上变成佐川 
+                            Dim ny439code As String() = New String() {"ny439-a", "ny439-b", "ny439-bk", "ny439-peach", "ny439-wh"}
+                            If (haisouSize >= NumericUpDown4.Value * 100 And IsNotChangeCode(code(0))) Or (ny439code.Contains(code(0)) And haisouSize >= 200) Then
                                 special_taku = True
                                 special_takuyamoto = True
                                 haisouKind = "宅配便"
